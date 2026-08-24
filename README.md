@@ -198,13 +198,14 @@ tmux new-session -d -s unirank_l40_monitor \
   'MONITOR_INTERVAL_SECONDS=1800 ./scripts/monitor_sisa_expansion_l40.sh >> logs/unirank-sisa-l40-monitor-launcher.log 2>&1'
 ```
 
-默认每次申请 66 小时（`2-18:00:00`，HPC01 `medium` QOS 不超过 3 天）。若集群因实际
-时限、抢占或节点故障提前结束 allocation，supervisor 会在队列中没有同名申请时重新
-执行 `salloc`。runner 以 `artifacts/sisa_expansion_l40/completed/task_<id>.ok` 为持久化
-边界，新的 allocation 跳过已完成任务，从首个未完成任务继续。单个训练中断时不会写
-完成标记，因此下次会完整重跑该任务。申请时长可用 `SISA_ALLOCATION_TIME=24:00:00`
-覆盖；supervisor 和监控默认都每 30 分钟检查一次，间隔期间直接休眠，并记录队列、
-进度、错误、GPU 和存储状态。
+默认每次使用 HPC01 `long` QOS 申请 7 天（`7-00:00:00`），资源为 4×L40S、32 CPU、
+256G 内存。若集群因时限、抢占或节点故障提前结束 allocation，supervisor 会在队列中
+没有同名申请时重新执行 `salloc`。runner 以
+`artifacts/sisa_expansion_l40/completed/task_<id>.ok` 为持久化边界，新的 allocation
+跳过已完成任务，从首个未完成任务继续。单个训练中断时不会写完成标记，因此下次会
+完整重跑该任务。申请时长可用 `SISA_ALLOCATION_TIME=3-00:00:00` 覆盖；supervisor
+和监控默认都每 30 分钟检查一次，间隔期间直接休眠，并记录队列、进度、错误、GPU
+和存储状态。
 
 数组映射：
 

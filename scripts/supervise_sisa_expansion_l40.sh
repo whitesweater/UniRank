@@ -65,7 +65,7 @@ while true; do
     continue
   fi
 
-  log_event "allocation_request_start complete=$complete/38 time=${SISA_ALLOCATION_TIME:-2-18:00:00}"
+  log_event "allocation_request_start complete=$complete/38 time=${SISA_ALLOCATION_TIME:-7-00:00:00}"
   "$request_script"
   request_exit_code=$?
   complete="$(completed_count)"
