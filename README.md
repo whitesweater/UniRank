@@ -199,7 +199,8 @@ tmux new-session -d -s unirank_l40_monitor \
 执行 `salloc`。runner 以 `artifacts/sisa_expansion_l40/completed/task_<id>.ok` 为持久化
 边界，新的 allocation 跳过已完成任务，从首个未完成任务继续。单个训练中断时不会写
 完成标记，因此下次会完整重跑该任务。申请时长可用 `SISA_ALLOCATION_TIME=24:00:00`
-覆盖；监控默认每 30 分钟记录队列、进度、错误、GPU 和存储状态。
+覆盖；supervisor 和监控默认都每 30 分钟检查一次，间隔期间直接休眠，并记录队列、
+进度、错误、GPU 和存储状态。
 
 数组映射：
 

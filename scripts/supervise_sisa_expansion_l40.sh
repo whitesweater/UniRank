@@ -6,7 +6,7 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 
 job_name="${SISA_ALLOCATION_JOB_NAME:-unirank-sisa-l40-all}"
-poll_seconds="${SISA_SUPERVISOR_POLL_SECONDS:-60}"
+poll_seconds="${SISA_SUPERVISOR_POLL_SECONDS:-1800}"
 retry_seconds="${SISA_SUPERVISOR_RETRY_SECONDS:-60}"
 state_root="$repo_root/artifacts/sisa_expansion_l40"
 completed_root="$state_root/completed"
