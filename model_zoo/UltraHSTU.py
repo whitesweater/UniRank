@@ -20,7 +20,7 @@ from torch import nn
 import torch.nn.functional as F
 from torch.nn.attention.flex_attention import create_block_mask, flex_attention
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block
+from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, SISAAttentionConfig
 from unirank.pytorch.torch_utils import disable_torch_compile
 
 
@@ -95,7 +95,11 @@ class UltraHSTU(MultiTaskModel):
             k2=k2,
             num_heads=num_heads,
             expansion_factor=expansion_factor,
-            net_dropout=net_dropout
+            net_dropout=net_dropout,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ),
         )
         self.tower = nn.ModuleList([
             MLP_Block(input_dim=token_dim,
@@ -185,7 +189,8 @@ class UnifiedInteractionBlocks(nn.Module):
                  k2,
                  num_heads=2,
                  expansion_factor=4,
-                 net_dropout=0.0):
+                 net_dropout=0.0,
+                 sisa_config=None):
         super(UnifiedInteractionBlocks, self).__init__()
         self.num_layers = num_layers
         self.truncation_start_layer = truncation_start_layer
@@ -193,14 +198,16 @@ class UnifiedInteractionBlocks(nn.Module):
         self.k1 = k1
         self.k2 = k2
 
+        sisa_config = sisa_config or SISAAttentionConfig()
         self.stu_layers = nn.ModuleList([
             SequentialTransductionUnit(
                 token_dim=token_dim,
                 num_heads=num_heads,
                 expansion_factor=expansion_factor,
-                net_dropout=net_dropout
+                net_dropout=net_dropout,
+                sisa_config=sisa_config.for_site(300 + layer_index),
             )
-            for _ in range(num_layers)
+            for layer_index in range(num_layers)
         ])
 
     def _expand_valid_mask(self, x, valid_mask):
@@ -264,7 +271,8 @@ class UnifiedInteractionBlocks(nn.Module):
 
 
 class SequentialTransductionUnit(nn.Module):
-    def __init__(self, token_dim, num_heads=2, expansion_factor=4, net_dropout=0.0):
+    def __init__(self, token_dim, num_heads=2, expansion_factor=4,
+                 net_dropout=0.0, sisa_config=None):
         super(SequentialTransductionUnit, self).__init__()
         assert token_dim % num_heads == 0
         self.num_heads = num_heads
@@ -289,6 +297,8 @@ class SequentialTransductionUnit(nn.Module):
             nn.Dropout(net_dropout),
             nn.Linear(hidden_dim, token_dim)
         )
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(token_dim, num_heads)
         self._block_mask_cache = {}
 
     @disable_torch_compile
@@ -345,13 +355,42 @@ class SequentialTransductionUnit(nn.Module):
             k2=k2
         )
 
-        A = flex_attention(
-            Q,
-            K,
-            V,
-            block_mask=sparse_block_mask,
-            scale=1.0 / math.sqrt(self.head_dim)
-        )
+        attention_kwargs = {
+            "block_mask": sparse_block_mask,
+            "scale": 1.0 / math.sqrt(self.head_dim),
+        }
+        if (
+            self.sisa_score_bias is not None
+            and self.sisa_score_bias.score_scale != 0.0
+        ):
+            sisa_valid = (
+                valid_mask.bool()
+                if valid_mask is not None
+                else torch.ones(B, S, dtype=torch.bool, device=norm_x.device)
+            )
+            query_channels, key_channels = (
+                self.sisa_score_bias.build_augmented_channels(
+                    norm_x,
+                    sisa_valid,
+                    self.head_dim,
+                )
+            )
+            # FlexAttention applies one scalar to the QK dot product. The
+            # augmented SISA channels are therefore concatenated to Q/K while
+            # retaining the native 1/sqrt(head_dim) scale. This is exactly
+            # equivalent to adding the dense SISAScoreBias output, but keeps
+            # the original sparse block mask and avoids materializing BxHxSxS.
+            score_scale = math.sqrt(self.sisa_score_bias.score_scale)
+            Q = torch.cat(
+                (Q, query_channels.to(dtype=Q.dtype) * score_scale),
+                dim=-1,
+            )
+            K = torch.cat(
+                (K, key_channels.to(dtype=K.dtype) * score_scale),
+                dim=-1,
+            )
+
+        A = flex_attention(Q, K, V, **attention_kwargs)
 
         A = A.transpose(1, 2).contiguous().view(B, S, D)
 

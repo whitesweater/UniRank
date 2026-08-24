@@ -19,7 +19,12 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, PerTokenSwiGLU
+from unirank.pytorch.layers import (
+    FeatureEmbedding,
+    MLP_Block,
+    PerTokenSwiGLU,
+    SISAAttentionConfig,
+)
 from unirank.pytorch.layers.tokenization import ChunkTokenizer
 from unirank.pytorch.torch_utils import disable_torch_compile
 
@@ -117,7 +122,11 @@ class UniMixer(MultiTaskModel):
             use_out_proj=use_out_proj,
             use_local_coef_softmax=use_local_coef_softmax,
             use_tau_symmetry=use_tau_symmetry,
-            net_dropout=net_dropout
+            net_dropout=net_dropout,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="sequence_end",
+            ),
         )
 
         tower_input_dim = self.num_tokens * token_dim
@@ -218,7 +227,8 @@ class UniMixingLiteBlocks(nn.Module):
                  use_out_proj=False,
                  use_local_coef_softmax=False,
                  use_tau_symmetry=True,
-                 net_dropout=0.0):
+                 net_dropout=0.0,
+                 sisa_config=None):
         super(UniMixingLiteBlocks, self).__init__()
         self.num_token = int(num_token)
         self.token_dim = int(token_dim)
@@ -238,6 +248,7 @@ class UniMixingLiteBlocks(nn.Module):
 
         self.register_buffer("current_tau", torch.tensor(self.tau_start, dtype=torch.float32))
 
+        sisa_config = sisa_config or SISAAttentionConfig()
         self.mixers = nn.ModuleList([
             UniMixingLiteLayer(
                 token_dim=token_dim,
@@ -250,9 +261,10 @@ class UniMixingLiteBlocks(nn.Module):
                 use_out_proj=use_out_proj,
                 use_local_coef_softmax=use_local_coef_softmax,
                 use_tau_symmetry=use_tau_symmetry,
-                net_dropout=net_dropout
+                net_dropout=net_dropout,
+                sisa_config=sisa_config.for_site(200 + layer_index),
             )
-            for _ in range(num_layers)
+            for layer_index in range(num_layers)
         ])
 
         self.pffns = nn.ModuleList([
@@ -327,7 +339,8 @@ class UniMixingLiteLayer(nn.Module):
                  use_out_proj=False,
                  use_local_coef_softmax=False,
                  use_tau_symmetry=True,
-                 net_dropout=0.0):
+                 net_dropout=0.0,
+                 sisa_config=None):
         super(UniMixingLiteLayer, self).__init__()
 
         self.token_dim = int(token_dim)
@@ -361,6 +374,8 @@ class UniMixingLiteLayer(nn.Module):
 
         self.out_proj = nn.Linear(self.token_dim, self.token_dim, bias=False) if use_out_proj else nn.Identity()
         self.dropout = nn.Dropout(net_dropout)
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(self.token_dim, num_heads=1)
 
         self.reset_parameters()
 
@@ -406,11 +421,30 @@ class UniMixingLiteLayer(nn.Module):
     def global_mixing(self, z_local: torch.Tensor):
         G_logits = torch.matmul(self.global_left, self.global_right)
         G_logits = G_logits / math.sqrt(self.global_rank)
+
+        if (
+            self.sisa_score_bias is not None
+            and self.sisa_score_bias.score_scale != 0.0
+        ):
+            valid_mask = torch.ones(
+                z_local.shape[:2],
+                dtype=torch.bool,
+                device=z_local.device,
+            )
+            score_bias = self.sisa_score_bias(
+                z_local,
+                valid_mask,
+                head_dim=self.token_dim,
+            ).squeeze(1)
+            G_logits = G_logits.unsqueeze(0) + score_bias
+
         if self.use_tau_symmetry:
             G_logits = 0.5 * (G_logits + G_logits.transpose(-1, -2))
 
         G = self.apply_sinkhorn_constraint(G_logits)
-        return torch.einsum("mn,bnj->bmj", G, z_local)
+        if G.ndim == 2:
+            return torch.einsum("mn,bnj->bmj", G, z_local)
+        return torch.einsum("bmn,bnj->bmj", G, z_local)
 
     def mixing_transform(self, x: torch.Tensor):
         batch_size, num_token, token_dim = x.shape

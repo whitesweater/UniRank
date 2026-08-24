@@ -440,11 +440,21 @@ backbone from the ManCAR study would violate the attention-only scope. For
 RankMixer, its native token mixer is untouched and SISA is applied only to the
 existing target-attention pooling layer.
 
+The expansion also supports `HyFormer`, `UltraHSTU`, and `UniMixer`. HyFormer
+adds SISA to both sequence self-attention and query-to-sequence
+cross-attention. UltraHSTU concatenates the mathematically equivalent SISA
+score channels to FlexAttention Q/K tensors, preserving its sparse block mask.
+UniMixer has no softmax-attention layer, so its explicitly declared mixer
+adapter adds SISA only to the native pre-normalization Sinkhorn global-mixing
+logits. In all three adapters, disabling SISA registers no SISA parameters and
+`sisa_score_scale: 0` is an exact zero-perturbation control.
+
 The implementation gate is:
 
 ```bash
 .venv/bin/python -m unittest -v \
   tests.test_sisa_attention \
+  tests.test_extended_sisa_adapters \
   tests.test_slurm_runtime \
   tests.test_preprocessed_feature_map \
   tests.test_strict_protocol \
@@ -481,6 +491,21 @@ generated under the Git-ignored `artifacts/sisa_native_strict/`; the complete
 protocol, retry, baseline-reproduction, aggregate-result, and code-audit
 evidence is recorded in
 [`SISA_STRICT_EXPERIMENTS.md`](SISA_STRICT_EXPERIMENTS.md).
+
+The pending expansion consists of 38 tasks: the original four models on
+`TencentGR_10M_Action` (4 x baseline/SISA), plus `UniMixer`, `HyFormer`, and
+`UltraHSTU` on all five datasets (3 x 5 x baseline/SISA). It uses the same
+four-GPU, one-epoch, seed-20262027 protocol:
+
+```bash
+mkdir -p logs
+sbatch scripts/submit_sisa_expansion.sbatch
+```
+
+Array tasks `0-7` are the four TencentGR additions and tasks `8-37` are the
+three-model/five-dataset expansion. Successful tasks end with the
+`SISA_EXPANSION_COMPLETE` marker. This expansion is separate from the already
+audited 32-task reference study above.
 
 ## Quick Start
 

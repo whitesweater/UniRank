@@ -9,7 +9,7 @@
 #SBATCH --mem=64G
 #SBATCH --gres=gpu:rtx4090:1
 #SBATCH --time=00:30:00
-#SBATCH --array=0-7%2
+#SBATCH --array=0-13%2
 #SBATCH --output=logs/%x-%A_%a.out
 
 set -euo pipefail
@@ -23,6 +23,9 @@ experiments=(
   HiFormer_Taobao_Action
   RankMixer_Taobao_Action
   Zenith_Taobao_Action
+  UniMixer_Taobao_Action
+  HyFormer_Taobao_Action
+  UltraHSTU_Taobao_Action
 )
 
 model_index=$((SLURM_ARRAY_TASK_ID / 2))
