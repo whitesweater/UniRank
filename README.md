@@ -37,10 +37,11 @@ UniRank 是面向大规模推荐排序的 PyTorch 基准框架，统一了时序
 | 新三模型 SISA | 已完成代码与测试 | UniMixer、HyFormer、UltraHSTU |
 | 新三模型五数据集矩阵 | 待运行 | 3 模型 × 5 数据集 × baseline/SISA，共 30 个任务 |
 | 扩展启动器 | 已完成 | 统一包含上述 38 个待运行任务 |
+| HPC01 L40S 串行运行 | 已提交、等待资源 | allocation `14984`；4×L40S；获批后串行并支持跨 allocation 续跑 |
 | 本地回归测试 | 已通过 | 当前 35 个测试全部通过 |
 
-最重要的交接边界：**32 个原严格任务已经完成；38 个扩展任务尚未启动。** 不要把
-适配器实现完成或 smoke test 通过写成正式实验完成。
+最重要的交接边界：**32 个原严格任务已经完成；38 个扩展任务已经提交，但尚未取得
+L40S 资源和正式结果。** 不要把排队、适配器实现完成或 smoke test 通过写成正式实验完成。
 
 ## 3. 仓库与集群位置
 
@@ -76,6 +77,10 @@ UniRank/
 ├── scripts/
 │   ├── submit_sisa_native_strict.sbatch
 │   ├── submit_sisa_expansion.sbatch
+│   ├── request_sisa_expansion_l40_all.sh
+│   ├── run_sisa_expansion_l40_all.sh
+│   ├── supervise_sisa_expansion_l40.sh
+│   ├── monitor_sisa_expansion_l40.sh
 │   ├── submit_sisa_native_smoke.sbatch
 │   ├── unirank_gpu_smoke.py
 │   └── collect_sisa_native_strict_results.py
@@ -178,12 +183,23 @@ seed 的统计显著性结论。
 1. 原四模型补 `TencentGR_10M_Action`：`4 × 1 × 2 = 8`；
 2. UniMixer、HyFormer、UltraHSTU 跑五个数据集：`3 × 5 × 2 = 30`。
 
-统一启动器：
+HPC01 使用一个持续的 4×L40S allocation。资源获批后，38 个任务在 allocation 内作为
+串行 `srun` step 执行，不为每个训练重新排队：
 
 ```bash
 mkdir -p logs
-sbatch scripts/submit_sisa_expansion.sbatch
+tmux new-session -d -s unirank_l40_supervisor \
+  './scripts/supervise_sisa_expansion_l40.sh >> logs/unirank-sisa-l40-supervisor-launcher.log 2>&1'
+tmux new-session -d -s unirank_l40_monitor \
+  'MONITOR_INTERVAL_SECONDS=1800 ./scripts/monitor_sisa_expansion_l40.sh >> logs/unirank-sisa-l40-monitor-launcher.log 2>&1'
 ```
+
+默认每次申请 66 小时（`2-18:00:00`，HPC01 `medium` QOS 不超过 3 天）。若集群因实际
+时限、抢占或节点故障提前结束 allocation，supervisor 会在队列中没有同名申请时重新
+执行 `salloc`。runner 以 `artifacts/sisa_expansion_l40/completed/task_<id>.ok` 为持久化
+边界，新的 allocation 跳过已完成任务，从首个未完成任务继续。单个训练中断时不会写
+完成标记，因此下次会完整重跑该任务。申请时长可用 `SISA_ALLOCATION_TIME=24:00:00`
+覆盖；监控默认每 30 分钟记录队列、进度、错误、GPU 和存储状态。
 
 数组映射：
 
@@ -192,10 +208,10 @@ sbatch scripts/submit_sisa_expansion.sbatch
 - 每个逻辑单元的偶数任务是 baseline，后一项是 SISA；
 - 成功标记为 `SISA_EXPANSION_COMPLETE`。
 
-当前脚本的 `account`、partition、QOS、GPU GRES、CPU 和内存头来自 HPC01。同步到
-HPC3 后，**必须先根据 HPC3 的 Slurm 配置核对这些资源行，不能未经检查直接提交完整
-数组**。建议先运行 Taobao smoke，再运行一个 baseline/SISA 小配对，确认 FlexAttention
-CUDA backward、数据路径、显存和 completion marker 后再释放全部 38 个任务。
+当前申请脚本的 `account`、partition、QOS、GPU GRES、CPU、内存和时限来自 HPC01。
+同步到 HPC3 后，**必须先根据 HPC3 的 Slurm 配置核对这些资源行，不能未经检查直接
+启动 supervisor**。runner 在每个 allocation 开始时验证四张 GPU 均为 L40S；正式完成
+仍以训练退出码与 `SISA_EXPANSION_COMPLETE` 双重门禁为准。
 
 ## 9. 环境、测试与快速运行
 
@@ -265,8 +281,8 @@ smoke 数组覆盖七个 SISA 模型的 Taobao baseline/SISA。成功输出包�
 3. 检查五个 `datasets/<dataset_id>` 及其 block manifest/Parquet 可读性；
 4. `uv sync --locked`，运行全部 CPU 测试；
 5. 复核目标集群的 Slurm account、partition、QOS、GRES、内存和时限；
-6. 先跑七模型 smoke，再跑小范围 baseline/SISA 配对；
-7. 提交扩展数组，持续检查 error、OOM、NaN、GPU 型号和 completion marker；
+6. 启动单 allocation supervisor，确认只存在一个同名 L40S 申请；
+7. 持续检查 error、OOM、NaN、GPU 型号和 completion marker；allocation 到期后确认自动续跑；
 8. baseline/SISA 必须保持相同 GPU 型号和完整训练协议；
 9. 收集结果时把严格 32-task 与扩展 38-task 分开；
 10. 只提交代码、配置、测试、脚本和文档，不提交数据、日志、checkpoint 或 artifacts。
