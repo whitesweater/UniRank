@@ -178,6 +178,10 @@ seed 的统计显著性结论。
 
 ## 8. 待运行的 38-task 扩展实验
 
+完整的模型—数据集待办矩阵见
+[SISA_EXPANSION_TODO.md](SISA_EXPANSION_TODO.md)。该文件只描述需要运行的实验，
+不包含机器或集群调度细节。
+
 扩展矩阵只包含尚缺的任务：
 
 1. 原四模型补 `TencentGR_10M_Action`：`4 × 1 × 2 = 8`；
