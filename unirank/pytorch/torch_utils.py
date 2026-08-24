@@ -70,7 +70,22 @@ def parse_gpu_ids(gpu_arg):
 
 
 def setup_visible_devices(gpu_ids):
-    """Set CUDA_VISIBLE_DEVICES from physical GPU IDs."""
+    """Set visible GPUs outside Slurm; preserve Slurm's allocation inside jobs."""
+    if os.environ.get("SLURM_JOB_ID"):
+        slurm_visible = os.environ.get("CUDA_VISIBLE_DEVICES")
+        if gpu_ids and not slurm_visible:
+            raise RuntimeError(
+                "Slurm GPU job has no CUDA_VISIBLE_DEVICES allocation"
+            )
+        visible_count = len(
+            [device for device in (slurm_visible or "").split(",") if device]
+        )
+        if any(gpu_id >= visible_count for gpu_id in gpu_ids):
+            raise ValueError(
+                "Inside Slurm, --gpu uses logical allocation indices; "
+                f"received {gpu_ids} for {visible_count} visible device(s)"
+            )
+        return
     os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(map(str, gpu_ids))
 
 
@@ -103,7 +118,12 @@ def get_device(gpu=-1):
         device = torch.device("cpu")
     return device
 
-def get_optimizer(optimizer, params, lr, weight_decay=0):
+def get_optimizer(
+        optimizer,
+        params,
+        lr,
+        weight_decay=0,
+        optimizer_kwargs=None):
     params = list(params)
     if len(params) == 0:
         return None
@@ -179,6 +199,8 @@ def get_optimizer(optimizer, params, lr, weight_decay=0):
     kwargs = {"lr": lr}
     if "weight_decay" in inspect.signature(optimizer_cls).parameters:
         kwargs["weight_decay"] = weight_decay
+    if optimizer_kwargs:
+        kwargs.update(optimizer_kwargs)
     try:
         return optimizer_cls(params, **kwargs)
     except Exception as error:
@@ -190,6 +212,68 @@ def get_optimizer(optimizer, params, lr, weight_decay=0):
                 weight_decay,
             )
         ) from error
+
+
+@torch.no_grad()
+def chunked_adagrad_step(optimizer, chunk_size):
+    """Apply the dense Adagrad formula with bounded temporary memory.
+
+    PyTorch's single-tensor implementation materializes ``sqrt(state_sum)``
+    for an entire parameter. A unified embedding table can make that
+    temporary several GiB even though Adagrad is elementwise. Chunking the
+    final division preserves the update while bounding the temporary tensor.
+    """
+    if not isinstance(optimizer, torch.optim.Adagrad):
+        raise TypeError("chunked_adagrad_step requires torch.optim.Adagrad")
+    if not isinstance(chunk_size, int) or chunk_size <= 0:
+        raise ValueError("chunk_size must be a positive integer")
+
+    for group in optimizer.param_groups:
+        if group.get("differentiable", False):
+            raise RuntimeError("chunked Adagrad does not support differentiable=True")
+        if group.get("fused", False):
+            raise RuntimeError("chunked Adagrad does not support fused=True")
+        for parameter in group["params"]:
+            if parameter.grad is None:
+                continue
+            gradient = parameter.grad
+            if gradient.is_sparse:
+                raise RuntimeError("chunked Adagrad requires dense gradients")
+            if group.get("maximize", False):
+                gradient = -gradient
+            weight_decay = group.get("weight_decay", 0)
+            if weight_decay != 0:
+                gradient = gradient.add(parameter, alpha=weight_decay)
+
+            state = optimizer.state[parameter]
+            state["step"] += 1
+            step = state["step"].item()
+            state_sum = state["sum"]
+            clr = group["lr"] / (1 + (step - 1) * group["lr_decay"])
+
+            if torch.is_complex(parameter):
+                parameter_view = torch.view_as_real(parameter)
+                gradient_view = torch.view_as_real(gradient)
+                state_sum_view = torch.view_as_real(state_sum)
+            else:
+                parameter_view = parameter
+                gradient_view = gradient
+                state_sum_view = state_sum
+
+            state_sum_view.addcmul_(gradient_view, gradient_view, value=1)
+            parameter_flat = parameter_view.reshape(-1)
+            gradient_flat = gradient_view.reshape(-1)
+            state_sum_flat = state_sum_view.reshape(-1)
+            for start in range(0, parameter_flat.numel(), chunk_size):
+                stop = min(start + chunk_size, parameter_flat.numel())
+                standard_deviation = state_sum_flat[start:stop].sqrt().add_(
+                    group["eps"]
+                )
+                parameter_flat[start:stop].addcdiv_(
+                    gradient_flat[start:stop],
+                    standard_deviation,
+                    value=-clr,
+                )
 
 def get_loss(loss):
     if isinstance(loss, str):

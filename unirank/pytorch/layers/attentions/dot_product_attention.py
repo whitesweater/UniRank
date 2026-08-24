@@ -59,11 +59,40 @@ class ScaledDotProductAttention(nn.Module):
             else get_activation(self.attention_activation_type)
         )
 
-    def forward(self, Q, K, V, scale=None, mask=None, is_causal=False):
+    def forward(
+        self,
+        Q,
+        K,
+        V,
+        scale=None,
+        mask=None,
+        is_causal=False,
+        score_bias=None,
+    ):
         # mask: 0 for masked positions
         if self.attention_activation_type == "SoftMax":
             if mask is not None:
                 mask = mask.bool()
+            if score_bias is not None:
+                score_bias = score_bias.to(dtype=Q.dtype, device=Q.device)
+                if mask is not None:
+                    score_bias = score_bias.masked_fill(
+                        ~mask,
+                        torch.finfo(Q.dtype).min,
+                    )
+                if is_causal:
+                    causal_mask = torch.ones(
+                        Q.size(-2),
+                        K.size(-2),
+                        dtype=torch.bool,
+                        device=Q.device,
+                    ).tril()
+                    score_bias = score_bias.masked_fill(
+                        ~causal_mask,
+                        torch.finfo(Q.dtype).min,
+                    )
+                    is_causal = False
+                mask = score_bias
             sdpa_scale = None if scale is None else 1.0 / scale
             output = F.scaled_dot_product_attention(
                 Q,
@@ -79,6 +108,11 @@ class ScaledDotProductAttention(nn.Module):
         attention_scores = torch.matmul(Q, K.transpose(-2, -1))
         if scale is not None:
             attention_scores = attention_scores / scale
+        if score_bias is not None:
+            attention_scores = attention_scores + score_bias.to(
+                dtype=attention_scores.dtype,
+                device=attention_scores.device,
+            )
         attention_weights = attention_scores
         if self.attention_activation is not None:
             attention_weights = self.attention_activation(attention_scores)

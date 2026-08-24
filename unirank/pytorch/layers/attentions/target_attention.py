@@ -17,8 +17,10 @@
 # =========================================================================
 
 
+import torch
 from torch import nn
 from .dot_product_attention import ScaledDotProductAttention
+from .sisa import SISAAttentionConfig
 
 
 class MultiHeadTargetAttention(nn.Module):
@@ -29,7 +31,8 @@ class MultiHeadTargetAttention(nn.Module):
                  dropout_rate=0,
                  use_scale=True,
                  use_qkvo=True,
-                 attention_activation_type="SoftMax"):
+                 attention_activation_type="SoftMax",
+                 sisa_config=None):
         super(MultiHeadTargetAttention, self).__init__()
         if isinstance(attention_dim, (list, tuple)):
             attention_dim = attention_dim[0] if len(attention_dim) > 0 else input_dim
@@ -50,6 +53,8 @@ class MultiHeadTargetAttention(nn.Module):
             dropout_rate=dropout_rate,
             attention_activation_type=attention_activation_type,
         )
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(input_dim, num_heads)
 
     def forward(self, target_item, history_sequence, mask=None):
         """
@@ -73,8 +78,43 @@ class MultiHeadTargetAttention(nn.Module):
         if mask is not None:
             mask = mask.view(batch_size, 1, 1, -1).expand(-1, self.num_heads, -1, -1)
 
+        score_bias = None
+        if self.sisa_score_bias is not None:
+            if mask is None:
+                history_valid = history_sequence.new_ones(
+                    history_sequence.shape[:2],
+                    dtype=torch.bool,
+                )
+            else:
+                history_valid = mask[:, 0, 0, :].bool()
+            combined_hidden = torch.cat(
+                (history_sequence, target_item.unsqueeze(1)),
+                dim=1,
+            )
+            combined_valid = torch.cat(
+                (
+                    history_valid,
+                    history_valid.new_ones((batch_size, 1)),
+                ),
+                dim=1,
+            )
+            score_bias = self.sisa_score_bias(
+                combined_hidden,
+                combined_valid,
+                self.head_dim,
+                query_slice=slice(-1, None),
+                key_slice=slice(0, -1),
+            )
+
         # scaled dot product attention
-        output, _ = self.dot_attention(query, key, value, scale=self.scale, mask=mask)
+        output, _ = self.dot_attention(
+            query,
+            key,
+            value,
+            scale=self.scale,
+            mask=mask,
+            score_bias=score_bias,
+        )
         # concat heads
         output = output.transpose(1, 2).contiguous().view(-1, self.num_heads * self.head_dim)
         if self.use_qkvo:

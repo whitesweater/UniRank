@@ -3,3 +3,17 @@ __pycache__/
 *.py[cod]
 *.model
 checkpoints/
+/.venv/
+/datasets
+/logs/
+/artifacts/
+/.pytest_cache/
+/.ruff_cache/
+/.mypy_cache/
+/build/
+/dist/
+/*.egg-info/
+/SISA_STRICT_EXPERIMENTS.html
+/docs/MACHINE_HANDOFF_*.md
+/scripts/monitor_sisa_native_pilot.sh
+/scripts/submit_sisa_native_pilot.sbatch

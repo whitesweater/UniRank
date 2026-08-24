@@ -17,7 +17,7 @@
 import torch
 from torch import nn
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, PerTokenSwiGLU, ScaledDotProductAttention
+from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, PerTokenSwiGLU, SISAAttentionConfig, ScaledDotProductAttention
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import ChunkTokenizer
@@ -98,6 +98,10 @@ class Zenith(MultiTaskModel):
             attention_dim=token_dim if attention_dim is None else attention_dim,
             dropout_rate=attention_dropout,
             attention_activation_type=attention_activation_type,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ).for_site(0),
         )
 
         # Final number of tokens = user_id(1) + item_id(1) + user_context_tokens(num_ns) + item_attribute_tokens(num_ns)
@@ -107,7 +111,11 @@ class Zenith(MultiTaskModel):
                                          num_token=self.num_prime_tokens,
                                          num_layers=num_layers,
                                          expand=expansion_factor,
-                                         net_dropout=net_dropout)
+                                         net_dropout=net_dropout,
+                                         sisa_config=SISAAttentionConfig.from_params(
+                                             kwargs,
+                                             decay_reference="sequence_end",
+                                         ))
 
         self.tower = nn.ModuleList([MLP_Block(input_dim=token_dim,
                                               output_dim=1,
@@ -203,7 +211,8 @@ class ZenithBlock(nn.Module):
                  num_layers,
                  num_head=2,
                  expand=2,
-                 net_dropout=0.0):
+                 net_dropout=0.0,
+                 sisa_config=None):
         super(ZenithBlock, self).__init__()
         self.num_layers = num_layers
 
@@ -216,11 +225,13 @@ class ZenithBlock(nn.Module):
             for _ in range(num_layers)
         ])
 
+        sisa_config = sisa_config or SISAAttentionConfig()
         self.mixer_layers = nn.ModuleList([
             TokenwiseMultiHeadSelfAttention(token_dim=input_dim,
                                             num_token=num_token,
-                                            num_head=num_head)
-            for _ in range(num_layers)
+                                            num_head=num_head,
+                                            sisa_config=sisa_config.for_site(100 + layer_index))
+            for layer_index in range(num_layers)
         ])
         self.pffn_layers = nn.ModuleList([
             PerTokenSwiGLU(input_dim=input_dim,
@@ -240,7 +251,8 @@ class TokenwiseMultiHeadSelfAttention(nn.Module):
     def __init__(self,
                  token_dim,
                  num_token,
-                 num_head=2):
+                 num_head=2,
+                 sisa_config=None):
         super(TokenwiseMultiHeadSelfAttention, self).__init__()
         assert token_dim % num_head == 0, "token_dim must be divisible by num_head"
         self.num_head = num_head
@@ -252,6 +264,8 @@ class TokenwiseMultiHeadSelfAttention(nn.Module):
         self.W_v = nn.Parameter(torch.empty(num_token, token_dim, token_dim))
         self.W_o = nn.Linear(token_dim, token_dim, bias=False)
         self.dot_attention = ScaledDotProductAttention()
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(token_dim, num_head)
         self.reset_parameters()
 
     def reset_parameters(self):
@@ -267,7 +281,25 @@ class TokenwiseMultiHeadSelfAttention(nn.Module):
         Q = Q.view(-1, self.num_token, self.num_head, self.head_dim).transpose(1, 2) # [B, H, T, Dh]
         K = K.view(-1, self.num_token, self.num_head, self.head_dim).transpose(1, 2)
         V = V.view(-1, self.num_token, self.num_head, self.head_dim).transpose(1, 2)
-        attn_out, _ = self.dot_attention(Q, K, V, scale=self.head_dim ** 0.5)
+        score_bias = None
+        if self.sisa_score_bias is not None:
+            valid_mask = torch.ones(
+                tokens.shape[:2],
+                dtype=torch.bool,
+                device=tokens.device,
+            )
+            score_bias = self.sisa_score_bias(
+                tokens,
+                valid_mask,
+                self.head_dim,
+            )
+        attn_out, _ = self.dot_attention(
+            Q,
+            K,
+            V,
+            scale=self.head_dim ** 0.5,
+            score_bias=score_bias,
+        )
         attn_out = attn_out.transpose(1, 2).contiguous().view(-1, self.num_token, self.token_dim)  # [B, T, D]
         attn_out = self.W_o(attn_out)
         return attn_out

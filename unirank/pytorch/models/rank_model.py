@@ -28,7 +28,12 @@ from collections import OrderedDict
 import os, sys
 import logging
 from unirank.metrics import evaluate_metrics
-from unirank.pytorch.torch_utils import get_device, get_optimizer, get_loss
+from unirank.pytorch.torch_utils import (
+    chunked_adagrad_step,
+    get_device,
+    get_optimizer,
+    get_loss,
+)
 from unirank.utils import Monitor, not_in_whitelist
 from tqdm import tqdm
 from contextlib import nullcontext
@@ -85,6 +90,14 @@ class BaseModel(nn.Module):
         self.sparse_optimizer_name = kwargs.get("sparse_optimizer", "Adagrad")
         self.dense_learning_rate = kwargs.get("dense_learning_rate", 1e-4)
         self.sparse_learning_rate = kwargs.get("sparse_learning_rate", 0.05)
+        self.sparse_optimizer_foreach = kwargs.get("sparse_optimizer_foreach")
+        if self.sparse_optimizer_foreach not in (None, True, False):
+            raise TypeError("sparse_optimizer_foreach must be a boolean or None")
+        self.sparse_adagrad_chunk_size = kwargs.get("sparse_adagrad_chunk_size")
+        if self.sparse_adagrad_chunk_size is not None:
+            self.sparse_adagrad_chunk_size = int(self.sparse_adagrad_chunk_size)
+            if self.sparse_adagrad_chunk_size <= 0:
+                raise ValueError("sparse_adagrad_chunk_size must be positive")
         self.dense_weight_decay = kwargs.get("dense_weight_decay", 0)
         self.dense_optimizer = None
         self.sparse_optimizer = None
@@ -141,7 +154,12 @@ class BaseModel(nn.Module):
             self.sparse_optimizer_name,
             self._sparse_params,
             self.sparse_learning_rate,
-            weight_decay=0
+            weight_decay=0,
+            optimizer_kwargs=(
+                {"foreach": self.sparse_optimizer_foreach}
+                if self.sparse_optimizer_foreach is not None
+                else None
+            ),
         )
         self.optimizers = [opt for opt in [self.dense_optimizer, self.sparse_optimizer] if opt is not None]
         if not self.optimizers:
@@ -150,7 +168,7 @@ class BaseModel(nn.Module):
 
         if self._is_main_process():
             logging.info(
-                "Optimizers: dense=%s(lr=%s, weight_decay=%s, params=%d), sparse=%s(lr=%s, params=%d)",
+                "Optimizers: dense=%s(lr=%s, weight_decay=%s, params=%d), sparse=%s(lr=%s, params=%d, foreach=%s)",
                 dense_optimizer,
                 dense_lr,
                 self.dense_weight_decay,
@@ -158,6 +176,7 @@ class BaseModel(nn.Module):
                 self.sparse_optimizer_name if self.sparse_optimizer is not None else "None",
                 self.sparse_learning_rate,
                 sum(p.numel() for p in self._sparse_params),
+                self.sparse_optimizer_foreach,
             )
 
     def _iter_optimizers(self):
@@ -169,7 +188,16 @@ class BaseModel(nn.Module):
 
     def _optimizer_step(self):
         for optimizer in self._iter_optimizers():
-            optimizer.step()
+            if (
+                optimizer is self.sparse_optimizer
+                and self.sparse_adagrad_chunk_size is not None
+            ):
+                chunked_adagrad_step(
+                    optimizer,
+                    self.sparse_adagrad_chunk_size,
+                )
+            else:
+                optimizer.step()
 
     def _clip_dense_gradients(self):
         dense_params_with_grad = [p for p in self._dense_params if p.grad is not None]

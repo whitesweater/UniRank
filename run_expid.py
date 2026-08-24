@@ -32,7 +32,7 @@ if torch.cuda.is_available():
 from unirank.utils import (
     load_config, set_logger, print_to_json, print_to_list
 )
-from unirank.features import FeatureMap
+from unirank.features import FeatureMap, feature_map_from_config
 from unirank.pytorch.dataloaders import RankDataLoader
 from unirank.pytorch.torch_utils import (
     distributed_barrier,
@@ -59,6 +59,26 @@ if __name__ == '__main__':
     parser.add_argument('--expid', type=str, default='RankMixer_KuaiRand_Video_Action', help='The experiment id to run.')
     parser.add_argument('--gpu', type=str, default='0,1,2,3', help='GPU ids, e.g. "0" or "0,1,2,3"; use "-1" for cpu')
     parser.add_argument('--enable_bf16', type=bool, default=True, help='Enable bfloat16 mixed precision training (default: True).')
+    parser.add_argument('--run-id', type=str, default=None, help='Optional unique log/checkpoint id; the base config still comes from --expid.')
+    parser.add_argument('--sisa-enabled', action='store_true', help='Enable the learnable SISA score bias at native attention sites.')
+    parser.add_argument('--sisa-score-dim', type=int, default=16)
+    parser.add_argument('--sisa-lambda-init', type=float, default=0.1)
+    parser.add_argument('--sisa-score-scale', type=float, default=1.0)
+    parser.add_argument(
+        '--sparse-optimizer-foreach',
+        choices=('auto', 'true', 'false'),
+        default='auto',
+        help=(
+            'Override the sparse optimizer foreach mode. Use false to lower '
+            'the transient GPU-memory peak without changing optimizer math.'
+        ),
+    )
+    parser.add_argument(
+        '--sparse-adagrad-chunk-size',
+        type=int,
+        default=None,
+        help='Optional element count for a mathematically equivalent low-peak Adagrad step.',
+    )
     args = vars(parser.parse_args())
 
     try:
@@ -106,6 +126,25 @@ if __name__ == '__main__':
 
         experiment_id = args['expid']
         params = load_config(args['config'], experiment_id)
+        if args['run_id'] is not None:
+            if os.path.basename(args['run_id']) != args['run_id']:
+                raise ValueError('--run-id must be a plain file-name-safe identifier')
+            params['model_id'] = args['run_id']
+        if args['sisa_enabled']:
+            params.update({
+                'sisa_enabled': True,
+                'sisa_score_dim': args['sisa_score_dim'],
+                'sisa_lambda_init': args['sisa_lambda_init'],
+                'sisa_score_scale': args['sisa_score_scale'],
+            })
+        if args['sparse_optimizer_foreach'] != 'auto':
+            params['sparse_optimizer_foreach'] = (
+                args['sparse_optimizer_foreach'] == 'true'
+            )
+        if args['sparse_adagrad_chunk_size'] is not None:
+            if args['sparse_adagrad_chunk_size'] <= 0:
+                raise ValueError('--sparse-adagrad-chunk-size must be positive')
+            params['sparse_adagrad_chunk_size'] = args['sparse_adagrad_chunk_size']
 
         # Equipment parameters:
         # - DDP: local_rank maps to CUDA_VISIBLE_DEVICES internal sequence number
@@ -134,30 +173,32 @@ if __name__ == '__main__':
         seed_everything(seed=params['seed'] + rank)
 
         data_dir = os.path.join(params['data_root'], params['dataset_id'])
-        feature_map_json = os.path.join(data_dir, "feature_map.json")
+        if params.get('rebuild_dataset', True):
+            feature_map_json = os.path.join(data_dir, "feature_map.json")
+            if distributed:
+                if is_main_process(rank):
+                    feature_encoder = FeatureProcessor(**params)
+                    params["train_data"], params["valid_data"], params["test_data"] = \
+                        build_dataset(feature_encoder, **params)
 
-        if distributed:
-            if is_main_process(rank):
+                obj_list = [[
+                    params.get("train_data", None),
+                    params.get("valid_data", None),
+                    params.get("test_data", None)
+                ]] if is_main_process(rank) else [[None, None, None]]
+
+                dist.broadcast_object_list(obj_list, src=0)
+                params["train_data"], params["valid_data"], params["test_data"] = obj_list[0]
+                distributed_barrier(local_rank)
+            else:
                 feature_encoder = FeatureProcessor(**params)
                 params["train_data"], params["valid_data"], params["test_data"] = \
                     build_dataset(feature_encoder, **params)
 
-            obj_list = [[
-                params.get("train_data", None),
-                params.get("valid_data", None),
-                params.get("test_data", None)
-            ]] if is_main_process(rank) else [[None, None, None]]
-
-            dist.broadcast_object_list(obj_list, src=0)
-            params["train_data"], params["valid_data"], params["test_data"] = obj_list[0]
-            distributed_barrier(local_rank)
+            feature_map = FeatureMap(params['dataset_id'], data_dir)
+            feature_map.load(feature_map_json, params)
         else:
-            feature_encoder = FeatureProcessor(**params)
-            params["train_data"], params["valid_data"], params["test_data"] = \
-                build_dataset(feature_encoder, **params)
-
-        feature_map = FeatureMap(params['dataset_id'], data_dir)
-        feature_map.load(feature_map_json, params)
+            feature_map = feature_map_from_config(params)
         if is_main_process(rank):
             logging.info("Feature specs: " + print_to_json(feature_map.features))
 

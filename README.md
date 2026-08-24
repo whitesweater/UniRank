@@ -391,6 +391,97 @@ pip install -r requirements.txt
 
 The CUDA build must match the driver and GPUs on the training machine. Long-sequence acceleration paths may require a recent PyTorch/CUDA combination beyond the minimum environment above.
 
+### Reproducible environment
+
+Use the repository-local lockfile to create the Python environment:
+
+```bash
+uv sync --locked
+uv run python run_expid.py --help
+```
+
+The locked environment uses Python 3.12 because the currently published
+`heavyball==3.2.0` dependency is not resolvable with the upstream README's
+Python 3.10 environment. PyTorch is pinned to the CUDA 12.6 build in
+`pyproject.toml`.
+
+Place the downloaded preprocessed datasets under `./datasets/<dataset_id>`.
+All entries in `config/dataset_config.yaml` use paths relative to the repository
+root. Dataset files, environments, logs, checkpoints, and generated result
+artifacts are intentionally excluded from Git.
+
+On a Slurm cluster, create the log directory before submitting the maintained
+GPU smoke test. It performs one RankMixer forward/backward/optimizer step on a
+real Taobao batch:
+
+```bash
+mkdir -p logs
+sbatch scripts/submit_unirank_smoke.sbatch
+squeue -u "$USER"
+```
+
+The result is written to `logs/unirank-smoke-<job-id>.out` and ends with an
+`UNIRANK_GPU_SMOKE=...` JSON record on success. Adapt the account, partition,
+QOS, GPU type, CPU, and memory directives to the target cluster. The scripts do
+not overwrite Slurm's `CUDA_VISIBLE_DEVICES` assignment.
+
+### SISA native-attention study
+
+The local SISA study changes only native pre-softmax attention scores. The
+base Q/K/V projections, residual paths, feed-forward blocks, tokenizers,
+prediction towers, losses, and hard masks remain unchanged. Each attention
+head has a learnable positive weight `lambda_h` (parameterized with
+`softplus`), together with learnable B/C, decay, and phase projections.
+
+The paired study uses the existing UniRank implementations of `OneTrans`,
+`HiFormer`, `RankMixer`, and `Zenith`. UniRank does not contain FAT, so Zenith
+is the declared fourth native-attention baseline; importing the clean-room FAT
+backbone from the ManCAR study would violate the attention-only scope. For
+RankMixer, its native token mixer is untouched and SISA is applied only to the
+existing target-attention pooling layer.
+
+The implementation gate is:
+
+```bash
+.venv/bin/python -m unittest -v \
+  tests.test_sisa_attention \
+  tests.test_slurm_runtime \
+  tests.test_preprocessed_feature_map \
+  tests.test_strict_protocol \
+  tests.test_calibration_audit
+sbatch scripts/submit_sisa_native_smoke.sbatch
+```
+
+Author-provided blocked parquet data is treated as read-only. `run_expid.py`
+builds its `FeatureMap` directly from the configured vocabulary sizes when
+`rebuild_dataset: False`; it does not materialize a multi-million-entry
+`feature_vocab.json`.
+
+The strict study is 4 models x 4 datasets x baseline/SISA = 32 tasks. Every
+task uses four same-type GPUs, `torchrun --nproc_per_node=4`, per-GPU batch
+8192, global batch 32768, one epoch, and seed 20262027. After adapting the
+Slurm resource directives to the target cluster, submit the calibration task:
+
+```bash
+mkdir -p logs
+sbatch --array=4 scripts/submit_sisa_native_strict.sbatch
+```
+
+It uses `QK_Video_Action`, `KuaiRand_Video_Action`, `Taobao_Action`, and
+`MerRec_Action`. TAAC-25 is not part of this explicitly scoped 32-task matrix.
+Strict logs are written under `logs/`, while model logs and checkpoints are
+written under `checkpoints/`.
+
+The strict runtime fingerprint is
+`9cf06ce48728f338caa8c07b12d0dd38596b250c8e18692c96aae6ec7fdf507c`.
+The completed reference audit passed all 32 logical tasks: every selected run
+has the four-GPU protocol evidence, finite test metrics, zero selected-log
+error matches, and the strict completion marker. Machine-readable results are
+generated under the Git-ignored `artifacts/sisa_native_strict/`; the complete
+protocol, retry, baseline-reproduction, aggregate-result, and code-audit
+evidence is recorded in
+[`SISA_STRICT_EXPERIMENTS.md`](SISA_STRICT_EXPERIMENTS.md).
+
 ## Quick Start
 
 The recommended workflow is to download a ready-to-use dataset from the [preprocessed dataset repositories](#datasets) instead of rebuilding it from raw events.

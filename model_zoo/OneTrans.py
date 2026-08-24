@@ -17,7 +17,12 @@
 import torch
 from torch import nn
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, ScaledDotProductAttention
+from unirank.pytorch.layers import (
+    FeatureEmbedding,
+    MLP_Block,
+    SISAAttentionConfig,
+    ScaledDotProductAttention,
+)
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import build_unified_tokenizer
@@ -107,6 +112,10 @@ class OneTrans(MultiTaskModel):
             expansion_factor=expansion_factor,
             attention_activation_type=attention_activation_type,
             reduction_ratio=reduction_ratio,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ),
         )
 
         # Finally, only NS tokens are used for prediction.
@@ -181,7 +190,8 @@ class OneTransBlock(nn.Module):
                  dnn_activations='ReLU',
                  expansion_factor=4,
                  attention_activation_type="SoftMax",
-                 reduction_ratio=0.5):
+                 reduction_ratio=0.5,
+                 sisa_config=None):
         super(OneTransBlock, self).__init__()
         self.num_layers = num_layers
         self.reduction_ratio = float(reduction_ratio)
@@ -198,13 +208,15 @@ class OneTransBlock(nn.Module):
             nn.LayerNorm(input_dim) for _ in range(num_layers)
         ])
 
+        sisa_config = sisa_config or SISAAttentionConfig()
         self.mha_layers = nn.ModuleList([
             MixedMHA(
                 input_dim=input_dim,
                 num_heads=num_heads,
                 num_ns_token=num_ns_token,
                 attention_activation_type=attention_activation_type,
-            ) for _ in range(num_layers)
+                sisa_config=sisa_config.for_site(layer_index),
+            ) for layer_index in range(num_layers)
         ])
 
         self.ffn_layers = nn.ModuleList([
@@ -254,7 +266,7 @@ class OneTransBlock(nn.Module):
 
 class MixedMHA(nn.Module):
     def __init__(self, input_dim, num_heads, num_ns_token,
-                 attention_activation_type="SoftMax"):
+                 attention_activation_type="SoftMax", sisa_config=None):
         super(MixedMHA, self).__init__()
         assert input_dim % num_heads == 0, \
             "attention_dim={} is not divisible by num_heads={}".format(input_dim, num_heads)
@@ -277,6 +289,8 @@ class MixedMHA(nn.Module):
         self.dot_attention = ScaledDotProductAttention(
             attention_activation_type=attention_activation_type
         )
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(input_dim, num_heads)
         self.reset_parameters()
 
     def reset_parameters(self):
@@ -322,12 +336,43 @@ class MixedMHA(nn.Module):
         k = k.view(B, L, self.num_heads, self.head_dim).transpose(1, 2)   # B x H x L x h
         v = v.view(B, L, self.num_heads, self.head_dim).transpose(1, 2)
 
+        score_bias = None
+        if self.sisa_score_bias is not None:
+            if kv_mask is None:
+                sequence_valid = torch.ones(
+                    B,
+                    Ls,
+                    dtype=torch.bool,
+                    device=s_tokens.device,
+                )
+            else:
+                sequence_valid = kv_mask.bool()
+            native_hidden = torch.cat((s_tokens, ns_tokens), dim=1)
+            native_valid = torch.cat(
+                (
+                    sequence_valid,
+                    torch.ones(
+                        B,
+                        Lns,
+                        dtype=torch.bool,
+                        device=s_tokens.device,
+                    ),
+                ),
+                dim=1,
+            )
+            score_bias = self.sisa_score_bias(
+                native_hidden,
+                native_valid,
+                self.head_dim,
+            )
+
         output, _ = self.dot_attention(
             q,
             k,
             v,
             scale=self.head_dim ** 0.5,
             is_causal=True,
+            score_bias=score_bias,
         )
 
         # concat heads

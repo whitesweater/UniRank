@@ -17,7 +17,7 @@
 import torch
 from torch import nn
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MaskedAveragePooling, PerTokenFeedForward, MultiHeadTargetAttention, ScaledDotProductAttention
+from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MaskedAveragePooling, PerTokenFeedForward, MultiHeadTargetAttention, SISAAttentionConfig, ScaledDotProductAttention
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import FieldWiseTokenizer
@@ -82,6 +82,10 @@ class HiFormer(MultiTaskModel):
             attention_dim=token_dim if attention_dim is None else attention_dim,
             dropout_rate=attention_dropout,
             attention_activation_type=attention_activation_type,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ).for_site(0),
         )
 
         self.unified_interaction_layers = HiFormerBlocks(token_dim=token_dim,
@@ -90,7 +94,11 @@ class HiFormer(MultiTaskModel):
                                        expand=expansion_factor,
                                        num_heads=num_heads,
                                        qkv_rank=qkv_rank,
-                                       net_dropout=net_dropout)
+                                       net_dropout=net_dropout,
+                                       sisa_config=SISAAttentionConfig.from_params(
+                                           kwargs,
+                                           decay_reference="sequence_end",
+                                       ))
         self.tower = nn.ModuleList([MLP_Block(input_dim=token_dim,
                                               output_dim=1,
                                               hidden_units=tower_hidden_units,
@@ -167,7 +175,8 @@ class HiFormerBlocks(nn.Module):
                  expand=2,
                  num_heads=2,
                  qkv_rank=256,
-                 net_dropout=0.0):
+                 net_dropout=0.0,
+                 sisa_config=None):
         super(HiFormerBlocks, self).__init__()
         self.num_layers = num_layers
         self.mixer_norms = nn.ModuleList([
@@ -179,12 +188,14 @@ class HiFormerBlocks(nn.Module):
             for _ in range(num_layers)
         ])
 
+        sisa_config = sisa_config or SISAAttentionConfig()
         self.mixer_layers = nn.ModuleList([
             HiformerAttentionLayer(token_dim=token_dim,
                                         num_token=num_token,
                                         num_heads=num_heads,
-                                        qkv_rank=qkv_rank)
-            for _ in range(num_layers)
+                                        qkv_rank=qkv_rank,
+                                        sisa_config=sisa_config.for_site(100 + layer_index))
+            for layer_index in range(num_layers)
         ])
         self.pffn_layers = nn.ModuleList([
             PerTokenFeedForward(input_dim=token_dim,
@@ -216,7 +227,8 @@ class HiformerAttentionLayer(nn.Module):
                  token_dim,
                  num_token,
                  num_heads=2,
-                 qkv_rank=256):
+                 qkv_rank=256,
+                 sisa_config=None):
         super(HiformerAttentionLayer, self).__init__()
         assert token_dim % num_heads == 0, "token_dim must be divisible by num_heads"
         self.num_heads = num_heads
@@ -228,12 +240,33 @@ class HiformerAttentionLayer(nn.Module):
         self.W_k = LowRankLinear(input_dim, input_dim, qkv_rank, bias=False)
         self.W_v = LowRankLinear(input_dim, input_dim, qkv_rank, bias=False)
         self.dot_attention = ScaledDotProductAttention()
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(token_dim, num_heads)
 
     def forward(self, x: torch.Tensor): # B × T × D
+        native_hidden = x
         x = x.flatten(start_dim=1) # B × TD
         Q = self.W_q(x).view(-1, self.num_token, self.num_heads, self.head_dim).transpose(1, 2) # [B, H, T, Dh]
         K = self.W_k(x).view(-1, self.num_token, self.num_heads, self.head_dim).transpose(1, 2)
         V = self.W_v(x).view(-1, self.num_token, self.num_heads, self.head_dim).transpose(1, 2)
-        attn_out, _ = self.dot_attention(Q, K, V, scale=self.head_dim ** 0.5)
+        score_bias = None
+        if self.sisa_score_bias is not None:
+            valid_mask = torch.ones(
+                native_hidden.shape[:2],
+                dtype=torch.bool,
+                device=native_hidden.device,
+            )
+            score_bias = self.sisa_score_bias(
+                native_hidden,
+                valid_mask,
+                self.head_dim,
+            )
+        attn_out, _ = self.dot_attention(
+            Q,
+            K,
+            V,
+            scale=self.head_dim ** 0.5,
+            score_bias=score_bias,
+        )
         attn_out = attn_out.transpose(1, 2).contiguous().view(-1, self.num_token, self.token_dim)  # [B, T, D]
         return attn_out

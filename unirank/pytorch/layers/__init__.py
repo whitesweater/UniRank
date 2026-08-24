@@ -19,6 +19,11 @@ from .embeddings import FeatureEmbedding, FeatureEmbeddingDict
 from .activations import Dice
 from .blocks import MLP_Block
 from .interactions import PerTokenFeedForward, PerTokenSwiGLU, SwiGLU, MultiHeadTokenMixing
-from .attentions import ScaledDotProductAttention, MultiHeadTargetAttention
+from .attentions import (
+    MultiHeadTargetAttention,
+    SISAAttentionConfig,
+    SISAScoreBias,
+    ScaledDotProductAttention,
+)
 from .tokenization import AutoSplitTokenizer, ChunkTokenizer, FieldWiseTokenizer, RandomSplitTokenizer
 

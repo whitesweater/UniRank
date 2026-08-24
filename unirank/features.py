@@ -124,4 +124,67 @@ class FeatureMap(object):
             self.set_column_index()
         return self.column_index[feature]
 
+
+def feature_map_from_config(params):
+    """Build a read-only feature map for already encoded blocked datasets.
+
+    Author-provided parquet blocks already contain integer feature ids. Their
+    YAML configuration records the exact vocabulary sizes, so rebuilding and
+    serializing multi-million-entry token dictionaries is unnecessary.
+    """
+
+    data_dir = os.path.join(params["data_root"], params["dataset_id"])
+    feature_map = FeatureMap(params["dataset_id"], data_dir)
+    label_columns = params.get("label_col", [])
+    if not isinstance(label_columns, list):
+        label_columns = [label_columns]
+    feature_map.labels = [column["name"] for column in label_columns]
+    feature_map.group_id = params.get("group_id")
+    feature_map.default_emb_dim = params.get("embedding_dim")
+
+    ignored_keys = {
+        "name",
+        "active",
+        "dtype",
+        "fill_na",
+        "min_categr_count",
+        "preprocess",
+        "remap",
+        "splitter",
+    }
+    for column in params.get("feature_cols", []):
+        if column.get("active", True) is False:
+            continue
+        names = column["name"] if isinstance(column["name"], list) else [column["name"]]
+        for name in names:
+            spec = {
+                key: value
+                for key, value in column.items()
+                if key not in ignored_keys
+            }
+            if spec.get("type") in {"categorical", "sequence"}:
+                if "vocab_size" not in spec:
+                    raise ValueError(
+                        f"{name}: vocab_size is required for preprocessed data"
+                    )
+                spec.setdefault("padding_idx", 0)
+            feature_map.features[name] = spec
+
+    if params.get("use_features"):
+        feature_map.features = OrderedDict(
+            (name, feature_map.features[name])
+            for name in params["use_features"]
+        )
+    if params.get("feature_specs"):
+        feature_map.update_feature_specs(params["feature_specs"])
+
+    feature_map.num_fields = feature_map.get_num_fields()
+    feature_map.total_features = sum(
+        int(spec.get("vocab_size", 1))
+        for spec in feature_map.features.values()
+        if spec["type"] != "meta"
+    )
+    feature_map.set_column_index()
+    return feature_map
+
         
