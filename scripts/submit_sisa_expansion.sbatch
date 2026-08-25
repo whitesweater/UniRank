@@ -18,6 +18,12 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 export PYTHONUNBUFFERED=1
 
+# torch.compile can keep a rank inside a CUDA API for longer than PyTorch's
+# default 480-second NCCL heartbeat window on the first batch.  Keep the
+# monitor enabled, but allow the compile to finish before treating it as a
+# distributed hang.  This does not change the training protocol or numerics.
+export TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC="${TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC:-3600}"
+
 # Pending cells after the completed 4x4 native-attention study:
 #   - the original four models on TencentGR;
 #   - UniMixer, HyFormer, and UltraHSTU on all five datasets.
@@ -116,7 +122,7 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-echo "EXPANSION_PROTOCOL world_size=4 per_gpu_batch=8192 global_batch=32768 accumulation_steps=1 epochs=1 seed=20262027 bf16=true"
+echo "EXPANSION_PROTOCOL world_size=4 per_gpu_batch=8192 global_batch=32768 accumulation_steps=1 epochs=1 seed=20262027 bf16=true nccl_heartbeat_timeout_sec=${TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC}"
 echo "host=$(hostname) job_id=${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID} cuda_visible_devices=${CUDA_VISIBLE_DEVICES} experiment=${experiment} setting=${setting} run_id=${run_id}"
 
 TMPDIR="$temp_root" \

@@ -184,6 +184,7 @@ RankMixer_KuaiRand_Video_Action_Optimizer_RMSProp:
 RankMixer_TencentGR_10M_Action: # This is a config template
     model: RankMixer
     dataset_id: TencentGR_10M_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy']
     num_tasks: 2
     metrics: ['logloss', 'AUC']
@@ -372,6 +373,7 @@ UniMixer_KuaiRand_Video_Action: # This is a config template
 UniMixer_TencentGR_10M_Action: # This is a config template
     model: UniMixer
     dataset_id: TencentGR_10M_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy']
     num_tasks: 2
     metrics: ['logloss', 'AUC']
@@ -380,8 +382,8 @@ UniMixer_TencentGR_10M_Action: # This is a config template
     embedding_dim: 16
     num_layers: 3
     expansion_factor: 2
-    token_dim: 256
-    num_tokens: 4
+    token_dim: 8
+    num_tokens: 128
     num_basis: 4
     global_rank: 64
     sinkhorn_iter: 5
@@ -651,6 +653,7 @@ OneTrans_KuaiRand_Video_Action_AttentionActivation_Mish:
 OneTrans_TencentGR_10M_Action: # This is a config template
     model: OneTrans
     dataset_id: TencentGR_10M_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy']
     metrics: ['logloss', 'AUC']
     task: binary_classification
@@ -1196,6 +1199,7 @@ HiFormer_KuaiRand_Video_Action: # This is a config template
 HiFormer_TencentGR_10M_Action: # This is a config template
     model: HiFormer
     dataset_id: TencentGR_10M_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy']
     num_tasks: 2
     metrics: ['logloss', 'AUC']
@@ -2086,6 +2090,7 @@ UltraHSTU_KuaiRand_Video_Action: # This is a config template
 UltraHSTU_TencentGR_10M_Action: # This is a config template
     model: UltraHSTU
     dataset_id: TencentGR_10M_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy']
     metrics: ['logloss', 'AUC']
     task: binary_classification
@@ -2138,6 +2143,7 @@ UltraHSTU_Taobao_Action: # This is a config template
 UltraHSTU_MerRec_Action: # This is a config template
     model: UltraHSTU
     dataset_id: MerRec_Action
+    group_id: user_index
     loss: ['binary_crossentropy', 'binary_crossentropy', 'binary_crossentropy', 'binary_crossentropy', 'binary_crossentropy']
     metrics: ['logloss', 'AUC']
     task: binary_classification

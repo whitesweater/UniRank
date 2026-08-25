@@ -27,6 +27,7 @@ from torch.utils.data.distributed import DistributedSampler
 from collections import OrderedDict
 import os, sys
 import logging
+from uuid import uuid4
 from unirank.metrics import evaluate_metrics
 from unirank.pytorch.torch_utils import (
     chunked_adagrad_step,
@@ -70,6 +71,10 @@ class BaseModel(nn.Module):
         self.model_id = model_id
         self.model_dir = os.path.join(kwargs["model_root"], feature_map.dataset_id)
         self.checkpoint = os.path.abspath(os.path.join(self.model_dir, self.model_id + ".model"))
+        self.checkpoint_archive_root = os.path.abspath(
+            os.path.join(self.model_dir, "archive", self.model_id)
+        )
+        self._start_checkpoint_session()
         self.validation_metrics = kwargs["metrics"]
 
         # DDP related
@@ -293,6 +298,42 @@ class BaseModel(nn.Module):
     def _train_forward_model(self):
         return self._ddp_model if self._ddp_model is not None else self
 
+    def _start_checkpoint_session(self):
+        self.checkpoint_archive_dir = os.path.join(
+            self.checkpoint_archive_root,
+            uuid4().hex,
+        )
+        self._checkpoint_evaluation_index = 0
+        self._best_checkpoint_archive_path = None
+
+    def _next_checkpoint_archive_path(self):
+        self._checkpoint_evaluation_index += 1
+        os.makedirs(self.checkpoint_archive_dir, exist_ok=True)
+        filename = (
+            f"eval_{self._checkpoint_evaluation_index:04d}_"
+            f"epoch_{self._epoch_index + 1:03d}_"
+            f"step_{self._total_steps:09d}.model"
+        )
+        return os.path.join(self.checkpoint_archive_dir, filename)
+
+    def _archive_current_best_checkpoint(self):
+        if not os.path.exists(self.checkpoint):
+            return None
+
+        archive_path = self._best_checkpoint_archive_path
+        if archive_path is None:
+            archive_path = os.path.join(
+                self.checkpoint_archive_dir,
+                "preexisting_best.model",
+            )
+        os.makedirs(os.path.dirname(archive_path), exist_ok=True)
+        os.replace(self.checkpoint, archive_path)
+        logging.info(
+            "Soft-deleted previous best checkpoint into archive: %s",
+            archive_path,
+        )
+        return archive_path
+
     def _get_amp_context(self):
         """
         Returns the bf16 autocast context manager.
@@ -457,6 +498,7 @@ class BaseModel(nn.Module):
         self._total_steps = 0
         self._batch_index = 0
         self._epoch_index = 0
+        self._start_checkpoint_session()
 
         # Whether the current dataloader is in blocked mode.
         # UniRankDataloader will set self.blocked in __init__.
@@ -551,25 +593,31 @@ class BaseModel(nn.Module):
             return
 
         monitor_value = self._monitor.get_value(logs)
-        if (self._monitor_mode == "min" and monitor_value > self._best_metric - min_delta) or \
-                (self._monitor_mode == "max" and monitor_value < self._best_metric + min_delta):
+        is_improved = not (
+            (self._monitor_mode == "min" and monitor_value > self._best_metric - min_delta)
+            or (self._monitor_mode == "max" and monitor_value < self._best_metric + min_delta)
+        )
+        archive_path = self._next_checkpoint_archive_path()
+
+        if not is_improved:
             self._stopping_steps += 1
             logging.info("Monitor({})={:.6f} STOP!".format(self._monitor_mode, monitor_value))
+            self.save_weights(archive_path)
+            logging.info("Archived non-best checkpoint: %s", archive_path)
             if self._reduce_lr_on_plateau:
                 current_lr = self.lr_decay()
                 logging.info("Reduce learning rate on plateau: {:.6f}".format(current_lr))
         else:
             self._stopping_steps = 0
             self._best_metric = monitor_value
-            if self._save_best_only:
-                logging.info("Save best model: monitor({})={:.6f}" \
-                             .format(self._monitor_mode, monitor_value))
-                self.save_weights(self.checkpoint)
+            logging.info("Save best model: monitor({})={:.6f}" \
+                         .format(self._monitor_mode, monitor_value))
+            self._archive_current_best_checkpoint()
+            self.save_weights(self.checkpoint)
+            self._best_checkpoint_archive_path = archive_path
         if self._stopping_steps >= self._early_stop_patience:
             self._stop_training = True
             logging.info("********* Epoch={} early stop *********".format(self._epoch_index + 1))
-        if not self._save_best_only:
-            self.save_weights(self.checkpoint)
 
     def eval_step(self):
         # All ranks participate in verification reasoning, and the index is calculated by rank 0 after aggregation through all_gather
@@ -879,11 +927,10 @@ class BaseModel(nn.Module):
         self.load_state_dict(state_dict)
 
     def delete_checkpoint(self):
-        if os.path.exists(self.checkpoint):
-            os.remove(self.checkpoint)
-            logging.info("Deleted model checkpoint: {}".format(self.checkpoint))
-        else:
-            logging.info("Model checkpoint already removed or not found: {}".format(self.checkpoint))
+        archive_path = self._archive_current_best_checkpoint()
+        if archive_path is None:
+            logging.info("Model checkpoint already archived or not found: %s", self.checkpoint)
+        self._best_checkpoint_archive_path = None
 
     def get_output_activation(self, task):
         if task == "binary_classification":

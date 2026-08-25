@@ -168,6 +168,13 @@ def feature_map_from_config(params):
                         f"{name}: vocab_size is required for preprocessed data"
                     )
                 spec.setdefault("padding_idx", 0)
+                if spec["type"] == "sequence":
+                    # Match FeatureProcessor.fit_sequence_col() and the
+                    # author-generated feature_map.json for pre-encoded data.
+                    spec.setdefault(
+                        "feature_encoder",
+                        "layers.MaskedAveragePooling()",
+                    )
             feature_map.features[name] = spec
 
     if params.get("use_features"):

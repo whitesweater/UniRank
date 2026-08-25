@@ -33,15 +33,14 @@ UniRank 是面向大规模推荐排序的 PyTorch 基准框架，统一了时序
 | SISA 公共实现 | 已完成 | `unirank/pytorch/layers/attentions/sisa.py` |
 | 原四模型 SISA | 已完成 | OneTrans、HiFormer、RankMixer、Zenith |
 | 原严格矩阵 | 已完成并审计 | 4 模型 × 4 数据集 × baseline/SISA，共 32 个任务 |
-| TencentGR 补充矩阵 | 待运行 | 原四模型 × TencentGR × baseline/SISA，共 8 个任务 |
+| TencentGR 补充矩阵 | 已完成并审计 | 原四模型 × TencentGR × baseline/SISA，共 8 个任务 |
 | 新三模型 SISA | 已完成代码与测试 | UniMixer、HyFormer、UltraHSTU |
-| 新三模型五数据集矩阵 | 待运行 | 3 模型 × 5 数据集 × baseline/SISA，共 30 个任务 |
-| 扩展启动器 | 已完成 | 统一包含上述 38 个待运行任务 |
-| HPC01 L40S 串行运行 | 已提交、等待资源 | allocation `14984`；4×L40S；获批后串行并支持跨 allocation 续跑 |
-| 本地回归测试 | 已通过 | 当前 35 个测试全部通过 |
+| 新三模型五数据集矩阵 | 已完成并审计 | 3 模型 × 5 数据集 × baseline/SISA，共 30 个任务 |
+| HPC3/ACD 扩展矩阵 | 已完成 | 38 个独立 array element；每个元素使用 4×H100；38/38 有效 |
+| 本地回归测试 | 已通过 | 当前 49 个测试全部通过 |
 
-最重要的交接边界：**32 个原严格任务已经完成；38 个扩展任务已经提交，但尚未取得
-L40S 资源和正式结果。** 不要把排队、适配器实现完成或 smoke test 通过写成正式实验完成。
+最重要的交接边界：**32 个原严格任务和 38 个 HPC3/ACD 扩展任务均已完成并审计。**
+后续新增工作应作为独立消融实验归档，不要覆盖这两组正式结果。
 
 ## 3. 仓库与集群位置
 
@@ -49,14 +48,14 @@ L40S 资源和正式结果。** 不要把排队、适配器实现完成或 smoke
 |---|---|---|
 | 个人 GitHub | `https://github.com/whitesweater/UniRank` | 私有主远端，`main` 是同步源 |
 | 上游 GitHub | `https://github.com/salmon1802/UniRank` | 只用于跟踪官方更新，远端名 `upstream` |
-| HPC01 | `/data_nvme/user/ywhao/proj/UniRank` | 已完成的严格实验、审计与当前开发目录 |
-| HPC3 | `/data/user/yhao481/proj/UniRank` | 第二份运行 checkout，SSH 别名 `hpc3_27` |
+| HPC01 | `/data_nvme/user/ywhao/proj/UniRank` | 历史严格实验 checkout；不再作为当前任务运行节点 |
+| HPC3 | `/data/user/yhao481/proj/UniRank` | 当前开发和实验运行目录，SSH 别名 `hpc3_27` |
 
 Git 只同步实现和复现必需文件。以下内容按设计不进入仓库：
 
 - `datasets/`：预处理数据和软链接；
-- `logs/`、`checkpoints/`：训练日志和模型；
-- `artifacts/`：结果收集器生成的机器可读产物；
+- `logs/`、`checkpoints/`：Slurm 输出、训练指标日志和本机保存的最佳模型权重；
+- `artifacts/`：阶段性审计结果、失败现场和其他中间产物；
 - `.venv/`、编译缓存和临时目录；
 - 本机专用的中间文件。
 
@@ -67,16 +66,32 @@ Git 只同步实现和复现必需文件。以下内容按设计不进入仓库�
 
 ```text
 UniRank/
+├── .git/                            # Git 历史、分支和对象数据库
+├── .venv/                           # uv 创建的本机 Python/CUDA 依赖环境
+├── assets/                          # README 使用的 Logo 和流程图
 ├── config/
 │   ├── dataset_config.yaml          # 数据路径、schema、label、vocab
 │   └── model_config.yaml            # 模型/数据集实验配置
 ├── model_zoo/                       # 15 个模型及 SISA 适配位置
 ├── unirank/                         # dataloader、训练、指标和公共层
-├── data/                            # 原始数据预处理脚本
-├── benchmark/                       # 上游参考日志
+├── data/                            # 数据下载、预处理和统计脚本，不存训练数据
+├── datasets/                        # 实际训练使用的 blocked Parquet 数据
+├── benchmark/                       # 上游 UniRank 参考日志和论文基线
+├── checkpoints/                     # 训练指标日志和默认保留的最佳模型权重
+├── logs/                            # Slurm 作业的原始 stdout/stderr
+├── artifacts/                       # 阶段性审计结果和失败重试现场
+├── experiments/                     # 实验计划、报告、结果表与消融模板
+│   ├── README.md                    # 实验总索引与归档规范
+│   ├── sisa_native_strict/          # 已完成 32-task 严格实验
+│   ├── sisa_expansion_acd/          # 已完成 38-task HPC3/ACD 扩展实验
+│   ├── ablations/                   # 后续消融实验索引
+│   └── templates/ablation/          # 消融报告模板
 ├── scripts/
 │   ├── submit_sisa_native_strict.sbatch
 │   ├── submit_sisa_expansion.sbatch
+│   ├── submit_sisa_expansion_acd.sbatch
+│   ├── collect_sisa_expansion_acd_results.py
+│   ├── audit_sisa_expansion_baselines.py
 │   ├── request_sisa_expansion_l40_all.sh
 │   ├── run_sisa_expansion_l40_all.sh
 │   ├── supervise_sisa_expansion_l40.sh
@@ -87,10 +102,61 @@ UniRank/
 ├── tests/                           # 回归、协议和结果审计测试
 ├── run_expid.py                     # 单实验/DDP 主入口
 ├── run_all.sh                       # 批量入口
-├── SISA_STRICT_EXPERIMENTS.md       # 已完成 32-task 的完整证据
 ├── pyproject.toml / uv.lock         # 锁定环境
 └── README.md                        # 项目说明与主交接文档
 ```
+
+各目录的职责和保留策略如下：
+
+| 目录 | 职责 | 是否可重新生成/清理 |
+|---|---|---|
+| `.git/` | 保存 Git 提交历史、分支和版本对象 | 不可清理；删除后当前目录将失去 Git 历史 |
+| `.venv/` | Python 3.12、PyTorch 2.8/CUDA 12.6 及项目依赖 | 可用 `uv sync --locked` 重建；近期还要实验时保留 |
+| `assets/` | README 中引用的项目 Logo、训练和测试流程图 | 文档依赖，保留 |
+| `config/` | 数据集 schema、标签、路径以及模型超参数 | 训练和复现必需，保留 |
+| `unirank/` | UniRank 核心框架：特征、数据加载、训练、指标和公共层 | 核心源码，保留 |
+| `model_zoo/` | 15 个模型实现及各模型的 SISA 接入代码 | 核心源码，保留 |
+| `data/` | 下载、预处理、转换和统计数据集的程序 | 这是脚本而不是数据，保留 |
+| `datasets/` | 五个数据集的实际训练数据和分块元数据 | 原始运行依赖；体积大但后续实验需要，保留 |
+| `benchmark/` | 上游 UniRank 的模型/数据集参考日志 | baseline AUC 复现审计依赖，保留 |
+| `checkpoints/` | 每次训练的 `.log`、验证集最佳权重和非最佳权重归档 | 最佳 `.model` 留在数据集目录；其他 checkpoint 软删除到 `archive/` |
+| `logs/` | Slurm array、预检、gate、重试和训练的原始输出 | 正式任务日志应保留；失败或废弃日志可归档压缩 |
+| `artifacts/` | 阶段性 baseline 审计 CSV 和失败任务现场 | 最终结果入档后可精简重复内容，但目录供后续任务继续写入 |
+| `experiments/` | 正式实验计划、报告、最终机器可读结果和消融模板 | 实验结论的唯一归档入口，保留并提交 Git |
+| `scripts/` | Slurm 提交、环境预检、监控、结果收集和审计工具 | 实验复现和后续消融需要，保留 |
+| `tests/` | SISA、数据协议、Slurm 运行和结果审计回归测试 | 修改代码后的验证依据，保留 |
+
+运行产物之间的边界是：`benchmark/` 保存上游参考答案；`checkpoints/` 保存本次训练的
+指标日志和最佳模型权重；`logs/` 保存 Slurm 原始输出；`artifacts/` 保存中间审计
+和失败现场；`experiments/` 保存整理完成、可以引用的正式结果。
+
+### 4.1 模型权重的保存与删除
+
+`config/model_config.yaml` 将 `model_root` 设为 `./checkpoints/`。训练过程中，rank 0 会把
+验证集指标最好的模型写到：
+
+```text
+checkpoints/<dataset_id>/<run_id>.model
+```
+
+权重内容是 PyTorch `state_dict`。每次 validation 都会产生一份 checkpoint：当前最佳
+模型保留在上述固定路径；非最佳模型以及被新最佳模型替换的旧最佳模型执行“软删除”，
+移动到按 run 和训练 session 隔离的归档目录：
+
+```text
+checkpoints/<dataset_id>/archive/<run_id>/<session_id>/
+├── preexisting_best.model
+└── eval_<序号>_epoch_<epoch>_step_<step>.model
+```
+
+训练结束后程序重新加载主目录中的最佳权重完成测试集评测，并继续保留该 `.model`，供
+后续推理、复核或微调。代码不再提供测试后硬删除 checkpoint 的命令行路径；即使同一
+`run_id` 重新训练，原有最佳权重也会先进入新 session 的归档目录，不会被直接覆盖。
+
+当前已完成的 38 个扩展训练是在旧删除逻辑下运行的，因此没有留下可恢复的 `.model`；
+`checkpoints/` 中现存的 38 个文件全部是 `.log` 训练和测试指标记录。代码更新之后的新
+实验会同时留下 `.log` 与 `.model`。权重属于本机运行产物，受 `.gitignore` 中的
+`*.model` 规则保护，不会被误提交到 Git。
 
 ## 5. 数据集
 
@@ -173,51 +239,40 @@ AUC 差值 `+0.002115`；按 16 个模型/数据集单元等权，宏平均差�
 seed 的统计显著性结论。
 
 完整 job ID、重试、硬件配对、OOM 兼容处理、baseline 复现偏差、逐单元结果和证据
-生成方式见 [SISA_STRICT_EXPERIMENTS.md](SISA_STRICT_EXPERIMENTS.md)。历史 pilot 为
+生成方式见 [严格实验报告](experiments/sisa_native_strict/report.md)和
+[机器可读结果](experiments/sisa_native_strict/results/)。HPC01 原始证据已按
+[迁移清单](reports/unirank_strict_migration_20260825/migration_files.txt)完成 checksum 迁移。
+历史 pilot 为
 单卡 global batch 8192，只作诊断，禁止混入严格结果表。
 
-## 8. 待运行的 38-task 扩展实验
+## 8. 已完成的 38-task HPC3/ACD 扩展实验
 
-完整的模型—数据集待办矩阵见
-[SISA_EXPANSION_TODO.md](SISA_EXPANSION_TODO.md)。该文件只描述需要运行的实验，
-不包含机器或集群调度细节。
-
-扩展矩阵只包含尚缺的任务：
+扩展矩阵已经在 HPC3 `acd_u` 队列完成：
 
 1. 原四模型补 `TencentGR_10M_Action`：`4 × 1 × 2 = 8`；
 2. UniMixer、HyFormer、UltraHSTU 跑五个数据集：`3 × 5 × 2 = 30`。
 
-HPC01 使用一个持续的 4×L40S allocation。资源获批后，38 个任务在 allocation 内作为
-串行 `srun` step 执行，不为每个训练重新排队：
+每个训练是独立 Slurm array element，使用 4×H100 80GB；最多四个元素并发。统一协议
+仍为每卡 batch 8192、global batch 32768、accumulation 1、一个 epoch、seed 20262027、
+BF16 和 blocked DDP。
 
-```bash
-mkdir -p logs
-tmux new-session -d -s unirank_l40_supervisor \
-  './scripts/supervise_sisa_expansion_l40.sh >> logs/unirank-sisa-l40-supervisor-launcher.log 2>&1'
-tmux new-session -d -s unirank_l40_monitor \
-  'MONITOR_INTERVAL_SECONDS=1800 ./scripts/monitor_sisa_expansion_l40.sh >> logs/unirank-sisa-l40-monitor-launcher.log 2>&1'
-```
+最终结果：
 
-默认每次使用 HPC01 `long` QOS 申请 7 天（`7-00:00:00`），资源为 4×L40S、32 CPU、
-256G 内存。若集群因时限、抢占或节点故障提前结束 allocation，supervisor 会在队列中
-没有同名申请时重新执行 `salloc`。runner 以
-`artifacts/sisa_expansion_l40/completed/task_<id>.ok` 为持久化边界，新的 allocation
-跳过已完成任务，从首个未完成任务继续。单个训练中断时不会写完成标记，因此下次会
-完整重跑该任务。申请时长可用 `SISA_ALLOCATION_TIME=3-00:00:00` 覆盖；supervisor
-和监控默认都每 30 分钟检查一次，间隔期间直接休眠，并记录队列、进度、错误、GPU
-和存储状态。
+- 有效训练元素 `38/38`，GPU 配对和指标配对错误均为 0；
+- 19 个 baseline、71 个标签全部通过与 UniRank benchmark 的 AUC 绝对偏差 `≤0.01`
+  门槛，最大偏差为 `0.009366`；
+- 71 个 baseline/SISA 标签对的平均 ΔAUC 为 `+0.003802`，其中 48 个提升、23 个下降；
+- 完整恢复了 task 0 的 TencentGR 序列池化、task 12/13 的官方 UniMixer 参数，以及
+  task 29/35/37 的 UltraHSTU FlexAttention 编译限制。
 
-数组映射：
+统一档案入口：
 
-- task `0-7`：原四模型的 TencentGR baseline/SISA；
-- task `8-37`：新三模型的五数据集 baseline/SISA；
-- 每个逻辑单元的偶数任务是 baseline，后一项是 SISA；
-- 成功标记为 `SISA_EXPANSION_COMPLETE`。
+- [最终报告](experiments/sisa_expansion_acd/report.md)
+- [机器可读结果](experiments/sisa_expansion_acd/results/)
+- [原始实验计划与完成矩阵](experiments/sisa_expansion_acd/planning.md)
 
-当前申请脚本的 `account`、partition、QOS、GPU GRES、CPU、内存和时限来自 HPC01。
-同步到 HPC3 后，**必须先根据 HPC3 的 Slurm 配置核对这些资源行，不能未经检查直接
-启动 supervisor**。runner 在每个 allocation 开始时验证四张 GPU 均为 L40S；正式完成
-仍以训练退出码与 `SISA_EXPANSION_COMPLETE` 双重门禁为准。
+后续消融实验统一放在 [experiments/ablations/](experiments/ablations/README.md)，使用
+[消融模板](experiments/templates/ablation/README.md)，不再在仓库根目录新增零散报告。
 
 ## 9. 环境、测试与快速运行
 
@@ -290,8 +345,8 @@ smoke 数组覆盖七个 SISA 模型的 Taobao baseline/SISA。成功输出包�
 6. 启动单 allocation supervisor，确认只存在一个同名 L40S 申请；
 7. 持续检查 error、OOM、NaN、GPU 型号和 completion marker；allocation 到期后确认自动续跑；
 8. baseline/SISA 必须保持相同 GPU 型号和完整训练协议；
-9. 收集结果时把严格 32-task 与扩展 38-task 分开；
-10. 只提交代码、配置、测试、脚本和文档，不提交数据、日志、checkpoint 或 artifacts。
+9. 收集结果时把严格 32-task、扩展 38-task 和后续消融 study 分开；
+10. 小型结果表与报告归档到 `experiments/`；不提交数据、完整日志、checkpoint 或运行时 artifacts。
 
 若 HPC3 checkout 有未提交工作，先创建可恢复的 backup branch 或 stash，再执行：
 
@@ -305,15 +360,17 @@ git merge --ff-only origin/main
 
 ## 11. 已知风险与后续工作
 
-- 扩展 38-task 尚无正式结果；下一阶段的第一目标是 GPU smoke 和小配对门禁。
+- 扩展 38-task 已完成；下一阶段应按 `experiments/ablations/` 的单变量规范设计消融，
+  不应直接复用临时 job ID 或散落的 stdout 作为报告。
 - UltraHSTU 使用 FlexAttention；CPU 只用于前向/等价性测试，正式 backward 必须在
   CUDA smoke 中验证。
 - MerRec embedding 最大。扩展脚本对 MerRec 使用等价的 scalar/chunked Adagrad 路径，
   避免 PyTorch foreach 第一步的额外显存峰值。
 - 单 seed 的提升不能宣称统计显著。如需显著性，应在固定调参后，仅对最强 baseline
   和候选模型使用相同的多组独立 base seed 重跑并报告检验结果。
-- `artifacts/sisa_native_strict/` 和历史 Slurm 日志不在 Git 中；需要证据时应从完成
-  严格实验的 HPC01 工作区重新生成或归档。
+- 32-task 严格实验的 32 份 Slurm 日志、32 份训练指标日志和原始 CSV 已从 HPC01
+  checksum 迁移到当前 HPC3；运行时副本仍受 `.gitignore` 保护，小型结果表已归档到
+  `experiments/sisa_native_strict/results/`。
 
 ## 12. 上游、许可与引用
 

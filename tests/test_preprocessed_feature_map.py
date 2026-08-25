@@ -29,6 +29,16 @@ class PreprocessedFeatureMapTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             feature_map_from_config(params)
 
+    def test_restores_default_sequence_pooling_for_tencentgr(self):
+        params = load_config("./config", "OneTrans_TencentGR_10M_Action")
+        feature_map = feature_map_from_config(params)
+
+        for name in ("106", "107", "108", "110"):
+            self.assertEqual(
+                feature_map.features[name]["feature_encoder"],
+                "layers.MaskedAveragePooling()",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

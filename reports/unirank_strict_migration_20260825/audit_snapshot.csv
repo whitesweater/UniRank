@@ -1,0 +1,8 @@
+category,file_count,total_bytes,required,notes
+strict_slurm_logs,32,252589669,yes,Selected final strict runs only; excludes pilot and superseded task 14810_10
+strict_checkpoint_logs,32,347871,yes,Metric and lifecycle logs; all final strict model weights were deleted after test evaluation
+machine_readable_results,3,37118,yes,runs.csv metrics.csv and summary.md
+strict_experiment_report,1,16987,yes,Complete protocol results caveats and audit narrative
+strict_model_weights,0,0,no,No final strict model weight files remain
+exploratory_model_weight,1,2102469857,no,Early SISA_native OneTrans KuaiRand baseline; not part of the final strict matrix
+pending_expansion_results,0,0,no,Expansion matrix is 0 of 38 completed at this snapshot

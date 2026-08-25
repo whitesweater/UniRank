@@ -277,7 +277,10 @@ if __name__ == '__main__':
             if distributed and dist.is_available() and dist.is_initialized():
                 distributed_barrier(local_rank)
             if is_main_process(rank):
-                model.delete_checkpoint()
+                logging.info(
+                    "Preserved best model checkpoint: %s",
+                    model.checkpoint,
+                )
             if distributed and dist.is_available() and dist.is_initialized():
                 distributed_barrier(local_rank)
 
