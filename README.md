@@ -37,7 +37,7 @@ UniRank 是面向大规模推荐排序的 PyTorch 基准框架，统一了时序
 | 新三模型 SISA | 已完成代码与测试 | UniMixer、HyFormer、UltraHSTU |
 | 新三模型五数据集矩阵 | 已完成并审计 | 3 模型 × 5 数据集 × baseline/SISA，共 30 个任务 |
 | HPC3/ACD 扩展矩阵 | 已完成 | 38 个独立 array element；每个元素使用 4×H100；38/38 有效 |
-| 本地回归测试 | 已通过 | 当前 49 个测试全部通过 |
+| 本地回归测试 | 已通过 | 当前 50 个测试全部通过 |
 
 最重要的交接边界：**32 个原严格任务和 38 个 HPC3/ACD 扩展任务均已完成并审计。**
 后续新增工作应作为独立消融实验归档，不要覆盖这两组正式结果。
@@ -83,6 +83,9 @@ UniRank/
 ├── experiments/                     # 实验计划、报告、结果表与消融模板
 │   ├── README.md                    # 实验总索引与归档规范
 │   ├── sisa_native_strict/          # 已完成 32-task 严格实验
+│   │   ├── report.md                # 统一正式报告
+│   │   ├── results/                 # 小型机器可读结果
+│   │   └── migration/               # HPC01 原始报告与迁移证据包
 │   ├── sisa_expansion_acd/          # 已完成 38-task HPC3/ACD 扩展实验
 │   ├── ablations/                   # 后续消融实验索引
 │   └── templates/ablation/          # 消融报告模板
@@ -241,7 +244,7 @@ seed 的统计显著性结论。
 完整 job ID、重试、硬件配对、OOM 兼容处理、baseline 复现偏差、逐单元结果和证据
 生成方式见 [严格实验报告](experiments/sisa_native_strict/report.md)和
 [机器可读结果](experiments/sisa_native_strict/results/)。HPC01 原始证据已按
-[迁移清单](reports/unirank_strict_migration_20260825/migration_files.txt)完成 checksum 迁移。
+[迁移清单](experiments/sisa_native_strict/migration/migration_files.txt)完成 checksum 迁移。
 历史 pilot 为
 单卡 global batch 8192，只作诊断，禁止混入严格结果表。
 

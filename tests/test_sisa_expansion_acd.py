@@ -77,6 +77,32 @@ class ACDExpansionProtocolTest(unittest.TestCase):
         ]
         self.assertEqual(missing, [])
 
+    def test_experiment_reports_have_one_top_level_archive(self):
+        self.assertFalse((REPOSITORY_ROOT / "reports").exists())
+        self.assertFalse((REPOSITORY_ROOT / "SISA_STRICT_EXPERIMENTS.md").exists())
+
+        migration_root = (
+            REPOSITORY_ROOT
+            / "experiments"
+            / "sisa_native_strict"
+            / "migration"
+        )
+        required_paths = (
+            migration_root / "README.md",
+            migration_root / "source_report.md",
+            migration_root / "report.html",
+            migration_root / "migration_files.txt",
+            migration_root / "artifact.json",
+        )
+        self.assertEqual(
+            [
+                str(path.relative_to(REPOSITORY_ROOT))
+                for path in required_paths
+                if not path.is_file()
+            ],
+            [],
+        )
+
     def test_full_expansion_task_mapping(self):
         self.assertEqual(expansion_task(0).setting, "baseline")
         self.assertEqual(expansion_task(1).setting, "sisa")

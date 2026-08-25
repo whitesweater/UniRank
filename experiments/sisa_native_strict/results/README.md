@@ -7,13 +7,13 @@
 - [`summary.md`](summary.md)：76 个标签级配对的 AUC、Logloss 和差值表。
 
 这些文件于 2026-08-25 按
-[`reports/unirank_strict_migration_20260825/migration_files.txt`](../../../reports/unirank_strict_migration_20260825/migration_files.txt)
+[`migration/migration_files.txt`](../migration/migration_files.txt)
 从 HPC01 `/data_nvme/user/ywhao/proj/UniRank/` 迁移到 HPC3，并与远端执行了 rsync
 checksum 复核。迁移后审计结果为：任务 `32/32` 完成且协议有效，76 个 AUC 配对中
 50 个提升、26 个下降，平均差值 `+0.002115`；16 个模型/数据集单元中 12 个为正。
 
 完整迁移包还包括 32 份 Slurm 日志、32 份训练指标日志和
-[离线可视化报告](../../../reports/unirank_strict_migration_20260825/report.html)。运行时原始
+[离线可视化报告](../migration/report.html)。运行时原始
 副本继续保存在仓库根目录的 `artifacts/sisa_native_strict/`、`logs/` 和
 `checkpoints/`，本目录中的 CSV/Markdown 是统一实验档案副本。
 

@@ -8,7 +8,7 @@
 
 | 实验 | 状态 | 规模 | 入口 |
 | --- | --- | ---: | --- |
-| SISA 原生严格矩阵 | 已完成 | 32 tasks / 16 pairs | [报告](sisa_native_strict/report.md) · [结果](sisa_native_strict/results/) · [迁移报告](../reports/unirank_strict_migration_20260825/report.html) |
+| SISA 原生严格矩阵 | 已完成 | 32 tasks / 16 pairs | [报告](sisa_native_strict/report.md) · [结果](sisa_native_strict/results/) · [迁移证据](sisa_native_strict/migration/) |
 | SISA HPC3/ACD 扩展矩阵 | 已完成 | 38 tasks / 19 pairs | [报告](sisa_expansion_acd/report.md) · [结果](sisa_expansion_acd/results/) · [原计划](sisa_expansion_acd/planning.md) |
 | 后续消融实验 | 待开展 | 按 study 建档 | [消融索引与规范](ablations/README.md) |
 
@@ -23,6 +23,7 @@ experiments/<study_slug>/
 ├── configs/           # 本次实验专用配置或配置快照（如适用）
 ├── results/           # runs/metrics/paired summary 等小型机器可读结果
 ├── figures/           # 从 results 生成的图表
+├── migration/         # 外部节点迁入的原始报告和审计证据（如适用）
 └── notes/             # 非最终分析记录；不得替代 report.md
 ```
 
