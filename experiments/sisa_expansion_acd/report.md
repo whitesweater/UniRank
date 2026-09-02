@@ -71,4 +71,5 @@ The strongest model–dataset means were UltraHSTU–MerRec (+0.012726), HyForme
 - [`results/metrics.csv`](results/metrics.csv): all 142 task-level label metrics.
 - [`results/paired_summary.csv`](results/paired_summary.csv): 71 baseline/SISA label comparisons.
 - [`results/baseline_audit.csv`](results/baseline_audit.csv): 71 official-paper baseline AUC comparisons and tolerance decisions.
+- [`results/unit_summary.csv`](results/unit_summary.csv): 19 model–dataset units derived from the paired metrics and baseline audit for the HTML report.
 - [`results/summary.md`](results/summary.md): compact machine-generated completion snapshot.

@@ -3,47 +3,55 @@
   "manifest": {
     "version": 1,
     "surface": "report",
-    "title": "UniRank 已完成实验与 HPC3 迁移说明",
-    "description": "截至 2026-08-25 的 UniRank SISA strict 结果、证据边界与手动迁移步骤。",
-    "generatedAt": "2026-08-25T11:35:00+08:00",
+    "title": "UniRank SISA 实验总报告：DIGAI Lab 32-task strict 与 HPC3 38-task 扩展",
+    "description": "截至 2026-08-25，由 DIGAI Lab 迁入的 32 个 strict 训练元素与 HPC3 完成的 38 个扩展训练元素、baseline 复现审计、配对结果与证据边界。",
+    "generatedAt": "2026-08-25T12:12:37+08:00",
     "sources": [
-      {"id": "strict_runs", "label": "32-task strict run audit", "path": "artifacts/sisa_native_strict/runs.csv"},
-      {"id": "strict_summary", "label": "Strict paired metric summary", "path": "artifacts/sisa_native_strict/summary.md"},
-      {"id": "strict_report", "label": "Complete strict experiment report", "path": "SISA_STRICT_EXPERIMENTS.md"},
-      {"id": "audit_snapshot", "label": "Migration file inventory audit", "path": "reports/unirank_strict_migration_20260825/audit_snapshot.csv"},
-      {"id": "migration_list", "label": "Exact migration file list", "path": "reports/unirank_strict_migration_20260825/migration_files.txt"},
-      {"id": "headline_sql", "label": "Headline metric query", "path": "reports/unirank_strict_migration_20260825/headline.sql"},
-      {"id": "unit_deltas_sql", "label": "Model-dataset delta query", "path": "reports/unirank_strict_migration_20260825/unit_deltas.sql"},
-      {"id": "migration_inventory_sql", "label": "Migration inventory query", "path": "reports/unirank_strict_migration_20260825/migration_inventory.sql"}
+      {"id": "strict_runs", "label": "32-task strict run audit", "path": "experiments/sisa_native_strict/results/runs.csv"},
+      {"id": "strict_summary", "label": "Strict paired metric summary", "path": "experiments/sisa_native_strict/results/summary.md"},
+      {"id": "strict_report", "label": "Complete strict experiment report", "path": "experiments/sisa_native_strict/report.md"},
+      {"id": "audit_snapshot", "label": "Migration file inventory audit", "path": "experiments/sisa_native_strict/migration/audit_snapshot.csv"},
+      {"id": "migration_list", "label": "Exact migration file list", "path": "experiments/sisa_native_strict/migration/migration_files.txt"},
+      {"id": "headline_sql", "label": "Strict headline metric query", "path": "experiments/sisa_native_strict/migration/headline.sql"},
+      {"id": "unit_deltas_sql", "label": "Strict model-dataset delta query", "path": "experiments/sisa_native_strict/migration/unit_deltas.sql"},
+      {"id": "migration_inventory_sql", "label": "Migration inventory query", "path": "experiments/sisa_native_strict/migration/migration_inventory.sql"},
+      {"id": "combined_headline_sql", "label": "Combined strict and expansion headline query", "path": "experiments/sisa_native_strict/migration/combined_headline.sql"},
+      {"id": "expansion_unit_summary_sql", "label": "Expansion unit summary query", "path": "experiments/sisa_native_strict/migration/expansion_unit_summary.sql"},
+      {"id": "combined_auc_matrix_sql", "label": "Combined DIGAI Lab strict and HPC3 expansion AUC matrix query", "path": "experiments/sisa_native_strict/migration/combined_auc_matrix.sql"},
+      {"id": "expansion_runs", "label": "38-task expansion run audit", "path": "experiments/sisa_expansion_acd/results/runs.csv"},
+      {"id": "expansion_paired", "label": "Expansion baseline/SISA paired metrics", "path": "experiments/sisa_expansion_acd/results/paired_summary.csv"},
+      {"id": "expansion_baseline_audit", "label": "Expansion UniRank baseline audit", "path": "experiments/sisa_expansion_acd/results/baseline_audit.csv"},
+      {"id": "expansion_unit_summary", "label": "Expansion model-dataset unit summary", "path": "experiments/sisa_expansion_acd/results/unit_summary.csv"},
+      {"id": "expansion_report", "label": "Complete 38-task expansion report", "path": "experiments/sisa_expansion_acd/report.md"}
     ],
     "cards": [
       {
         "id": "completed_tasks",
-        "description": "通过协议、完成标记、有限指标与错误审计的正式 strict 任务。",
+        "description": "32 个 strict 与 38 个 expansion 训练元素均通过完成与有限指标审计。",
         "dataset": "headline",
-        "sourceId": "headline_sql",
-        "metrics": [{"label": "Strict 完成任务", "field": "completed_tasks", "format": "number"}]
+        "sourceId": "combined_headline_sql",
+        "metrics": [{"label": "完成训练元素", "field": "completed_tasks", "format": "number"}]
       },
       {
-        "id": "average_auc_delta",
-        "description": "76 个标签级 baseline/SISA 配对指标的等权平均 AUC 差值。",
+        "id": "paired_labels",
+        "description": "strict 的 76 组与 expansion 的 71 组 baseline/SISA 标签配对。",
         "dataset": "headline",
-        "sourceId": "headline_sql",
-        "metrics": [{"label": "平均 ΔAUC", "field": "average_auc_delta", "format": "number", "signed": true}]
+        "sourceId": "combined_headline_sql",
+        "metrics": [{"label": "标签级配对", "field": "paired_labels", "format": "number"}]
       },
       {
-        "id": "positive_units",
-        "description": "16 个模型×数据集单元中，平均 AUC 差值为正的单元数。",
+        "id": "expansion_auc_delta",
+        "description": "38-task expansion 中 71 个标签级 baseline/SISA 配对的等权平均 AUC 差值。",
         "dataset": "headline",
-        "sourceId": "headline_sql",
-        "metrics": [{"label": "正向单元", "field": "positive_units", "format": "number"}]
+        "sourceId": "combined_headline_sql",
+        "metrics": [{"label": "Expansion 平均 ΔAUC（×10⁻³）", "field": "expansion_average_auc_delta_milli", "format": "number", "signed": true}]
       },
       {
-        "id": "migration_size",
-        "description": "正式 strict 报告、机器可读结果、32 份 checkpoint 日志和 32 份最终 Slurm 日志。",
+        "id": "baseline_max_deviation",
+        "description": "71 个 expansion baseline 标签相对仓库内 UniRank official benchmark 的最大绝对 AUC 偏差；验收阈值为 0.01。",
         "dataset": "headline",
-        "sourceId": "headline_sql",
-        "metrics": [{"label": "核心迁移包（MiB）", "field": "migration_mib", "format": "number"}]
+        "sourceId": "combined_headline_sql",
+        "metrics": [{"label": "Baseline 最大 |ΔAUC|（×10⁻³）", "field": "baseline_max_abs_delta_milli", "format": "number"}]
       }
     ],
     "charts": [
@@ -69,6 +77,36 @@
         "valueFormat": "number",
         "layout": "full",
         "maxRows": 16
+      },
+      {
+        "id": "combined_auc_matrix",
+        "title": "完整实验矩阵：7 个模型 × 5 个数据集的平均 ΔAUC",
+        "subtitle": "35/35 个组合；蓝色内框为 DIGAI Lab 迁移的 strict 记录，其余为 HPC3 expansion 记录",
+        "type": "heatmap",
+        "dataset": "combined_auc_matrix",
+        "sourceId": "combined_auc_matrix_sql",
+        "encodings": {
+          "x": {"field": "dataset", "type": "nominal", "aggregate": "none", "label": "数据集"},
+          "y": {
+            "fields": ["UltraHSTU", "HiFormer", "HyFormer", "OneTrans", "UniMixer", "RankMixer", "Zenith"],
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "模型"
+          }
+        },
+        "intent": "relationship",
+        "question": "完整实验记录中，哪些模型在不同数据集上提升或下降，变化幅度有多大？",
+        "comparisonContext": {
+          "baseline": "同模型、同数据集的 UniRank baseline",
+          "grain": "模型 × 数据集单元",
+          "normalization": "单元内标签级 SISA−baseline AUC 等权平均",
+          "unit": "ΔAUC ×10⁻³"
+        },
+        "palette": {"kind": "diverging", "name": "SISA gain/loss", "midpoint": 0},
+        "valueFormat": "number",
+        "unit": "×10⁻³",
+        "layout": "full",
+        "maxRows": 5
       }
     ],
     "tables": [
@@ -90,6 +128,23 @@
         ]
       },
       {
+        "id": "expansion_unit_result_table",
+        "title": "38-task 扩展矩阵的单元级结果与 baseline 复现审计",
+        "subtitle": "共 19 个模型×数据集单元；Δ 为 SISA 减 baseline，baseline 偏差为本地结果相对仓库内 official benchmark",
+        "dataset": "expansion_unit_deltas",
+        "sourceId": "expansion_unit_summary_sql",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {"field": "delta_auc", "direction": "desc"},
+        "columns": [
+          {"field": "model", "label": "模型", "type": "text"},
+          {"field": "dataset", "label": "数据集", "type": "text"},
+          {"field": "delta_auc", "label": "平均 ΔAUC", "type": "number", "format": "number", "movement": true},
+          {"field": "improved_labels", "label": "AUC 提升标签数", "type": "text"},
+          {"field": "max_abs_baseline_deviation", "label": "Baseline 最大 |ΔAUC|", "type": "number", "format": "number"}
+        ]
+      },
+      {
         "id": "migration_inventory",
         "title": "推荐迁移包清单",
         "subtitle": "只包含最终 strict 复核所需文件；不含 pilot、失败尝试、监控日志和探索性权重",
@@ -107,33 +162,38 @@
       }
     ],
     "blocks": [
-      {"id": "title", "type": "markdown", "body": "# UniRank 已完成实验与 HPC3 迁移说明"},
-      {"id": "technical_summary", "type": "markdown", "sourceId": "strict_report", "body": "## 技术摘要\n\n截至 2026-08-25，可正式交付的是原四模型在四个数据集上的 **32/32 个 strict baseline/SISA 任务**。它们覆盖 16 个模型×数据集单元和 76 个标签级配对指标。SISA 的平均 ΔAUC 为 **+0.002115**，16 个单元中 **12 个为正**；但这只是固定单 seed、单 epoch 的受控点估计。"},
-      {"id": "migration_summary", "type": "markdown", "sourceId": "audit_snapshot", "body": "## 迁移结论\n\n建议迁移的核心证据包约 **253 MB（242 MiB）**：完整实验报告、3 个机器可读结果文件、32 份最终 checkpoint 日志和 32 份最终 Slurm 日志。最终 strict 模型权重已经在测试评估后按训练流程删除，因此这里没有 32 份可迁移的 strict `.model` 文件。"},
-      {"id": "headline_metrics", "type": "metric-strip", "cardIds": ["completed_tasks", "average_auc_delta", "positive_units", "migration_size"]},
-      {"id": "result_takeaway", "type": "markdown", "sourceId": "strict_summary", "body": "## 收益集中在 KuaiRand 与 MerRec，Taobao 风险最明显\n\nKuaiRand 和 MerRec 在四个模型上的单元均值全部为正；QK-Video 接近中性；Taobao 在 OneTrans、HiFormer 和 RankMixer 上为负，仅 Zenith 为正。最明显的退化是 HiFormer–Taobao（平均 ΔAUC -0.025167），因此不能把总体正均值解释为所有模型和数据集都稳定提升。"},
-      {"id": "unit_chart", "type": "chart", "chartId": "unit_auc_deltas"},
-      {"id": "chart_interpretation", "type": "markdown", "sourceId": "strict_summary", "body": "## 图表解读\n\n横轴是每个模型×数据集单元内的平均 ΔAUC，零点右侧表示 SISA 高于 baseline。该图用于观察收益分布和负向例外；精确数值及标签提升数见下表。"},
-      {"id": "unit_table", "type": "table", "tableId": "unit_result_table"},
-      {"id": "scope_definitions", "type": "markdown", "sourceId": "strict_report", "body": "## 范围、协议与完成定义\n\n正式矩阵为 OneTrans、HiFormer、RankMixer、Zenith × QK-Video、KuaiRand、Taobao、MerRec × baseline/SISA。每个任务使用四张同型号 GPU、每卡 batch 8192、global batch 32768、1 epoch、seed 20262027、max_len 100、BF16 和 blocked DDP。任务只有在训练正常退出、协议字段完整、测试指标有限、错误数为 0 且 Slurm 日志写入 `SISA_NATIVE_STRICT_COMPLETE` 时才计为完成。"},
-      {"id": "migration_inventory_heading", "type": "markdown", "sourceId": "audit_snapshot", "body": "## 只迁移最终审计需要的 66 份运行证据\n\n32 份 checkpoint 日志保存训练、最佳模型加载、测试指标和 checkpoint 删除记录；32 份最终 Slurm 日志保存资源、协议头、完成标记与进程级输出。再加完整报告和 3 个机器可读结果文件，即构成核心交付包。"},
+      {"id": "title", "type": "markdown", "body": "# UniRank SISA 实验总报告：32-task strict 与 38-task HPC3 扩展"},
+      {"id": "technical_summary", "type": "markdown", "sourceId": "combined_headline_sql", "body": "## 技术摘要\n\n截至 2026-08-25，项目已完成 **70/70 个训练元素**：由 DIGAI Lab 迁入的 32-task strict 矩阵与 HPC3/ACD 上新完成的 38-task expansion 矩阵。两部分合计形成 147 个 baseline/SISA 标签配对。strict 的平均 ΔAUC 为 **+0.002115**；expansion 的平均 ΔAUC 为 **+0.003802**，48/71 个标签提升、23/71 个标签下降。所有 71 个 expansion baseline 都满足相对仓库内 UniRank official benchmark 的 `|ΔAUC| ≤ 0.01` 验收规则。"},
+      {"id": "headline_metrics", "type": "metric-strip", "cardIds": ["completed_tasks", "paired_labels", "expansion_auc_delta", "baseline_max_deviation"]},
+      {"id": "baseline_agreement", "type": "markdown", "sourceId": "expansion_baseline_audit", "body": "## 新增结果通过 UniRank baseline 复现门槛\n\n38-task expansion 覆盖 19 个 baseline 单元和 71 个标签，**71/71** 个本地 baseline AUC 与仓库内 official benchmark 的绝对差均不超过 0.01。最大偏差为 **0.009366**，出现在 UltraHSTU–KuaiRand `is_click`（official 0.774418，本地 0.765052），仍在验收范围内。"},
+      {"id": "expansion_takeaway", "type": "markdown", "sourceId": "expansion_paired", "body": "## Expansion 总体正向，但收益并非均匀分布\n\n19 个模型×数据集单元中 13 个平均 ΔAUC 为正。最强单元是 UltraHSTU–MerRec（+0.012726）、HyFormer–MerRec（+0.012394）和 HiFormer–TencentGR（+0.011561）；主要回退是 HyFormer–Taobao（−0.015343）。标签级最大提升为 UltraHSTU–KuaiRand `is_click`（+0.027940），最大下降为 HyFormer–Taobao `cart`（−0.026251）。"},
+      {"id": "expansion_unit_chart", "type": "chart", "chartId": "combined_auc_matrix"},
+      {"id": "expansion_chart_interpretation", "type": "markdown", "sourceId": "combined_auc_matrix_sql", "body": "## 完整矩阵解读\n\n矩阵横轴是模型、纵轴是数据集，35 个单元格全部来自现有实验记录，并给出该模型×数据集内标签级平均 ΔAUC（×10⁻³）。绿色和 `+` 表示 SISA 高于 baseline，红色和 `−` 表示下降，颜色深浅按全矩阵最大绝对变化对称映射。蓝色内框标记由 DIGAI Lab 迁入的 16 个 strict 单元；无内框的 19 个单元来自 HPC3 expansion。完整矩阵中 25/35 个单元为正，最明显回退是 DIGAI Lab strict 记录中的 HiFormer–Taobao（−0.025167）。"},
+      {"id": "expansion_unit_table", "type": "table", "tableId": "expansion_unit_result_table"},
+      {"id": "strict_takeaway", "type": "markdown", "sourceId": "strict_summary", "body": "## Strict 结果回顾：KuaiRand 与 MerRec 较强，Taobao 风险最明显\n\n原 32-task strict 矩阵覆盖 16 个模型×数据集单元和 76 个标签配对，平均 ΔAUC **+0.002115**，12/16 个单元为正。KuaiRand 和 MerRec 在四个模型上的单元均值全部为正；最明显的退化是 HiFormer–Taobao（−0.025167），因此不能把总体正均值解释为所有模型和数据集都稳定提升。"},
+      {"id": "strict_unit_chart", "type": "chart", "chartId": "unit_auc_deltas"},
+      {"id": "strict_chart_interpretation", "type": "markdown", "sourceId": "strict_summary", "body": "## Strict 图表解读\n\n横轴同样采用单元内标签级平均 ΔAUC，便于与 expansion 分布对照；精确数值及标签提升数见下表。"},
+      {"id": "strict_unit_table", "type": "table", "tableId": "unit_result_table"},
+      {"id": "scope_definitions", "type": "markdown", "sourceId": "expansion_report", "body": "## 范围、协议与完成定义\n\nDIGAI Lab 迁入的 strict 矩阵为 OneTrans、HiFormer、RankMixer、Zenith × QK-Video、KuaiRand、Taobao、MerRec × baseline/SISA；HPC3 expansion 增加四个原模型的 TencentGR 配对，以及 UniMixer、HyFormer、UltraHSTU 在五个数据集上的配对。两部分组合后覆盖完整的 7 模型 × 5 数据集矩阵。两部分都采用每卡 batch 8192、global batch 32768、1 epoch、seed 20262027、BF16 与 blocked DDP。Expansion 每个训练元素使用 4 × H100 80GB，并要求 Slurm `COMPLETED`、exit code `0:0`、协议字段完整、有限测试指标、零错误与完成标记。"},
+      {"id": "migration_summary", "type": "markdown", "sourceId": "audit_snapshot", "body": "## 历史 strict 迁移结论\n\nDIGAI Lab 的 strict 核心证据包已迁入当前 HPC3 项目：完整实验报告、机器可读结果、32 份 checkpoint 日志和 32 份最终 Slurm 日志，迁移审计为 75/75 文件、253,466,283 bytes。旧训练流程在测试后删除了 strict 权重，因此这部分历史证据不含 32 份正式 `.model`。"},
+      {"id": "migration_inventory_heading", "type": "markdown", "sourceId": "audit_snapshot", "body": "## Strict 历史迁移包构成\n\n32 份 checkpoint 日志保存训练、最佳模型加载、测试指标和 checkpoint 删除记录；32 份最终 Slurm 日志保存资源、协议头、完成标记与进程级输出。下表仅描述已完成的 HPC01→HPC3 strict 迁移包，不代表当前 expansion 结果清单。"},
       {"id": "migration_table", "type": "table", "tableId": "migration_inventory"},
-      {"id": "weight_boundary", "type": "markdown", "sourceId": "audit_snapshot", "body": "## 权重文件边界\n\n`checkpoints/` 当前只有一个约 2.0 GiB 的 `.model`：早期 `SISA_native_OneTrans_KuaiRand_Video_Action_baseline_seed20262027.model`。它属于探索性 pilot，不属于最终 32-task strict 矩阵，默认不要迁移。所有 strict checkpoint 日志的末尾都记录了测试完成后的模型删除，因此当前无法从本机恢复这些正式权重；若 HPC3 需要推理权重，只能按相同配置重跑并关闭测试后的 checkpoint 删除。"},
-      {"id": "manual_migration", "type": "markdown", "sourceId": "migration_list", "body": "## 手动迁移命令\n\n在 HPC01 源项目目录执行：\n\n```bash\ncd /data_nvme/user/ywhao/proj/UniRank\nrsync -avh --progress \\\n  --files-from=reports/unirank_strict_migration_20260825/migration_files.txt \\\n  ./ hpc3_27:/data/user/yhao481/proj/UniRank/\n```\n\n该清单精确选择最终 32 个 Slurm 日志，不会把已被配对重跑替代的 `14810_10`、pilot、失败尝试或 2.0 GiB 探索性模型一起复制。"},
-      {"id": "post_migration_check", "type": "markdown", "sourceId": "migration_list", "body": "## 迁移后校验\n\n先检查清单内是否有缺失文件：\n\n```bash\nssh hpc3_27\ncd /data/user/yhao481/proj/UniRank\nwhile IFS= read -r f; do\n  test -f \"$f\" || echo \"MISSING $f\"\ndone < reports/unirank_strict_migration_20260825/migration_files.txt\n```\n\n再确认机器可读结果仍为 32 行正式任务：\n\n```bash\npython - <<'PY'\nimport csv\nrows = list(csv.DictReader(open('artifacts/sisa_native_strict/runs.csv')))\nassert len(rows) == 32\nassert all(row['complete'] == 'True' for row in rows)\nprint('strict_complete=32/32')\nPY\n```"},
-      {"id": "methodology", "type": "markdown", "sourceId": "strict_report", "body": "## 结果汇总方法\n\n`runs.csv` 固定了 task 0–31 的最终 job/task 映射，并排除了 pilot、OOM 失败尝试和被配对重跑替代的旧结果。`metrics.csv` 保存 baseline/SISA 的 152 行原始 AUC 与 Logloss；`summary.md` 将它们配成 76 组差值，再汇总到 16 个模型×数据集单元。完整的重试、硬件配对、OOM 兼容方案和复现偏差审计保存在主实验报告中。"},
-      {"id": "limitations", "type": "markdown", "body": "## 局限性与未完成范围\n\n这些结果只覆盖原 32-task strict 矩阵，并不包含 TencentGR，也不包含 UniMixer、HyFormer、UltraHSTU 的五数据集扩展。扩展矩阵目前是 **0/38 完成**，所以不能并入本报告。实验只使用一个 seed 和一个 epoch，结论不是置信区间或统计显著性证明；硬件和软件栈也与论文 H20 环境不同。"},
-      {"id": "next_steps", "type": "markdown", "body": "## 建议下一步\n\n1. 先按清单把当前 32-task 证据包复制到 HPC3，并执行缺失检查。\n2. 在 HPC3 将该目录设为只读归档或单独备份，避免后续扩展实验覆盖同名日志。\n3. 等 38 个扩展任务全部完成后，生成独立的 expansion `runs.csv`、`metrics.csv` 和 `summary.md`，再与当前 strict 报告合并成最终 70-task 总报告。\n4. 若后续确实需要模型权重，先修改运行策略以保留 best checkpoint，再重跑目标任务；不要把现有 pilot `.model` 当作正式 strict 权重。"},
-      {"id": "further_questions", "type": "markdown", "body": "## 后续需确认的问题\n\n- HPC3 是只用于结果归档，还是还需要加载模型做推理？后者需要重新生成正式权重。\n- 最终 70-task 总报告是否需要多 seed 复跑，以便给出方差和置信区间？\n- 扩展实验完成后，是否保留全部模型权重，还是只保留每个配对中表现最好的 checkpoint？"}
+      {"id": "weight_boundary", "type": "markdown", "sourceId": "expansion_report", "body": "## Checkpoint 边界\n\n当前已完成的 strict 与 expansion 日志都显示：测试加载最佳模型后，旧训练流程删除了对应 `.model`，所以这 70 个历史训练元素目前只有指标日志，没有可恢复的正式权重。项目现已把后续逻辑改为软删除：最佳 checkpoint 留在数据集目录，其他 checkpoint 移入 `checkpoints/<dataset_id>/archive/<run_id>/<session_id>/`；该策略只对后续新训练生效，不会自动恢复历史权重。"},
+      {"id": "manual_migration", "type": "markdown", "sourceId": "migration_list", "body": "## 历史迁移说明\n\nStrict 迁移已完成，不应再次从 HPC01 重跑 rsync。`migration_files.txt` 保留的是迁移当时 HPC01 源目录的 75 文件清单，部分路径仍是整理前名称；它用于审计追溯，不再作为当前目录的执行清单。"},
+      {"id": "post_migration_check", "type": "markdown", "sourceId": "expansion_runs", "body": "## 当前结果快速校验\n\n在 HPC3 项目根目录使用 uv 管理的环境检查两组最终 run 表：\n\n```bash\nuv run python - <<'PY'\nimport csv\nstrict = list(csv.DictReader(open('experiments/sisa_native_strict/results/runs.csv')))\nexpansion = list(csv.DictReader(open('experiments/sisa_expansion_acd/results/runs.csv')))\nassert len(strict) == 32 and all(r['complete'] == 'True' for r in strict)\nassert len(expansion) == 38 and all(r['complete'] == 'True' for r in expansion)\nprint('complete=70/70')\nPY\n```"},
+      {"id": "methodology", "type": "markdown", "sourceId": "expansion_report", "body": "## 结果汇总方法\n\n每个逻辑单元由同一模型、数据集和协议下的 baseline/SISA 两个独立训练元素组成。标签级 ΔAUC 与 ΔLogloss 均定义为 SISA 减 baseline；报告先保留标签级配对，再在模型×数据集单元内等权平均。Strict 的 152 行任务指标形成 76 个标签配对；expansion 的 142 行任务指标形成 71 个标签配对。Expansion baseline 另与仓库内 official benchmark 逐标签比较，以 `|ΔAUC| ≤ 0.01` 作为复现门槛。失败或被纠正配置替代的旧 job 不进入最终 run 映射。"},
+      {"id": "limitations", "type": "markdown", "body": "## 局限性与稳健性边界\n\n两组实验都只有一个 seed、一个 epoch，因此结果是受控点估计，不提供方差、置信区间或统计显著性。DIGAI Lab 迁移的 strict 记录使用 RTX 4090/L40S 配对，HPC3 expansion 使用 4 × H100 80GB；协议字段一致，但硬件与论文 H20 环境不同。完整矩阵用于覆盖总览，不能把两种来源视为完全同质的硬件实验。UltraHSTU 的三个 SISA recovery 关闭了外围 TorchDynamo 编译以绕过 H100 Triton 资源限制，模型、稀疏 mask、数据、batch、精度、seed 与 DDP 协议保持不变。"},
+      {"id": "next_steps", "type": "markdown", "body": "## 建议下一步\n\n1. 优先对 UltraHSTU–MerRec、HyFormer–MerRec 与 HyFormer–Taobao 做多 seed 复跑，验证最强收益和主要回退是否稳定。\n2. 将通信、分片、聚合和编译恢复策略拆成独立消融实验，结果放入 `experiments/ablations/`，不要覆盖当前 70-task 正式矩阵。\n3. 需要推理或继续训练的单元按新 checkpoint 软删除策略重跑，并同时核对 best 权重与 `archive/` 中间权重。\n4. 后续总报告继续从 `runs.csv`、标签级配对表和 baseline 审计表生成，保持任务映射与异常恢复可追溯。"},
+      {"id": "further_questions", "type": "markdown", "body": "## 后续研究问题\n\n- SISA 的正向收益主要来自通信机制本身，还是与模型容量、序列长度或数据集标签稀疏度交互？\n- HyFormer–Taobao 的回退是否跨 seed 稳定，具体由 `cart` 标签还是多任务耦合主导？\n- UltraHSTU 关闭外围编译后的吞吐与显存代价是多少，是否影响扩展到更长序列？\n- 保留所有 checkpoint 后，最佳验证 checkpoint 与最终测试 AUC 的排序是否稳定？"}
     ]
   },
   "snapshot": {
     "version": 1,
-    "generatedAt": "2026-08-25T11:35:00+08:00",
+    "generatedAt": "2026-08-25T12:12:37+08:00",
     "status": "ready",
     "datasets": {
       "headline": [
-        {"completed_tasks": 32, "average_auc_delta": 0.002115, "positive_units": 12, "migration_mib": 242}
+        {"completed_tasks": 70, "paired_labels": 147, "expansion_average_auc_delta_milli": 3.802, "baseline_max_abs_delta_milli": 9.366}
       ],
       "unit_deltas": [
         {"unit": "OneTrans · QK-Video", "model": "OneTrans", "dataset": "QK-Video", "delta_auc": 0.000437, "improved_labels": "3/4", "delta_logloss": -0.000193},
@@ -153,6 +213,34 @@
         {"unit": "Zenith · Taobao", "model": "Zenith", "dataset": "Taobao", "delta_auc": 0.003102, "improved_labels": "3/4", "delta_logloss": -0.000028},
         {"unit": "Zenith · MerRec", "model": "Zenith", "dataset": "MerRec", "delta_auc": 0.003184, "improved_labels": "3/5", "delta_logloss": -0.001337}
       ],
+      "expansion_unit_deltas": [
+        {"unit": "UltraHSTU · MerRec", "model": "UltraHSTU", "dataset": "MerRec", "labels": 5, "delta_auc": 0.012726, "improved_labels": "5/5", "delta_logloss": -0.002483, "max_abs_baseline_deviation": 0.007656},
+        {"unit": "HyFormer · MerRec", "model": "HyFormer", "dataset": "MerRec", "labels": 5, "delta_auc": 0.012394, "improved_labels": "5/5", "delta_logloss": -0.002619, "max_abs_baseline_deviation": 0.002550},
+        {"unit": "HiFormer · TencentGR", "model": "HiFormer", "dataset": "TencentGR", "labels": 2, "delta_auc": 0.011561, "improved_labels": "2/2", "delta_logloss": -0.004235, "max_abs_baseline_deviation": 0.006527},
+        {"unit": "HyFormer · TencentGR", "model": "HyFormer", "dataset": "TencentGR", "labels": 2, "delta_auc": 0.011234, "improved_labels": "2/2", "delta_logloss": -0.001612, "max_abs_baseline_deviation": 0.000931},
+        {"unit": "UltraHSTU · KuaiRand", "model": "UltraHSTU", "dataset": "KuaiRand", "labels": 6, "delta_auc": 0.011203, "improved_labels": "6/6", "delta_logloss": -0.014779, "max_abs_baseline_deviation": 0.009366},
+        {"unit": "RankMixer · TencentGR", "model": "RankMixer", "dataset": "TencentGR", "labels": 2, "delta_auc": 0.010262, "improved_labels": "2/2", "delta_logloss": -0.001743, "max_abs_baseline_deviation": 0.008817},
+        {"unit": "Zenith · TencentGR", "model": "Zenith", "dataset": "TencentGR", "labels": 2, "delta_auc": 0.009569, "improved_labels": "2/2", "delta_logloss": -0.002956, "max_abs_baseline_deviation": 0.004544},
+        {"unit": "HyFormer · KuaiRand", "model": "HyFormer", "dataset": "KuaiRand", "labels": 6, "delta_auc": 0.006667, "improved_labels": "6/6", "delta_logloss": -0.004735, "max_abs_baseline_deviation": 0.004422},
+        {"unit": "OneTrans · TencentGR", "model": "OneTrans", "dataset": "TencentGR", "labels": 2, "delta_auc": 0.005123, "improved_labels": "2/2", "delta_logloss": -0.000211, "max_abs_baseline_deviation": 0.001068},
+        {"unit": "UltraHSTU · Taobao", "model": "UltraHSTU", "dataset": "Taobao", "labels": 4, "delta_auc": 0.002648, "improved_labels": "4/4", "delta_logloss": 0.000090, "max_abs_baseline_deviation": 0.001573},
+        {"unit": "HyFormer · QK-Video", "model": "HyFormer", "dataset": "QK-Video", "labels": 4, "delta_auc": 0.001003, "improved_labels": "4/4", "delta_logloss": -0.000760, "max_abs_baseline_deviation": 0.000734},
+        {"unit": "UniMixer · Taobao", "model": "UniMixer", "dataset": "Taobao", "labels": 4, "delta_auc": 0.000510, "improved_labels": "2/4", "delta_logloss": -0.000060, "max_abs_baseline_deviation": 0.006543},
+        {"unit": "UniMixer · QK-Video", "model": "UniMixer", "dataset": "QK-Video", "labels": 4, "delta_auc": 0.000098, "improved_labels": "1/4", "delta_logloss": 0.000074, "max_abs_baseline_deviation": 0.000495},
+        {"unit": "UniMixer · KuaiRand", "model": "UniMixer", "dataset": "KuaiRand", "labels": 6, "delta_auc": -0.000164, "improved_labels": "3/6", "delta_logloss": 0.000071, "max_abs_baseline_deviation": 0.002281},
+        {"unit": "UniMixer · MerRec", "model": "UniMixer", "dataset": "MerRec", "labels": 5, "delta_auc": -0.000397, "improved_labels": "1/5", "delta_logloss": 0.000092, "max_abs_baseline_deviation": 0.006862},
+        {"unit": "UltraHSTU · QK-Video", "model": "UltraHSTU", "dataset": "QK-Video", "labels": 4, "delta_auc": -0.001167, "improved_labels": "0/4", "delta_logloss": 0.000151, "max_abs_baseline_deviation": 0.000286},
+        {"unit": "UniMixer · TencentGR", "model": "UniMixer", "dataset": "TencentGR", "labels": 2, "delta_auc": -0.001526, "improved_labels": "0/2", "delta_logloss": -0.000203, "max_abs_baseline_deviation": 0.006236},
+        {"unit": "UltraHSTU · TencentGR", "model": "UltraHSTU", "dataset": "TencentGR", "labels": 2, "delta_auc": -0.001676, "improved_labels": "0/2", "delta_logloss": 0.000326, "max_abs_baseline_deviation": 0.001973},
+        {"unit": "HyFormer · Taobao", "model": "HyFormer", "dataset": "Taobao", "labels": 4, "delta_auc": -0.015343, "improved_labels": "1/4", "delta_logloss": 0.000113, "max_abs_baseline_deviation": 0.001710}
+      ],
+      "combined_auc_matrix": [
+        {"dataset": "MerRec", "UltraHSTU": 12.726, "HiFormer": 1.194, "HyFormer": 12.394, "OneTrans": 9.145, "UniMixer": -0.397, "RankMixer": 7.506, "Zenith": 3.184, "_source_UltraHSTU": "hpc3", "_source_HiFormer": "digai", "_source_HyFormer": "hpc3", "_source_OneTrans": "digai", "_source_UniMixer": "hpc3", "_source_RankMixer": "digai", "_source_Zenith": "digai"},
+        {"dataset": "Taobao", "UltraHSTU": 2.648, "HiFormer": -25.167, "HyFormer": -15.343, "OneTrans": -3.796, "UniMixer": 0.510, "RankMixer": -0.596, "Zenith": 3.102, "_source_UltraHSTU": "hpc3", "_source_HiFormer": "digai", "_source_HyFormer": "hpc3", "_source_OneTrans": "digai", "_source_UniMixer": "hpc3", "_source_RankMixer": "digai", "_source_Zenith": "digai"},
+        {"dataset": "QK-Video", "UltraHSTU": -1.167, "HiFormer": -2.100, "HyFormer": 1.003, "OneTrans": 0.437, "UniMixer": 0.098, "RankMixer": 1.231, "Zenith": 0.736, "_source_UltraHSTU": "hpc3", "_source_HiFormer": "digai", "_source_HyFormer": "hpc3", "_source_OneTrans": "digai", "_source_UniMixer": "hpc3", "_source_RankMixer": "digai", "_source_Zenith": "digai"},
+        {"dataset": "KuaiRand", "UltraHSTU": 11.203, "HiFormer": 3.684, "HyFormer": 6.667, "OneTrans": 7.690, "UniMixer": -0.164, "RankMixer": 8.597, "Zenith": 6.733, "_source_UltraHSTU": "hpc3", "_source_HiFormer": "digai", "_source_HyFormer": "hpc3", "_source_OneTrans": "digai", "_source_UniMixer": "hpc3", "_source_RankMixer": "digai", "_source_Zenith": "digai"},
+        {"dataset": "TencentGR", "UltraHSTU": -1.676, "HiFormer": 11.561, "HyFormer": 11.234, "OneTrans": 5.123, "UniMixer": -1.526, "RankMixer": 10.262, "Zenith": 9.569, "_source_UltraHSTU": "hpc3", "_source_HiFormer": "hpc3", "_source_HyFormer": "hpc3", "_source_OneTrans": "hpc3", "_source_UniMixer": "hpc3", "_source_RankMixer": "hpc3", "_source_Zenith": "hpc3"}
+      ],
       "migration_inventory": [
         {"category": "最终 strict Slurm 日志", "file_count": 32, "total_bytes": 252589669, "notes": "最终 job/task 映射；排除 pilot 和被替代的 14810_10"},
         {"category": "Strict checkpoint 日志", "file_count": 32, "total_bytes": 347871, "notes": "训练、测试指标及 checkpoint 删除记录"},
@@ -162,13 +250,21 @@
     }
   },
   "sources": [
-    {"id": "strict_runs", "label": "32-task strict run audit", "path": "artifacts/sisa_native_strict/runs.csv"},
-    {"id": "strict_summary", "label": "Strict paired metric summary", "path": "artifacts/sisa_native_strict/summary.md"},
-    {"id": "strict_report", "label": "Complete strict experiment report", "path": "SISA_STRICT_EXPERIMENTS.md"},
-    {"id": "audit_snapshot", "label": "Migration file inventory audit", "path": "reports/unirank_strict_migration_20260825/audit_snapshot.csv"},
-    {"id": "migration_list", "label": "Exact migration file list", "path": "reports/unirank_strict_migration_20260825/migration_files.txt"},
-    {"id": "headline_sql", "label": "Headline metric query", "path": "reports/unirank_strict_migration_20260825/headline.sql"},
-    {"id": "unit_deltas_sql", "label": "Model-dataset delta query", "path": "reports/unirank_strict_migration_20260825/unit_deltas.sql"},
-    {"id": "migration_inventory_sql", "label": "Migration inventory query", "path": "reports/unirank_strict_migration_20260825/migration_inventory.sql"}
+    {"id": "strict_runs", "label": "32-task strict run audit", "path": "experiments/sisa_native_strict/results/runs.csv"},
+    {"id": "strict_summary", "label": "Strict paired metric summary", "path": "experiments/sisa_native_strict/results/summary.md"},
+    {"id": "strict_report", "label": "Complete strict experiment report", "path": "experiments/sisa_native_strict/report.md"},
+    {"id": "audit_snapshot", "label": "Migration file inventory audit", "path": "experiments/sisa_native_strict/migration/audit_snapshot.csv"},
+    {"id": "migration_list", "label": "Exact migration file list", "path": "experiments/sisa_native_strict/migration/migration_files.txt"},
+    {"id": "headline_sql", "label": "Strict headline metric query", "path": "experiments/sisa_native_strict/migration/headline.sql"},
+    {"id": "unit_deltas_sql", "label": "Strict model-dataset delta query", "path": "experiments/sisa_native_strict/migration/unit_deltas.sql"},
+    {"id": "migration_inventory_sql", "label": "Migration inventory query", "path": "experiments/sisa_native_strict/migration/migration_inventory.sql"},
+    {"id": "combined_headline_sql", "label": "Combined strict and expansion headline query", "path": "experiments/sisa_native_strict/migration/combined_headline.sql"},
+    {"id": "expansion_unit_summary_sql", "label": "Expansion unit summary query", "path": "experiments/sisa_native_strict/migration/expansion_unit_summary.sql"},
+    {"id": "combined_auc_matrix_sql", "label": "Combined DIGAI Lab strict and HPC3 expansion AUC matrix query", "path": "experiments/sisa_native_strict/migration/combined_auc_matrix.sql"},
+    {"id": "expansion_runs", "label": "38-task expansion run audit", "path": "experiments/sisa_expansion_acd/results/runs.csv"},
+    {"id": "expansion_paired", "label": "Expansion baseline/SISA paired metrics", "path": "experiments/sisa_expansion_acd/results/paired_summary.csv"},
+    {"id": "expansion_baseline_audit", "label": "Expansion UniRank baseline audit", "path": "experiments/sisa_expansion_acd/results/baseline_audit.csv"},
+    {"id": "expansion_unit_summary", "label": "Expansion model-dataset unit summary", "path": "experiments/sisa_expansion_acd/results/unit_summary.csv"},
+    {"id": "expansion_report", "label": "Complete 38-task expansion report", "path": "experiments/sisa_expansion_acd/report.md"}
   ]
 }

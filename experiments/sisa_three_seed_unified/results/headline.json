@@ -1,0 +1,36 @@
+{
+  "auc_labels_all_seeds_better_baseline": 39,
+  "auc_labels_mean_better_baseline": 54,
+  "baseline_auc_within_0_01_of_paper": 68,
+  "cell_count": 16,
+  "cell_macro_delta_auc_vs_baseline": 0.0064149256944444205,
+  "cell_macro_delta_auc_vs_paper": 0.0068165579861110895,
+  "cell_macro_delta_logloss_vs_baseline": -0.0015126253472222174,
+  "cell_macro_delta_logloss_vs_paper": -0.0004537493055555527,
+  "experiment_seeds": [
+    20262027,
+    20262028,
+    20262029
+  ],
+  "label_count": 68,
+  "largest_cell_auc_decline_vs_baseline": {
+    "dataset": "QK_Video_Action",
+    "delta_auc": -0.0023083333333333567,
+    "model": "HiFormer"
+  },
+  "largest_cell_auc_gain_vs_baseline": {
+    "dataset": "TencentGR_10M_Action",
+    "delta_auc": 0.016878999999999977,
+    "model": "HyFormer"
+  },
+  "logloss_labels_mean_better_baseline": 44,
+  "lower_logloss_cells_vs_baseline": 14,
+  "lower_logloss_cells_vs_paper": 12,
+  "max_cell_seed_range_auc": 0.014693500000000026,
+  "mean_abs_baseline_delta_auc_vs_paper": 0.001458323529411774,
+  "median_cell_seed_std_auc": 0.0024747899046754377,
+  "positive_auc_cells_vs_baseline": 15,
+  "positive_auc_cells_vs_paper": 15,
+  "ranking_tasks": 17,
+  "same_top_model_all_three_seeds": 8
+}

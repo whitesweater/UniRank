@@ -1,0 +1,2628 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "UniRank SISA 单种子复现实验：2×H100 完成审计与旧结果对比",
+    "description": "16 个 SISA 单种子任务的 2×H100 完成审计、与旧 seed/protocol 结果的探索性对比及可比性边界。",
+    "generatedAt": "2026-08-26T01:06:13+08:00",
+    "sources": [
+      {
+        "id": "new_runs",
+        "label": "本轮 16-task 运行审计",
+        "path": "experiments/sisa_single_seed20262028/results/runs.csv"
+      },
+      {
+        "id": "new_metrics",
+        "label": "本轮 68 个最终测试指标",
+        "path": "experiments/sisa_single_seed20262028/results/metrics.csv"
+      },
+      {
+        "id": "protocol_audit",
+        "label": "本轮协议、资源与样本覆盖审计",
+        "path": "experiments/sisa_single_seed20262028/results/protocol_audit.md",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_coverage",
+          "description": "读取由协议审计复核的样本覆盖快照；完成卡片使用同一审计来源。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_coverage"
+          ]
+        }
+      },
+      {
+        "id": "strict_runs",
+        "label": "旧 strict 运行审计",
+        "path": "experiments/sisa_native_strict/results/runs.csv"
+      },
+      {
+        "id": "strict_metrics",
+        "label": "旧 strict SISA 指标",
+        "path": "experiments/sisa_native_strict/results/metrics.csv"
+      },
+      {
+        "id": "expansion_runs",
+        "label": "旧 expansion 运行审计",
+        "path": "experiments/sisa_expansion_acd/results/runs.csv"
+      },
+      {
+        "id": "expansion_metrics",
+        "label": "旧 expansion SISA 指标",
+        "path": "experiments/sisa_expansion_acd/results/metrics.csv"
+      },
+      {
+        "id": "comparison_script",
+        "label": "旧新指标选择、对齐与聚合代码",
+        "path": "scripts/compare_sisa_single_seed_results.py"
+      },
+      {
+        "id": "artifact_builder",
+        "label": "报告快照构建代码",
+        "path": "experiments/sisa_single_seed20262028/comparison/report/build_artifact.py",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_protocol_comparison",
+          "description": "读取报告构建器依据旧新 run 审计整理的协议对照行。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_protocol_comparison"
+          ]
+        }
+      },
+      {
+        "id": "comparison_headline",
+        "label": "旧新对比摘要",
+        "path": "experiments/sisa_single_seed20262028/comparison/headline.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_headline",
+          "description": "读取经 68 个唯一标签键对齐后生成的 headline 指标。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_headline"
+          ]
+        }
+      },
+      {
+        "id": "label_deltas",
+        "label": "68 个标签级旧新差值",
+        "path": "experiments/sisa_single_seed20262028/comparison/label_deltas.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_label_deltas",
+          "description": "读取 68 个模型×数据集×标签的旧新 AUC 与 logloss 差值。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_label_deltas"
+          ]
+        }
+      },
+      {
+        "id": "unit_summary",
+        "label": "16 个模型×数据集单元汇总",
+        "path": "experiments/sisa_single_seed20262028/comparison/unit_summary.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_unit_deltas",
+          "description": "读取标签内等权后得到的 16 个模型×数据集单元差值。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_unit_deltas"
+          ]
+        }
+      },
+      {
+        "id": "model_summary",
+        "label": "模型维度汇总",
+        "path": "experiments/sisa_single_seed20262028/comparison/model_summary.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_model_summary",
+          "description": "读取按模型汇总的 cell-macro 与标签等权差值。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_model_summary"
+          ]
+        }
+      },
+      {
+        "id": "dataset_summary",
+        "label": "数据集维度汇总",
+        "path": "experiments/sisa_single_seed20262028/comparison/dataset_summary.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_dataset_summary",
+          "description": "读取按数据集汇总的 cell-macro 差值。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_dataset_summary"
+          ]
+        }
+      },
+      {
+        "id": "ranking_stability",
+        "label": "17 个数据集×标签任务的最优模型稳定性",
+        "path": "experiments/sisa_single_seed20262028/comparison/ranking_stability.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT * FROM report_ranking_stability",
+          "description": "读取旧新两轮每个数据集×标签任务的 AUC 第一名模型。",
+          "executed_at": "2026-08-26T01:06:13+08:00",
+          "tables_used": [
+            "report_ranking_stability"
+          ]
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "completed_tasks",
+        "description": "本轮 16 个模型×数据集任务均以首次尝试完成，且无 OOM、NCCL、NaN 或 traceback。",
+        "dataset": "headline",
+        "sourceId": "protocol_audit",
+        "metrics": [
+          {
+            "label": "完成任务",
+            "field": "completed_tasks",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "cell_macro_auc",
+        "description": "先在每个模型×数据集单元内对标签等权，再对 16 个单元等权；正值表示本轮 AUC 更高。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "Cell-macro 平均 ΔAUC（×10⁻³）",
+            "field": "cell_macro_delta_auc_milli",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "positive_cells",
+        "description": "16 个模型×数据集单元中，平均 AUC 高于旧结果的单元数。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "AUC 为正的 cells",
+            "field": "positive_auc_cells",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "cell_macro_logloss",
+        "description": "新结果减旧结果；logloss 越低越好，因此正值表示总体变差。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "Cell-macro 平均 ΔLogloss（×10⁻³）",
+            "field": "cell_macro_delta_logloss_milli",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "ranking_stability",
+        "description": "17 个数据集×标签任务中，旧新两轮 AUC 第一名模型相同的任务数。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "最优模型保持不变",
+            "field": "same_best_model_tasks",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "unit_auc_deltas",
+        "title": "16 个模型×数据集单元的平均 AUC 变化",
+        "subtitle": "本轮减旧结果；正值表示本轮更高，9/16 个单元为正",
+        "type": "horizontalBar",
+        "dataset": "unit_deltas",
+        "sourceId": "unit_summary",
+        "encodings": {
+          "x": {
+            "field": "unit",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "模型 × 数据集"
+          },
+          "y": {
+            "field": "delta_auc_milli",
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "平均 ΔAUC（×10⁻³）"
+          },
+          "tooltip": [
+            {
+              "field": "model",
+              "type": "nominal",
+              "label": "模型"
+            },
+            {
+              "field": "dataset",
+              "type": "nominal",
+              "label": "数据集"
+            },
+            {
+              "field": "delta_auc_milli",
+              "type": "quantitative",
+              "label": "平均 ΔAUC（×10⁻³）"
+            },
+            {
+              "field": "auc_improved",
+              "type": "nominal",
+              "label": "AUC 提升标签"
+            },
+            {
+              "field": "delta_logloss_milli",
+              "type": "quantitative",
+              "label": "平均 ΔLogloss（×10⁻³）"
+            }
+          ]
+        },
+        "xAxisTitle": "模型 × 数据集",
+        "yAxisTitle": "平均 ΔAUC（×10⁻³）",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 16
+      }
+    ],
+    "tables": [
+      {
+        "id": "unit_results",
+        "title": "16 个单元的旧新差值",
+        "subtitle": "每行先对该模型×数据集的全部标签等权；Δ 均为本轮减旧结果",
+        "dataset": "unit_deltas",
+        "sourceId": "unit_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "delta_auc_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "delta_auc_milli",
+            "label": "平均 ΔAUC（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "auc_improved",
+            "label": "AUC 提升标签",
+            "type": "text"
+          },
+          {
+            "field": "delta_logloss_milli",
+            "label": "平均 ΔLogloss（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "logloss_improved",
+            "label": "Logloss 改善标签",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "model_results",
+        "title": "按模型汇总",
+        "subtitle": "Cell-macro 对四个数据集等权；标签等权列对每个模型的 17 个标签等权",
+        "dataset": "model_summary",
+        "sourceId": "model_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "cell_macro_delta_auc_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "cell_macro_delta_auc_milli",
+            "label": "Cell-macro ΔAUC（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "positive_auc_cells",
+            "label": "正向 cells",
+            "type": "text"
+          },
+          {
+            "field": "label_weighted_delta_auc_milli",
+            "label": "标签等权 ΔAUC（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "cell_macro_delta_logloss_milli",
+            "label": "Cell-macro ΔLogloss（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "lower_logloss_cells",
+            "label": "较低 Logloss cells",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "dataset_results",
+        "title": "按数据集汇总",
+        "subtitle": "每个数据集覆盖四个模型；AUC 与 logloss 方向需分别解读",
+        "dataset": "dataset_summary",
+        "sourceId": "dataset_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "cell_macro_delta_auc_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "labels",
+            "label": "标签数",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "cell_macro_delta_auc_milli",
+            "label": "Cell-macro ΔAUC（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "positive_auc_cells",
+            "label": "正向 cells",
+            "type": "text"
+          },
+          {
+            "field": "cell_macro_delta_logloss_milli",
+            "label": "Cell-macro ΔLogloss（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "lower_logloss_cells",
+            "label": "较低 Logloss cells",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "largest_label_moves",
+        "title": "标签级 AUC 变化幅度最大的结果",
+        "subtitle": "按 |ΔAUC| 从大到小显示；完整 68 行均保留在数据快照中",
+        "dataset": "label_deltas",
+        "sourceId": "label_deltas",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "abs_delta_auc_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "label",
+            "label": "标签",
+            "type": "text"
+          },
+          {
+            "field": "delta_auc_milli",
+            "label": "ΔAUC（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "abs_delta_auc_milli",
+            "label": "|ΔAUC|（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_logloss_milli",
+            "label": "ΔLogloss（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "protocol_comparison",
+        "title": "旧结果与本轮 seed / 硬件对照",
+        "subtitle": "Seed bundle、每任务 GPU 数和硬件组成同时改变",
+        "dataset": "protocol_comparison",
+        "sourceId": "artifact_builder",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "base_seed",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "round",
+            "label": "轮次",
+            "type": "text"
+          },
+          {
+            "field": "base_seed",
+            "label": "Base seed",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "dataloader_seed",
+            "label": "Dataloader seed",
+            "type": "text"
+          },
+          {
+            "field": "sisa_parameter_seed",
+            "label": "SISA 参数 seed",
+            "type": "text"
+          },
+          {
+            "field": "gpus_per_task",
+            "label": "每任务 GPU",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "hardware",
+            "label": "硬件",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "batch_protocol_comparison",
+        "title": "旧结果与本轮 DDP / batch 对照",
+        "subtitle": "名义 global batch、epoch 与 accumulation 不变，但 world size 与每卡 batch 改变",
+        "dataset": "protocol_comparison",
+        "sourceId": "artifact_builder",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "base_seed",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "round",
+            "label": "轮次",
+            "type": "text"
+          },
+          {
+            "field": "base_seed",
+            "label": "Base seed",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "world_size",
+            "label": "World size",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "per_gpu_batch",
+            "label": "每卡 batch",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "global_batch",
+            "label": "Global batch",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "accumulation",
+            "label": "Accumulation",
+            "type": "number",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "coverage_audit",
+        "title": "旧新 blocked dataloader 样本覆盖对照",
+        "subtitle": "12/12 个 split 的分配行数相同，但 2×16384 协议处理的行数均更少",
+        "dataset": "coverage",
+        "sourceId": "protocol_audit",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "coverage_delta_pp",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "split",
+            "label": "Split",
+            "type": "text"
+          },
+          {
+            "field": "previous_coverage_percent",
+            "label": "旧覆盖率（%）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "new_coverage_percent",
+            "label": "本轮覆盖率（%）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "added_dropped_rows",
+            "label": "新增丢弃行数",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "coverage_delta_pp",
+            "label": "覆盖率 Δ（pp）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "ranking_table",
+        "title": "数据集×标签任务的最优模型稳定性",
+        "subtitle": "17 个任务中 11 个保持同一 AUC 第一名模型",
+        "dataset": "ranking_stability",
+        "sourceId": "ranking_stability",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "same_best_model",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "label",
+            "label": "标签",
+            "type": "text"
+          },
+          {
+            "field": "previous_best_model",
+            "label": "旧第一名",
+            "type": "text"
+          },
+          {
+            "field": "new_best_model",
+            "label": "本轮第一名",
+            "type": "text"
+          },
+          {
+            "field": "same_best_model",
+            "label": "是否一致",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# UniRank SISA 单种子复现实验：2×H100 完成审计与旧结果对比"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## 技术摘要\n\n本轮与旧 SISA 结果精确对齐 **68 个标签、16 个模型×数据集单元**。Cell-macro 平均 ΔAUC 为 **+0.001619**，其中 **9/16** 个单元为正；但 cell-macro 平均 Δlogloss 为 **+0.001001**，只有 **4/16** 个单元的 logloss 更低。AUC 的点估计略向上，而校准损失与标签胜率并不支持‘整体一致改善’这一表述。"
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "completed_tasks",
+          "cell_macro_auc",
+          "positive_cells",
+          "cell_macro_logloss",
+          "ranking_stability"
+        ]
+      },
+      {
+        "id": "execution_result",
+        "type": "markdown",
+        "sourceId": "protocol_audit",
+        "body": "## 16/16 个 2×H100 任务首次尝试完成\n\nSlurm array `548166` 从 2026-08-25 21:01:04 运行至 2026-08-26 00:48:19，墙钟 **03:47:15**。16 个任务全部为 `COMPLETED / 0:0`，没有重试，也没有触发 4 卡 OOM fallback；错误审计未发现 CUDA OOM、NCCL、NaN、traceback 或 killed process。峰值采样显存为 **71,847 MiB**，低于 H100 的 81,559 MiB 采样容量。"
+      },
+      {
+        "id": "key_finding_auc",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## AUC 均值小幅上移，但不是多数标签普遍提升\n\n标签等权平均 ΔAUC 为 **+0.000833**，但标签胜负为 **32 升 / 36 降**；中位数 ΔAUC 接近零（−0.000072）。**48/68** 个标签的变化落在 ±0.005 内，说明总体均值由少数较大正向变化拉高，不能只用平均值概括稳定性。"
+      },
+      {
+        "id": "unit_chart",
+        "type": "chart",
+        "chartId": "unit_auc_deltas"
+      },
+      {
+        "id": "unit_chart_interpretation",
+        "type": "markdown",
+        "sourceId": "unit_summary",
+        "body": "## 单元级变化集中在 TencentGR 与少数模型组合\n\n最大正向单元是 Zenith–TencentGR（+0.014694），其次是 HyFormer–TencentGR（+0.011973）；最大回退是 RankMixer–TencentGR（−0.007284）和 HyFormer–MerRec（−0.005258）。同一数据集内方向并不统一，说明这些点估计更像模型×数据集交互，而非新协议带来的统一增益。"
+      },
+      {
+        "id": "unit_table",
+        "type": "table",
+        "tableId": "unit_results"
+      },
+      {
+        "id": "key_finding_loss",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## Logloss 稳定性弱于 AUC\n\n标签等权平均 Δlogloss 为 **+0.000812**（正值更差），只有 **23/68** 个标签改善，45 个变差；同时 AUC 与 logloss 都改善的标签为 19 个，而两者都退化的标签为 32 个。因此结果解读应同时保留排序能力与校准损失，不能把 AUC 的正均值外推为综合质量提升。"
+      },
+      {
+        "id": "dataset_finding",
+        "type": "markdown",
+        "sourceId": "dataset_summary",
+        "body": "## 数据集层面存在明显分化\n\nTencentGR 的 cell-macro ΔAUC 最大（+0.005861），但平均 Δlogloss 同时变差 +0.002259；MerRec 的 ΔAUC 为 +0.002035。KuaiRand 与 QK-Video 的平均 ΔAUC 分别为 −0.001028 和 −0.000392。"
+      },
+      {
+        "id": "dataset_table",
+        "type": "table",
+        "tableId": "dataset_results"
+      },
+      {
+        "id": "model_finding",
+        "type": "markdown",
+        "sourceId": "model_summary",
+        "body": "## 模型结论依赖聚合权重\n\n按四个数据集等权，HiFormer 的平均 ΔAUC 为 +0.003345，Zenith 为 +0.002334，HyFormer 为 +0.001215，RankMixer 为 −0.000418。按 17 个标签等权时，HyFormer、RankMixer、Zenith 的符号与幅度会改变，因此正式引用必须注明采用 cell-macro 还是标签等权。"
+      },
+      {
+        "id": "model_table",
+        "type": "table",
+        "tableId": "model_results"
+      },
+      {
+        "id": "largest_moves_finding",
+        "type": "markdown",
+        "sourceId": "label_deltas",
+        "body": "## 极值说明均值受少数标签驱动\n\n最大 AUC 提升为 Zenith–TencentGR `is_conversion`，从 0.866268 升至 0.888088（Δ +0.021820）；最大回退为 HyFormer–MerRec `Offer`，从 0.745556 降至 0.731796（Δ −0.013760）。这两个极值都远大于标签级中位变化。"
+      },
+      {
+        "id": "largest_moves_table",
+        "type": "table",
+        "tableId": "largest_label_moves"
+      },
+      {
+        "id": "ranking_finding",
+        "type": "markdown",
+        "sourceId": "ranking_stability",
+        "body": "## 最优模型在 11/17 个数据集×标签任务上保持不变\n\n六个任务的 AUC 第一名发生变化，主要集中在 KuaiRand、MerRec 与 TencentGR；QK-Video 的四个标签第一名全部保持不变。排名稳定性提供了均值之外的另一个视角，但仍只有两轮点估计，不能据此估计模型排序概率。"
+      },
+      {
+        "id": "ranking_detail",
+        "type": "table",
+        "tableId": "ranking_table"
+      },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "sourceId": "comparison_script",
+        "body": "## 范围、数据与指标定义\n\n比较矩阵固定为 HiFormer、HyFormer、RankMixer、Zenith × QK-Video、KuaiRand、TencentGR、MerRec，共 16 个单元、17 个数据集×标签任务和 68 个模型×数据集×标签指标。`ΔAUC = 本轮 − 旧结果`，正值更好；`Δlogloss = 本轮 − 旧结果`，负值更好。标签等权对 68 行直接求均值；cell-macro 先在单元内对标签等权，再对 16 个单元等权。"
+      },
+      {
+        "id": "experimental_design",
+        "type": "markdown",
+        "sourceId": "comparison_script",
+        "body": "## 实验设计与旧结果选择\n\n旧结果不是 `benchmark/` baseline，而是两个 finalized SISA collector 的无重叠并集：`sisa_native_strict` 提供 9 cells / 45 labels，`sisa_expansion_acd` 提供 7 cells / 23 labels。旧新 68 个 `(model, dataset, label)` 键一一对齐，无重复或缺失。"
+      },
+      {
+        "id": "protocol_table",
+        "type": "table",
+        "tableId": "protocol_comparison"
+      },
+      {
+        "id": "batch_protocol_table",
+        "type": "table",
+        "tableId": "batch_protocol_comparison"
+      },
+      {
+        "id": "coverage_heading",
+        "type": "markdown",
+        "sourceId": "protocol_audit",
+        "body": "## 旧新测试指标并非基于完全相同的 drop-last 样本子集\n\n12/12 个 train/valid/test split 的分配前行数一致，但 2-rank、per-GPU batch 16384 改变了 blocked dataloader 的 `drop_last` 边界，使 12/12 个 split 的实际处理行数减少。最大覆盖率差异是 MerRec test：**99.654812% → 99.304161%（−0.350650 pp）**。因此旧新最终测试指标不只是训练轨迹不同，评价样本子集也不完全相同。"
+      },
+      {
+        "id": "coverage_table",
+        "type": "table",
+        "tableId": "coverage_audit"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "sourceId": "comparison_script",
+        "body": "## 汇总与验证方法\n\n比较脚本从三个最终 `metrics.csv` 中选择旧 SISA 子集，校验键唯一且完全相等，验证数值有限，再计算标签级差值、单元级均值、模型/数据集汇总和最优模型稳定性。任务完成性、GPU、seed、batch、world size、错误信号与最终指标由 run collector 和协议审计独立检查。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 局限性、不确定性与稳健性边界\n\n这不是纯 seed 实验：base seed、dataloader seed、SISA 参数 seed、world size、每卡 batch、硬件组成和 `drop_last` 样本边界同时改变；MerRec 还统一采用了回归验证过的低峰值 Adagrad 兼容路径。旧结果中 7 cells 使用 H100、7 cells 使用 L40S、2 cells 使用 RTX 4090，本轮 16 cells 全部使用 H100。两轮都只有一个点估计，没有方差、置信区间或统计显著性；因此本报告只能描述探索性重复性，不能把差值归因于随机种子或 2 卡协议。"
+      },
+      {
+        "id": "recommended_next_steps",
+        "type": "markdown",
+        "body": "## 建议下一步\n\n1. 将本轮结果作为 2×H100、batch 16384 协议的完成快照，不覆盖旧 4 卡结果。\n2. 后续同协议新增 seed 时，固定硬件、world size、每卡 batch、dataloader seed 生成规则与 optimizer 路径，再计算方差和置信区间。\n3. 优先复核变化最大的 Zenith–TencentGR、RankMixer–TencentGR 与 HyFormer–MerRec，以区分偶然波动和可重复的模型×数据集交互。\n4. 继续保留 2 卡为默认申请；仅对真实 OOM 任务切回 4 卡，并把 fallback 结果单独标记为不同协议。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 后续研究问题\n\n- 腾讯数据上 AUC 增益与 logloss 退化并存，是否来自分数尺度或概率校准变化？\n- Zenith–TencentGR 的大幅正向变化能否在相同 2 卡协议下复现？\n- HyFormer–MerRec `Offer` 与 RankMixer–TencentGR 的回退是 seed 敏感，还是更大单卡 batch 的交互？\n- 若增加相同协议的第三个点估计，模型排序稳定率和 cell-macro 方差会如何变化？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-26T01:06:13+08:00",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        {
+          "completed_tasks": 16,
+          "cell_count": 16,
+          "label_count": 68,
+          "cell_macro_delta_auc_milli": 1.619,
+          "positive_auc_cells": 9,
+          "cell_macro_delta_logloss_milli": 1.001,
+          "same_best_model_tasks": 11,
+          "ranking_tasks": 17
+        }
+      ],
+      "unit_deltas": [
+        {
+          "unit": "Zenith · TencentGR",
+          "model": "Zenith",
+          "dataset": "TencentGR",
+          "labels": 2,
+          "delta_auc_milli": 14.693,
+          "delta_logloss_milli": 1.159,
+          "auc_improved": "2/2",
+          "logloss_improved": "0/2",
+          "joint_improved": "0/2",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "HyFormer · TencentGR",
+          "model": "HyFormer",
+          "dataset": "TencentGR",
+          "labels": 2,
+          "delta_auc_milli": 11.973,
+          "delta_logloss_milli": -0.858,
+          "auc_improved": "2/2",
+          "logloss_improved": "1/2",
+          "joint_improved": "1/2",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "HiFormer · MerRec",
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "delta_auc_milli": 6.986,
+          "delta_logloss_milli": -0.87,
+          "auc_improved": "5/5",
+          "logloss_improved": "4/5",
+          "joint_improved": "4/5",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "RankMixer · MerRec",
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "delta_auc_milli": 6.108,
+          "delta_logloss_milli": 0.204,
+          "auc_improved": "5/5",
+          "logloss_improved": "4/5",
+          "joint_improved": "4/5",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "HiFormer · TencentGR",
+          "model": "HiFormer",
+          "dataset": "TencentGR",
+          "labels": 2,
+          "delta_auc_milli": 4.062,
+          "delta_logloss_milli": 2.341,
+          "auc_improved": "2/2",
+          "logloss_improved": "0/2",
+          "joint_improved": "0/2",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "HiFormer · KuaiRand",
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "delta_auc_milli": 2.505,
+          "delta_logloss_milli": -1.824,
+          "auc_improved": "4/6",
+          "logloss_improved": "3/6",
+          "joint_improved": "3/6",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "RankMixer · KuaiRand",
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "delta_auc_milli": 0.528,
+          "delta_logloss_milli": -0.197,
+          "auc_improved": "3/6",
+          "logloss_improved": "2/6",
+          "joint_improved": "2/6",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "Zenith · MerRec",
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "labels": 5,
+          "delta_auc_milli": 0.305,
+          "delta_logloss_milli": 0.351,
+          "auc_improved": "2/5",
+          "logloss_improved": "2/5",
+          "joint_improved": "2/5",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "HyFormer · QK-Video",
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "delta_auc_milli": 0.063,
+          "delta_logloss_milli": 0.373,
+          "auc_improved": "1/4",
+          "logloss_improved": "1/4",
+          "joint_improved": "1/4",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "HiFormer · QK-Video",
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "delta_auc_milli": -0.172,
+          "delta_logloss_milli": 0.489,
+          "auc_improved": "1/4",
+          "logloss_improved": "0/4",
+          "joint_improved": "0/4",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "Zenith · QK-Video",
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "delta_auc_milli": -0.435,
+          "delta_logloss_milli": 0.116,
+          "auc_improved": "1/4",
+          "logloss_improved": "2/4",
+          "joint_improved": "1/4",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "RankMixer · QK-Video",
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "delta_auc_milli": -1.023,
+          "delta_logloss_milli": 0.818,
+          "auc_improved": "1/4",
+          "logloss_improved": "0/4",
+          "joint_improved": "0/4",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "HyFormer · KuaiRand",
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "delta_auc_milli": -1.916,
+          "delta_logloss_milli": 2.175,
+          "auc_improved": "2/6",
+          "logloss_improved": "0/6",
+          "joint_improved": "0/6",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "Zenith · KuaiRand",
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "delta_auc_milli": -5.229,
+          "delta_logloss_milli": 3.904,
+          "auc_improved": "0/6",
+          "logloss_improved": "1/6",
+          "joint_improved": "0/6",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "unit": "HyFormer · MerRec",
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "delta_auc_milli": -5.258,
+          "delta_logloss_milli": 1.441,
+          "auc_improved": "1/5",
+          "logloss_improved": "3/5",
+          "joint_improved": "1/5",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "unit": "RankMixer · TencentGR",
+          "model": "RankMixer",
+          "dataset": "TencentGR",
+          "labels": 2,
+          "delta_auc_milli": -7.284,
+          "delta_logloss_milli": 6.394,
+          "auc_improved": "0/2",
+          "logloss_improved": "0/2",
+          "joint_improved": "0/2",
+          "previous_source": "sisa_expansion_acd"
+        }
+      ],
+      "model_summary": [
+        {
+          "model": "HiFormer",
+          "cells": 4,
+          "labels": 17,
+          "cell_macro_delta_auc_milli": 3.345,
+          "positive_auc_cells": "3/4",
+          "label_weighted_delta_auc_milli": 3.376,
+          "cell_macro_delta_logloss_milli": 0.034,
+          "lower_logloss_cells": "2/4"
+        },
+        {
+          "model": "HyFormer",
+          "cells": 4,
+          "labels": 17,
+          "cell_macro_delta_auc_milli": 1.215,
+          "positive_auc_cells": "2/4",
+          "label_weighted_delta_auc_milli": -0.8,
+          "cell_macro_delta_logloss_milli": 0.782,
+          "lower_logloss_cells": "1/4"
+        },
+        {
+          "model": "RankMixer",
+          "cells": 4,
+          "labels": 17,
+          "cell_macro_delta_auc_milli": -0.418,
+          "positive_auc_cells": "2/4",
+          "label_weighted_delta_auc_milli": 0.885,
+          "cell_macro_delta_logloss_milli": 1.805,
+          "lower_logloss_cells": "1/4"
+        },
+        {
+          "model": "Zenith",
+          "cells": 4,
+          "labels": 17,
+          "cell_macro_delta_auc_milli": 2.334,
+          "positive_auc_cells": "2/4",
+          "label_weighted_delta_auc_milli": -0.13,
+          "cell_macro_delta_logloss_milli": 1.383,
+          "lower_logloss_cells": "0/4"
+        }
+      ],
+      "dataset_summary": [
+        {
+          "dataset": "QK-Video",
+          "cells": 4,
+          "labels": 16,
+          "cell_macro_delta_auc_milli": -0.392,
+          "positive_auc_cells": "1/4",
+          "cell_macro_delta_logloss_milli": 0.449,
+          "lower_logloss_cells": "0/4"
+        },
+        {
+          "dataset": "KuaiRand",
+          "cells": 4,
+          "labels": 24,
+          "cell_macro_delta_auc_milli": -1.028,
+          "positive_auc_cells": "2/4",
+          "cell_macro_delta_logloss_milli": 1.014,
+          "lower_logloss_cells": "2/4"
+        },
+        {
+          "dataset": "TencentGR",
+          "cells": 4,
+          "labels": 8,
+          "cell_macro_delta_auc_milli": 5.861,
+          "positive_auc_cells": "3/4",
+          "cell_macro_delta_logloss_milli": 2.259,
+          "lower_logloss_cells": "1/4"
+        },
+        {
+          "dataset": "MerRec",
+          "cells": 4,
+          "labels": 20,
+          "cell_macro_delta_auc_milli": 2.035,
+          "positive_auc_cells": "3/4",
+          "cell_macro_delta_logloss_milli": 0.281,
+          "lower_logloss_cells": "1/4"
+        }
+      ],
+      "label_deltas": [
+        {
+          "model": "Zenith",
+          "dataset": "TencentGR",
+          "label": "is_conversion",
+          "previous_auc": 0.866268,
+          "new_auc": 0.888088,
+          "delta_auc_milli": 21.82,
+          "abs_delta_auc_milli": 21.82,
+          "previous_logloss": 0.018845,
+          "new_logloss": 0.021089,
+          "delta_logloss_milli": 2.244,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "previous_auc": 0.838274,
+          "new_auc": 0.853851,
+          "delta_auc_milli": 15.577,
+          "abs_delta_auc_milli": 15.577,
+          "previous_logloss": 0.003033,
+          "new_logloss": 0.002998,
+          "delta_logloss_milli": -0.035,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "previous_auc": 0.83307,
+          "new_auc": 0.846914,
+          "delta_auc_milli": 13.844,
+          "abs_delta_auc_milli": 13.844,
+          "previous_logloss": 0.008159,
+          "new_logloss": 0.006044,
+          "delta_logloss_milli": -2.115,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "previous_auc": 0.745556,
+          "new_auc": 0.731796,
+          "delta_auc_milli": -13.76,
+          "abs_delta_auc_milli": 13.76,
+          "previous_logloss": 0.021918,
+          "new_logloss": 0.021512,
+          "delta_logloss_milli": -0.406,
+          "auc_direction": "declined",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TencentGR",
+          "label": "is_click",
+          "previous_auc": 0.838596,
+          "new_auc": 0.85179,
+          "delta_auc_milli": 13.194,
+          "abs_delta_auc_milli": 13.194,
+          "previous_logloss": 0.049836,
+          "new_logloss": 0.047312,
+          "delta_logloss_milli": -2.524,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TencentGR",
+          "label": "is_conversion",
+          "previous_auc": 0.886346,
+          "new_auc": 0.897097,
+          "delta_auc_milli": 10.751,
+          "abs_delta_auc_milli": 10.751,
+          "previous_logloss": 0.016894,
+          "new_logloss": 0.017701,
+          "delta_logloss_milli": 0.807,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "previous_auc": 0.83858,
+          "new_auc": 0.847677,
+          "delta_auc_milli": 9.097,
+          "abs_delta_auc_milli": 9.097,
+          "previous_logloss": 0.004693,
+          "new_logloss": 0.00464,
+          "delta_logloss_milli": -0.053,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "previous_auc": 0.766747,
+          "new_auc": 0.775302,
+          "delta_auc_milli": 8.555,
+          "abs_delta_auc_milli": 8.555,
+          "previous_logloss": 0.022682,
+          "new_logloss": 0.021595,
+          "delta_logloss_milli": -1.087,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "TencentGR",
+          "label": "is_conversion",
+          "previous_auc": 0.882659,
+          "new_auc": 0.874172,
+          "delta_auc_milli": -8.487,
+          "abs_delta_auc_milli": 8.487,
+          "previous_logloss": 0.022015,
+          "new_logloss": 0.026967,
+          "delta_logloss_milli": 4.952,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "previous_auc": 0.75901,
+          "new_auc": 0.750689,
+          "delta_auc_milli": -8.321,
+          "abs_delta_auc_milli": 8.321,
+          "previous_logloss": 0.322929,
+          "new_logloss": 0.331361,
+          "delta_logloss_milli": 8.432,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "previous_auc": 0.761824,
+          "new_auc": 0.769679,
+          "delta_auc_milli": 7.855,
+          "abs_delta_auc_milli": 7.855,
+          "previous_logloss": 0.023437,
+          "new_logloss": 0.021428,
+          "delta_logloss_milli": -2.009,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "TencentGR",
+          "label": "is_click",
+          "previous_auc": 0.831846,
+          "new_auc": 0.839413,
+          "delta_auc_milli": 7.567,
+          "abs_delta_auc_milli": 7.567,
+          "previous_logloss": 0.054814,
+          "new_logloss": 0.054888,
+          "delta_logloss_milli": 0.074,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "previous_auc": 0.810109,
+          "new_auc": 0.802694,
+          "delta_auc_milli": -7.415,
+          "abs_delta_auc_milli": 7.415,
+          "previous_logloss": 0.445069,
+          "new_logloss": 0.457331,
+          "delta_logloss_milli": 12.262,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "previous_auc": 0.838614,
+          "new_auc": 0.845414,
+          "delta_auc_milli": 6.8,
+          "abs_delta_auc_milli": 6.8,
+          "previous_logloss": 0.011611,
+          "new_logloss": 0.009625,
+          "delta_logloss_milli": -1.986,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "previous_auc": 0.853138,
+          "new_auc": 0.846522,
+          "delta_auc_milli": -6.616,
+          "abs_delta_auc_milli": 6.616,
+          "previous_logloss": 0.010215,
+          "new_logloss": 0.011335,
+          "delta_logloss_milli": 1.12,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "previous_auc": 0.860017,
+          "new_auc": 0.866626,
+          "delta_auc_milli": 6.609,
+          "abs_delta_auc_milli": 6.609,
+          "previous_logloss": 0.005742,
+          "new_logloss": 0.005663,
+          "delta_logloss_milli": -0.079,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "previous_auc": 0.803433,
+          "new_auc": 0.809744,
+          "delta_auc_milli": 6.311,
+          "abs_delta_auc_milli": 6.311,
+          "previous_logloss": 0.461809,
+          "new_logloss": 0.448796,
+          "delta_logloss_milli": -13.013,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "TencentGR",
+          "label": "is_click",
+          "previous_auc": 0.827592,
+          "new_auc": 0.821511,
+          "delta_auc_milli": -6.081,
+          "abs_delta_auc_milli": 6.081,
+          "previous_logloss": 0.05899,
+          "new_logloss": 0.066827,
+          "delta_logloss_milli": 7.837,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "previous_auc": 0.792759,
+          "new_auc": 0.787549,
+          "delta_auc_milli": -5.21,
+          "abs_delta_auc_milli": 5.21,
+          "previous_logloss": 0.527799,
+          "new_logloss": 0.536917,
+          "delta_logloss_milli": 9.118,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "previous_auc": 0.813548,
+          "new_auc": 0.818659,
+          "delta_auc_milli": 5.111,
+          "abs_delta_auc_milli": 5.111,
+          "previous_logloss": 0.052204,
+          "new_logloss": 0.051844,
+          "delta_logloss_milli": -0.36,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "previous_auc": 0.890208,
+          "new_auc": 0.885366,
+          "delta_auc_milli": -4.842,
+          "abs_delta_auc_milli": 4.842,
+          "previous_logloss": 0.006251,
+          "new_logloss": 0.006155,
+          "delta_logloss_milli": -0.096,
+          "auc_direction": "declined",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "previous_auc": 0.901214,
+          "new_auc": 0.896437,
+          "delta_auc_milli": -4.777,
+          "abs_delta_auc_milli": 4.777,
+          "previous_logloss": 0.014609,
+          "new_logloss": 0.014745,
+          "delta_logloss_milli": 0.136,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "previous_auc": 0.810788,
+          "new_auc": 0.806051,
+          "delta_auc_milli": -4.737,
+          "abs_delta_auc_milli": 4.737,
+          "previous_logloss": 0.44358,
+          "new_logloss": 0.446141,
+          "delta_logloss_milli": 2.561,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "TencentGR",
+          "label": "is_click",
+          "previous_auc": 0.846706,
+          "new_auc": 0.851302,
+          "delta_auc_milli": 4.596,
+          "abs_delta_auc_milli": 4.596,
+          "previous_logloss": 0.040661,
+          "new_logloss": 0.04341,
+          "delta_logloss_milli": 2.749,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "previous_auc": 0.930466,
+          "new_auc": 0.925888,
+          "delta_auc_milli": -4.578,
+          "abs_delta_auc_milli": 4.578,
+          "previous_logloss": 0.053227,
+          "new_logloss": 0.055153,
+          "delta_logloss_milli": 1.926,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "previous_auc": 0.873619,
+          "new_auc": 0.869064,
+          "delta_auc_milli": -4.555,
+          "abs_delta_auc_milli": 4.555,
+          "previous_logloss": 0.005596,
+          "new_logloss": 0.005672,
+          "delta_logloss_milli": 0.076,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "previous_auc": 0.872832,
+          "new_auc": 0.868786,
+          "delta_auc_milli": -4.046,
+          "abs_delta_auc_milli": 4.046,
+          "previous_logloss": 0.005598,
+          "new_logloss": 0.005668,
+          "delta_logloss_milli": 0.07,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "previous_auc": 0.813835,
+          "new_auc": 0.810189,
+          "delta_auc_milli": -3.646,
+          "abs_delta_auc_milli": 3.646,
+          "previous_logloss": 0.052342,
+          "new_logloss": 0.052477,
+          "delta_logloss_milli": 0.135,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "previous_auc": 0.881796,
+          "new_auc": 0.88538,
+          "delta_auc_milli": 3.584,
+          "abs_delta_auc_milli": 3.584,
+          "previous_logloss": 0.00618,
+          "new_logloss": 0.006254,
+          "delta_logloss_milli": 0.074,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "TencentGR",
+          "label": "is_conversion",
+          "previous_auc": 0.886886,
+          "new_auc": 0.890414,
+          "delta_auc_milli": 3.528,
+          "abs_delta_auc_milli": 3.528,
+          "previous_logloss": 0.015246,
+          "new_logloss": 0.01718,
+          "delta_logloss_milli": 1.934,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "previous_auc": 0.925869,
+          "new_auc": 0.929336,
+          "delta_auc_milli": 3.467,
+          "abs_delta_auc_milli": 3.467,
+          "previous_logloss": 0.054294,
+          "new_logloss": 0.053535,
+          "delta_logloss_milli": -0.759,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "previous_auc": 0.81089,
+          "new_auc": 0.814349,
+          "delta_auc_milli": 3.459,
+          "abs_delta_auc_milli": 3.459,
+          "previous_logloss": 0.05233,
+          "new_logloss": 0.052303,
+          "delta_logloss_milli": -0.027,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "previous_auc": 0.895209,
+          "new_auc": 0.898652,
+          "delta_auc_milli": 3.443,
+          "abs_delta_auc_milli": 3.443,
+          "previous_logloss": 0.014806,
+          "new_logloss": 0.014701,
+          "delta_logloss_milli": -0.105,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "previous_auc": 0.880471,
+          "new_auc": 0.87721,
+          "delta_auc_milli": -3.261,
+          "abs_delta_auc_milli": 3.261,
+          "previous_logloss": 0.006296,
+          "new_logloss": 0.006344,
+          "delta_logloss_milli": 0.048,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "previous_auc": 0.795817,
+          "new_auc": 0.793189,
+          "delta_auc_milli": -2.628,
+          "abs_delta_auc_milli": 2.628,
+          "previous_logloss": 0.525387,
+          "new_logloss": 0.532893,
+          "delta_logloss_milli": 7.506,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "previous_auc": 0.945435,
+          "new_auc": 0.943098,
+          "delta_auc_milli": -2.337,
+          "abs_delta_auc_milli": 2.337,
+          "previous_logloss": 0.036966,
+          "new_logloss": 0.038666,
+          "delta_logloss_milli": 1.7,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "previous_auc": 0.929971,
+          "new_auc": 0.927964,
+          "delta_auc_milli": -2.007,
+          "abs_delta_auc_milli": 2.007,
+          "previous_logloss": 0.005404,
+          "new_logloss": 0.005594,
+          "delta_logloss_milli": 0.19,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "previous_auc": 0.814763,
+          "new_auc": 0.81658,
+          "delta_auc_milli": 1.817,
+          "abs_delta_auc_milli": 1.817,
+          "previous_logloss": 0.053028,
+          "new_logloss": 0.05211,
+          "delta_logloss_milli": -0.918,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "previous_auc": 0.732952,
+          "new_auc": 0.734759,
+          "delta_auc_milli": 1.807,
+          "abs_delta_auc_milli": 1.807,
+          "previous_logloss": 0.02141,
+          "new_logloss": 0.021394,
+          "delta_logloss_milli": -0.016,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "previous_auc": 0.911898,
+          "new_auc": 0.913611,
+          "delta_auc_milli": 1.713,
+          "abs_delta_auc_milli": 1.713,
+          "previous_logloss": 0.005131,
+          "new_logloss": 0.005121,
+          "delta_logloss_milli": -0.01,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "previous_auc": 0.891848,
+          "new_auc": 0.890161,
+          "delta_auc_milli": -1.687,
+          "abs_delta_auc_milli": 1.687,
+          "previous_logloss": 0.014913,
+          "new_logloss": 0.014956,
+          "delta_logloss_milli": 0.043,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "previous_auc": 0.886716,
+          "new_auc": 0.885166,
+          "delta_auc_milli": -1.55,
+          "abs_delta_auc_milli": 1.55,
+          "previous_logloss": 0.006261,
+          "new_logloss": 0.006285,
+          "delta_logloss_milli": 0.024,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "previous_auc": 0.856995,
+          "new_auc": 0.855579,
+          "delta_auc_milli": -1.416,
+          "abs_delta_auc_milli": 1.416,
+          "previous_logloss": 0.005343,
+          "new_logloss": 0.004954,
+          "delta_logloss_milli": -0.389,
+          "auc_direction": "declined",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "previous_auc": 0.81142,
+          "new_auc": 0.812814,
+          "delta_auc_milli": 1.394,
+          "abs_delta_auc_milli": 1.394,
+          "previous_logloss": 0.44283,
+          "new_logloss": 0.44141,
+          "delta_logloss_milli": -1.42,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Like",
+          "previous_auc": 0.759388,
+          "new_auc": 0.758067,
+          "delta_auc_milli": -1.321,
+          "abs_delta_auc_milli": 1.321,
+          "previous_logloss": 0.323222,
+          "new_logloss": 0.324592,
+          "delta_logloss_milli": 1.37,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "previous_auc": 0.764396,
+          "new_auc": 0.765716,
+          "delta_auc_milli": 1.32,
+          "abs_delta_auc_milli": 1.32,
+          "previous_logloss": 0.3216,
+          "new_logloss": 0.323721,
+          "delta_logloss_milli": 2.121,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "previous_auc": 0.797238,
+          "new_auc": 0.795981,
+          "delta_auc_milli": -1.257,
+          "abs_delta_auc_milli": 1.257,
+          "previous_logloss": 0.521549,
+          "new_logloss": 0.524404,
+          "delta_logloss_milli": 2.855,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "previous_auc": 0.932526,
+          "new_auc": 0.931291,
+          "delta_auc_milli": -1.235,
+          "abs_delta_auc_milli": 1.235,
+          "previous_logloss": 0.25365,
+          "new_logloss": 0.255325,
+          "delta_logloss_milli": 1.675,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "share",
+          "previous_auc": 0.936504,
+          "new_auc": 0.935292,
+          "delta_auc_milli": -1.212,
+          "abs_delta_auc_milli": 1.212,
+          "previous_logloss": 0.005265,
+          "new_logloss": 0.005326,
+          "delta_logloss_milli": 0.061,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "previous_auc": 0.891853,
+          "new_auc": 0.893,
+          "delta_auc_milli": 1.147,
+          "abs_delta_auc_milli": 1.147,
+          "previous_logloss": 0.014859,
+          "new_logloss": 0.015244,
+          "delta_logloss_milli": 0.385,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "previous_auc": 0.911848,
+          "new_auc": 0.912944,
+          "delta_auc_milli": 1.096,
+          "abs_delta_auc_milli": 1.096,
+          "previous_logloss": 0.005163,
+          "new_logloss": 0.005261,
+          "delta_logloss_milli": 0.098,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "previous_auc": 0.852104,
+          "new_auc": 0.851195,
+          "delta_auc_milli": -0.909,
+          "abs_delta_auc_milli": 0.909,
+          "previous_logloss": 0.00688,
+          "new_logloss": 0.008151,
+          "delta_logloss_milli": 1.271,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "previous_auc": 0.93234,
+          "new_auc": 0.933234,
+          "delta_auc_milli": 0.894,
+          "abs_delta_auc_milli": 0.894,
+          "previous_logloss": 0.005366,
+          "new_logloss": 0.005447,
+          "delta_logloss_milli": 0.081,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "previous_auc": 0.855258,
+          "new_auc": 0.856109,
+          "delta_auc_milli": 0.851,
+          "abs_delta_auc_milli": 0.851,
+          "previous_logloss": 0.003653,
+          "new_logloss": 0.003084,
+          "delta_logloss_milli": -0.569,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "previous_auc": 0.9333,
+          "new_auc": 0.932455,
+          "delta_auc_milli": -0.845,
+          "abs_delta_auc_milli": 0.845,
+          "previous_logloss": 0.252233,
+          "new_logloss": 0.253516,
+          "delta_logloss_milli": 1.283,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "previous_auc": 0.931195,
+          "new_auc": 0.930531,
+          "delta_auc_milli": -0.664,
+          "abs_delta_auc_milli": 0.664,
+          "previous_logloss": 0.005327,
+          "new_logloss": 0.005428,
+          "delta_logloss_milli": 0.101,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "previous_auc": 0.759983,
+          "new_auc": 0.760581,
+          "delta_auc_milli": 0.598,
+          "abs_delta_auc_milli": 0.598,
+          "previous_logloss": 0.322562,
+          "new_logloss": 0.323712,
+          "delta_logloss_milli": 1.15,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "previous_auc": 0.86945,
+          "new_auc": 0.868933,
+          "delta_auc_milli": -0.517,
+          "abs_delta_auc_milli": 0.517,
+          "previous_logloss": 0.005692,
+          "new_logloss": 0.005698,
+          "delta_logloss_milli": 0.006,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "previous_auc": 0.934587,
+          "new_auc": 0.934075,
+          "delta_auc_milli": -0.512,
+          "abs_delta_auc_milli": 0.512,
+          "previous_logloss": 0.250224,
+          "new_logloss": 0.250842,
+          "delta_logloss_milli": 0.618,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "click",
+          "previous_auc": 0.93471,
+          "new_auc": 0.934288,
+          "delta_auc_milli": -0.422,
+          "abs_delta_auc_milli": 0.422,
+          "previous_logloss": 0.249782,
+          "new_logloss": 0.25045,
+          "delta_logloss_milli": 0.668,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "previous_auc": 0.913924,
+          "new_auc": 0.913586,
+          "delta_auc_milli": -0.338,
+          "abs_delta_auc_milli": 0.338,
+          "previous_logloss": 0.005111,
+          "new_logloss": 0.005112,
+          "delta_logloss_milli": 0.001,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "previous_auc": 0.925135,
+          "new_auc": 0.925453,
+          "delta_auc_milli": 0.318,
+          "abs_delta_auc_milli": 0.318,
+          "previous_logloss": 0.054406,
+          "new_logloss": 0.056911,
+          "delta_logloss_milli": 2.505,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "previous_auc": 0.947302,
+          "new_auc": 0.947015,
+          "delta_auc_milli": -0.287,
+          "abs_delta_auc_milli": 0.287,
+          "previous_logloss": 0.036658,
+          "new_logloss": 0.037439,
+          "delta_logloss_milli": 0.781,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_expansion_acd"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "previous_auc": 0.794759,
+          "new_auc": 0.794903,
+          "delta_auc_milli": 0.144,
+          "abs_delta_auc_milli": 0.144,
+          "previous_logloss": 0.525008,
+          "new_logloss": 0.525134,
+          "delta_logloss_milli": 0.126,
+          "auc_direction": "improved",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "previous_auc": 0.923107,
+          "new_auc": 0.922992,
+          "delta_auc_milli": -0.115,
+          "abs_delta_auc_milli": 0.115,
+          "previous_logloss": 0.004978,
+          "new_logloss": 0.004942,
+          "delta_logloss_milli": -0.036,
+          "auc_direction": "declined",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "previous_auc": 0.927324,
+          "new_auc": 0.927295,
+          "delta_auc_milli": -0.029,
+          "abs_delta_auc_milli": 0.029,
+          "previous_logloss": 0.053812,
+          "new_logloss": 0.053911,
+          "delta_logloss_milli": 0.099,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "like",
+          "previous_auc": 0.948299,
+          "new_auc": 0.94831,
+          "delta_auc_milli": 0.011,
+          "abs_delta_auc_milli": 0.011,
+          "previous_logloss": 0.037061,
+          "new_logloss": 0.036833,
+          "delta_logloss_milli": -0.228,
+          "auc_direction": "improved",
+          "logloss_direction": "improved",
+          "previous_source": "sisa_native_strict"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "previous_auc": 0.945462,
+          "new_auc": 0.945454,
+          "delta_auc_milli": -0.008,
+          "abs_delta_auc_milli": 0.008,
+          "previous_logloss": 0.037298,
+          "new_logloss": 0.037497,
+          "delta_logloss_milli": 0.199,
+          "auc_direction": "declined",
+          "logloss_direction": "declined",
+          "previous_source": "sisa_native_strict"
+        }
+      ],
+      "ranking_stability": [
+        {
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "previous_best_model": "HiFormer",
+          "previous_best_auc": 0.797238,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.795981,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.901214,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.898652,
+          "same_best_model": "False"
+        },
+        {
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.890208,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.88538,
+          "same_best_model": "False"
+        },
+        {
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.873619,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.869064,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.930466,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.929336,
+          "same_best_model": "False"
+        },
+        {
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "previous_best_model": "RankMixer",
+          "previous_best_auc": 0.81142,
+          "new_best_model": "RankMixer",
+          "new_best_auc": 0.812814,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "MerRec",
+          "label": "Cart",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.814763,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.818659,
+          "same_best_model": "False"
+        },
+        {
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "previous_best_model": "HyFormer",
+          "previous_best_auc": 0.856995,
+          "new_best_model": "HyFormer",
+          "new_best_auc": 0.855579,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "MerRec",
+          "label": "Like",
+          "previous_best_model": "HiFormer",
+          "previous_best_auc": 0.764396,
+          "new_best_model": "HiFormer",
+          "new_best_auc": 0.765716,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "MerRec",
+          "label": "Offer",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.766747,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.775302,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "previous_best_model": "HyFormer",
+          "previous_best_auc": 0.855258,
+          "new_best_model": "HyFormer",
+          "new_best_auc": 0.856109,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "QK-Video",
+          "label": "click",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.93471,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.934288,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "QK-Video",
+          "label": "follow",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.923107,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.922992,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "QK-Video",
+          "label": "like",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.948299,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.94831,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "QK-Video",
+          "label": "share",
+          "previous_best_model": "Zenith",
+          "previous_best_auc": 0.936504,
+          "new_best_model": "Zenith",
+          "new_best_auc": 0.935292,
+          "same_best_model": "True"
+        },
+        {
+          "dataset": "TencentGR",
+          "label": "is_click",
+          "previous_best_model": "HiFormer",
+          "previous_best_auc": 0.846706,
+          "new_best_model": "HyFormer",
+          "new_best_auc": 0.85179,
+          "same_best_model": "False"
+        },
+        {
+          "dataset": "TencentGR",
+          "label": "is_conversion",
+          "previous_best_model": "HiFormer",
+          "previous_best_auc": 0.886886,
+          "new_best_model": "HyFormer",
+          "new_best_auc": 0.897097,
+          "same_best_model": "False"
+        }
+      ],
+      "protocol_comparison": [
+        {
+          "round": "旧结果（seed 20262027）",
+          "cells": 16,
+          "base_seed": 20262027,
+          "dataloader_seed": "2026（归档代码默认值）",
+          "sisa_parameter_seed": "20260821（归档代码默认值）",
+          "gpus_per_task": 4,
+          "hardware": "7 cells H100；7 cells L40S；2 cells RTX 4090",
+          "world_size": 4,
+          "per_gpu_batch": 8192,
+          "global_batch": 32768,
+          "accumulation": 1,
+          "epochs": 1
+        },
+        {
+          "round": "本轮（seed 20262028）",
+          "cells": 16,
+          "base_seed": 20262028,
+          "dataloader_seed": "2027（日志显式记录）",
+          "sisa_parameter_seed": "20260822（日志显式记录）",
+          "gpus_per_task": 2,
+          "hardware": "16 cells 均为 H100 80GB",
+          "world_size": 2,
+          "per_gpu_batch": 16384,
+          "global_batch": 32768,
+          "accumulation": 1,
+          "epochs": 1
+        }
+      ],
+      "coverage": [
+        {
+          "dataset": "MerRec",
+          "split": "train",
+          "assigned_rows": 144108235,
+          "previous_processed": 144072704,
+          "previous_coverage_percent": 99.975344,
+          "new_processed": 144048128,
+          "new_coverage_percent": 99.95829,
+          "added_dropped_rows": 24576,
+          "coverage_delta_pp": -0.017054
+        },
+        {
+          "dataset": "MerRec",
+          "split": "valid",
+          "assigned_rows": 16515570,
+          "previous_processed": 16482304,
+          "previous_coverage_percent": 99.798578,
+          "new_processed": 16449536,
+          "new_coverage_percent": 99.600171,
+          "added_dropped_rows": 32768,
+          "coverage_delta_pp": -0.198407
+        },
+        {
+          "dataset": "MerRec",
+          "split": "test",
+          "assigned_rows": 11681154,
+          "previous_processed": 11640832,
+          "previous_coverage_percent": 99.654812,
+          "new_processed": 11599872,
+          "new_coverage_percent": 99.304161,
+          "added_dropped_rows": 40960,
+          "coverage_delta_pp": -0.35065
+        },
+        {
+          "dataset": "KuaiRand",
+          "split": "train",
+          "assigned_rows": 256110233,
+          "previous_processed": 255959040,
+          "previous_coverage_percent": 99.940966,
+          "new_processed": 255836160,
+          "new_coverage_percent": 99.892986,
+          "added_dropped_rows": 122880,
+          "coverage_delta_pp": -0.047979
+        },
+        {
+          "dataset": "KuaiRand",
+          "split": "valid",
+          "assigned_rows": 34334869,
+          "previous_processed": 34308096,
+          "previous_coverage_percent": 99.922024,
+          "new_processed": 34258944,
+          "new_coverage_percent": 99.778869,
+          "added_dropped_rows": 49152,
+          "coverage_delta_pp": -0.143155
+        },
+        {
+          "dataset": "KuaiRand",
+          "split": "test",
+          "assigned_rows": 33019342,
+          "previous_processed": 32980992,
+          "previous_coverage_percent": 99.883856,
+          "new_processed": 32964608,
+          "new_coverage_percent": 99.834237,
+          "added_dropped_rows": 16384,
+          "coverage_delta_pp": -0.049619
+        },
+        {
+          "dataset": "QK-Video",
+          "split": "train",
+          "assigned_rows": 394647318,
+          "previous_processed": 394526720,
+          "previous_coverage_percent": 99.969442,
+          "new_processed": 394428416,
+          "new_coverage_percent": 99.944532,
+          "added_dropped_rows": 98304,
+          "coverage_delta_pp": -0.024909
+        },
+        {
+          "dataset": "QK-Video",
+          "split": "valid",
+          "assigned_rows": 50079027,
+          "previous_processed": 50053120,
+          "previous_coverage_percent": 99.948268,
+          "new_processed": 50036736,
+          "new_coverage_percent": 99.915551,
+          "added_dropped_rows": 16384,
+          "coverage_delta_pp": -0.032716
+        },
+        {
+          "dataset": "QK-Video",
+          "split": "test",
+          "assigned_rows": 48579958,
+          "previous_processed": 48562176,
+          "previous_coverage_percent": 99.963396,
+          "new_processed": 48529408,
+          "new_coverage_percent": 99.895945,
+          "added_dropped_rows": 32768,
+          "coverage_delta_pp": -0.067452
+        },
+        {
+          "dataset": "TencentGR",
+          "split": "train",
+          "assigned_rows": 586117494,
+          "previous_processed": 586047488,
+          "previous_coverage_percent": 99.988056,
+          "new_processed": 585957376,
+          "new_coverage_percent": 99.972682,
+          "added_dropped_rows": 90112,
+          "coverage_delta_pp": -0.015374
+        },
+        {
+          "dataset": "TencentGR",
+          "split": "valid",
+          "assigned_rows": 17846140,
+          "previous_processed": 17809408,
+          "previous_coverage_percent": 99.794174,
+          "new_processed": 17793024,
+          "new_coverage_percent": 99.702367,
+          "added_dropped_rows": 16384,
+          "coverage_delta_pp": -0.091807
+        },
+        {
+          "dataset": "TencentGR",
+          "split": "test",
+          "assigned_rows": 153243512,
+          "previous_processed": 153206784,
+          "previous_coverage_percent": 99.976033,
+          "new_processed": 153157632,
+          "new_coverage_percent": 99.943958,
+          "added_dropped_rows": 49152,
+          "coverage_delta_pp": -0.032074
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "new_runs",
+      "label": "本轮 16-task 运行审计",
+      "path": "experiments/sisa_single_seed20262028/results/runs.csv"
+    },
+    {
+      "id": "new_metrics",
+      "label": "本轮 68 个最终测试指标",
+      "path": "experiments/sisa_single_seed20262028/results/metrics.csv"
+    },
+    {
+      "id": "protocol_audit",
+      "label": "本轮协议、资源与样本覆盖审计",
+      "path": "experiments/sisa_single_seed20262028/results/protocol_audit.md",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_coverage",
+        "description": "读取由协议审计复核的样本覆盖快照；完成卡片使用同一审计来源。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_coverage"
+        ]
+      }
+    },
+    {
+      "id": "strict_runs",
+      "label": "旧 strict 运行审计",
+      "path": "experiments/sisa_native_strict/results/runs.csv"
+    },
+    {
+      "id": "strict_metrics",
+      "label": "旧 strict SISA 指标",
+      "path": "experiments/sisa_native_strict/results/metrics.csv"
+    },
+    {
+      "id": "expansion_runs",
+      "label": "旧 expansion 运行审计",
+      "path": "experiments/sisa_expansion_acd/results/runs.csv"
+    },
+    {
+      "id": "expansion_metrics",
+      "label": "旧 expansion SISA 指标",
+      "path": "experiments/sisa_expansion_acd/results/metrics.csv"
+    },
+    {
+      "id": "comparison_script",
+      "label": "旧新指标选择、对齐与聚合代码",
+      "path": "scripts/compare_sisa_single_seed_results.py"
+    },
+    {
+      "id": "artifact_builder",
+      "label": "报告快照构建代码",
+      "path": "experiments/sisa_single_seed20262028/comparison/report/build_artifact.py",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_protocol_comparison",
+        "description": "读取报告构建器依据旧新 run 审计整理的协议对照行。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_protocol_comparison"
+        ]
+      }
+    },
+    {
+      "id": "comparison_headline",
+      "label": "旧新对比摘要",
+      "path": "experiments/sisa_single_seed20262028/comparison/headline.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_headline",
+        "description": "读取经 68 个唯一标签键对齐后生成的 headline 指标。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_headline"
+        ]
+      }
+    },
+    {
+      "id": "label_deltas",
+      "label": "68 个标签级旧新差值",
+      "path": "experiments/sisa_single_seed20262028/comparison/label_deltas.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_label_deltas",
+        "description": "读取 68 个模型×数据集×标签的旧新 AUC 与 logloss 差值。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_label_deltas"
+        ]
+      }
+    },
+    {
+      "id": "unit_summary",
+      "label": "16 个模型×数据集单元汇总",
+      "path": "experiments/sisa_single_seed20262028/comparison/unit_summary.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_unit_deltas",
+        "description": "读取标签内等权后得到的 16 个模型×数据集单元差值。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_unit_deltas"
+        ]
+      }
+    },
+    {
+      "id": "model_summary",
+      "label": "模型维度汇总",
+      "path": "experiments/sisa_single_seed20262028/comparison/model_summary.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_model_summary",
+        "description": "读取按模型汇总的 cell-macro 与标签等权差值。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_model_summary"
+        ]
+      }
+    },
+    {
+      "id": "dataset_summary",
+      "label": "数据集维度汇总",
+      "path": "experiments/sisa_single_seed20262028/comparison/dataset_summary.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_dataset_summary",
+        "description": "读取按数据集汇总的 cell-macro 差值。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_dataset_summary"
+        ]
+      }
+    },
+    {
+      "id": "ranking_stability",
+      "label": "17 个数据集×标签任务的最优模型稳定性",
+      "path": "experiments/sisa_single_seed20262028/comparison/ranking_stability.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT * FROM report_ranking_stability",
+        "description": "读取旧新两轮每个数据集×标签任务的 AUC 第一名模型。",
+        "executed_at": "2026-08-26T01:06:13+08:00",
+        "tables_used": [
+          "report_ranking_stability"
+        ]
+      }
+    }
+  ]
+}

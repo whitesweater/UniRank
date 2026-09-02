@@ -1,0 +1,3537 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "UniRank SISA 三-seed 统一对比报告",
+    "description": "论文表值、本地 baseline 与 SISA experiment seeds 20262027/20262028/20262029 的统一技术汇报。",
+    "generatedAt": "2026-08-27T17:09:43+08:00",
+    "sources": [
+      {
+        "id": "paper_table",
+        "label": "UniRank 论文 Table 2 的 68 个匹配指标",
+        "path": "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/sources/paper_table.csv')",
+          "description": "UniRank comprehensive benchmark table, sequence length 100",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/sources/paper_table.csv"
+          ],
+          "filters": [
+            "models = HiFormer, HyFormer, RankMixer, Zenith",
+            "datasets = four report datasets"
+          ],
+          "metric_definitions": [
+            "AUC higher is better",
+            "binary logloss lower is better"
+          ],
+          "url": "https://arxiv.org/abs/2607.19987"
+        }
+      },
+      {
+        "id": "comparison_headline",
+        "label": "论文、baseline 与三-seed SISA 汇总",
+        "path": "experiments/sisa_three_seed_unified/results/headline.json",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT *, 3 AS sisa_seed_count, 1000 * cell_macro_delta_auc_vs_baseline AS delta_auc_vs_baseline_milli, positive_auc_cells_vs_baseline, 1000 * cell_macro_delta_auc_vs_paper AS delta_auc_vs_paper_milli, 1000 * cell_macro_delta_logloss_vs_baseline AS delta_logloss_vs_baseline_milli, auc_labels_all_seeds_better_baseline, same_top_model_all_three_seeds, ranking_tasks FROM read_json_auto('experiments/sisa_three_seed_unified/results/headline.json')",
+          "description": "论文、baseline 与三-seed SISA 汇总",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+            "experiments/sisa_native_strict/results/metrics.csv",
+            "experiments/sisa_expansion_acd/results/metrics.csv",
+            "experiments/sisa_single_seed20262028/results/metrics.csv",
+            "experiments/sisa_single_seed20262029/results/metrics.csv"
+          ],
+          "filters": [],
+          "metric_definitions": [
+            "cell-macro = equal-weight mean over labels within each cell, then equal-weight mean over 16 cells",
+            "three-seed SISA mean = arithmetic mean of experiment seeds 20262027, 20262028, and 20262029",
+            "AUC delta = SISA three-seed mean minus comparator",
+            "logloss delta = SISA three-seed mean minus comparator; negative is better"
+          ]
+        }
+      },
+      {
+        "id": "cell_summary",
+        "label": "16 个模型×数据集单元的统一比较",
+        "path": "experiments/sisa_three_seed_unified/results/cell_summary.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/cell_summary.csv', header = true)",
+          "description": "16 个模型×数据集单元的统一比较",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+            "experiments/sisa_native_strict/results/metrics.csv",
+            "experiments/sisa_expansion_acd/results/metrics.csv",
+            "experiments/sisa_single_seed20262028/results/metrics.csv",
+            "experiments/sisa_single_seed20262029/results/metrics.csv"
+          ],
+          "filters": [],
+          "metric_definitions": [
+            "paper and baseline values are label means within one model-dataset cell",
+            "SISA seed standard deviation is the sample standard deviation of three cell-level seed means"
+          ]
+        }
+      },
+      {
+        "id": "label_comparison",
+        "label": "68 个标签的论文/baseline/三-seed 明细",
+        "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/label_comparison.csv', header = true)",
+          "description": "68 个标签的论文/baseline/三-seed 明细",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+            "experiments/sisa_native_strict/results/metrics.csv",
+            "experiments/sisa_expansion_acd/results/metrics.csv",
+            "experiments/sisa_single_seed20262028/results/metrics.csv",
+            "experiments/sisa_single_seed20262029/results/metrics.csv"
+          ],
+          "filters": [],
+          "metric_definitions": []
+        }
+      },
+      {
+        "id": "model_summary",
+        "label": "按模型的 cell-macro 汇总",
+        "path": "experiments/sisa_three_seed_unified/results/model_summary.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/model_summary.csv', header = true)",
+          "description": "按模型的 cell-macro 汇总",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/cell_summary.csv"
+          ],
+          "filters": [],
+          "metric_definitions": []
+        }
+      },
+      {
+        "id": "dataset_summary",
+        "label": "按数据集的 cell-macro 汇总",
+        "path": "experiments/sisa_three_seed_unified/results/dataset_summary.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/dataset_summary.csv', header = true)",
+          "description": "按数据集的 cell-macro 汇总",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/cell_summary.csv"
+          ],
+          "filters": [],
+          "metric_definitions": []
+        }
+      },
+      {
+        "id": "protocols",
+        "label": "论文、baseline 与三次 SISA 的协议边界",
+        "path": "experiments/sisa_three_seed_unified/results/protocols.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/protocols.csv', header = true)",
+          "description": "论文、baseline 与三次 SISA 的协议边界",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/protocols.csv"
+          ],
+          "filters": [],
+          "metric_definitions": [
+            "experiment seed counts a complete SISA training round",
+            "dataloader and SISA parameter seeds are internal RNG streams, not additional experiment seeds"
+          ]
+        }
+      },
+      {
+        "id": "comparison_code",
+        "label": "三-seed 对齐、聚合与校验代码",
+        "path": "scripts/compare_sisa_three_seed_results.py",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT 'scripts/compare_sisa_three_seed_results.py' AS source_file",
+          "description": "三-seed 对齐、聚合与校验代码",
+          "tables_used": [
+            "scripts/compare_sisa_three_seed_results.py"
+          ],
+          "filters": [],
+          "metric_definitions": []
+        }
+      },
+      {
+        "id": "report_builder",
+        "label": "统一报告快照构建代码",
+        "path": "scripts/build_sisa_three_seed_report.py",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT 'scripts/build_sisa_three_seed_report.py' AS source_file",
+          "description": "统一报告快照构建代码",
+          "tables_used": [
+            "scripts/build_sisa_three_seed_report.py"
+          ],
+          "filters": [],
+          "metric_definitions": []
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "seed_count",
+        "description": "三次完整 SISA 实验轮次；不含内部 dataloader/SISA 参数随机流。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "SISA experiment seeds",
+            "field": "sisa_seed_count",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "auc_vs_baseline",
+        "description": "三-seed SISA cell-macro AUC 减本地复现 baseline。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "ΔAUC vs baseline（×10⁻³）",
+            "field": "delta_auc_vs_baseline_milli",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "positive_cells",
+        "description": "SISA 三-seed mean AUC 高于本地 baseline 的模型×数据集单元数。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "AUC 正向 cells",
+            "field": "positive_auc_cells_vs_baseline",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "auc_vs_paper",
+        "description": "三-seed SISA cell-macro AUC 减论文四位小数表值。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "ΔAUC vs paper（×10⁻³）",
+            "field": "delta_auc_vs_paper_milli",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "logloss_vs_baseline",
+        "description": "三-seed SISA cell-macro logloss 减 baseline；负值更好。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "ΔLogloss vs baseline（×10⁻³）",
+            "field": "delta_logloss_vs_baseline_milli",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "robust_labels",
+        "description": "三个 SISA seed 的 AUC 都高于 baseline 的标签数。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "三轮均胜 baseline 的标签",
+            "field": "auc_labels_all_seeds_better_baseline",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "ranking_stability",
+        "description": "三次 SISA 中 AUC 第一名模型完全一致的 dataset×label 任务数。",
+        "dataset": "headline",
+        "sourceId": "comparison_headline",
+        "metrics": [
+          {
+            "label": "三轮第一名一致",
+            "field": "same_top_model_all_three_seeds",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "cell_auc_vs_baseline",
+        "title": "16 个单元的 SISA 三-seed mean AUC 相对 baseline 差值",
+        "subtitle": "每个单元先对标签等权；单位为 10⁻³，正值表示 SISA 更高",
+        "type": "horizontalBar",
+        "intent": "comparison",
+        "question": "哪些模型×数据集单元稳定地贡献了 SISA 相对 baseline 的 AUC 变化？",
+        "rationale": "16 个长标签且包含正负差值，排序横向条形图最适合比较方向和幅度。",
+        "dataset": "cell_comparison",
+        "sourceId": "cell_summary",
+        "palette": {
+          "kind": "diverging",
+          "midpoint": 0
+        },
+        "labels": {
+          "values": "auto"
+        },
+        "encodings": {
+          "x": {
+            "field": "unit",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "模型 × 数据集"
+          },
+          "y": {
+            "field": "delta_auc_vs_baseline_milli",
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "ΔAUC（×10⁻³）"
+          },
+          "tooltip": [
+            {
+              "field": "paper_auc",
+              "type": "quantitative",
+              "label": "论文 AUC"
+            },
+            {
+              "field": "baseline_auc",
+              "type": "quantitative",
+              "label": "Baseline AUC"
+            },
+            {
+              "field": "sisa_three_seed_auc",
+              "type": "quantitative",
+              "label": "SISA 三-seed mean AUC"
+            },
+            {
+              "field": "sisa_seed_std_auc_milli",
+              "type": "quantitative",
+              "label": "Seed sample SD（×10⁻³）"
+            }
+          ]
+        },
+        "xAxisTitle": "模型 × 数据集",
+        "yAxisTitle": "ΔAUC（×10⁻³）",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 16
+      },
+      {
+        "id": "paper_delta_vs_seed_range",
+        "title": "单元级论文 AUC 差值与三-seed 波动范围",
+        "subtitle": "16 个模型×数据集单元；横轴为 SISA mean−paper，纵轴为三 seed 最大值−最小值，均为 10⁻³",
+        "type": "scatter",
+        "intent": "relationship",
+        "question": "相对论文的 AUC 提升是否集中在三-seed 波动较大的单元？",
+        "rationale": "16 个同粒度观测足以检查增益幅度与 seed 波动范围的关系，并保留单元身份。",
+        "dataset": "cell_comparison",
+        "sourceId": "cell_summary",
+        "palette": {
+          "kind": "categorical",
+          "name": "dataset"
+        },
+        "legend": {
+          "position": "bottom",
+          "title": "数据集"
+        },
+        "encodings": {
+          "x": {
+            "field": "delta_auc_vs_paper_milli",
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "ΔAUC vs paper（×10⁻³）"
+          },
+          "y": {
+            "field": "sisa_seed_range_auc_milli",
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "三-seed AUC range（×10⁻³）"
+          },
+          "color": {
+            "field": "dataset",
+            "type": "nominal",
+            "label": "数据集"
+          },
+          "tooltip": [
+            {
+              "field": "unit",
+              "type": "nominal",
+              "label": "单元"
+            },
+            {
+              "field": "delta_auc_vs_paper_milli",
+              "type": "quantitative",
+              "label": "ΔAUC vs paper（×10⁻³）"
+            },
+            {
+              "field": "sisa_seed_range_auc_milli",
+              "type": "quantitative",
+              "label": "Seed range（×10⁻³）"
+            },
+            {
+              "field": "delta_auc_vs_baseline_milli",
+              "type": "quantitative",
+              "label": "ΔAUC vs baseline（×10⁻³）"
+            }
+          ]
+        },
+        "xAxisTitle": "ΔAUC vs paper（×10⁻³）",
+        "yAxisTitle": "三-seed AUC range（×10⁻³）",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 16
+      }
+    ],
+    "tables": [
+      {
+        "id": "auc_matrix_table",
+        "title": "三-seed mean AUC 二维矩阵",
+        "subtitle": "行是数据集、列是模型；每格为三-seed mean AUC，箭头后为相对 local baseline 的原始尺度 ΔAUC",
+        "dataset": "auc_matrix",
+        "sourceId": "cell_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "dataset",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "HiFormer",
+            "label": "HiFormer",
+            "type": "text"
+          },
+          {
+            "field": "HyFormer",
+            "label": "HyFormer",
+            "type": "text"
+          },
+          {
+            "field": "RankMixer",
+            "label": "RankMixer",
+            "type": "text"
+          },
+          {
+            "field": "Zenith",
+            "label": "Zenith",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "three_seed_long_table",
+        "title": "每个模型×数据集的三-seed AUC 明细",
+        "subtitle": "先按模型分组；每个模型内固定依次为 QK-Video、KuaiRand、TAAC-25 / TencentGR、MerRec",
+        "dataset": "three_seed_long",
+        "sourceId": "cell_summary",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "model",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "sisa_20262027_auc",
+            "label": "20262027",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262028_auc",
+            "label": "20262028",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262029_auc",
+            "label": "20262029",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_three_seed_auc",
+            "label": "Mean",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_seed_std_auc_milli",
+            "label": "SD（×10⁻³）",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "baseline_auc",
+            "label": "Baseline",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_auc_vs_baseline_milli",
+            "label": "Δ（×10⁻³）",
+            "type": "text",
+            "align": "right",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "cell_auc_table",
+        "title": "论文、baseline 与三次 SISA 的 16-cell AUC 对照",
+        "subtitle": "每行对该模型×数据集的全部标签等权；SD 为三个 experiment seed 的样本标准差",
+        "dataset": "cell_comparison",
+        "sourceId": "cell_summary",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "delta_auc_vs_baseline_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "paper_auc",
+            "label": "论文 AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "baseline_auc",
+            "label": "Baseline AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262027_auc",
+            "label": "SISA 20262027",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262028_auc",
+            "label": "SISA 20262028",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262029_auc",
+            "label": "SISA 20262029",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_three_seed_auc",
+            "label": "SISA 3-seed mean",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_seed_std_auc_milli",
+            "label": "Seed SD（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_auc_vs_baseline_milli",
+            "label": "Δ vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "delta_auc_vs_paper_milli",
+            "label": "Δ vs paper（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "cell_logloss_table",
+        "title": "论文、baseline 与三次 SISA 的 16-cell logloss 对照",
+        "subtitle": "每行对标签等权；Δ 为 SISA 三-seed mean 减比较项，负值更低",
+        "dataset": "cell_comparison",
+        "sourceId": "cell_summary",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "delta_logloss_vs_baseline_milli",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "paper_logloss",
+            "label": "论文 Logloss",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "baseline_logloss",
+            "label": "Baseline Logloss",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262027_logloss",
+            "label": "SISA 20262027",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262028_logloss",
+            "label": "SISA 20262028",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_20262029_logloss",
+            "label": "SISA 20262029",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_three_seed_logloss",
+            "label": "SISA 3-seed mean",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_logloss_vs_baseline_milli",
+            "label": "Δ vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "delta_logloss_vs_paper_milli",
+            "label": "Δ vs paper（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "model_table",
+        "title": "按模型的 cell-macro 汇总",
+        "subtitle": "每个模型的四个数据集等权",
+        "dataset": "model_summary",
+        "sourceId": "model_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "delta_auc_vs_baseline_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "paper_auc",
+            "label": "论文 AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "baseline_auc",
+            "label": "Baseline AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_three_seed_auc",
+            "label": "SISA 3-seed mean",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_auc_vs_baseline_milli",
+            "label": "ΔAUC vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "positive_auc_cells_vs_baseline",
+            "label": "正向 cells",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "median_seed_std_auc_milli",
+            "label": "Median seed SD（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_logloss_vs_baseline_milli",
+            "label": "ΔLogloss vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "dataset_table",
+        "title": "按数据集的 cell-macro 汇总",
+        "subtitle": "每个数据集的四个模型等权",
+        "dataset": "dataset_summary",
+        "sourceId": "dataset_summary",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "delta_auc_vs_baseline_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "paper_auc",
+            "label": "论文 AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "baseline_auc",
+            "label": "Baseline AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_three_seed_auc",
+            "label": "SISA 3-seed mean",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_auc_vs_baseline_milli",
+            "label": "ΔAUC vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "positive_auc_cells_vs_baseline",
+            "label": "正向 cells",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "median_seed_std_auc_milli",
+            "label": "Median seed SD（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_logloss_vs_baseline_milli",
+            "label": "ΔLogloss vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          }
+        ]
+      },
+      {
+        "id": "label_table",
+        "title": "68 个标签的完整 AUC 审计明细",
+        "subtitle": "按 |SISA 三-seed mean−baseline| 降序；完整结果保留在报告快照中",
+        "dataset": "label_comparison",
+        "sourceId": "label_comparison",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "abs_delta_auc_vs_baseline_milli",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "label",
+            "label": "标签",
+            "type": "text"
+          },
+          {
+            "field": "paper_auc",
+            "label": "论文 AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "baseline_auc",
+            "label": "Baseline AUC",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_three_seed_auc",
+            "label": "SISA 3-seed mean",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "sisa_seed_std_auc_milli",
+            "label": "Seed SD（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_auc_vs_baseline_milli",
+            "label": "Δ vs baseline（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "abs_delta_auc_vs_baseline_milli",
+            "label": "|Δ vs baseline|（×10⁻³）",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_auc_vs_paper_milli",
+            "label": "Δ vs paper（×10⁻³）",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "all_seeds_beat_baseline",
+            "label": "三轮均胜 baseline",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "protocol_table",
+        "title": "论文、baseline 与三次 SISA 的口径和协议",
+        "subtitle": "只有 seed 20262028 与 20262029 是完全同协议的两轮 SISA",
+        "dataset": "protocols",
+        "sourceId": "protocols",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "series",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "series",
+            "label": "系列",
+            "type": "text"
+          },
+          {
+            "field": "experiment_seed",
+            "label": "Experiment seed",
+            "type": "text"
+          },
+          {
+            "field": "internal_rng_seeds",
+            "label": "内部 RNG seed",
+            "type": "text"
+          },
+          {
+            "field": "gpu_protocol",
+            "label": "GPU / 协议",
+            "type": "text"
+          },
+          {
+            "field": "per_gpu_batch",
+            "label": "每卡 batch",
+            "type": "text"
+          },
+          {
+            "field": "global_batch",
+            "label": "Global batch",
+            "type": "text"
+          },
+          {
+            "field": "comparability",
+            "label": "可比性",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# UniRank SISA 三-seed 统一对比报告"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## 技术摘要\n\n统一口径覆盖 **4 个模型 × 4 个数据集、16 个 cells、68 个标签**。SISA 的三个 experiment seed 是 **20262027、20262028、20262029**；内部 dataloader seed 和 SISA parameter seed 不计作额外实验轮次。三-seed SISA 相对本地 baseline 的 cell-macro ΔAUC 为 **+0.006415**，相对论文表值为 **+0.006817**；AUC 正向 cells 为 **15/16**，cell-macro Δlogloss 为 **-0.001513**（负值更好）。由于第一轮与后两轮协议不同，三点均值、样本标准差和范围只作描述性结果。"
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "seed_count",
+          "auc_vs_baseline",
+          "positive_cells",
+          "auc_vs_paper",
+          "logloss_vs_baseline",
+          "robust_labels",
+          "ranking_stability"
+        ]
+      },
+      {
+        "id": "key_findings",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## SISA 的平均 AUC 优势覆盖 15/16 个单元，但跨 seed 排名并不完全固定\n\n三-seed mean AUC 在 **54/68** 个标签上高于 baseline，其中 **39/68** 个标签是三轮全部高于 baseline。17 个 dataset×label 任务中只有 **8/17** 个任务的 AUC 第一名模型三轮一致。因此统一均值适合总结整体方向，但不应替代逐 cell 和逐标签查看。"
+      },
+      {
+        "id": "auc_matrix_finding",
+        "type": "markdown",
+        "sourceId": "cell_summary",
+        "body": "## 二维矩阵让模型×数据集的升降方向一眼可见\n\n每格第一个数是三个 experiment seed 的 mean AUC；箭头后的第二个数是该均值减 local baseline 的原始尺度 ΔAUC。**↑** 表示高于 baseline，**↓** 表示低于 baseline；矩阵只汇报 AUC，避免把 logloss 的相反优劣方向混进同一格。"
+      },
+      {
+        "id": "auc_matrix_table_block",
+        "type": "table",
+        "tableId": "auc_matrix_table"
+      },
+      {
+        "id": "three_seed_long_finding",
+        "type": "markdown",
+        "sourceId": "cell_summary",
+        "body": "## 三个 seed 的逐 cell 明细用于检查均值来自哪里\n\n长表先把同一模型的四个数据集聚在一起；每组固定按 QK-Video、KuaiRand、TAAC-25 / TencentGR、MerRec 排列。数值列依次给出 seed 20262027、20262028、20262029、三-seed mean、sample SD、local baseline 和最终差值。这里的 SD 仍是描述性统计，因为第一轮和后两轮的 GPU/每卡 batch 协议不同。"
+      },
+      {
+        "id": "three_seed_long_table_block",
+        "type": "table",
+        "tableId": "three_seed_long_table"
+      },
+      {
+        "id": "baseline_chart_block",
+        "type": "chart",
+        "chartId": "cell_auc_vs_baseline"
+      },
+      {
+        "id": "baseline_chart_interpretation",
+        "type": "markdown",
+        "sourceId": "cell_summary",
+        "body": "## 单元差值显示增益集中在特定模型×数据集组合\n\n相对 baseline 的最大 cell AUC 增益来自 **HyFormer–TAAC-25 / TencentGR** （Δ +0.016879），唯一负向单元是 **HiFormer–QK-Video** （Δ -0.002308）。横条比较方向和幅度；下表保留论文、baseline 与三个 seed 的精确均值。"
+      },
+      {
+        "id": "cell_auc_table_block",
+        "type": "table",
+        "tableId": "cell_auc_table"
+      },
+      {
+        "id": "paper_comparison",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## 论文对照的四位小数精度足以做方向比较，不支持过细归因\n\n本地 baseline 与论文 AUC 的标签级平均绝对差为 **0.001458**，**68/68** 个标签在 ±0.01 内。论文值来自 Table 2 的四位小数发布值；scatter 将 SISA 相对论文的 cell 差值与三-seed range 放在同一粒度比较。"
+      },
+      {
+        "id": "paper_scatter_block",
+        "type": "chart",
+        "chartId": "paper_delta_vs_seed_range"
+      },
+      {
+        "id": "paper_scatter_interpretation",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## 增益幅度与 seed 波动需要同时观察\n\n16 个 cells 的 seed sample SD 中位数为 **0.002475**，最大 seed range 为 **0.014694**。右上方单元同时具备较高论文增益与较大 seed 波动，不能仅凭三点均值断言稳定改进。"
+      },
+      {
+        "id": "model_finding",
+        "type": "markdown",
+        "sourceId": "model_summary",
+        "body": "## 模型汇总对四个数据集等权\n\nCell-macro 避免 KuaiRand 的六个标签比 TencentGR 的两个标签自动获得更高权重；模型表同时保留论文、baseline、SISA 均值与 seed 波动。"
+      },
+      {
+        "id": "model_table_block",
+        "type": "table",
+        "tableId": "model_table"
+      },
+      {
+        "id": "dataset_finding",
+        "type": "markdown",
+        "sourceId": "dataset_summary",
+        "body": "## 数据集汇总对四个模型等权\n\n该切面用于查看跨模型是否呈现共同方向；它不替代逐标签结果，尤其不能掩盖低基率标签的 logloss 差异。"
+      },
+      {
+        "id": "dataset_table_block",
+        "type": "table",
+        "tableId": "dataset_table"
+      },
+      {
+        "id": "logloss_finding",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## Logloss 整体下降，但需要按标签基率分别解释\n\n三-seed SISA 相对 baseline 的 cell-macro Δlogloss 为 **-0.001513**，**14/16** 个 cells 更低。由于不同标签的 logloss 尺度受正例率影响，报告不额外绘制跨标签绝对 logloss 图，而以 16-cell 精确表展示。"
+      },
+      {
+        "id": "logloss_table_block",
+        "type": "table",
+        "tableId": "cell_logloss_table"
+      },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "sourceId": "comparison_headline",
+        "body": "## 范围、指标与比较定义\n\n语义键固定为 `(model, dataset, label)`；AUC 越高越好，binary logloss 越低越好。SISA 三-seed mean 是三个完整 experiment seed 的算术平均；seed SD 是三个 seed 在同一 cell 上的样本标准差。Cell-macro 先在 cell 内对标签等权，再对 cells 等权。论文列保留 Table 2 的四位小数，baseline 列是本地 seed 20262027 的 non-SISA 复现。"
+      },
+      {
+        "id": "experimental_design",
+        "type": "markdown",
+        "sourceId": "protocols",
+        "body": "## 实验设计包含三个 SISA experiment seed，而不是三个新增 seed\n\nseed 20262027 是原 4-GPU 实验轮次；seed 20262028 和 20262029 是两次 2×H100 轮次。三轮 global batch 都是 32768，但第一轮采用每卡 batch 8192，后两轮采用每卡 batch 16384，因此 blocked dataloader 的 drop-last 边界和硬件条件存在混杂。内部 dataloader/SISA parameter seed 只属于对应实验轮次。"
+      },
+      {
+        "id": "protocol_table_block",
+        "type": "table",
+        "tableId": "protocol_table"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "sourceId": "comparison_code",
+        "body": "## 对齐、聚合与完整性校验\n\n论文表、本地 baseline 和三个 SISA 结果必须各自提供 68 个唯一语义键和有限 AUC/logloss。seed 20262027 按 9 个 strict cells 加 7 个 expansion cells 组合；seed 20262028/20262029 直接读取各自正式 collector 结果，并要求 16/16 runs 完成、协议字段匹配且 H100 证据有效。统计量仅包括均值、样本标准差、范围、胜负计数和排名稳定性，没有显著性检验。"
+      },
+      {
+        "id": "label_detail",
+        "type": "markdown",
+        "sourceId": "label_comparison",
+        "body": "## 68 个标签明细用于复核聚合结论\n\n完整表按相对 baseline 的 AUC 绝对差排序，保留论文、baseline、三-seed mean、sample SD、两类差值和三轮是否全部胜出。"
+      },
+      {
+        "id": "label_table_block",
+        "type": "table",
+        "tableId": "label_table"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 局限性、不确定性与稳健性边界\n\n三-seed 汇总只有三个点，其中 seed 20262027 与后两轮不是同协议；因此 sample SD 混合了随机种子、GPU/协议和 drop-last 覆盖差异。论文值只有四位小数，也限制了细粒度差值的解释。当前结果支持探索性方向、异常定位和统一汇报，不支持纯 seed 方差、置信区间、统计显著性或因果归因。"
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## 建议的统一汇报规则\n\n1. 正式展示时始终把论文、local baseline、三个 SISA seed 和三-seed mean 放在同一张明细表中。\n2. 主结论使用 cell-macro AUC/logloss，并同时给出 16-cell 方向、三轮均胜标签数和 seed range。\n3. 将三点统计标为 descriptive；只有 seed 20262028 与 20262029 可称为同协议重复。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 后续研究问题\n\n- 唯一负向 cell 的退化是否集中在某一标签和模型结构？\n- 三轮第一名不一致的 9 个任务，模型间 AUC 间隔是否小于 seed 波动？\n- AUC 改善但 logloss 变差的标签是否需要单独做校准分析？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-27T17:09:43+08:00",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        {
+          "sisa_seed_count": 3,
+          "cell_count": 16,
+          "label_count": 68,
+          "delta_auc_vs_baseline_milli": 6.415,
+          "positive_auc_cells_vs_baseline": 15,
+          "delta_auc_vs_paper_milli": 6.817,
+          "delta_logloss_vs_baseline_milli": -1.513,
+          "auc_labels_all_seeds_better_baseline": 39,
+          "same_top_model_all_three_seeds": 8,
+          "ranking_tasks": 17,
+          "median_cell_seed_std_auc_milli": 2.475
+        }
+      ],
+      "cell_comparison": [
+        {
+          "unit": "HyFormer · TAAC-25 / TencentGR",
+          "model": "HyFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.85125,
+          "baseline_auc": 0.851237,
+          "sisa_20262027_auc": 0.862471,
+          "sisa_20262028_auc": 0.874444,
+          "sisa_20262029_auc": 0.867433,
+          "sisa_three_seed_auc": 0.868116,
+          "sisa_seed_std_auc_milli": 6.015,
+          "sisa_seed_range_auc_milli": 11.973,
+          "delta_auc_vs_baseline_milli": 16.879,
+          "delta_auc_vs_paper_milli": 16.866,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0356,
+          "baseline_logloss": 0.034977,
+          "sisa_20262027_logloss": 0.033365,
+          "sisa_20262028_logloss": 0.032507,
+          "sisa_20262029_logloss": 0.035882,
+          "sisa_three_seed_logloss": 0.033918,
+          "delta_logloss_vs_baseline_milli": -1.059,
+          "delta_logloss_vs_paper_milli": -1.682
+        },
+        {
+          "unit": "Zenith · TAAC-25 / TencentGR",
+          "model": "Zenith",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.84315,
+          "baseline_auc": 0.839488,
+          "sisa_20262027_auc": 0.849057,
+          "sisa_20262028_auc": 0.86375,
+          "sisa_20262029_auc": 0.854715,
+          "sisa_three_seed_auc": 0.855841,
+          "sisa_seed_std_auc_milli": 7.411,
+          "sisa_seed_range_auc_milli": 14.694,
+          "delta_auc_vs_baseline_milli": 16.352,
+          "delta_auc_vs_paper_milli": 12.691,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.03905,
+          "baseline_logloss": 0.039786,
+          "sisa_20262027_logloss": 0.03683,
+          "sisa_20262028_logloss": 0.037989,
+          "sisa_20262029_logloss": 0.042425,
+          "sisa_three_seed_logloss": 0.039081,
+          "delta_logloss_vs_baseline_milli": -0.705,
+          "delta_logloss_vs_paper_milli": 0.031
+        },
+        {
+          "unit": "HiFormer · TAAC-25 / TencentGR",
+          "model": "HiFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.852,
+          "baseline_auc": 0.855235,
+          "sisa_20262027_auc": 0.866796,
+          "sisa_20262028_auc": 0.870858,
+          "sisa_20262029_auc": 0.86991,
+          "sisa_three_seed_auc": 0.869188,
+          "sisa_seed_std_auc_milli": 2.125,
+          "sisa_seed_range_auc_milli": 4.062,
+          "delta_auc_vs_baseline_milli": 13.953,
+          "delta_auc_vs_paper_milli": 17.188,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0266,
+          "baseline_logloss": 0.032189,
+          "sisa_20262027_logloss": 0.027953,
+          "sisa_20262028_logloss": 0.030295,
+          "sisa_20262029_logloss": 0.032445,
+          "sisa_three_seed_logloss": 0.030231,
+          "delta_logloss_vs_baseline_milli": -1.958,
+          "delta_logloss_vs_paper_milli": 3.631
+        },
+        {
+          "unit": "HyFormer · MerRec",
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.79472,
+          "baseline_auc": 0.793737,
+          "sisa_20262027_auc": 0.806131,
+          "sisa_20262028_auc": 0.800872,
+          "sisa_20262029_auc": 0.806583,
+          "sisa_three_seed_auc": 0.804529,
+          "sisa_seed_std_auc_milli": 3.174,
+          "sisa_seed_range_auc_milli": 5.71,
+          "delta_auc_vs_baseline_milli": 10.791,
+          "delta_auc_vs_paper_milli": 9.809,
+          "auc_labels_mean_better_baseline": 5,
+          "auc_labels_all_seeds_better_baseline": 4,
+          "paper_logloss": 0.08382,
+          "baseline_logloss": 0.083856,
+          "sisa_20262027_logloss": 0.081237,
+          "sisa_20262028_logloss": 0.082678,
+          "sisa_20262029_logloss": 0.082001,
+          "sisa_three_seed_logloss": 0.081972,
+          "delta_logloss_vs_baseline_milli": -1.884,
+          "delta_logloss_vs_paper_milli": -1.848
+        },
+        {
+          "unit": "RankMixer · MerRec",
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.78904,
+          "baseline_auc": 0.788629,
+          "sisa_20262027_auc": 0.796136,
+          "sisa_20262028_auc": 0.802243,
+          "sisa_20262029_auc": 0.79698,
+          "sisa_three_seed_auc": 0.798453,
+          "sisa_seed_std_auc_milli": 3.31,
+          "sisa_seed_range_auc_milli": 6.108,
+          "delta_auc_vs_baseline_milli": 9.824,
+          "delta_auc_vs_paper_milli": 9.413,
+          "auc_labels_mean_better_baseline": 5,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.08298,
+          "baseline_logloss": 0.082992,
+          "sisa_20262027_logloss": 0.080806,
+          "sisa_20262028_logloss": 0.081009,
+          "sisa_20262029_logloss": 0.080543,
+          "sisa_three_seed_logloss": 0.080786,
+          "delta_logloss_vs_baseline_milli": -2.206,
+          "delta_logloss_vs_paper_milli": -2.194
+        },
+        {
+          "unit": "RankMixer · KuaiRand",
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.852267,
+          "baseline_auc": 0.852376,
+          "sisa_20262027_auc": 0.860973,
+          "sisa_20262028_auc": 0.861502,
+          "sisa_20262029_auc": 0.864026,
+          "sisa_three_seed_auc": 0.862167,
+          "sisa_seed_std_auc_milli": 1.631,
+          "sisa_seed_range_auc_milli": 3.053,
+          "delta_auc_vs_baseline_milli": 9.791,
+          "delta_auc_vs_paper_milli": 9.9,
+          "auc_labels_mean_better_baseline": 6,
+          "auc_labels_all_seeds_better_baseline": 6,
+          "paper_logloss": 0.179567,
+          "baseline_logloss": 0.17961,
+          "sisa_20262027_logloss": 0.174767,
+          "sisa_20262028_logloss": 0.17457,
+          "sisa_20262029_logloss": 0.173684,
+          "sisa_three_seed_logloss": 0.17434,
+          "delta_logloss_vs_baseline_milli": -5.27,
+          "delta_logloss_vs_paper_milli": -5.226
+        },
+        {
+          "unit": "RankMixer · TAAC-25 / TencentGR",
+          "model": "RankMixer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.8376,
+          "baseline_auc": 0.844863,
+          "sisa_20262027_auc": 0.855125,
+          "sisa_20262028_auc": 0.847841,
+          "sisa_20262029_auc": 0.850582,
+          "sisa_three_seed_auc": 0.851183,
+          "sisa_seed_std_auc_milli": 3.679,
+          "sisa_seed_range_auc_milli": 7.284,
+          "delta_auc_vs_baseline_milli": 6.32,
+          "delta_auc_vs_paper_milli": 13.583,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0314,
+          "baseline_logloss": 0.042245,
+          "sisa_20262027_logloss": 0.040502,
+          "sisa_20262028_logloss": 0.046897,
+          "sisa_20262029_logloss": 0.046499,
+          "sisa_three_seed_logloss": 0.044633,
+          "delta_logloss_vs_baseline_milli": 2.388,
+          "delta_logloss_vs_paper_milli": 13.233
+        },
+        {
+          "unit": "HyFormer · KuaiRand",
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.856,
+          "baseline_auc": 0.85719,
+          "sisa_20262027_auc": 0.863857,
+          "sisa_20262028_auc": 0.861941,
+          "sisa_20262029_auc": 0.861624,
+          "sisa_three_seed_auc": 0.862474,
+          "sisa_seed_std_auc_milli": 1.208,
+          "sisa_seed_range_auc_milli": 2.233,
+          "delta_auc_vs_baseline_milli": 5.284,
+          "delta_auc_vs_paper_milli": 6.474,
+          "auc_labels_mean_better_baseline": 6,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.179967,
+          "baseline_logloss": 0.17975,
+          "sisa_20262027_logloss": 0.175015,
+          "sisa_20262028_logloss": 0.17719,
+          "sisa_20262029_logloss": 0.174711,
+          "sisa_three_seed_logloss": 0.175639,
+          "delta_logloss_vs_baseline_milli": -4.111,
+          "delta_logloss_vs_paper_milli": -4.328
+        },
+        {
+          "unit": "HiFormer · KuaiRand",
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.8602,
+          "baseline_auc": 0.858482,
+          "sisa_20262027_auc": 0.862166,
+          "sisa_20262028_auc": 0.864671,
+          "sisa_20262029_auc": 0.863319,
+          "sisa_three_seed_auc": 0.863385,
+          "sisa_seed_std_auc_milli": 1.254,
+          "sisa_seed_range_auc_milli": 2.505,
+          "delta_auc_vs_baseline_milli": 4.904,
+          "delta_auc_vs_paper_milli": 3.185,
+          "auc_labels_mean_better_baseline": 3,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.179517,
+          "baseline_logloss": 0.18055,
+          "sisa_20262027_logloss": 0.177388,
+          "sisa_20262028_logloss": 0.175565,
+          "sisa_20262029_logloss": 0.176838,
+          "sisa_three_seed_logloss": 0.176597,
+          "delta_logloss_vs_baseline_milli": -3.952,
+          "delta_logloss_vs_paper_milli": -2.92
+        },
+        {
+          "unit": "HiFormer · MerRec",
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.80214,
+          "baseline_auc": 0.801097,
+          "sisa_20262027_auc": 0.80229,
+          "sisa_20262028_auc": 0.809276,
+          "sisa_20262029_auc": 0.803957,
+          "sisa_three_seed_auc": 0.805175,
+          "sisa_seed_std_auc_milli": 3.649,
+          "sisa_seed_range_auc_milli": 6.986,
+          "delta_auc_vs_baseline_milli": 4.078,
+          "delta_auc_vs_paper_milli": 3.035,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.08506,
+          "baseline_logloss": 0.085233,
+          "sisa_20262027_logloss": 0.083402,
+          "sisa_20262028_logloss": 0.082532,
+          "sisa_20262029_logloss": 0.08438,
+          "sisa_three_seed_logloss": 0.083438,
+          "delta_logloss_vs_baseline_milli": -1.795,
+          "delta_logloss_vs_paper_milli": -1.622
+        },
+        {
+          "unit": "Zenith · KuaiRand",
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.86055,
+          "baseline_auc": 0.859663,
+          "sisa_20262027_auc": 0.866396,
+          "sisa_20262028_auc": 0.861166,
+          "sisa_20262029_auc": 0.861931,
+          "sisa_three_seed_auc": 0.863164,
+          "sisa_seed_std_auc_milli": 2.825,
+          "sisa_seed_range_auc_milli": 5.229,
+          "delta_auc_vs_baseline_milli": 3.502,
+          "delta_auc_vs_paper_milli": 2.614,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.1796,
+          "baseline_logloss": 0.180072,
+          "sisa_20262027_logloss": 0.175425,
+          "sisa_20262028_logloss": 0.179329,
+          "sisa_20262029_logloss": 0.180479,
+          "sisa_three_seed_logloss": 0.178411,
+          "delta_logloss_vs_baseline_milli": -1.661,
+          "delta_logloss_vs_paper_milli": -1.189
+        },
+        {
+          "unit": "Zenith · MerRec",
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.80318,
+          "baseline_auc": 0.806044,
+          "sisa_20262027_auc": 0.809228,
+          "sisa_20262028_auc": 0.809533,
+          "sisa_20262029_auc": 0.803359,
+          "sisa_three_seed_auc": 0.807373,
+          "sisa_seed_std_auc_milli": 3.48,
+          "sisa_seed_range_auc_milli": 6.175,
+          "delta_auc_vs_baseline_milli": 1.329,
+          "delta_auc_vs_paper_milli": 4.193,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.08572,
+          "baseline_logloss": 0.084542,
+          "sisa_20262027_logloss": 0.083205,
+          "sisa_20262028_logloss": 0.083557,
+          "sisa_20262029_logloss": 0.084261,
+          "sisa_three_seed_logloss": 0.083674,
+          "delta_logloss_vs_baseline_milli": -0.868,
+          "delta_logloss_vs_paper_milli": -2.046
+        },
+        {
+          "unit": "HyFormer · QK-Video",
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.930225,
+          "baseline_auc": 0.930242,
+          "sisa_20262027_auc": 0.931245,
+          "sisa_20262028_auc": 0.931308,
+          "sisa_20262029_auc": 0.93116,
+          "sisa_three_seed_auc": 0.931238,
+          "sisa_seed_std_auc_milli": 0.074,
+          "sisa_seed_range_auc_milli": 0.148,
+          "delta_auc_vs_baseline_milli": 0.995,
+          "delta_auc_vs_paper_milli": 1.013,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.075125,
+          "baseline_logloss": 0.075095,
+          "sisa_20262027_logloss": 0.074335,
+          "sisa_20262028_logloss": 0.074707,
+          "sisa_20262029_logloss": 0.074686,
+          "sisa_three_seed_logloss": 0.074576,
+          "delta_logloss_vs_baseline_milli": -0.519,
+          "delta_logloss_vs_paper_milli": -0.549
+        },
+        {
+          "unit": "RankMixer · QK-Video",
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.929,
+          "baseline_auc": 0.928907,
+          "sisa_20262027_auc": 0.930138,
+          "sisa_20262028_auc": 0.929115,
+          "sisa_20262029_auc": 0.929155,
+          "sisa_three_seed_auc": 0.92947,
+          "sisa_seed_std_auc_milli": 0.58,
+          "sisa_seed_range_auc_milli": 1.023,
+          "delta_auc_vs_baseline_milli": 0.562,
+          "delta_auc_vs_paper_milli": 0.47,
+          "auc_labels_mean_better_baseline": 3,
+          "auc_labels_all_seeds_better_baseline": 1,
+          "paper_logloss": 0.0757,
+          "baseline_logloss": 0.075705,
+          "sisa_20262027_logloss": 0.074941,
+          "sisa_20262028_logloss": 0.075759,
+          "sisa_20262029_logloss": 0.075666,
+          "sisa_three_seed_logloss": 0.075456,
+          "delta_logloss_vs_baseline_milli": -0.249,
+          "delta_logloss_vs_paper_milli": -0.244
+        },
+        {
+          "unit": "Zenith · QK-Video",
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.93485,
+          "baseline_auc": 0.934919,
+          "sisa_20262027_auc": 0.935655,
+          "sisa_20262028_auc": 0.935221,
+          "sisa_20262029_auc": 0.935029,
+          "sisa_three_seed_auc": 0.935301,
+          "sisa_seed_std_auc_milli": 0.321,
+          "sisa_seed_range_auc_milli": 0.626,
+          "delta_auc_vs_baseline_milli": 0.383,
+          "delta_auc_vs_paper_milli": 0.451,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 1,
+          "paper_logloss": 0.074925,
+          "baseline_logloss": 0.074935,
+          "sisa_20262027_logloss": 0.074272,
+          "sisa_20262028_logloss": 0.074388,
+          "sisa_20262029_logloss": 0.074373,
+          "sisa_three_seed_logloss": 0.074344,
+          "delta_logloss_vs_baseline_milli": -0.591,
+          "delta_logloss_vs_paper_milli": -0.581
+        },
+        {
+          "unit": "HiFormer · QK-Video",
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.932675,
+          "baseline_auc": 0.933163,
+          "sisa_20262027_auc": 0.931063,
+          "sisa_20262028_auc": 0.930891,
+          "sisa_20262029_auc": 0.930611,
+          "sisa_three_seed_auc": 0.930855,
+          "sisa_seed_std_auc_milli": 0.228,
+          "sisa_seed_range_auc_milli": 0.452,
+          "delta_auc_vs_baseline_milli": -2.308,
+          "delta_auc_vs_paper_milli": -1.82,
+          "auc_labels_mean_better_baseline": 0,
+          "auc_labels_all_seeds_better_baseline": 0,
+          "paper_logloss": 0.07535,
+          "baseline_logloss": 0.075385,
+          "sisa_20262027_logloss": 0.075356,
+          "sisa_20262028_logloss": 0.075845,
+          "sisa_20262029_logloss": 0.075671,
+          "sisa_three_seed_logloss": 0.075624,
+          "delta_logloss_vs_baseline_milli": 0.239,
+          "delta_logloss_vs_paper_milli": 0.274
+        }
+      ],
+      "auc_matrix": [
+        {
+          "dataset": "QK-Video",
+          "HiFormer": "0.93085 ↓ -0.00231",
+          "HyFormer": "0.93124 ↑ +0.00100",
+          "RankMixer": "0.92947 ↑ +0.00056",
+          "Zenith": "0.93530 ↑ +0.00038"
+        },
+        {
+          "dataset": "KuaiRand",
+          "HiFormer": "0.86338 ↑ +0.00490",
+          "HyFormer": "0.86247 ↑ +0.00528",
+          "RankMixer": "0.86217 ↑ +0.00979",
+          "Zenith": "0.86316 ↑ +0.00350"
+        },
+        {
+          "dataset": "TAAC-25 / TencentGR",
+          "HiFormer": "0.86919 ↑ +0.01395",
+          "HyFormer": "0.86812 ↑ +0.01688",
+          "RankMixer": "0.85118 ↑ +0.00632",
+          "Zenith": "0.85584 ↑ +0.01635"
+        },
+        {
+          "dataset": "MerRec",
+          "HiFormer": "0.80517 ↑ +0.00408",
+          "HyFormer": "0.80453 ↑ +0.01079",
+          "RankMixer": "0.79845 ↑ +0.00982",
+          "Zenith": "0.80737 ↑ +0.00133"
+        }
+      ],
+      "three_seed_long": [
+        {
+          "unit": "HiFormer · QK-Video",
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.932675,
+          "baseline_auc": "0.93316",
+          "sisa_20262027_auc": "0.93106",
+          "sisa_20262028_auc": "0.93089",
+          "sisa_20262029_auc": "0.93061",
+          "sisa_three_seed_auc": "0.93085",
+          "sisa_seed_std_auc_milli": "0.22800",
+          "sisa_seed_range_auc_milli": 0.452,
+          "delta_auc_vs_baseline_milli": "-2.30800",
+          "delta_auc_vs_paper_milli": -1.82,
+          "auc_labels_mean_better_baseline": 0,
+          "auc_labels_all_seeds_better_baseline": 0,
+          "paper_logloss": 0.07535,
+          "baseline_logloss": 0.075385,
+          "sisa_20262027_logloss": 0.075356,
+          "sisa_20262028_logloss": 0.075845,
+          "sisa_20262029_logloss": 0.075671,
+          "sisa_three_seed_logloss": 0.075624,
+          "delta_logloss_vs_baseline_milli": 0.239,
+          "delta_logloss_vs_paper_milli": 0.274
+        },
+        {
+          "unit": "HiFormer · KuaiRand",
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.8602,
+          "baseline_auc": "0.85848",
+          "sisa_20262027_auc": "0.86217",
+          "sisa_20262028_auc": "0.86467",
+          "sisa_20262029_auc": "0.86332",
+          "sisa_three_seed_auc": "0.86338",
+          "sisa_seed_std_auc_milli": "1.25400",
+          "sisa_seed_range_auc_milli": 2.505,
+          "delta_auc_vs_baseline_milli": "4.90400",
+          "delta_auc_vs_paper_milli": 3.185,
+          "auc_labels_mean_better_baseline": 3,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.179517,
+          "baseline_logloss": 0.18055,
+          "sisa_20262027_logloss": 0.177388,
+          "sisa_20262028_logloss": 0.175565,
+          "sisa_20262029_logloss": 0.176838,
+          "sisa_three_seed_logloss": 0.176597,
+          "delta_logloss_vs_baseline_milli": -3.952,
+          "delta_logloss_vs_paper_milli": -2.92
+        },
+        {
+          "unit": "HiFormer · TAAC-25 / TencentGR",
+          "model": "HiFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.852,
+          "baseline_auc": "0.85523",
+          "sisa_20262027_auc": "0.86680",
+          "sisa_20262028_auc": "0.87086",
+          "sisa_20262029_auc": "0.86991",
+          "sisa_three_seed_auc": "0.86919",
+          "sisa_seed_std_auc_milli": "2.12500",
+          "sisa_seed_range_auc_milli": 4.062,
+          "delta_auc_vs_baseline_milli": "13.95300",
+          "delta_auc_vs_paper_milli": 17.188,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0266,
+          "baseline_logloss": 0.032189,
+          "sisa_20262027_logloss": 0.027953,
+          "sisa_20262028_logloss": 0.030295,
+          "sisa_20262029_logloss": 0.032445,
+          "sisa_three_seed_logloss": 0.030231,
+          "delta_logloss_vs_baseline_milli": -1.958,
+          "delta_logloss_vs_paper_milli": 3.631
+        },
+        {
+          "unit": "HiFormer · MerRec",
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.80214,
+          "baseline_auc": "0.80110",
+          "sisa_20262027_auc": "0.80229",
+          "sisa_20262028_auc": "0.80928",
+          "sisa_20262029_auc": "0.80396",
+          "sisa_three_seed_auc": "0.80517",
+          "sisa_seed_std_auc_milli": "3.64900",
+          "sisa_seed_range_auc_milli": 6.986,
+          "delta_auc_vs_baseline_milli": "4.07800",
+          "delta_auc_vs_paper_milli": 3.035,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.08506,
+          "baseline_logloss": 0.085233,
+          "sisa_20262027_logloss": 0.083402,
+          "sisa_20262028_logloss": 0.082532,
+          "sisa_20262029_logloss": 0.08438,
+          "sisa_three_seed_logloss": 0.083438,
+          "delta_logloss_vs_baseline_milli": -1.795,
+          "delta_logloss_vs_paper_milli": -1.622
+        },
+        {
+          "unit": "HyFormer · QK-Video",
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.930225,
+          "baseline_auc": "0.93024",
+          "sisa_20262027_auc": "0.93124",
+          "sisa_20262028_auc": "0.93131",
+          "sisa_20262029_auc": "0.93116",
+          "sisa_three_seed_auc": "0.93124",
+          "sisa_seed_std_auc_milli": "0.07400",
+          "sisa_seed_range_auc_milli": 0.148,
+          "delta_auc_vs_baseline_milli": "0.99500",
+          "delta_auc_vs_paper_milli": 1.013,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.075125,
+          "baseline_logloss": 0.075095,
+          "sisa_20262027_logloss": 0.074335,
+          "sisa_20262028_logloss": 0.074707,
+          "sisa_20262029_logloss": 0.074686,
+          "sisa_three_seed_logloss": 0.074576,
+          "delta_logloss_vs_baseline_milli": -0.519,
+          "delta_logloss_vs_paper_milli": -0.549
+        },
+        {
+          "unit": "HyFormer · KuaiRand",
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.856,
+          "baseline_auc": "0.85719",
+          "sisa_20262027_auc": "0.86386",
+          "sisa_20262028_auc": "0.86194",
+          "sisa_20262029_auc": "0.86162",
+          "sisa_three_seed_auc": "0.86247",
+          "sisa_seed_std_auc_milli": "1.20800",
+          "sisa_seed_range_auc_milli": 2.233,
+          "delta_auc_vs_baseline_milli": "5.28400",
+          "delta_auc_vs_paper_milli": 6.474,
+          "auc_labels_mean_better_baseline": 6,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.179967,
+          "baseline_logloss": 0.17975,
+          "sisa_20262027_logloss": 0.175015,
+          "sisa_20262028_logloss": 0.17719,
+          "sisa_20262029_logloss": 0.174711,
+          "sisa_three_seed_logloss": 0.175639,
+          "delta_logloss_vs_baseline_milli": -4.111,
+          "delta_logloss_vs_paper_milli": -4.328
+        },
+        {
+          "unit": "HyFormer · TAAC-25 / TencentGR",
+          "model": "HyFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.85125,
+          "baseline_auc": "0.85124",
+          "sisa_20262027_auc": "0.86247",
+          "sisa_20262028_auc": "0.87444",
+          "sisa_20262029_auc": "0.86743",
+          "sisa_three_seed_auc": "0.86812",
+          "sisa_seed_std_auc_milli": "6.01500",
+          "sisa_seed_range_auc_milli": 11.973,
+          "delta_auc_vs_baseline_milli": "16.87900",
+          "delta_auc_vs_paper_milli": 16.866,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0356,
+          "baseline_logloss": 0.034977,
+          "sisa_20262027_logloss": 0.033365,
+          "sisa_20262028_logloss": 0.032507,
+          "sisa_20262029_logloss": 0.035882,
+          "sisa_three_seed_logloss": 0.033918,
+          "delta_logloss_vs_baseline_milli": -1.059,
+          "delta_logloss_vs_paper_milli": -1.682
+        },
+        {
+          "unit": "HyFormer · MerRec",
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.79472,
+          "baseline_auc": "0.79374",
+          "sisa_20262027_auc": "0.80613",
+          "sisa_20262028_auc": "0.80087",
+          "sisa_20262029_auc": "0.80658",
+          "sisa_three_seed_auc": "0.80453",
+          "sisa_seed_std_auc_milli": "3.17400",
+          "sisa_seed_range_auc_milli": 5.71,
+          "delta_auc_vs_baseline_milli": "10.79100",
+          "delta_auc_vs_paper_milli": 9.809,
+          "auc_labels_mean_better_baseline": 5,
+          "auc_labels_all_seeds_better_baseline": 4,
+          "paper_logloss": 0.08382,
+          "baseline_logloss": 0.083856,
+          "sisa_20262027_logloss": 0.081237,
+          "sisa_20262028_logloss": 0.082678,
+          "sisa_20262029_logloss": 0.082001,
+          "sisa_three_seed_logloss": 0.081972,
+          "delta_logloss_vs_baseline_milli": -1.884,
+          "delta_logloss_vs_paper_milli": -1.848
+        },
+        {
+          "unit": "RankMixer · QK-Video",
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.929,
+          "baseline_auc": "0.92891",
+          "sisa_20262027_auc": "0.93014",
+          "sisa_20262028_auc": "0.92912",
+          "sisa_20262029_auc": "0.92915",
+          "sisa_three_seed_auc": "0.92947",
+          "sisa_seed_std_auc_milli": "0.58000",
+          "sisa_seed_range_auc_milli": 1.023,
+          "delta_auc_vs_baseline_milli": "0.56200",
+          "delta_auc_vs_paper_milli": 0.47,
+          "auc_labels_mean_better_baseline": 3,
+          "auc_labels_all_seeds_better_baseline": 1,
+          "paper_logloss": 0.0757,
+          "baseline_logloss": 0.075705,
+          "sisa_20262027_logloss": 0.074941,
+          "sisa_20262028_logloss": 0.075759,
+          "sisa_20262029_logloss": 0.075666,
+          "sisa_three_seed_logloss": 0.075456,
+          "delta_logloss_vs_baseline_milli": -0.249,
+          "delta_logloss_vs_paper_milli": -0.244
+        },
+        {
+          "unit": "RankMixer · KuaiRand",
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.852267,
+          "baseline_auc": "0.85238",
+          "sisa_20262027_auc": "0.86097",
+          "sisa_20262028_auc": "0.86150",
+          "sisa_20262029_auc": "0.86403",
+          "sisa_three_seed_auc": "0.86217",
+          "sisa_seed_std_auc_milli": "1.63100",
+          "sisa_seed_range_auc_milli": 3.053,
+          "delta_auc_vs_baseline_milli": "9.79100",
+          "delta_auc_vs_paper_milli": 9.9,
+          "auc_labels_mean_better_baseline": 6,
+          "auc_labels_all_seeds_better_baseline": 6,
+          "paper_logloss": 0.179567,
+          "baseline_logloss": 0.17961,
+          "sisa_20262027_logloss": 0.174767,
+          "sisa_20262028_logloss": 0.17457,
+          "sisa_20262029_logloss": 0.173684,
+          "sisa_three_seed_logloss": 0.17434,
+          "delta_logloss_vs_baseline_milli": -5.27,
+          "delta_logloss_vs_paper_milli": -5.226
+        },
+        {
+          "unit": "RankMixer · TAAC-25 / TencentGR",
+          "model": "RankMixer",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.8376,
+          "baseline_auc": "0.84486",
+          "sisa_20262027_auc": "0.85513",
+          "sisa_20262028_auc": "0.84784",
+          "sisa_20262029_auc": "0.85058",
+          "sisa_three_seed_auc": "0.85118",
+          "sisa_seed_std_auc_milli": "3.67900",
+          "sisa_seed_range_auc_milli": 7.284,
+          "delta_auc_vs_baseline_milli": "6.32000",
+          "delta_auc_vs_paper_milli": 13.583,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.0314,
+          "baseline_logloss": 0.042245,
+          "sisa_20262027_logloss": 0.040502,
+          "sisa_20262028_logloss": 0.046897,
+          "sisa_20262029_logloss": 0.046499,
+          "sisa_three_seed_logloss": 0.044633,
+          "delta_logloss_vs_baseline_milli": 2.388,
+          "delta_logloss_vs_paper_milli": 13.233
+        },
+        {
+          "unit": "RankMixer · MerRec",
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.78904,
+          "baseline_auc": "0.78863",
+          "sisa_20262027_auc": "0.79614",
+          "sisa_20262028_auc": "0.80224",
+          "sisa_20262029_auc": "0.79698",
+          "sisa_three_seed_auc": "0.79845",
+          "sisa_seed_std_auc_milli": "3.31000",
+          "sisa_seed_range_auc_milli": 6.108,
+          "delta_auc_vs_baseline_milli": "9.82400",
+          "delta_auc_vs_paper_milli": 9.413,
+          "auc_labels_mean_better_baseline": 5,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.08298,
+          "baseline_logloss": 0.082992,
+          "sisa_20262027_logloss": 0.080806,
+          "sisa_20262028_logloss": 0.081009,
+          "sisa_20262029_logloss": 0.080543,
+          "sisa_three_seed_logloss": 0.080786,
+          "delta_logloss_vs_baseline_milli": -2.206,
+          "delta_logloss_vs_paper_milli": -2.194
+        },
+        {
+          "unit": "Zenith · QK-Video",
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "labels": 4,
+          "paper_auc": 0.93485,
+          "baseline_auc": "0.93492",
+          "sisa_20262027_auc": "0.93566",
+          "sisa_20262028_auc": "0.93522",
+          "sisa_20262029_auc": "0.93503",
+          "sisa_three_seed_auc": "0.93530",
+          "sisa_seed_std_auc_milli": "0.32100",
+          "sisa_seed_range_auc_milli": 0.626,
+          "delta_auc_vs_baseline_milli": "0.38300",
+          "delta_auc_vs_paper_milli": 0.451,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 1,
+          "paper_logloss": 0.074925,
+          "baseline_logloss": 0.074935,
+          "sisa_20262027_logloss": 0.074272,
+          "sisa_20262028_logloss": 0.074388,
+          "sisa_20262029_logloss": 0.074373,
+          "sisa_three_seed_logloss": 0.074344,
+          "delta_logloss_vs_baseline_milli": -0.591,
+          "delta_logloss_vs_paper_milli": -0.581
+        },
+        {
+          "unit": "Zenith · KuaiRand",
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "labels": 6,
+          "paper_auc": 0.86055,
+          "baseline_auc": "0.85966",
+          "sisa_20262027_auc": "0.86640",
+          "sisa_20262028_auc": "0.86117",
+          "sisa_20262029_auc": "0.86193",
+          "sisa_three_seed_auc": "0.86316",
+          "sisa_seed_std_auc_milli": "2.82500",
+          "sisa_seed_range_auc_milli": 5.229,
+          "delta_auc_vs_baseline_milli": "3.50200",
+          "delta_auc_vs_paper_milli": 2.614,
+          "auc_labels_mean_better_baseline": 4,
+          "auc_labels_all_seeds_better_baseline": 3,
+          "paper_logloss": 0.1796,
+          "baseline_logloss": 0.180072,
+          "sisa_20262027_logloss": 0.175425,
+          "sisa_20262028_logloss": 0.179329,
+          "sisa_20262029_logloss": 0.180479,
+          "sisa_three_seed_logloss": 0.178411,
+          "delta_logloss_vs_baseline_milli": -1.661,
+          "delta_logloss_vs_paper_milli": -1.189
+        },
+        {
+          "unit": "Zenith · TAAC-25 / TencentGR",
+          "model": "Zenith",
+          "dataset": "TAAC-25 / TencentGR",
+          "labels": 2,
+          "paper_auc": 0.84315,
+          "baseline_auc": "0.83949",
+          "sisa_20262027_auc": "0.84906",
+          "sisa_20262028_auc": "0.86375",
+          "sisa_20262029_auc": "0.85472",
+          "sisa_three_seed_auc": "0.85584",
+          "sisa_seed_std_auc_milli": "7.41100",
+          "sisa_seed_range_auc_milli": 14.694,
+          "delta_auc_vs_baseline_milli": "16.35200",
+          "delta_auc_vs_paper_milli": 12.691,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.03905,
+          "baseline_logloss": 0.039786,
+          "sisa_20262027_logloss": 0.03683,
+          "sisa_20262028_logloss": 0.037989,
+          "sisa_20262029_logloss": 0.042425,
+          "sisa_three_seed_logloss": 0.039081,
+          "delta_logloss_vs_baseline_milli": -0.705,
+          "delta_logloss_vs_paper_milli": 0.031
+        },
+        {
+          "unit": "Zenith · MerRec",
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "labels": 5,
+          "paper_auc": 0.80318,
+          "baseline_auc": "0.80604",
+          "sisa_20262027_auc": "0.80923",
+          "sisa_20262028_auc": "0.80953",
+          "sisa_20262029_auc": "0.80336",
+          "sisa_three_seed_auc": "0.80737",
+          "sisa_seed_std_auc_milli": "3.48000",
+          "sisa_seed_range_auc_milli": 6.175,
+          "delta_auc_vs_baseline_milli": "1.32900",
+          "delta_auc_vs_paper_milli": 4.193,
+          "auc_labels_mean_better_baseline": 2,
+          "auc_labels_all_seeds_better_baseline": 2,
+          "paper_logloss": 0.08572,
+          "baseline_logloss": 0.084542,
+          "sisa_20262027_logloss": 0.083205,
+          "sisa_20262028_logloss": 0.083557,
+          "sisa_20262029_logloss": 0.084261,
+          "sisa_three_seed_logloss": 0.083674,
+          "delta_logloss_vs_baseline_milli": -0.868,
+          "delta_logloss_vs_paper_milli": -2.046
+        }
+      ],
+      "label_comparison": [
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "paper_auc": 0.7361,
+          "baseline_auc": 0.73532,
+          "sisa_20262027_auc": 0.75901,
+          "sisa_20262028_auc": 0.750689,
+          "sisa_20262029_auc": 0.755749,
+          "sisa_three_seed_auc": 0.755149,
+          "sisa_seed_std_auc_milli": 4.193,
+          "delta_auc_vs_baseline_milli": 19.829,
+          "delta_auc_vs_paper_milli": 19.049,
+          "abs_delta_auc_vs_baseline_milli": 19.829,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.326987,
+          "delta_logloss_vs_baseline_milli": -7.605
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_click",
+          "paper_auc": 0.8267,
+          "baseline_auc": 0.825794,
+          "sisa_20262027_auc": 0.838596,
+          "sisa_20262028_auc": 0.85179,
+          "sisa_20262029_auc": 0.845539,
+          "sisa_three_seed_auc": 0.845308,
+          "sisa_seed_std_auc_milli": 6.6,
+          "delta_auc_vs_baseline_milli": 19.514,
+          "delta_auc_vs_paper_milli": 18.608,
+          "abs_delta_auc_vs_baseline_milli": 19.514,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.049991,
+          "delta_logloss_vs_baseline_milli": -1.71
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "paper_auc": 0.793,
+          "baseline_auc": 0.792999,
+          "sisa_20262027_auc": 0.81089,
+          "sisa_20262028_auc": 0.814349,
+          "sisa_20262029_auc": 0.810422,
+          "sisa_three_seed_auc": 0.811887,
+          "sisa_seed_std_auc_milli": 2.145,
+          "delta_auc_vs_baseline_milli": 18.888,
+          "delta_auc_vs_paper_milli": 18.887,
+          "abs_delta_auc_vs_baseline_milli": 18.888,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.052357,
+          "delta_logloss_vs_baseline_milli": -1.537
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "paper_auc": 0.7782,
+          "baseline_auc": 0.777662,
+          "sisa_20262027_auc": 0.797238,
+          "sisa_20262028_auc": 0.795981,
+          "sisa_20262029_auc": 0.796055,
+          "sisa_three_seed_auc": 0.796425,
+          "sisa_seed_std_auc_milli": 0.705,
+          "delta_auc_vs_baseline_milli": 18.763,
+          "delta_auc_vs_paper_milli": 18.225,
+          "abs_delta_auc_vs_baseline_milli": 18.763,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.523068,
+          "delta_logloss_vs_baseline_milli": -18.864
+        },
+        {
+          "model": "Zenith",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_click",
+          "paper_auc": 0.8236,
+          "baseline_auc": 0.819024,
+          "sisa_20262027_auc": 0.831846,
+          "sisa_20262028_auc": 0.839413,
+          "sisa_20262029_auc": 0.83908,
+          "sisa_three_seed_auc": 0.83678,
+          "sisa_seed_std_auc_milli": 4.276,
+          "delta_auc_vs_baseline_milli": 17.756,
+          "delta_auc_vs_paper_milli": 13.18,
+          "abs_delta_auc_vs_baseline_milli": 17.756,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.057571,
+          "delta_logloss_vs_baseline_milli": -1.63
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "paper_auc": 0.7448,
+          "baseline_auc": 0.744913,
+          "sisa_20262027_auc": 0.759983,
+          "sisa_20262028_auc": 0.760581,
+          "sisa_20262029_auc": 0.763228,
+          "sisa_three_seed_auc": 0.761264,
+          "sisa_seed_std_auc_milli": 1.727,
+          "delta_auc_vs_baseline_milli": 16.351,
+          "delta_auc_vs_paper_milli": 16.464,
+          "abs_delta_auc_vs_baseline_milli": 16.351,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.322387,
+          "delta_logloss_vs_baseline_milli": -9.498
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_conversion",
+          "paper_auc": 0.873,
+          "baseline_auc": 0.872968,
+          "sisa_20262027_auc": 0.886886,
+          "sisa_20262028_auc": 0.890414,
+          "sisa_20262029_auc": 0.889723,
+          "sisa_three_seed_auc": 0.889008,
+          "sisa_seed_std_auc_milli": 1.87,
+          "delta_auc_vs_baseline_milli": 16.04,
+          "delta_auc_vs_paper_milli": 16.008,
+          "abs_delta_auc_vs_baseline_milli": 16.04,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.016642,
+          "delta_logloss_vs_baseline_milli": -0.368
+        },
+        {
+          "model": "Zenith",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_conversion",
+          "paper_auc": 0.8627,
+          "baseline_auc": 0.859953,
+          "sisa_20262027_auc": 0.866268,
+          "sisa_20262028_auc": 0.888088,
+          "sisa_20262029_auc": 0.87035,
+          "sisa_three_seed_auc": 0.874902,
+          "sisa_seed_std_auc_milli": 11.6,
+          "delta_auc_vs_baseline_milli": 14.949,
+          "delta_auc_vs_paper_milli": 12.202,
+          "abs_delta_auc_vs_baseline_milli": 14.949,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.020591,
+          "delta_logloss_vs_baseline_milli": 0.22
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "paper_auc": 0.781,
+          "baseline_auc": 0.780693,
+          "sisa_20262027_auc": 0.794759,
+          "sisa_20262028_auc": 0.794903,
+          "sisa_20262029_auc": 0.796813,
+          "sisa_three_seed_auc": 0.795492,
+          "sisa_seed_std_auc_milli": 1.147,
+          "delta_auc_vs_baseline_milli": 14.799,
+          "delta_auc_vs_paper_milli": 14.492,
+          "abs_delta_auc_vs_baseline_milli": 14.799,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.524181,
+          "delta_logloss_vs_baseline_milli": -16.864
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Like",
+          "paper_auc": 0.7518,
+          "baseline_auc": 0.74961,
+          "sisa_20262027_auc": 0.764396,
+          "sisa_20262028_auc": 0.765716,
+          "sisa_20262029_auc": 0.761906,
+          "sisa_three_seed_auc": 0.764006,
+          "sisa_seed_std_auc_milli": 1.935,
+          "delta_auc_vs_baseline_milli": 14.396,
+          "delta_auc_vs_paper_milli": 12.206,
+          "abs_delta_auc_vs_baseline_milli": 14.396,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.32309,
+          "delta_logloss_vs_baseline_milli": -5.411
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_conversion",
+          "paper_auc": 0.8758,
+          "baseline_auc": 0.87668,
+          "sisa_20262027_auc": 0.886346,
+          "sisa_20262028_auc": 0.897097,
+          "sisa_20262029_auc": 0.889328,
+          "sisa_three_seed_auc": 0.890924,
+          "sisa_seed_std_auc_milli": 5.55,
+          "delta_auc_vs_baseline_milli": 14.244,
+          "delta_auc_vs_paper_milli": 15.124,
+          "abs_delta_auc_vs_baseline_milli": 14.244,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.017845,
+          "delta_logloss_vs_baseline_milli": -0.407
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "paper_auc": 0.7986,
+          "baseline_auc": 0.798071,
+          "sisa_20262027_auc": 0.813835,
+          "sisa_20262028_auc": 0.810189,
+          "sisa_20262029_auc": 0.811112,
+          "sisa_three_seed_auc": 0.811712,
+          "sisa_seed_std_auc_milli": 1.896,
+          "delta_auc_vs_baseline_milli": 13.641,
+          "delta_auc_vs_paper_milli": 13.112,
+          "abs_delta_auc_vs_baseline_milli": 13.641,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.052387,
+          "delta_logloss_vs_baseline_milli": -1.485
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "paper_auc": 0.8499,
+          "baseline_auc": 0.851098,
+          "sisa_20262027_auc": 0.860017,
+          "sisa_20262028_auc": 0.866626,
+          "sisa_20262029_auc": 0.867082,
+          "sisa_three_seed_auc": 0.864575,
+          "sisa_seed_std_auc_milli": 3.954,
+          "delta_auc_vs_baseline_milli": 13.477,
+          "delta_auc_vs_paper_milli": 14.675,
+          "abs_delta_auc_vs_baseline_milli": 13.477,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.005704,
+          "delta_logloss_vs_baseline_milli": -0.107
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Like",
+          "paper_auc": 0.743,
+          "baseline_auc": 0.744505,
+          "sisa_20262027_auc": 0.759388,
+          "sisa_20262028_auc": 0.758067,
+          "sisa_20262029_auc": 0.754835,
+          "sisa_three_seed_auc": 0.75743,
+          "sisa_seed_std_auc_milli": 2.342,
+          "delta_auc_vs_baseline_milli": 12.925,
+          "delta_auc_vs_paper_milli": 14.43,
+          "abs_delta_auc_vs_baseline_milli": 12.925,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.324594,
+          "delta_logloss_vs_baseline_milli": -5.261
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "paper_auc": 0.8002,
+          "baseline_auc": 0.800238,
+          "sisa_20262027_auc": 0.81142,
+          "sisa_20262028_auc": 0.812814,
+          "sisa_20262029_auc": 0.814307,
+          "sisa_three_seed_auc": 0.812847,
+          "sisa_seed_std_auc_milli": 1.444,
+          "delta_auc_vs_baseline_milli": 12.609,
+          "delta_auc_vs_paper_milli": 12.647,
+          "abs_delta_auc_vs_baseline_milli": 12.609,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.441192,
+          "delta_logloss_vs_baseline_milli": -12.396
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_click",
+          "paper_auc": 0.831,
+          "baseline_auc": 0.837502,
+          "sisa_20262027_auc": 0.846706,
+          "sisa_20262028_auc": 0.851302,
+          "sisa_20262029_auc": 0.850097,
+          "sisa_three_seed_auc": 0.849368,
+          "sisa_seed_std_auc_milli": 2.383,
+          "delta_auc_vs_baseline_milli": 11.866,
+          "delta_auc_vs_paper_milli": 18.368,
+          "abs_delta_auc_vs_baseline_milli": 11.866,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.04382,
+          "delta_logloss_vs_baseline_milli": -3.547
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "paper_auc": 0.7817,
+          "baseline_auc": 0.782927,
+          "sisa_20262027_auc": 0.795817,
+          "sisa_20262028_auc": 0.793189,
+          "sisa_20262029_auc": 0.795028,
+          "sisa_three_seed_auc": 0.794678,
+          "sisa_seed_std_auc_milli": 1.349,
+          "delta_auc_vs_baseline_milli": 11.751,
+          "delta_auc_vs_paper_milli": 12.978,
+          "abs_delta_auc_vs_baseline_milli": 11.751,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.527464,
+          "delta_logloss_vs_baseline_milli": -13.279
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "paper_auc": 0.7961,
+          "baseline_auc": 0.79511,
+          "sisa_20262027_auc": 0.803433,
+          "sisa_20262028_auc": 0.809744,
+          "sisa_20262029_auc": 0.805943,
+          "sisa_three_seed_auc": 0.806373,
+          "sisa_seed_std_auc_milli": 3.177,
+          "delta_auc_vs_baseline_milli": 11.263,
+          "delta_auc_vs_paper_milli": 10.273,
+          "abs_delta_auc_vs_baseline_milli": 11.263,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.455805,
+          "delta_logloss_vs_baseline_milli": -5.166
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "paper_auc": 0.7984,
+          "baseline_auc": 0.798512,
+          "sisa_20262027_auc": 0.810788,
+          "sisa_20262028_auc": 0.806051,
+          "sisa_20262029_auc": 0.811544,
+          "sisa_three_seed_auc": 0.809461,
+          "sisa_seed_std_auc_milli": 2.977,
+          "delta_auc_vs_baseline_milli": 10.949,
+          "delta_auc_vs_paper_milli": 11.061,
+          "abs_delta_auc_vs_baseline_milli": 10.949,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.444162,
+          "delta_logloss_vs_baseline_milli": -10.443
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "paper_auc": 0.8475,
+          "baseline_auc": 0.846507,
+          "sisa_20262027_auc": 0.855258,
+          "sisa_20262028_auc": 0.856109,
+          "sisa_20262029_auc": 0.856738,
+          "sisa_three_seed_auc": 0.856035,
+          "sisa_seed_std_auc_milli": 0.743,
+          "delta_auc_vs_baseline_milli": 9.528,
+          "delta_auc_vs_paper_milli": 8.535,
+          "abs_delta_auc_vs_baseline_milli": 9.528,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.003499,
+          "delta_logloss_vs_baseline_milli": -0.115
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_click",
+          "paper_auc": 0.8069,
+          "baseline_auc": 0.815759,
+          "sisa_20262027_auc": 0.827592,
+          "sisa_20262028_auc": 0.821511,
+          "sisa_20262029_auc": 0.82403,
+          "sisa_three_seed_auc": 0.824378,
+          "sisa_seed_std_auc_milli": 3.055,
+          "delta_auc_vs_baseline_milli": 8.619,
+          "delta_auc_vs_paper_milli": 17.478,
+          "abs_delta_auc_vs_baseline_milli": 8.619,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.064513,
+          "delta_logloss_vs_baseline_milli": 3.302
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "paper_auc": 0.8019,
+          "baseline_auc": 0.806908,
+          "sisa_20262027_auc": 0.814763,
+          "sisa_20262028_auc": 0.81658,
+          "sisa_20262029_auc": 0.812453,
+          "sisa_three_seed_auc": 0.814599,
+          "sisa_seed_std_auc_milli": 2.068,
+          "delta_auc_vs_baseline_milli": 7.691,
+          "delta_auc_vs_paper_milli": 12.699,
+          "abs_delta_auc_vs_baseline_milli": 7.691,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.052841,
+          "delta_logloss_vs_baseline_milli": -0.915
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "paper_auc": 0.8845,
+          "baseline_auc": 0.884469,
+          "sisa_20262027_auc": 0.891848,
+          "sisa_20262028_auc": 0.890161,
+          "sisa_20262029_auc": 0.894452,
+          "sisa_three_seed_auc": 0.892154,
+          "sisa_seed_std_auc_milli": 2.162,
+          "delta_auc_vs_baseline_milli": 7.685,
+          "delta_auc_vs_paper_milli": 7.654,
+          "abs_delta_auc_vs_baseline_milli": 7.685,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.014907,
+          "delta_logloss_vs_baseline_milli": -0.304
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Cart",
+          "paper_auc": 0.8123,
+          "baseline_auc": 0.810019,
+          "sisa_20262027_auc": 0.813548,
+          "sisa_20262028_auc": 0.818659,
+          "sisa_20262029_auc": 0.820005,
+          "sisa_three_seed_auc": 0.817404,
+          "sisa_seed_std_auc_milli": 3.407,
+          "delta_auc_vs_baseline_milli": 7.385,
+          "delta_auc_vs_paper_milli": 5.104,
+          "abs_delta_auc_vs_baseline_milli": 7.385,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.05197,
+          "delta_logloss_vs_baseline_milli": -1.119
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "paper_auc": 0.7704,
+          "baseline_auc": 0.775777,
+          "sisa_20262027_auc": 0.761824,
+          "sisa_20262028_auc": 0.769679,
+          "sisa_20262029_auc": 0.773916,
+          "sisa_three_seed_auc": 0.768473,
+          "sisa_seed_std_auc_milli": 6.136,
+          "delta_auc_vs_baseline_milli": -7.304,
+          "delta_auc_vs_paper_milli": -1.927,
+          "abs_delta_auc_vs_baseline_milli": 7.304,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.022649,
+          "delta_logloss_vs_baseline_milli": -0.729
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "long_view",
+          "paper_auc": 0.7981,
+          "baseline_auc": 0.79729,
+          "sisa_20262027_auc": 0.810109,
+          "sisa_20262028_auc": 0.802694,
+          "sisa_20262029_auc": 0.800178,
+          "sisa_three_seed_auc": 0.804327,
+          "sisa_seed_std_auc_milli": 5.163,
+          "delta_auc_vs_baseline_milli": 7.037,
+          "delta_auc_vs_paper_milli": 6.227,
+          "abs_delta_auc_vs_baseline_milli": 7.037,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.454895,
+          "delta_logloss_vs_baseline_milli": -5.028
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "paper_auc": 0.7288,
+          "baseline_auc": 0.728575,
+          "sisa_20262027_auc": 0.732952,
+          "sisa_20262028_auc": 0.734759,
+          "sisa_20262029_auc": 0.738775,
+          "sisa_three_seed_auc": 0.735495,
+          "sisa_seed_std_auc_milli": 2.981,
+          "delta_auc_vs_baseline_milli": 6.92,
+          "delta_auc_vs_paper_milli": 6.695,
+          "abs_delta_auc_vs_baseline_milli": 6.92,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.021387,
+          "delta_logloss_vs_baseline_milli": -0.011
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_click",
+          "paper_auc": 0.7816,
+          "baseline_auc": 0.781888,
+          "sisa_20262027_auc": 0.792759,
+          "sisa_20262028_auc": 0.787549,
+          "sisa_20262029_auc": 0.785892,
+          "sisa_three_seed_auc": 0.788733,
+          "sisa_seed_std_auc_milli": 3.583,
+          "delta_auc_vs_baseline_milli": 6.845,
+          "delta_auc_vs_paper_milli": 7.133,
+          "abs_delta_auc_vs_baseline_milli": 6.845,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.53446,
+          "delta_logloss_vs_baseline_milli": -4.531
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "paper_auc": 0.8844,
+          "baseline_auc": 0.881683,
+          "sisa_20262027_auc": 0.890208,
+          "sisa_20262028_auc": 0.885366,
+          "sisa_20262029_auc": 0.889686,
+          "sisa_three_seed_auc": 0.88842,
+          "sisa_seed_std_auc_milli": 2.658,
+          "delta_auc_vs_baseline_milli": 6.737,
+          "delta_auc_vs_paper_milli": 4.02,
+          "abs_delta_auc_vs_baseline_milli": 6.737,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.006192,
+          "delta_logloss_vs_baseline_milli": -0.569
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "paper_auc": 0.8514,
+          "baseline_auc": 0.848886,
+          "sisa_20262027_auc": 0.856995,
+          "sisa_20262028_auc": 0.855579,
+          "sisa_20262029_auc": 0.853285,
+          "sisa_three_seed_auc": 0.855286,
+          "sisa_seed_std_auc_milli": 1.872,
+          "delta_auc_vs_baseline_milli": 6.4,
+          "delta_auc_vs_paper_milli": 3.886,
+          "abs_delta_auc_vs_baseline_milli": 6.4,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.005476,
+          "delta_logloss_vs_baseline_milli": -0.044
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "paper_auc": 0.8739,
+          "baseline_auc": 0.873795,
+          "sisa_20262027_auc": 0.880471,
+          "sisa_20262028_auc": 0.87721,
+          "sisa_20262029_auc": 0.882847,
+          "sisa_three_seed_auc": 0.880176,
+          "sisa_seed_std_auc_milli": 2.83,
+          "delta_auc_vs_baseline_milli": 6.381,
+          "delta_auc_vs_paper_milli": 6.276,
+          "abs_delta_auc_vs_baseline_milli": 6.381,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.006292,
+          "delta_logloss_vs_baseline_milli": -0.13
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "paper_auc": 0.9185,
+          "baseline_auc": 0.919914,
+          "sisa_20262027_auc": 0.913924,
+          "sisa_20262028_auc": 0.913586,
+          "sisa_20262029_auc": 0.913352,
+          "sisa_three_seed_auc": 0.913621,
+          "sisa_seed_std_auc_milli": 0.288,
+          "delta_auc_vs_baseline_milli": -6.293,
+          "delta_auc_vs_paper_milli": -4.879,
+          "abs_delta_auc_vs_baseline_milli": 6.293,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005168,
+          "delta_logloss_vs_baseline_milli": 0.171
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "paper_auc": 0.8495,
+          "baseline_auc": 0.853223,
+          "sisa_20262027_auc": 0.852104,
+          "sisa_20262028_auc": 0.851195,
+          "sisa_20262029_auc": 0.840841,
+          "sisa_three_seed_auc": 0.848047,
+          "sisa_seed_std_auc_milli": 6.257,
+          "delta_auc_vs_baseline_milli": -5.176,
+          "delta_auc_vs_paper_milli": -1.453,
+          "abs_delta_auc_vs_baseline_milli": 5.176,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.0075,
+          "delta_logloss_vs_baseline_milli": 0.728
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "paper_auc": 0.8872,
+          "baseline_auc": 0.879913,
+          "sisa_20262027_auc": 0.881796,
+          "sisa_20262028_auc": 0.88538,
+          "sisa_20262029_auc": 0.886823,
+          "sisa_three_seed_auc": 0.884666,
+          "sisa_seed_std_auc_milli": 2.588,
+          "delta_auc_vs_baseline_milli": 4.753,
+          "delta_auc_vs_paper_milli": -2.534,
+          "abs_delta_auc_vs_baseline_milli": 4.753,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.006205,
+          "delta_logloss_vs_baseline_milli": -0.159
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "paper_auc": 0.74,
+          "baseline_auc": 0.739902,
+          "sisa_20262027_auc": 0.745556,
+          "sisa_20262028_auc": 0.731796,
+          "sisa_20262029_auc": 0.75603,
+          "sisa_three_seed_auc": 0.744461,
+          "sisa_seed_std_auc_milli": 12.154,
+          "delta_auc_vs_baseline_milli": 4.559,
+          "delta_auc_vs_paper_milli": 4.461,
+          "abs_delta_auc_vs_baseline_milli": 4.559,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.02151,
+          "delta_logloss_vs_baseline_milli": -0.173
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "paper_auc": 0.8503,
+          "baseline_auc": 0.852295,
+          "sisa_20262027_auc": 0.853138,
+          "sisa_20262028_auc": 0.846522,
+          "sisa_20262029_auc": 0.843908,
+          "sisa_three_seed_auc": 0.847856,
+          "sisa_seed_std_auc_milli": 4.757,
+          "delta_auc_vs_baseline_milli": -4.439,
+          "delta_auc_vs_paper_milli": -2.444,
+          "abs_delta_auc_vs_baseline_milli": 4.439,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.011201,
+          "delta_logloss_vs_baseline_milli": 0.975
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "label": "Offer",
+          "paper_auc": 0.7712,
+          "baseline_auc": 0.773288,
+          "sisa_20262027_auc": 0.766747,
+          "sisa_20262028_auc": 0.775302,
+          "sisa_20262029_auc": 0.764756,
+          "sisa_three_seed_auc": 0.768935,
+          "sisa_seed_std_auc_milli": 5.603,
+          "delta_auc_vs_baseline_milli": -4.353,
+          "delta_auc_vs_paper_milli": -2.265,
+          "abs_delta_auc_vs_baseline_milli": 4.353,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.022235,
+          "delta_logloss_vs_baseline_milli": 0.133
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "paper_auc": 0.8379,
+          "baseline_auc": 0.836097,
+          "sisa_20262027_auc": 0.83858,
+          "sisa_20262028_auc": 0.847677,
+          "sisa_20262029_auc": 0.834801,
+          "sisa_three_seed_auc": 0.840353,
+          "sisa_seed_std_auc_milli": 6.619,
+          "delta_auc_vs_baseline_milli": 4.256,
+          "delta_auc_vs_paper_milli": 2.453,
+          "abs_delta_auc_vs_baseline_milli": 4.256,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.004734,
+          "delta_logloss_vs_baseline_milli": 0.002
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "TAAC-25 / TencentGR",
+          "label": "is_conversion",
+          "paper_auc": 0.8683,
+          "baseline_auc": 0.873967,
+          "sisa_20262027_auc": 0.882659,
+          "sisa_20262028_auc": 0.874172,
+          "sisa_20262029_auc": 0.877133,
+          "sisa_three_seed_auc": 0.877988,
+          "sisa_seed_std_auc_milli": 4.308,
+          "delta_auc_vs_baseline_milli": 4.021,
+          "delta_auc_vs_paper_milli": 9.688,
+          "abs_delta_auc_vs_baseline_milli": 4.021,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.024752,
+          "delta_logloss_vs_baseline_milli": 1.473
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "paper_auc": 0.9241,
+          "baseline_auc": 0.923963,
+          "sisa_20262027_auc": 0.927324,
+          "sisa_20262028_auc": 0.927295,
+          "sisa_20262029_auc": 0.928654,
+          "sisa_three_seed_auc": 0.927758,
+          "sisa_seed_std_auc_milli": 0.776,
+          "delta_auc_vs_baseline_milli": 3.795,
+          "delta_auc_vs_paper_milli": 3.658,
+          "abs_delta_auc_vs_baseline_milli": 3.795,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.053764,
+          "delta_logloss_vs_baseline_milli": -1.82
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Checkout",
+          "paper_auc": 0.8354,
+          "baseline_auc": 0.834515,
+          "sisa_20262027_auc": 0.838614,
+          "sisa_20262028_auc": 0.845414,
+          "sisa_20262029_auc": 0.829334,
+          "sisa_three_seed_auc": 0.837787,
+          "sisa_seed_std_auc_milli": 8.072,
+          "delta_auc_vs_baseline_milli": 3.272,
+          "delta_auc_vs_paper_milli": 2.387,
+          "abs_delta_auc_vs_baseline_milli": 3.272,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.011871,
+          "delta_logloss_vs_baseline_milli": -0.577
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "paper_auc": 0.9215,
+          "baseline_auc": 0.922436,
+          "sisa_20262027_auc": 0.925135,
+          "sisa_20262028_auc": 0.925453,
+          "sisa_20262029_auc": 0.926478,
+          "sisa_three_seed_auc": 0.925689,
+          "sisa_seed_std_auc_milli": 0.702,
+          "delta_auc_vs_baseline_milli": 3.253,
+          "delta_auc_vs_paper_milli": 4.189,
+          "abs_delta_auc_vs_baseline_milli": 3.253,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.055159,
+          "delta_logloss_vs_baseline_milli": -0.547
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_follow",
+          "paper_auc": 0.88,
+          "baseline_auc": 0.879855,
+          "sisa_20262027_auc": 0.886716,
+          "sisa_20262028_auc": 0.885166,
+          "sisa_20262029_auc": 0.875987,
+          "sisa_three_seed_auc": 0.882623,
+          "sisa_seed_std_auc_milli": 5.799,
+          "delta_auc_vs_baseline_milli": 2.768,
+          "delta_auc_vs_paper_milli": 2.623,
+          "abs_delta_auc_vs_baseline_milli": 2.768,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.006301,
+          "delta_logloss_vs_baseline_milli": -0.293
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "paper_auc": 0.8407,
+          "baseline_auc": 0.840563,
+          "sisa_20262027_auc": 0.838274,
+          "sisa_20262028_auc": 0.853851,
+          "sisa_20262029_auc": 0.837675,
+          "sisa_three_seed_auc": 0.843267,
+          "sisa_seed_std_auc_milli": 9.171,
+          "delta_auc_vs_baseline_milli": 2.704,
+          "delta_auc_vs_paper_milli": 2.567,
+          "abs_delta_auc_vs_baseline_milli": 2.704,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.003067,
+          "delta_logloss_vs_baseline_milli": 0.017
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "label": "Purchase",
+          "paper_auc": 0.8408,
+          "baseline_auc": 0.835563,
+          "sisa_20262027_auc": 0.83307,
+          "sisa_20262028_auc": 0.846914,
+          "sisa_20262029_auc": 0.834625,
+          "sisa_three_seed_auc": 0.838203,
+          "sisa_seed_std_auc_milli": 7.584,
+          "delta_auc_vs_baseline_milli": 2.64,
+          "delta_auc_vs_paper_milli": -2.597,
+          "abs_delta_auc_vs_baseline_milli": 2.64,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.007609,
+          "delta_logloss_vs_baseline_milli": -1.142
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "paper_auc": 0.871,
+          "baseline_auc": 0.87092,
+          "sisa_20262027_auc": 0.86945,
+          "sisa_20262028_auc": 0.868933,
+          "sisa_20262029_auc": 0.867965,
+          "sisa_three_seed_auc": 0.868783,
+          "sisa_seed_std_auc_milli": 0.754,
+          "delta_auc_vs_baseline_milli": -2.137,
+          "delta_auc_vs_paper_milli": -2.217,
+          "abs_delta_auc_vs_baseline_milli": 2.137,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005684,
+          "delta_logloss_vs_baseline_milli": 0.0
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "paper_auc": 0.8993,
+          "baseline_auc": 0.898789,
+          "sisa_20262027_auc": 0.895209,
+          "sisa_20262028_auc": 0.898652,
+          "sisa_20262029_auc": 0.896727,
+          "sisa_three_seed_auc": 0.896863,
+          "sisa_seed_std_auc_milli": 1.726,
+          "delta_auc_vs_baseline_milli": -1.926,
+          "delta_auc_vs_paper_milli": -2.437,
+          "abs_delta_auc_vs_baseline_milli": 1.926,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.014748,
+          "delta_logloss_vs_baseline_milli": 0.039
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "paper_auc": 0.8853,
+          "baseline_auc": 0.889771,
+          "sisa_20262027_auc": 0.891853,
+          "sisa_20262028_auc": 0.893,
+          "sisa_20262029_auc": 0.889446,
+          "sisa_three_seed_auc": 0.891433,
+          "sisa_seed_std_auc_milli": 1.814,
+          "delta_auc_vs_baseline_milli": 1.662,
+          "delta_auc_vs_paper_milli": 6.133,
+          "abs_delta_auc_vs_baseline_milli": 1.662,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.015043,
+          "delta_logloss_vs_baseline_milli": 0.008
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "paper_auc": 0.9305,
+          "baseline_auc": 0.92972,
+          "sisa_20262027_auc": 0.931195,
+          "sisa_20262028_auc": 0.930531,
+          "sisa_20262029_auc": 0.931824,
+          "sisa_three_seed_auc": 0.931183,
+          "sisa_seed_std_auc_milli": 0.647,
+          "delta_auc_vs_baseline_milli": 1.463,
+          "delta_auc_vs_paper_milli": 0.683,
+          "abs_delta_auc_vs_baseline_milli": 1.463,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.005405,
+          "delta_logloss_vs_baseline_milli": 0.031
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "paper_auc": 0.9334,
+          "baseline_auc": 0.933742,
+          "sisa_20262027_auc": 0.93234,
+          "sisa_20262028_auc": 0.933234,
+          "sisa_20262029_auc": 0.931627,
+          "sisa_three_seed_auc": 0.9324,
+          "sisa_seed_std_auc_milli": 0.805,
+          "delta_auc_vs_baseline_milli": -1.342,
+          "delta_auc_vs_paper_milli": -1.0,
+          "abs_delta_auc_vs_baseline_milli": 1.342,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005459,
+          "delta_logloss_vs_baseline_milli": 0.158
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "paper_auc": 0.8691,
+          "baseline_auc": 0.86964,
+          "sisa_20262027_auc": 0.872832,
+          "sisa_20262028_auc": 0.868786,
+          "sisa_20262029_auc": 0.871262,
+          "sisa_three_seed_auc": 0.87096,
+          "sisa_seed_std_auc_milli": 2.04,
+          "delta_auc_vs_baseline_milli": 1.32,
+          "delta_auc_vs_paper_milli": 1.86,
+          "abs_delta_auc_vs_baseline_milli": 1.32,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005705,
+          "delta_logloss_vs_baseline_milli": -0.111
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "paper_auc": 0.9465,
+          "baseline_auc": 0.946691,
+          "sisa_20262027_auc": 0.945462,
+          "sisa_20262028_auc": 0.945454,
+          "sisa_20262029_auc": 0.945247,
+          "sisa_three_seed_auc": 0.945388,
+          "sisa_seed_std_auc_milli": 0.122,
+          "delta_auc_vs_baseline_milli": -1.303,
+          "delta_auc_vs_paper_milli": -1.112,
+          "abs_delta_auc_vs_baseline_milli": 1.303,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.037559,
+          "delta_logloss_vs_baseline_milli": 0.287
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "paper_auc": 0.9294,
+          "baseline_auc": 0.928496,
+          "sisa_20262027_auc": 0.925869,
+          "sisa_20262028_auc": 0.929336,
+          "sisa_20262029_auc": 0.926401,
+          "sisa_three_seed_auc": 0.927202,
+          "sisa_seed_std_auc_milli": 1.867,
+          "delta_auc_vs_baseline_milli": -1.294,
+          "delta_auc_vs_paper_milli": -2.198,
+          "abs_delta_auc_vs_baseline_milli": 1.294,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.054072,
+          "delta_logloss_vs_baseline_milli": 0.435
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "paper_auc": 0.933,
+          "baseline_auc": 0.933053,
+          "sisa_20262027_auc": 0.934587,
+          "sisa_20262028_auc": 0.934075,
+          "sisa_20262029_auc": 0.934379,
+          "sisa_three_seed_auc": 0.934347,
+          "sisa_seed_std_auc_milli": 0.257,
+          "delta_auc_vs_baseline_milli": 1.294,
+          "delta_auc_vs_paper_milli": 1.347,
+          "abs_delta_auc_vs_baseline_milli": 1.294,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.250509,
+          "delta_logloss_vs_baseline_milli": -2.395
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "paper_auc": 0.9318,
+          "baseline_auc": 0.931713,
+          "sisa_20262027_auc": 0.9333,
+          "sisa_20262028_auc": 0.932455,
+          "sisa_20262029_auc": 0.932877,
+          "sisa_three_seed_auc": 0.932877,
+          "sisa_seed_std_auc_milli": 0.423,
+          "delta_auc_vs_baseline_milli": 1.164,
+          "delta_auc_vs_paper_milli": 1.077,
+          "abs_delta_auc_vs_baseline_milli": 1.164,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.253207,
+          "delta_logloss_vs_baseline_milli": -1.608
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "paper_auc": 0.9108,
+          "baseline_auc": 0.910614,
+          "sisa_20262027_auc": 0.911848,
+          "sisa_20262028_auc": 0.912944,
+          "sisa_20262029_auc": 0.910454,
+          "sisa_three_seed_auc": 0.911749,
+          "sisa_seed_std_auc_milli": 1.248,
+          "delta_auc_vs_baseline_milli": 1.135,
+          "delta_auc_vs_paper_milli": 0.949,
+          "abs_delta_auc_vs_baseline_milli": 1.135,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005227,
+          "delta_logloss_vs_baseline_milli": 0.05
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "click",
+          "paper_auc": 0.9334,
+          "baseline_auc": 0.933477,
+          "sisa_20262027_auc": 0.93471,
+          "sisa_20262028_auc": 0.934288,
+          "sisa_20262029_auc": 0.93453,
+          "sisa_three_seed_auc": 0.934509,
+          "sisa_seed_std_auc_milli": 0.212,
+          "delta_auc_vs_baseline_milli": 1.032,
+          "delta_auc_vs_paper_milli": 1.109,
+          "abs_delta_auc_vs_baseline_milli": 1.032,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.250131,
+          "delta_logloss_vs_baseline_milli": -1.874
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_forward",
+          "paper_auc": 0.8704,
+          "baseline_auc": 0.871088,
+          "sisa_20262027_auc": 0.873619,
+          "sisa_20262028_auc": 0.869064,
+          "sisa_20262029_auc": 0.873658,
+          "sisa_three_seed_auc": 0.872114,
+          "sisa_seed_std_auc_milli": 2.641,
+          "delta_auc_vs_baseline_milli": 1.026,
+          "delta_auc_vs_paper_milli": 1.714,
+          "abs_delta_auc_vs_baseline_milli": 1.026,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005616,
+          "delta_logloss_vs_baseline_milli": -0.033
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "paper_auc": 0.911,
+          "baseline_auc": 0.91174,
+          "sisa_20262027_auc": 0.911898,
+          "sisa_20262028_auc": 0.913611,
+          "sisa_20262029_auc": 0.912153,
+          "sisa_three_seed_auc": 0.912554,
+          "sisa_seed_std_auc_milli": 0.924,
+          "delta_auc_vs_baseline_milli": 0.814,
+          "delta_auc_vs_paper_milli": 1.554,
+          "abs_delta_auc_vs_baseline_milli": 0.814,
+          "all_seeds_beat_baseline": "是",
+          "sisa_three_seed_logloss": 0.005173,
+          "delta_logloss_vs_baseline_milli": 0.041
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "paper_auc": 0.9464,
+          "baseline_auc": 0.946457,
+          "sisa_20262027_auc": 0.947302,
+          "sisa_20262028_auc": 0.947015,
+          "sisa_20262029_auc": 0.946284,
+          "sisa_three_seed_auc": 0.946867,
+          "sisa_seed_std_auc_milli": 0.525,
+          "delta_auc_vs_baseline_milli": 0.41,
+          "delta_auc_vs_paper_milli": 0.467,
+          "abs_delta_auc_vs_baseline_milli": 0.41,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.037218,
+          "delta_logloss_vs_baseline_milli": 0.249
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_like",
+          "paper_auc": 0.9294,
+          "baseline_auc": 0.928141,
+          "sisa_20262027_auc": 0.930466,
+          "sisa_20262028_auc": 0.925888,
+          "sisa_20262029_auc": 0.927028,
+          "sisa_three_seed_auc": 0.927794,
+          "sisa_seed_std_auc_milli": 2.383,
+          "delta_auc_vs_baseline_milli": -0.347,
+          "delta_auc_vs_paper_milli": -1.606,
+          "abs_delta_auc_vs_baseline_milli": 0.347,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.054577,
+          "delta_logloss_vs_baseline_milli": 0.256
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "follow",
+          "paper_auc": 0.9222,
+          "baseline_auc": 0.922279,
+          "sisa_20262027_auc": 0.923107,
+          "sisa_20262028_auc": 0.922992,
+          "sisa_20262029_auc": 0.921674,
+          "sisa_three_seed_auc": 0.922591,
+          "sisa_seed_std_auc_milli": 0.796,
+          "delta_auc_vs_baseline_milli": 0.312,
+          "delta_auc_vs_paper_milli": 0.391,
+          "abs_delta_auc_vs_baseline_milli": 0.312,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.004973,
+          "delta_logloss_vs_baseline_milli": -0.049
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "label": "click",
+          "paper_auc": 0.9323,
+          "baseline_auc": 0.932306,
+          "sisa_20262027_auc": 0.932526,
+          "sisa_20262028_auc": 0.931291,
+          "sisa_20262029_auc": 0.932216,
+          "sisa_three_seed_auc": 0.932011,
+          "sisa_seed_std_auc_milli": 0.643,
+          "delta_auc_vs_baseline_milli": -0.295,
+          "delta_auc_vs_paper_milli": -0.289,
+          "abs_delta_auc_vs_baseline_milli": 0.295,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.25431,
+          "delta_logloss_vs_baseline_milli": 0.338
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "label": "is_comment",
+          "paper_auc": 0.8994,
+          "baseline_auc": 0.897885,
+          "sisa_20262027_auc": 0.901214,
+          "sisa_20262028_auc": 0.896437,
+          "sisa_20262029_auc": 0.895144,
+          "sisa_three_seed_auc": 0.897598,
+          "sisa_seed_std_auc_milli": 3.197,
+          "delta_auc_vs_baseline_milli": -0.287,
+          "delta_auc_vs_paper_milli": -1.802,
+          "abs_delta_auc_vs_baseline_milli": 0.287,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.014727,
+          "delta_logloss_vs_baseline_milli": -0.061
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "share",
+          "paper_auc": 0.9358,
+          "baseline_auc": 0.935961,
+          "sisa_20262027_auc": 0.936504,
+          "sisa_20262028_auc": 0.935292,
+          "sisa_20262029_auc": 0.936623,
+          "sisa_three_seed_auc": 0.93614,
+          "sisa_seed_std_auc_milli": 0.737,
+          "delta_auc_vs_baseline_milli": 0.179,
+          "delta_auc_vs_paper_milli": 0.34,
+          "abs_delta_auc_vs_baseline_milli": 0.179,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005298,
+          "delta_logloss_vs_baseline_milli": 0.022
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "like",
+          "paper_auc": 0.9444,
+          "baseline_auc": 0.944118,
+          "sisa_20262027_auc": 0.945435,
+          "sisa_20262028_auc": 0.943098,
+          "sisa_20262029_auc": 0.943617,
+          "sisa_three_seed_auc": 0.94405,
+          "sisa_seed_std_auc_milli": 1.227,
+          "delta_auc_vs_baseline_milli": -0.068,
+          "delta_auc_vs_paper_milli": -0.35,
+          "abs_delta_auc_vs_baseline_milli": 0.068,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.037908,
+          "delta_logloss_vs_baseline_milli": 0.491
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "label": "share",
+          "paper_auc": 0.929,
+          "baseline_auc": 0.929184,
+          "sisa_20262027_auc": 0.929971,
+          "sisa_20262028_auc": 0.927964,
+          "sisa_20262029_auc": 0.929672,
+          "sisa_three_seed_auc": 0.929202,
+          "sisa_seed_std_auc_milli": 1.083,
+          "delta_auc_vs_baseline_milli": 0.018,
+          "delta_auc_vs_paper_milli": 0.202,
+          "abs_delta_auc_vs_baseline_milli": 0.018,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.005481,
+          "delta_logloss_vs_baseline_milli": 0.07
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "label": "like",
+          "paper_auc": 0.948,
+          "baseline_auc": 0.947958,
+          "sisa_20262027_auc": 0.948299,
+          "sisa_20262028_auc": 0.94831,
+          "sisa_20262029_auc": 0.947288,
+          "sisa_three_seed_auc": 0.947966,
+          "sisa_seed_std_auc_milli": 0.587,
+          "delta_auc_vs_baseline_milli": 0.008,
+          "delta_auc_vs_paper_milli": -0.034,
+          "abs_delta_auc_vs_baseline_milli": 0.008,
+          "all_seeds_beat_baseline": "否",
+          "sisa_three_seed_logloss": 0.036974,
+          "delta_logloss_vs_baseline_milli": -0.465
+        }
+      ],
+      "model_summary": [
+        {
+          "model": "HiFormer",
+          "cells": 4,
+          "labels": 17,
+          "paper_auc": 0.861754,
+          "baseline_auc": 0.861994,
+          "sisa_three_seed_auc": 0.867151,
+          "delta_auc_vs_baseline_milli": 5.157,
+          "delta_auc_vs_paper_milli": 5.397,
+          "positive_auc_cells_vs_baseline": 3,
+          "median_seed_std_auc_milli": 1.689,
+          "delta_logloss_vs_baseline_milli": -1.867
+        },
+        {
+          "model": "HyFormer",
+          "cells": 4,
+          "labels": 17,
+          "paper_auc": 0.858049,
+          "baseline_auc": 0.858102,
+          "sisa_three_seed_auc": 0.866589,
+          "delta_auc_vs_baseline_milli": 8.487,
+          "delta_auc_vs_paper_milli": 8.54,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 2.191,
+          "delta_logloss_vs_baseline_milli": -1.893
+        },
+        {
+          "model": "RankMixer",
+          "cells": 4,
+          "labels": 17,
+          "paper_auc": 0.851977,
+          "baseline_auc": 0.853694,
+          "sisa_three_seed_auc": 0.860318,
+          "delta_auc_vs_baseline_milli": 6.624,
+          "delta_auc_vs_paper_milli": 8.341,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 2.47,
+          "delta_logloss_vs_baseline_milli": -1.334
+        },
+        {
+          "model": "Zenith",
+          "cells": 4,
+          "labels": 17,
+          "paper_auc": 0.860432,
+          "baseline_auc": 0.860028,
+          "sisa_three_seed_auc": 0.86542,
+          "delta_auc_vs_baseline_milli": 5.392,
+          "delta_auc_vs_paper_milli": 4.987,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 3.152,
+          "delta_logloss_vs_baseline_milli": -0.956
+        }
+      ],
+      "dataset_summary": [
+        {
+          "dataset": "QK-Video",
+          "cells": 4,
+          "labels": 16,
+          "paper_auc": 0.931688,
+          "baseline_auc": 0.931808,
+          "sisa_three_seed_auc": 0.931716,
+          "delta_auc_vs_baseline_milli": -0.092,
+          "delta_auc_vs_paper_milli": 0.028,
+          "positive_auc_cells_vs_baseline": 3,
+          "median_seed_std_auc_milli": 0.275,
+          "delta_logloss_vs_baseline_milli": -0.28
+        },
+        {
+          "dataset": "KuaiRand",
+          "cells": 4,
+          "labels": 24,
+          "paper_auc": 0.857254,
+          "baseline_auc": 0.856928,
+          "sisa_three_seed_auc": 0.862798,
+          "delta_auc_vs_baseline_milli": 5.87,
+          "delta_auc_vs_paper_milli": 5.543,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 1.443,
+          "delta_logloss_vs_baseline_milli": -3.749
+        },
+        {
+          "dataset": "TAAC-25 / TencentGR",
+          "cells": 4,
+          "labels": 8,
+          "paper_auc": 0.846,
+          "baseline_auc": 0.847706,
+          "sisa_three_seed_auc": 0.861082,
+          "delta_auc_vs_baseline_milli": 13.376,
+          "delta_auc_vs_paper_milli": 15.082,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 4.847,
+          "delta_logloss_vs_baseline_milli": -0.333
+        },
+        {
+          "dataset": "MerRec",
+          "cells": 4,
+          "labels": 20,
+          "paper_auc": 0.79727,
+          "baseline_auc": 0.797377,
+          "sisa_three_seed_auc": 0.803882,
+          "delta_auc_vs_baseline_milli": 6.506,
+          "delta_auc_vs_paper_milli": 6.612,
+          "positive_auc_cells_vs_baseline": 4,
+          "median_seed_std_auc_milli": 3.395,
+          "delta_logloss_vs_baseline_milli": -1.688
+        }
+      ],
+      "protocols": [
+        {
+          "series": "论文表值",
+          "experiment_seed": "论文单次结果",
+          "internal_rng_seeds": "未用于三-seed 计数",
+          "gpu_protocol": "论文报告口径",
+          "per_gpu_batch": "未在表中展示",
+          "global_batch": "未在表中展示",
+          "epochs": 1,
+          "sequence_length": 100,
+          "comparability": "四位小数发布值"
+        },
+        {
+          "series": "本地 baseline",
+          "experiment_seed": "20262027",
+          "internal_rng_seeds": "dataloader=2026; SISA 参数不适用（旧默认值仅作审计）",
+          "gpu_protocol": "4 GPU；L40S/RTX4090/H100 混合，cell 内 baseline/SISA 配对",
+          "per_gpu_batch": "8192",
+          "global_batch": "32768",
+          "epochs": 1,
+          "sequence_length": 100,
+          "comparability": "本地复现基线，不是新增 seed"
+        },
+        {
+          "series": "SISA seed 20262027",
+          "experiment_seed": "20262027",
+          "internal_rng_seeds": "dataloader=2026; SISA parameter=20260821（旧默认值推断）",
+          "gpu_protocol": "4 GPU；L40S/RTX4090/H100 混合",
+          "per_gpu_batch": "8192",
+          "global_batch": "32768",
+          "epochs": 1,
+          "sequence_length": 100,
+          "comparability": "与后两轮存在协议/硬件/drop_last 混杂"
+        },
+        {
+          "series": "SISA seed 20262028",
+          "experiment_seed": "20262028",
+          "internal_rng_seeds": "dataloader=2027; SISA parameter=20260822",
+          "gpu_protocol": "2×H100 80GB",
+          "per_gpu_batch": "16384",
+          "global_batch": "32768",
+          "epochs": 1,
+          "sequence_length": 100,
+          "comparability": "与 seed 20262029 同协议"
+        },
+        {
+          "series": "SISA seed 20262029",
+          "experiment_seed": "20262029",
+          "internal_rng_seeds": "dataloader=2028; SISA parameter=20260823",
+          "gpu_protocol": "2×H100 80GB",
+          "per_gpu_batch": "16384",
+          "global_batch": "32768",
+          "epochs": 1,
+          "sequence_length": 100,
+          "comparability": "与 seed 20262028 同协议；task 0 使用同协议 attempt2"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "paper_table",
+      "label": "UniRank 论文 Table 2 的 68 个匹配指标",
+      "path": "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/sources/paper_table.csv')",
+        "description": "UniRank comprehensive benchmark table, sequence length 100",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/sources/paper_table.csv"
+        ],
+        "filters": [
+          "models = HiFormer, HyFormer, RankMixer, Zenith",
+          "datasets = four report datasets"
+        ],
+        "metric_definitions": [
+          "AUC higher is better",
+          "binary logloss lower is better"
+        ],
+        "url": "https://arxiv.org/abs/2607.19987"
+      }
+    },
+    {
+      "id": "comparison_headline",
+      "label": "论文、baseline 与三-seed SISA 汇总",
+      "path": "experiments/sisa_three_seed_unified/results/headline.json",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT *, 3 AS sisa_seed_count, 1000 * cell_macro_delta_auc_vs_baseline AS delta_auc_vs_baseline_milli, positive_auc_cells_vs_baseline, 1000 * cell_macro_delta_auc_vs_paper AS delta_auc_vs_paper_milli, 1000 * cell_macro_delta_logloss_vs_baseline AS delta_logloss_vs_baseline_milli, auc_labels_all_seeds_better_baseline, same_top_model_all_three_seeds, ranking_tasks FROM read_json_auto('experiments/sisa_three_seed_unified/results/headline.json')",
+        "description": "论文、baseline 与三-seed SISA 汇总",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+          "experiments/sisa_native_strict/results/metrics.csv",
+          "experiments/sisa_expansion_acd/results/metrics.csv",
+          "experiments/sisa_single_seed20262028/results/metrics.csv",
+          "experiments/sisa_single_seed20262029/results/metrics.csv"
+        ],
+        "filters": [],
+        "metric_definitions": [
+          "cell-macro = equal-weight mean over labels within each cell, then equal-weight mean over 16 cells",
+          "three-seed SISA mean = arithmetic mean of experiment seeds 20262027, 20262028, and 20262029",
+          "AUC delta = SISA three-seed mean minus comparator",
+          "logloss delta = SISA three-seed mean minus comparator; negative is better"
+        ]
+      }
+    },
+    {
+      "id": "cell_summary",
+      "label": "16 个模型×数据集单元的统一比较",
+      "path": "experiments/sisa_three_seed_unified/results/cell_summary.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/cell_summary.csv', header = true)",
+        "description": "16 个模型×数据集单元的统一比较",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+          "experiments/sisa_native_strict/results/metrics.csv",
+          "experiments/sisa_expansion_acd/results/metrics.csv",
+          "experiments/sisa_single_seed20262028/results/metrics.csv",
+          "experiments/sisa_single_seed20262029/results/metrics.csv"
+        ],
+        "filters": [],
+        "metric_definitions": [
+          "paper and baseline values are label means within one model-dataset cell",
+          "SISA seed standard deviation is the sample standard deviation of three cell-level seed means"
+        ]
+      }
+    },
+    {
+      "id": "label_comparison",
+      "label": "68 个标签的论文/baseline/三-seed 明细",
+      "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/label_comparison.csv', header = true)",
+        "description": "68 个标签的论文/baseline/三-seed 明细",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/sources/paper_table.csv",
+          "experiments/sisa_native_strict/results/metrics.csv",
+          "experiments/sisa_expansion_acd/results/metrics.csv",
+          "experiments/sisa_single_seed20262028/results/metrics.csv",
+          "experiments/sisa_single_seed20262029/results/metrics.csv"
+        ],
+        "filters": [],
+        "metric_definitions": []
+      }
+    },
+    {
+      "id": "model_summary",
+      "label": "按模型的 cell-macro 汇总",
+      "path": "experiments/sisa_three_seed_unified/results/model_summary.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/model_summary.csv', header = true)",
+        "description": "按模型的 cell-macro 汇总",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/cell_summary.csv"
+        ],
+        "filters": [],
+        "metric_definitions": []
+      }
+    },
+    {
+      "id": "dataset_summary",
+      "label": "按数据集的 cell-macro 汇总",
+      "path": "experiments/sisa_three_seed_unified/results/dataset_summary.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/dataset_summary.csv', header = true)",
+        "description": "按数据集的 cell-macro 汇总",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/cell_summary.csv"
+        ],
+        "filters": [],
+        "metric_definitions": []
+      }
+    },
+    {
+      "id": "protocols",
+      "label": "论文、baseline 与三次 SISA 的协议边界",
+      "path": "experiments/sisa_three_seed_unified/results/protocols.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/protocols.csv', header = true)",
+        "description": "论文、baseline 与三次 SISA 的协议边界",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/protocols.csv"
+        ],
+        "filters": [],
+        "metric_definitions": [
+          "experiment seed counts a complete SISA training round",
+          "dataloader and SISA parameter seeds are internal RNG streams, not additional experiment seeds"
+        ]
+      }
+    },
+    {
+      "id": "comparison_code",
+      "label": "三-seed 对齐、聚合与校验代码",
+      "path": "scripts/compare_sisa_three_seed_results.py",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT 'scripts/compare_sisa_three_seed_results.py' AS source_file",
+        "description": "三-seed 对齐、聚合与校验代码",
+        "tables_used": [
+          "scripts/compare_sisa_three_seed_results.py"
+        ],
+        "filters": [],
+        "metric_definitions": []
+      }
+    },
+    {
+      "id": "report_builder",
+      "label": "统一报告快照构建代码",
+      "path": "scripts/build_sisa_three_seed_report.py",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT 'scripts/build_sisa_three_seed_report.py' AS source_file",
+        "description": "统一报告快照构建代码",
+        "tables_used": [
+          "scripts/build_sisa_three_seed_report.py"
+        ],
+        "filters": [],
+        "metric_definitions": []
+      }
+    }
+  ]
+}

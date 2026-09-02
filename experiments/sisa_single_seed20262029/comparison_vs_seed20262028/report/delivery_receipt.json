@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "html": "experiments/sisa_single_seed20262029/comparison_vs_seed20262028/report/report.html",
+  "stages": {
+    "validation": "passed",
+    "package": "passed",
+    "verification": "passed"
+  },
+  "counts": {
+    "blocks": 27,
+    "charts": 1,
+    "html": 0,
+    "metrics": 5,
+    "tables": 6
+  },
+  "sourceDialog": "passed",
+  "sourceInteraction": "keyboard_menu_semantic_click",
+  "viewports": [1440, 390],
+  "compatibilityNote": "The packaged HTML includes a top-bar width correction for browsers with non-overlay vertical scrollbars."
+}

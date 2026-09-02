@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "html": "experiments/sisa_three_seed_unified/report/report.html",
+  "stages": {
+    "validation": "passed",
+    "package": "passed",
+    "verification": "passed"
+  },
+  "counts": {
+    "blocks": 35,
+    "charts": 2,
+    "html": 0,
+    "metrics": 7,
+    "tables": 8
+  },
+  "sourceDialog": "passed",
+  "sourceInteraction": "keyboard_menu_semantic_click",
+  "viewports": [
+    1440,
+    390
+  ],
+  "timings": {
+    "validateAndPackageMs": 3141.9,
+    "staticChartExtractionMs": 2935.9,
+    "browserRunMs": 2259.4,
+    "readerReadyMs": 150.7,
+    "contentChecksMs": 32.1,
+    "sourceDialogMs": 32,
+    "responsiveChecksMs": 32.1,
+    "verificationMs": 2303.5,
+    "totalMs": 5455.9
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "auc_declined_labels": 35,
+  "auc_improved_labels": 33,
+  "auc_within_0_001": 15,
+  "auc_within_0_005": 54,
+  "auc_within_0_010": 60,
+  "candidate_seed": 20262029,
+  "cell_count": 16,
+  "comparison_protocol": "ws2_bs16384_acc1",
+  "joint_declined_labels": 31,
+  "joint_improved_labels": 23,
+  "label_count": 68,
+  "largest_auc_decline": {
+    "dataset": "TencentGR_10M_Action",
+    "delta_auc": -0.01773800000000003,
+    "label": "is_conversion",
+    "model": "Zenith"
+  },
+  "largest_auc_improvement": {
+    "dataset": "MerRec_Action",
+    "delta_auc": 0.024233999999999978,
+    "label": "Offer",
+    "model": "HyFormer"
+  },
+  "logloss_improved_labels": 27,
+  "logloss_worsened_labels": 41,
+  "lower_logloss_cells": 9,
+  "max_abs_delta_auc": 0.024233999999999978,
+  "mean_abs_delta_auc": 0.003854014705882361,
+  "mean_delta_auc_cell_macro": -0.0015162822916666677,
+  "mean_delta_auc_label_weighted": -0.0011226617647058872,
+  "mean_delta_logloss_cell_macro": 0.0006079427083333341,
+  "mean_delta_logloss_label_weighted": 0.00028394117647058967,
+  "median_abs_delta_auc": 0.0021094999999999864,
+  "median_delta_auc": -0.00022050000000001235,
+  "positive_auc_cells": 5,
+  "previous_source_counts": {
+    "sisa_single_seed20262028": 68
+  },
+  "ranking_tasks": 17,
+  "reference_seed": 20262028,
+  "same_best_model_tasks": 10
+}

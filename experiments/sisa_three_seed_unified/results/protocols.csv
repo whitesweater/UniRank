@@ -1,0 +1,6 @@
+series,experiment_seed,internal_rng_seeds,gpu_protocol,per_gpu_batch,global_batch,epochs,sequence_length,comparability
+论文表值,论文单次结果,未用于三-seed 计数,论文报告口径,未在表中展示,未在表中展示,1,100,四位小数发布值
+本地 baseline,20262027,dataloader=2026; SISA 参数不适用（旧默认值仅作审计）,4 GPU；L40S/RTX4090/H100 混合，cell 内 baseline/SISA 配对,8192,32768,1,100,本地复现基线，不是新增 seed
+SISA seed 20262027,20262027,dataloader=2026; SISA parameter=20260821（旧默认值推断）,4 GPU；L40S/RTX4090/H100 混合,8192,32768,1,100,与后两轮存在协议/硬件/drop_last 混杂
+SISA seed 20262028,20262028,dataloader=2027; SISA parameter=20260822,2×H100 80GB,16384,32768,1,100,与 seed 20262029 同协议
+SISA seed 20262029,20262029,dataloader=2028; SISA parameter=20260823,2×H100 80GB,16384,32768,1,100,与 seed 20262028 同协议；task 0 使用同协议 attempt2

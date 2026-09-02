@@ -67,7 +67,8 @@ class BlockedParquetBatchDataset(IterableDataset):
                  distributed=False,
                  rank=0,
                  world_size=1,
-                 drop_last=True):
+                 drop_last=True,
+                 seed=2026):
         super().__init__()
         self.columns = columns
         self.batch_size = int(batch_size)
@@ -76,6 +77,7 @@ class BlockedParquetBatchDataset(IterableDataset):
         self.rank = rank
         self.world_size = world_size
         self.drop_last = drop_last
+        self.seed = int(seed)
         self.epoch = 0
 
         self.data_part_map = build_part_file_map(data_path)
@@ -196,8 +198,9 @@ class BlockedParquetBatchDataset(IterableDataset):
         worker_info = get_worker_info()
 
         blocks = list(self.rank_blocks)
-        py_rng = random.Random(2026 + self.epoch + self.rank)
-        np_rng = np.random.default_rng(2026 + self.epoch + self.rank)
+        effective_seed = self.seed + self.epoch + self.rank
+        py_rng = random.Random(effective_seed)
+        np_rng = np.random.default_rng(effective_seed)
 
         if self.shuffle:
             py_rng.shuffle(blocks)
@@ -261,6 +264,7 @@ class UniRankDataloader(DataLoader):
         self.split = split
 
         self.block_cache_size = kwargs.pop("block_cache_size", 2)
+        dataloader_seed = kwargs.pop("dataloader_seed", 2026)
 
         user_info = resolve_side_info_path(
             split=self.split,
@@ -285,7 +289,8 @@ class UniRankDataloader(DataLoader):
             distributed=distributed,
             rank=rank,
             world_size=world_size,
-            drop_last=drop_last
+            drop_last=drop_last,
+            seed=dataloader_seed,
         )
         if distributed:
             print(

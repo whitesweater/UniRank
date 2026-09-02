@@ -46,6 +46,40 @@ from unirank.preprocess import FeatureProcessor, build_dataset
 import model_zoo
 
 
+def apply_runtime_overrides(params, args, world_size=1):
+    """Apply validated command-line overrides without mutating YAML configs."""
+    seed = args.get('seed')
+    if seed is not None:
+        max_seed = (2 ** 32 - 1) - max(0, int(world_size) - 1)
+        if seed < 0 or seed > max_seed:
+            raise ValueError(
+                f'--seed must be between 0 and {max_seed} for world_size={world_size}'
+            )
+        params['seed'] = seed
+
+    batch_size = args.get('batch_size')
+    if batch_size is not None:
+        if batch_size <= 0:
+            raise ValueError('--batch-size must be positive')
+        params['batch_size'] = batch_size
+
+    dataloader_seed = args.get('dataloader_seed')
+    if dataloader_seed is not None:
+        if dataloader_seed < 0 or dataloader_seed > 2 ** 32 - 1:
+            raise ValueError('--dataloader-seed must be between 0 and 4294967295')
+        params['dataloader_seed'] = dataloader_seed
+
+    sisa_parameter_seed = args.get('sisa_parameter_seed')
+    if sisa_parameter_seed is not None:
+        if sisa_parameter_seed < 0 or sisa_parameter_seed > 2 ** 63 - 1:
+            raise ValueError(
+                '--sisa-parameter-seed must be between 0 and 9223372036854775807'
+            )
+        params['sisa_parameter_seed'] = sisa_parameter_seed
+
+    return params
+
+
 if __name__ == '__main__':
     """
     Single card:
@@ -60,6 +94,10 @@ if __name__ == '__main__':
     parser.add_argument('--gpu', type=str, default='0,1,2,3', help='GPU ids, e.g. "0" or "0,1,2,3"; use "-1" for cpu')
     parser.add_argument('--enable_bf16', type=bool, default=True, help='Enable bfloat16 mixed precision training (default: True).')
     parser.add_argument('--run-id', type=str, default=None, help='Optional unique log/checkpoint id; the base config still comes from --expid.')
+    parser.add_argument('--seed', type=int, default=None, help='Optional base RNG seed override.')
+    parser.add_argument('--batch-size', type=int, default=None, help='Optional per-rank batch-size override.')
+    parser.add_argument('--dataloader-seed', type=int, default=None, help='Optional blocked-dataloader shuffle seed override.')
+    parser.add_argument('--sisa-parameter-seed', type=int, default=None, help='Optional isolated SISA-parameter seed override.')
     parser.add_argument('--sisa-enabled', action='store_true', help='Enable the learnable SISA score bias at native attention sites.')
     parser.add_argument('--sisa-score-dim', type=int, default=16)
     parser.add_argument('--sisa-lambda-init', type=float, default=0.1)
@@ -126,6 +164,7 @@ if __name__ == '__main__':
 
         experiment_id = args['expid']
         params = load_config(args['config'], experiment_id)
+        apply_runtime_overrides(params, args, world_size=world_size)
         if args['run_id'] is not None:
             if os.path.basename(args['run_id']) != args['run_id']:
                 raise ValueError('--run-id must be a plain file-name-safe identifier')
@@ -169,8 +208,14 @@ if __name__ == '__main__':
             logging.getLogger().handlers = []
             logging.basicConfig(level=logging.ERROR)
 
-        # Each rank uses a different seed offset
-        seed_everything(seed=params['seed'] + rank)
+        # Each rank uses a different seed offset.
+        effective_seed = params['seed'] + rank
+        print(
+            f"RNG_PROTOCOL rank={rank} base_seed={params['seed']} "
+            f"effective_seed={effective_seed}",
+            flush=True,
+        )
+        seed_everything(seed=effective_seed)
 
         data_dir = os.path.join(params['data_root'], params['dataset_id'])
         if params.get('rebuild_dataset', True):

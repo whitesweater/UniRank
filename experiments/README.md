@@ -4,12 +4,17 @@
 仓库根目录的 `logs/`、`checkpoints/` 和 `artifacts/`；这里只归档适合长期审阅与版本
 控制的文档、配置快照、汇总表和图表。
 
+统一可视化入口：[strict + expansion HTML 总报告](sisa_native_strict/migration/report.html)。
+
 ## 实验索引
 
 | 实验 | 状态 | 规模 | 入口 |
 | --- | --- | ---: | --- |
 | SISA 原生严格矩阵 | 已完成 | 32 tasks / 16 pairs | [报告](sisa_native_strict/report.md) · [结果](sisa_native_strict/results/) · [迁移证据](sisa_native_strict/migration/) |
 | SISA HPC3/ACD 扩展矩阵 | 已完成 | 38 tasks / 19 pairs | [报告](sisa_expansion_acd/report.md) · [结果](sisa_expansion_acd/results/) · [原计划](sisa_expansion_acd/planning.md) |
+| SISA seed 20262028 | 已完成 | 16 tasks / 68 labels | [结果](sisa_single_seed20262028/results/) · [与 seed 20262027 比较](sisa_single_seed20262028/comparison/) |
+| SISA seed 20262029 | 已完成 | 16 tasks / 68 labels | [协议](sisa_single_seed20262029/protocol.md) · [结果](sisa_single_seed20262029/results/) · [与 seed 20262028 比较](sisa_single_seed20262029/comparison_vs_seed20262028/) |
+| SISA 三-seed 统一分析 | 已完成 | 3 seeds / 16 cells / 68 labels | [摘要](sisa_three_seed_unified/results/summary.md) · [HTML 报告](sisa_three_seed_unified/report/report.html) · [来源](sisa_three_seed_unified/sources/) |
 | 后续消融实验 | 待开展 | 按 study 建档 | [消融索引与规范](ablations/README.md) |
 
 ## 统一目录约定
