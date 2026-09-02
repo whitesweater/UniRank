@@ -17,14 +17,17 @@
 # =========================================================================
 
 
-import itertools
-import subprocess
-import yaml
-import os
-import numpy as np
-import time
 import glob
 import hashlib
+import itertools
+import os
+import subprocess
+import sys
+import time
+
+import numpy as np
+import yaml
+
 from unirank.utils import print_to_json, load_model_config, load_dataset_config
 
 # add this line to avoid weird characters in yaml files
@@ -140,9 +143,18 @@ def grid_search(config_dir, gpu_list, expid_tag=None, script='run_expid.py'):
             idle_idx = idle_queue.pop(0)
             gpu_id = gpu_list[idle_idx]
             expid = experiment_id_list.pop(0)
-            cmd = "/home/lhh/miniconda3/envs/LongCTR/bin/python -u {} --config {} --expid {} --gpu {}" \
-                .format(script, config_dir, expid, gpu_id)
-            p = subprocess.Popen(cmd.split())
+            cmd = [
+                sys.executable,
+                "-u",
+                script,
+                "--config",
+                config_dir,
+                "--expid",
+                str(expid),
+                "--gpu",
+                str(gpu_id),
+            ]
+            p = subprocess.Popen(cmd)
             processes[idle_idx] = p
         else:
             time.sleep(3)

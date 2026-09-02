@@ -1,4 +1,5 @@
 .DS_Store
+.vscode/
 __pycache__/
 *.py[cod]
 *.model
@@ -14,6 +15,7 @@ checkpoints/
 /dist/
 /*.egg-info/
 /SISA_STRICT_EXPERIMENTS.html
+/paper/*.pdf
 /docs/MACHINE_HANDOFF_*.md
 /scripts/monitor_sisa_native_pilot.sh
 /scripts/submit_sisa_native_pilot.sbatch

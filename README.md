@@ -4,7 +4,7 @@
 
 # UniRank 项目说明与实验交接
 
-> 最后更新：2026-08-24。本仓库是 UniRank 的可复现研究分支，同时包含 SISA
+> 最后更新：2026-09-03。本仓库是 UniRank 的可复现研究分支，同时包含 SISA
 > 适配、严格配对实验、集群运行脚本和审计工具。本文既是项目入口，也是后续实验的
 > 唯一主交接文档。
 
@@ -37,19 +37,20 @@ UniRank 是面向大规模推荐排序的 PyTorch 基准框架，统一了时序
 | 新三模型 SISA | 已完成代码与测试 | UniMixer、HyFormer、UltraHSTU |
 | 新三模型五数据集矩阵 | 已完成并审计 | 3 模型 × 5 数据集 × baseline/SISA，共 30 个任务 |
 | HPC3/ACD 扩展矩阵 | 已完成 | 38 个独立 array element；每个元素使用 4×H100；38/38 有效 |
-| 本地回归测试 | 已通过 | 当前 50 个测试全部通过 |
+| 本地回归测试 | 已通过 | 当前 85 个测试全部通过 |
 
 最重要的交接边界：**32 个原严格任务和 38 个 HPC3/ACD 扩展任务均已完成并审计。**
 后续新增工作应作为独立消融实验归档，不要覆盖这两组正式结果。
 
-## 3. 仓库与集群位置
+## 3. 仓库与运行环境
 
 | 位置 | 路径/地址 | 用途 |
 |---|---|---|
-| 个人 GitHub | `https://github.com/whitesweater/UniRank` | 私有主远端，`main` 是同步源 |
+| GitHub | `https://github.com/whitesweater/UniRank` | 公开主远端，`main` 是同步源 |
 | 上游 GitHub | `https://github.com/salmon1802/UniRank` | 只用于跟踪官方更新，远端名 `upstream` |
-| HPC01 | `/data_nvme/user/ywhao/proj/UniRank` | 历史严格实验 checkout；不再作为当前任务运行节点 |
-| HPC3 | `/data/user/yhao481/proj/UniRank` | 当前开发和实验运行目录，SSH 别名 `hpc3_27` |
+
+集群 checkout、SSH 别名和数据挂载点属于部署配置，不写入版本库。历史实验报告仅保留复现
+结论所需的硬件、协议和 job/task 映射。
 
 Git 只同步实现和复现必需文件。以下内容按设计不进入仓库：
 
@@ -87,6 +88,9 @@ UniRank/
 │   │   ├── results/                 # 小型机器可读结果
 │   │   └── migration/               # HPC01 原始报告与迁移证据包
 │   ├── sisa_expansion_acd/          # 已完成 38-task HPC3/ACD 扩展实验
+│   ├── sisa_single_seed20262028/     # seed 20262028 结果与两-seed 比较
+│   ├── sisa_single_seed20262029/     # seed 20262029 结果与同协议比较
+│   ├── sisa_three_seed_unified/      # 三-seed、baseline 与论文表统一分析
 │   ├── ablations/                   # 后续消融实验索引
 │   └── templates/ablation/          # 消融报告模板
 ├── scripts/
