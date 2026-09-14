@@ -4,12 +4,22 @@
 仓库根目录的 `logs/`、`checkpoints/` 和 `artifacts/`；这里只归档适合长期审阅与版本
 控制的文档、配置快照、汇总表和图表。
 
-统一可视化入口：[strict + expansion HTML 总报告](sisa_native_strict/migration/report.html)。
+独立论文实验报告：`sisa_paper_report/report.md`。报告无超链接，正文完整包含实验设置、
+结果与全部标签明细，可直接复制给他人阅读。中间材料集中于
+`sisa_paper_report/archive/`；原始检查日志和失败截图仅本地归档并忽略。
+
+当前论文证据只采用 HiFormer、HyFormer、RankMixer、Zenith × QK-Video、KuaiRand、
+TAAC-25、MerRec 的 16 个单元。主结果采用 seed 20262027 的 baseline/SISA 同协议
+配对；三轮 SISA 均值是补充描述，不能称为三轮同协议配对效果。下表中 strict 和
+expansion 的规模是历史运行总量，包含当前范围之外的诊断记录，不作为论文聚合分母。
+
+历史全量可视化：[strict + expansion 报告](sisa_native_strict/migration/report.html)。
 
 ## 实验索引
 
 | 实验 | 状态 | 规模 | 入口 |
 | --- | --- | ---: | --- |
+| SISA 论文实验整理（2026-09-14） | 归档数值已复核；待补同协议 baseline seeds 与消融 | accepted 16 cells / 64 最终运行 / 68 标签组合 | `sisa_paper_report/report.md`（独立完整报告） |
 | SISA 原生严格矩阵 | 已完成 | 32 tasks / 16 pairs | [报告](sisa_native_strict/report.md) · [结果](sisa_native_strict/results/) · [迁移证据](sisa_native_strict/migration/) |
 | SISA HPC3/ACD 扩展矩阵 | 已完成 | 38 tasks / 19 pairs | [报告](sisa_expansion_acd/report.md) · [结果](sisa_expansion_acd/results/) · [原计划](sisa_expansion_acd/planning.md) |
 | SISA seed 20262028 | 已完成 | 16 tasks / 68 labels | [结果](sisa_single_seed20262028/results/) · [与 seed 20262027 比较](sisa_single_seed20262028/comparison/) |

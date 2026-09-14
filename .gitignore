@@ -19,3 +19,8 @@ checkpoints/
 /docs/MACHINE_HANDOFF_*.md
 /scripts/monitor_sisa_native_pilot.sh
 /scripts/submit_sisa_native_pilot.sbatch
+
+# Local report attempts and raw verification output; compact evidence stays tracked.
+/experiments/sisa_paper_report/archive/logs/
+/experiments/sisa_paper_report/archive/previews/
+*.html.tmp-*

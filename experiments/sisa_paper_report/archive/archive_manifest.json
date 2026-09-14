@@ -1,0 +1,220 @@
+{
+  "date": "2026-09-14",
+  "final_report": "experiments/sisa_paper_report/report.md",
+  "final_report_sha256": "1cba2947eb97adf4033a0890710813bdf150c3ce2b26d674fe883d6949ee0fab",
+  "files": [
+    {
+      "original_path": "experiments/sisa_paper_report/results/cell_results.csv",
+      "archived_path": "results/cell_results.csv",
+      "original_sha256": "251211a69fd3370708bbba9869581d8a65bd6fac0710f2e45ea165ceb557070f",
+      "archived_sha256": "251211a69fd3370708bbba9869581d8a65bd6fac0710f2e45ea165ceb557070f",
+      "bytes": 6644,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/coverage_audit.csv",
+      "archived_path": "results/coverage_audit.csv",
+      "original_sha256": "cbde340a6bb3f7edd41810cf01935644efa236d9c0b161c2c38c2c133599cd92",
+      "archived_sha256": "cbde340a6bb3f7edd41810cf01935644efa236d9c0b161c2c38c2c133599cd92",
+      "bytes": 23578,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/dataset_counts.csv",
+      "archived_path": "results/dataset_counts.csv",
+      "original_sha256": "bb781bed500743b118c9a244654f4aae27343f568c30d902f4e7fb349d37b663",
+      "archived_sha256": "bb781bed500743b118c9a244654f4aae27343f568c30d902f4e7fb349d37b663",
+      "bytes": 646,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/dataset_metadata.json",
+      "archived_path": "results/dataset_metadata.json",
+      "original_sha256": "457d5f365834a010569d6c79bb114f3efc812b339321ff76fb8bff0b72111c8f",
+      "archived_sha256": "457d5f365834a010569d6c79bb114f3efc812b339321ff76fb8bff0b72111c8f",
+      "bytes": 30489,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/label_results.csv",
+      "archived_path": "results/label_results.csv",
+      "original_sha256": "a9c5cabf6939cbadb8b70765d327ba5bcaa2dbd8c5e7978b98d257e745705842",
+      "archived_sha256": "a9c5cabf6939cbadb8b70765d327ba5bcaa2dbd8c5e7978b98d257e745705842",
+      "bytes": 19792,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/logged_configurations.json",
+      "archived_path": "results/logged_configurations.json",
+      "original_sha256": "3151095e65c8a466b5476a6a46901e92c705518fd676d69aa1b4eb7820935a5a",
+      "archived_sha256": "3151095e65c8a466b5476a6a46901e92c705518fd676d69aa1b4eb7820935a5a",
+      "bytes": 277257,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/paired_config_differences.csv",
+      "archived_path": "results/paired_config_differences.csv",
+      "original_sha256": "aea06bf367540349eb94c2471114a9cc94e5418417269c7c2652059712ea7e4c",
+      "archived_sha256": "aea06bf367540349eb94c2471114a9cc94e5418417269c7c2652059712ea7e4c",
+      "bytes": 3131,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/resource_usage.csv",
+      "archived_path": "results/resource_usage.csv",
+      "original_sha256": "eb0c7e530eaa92369ddfcea1e38c2a115a5be8b56a5e65c56a9faea8e3e015ce",
+      "archived_sha256": "eb0c7e530eaa92369ddfcea1e38c2a115a5be8b56a5e65c56a9faea8e3e015ce",
+      "bytes": 2231,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/run_evidence.csv",
+      "archived_path": "results/run_evidence.csv",
+      "original_sha256": "1ee4af840f6786ad135cbdfb95f4f3f9db73cb1399c39a3a8784938c69e9111f",
+      "archived_sha256": "1ee4af840f6786ad135cbdfb95f4f3f9db73cb1399c39a3a8784938c69e9111f",
+      "bytes": 19794,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/segment_results.csv",
+      "archived_path": "results/segment_results.csv",
+      "original_sha256": "4fc3a80656611872ae11fca503cb30c02cadf5d45d1fe9397413d64f3b5f03ef",
+      "archived_sha256": "4fc3a80656611872ae11fca503cb30c02cadf5d45d1fe9397413d64f3b5f03ef",
+      "bytes": 1010,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/source_manifest.csv",
+      "archived_path": "results/source_manifest.csv",
+      "original_sha256": "cca35dc30bb238b3196553b402fedc66385d34643db4a0beb5756f48e40ef1b3",
+      "archived_sha256": "cca35dc30bb238b3196553b402fedc66385d34643db4a0beb5756f48e40ef1b3",
+      "bytes": 21890,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/results/summary.json",
+      "archived_path": "results/summary.json",
+      "original_sha256": "8d4b45ba14879f16dc3593c2f9595d5f3e8588c8893f2f6379405702cbe41eb3",
+      "archived_sha256": "8d4b45ba14879f16dc3593c2f9595d5f3e8588c8893f2f6379405702cbe41eb3",
+      "bytes": 2773,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/validation.md",
+      "archived_path": "notes/validation.md",
+      "original_sha256": "61e300facf8cd8f93d4ce991ad9250c40b64db76a4ffd6cf03653bc88c0e4a8e",
+      "archived_sha256": "66b41ea256653df2a185779b08f399191418845f4b56822448ac30f3b94fcb09",
+      "bytes": 4933,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/source_notes.md",
+      "archived_path": "notes/source_notes.md",
+      "original_sha256": "7c7adbb68383446b8acf5f88cdc8a7c229ed8705f3263973783a4ca5d9d1aea3",
+      "archived_sha256": "c5a81b5f7a9b39ee16974d02b051e772ff56a6e4193484fdb6e57b3eddba2332",
+      "bytes": 936,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "scripts/audit_sisa_paper_evidence.py",
+      "archived_path": "scripts/audit_sisa_paper_evidence.py",
+      "original_sha256": "91bbeda8eeb015ec49f114c38f9e7f9aa2057bfd8222185ebc403ec239ba6935",
+      "archived_sha256": "67f1e5a1524800a01e97f066e4e1c9d614de0ed7f57ff8b2b8b321b58d1fd40f",
+      "bytes": 21659,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "scripts/build_sisa_paper_report.py",
+      "archived_path": "scripts/build_sisa_paper_report.py",
+      "original_sha256": "2fcb543b3a98068f72f7d8739770abdd8fe8473a00e76df9ccd0a941c160f602",
+      "archived_sha256": "1d7ff7356c8faf44cfa5af107a31c4c75651e1b3ddb9f2a34b8812f5da79cac3",
+      "bytes": 50747,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "tests/test_audit_sisa_paper_evidence.py",
+      "archived_path": "tests/test_audit_sisa_paper_evidence.py",
+      "original_sha256": "c751d4b140daef8e80fee28e736512d417f1d8e933cdca0f8e48ef8025d2a5bf",
+      "archived_sha256": "020d36a38ce8df43bc608d37f65b88e30b0f5d6029d9ecb24e2b94f9052bae82",
+      "bytes": 2694,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": "experiments/sisa_paper_report/report.html.tmp-1273959-de656cfb-e645-488a-9082-143b9d5ede6b.verification-failure.png",
+      "archived_path": "previews/html_verification_failure.png",
+      "original_sha256": "410e45aa24ff195cc2bb3639a40bf186c6002abbab14a527dee4afee56a6c3fb",
+      "archived_sha256": "410e45aa24ff195cc2bb3639a40bf186c6002abbab14a527dee4afee56a6c3fb",
+      "bytes": 265092,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": "temporary/unirank-paper-delivery.json",
+      "archived_path": "logs/html_delivery_failed.json",
+      "original_sha256": "22822a31110a5e86e295bde4f4ed7e69e21ca39a6af1ca092297d781d5495feb",
+      "archived_sha256": "22822a31110a5e86e295bde4f4ed7e69e21ca39a6af1ca092297d781d5495feb",
+      "bytes": 385,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": "temporary/unirank-paper-evidence-summary.json",
+      "archived_path": "logs/audit_stdout.json",
+      "original_sha256": "8d4b45ba14879f16dc3593c2f9595d5f3e8588c8893f2f6379405702cbe41eb3",
+      "archived_sha256": "8d4b45ba14879f16dc3593c2f9595d5f3e8588c8893f2f6379405702cbe41eb3",
+      "bytes": 2773,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": "temporary/unirank-paper-report-tests.log",
+      "archived_path": "logs/cpu_regression_original.log",
+      "original_sha256": "e2fa48e3093be473616da2b44f794b18917784563ed450e608d8693867300cc9",
+      "archived_sha256": "e2fa48e3093be473616da2b44f794b18917784563ed450e608d8693867300cc9",
+      "bytes": 16984,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": null,
+      "archived_path": "README.md",
+      "original_sha256": null,
+      "archived_sha256": "78c8807672e39e9b4765268e8fe8fb6eabdff31cc011a04ce1408ef9b9e94e14",
+      "bytes": 2411,
+      "git_policy": "version_controlled"
+    },
+    {
+      "original_path": null,
+      "archived_path": "logs/archive_tests.log",
+      "original_sha256": null,
+      "archived_sha256": "d05275abb627cb61970a18ed40e9f4760ee35339a86e48fe6c569b56d507afc1",
+      "bytes": 850,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": null,
+      "archived_path": "logs/cpu_regression_after_cleanup.log",
+      "original_sha256": null,
+      "archived_sha256": "c35258d92a12701b0e53860319ebf173ad7fceeaab4dea8960e8ab38eec71d54",
+      "bytes": 15149,
+      "git_policy": "local_archive_ignored"
+    },
+    {
+      "original_path": null,
+      "archived_path": "logs/runner_help.txt",
+      "original_sha256": null,
+      "archived_sha256": "97568c5ea076b2e065522b7ada5d61731ebc697246856047728d61ecb1329dcb",
+      "bytes": 2163,
+      "git_policy": "local_archive_ignored"
+    }
+  ],
+  "final_report_sha256_before_cleanup": "ff2a0fcbd4fafed5ee6a7bc63374f4640921cdaed230215a92f5d7193bd3dd75",
+  "report_change_note": "Relocation reproduced the report byte-for-byte. Subsequent cleanup updated only the CPU validation status after fixing the pre-existing syntax error; experimental tables were preserved.",
+  "checks": {
+    "cpu_regression_tests": 88,
+    "archive_audit_tests": 5,
+    "hyperlinks_in_final_report": 0,
+    "legacy_artifact_validation": "passed",
+    "legacy_regeneration_idempotence": "passed",
+    "slurm_syntax_scripts": 11,
+    "runner_help": "passed",
+    "node_syntax": "passed",
+    "git_diff_check": "passed"
+  }
+}

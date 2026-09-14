@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-09-14T17:33:24.830670+08:00",
+  "accepted_models": [
+    "HiFormer",
+    "HyFormer",
+    "RankMixer",
+    "Zenith"
+  ],
+  "accepted_datasets": [
+    "QK_Video_Action",
+    "KuaiRand_Video_Action",
+    "TencentGR_10M_Action",
+    "MerRec_Action"
+  ],
+  "formal_runs": 64,
+  "verified_metric_pairs": 272,
+  "per_seed": [
+    {
+      "seed": 20262027,
+      "cells": 16,
+      "labels": 68,
+      "cell_macro_delta_auc": 0.005840961458333327,
+      "cell_macro_delta_logloss": -0.002382597916666664,
+      "label_macro_delta_auc": 0.005356029411764701,
+      "label_macro_delta_logloss": -0.002560897058823526,
+      "positive_auc_cells": 15,
+      "lower_logloss_cells": 16,
+      "positive_auc_labels": 57,
+      "lower_logloss_labels": 55
+    },
+    {
+      "seed": 20262028,
+      "cells": 16,
+      "labels": 68,
+      "cell_macro_delta_auc": 0.007460048958333343,
+      "cell_macro_delta_logloss": -0.0013816104166666661,
+      "label_macro_delta_auc": 0.006189117647058834,
+      "label_macro_delta_logloss": -0.0017486617647058823,
+      "positive_auc_cells": 15,
+      "lower_logloss_cells": 13,
+      "positive_auc_labels": 51,
+      "lower_logloss_labels": 47
+    },
+    {
+      "seed": 20262029,
+      "cells": 16,
+      "labels": 68,
+      "cell_macro_delta_auc": 0.005943766666666675,
+      "cell_macro_delta_logloss": -0.0007736677083333319,
+      "label_macro_delta_auc": 0.005066455882352946,
+      "label_macro_delta_logloss": -0.0014647205882352924,
+      "positive_auc_cells": 14,
+      "lower_logloss_cells": 10,
+      "positive_auc_labels": 44,
+      "lower_logloss_labels": 36
+    }
+  ],
+  "three_seed_cell_macro_delta_auc": 0.006414925694444437,
+  "three_seed_label_macro_delta_auc": 0.00553720098039215,
+  "three_seed_cell_macro_delta_logloss": -0.0015126253472222226,
+  "same_protocol_mean_abs_cell_seed_delta_auc": 0.0029886760416666797,
+  "baseline_paper_auc_mae": 0.001458323529411774,
+  "baseline_paper_auc_max_abs": 0.008859000000000061,
+  "source_metric_validation": "All 272 archived AUC/logloss pairs match explicit final-test log values; all 64 runs have completion and valid protocol evidence.",
+  "historical_summary_validation": "Independent reconstructed three-seed means, sample SDs and logloss deltas agree within 1e-12.",
+  "coverage_validation": "All 16 old baseline/SISA pairs and all 16 new SISA seed pairs match per-rank train/valid/test allocation counts and steps.",
+  "dataset_rows_validation": "All 12 split row counts agree among current Parquet footers, dataset metadata and archived loader allocations; no full-content hash or event-level audit performed.",
+  "git_head": "c821f798c3013beee4ffb2fddea6670de5f42047",
+  "current_sisa_syntax": "pre-existing SyntaxError at line 20: invalid syntax"
+}

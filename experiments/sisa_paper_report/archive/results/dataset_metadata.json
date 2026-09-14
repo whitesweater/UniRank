@@ -1,0 +1,981 @@
+[
+  {
+    "dataset": "QK_Video_Action",
+    "metadata": {
+      "sample_size": {
+        "total": 493306303,
+        "train": 394647318,
+        "valid": 50079027,
+        "test": 48579958
+      },
+      "oov_filter": {
+        "min_feat_count": 2,
+        "applied_to": [
+          "video_category",
+          "watching_times",
+          "gender",
+          "age"
+        ],
+        "rule": "特征值出现次数 < min_feat_count 的统一映射为 0 (unknown/padding)"
+      },
+      "blocked_layout": {
+        "n_user_parts": 32,
+        "train_blocks": 32,
+        "valid_blocks": 8,
+        "test_blocks": 8,
+        "train": {
+          "data_dir": "train/data",
+          "user_info_dir": "train/user_info",
+          "item_info_dir": "train/item_info"
+        },
+        "valid": {
+          "data_dir": "valid/data",
+          "user_info_dir": "valid/user_info",
+          "item_info_dir": "valid/item_info"
+        },
+        "test": {
+          "data_dir": "test/data",
+          "user_info_dir": "test/user_info",
+          "item_info_dir": "test/item_info"
+        },
+        "block_pair_rule": "同一 split 下, data/user_info/item_info 使用相同的 part-xxxxx 编号配对读取。",
+        "local_index_rule": {
+          "user_index": "block-local dense index, starts from 0",
+          "item_index": "block-local dense index, 0 reserved for padding",
+          "user_id": "global feature id, consistent across blocks",
+          "item_id": "global feature id, consistent across blocks"
+        }
+      },
+      "label": [
+        "click",
+        "follow",
+        "like",
+        "share"
+      ]
+    },
+    "user_id_vocab_size": 4996177,
+    "item_id_vocab_size": 3753437,
+    "physical_splits": {
+      "train": {
+        "rows": 394647318,
+        "blocks": 32,
+        "files": [
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00000.parquet",
+            "rows": 12330851
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00001.parquet",
+            "rows": 12314767
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00002.parquet",
+            "rows": 12353566
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00003.parquet",
+            "rows": 12292633
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00004.parquet",
+            "rows": 12343938
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00005.parquet",
+            "rows": 12193764
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00006.parquet",
+            "rows": 12341727
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00007.parquet",
+            "rows": 12436694
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00008.parquet",
+            "rows": 12329829
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00009.parquet",
+            "rows": 12317766
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00010.parquet",
+            "rows": 12323831
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00011.parquet",
+            "rows": 12414155
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00012.parquet",
+            "rows": 12374791
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00013.parquet",
+            "rows": 12357742
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00014.parquet",
+            "rows": 12331820
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00015.parquet",
+            "rows": 12406680
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00016.parquet",
+            "rows": 12275405
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00017.parquet",
+            "rows": 12361095
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00018.parquet",
+            "rows": 12306715
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00019.parquet",
+            "rows": 12319522
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00020.parquet",
+            "rows": 12318519
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00021.parquet",
+            "rows": 12371962
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00022.parquet",
+            "rows": 12281254
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00023.parquet",
+            "rows": 12268257
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00024.parquet",
+            "rows": 12329409
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00025.parquet",
+            "rows": 12440941
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00026.parquet",
+            "rows": 12359713
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00027.parquet",
+            "rows": 12227525
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00028.parquet",
+            "rows": 12320040
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00029.parquet",
+            "rows": 12355766
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00030.parquet",
+            "rows": 12374003
+          },
+          {
+            "path": "datasets/QK_Video_Action/train/data/part-00031.parquet",
+            "rows": 12272638
+          }
+        ]
+      },
+      "valid": {
+        "rows": 50079027,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00000.parquet",
+            "rows": 6266381
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00001.parquet",
+            "rows": 6266943
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00002.parquet",
+            "rows": 6247360
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00003.parquet",
+            "rows": 6259996
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00004.parquet",
+            "rows": 6261207
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00005.parquet",
+            "rows": 6234405
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00006.parquet",
+            "rows": 6276384
+          },
+          {
+            "path": "datasets/QK_Video_Action/valid/data/part-00007.parquet",
+            "rows": 6266351
+          }
+        ]
+      },
+      "test": {
+        "rows": 48579958,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00000.parquet",
+            "rows": 6078867
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00001.parquet",
+            "rows": 6079105
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00002.parquet",
+            "rows": 6060417
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00003.parquet",
+            "rows": 6072687
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00004.parquet",
+            "rows": 6073520
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00005.parquet",
+            "rows": 6047367
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00006.parquet",
+            "rows": 6088904
+          },
+          {
+            "path": "datasets/QK_Video_Action/test/data/part-00007.parquet",
+            "rows": 6079091
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dataset": "KuaiRand_Video_Action",
+    "metadata": {
+      "sample_size": {
+        "total": 323464444,
+        "train": 256110233,
+        "valid": 34334869,
+        "test": 33019342
+      },
+      "split_by_date": {
+        "train_days": 26,
+        "train_range": "2022-04-07 ~ 2022-05-02",
+        "valid_days": 3,
+        "valid_range": "2022-05-03 ~ 2022-05-05",
+        "test_days": 3,
+        "test_range": "2022-05-06 ~ 2022-05-08"
+      },
+      "oov_filter": {
+        "min_feat_count": 2,
+        "applied_to": "USER_STATIC_FEATURES (基于日志中用户出现次数统计)",
+        "rule": "特征值出现次数 < min_feat_count 的统一映射为 0 (unknown/padding)"
+      },
+      "blocked_layout": {
+        "n_user_parts": 32,
+        "num_workers": 4,
+        "train_blocks": 32,
+        "valid_blocks": 8,
+        "test_blocks": 8,
+        "train": {
+          "data_dir": "train/data",
+          "user_info_dir": "train/user_info",
+          "item_info_dir": "train/item_info"
+        },
+        "valid": {
+          "data_dir": "valid/data",
+          "user_info_dir": "valid/user_info",
+          "item_info_dir": "valid/item_info"
+        },
+        "test": {
+          "data_dir": "test/data",
+          "user_info_dir": "test/user_info",
+          "item_info_dir": "test/item_info"
+        },
+        "block_pair_rule": "同一 split 下, data/user_info/item_info 使用相同的 part-xxxxx 编号配对读取。",
+        "local_index_rule": {
+          "user_index": "block-local dense index, starts from 0",
+          "item_index": "block-local dense index, 0 reserved for padding",
+          "user_id": "global feature id, consistent across blocks",
+          "item_id": "global feature id, consistent across blocks"
+        }
+      },
+      "label": [
+        "is_click",
+        "is_like",
+        "is_follow",
+        "is_comment",
+        "is_forward",
+        "long_view"
+      ]
+    },
+    "user_id_vocab_size": 27286,
+    "item_id_vocab_size": 32038726,
+    "physical_splits": {
+      "train": {
+        "rows": 256110233,
+        "blocks": 32,
+        "files": [
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00000.parquet",
+            "rows": 8050366
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00001.parquet",
+            "rows": 7925129
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00002.parquet",
+            "rows": 8406675
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00003.parquet",
+            "rows": 8311996
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00004.parquet",
+            "rows": 8450000
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00005.parquet",
+            "rows": 7675426
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00006.parquet",
+            "rows": 8045770
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00007.parquet",
+            "rows": 8245093
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00008.parquet",
+            "rows": 7798206
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00009.parquet",
+            "rows": 7964222
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00010.parquet",
+            "rows": 7853461
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00011.parquet",
+            "rows": 7885259
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00012.parquet",
+            "rows": 7869943
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00013.parquet",
+            "rows": 7988535
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00014.parquet",
+            "rows": 8461038
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00015.parquet",
+            "rows": 7928628
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00016.parquet",
+            "rows": 7597471
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00017.parquet",
+            "rows": 7984394
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00018.parquet",
+            "rows": 7671855
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00019.parquet",
+            "rows": 7707101
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00020.parquet",
+            "rows": 7754422
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00021.parquet",
+            "rows": 8202186
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00022.parquet",
+            "rows": 7861982
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00023.parquet",
+            "rows": 7469650
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00024.parquet",
+            "rows": 7882626
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00025.parquet",
+            "rows": 7810203
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00026.parquet",
+            "rows": 8269185
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00027.parquet",
+            "rows": 7851981
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00028.parquet",
+            "rows": 8157188
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00029.parquet",
+            "rows": 8075876
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00030.parquet",
+            "rows": 8484856
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/train/data/part-00031.parquet",
+            "rows": 8469510
+          }
+        ]
+      },
+      "valid": {
+        "rows": 34334869,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00000.parquet",
+            "rows": 4309041
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00001.parquet",
+            "rows": 4227822
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00002.parquet",
+            "rows": 4256254
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00003.parquet",
+            "rows": 4386917
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00004.parquet",
+            "rows": 4340709
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00005.parquet",
+            "rows": 4139516
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00006.parquet",
+            "rows": 4385838
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/valid/data/part-00007.parquet",
+            "rows": 4288772
+          }
+        ]
+      },
+      "test": {
+        "rows": 33019342,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00000.parquet",
+            "rows": 4098953
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00001.parquet",
+            "rows": 4140341
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00002.parquet",
+            "rows": 4148605
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00003.parquet",
+            "rows": 4135880
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00004.parquet",
+            "rows": 4183213
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00005.parquet",
+            "rows": 4176199
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00006.parquet",
+            "rows": 4052623
+          },
+          {
+            "path": "datasets/KuaiRand_Video_Action/test/data/part-00007.parquet",
+            "rows": 4083528
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dataset": "TencentGR_10M_Action",
+    "metadata": {
+      "sample_size": {
+        "total": 757207146,
+        "train": 586117494,
+        "valid": 17846140,
+        "test": 153243512,
+        "phase1_total_interactions": 976291071
+      },
+      "split_by_minimal_tail_with_positive_constraints": {
+        "timezone": "Asia/Shanghai",
+        "timestamp_unit": "s",
+        "train_days": 226,
+        "train_range": "2024-10-15 ~ 2025-05-28",
+        "valid_days": 1,
+        "valid_range": "2025-05-29 ~ 2025-05-29",
+        "test_days": 68,
+        "test_range": "2025-05-30 ~ 2025-08-05",
+        "valid_click_pos": 841303,
+        "valid_conversion_pos": 396010,
+        "test_click_pos": 553866,
+        "test_conversion_pos": 250843,
+        "rule": "test=最后最短合法正样本时间段; valid=紧邻test的最短合法正样本时间段; 其余=train"
+      },
+      "user_filtering": {
+        "min_user_interactions": 10,
+        "dropped_all_negative_users": 2424604,
+        "rule": "用户完整行为序列若既无 click 也无 conversion，则过滤"
+      },
+      "oov_filter": {
+        "min_feat_count": 2,
+        "applied_to": {
+          "scalar_features": [
+            "103",
+            "104",
+            "105",
+            "109",
+            "100",
+            "101",
+            "102",
+            "112",
+            "114",
+            "115",
+            "116",
+            "117",
+            "118",
+            "119",
+            "120",
+            "121",
+            "122"
+          ],
+          "list_features": [
+            "106",
+            "107",
+            "108",
+            "110"
+          ]
+        },
+        "rule": "特征值出现次数 < min_feat_count 的统一映射为 0 (unknown/padding)",
+        "freq_source": "基于日志中 user/item 出现次数 * 特征值计算"
+      },
+      "blocked_layout": {
+        "train_blocks": 16,
+        "valid_blocks": 8,
+        "test_blocks": 8,
+        "train": {
+          "data_dir": "train/data",
+          "user_info_dir": "train/user_info",
+          "item_info_dir": "train/item_info"
+        },
+        "valid": {
+          "data_dir": "valid/data",
+          "user_info_dir": "valid/user_info",
+          "item_info_dir": "valid/item_info"
+        },
+        "test": {
+          "data_dir": "test/data",
+          "user_info_dir": "test/user_info",
+          "item_info_dir": "test/item_info"
+        },
+        "block_pair_rule": "同一 split 下，data/user_info/item_info 使用相同的 part-xxxxx 编号配对读取。",
+        "local_index_rule": {
+          "user_index": "block-local dense index, starts from 0",
+          "item_index": "block-local dense index, 0 reserved for padding",
+          "user_id": "global feature id, consistent across blocks",
+          "item_id": "global feature id, consistent across blocks"
+        }
+      },
+      "label": [
+        "is_click",
+        "is_conversion"
+      ]
+    },
+    "user_id_vocab_size": 7706779,
+    "item_id_vocab_size": 17487677,
+    "physical_splits": {
+      "train": {
+        "rows": 586117494,
+        "blocks": 16,
+        "files": [
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00000.parquet",
+            "rows": 29303705
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00001.parquet",
+            "rows": 58558023
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00002.parquet",
+            "rows": 29334118
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00003.parquet",
+            "rows": 29310120
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00004.parquet",
+            "rows": 29320929
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00005.parquet",
+            "rows": 29326228
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00006.parquet",
+            "rows": 29354909
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00007.parquet",
+            "rows": 29332419
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00008.parquet",
+            "rows": 58539069
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00009.parquet",
+            "rows": 29299913
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00010.parquet",
+            "rows": 58565779
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00011.parquet",
+            "rows": 29358469
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00012.parquet",
+            "rows": 58556852
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00013.parquet",
+            "rows": 29308775
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00014.parquet",
+            "rows": 29325266
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/train/data/part-00015.parquet",
+            "rows": 29322920
+          }
+        ]
+      },
+      "valid": {
+        "rows": 17846140,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00000.parquet",
+            "rows": 1784819
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00001.parquet",
+            "rows": 2672570
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00002.parquet",
+            "rows": 1787508
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00003.parquet",
+            "rows": 1785063
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00004.parquet",
+            "rows": 2675660
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00005.parquet",
+            "rows": 1786506
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00006.parquet",
+            "rows": 2676246
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/valid/data/part-00007.parquet",
+            "rows": 2677768
+          }
+        ]
+      },
+      "test": {
+        "rows": 153243512,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00000.parquet",
+            "rows": 22980699
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00001.parquet",
+            "rows": 22969625
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00002.parquet",
+            "rows": 22982113
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00003.parquet",
+            "rows": 15344633
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00004.parquet",
+            "rows": 15334730
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00005.parquet",
+            "rows": 15323627
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00006.parquet",
+            "rows": 22949234
+          },
+          {
+            "path": "datasets/TencentGR_10M_Action/test/data/part-00007.parquet",
+            "rows": 15358851
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dataset": "MerRec_Action",
+    "metadata": {
+      "sample_size": {
+        "total": 172304959,
+        "train": 144108235,
+        "valid": 16515570,
+        "test": 11681154
+      },
+      "split_strategy": "date",
+      "split_by_date": {
+        "train_days": 25,
+        "valid_days": 3,
+        "test_days": 3,
+        "train_range": "20231001 ~ 20231025",
+        "valid_range": "20231026 ~ 20231028",
+        "test_range": "20231029 ~ 20231031"
+      },
+      "oov_filter": {
+        "min_feat_count": 2,
+        "applied_to": [
+          "session_id",
+          "day_of_week",
+          "is_weekend",
+          "hour",
+          "product_id",
+          "price_bucket",
+          "c0_id",
+          "c1_id",
+          "c2_id",
+          "brand_id",
+          "item_condition_id",
+          "size_id",
+          "shipper_id",
+          "color"
+        ],
+        "rule": "feature values with count < min_feat_count are mapped to 0"
+      },
+      "blocked_layout": {
+        "train_blocks": 32,
+        "valid_blocks": 16,
+        "test_blocks": 16,
+        "train": {
+          "data_dir": "train/data",
+          "user_info_dir": "train/user_info",
+          "item_info_dir": "train/item_info"
+        },
+        "valid": {
+          "data_dir": "valid/data",
+          "user_info_dir": "valid/user_info",
+          "item_info_dir": "valid/item_info"
+        },
+        "test": {
+          "data_dir": "test/data",
+          "user_info_dir": "test/user_info",
+          "item_info_dir": "test/item_info"
+        }
+      },
+      "label": [
+        "Like",
+        "Cart",
+        "Offer",
+        "Checkout",
+        "Purchase"
+      ],
+      "sample_construction": {
+        "anchor": "first item_view per user_id + item_id",
+        "labels": "Like/Cart/Offer/Checkout/Purchase events strictly after the anchor view are OR-ed into that view's multi-label target.",
+        "non_view_events": "used only to fill labels; not retained as samples or sequence tokens"
+      }
+    },
+    "user_id_vocab_size": 1697916,
+    "item_id_vocab_size": 43817684,
+    "physical_splits": {
+      "train": {
+        "rows": 144108235,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00000.parquet",
+            "rows": 18073682
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00001.parquet",
+            "rows": 18024981
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00002.parquet",
+            "rows": 18103696
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00003.parquet",
+            "rows": 17988026
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00004.parquet",
+            "rows": 17915032
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00005.parquet",
+            "rows": 17854485
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00006.parquet",
+            "rows": 18236380
+          },
+          {
+            "path": "datasets/MerRec_Action/train/data/part-00007.parquet",
+            "rows": 17911953
+          }
+        ]
+      },
+      "valid": {
+        "rows": 16515570,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00000.parquet",
+            "rows": 2070356
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00001.parquet",
+            "rows": 2082486
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00002.parquet",
+            "rows": 2076324
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00003.parquet",
+            "rows": 2063202
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00004.parquet",
+            "rows": 2055037
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00005.parquet",
+            "rows": 2042384
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00006.parquet",
+            "rows": 2081464
+          },
+          {
+            "path": "datasets/MerRec_Action/valid/data/part-00007.parquet",
+            "rows": 2044317
+          }
+        ]
+      },
+      "test": {
+        "rows": 11681154,
+        "blocks": 8,
+        "files": [
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00000.parquet",
+            "rows": 1470090
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00001.parquet",
+            "rows": 1455499
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00002.parquet",
+            "rows": 1473311
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00003.parquet",
+            "rows": 1465069
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00004.parquet",
+            "rows": 1453614
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00005.parquet",
+            "rows": 1449235
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00006.parquet",
+            "rows": 1467715
+          },
+          {
+            "path": "datasets/MerRec_Action/test/data/part-00007.parquet",
+            "rows": 1446621
+          }
+        ]
+      }
+    }
+  }
+]
