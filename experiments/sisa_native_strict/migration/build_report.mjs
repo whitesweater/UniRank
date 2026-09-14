@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
@@ -8,6 +9,20 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const inputPath = resolve(scriptDirectory, "artifact.json");
 const outputPath = resolve(scriptDirectory, "report.html");
+const repository = resolve(scriptDirectory, "../../..");
+const actionBreakdownBuilder = resolve(
+  repository,
+  "scripts/build_sisa_overall_report.py",
+);
+const projectPython = resolve(repository, ".venv/bin/python");
+if (!existsSync(projectPython)) {
+  throw new Error(`Project Python not found; run uv sync --locked first: ${projectPython}`);
+}
+execFileSync(
+  projectPython,
+  [actionBreakdownBuilder, "--repository", repository],
+  { stdio: "inherit" },
+);
 
 function findReportBuilderDirectory() {
   const cacheRoot = resolve(
@@ -226,6 +241,8 @@ const reportTheme = String.raw`
   [data-layout-block-id="baseline_agreement"],
   [data-layout-block-id="expansion_takeaway"],
   [data-layout-block-id="strict_takeaway"],
+  [data-layout-block-id="accepted_action_breakdown_intro"],
+  [data-layout-block-id="diagnostic_action_breakdown_intro"],
   [data-layout-block-id="weight_boundary"] {
     padding: 4px 0 4px 28px;
     border-left: 3px solid var(--unirank-navy);
@@ -541,6 +558,10 @@ const reportTheme = String.raw`
     font-variant-numeric: tabular-nums lining-nums;
   }
 
+  [data-artifact-id*="_action_"] .data-table {
+    min-width: 1120px;
+  }
+
   .data-table th {
     padding-top: 14px;
     padding-bottom: 14px;
@@ -651,6 +672,8 @@ const reportTheme = String.raw`
     [data-layout-block-id="baseline_agreement"],
     [data-layout-block-id="expansion_takeaway"],
     [data-layout-block-id="strict_takeaway"],
+    [data-layout-block-id="accepted_action_breakdown_intro"],
+    [data-layout-block-id="diagnostic_action_breakdown_intro"],
     [data-layout-block-id="weight_boundary"] {
       padding-left: 18px;
     }
@@ -971,7 +994,21 @@ function injectBeforeBodyEnd(html, content) {
   return `${html.slice(0, markerIndex)}${content}\n${html.slice(markerIndex)}`;
 }
 
-const packagedRuntime = readPackagedReaderRuntime().html;
+const tablePageSizePattern = /([A-Za-z_$][\w$]*=520,[A-Za-z_$][\w$]*=)15(,[A-Za-z_$][\w$]*=10,[A-Za-z_$][\w$]*=144,[A-Za-z_$][\w$]*=16,[A-Za-z_$][\w$]*=24,[A-Za-z_$][\w$]*=24,[A-Za-z_$][\w$]*=420)/g;
+
+function showAllActionRowsOnOnePage(html) {
+  const matches = html.match(tablePageSizePattern) ?? [];
+  if (matches.length !== 1) {
+    throw new Error(
+      `Expected one portable reader table-card page-size constant, found ${matches.length}.`,
+    );
+  }
+  return html.replace(tablePageSizePattern, "$128$2");
+}
+
+const packagedRuntime = showAllActionRowsOnOnePage(
+  readPackagedReaderRuntime().html,
+);
 const themedRuntime = injectBeforeBodyEnd(
   injectBeforeHeadEnd(packagedRuntime, reportTheme),
   heatmapEnhancement,

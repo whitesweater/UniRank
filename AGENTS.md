@@ -6,6 +6,15 @@ Core framework code lives in `unirank/`; model implementations and SISA adapters
 
 Keep formal plans, reports, and compact result tables under `experiments/<study_slug>/`. `benchmark/` contains upstream reference logs used for baseline checks, while `data/` contains preprocessing programs. Runtime data and outputs belong in `datasets/`, `logs/`, `checkpoints/`, and `artifacts/`; these are intentionally excluded from Git. Documentation images live in `assets/figures/`.
 
+## Accepted Experimental Evidence Scope
+
+For SISA paper claims, result aggregation, and follow-up experiment planning, treat only the following 4 x 4 model-dataset cells as accepted evidence:
+
+- Models: `HiFormer`, `HyFormer`, `RankMixer`, and `Zenith`.
+- Datasets: `QK_Video_Action` (QK-Video), `KuaiRand_Video_Action` (KuaiRand), `TencentGR_10M_Action` (TAAC-25), and `MerRec_Action` (MerRec).
+
+Do not use results from other models or datasets, including `OneTrans`, `UniMixer`, `UltraHSTU`, or `Taobao_Action`, to support paper claims, aggregate statistics, or experiment conclusions. Such runs may remain as diagnostic or runtime records, but reports must keep them separate from the accepted 16-cell evidence scope. Exact GPU-model matching is not required for accepting a comparison; record hardware differences and keep the data split, preprocessing, training budget, global batch, seed semantics, and evaluation protocol aligned.
+
 ## Build, Test, and Development Commands
 
 ```bash

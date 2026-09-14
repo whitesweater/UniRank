@@ -1,5 +1,8 @@
 # DIGAI Lab strict 实验迁移证据
 
+本目录的旧混合矩阵是历史诊断档案，不用于当前论文汇总。Accepted 16-cell 与
+Diagnostic 逐动作视图分别展示；当前论文以 `experiments/sisa_paper_report/report.md` 为准。
+
 本目录集中保存 2026-08-25 从 DIGAI Lab 迁入的原始 strict 报告和离线审计包。正式结论请从
 [统一报告](../report.md)和[机器可读结果](../results/)进入；本目录用于追溯迁移来源，
 不作为新的并列报告根目录。
@@ -19,15 +22,18 @@
 日志和训练指标日志仍分别保存在根目录的 `logs/` 与 `checkpoints/`，适合版本控制的最终
 结果统一归档在 `experiments/`。
 
-重新生成报告（仅写入本地 `report.html`，不部署、不启动服务）：
+重新生成报告（更新本地 `artifact.json` 和 `report.html`，不部署、不启动服务）：
 
 ```bash
 node experiments/sisa_native_strict/migration/build_report.mjs
 ```
 
-脚本会自动使用本机已安装的 Data Analytics 报告构建器，嵌入科研报告主题，并完成桌面端、
-移动端与来源弹窗验证。Python 训练与审计环境仍统一由项目根目录的 `uv` 配置管理；本脚本
-只负责打包离线 HTML，因此直接调用 Node.js，不会创建第二套 Python 环境。
+脚本会先从现有 strict/expansion 结果只读生成报告中的逐动作视图，再调用本机已安装的
+Data Analytics 报告构建器打包离线 HTML。它只更新报告文件，不修改实验结果 CSV；
+Python 环境仍统一由项目根目录的 `uv` 配置管理。
+
+逐动作来源查询保存在 `action_breakdown.sql`：构建脚本将已核对的 CSV 配对行绑定为
+SQLite JSON 参数，执行只读展示查询。生成结果保留六位小数，并明确区分论文范围与诊断记录。
 
 ### 图表映射
 
