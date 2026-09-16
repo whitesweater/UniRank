@@ -88,6 +88,37 @@ class SISAComponentAblationTest(unittest.TestCase):
 
 
 class ComponentStudyProtocolTest(unittest.TestCase):
+    def test_new_study_has_three_distinct_hyformer_merrec_tasks(self):
+        from scripts.run_sisa_component_ablation import study_task, training_command
+
+        study = "sisa_components_hyformer_merrec_bcd"
+        for task_id, variant in enumerate(("content_only", "decay_only", "rotation_only")):
+            task = study_task(task_id, study=study)
+            self.assertEqual(task.experiment, "HyFormer_MerRec_Action")
+            self.assertEqual(task.study, study)
+            self.assertEqual(task.variant, variant)
+            self.assertNotEqual(task.run_id, study_task(task_id).run_id)
+            command = training_command(task)
+            self.assertEqual(command[command.index("--sparse-optimizer-foreach") + 1], "false")
+            self.assertEqual(command[command.index("--sparse-adagrad-chunk-size") + 1], "16777216")
+            self.assertIn("--nproc_per_node=2", command)
+            self.assertEqual(command[command.index("--seed") + 1], "20262028")
+        with self.assertRaises(ValueError):
+            study_task(3, study=study)
+        with self.assertRaises(ValueError):
+            study_task(0, study="unknown_study")
+
+    def test_new_study_keeps_merrec_optimizer_and_allocator_protocol(self):
+        from scripts.run_sisa_component_ablation import (
+            effective_params, runtime_environment, study_task,
+        )
+        task = study_task(0, study="sisa_components_hyformer_merrec_bcd")
+        params = effective_params(task, {})
+        self.assertIs(params["sparse_optimizer_foreach"], False)
+        self.assertEqual(params["sparse_adagrad_chunk_size"], 16777216)
+        self.assertEqual(runtime_environment(task, {})["PYTORCH_CUDA_ALLOC_CONF"], "expandable_segments:True")
+        self.assertNotIn("PYTORCH_CUDA_ALLOC_CONF", runtime_environment(study_task(0), {}))
+
     def test_exactly_three_bcd_tasks_and_no_extra_training_controls(self):
         from scripts.run_sisa_component_ablation import study_task, training_command
 
@@ -109,35 +140,37 @@ class ComponentStudyProtocolTest(unittest.TestCase):
                 study_task(invalid)
 
     def test_protocol_preflight_rejects_changed_training_or_labels(self):
-        from scripts.run_sisa_component_ablation import study_task, validate_protocol
+        from scripts.run_sisa_component_ablation import STUDY_EXPERIMENTS, study_task, validate_protocol
         from unirank.utils import load_config
 
-        for task_id in (0,):
-            task = study_task(task_id)
+        for study in STUDY_EXPERIMENTS:
+            task = study_task(0, study=study)
             params = load_config("config", task.experiment)
             validate_protocol(task, params)
             for changed in ({"batch_size": 16384}, {"label_col": []}, {"shuffle": False}):
-                with self.subTest(task_id=task_id, changed=changed):
+                with self.subTest(study=study, changed=changed):
                     with self.assertRaises(ValueError):
                         validate_protocol(task, {**params, **changed})
 
     def test_effective_historical_diff_contains_only_variant_and_run_name(self):
         import json
         from scripts.run_sisa_component_ablation import (
-            STUDY_DIR, effective_params, parse_logged_value, study_task,
+            STUDY_EXPERIMENTS, effective_params, parse_logged_value, study_directory, study_task,
         )
         from unirank.utils import load_config
 
-        reference = {
-            key: parse_logged_value(value)
-            for key, value in json.loads((STUDY_DIR / "configs/reference_params.json").read_text()).items()
-        }
-        for task_id in range(3):
-            task = study_task(task_id)
-            actual = effective_params(task, load_config("config", task.experiment))
-            changes = {key for key in reference.keys() | actual.keys()
-                       if reference.get(key) != actual.get(key)}
-            self.assertEqual(changes, {"model_id", "sisa_variant"})
+        for study in STUDY_EXPERIMENTS:
+            directory = study_directory(study_task(0, study=study))
+            reference = {
+                key: parse_logged_value(value)
+                for key, value in json.loads((directory / "configs/reference_params.json").read_text()).items()
+            }
+            for task_id in range(3):
+                task = study_task(task_id, study=study)
+                actual = effective_params(task, load_config("config", task.experiment))
+                changes = {key for key in reference.keys() | actual.keys()
+                           if reference.get(key) != actual.get(key)}
+                self.assertEqual(changes, {"model_id", "sisa_variant"})
 
 
 if __name__ == "__main__":

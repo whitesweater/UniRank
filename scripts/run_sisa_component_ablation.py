@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run three RankMixer-KuaiRand B/C/D tasks matching the H100 seed-20262028 run."""
+"""Run a selected three-task B/C/D study matching its H100 seed-20262028 run."""
 
 from __future__ import annotations
 
@@ -22,7 +22,11 @@ from unirank.utils import load_config
 
 STUDY = "sisa_components_bcd"
 STUDY_DIR = ROOT / "experiments" / "ablations" / STUDY
-EXPERIMENTS = ("RankMixer_KuaiRand_Video_Action",)
+STUDY_EXPERIMENTS = {
+    STUDY: "RankMixer_KuaiRand_Video_Action",
+    "sisa_components_hyformer_merrec_bcd": "HyFormer_MerRec_Action",
+}
+EXPERIMENTS = (STUDY_EXPERIMENTS[STUDY],)
 VARIANTS = (("B", "content_only"), ("C", "decay_only"), ("D", "rotation_only"))
 SEED = 20262028
 WORLD_SIZE = 2
@@ -38,6 +42,7 @@ class ComponentTask:
     setting: str
     variant: str
     attempt: int = 1
+    study: str = STUDY
 
     @property
     def model(self):
@@ -52,11 +57,17 @@ class ComponentTask:
         return f"SISA_components_{self.experiment}_{self.setting}_seed{SEED}_attempt{self.attempt}"
 
 
-def study_task(task_id: int, attempt: int = 1) -> ComponentTask:
+def study_task(task_id: int, attempt: int = 1, study: str = STUDY) -> ComponentTask:
     if not 0 <= task_id < 3 or attempt < 1:
         raise ValueError("task_id must be 0..2 and attempt must be positive")
+    if study not in STUDY_EXPERIMENTS:
+        raise ValueError(f"Unknown component study: {study}")
     setting, variant = VARIANTS[task_id % 3]
-    return ComponentTask(task_id, EXPERIMENTS[task_id // 3], setting, variant, attempt)
+    return ComponentTask(task_id, STUDY_EXPERIMENTS[study], setting, variant, attempt, study)
+
+
+def study_directory(task: ComponentTask) -> Path:
+    return ROOT / "experiments" / "ablations" / task.study
 
 
 def parse_logged_value(value):
@@ -67,23 +78,27 @@ def parse_logged_value(value):
 
 
 def effective_params(task: ComponentTask, params: dict) -> dict:
-    return dict(
+    effective = dict(
         params, enable_bf16=True, sisa_enabled=True, sisa_score_dim=16,
         sisa_lambda_init=0.1, sisa_score_scale=1.0, sisa_variant=task.variant,
         seed=SEED, batch_size=BATCH_SIZE, dataloader_seed=DATALOADER_SEED,
         sisa_parameter_seed=PARAMETER_SEED, world_size=WORLD_SIZE,
         distributed=True, rank=0, local_rank=0, gpu=0, model_id=task.run_id,
     )
+    if task.dataset == "MerRec_Action":
+        effective.update(sparse_optimizer_foreach=False, sparse_adagrad_chunk_size=16777216)
+    return effective
 
 
 def validate_protocol(task: ComponentTask, params: dict) -> None:
-    frozen = json.loads((STUDY_DIR / "configs" / "base_configs.json").read_text())[task.experiment]
+    directory = study_directory(task)
+    frozen = json.loads((directory / "configs" / "base_configs.json").read_text())[task.experiment]
     if params != frozen:
         changed = sorted(key for key in params.keys() | frozen.keys()
                          if params.get(key) != frozen.get(key))
         raise ValueError(f"Frozen study config changed: {changed}")
     # Compare every logged field, including loader, side information and metrics.
-    reference = json.loads((STUDY_DIR / "configs" / "reference_params.json").read_text())
+    reference = json.loads((directory / "configs" / "reference_params.json").read_text())
     reference = {key: parse_logged_value(value) for key, value in reference.items()}
     effective = effective_params(task, params)
     for key in reference.keys() | effective.keys():
@@ -102,16 +117,27 @@ def training_command(task: ComponentTask) -> list[str]:
         "--sisa-enabled", "--sisa-score-dim", "16", "--sisa-lambda-init", "0.1",
         "--sisa-score-scale", "1.0", "--sisa-variant", task.variant,
     ]
+    if task.dataset == "MerRec_Action":
+        command += ["--sparse-optimizer-foreach", "false", "--sparse-adagrad-chunk-size", "16777216"]
     return command
+
+
+def runtime_environment(task: ComponentTask, source: dict | None = None) -> dict:
+    environment = dict(os.environ if source is None else source, PYTHONUNBUFFERED="1")
+    environment.setdefault("TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC", "3600")
+    if task.dataset == "MerRec_Action":
+        environment["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    return environment
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--study", choices=tuple(STUDY_EXPERIMENTS), default=STUDY)
     parser.add_argument("--task-id", type=int, required=True)
     parser.add_argument("--attempt", type=int, default=1)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    task = study_task(args.task_id, args.attempt)
+    task = study_task(args.task_id, args.attempt, args.study)
     os.chdir(ROOT)
     params = load_config("config", task.experiment)
     validate_protocol(task, params)
@@ -143,7 +169,7 @@ def main() -> int:
     for directory in ("unirank", "model_zoo"):
         source_paths.extend(sorted(Path(directory).rglob("*.py")))
     hashes = {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in source_paths}
-    output = ROOT / "artifacts" / STUDY / task.run_id
+    output = ROOT / "artifacts" / task.study / task.run_id
     output.mkdir(parents=True, exist_ok=False)
     manifest = dict(asdict(task), run_id=task.run_id, seed=SEED, world_size=WORLD_SIZE,
                     per_gpu_batch=BATCH_SIZE, global_batch=32768, dataloader_seed=DATALOADER_SEED,
@@ -153,8 +179,7 @@ def main() -> int:
                     git_revision=revision, source_sha256=hashes, command=command)
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print("SISA_COMPONENT_PROTOCOL " + json.dumps(manifest, sort_keys=True), flush=True)
-    environment = dict(os.environ, PYTHONUNBUFFERED="1")
-    environment.setdefault("TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC", "3600")
+    environment = runtime_environment(task)
     with tempfile.TemporaryDirectory(prefix=f"ur-components-{task.task_id}-") as temporary:
         environment.update(TMPDIR=temporary, TMP=temporary, TEMP=temporary,
                            TORCHINDUCTOR_CACHE_DIR=f"{temporary}/torchinductor",
