@@ -24,4 +24,15 @@
 - 尚无新增 GPU 训练结果；CPU 结果不作为正式实验结果。
 
 原始验证输出保存在 artifacts/sisa_components_bcd/validation/，由 Git 忽略。
-待提交成功后记录 job ID 和实际排队状态。
+已提交数组作业 626644，提交时实现版本为 5485314。
+
+| job/task | 组别 | 组件模式 | 提交后状态 |
+|---|---|---|---|
+| 626644_0 | B | content_only | PENDING / Priority |
+| 626644_1 | C | decay_only | PENDING / Priority |
+| 626644_2 | D | rotation_only | PENDING / Priority |
+
+squeue 已核对三个元素均申请 acd_u、2 GPU、16 CPU、480 GiB 内存。
+最多两个元素并行；未提交其他模型、数据集、随机种子或新增 A/E 训练。
+当前尚无消融指标，不能把提交成功或 CPU 检查通过写成实验结果。
+原始 Slurm 日志命名为 logs/unirank-sisa-components-bcd-626644_<task_id>.out。
