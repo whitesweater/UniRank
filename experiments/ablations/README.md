@@ -3,6 +3,8 @@
 后续所有 SISA 或 UniRank 消融实验都放在本目录下，每个研究问题一个子目录，不按临时
 Slurm job ID 建目录。
 
+当前 study：`sisa_components_bcd`，RankMixer–KuaiRand 的 B/C/D 三组组件消融，
+复用 H100 完整 SISA 对照。提交状态见该目录的 notes/launch.md。
 当前尚无正式完成的消融 study。创建新实验时使用：
 
 ```text
@@ -25,4 +27,3 @@ experiments/ablations/<study_slug>/
 每个消融必须保持一个明确的控制变量，复用主实验的 baseline，除非报告中说明为什么
 需要重跑。正式结论至少要记录模型、数据集、标签、seed、硬件、训练协议、job/task
 映射、失败重跑和与控制组的差值。
-

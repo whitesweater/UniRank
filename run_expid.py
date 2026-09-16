@@ -44,6 +44,7 @@ from unirank.pytorch.torch_utils import (
 )
 from unirank.preprocess import FeatureProcessor, build_dataset
 import model_zoo
+from unirank.pytorch.layers.attentions.sisa import SISA_VARIANTS
 
 
 def apply_runtime_overrides(params, args, world_size=1):
@@ -77,6 +78,14 @@ def apply_runtime_overrides(params, args, world_size=1):
             )
         params['sisa_parameter_seed'] = sisa_parameter_seed
 
+    sisa_variant = args.get('sisa_variant')
+    if sisa_variant is not None:
+        if sisa_variant not in SISA_VARIANTS:
+            raise ValueError(f'--sisa-variant must be one of {SISA_VARIANTS}')
+        if not (args.get('sisa_enabled') or params.get('sisa_enabled')):
+            raise ValueError('--sisa-variant requires enabled SISA')
+        params['sisa_variant'] = sisa_variant
+
     return params
 
 
@@ -102,6 +111,8 @@ if __name__ == '__main__':
     parser.add_argument('--sisa-score-dim', type=int, default=16)
     parser.add_argument('--sisa-lambda-init', type=float, default=0.1)
     parser.add_argument('--sisa-score-scale', type=float, default=1.0)
+    parser.add_argument('--sisa-variant', choices=SISA_VARIANTS, default=None,
+                        help='Component ablation; omitted preserves full SISA.')
     parser.add_argument(
         '--sparse-optimizer-foreach',
         choices=('auto', 'true', 'false'),

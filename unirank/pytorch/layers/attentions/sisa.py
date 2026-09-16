@@ -14,6 +14,9 @@ import torch.nn.functional as F
 from torch import nn
 
 
+SISA_VARIANTS = ("full", "content_only", "decay_only", "rotation_only")
+
+
 def _reshape_heads(
     channels: torch.Tensor,
     num_heads: int,
@@ -71,6 +74,7 @@ class SISAAttentionConfig:
     decay_reference: str = "sequence_end"
     score_scale: float = 1.0
     parameter_seed: int = 20260821
+    variant: str = "full"
 
     @classmethod
     def from_params(
@@ -91,6 +95,7 @@ class SISAAttentionConfig:
             decay_reference=decay_reference,
             score_scale=float(params.get("sisa_score_scale", 1.0)),
             parameter_seed=int(params.get("sisa_parameter_seed", 20260821)),
+            variant=params.get("sisa_variant", "full"),
         )
 
     def for_site(self, site_index: int) -> "SISAAttentionConfig":
@@ -109,6 +114,7 @@ class SISAAttentionConfig:
             decay_reference=self.decay_reference,
             score_scale=self.score_scale,
             parameter_seed=self.parameter_seed,
+            variant=self.variant,
         )
 
 
@@ -131,6 +137,7 @@ class SISAScoreBias(nn.Module):
         decay_reference: str = "sequence_end",
         score_scale: float = 1.0,
         parameter_seed: int = 20260821,
+        variant: str = "full",
     ) -> None:
         super().__init__()
         if hidden_size <= 0 or num_heads <= 0:
@@ -145,6 +152,8 @@ class SISAScoreBias(nn.Module):
             raise ValueError("decay_reference must be 'query' or 'sequence_end'")
         if score_scale < 0:
             raise ValueError("score_scale must be non-negative")
+        if variant not in SISA_VARIANTS:
+            raise ValueError(f"variant must be one of {SISA_VARIANTS}")
 
         self.hidden_size = int(hidden_size)
         self.num_heads = int(num_heads)
@@ -154,6 +163,9 @@ class SISAScoreBias(nn.Module):
         self.decay_reference = str(decay_reference)
         self.score_scale = float(score_scale)
         self.parameter_seed = int(parameter_seed)
+        self.variant = variant
+        self.use_decay = variant in {"full", "decay_only"}
+        self.use_rotation = variant in {"full", "rotation_only"}
 
         channel_size = self.num_heads * self.score_dim
         phase_size = self.num_heads * (self.score_dim // 2)
@@ -172,6 +184,11 @@ class SISAScoreBias(nn.Module):
             torch.full((self.num_heads,), raw_lambda, dtype=torch.float32)
         )
         self.init_weights()
+        # Initialize all branches in the original order so retained parameters
+        # match the full model exactly. Frozen branches are not active capacity.
+        self.decay_weight.requires_grad_(self.use_decay)
+        self.decay_projection_bias.requires_grad_(self.use_decay)
+        self.phase_weight.requires_grad_(self.use_rotation)
 
     def _apply(self, fn):
         super()._apply(fn)
@@ -257,18 +274,25 @@ class SISAScoreBias(nn.Module):
             self.num_heads,
             self.score_dim,
         )
-        phase = _reshape_heads(
-            F.linear(hidden_states, self.phase_weight),
-            self.num_heads,
-            self.score_dim // 2,
-        ).float()
-        log_alpha = -F.softplus(
-            F.linear(
-                hidden_states.float(),
-                self.decay_weight.float(),
-                self.decay_projection_bias.float(),
-            )
-        ).permute(0, 2, 1).contiguous()
+        if self.use_rotation:
+            phase = _reshape_heads(
+                F.linear(hidden_states, self.phase_weight),
+                self.num_heads,
+                self.score_dim // 2,
+            ).float()
+        else:
+            phase = torch.zeros_like(raw_b[..., :self.score_dim // 2], dtype=torch.float32)
+        if self.use_decay:
+            log_alpha = -F.softplus(
+                F.linear(
+                    hidden_states.float(),
+                    self.decay_weight.float(),
+                    self.decay_projection_bias.float(),
+                )
+            ).permute(0, 2, 1).contiguous()
+        else:
+            # log(alpha)=0 means alpha=1, i.e. exactly no attenuation.
+            log_alpha = torch.zeros_like(raw_b[..., 0], dtype=torch.float32)
 
         valid = valid_mask[:, None, :, None]
         raw_b = raw_b.masked_fill(~valid, 0.0)
