@@ -18,4 +18,15 @@
 - 原组的默认启动参数、任务 ID 和配置快照保持兼容；此次未修改模型或训练实现。
 
 原始验证输出归档在 artifacts/sisa_components_hyformer_merrec_bcd/validation/，由 Git 忽略。
-当前记录只表示提交准备完成，尚无新组训练结果。提交后补记实际 job ID 和调度状态。
+已提交数组作业 626760，提交时实现版本为 e9067eb。
+
+| job/task | 组别 | 组件模式 | 提交后状态 |
+|---|---|---|---|
+| 626760_0 | B | content_only | PENDING / Priority |
+| 626760_1 | C | decay_only | PENDING / Priority |
+| 626760_2 | D | rotation_only | PENDING / Priority |
+
+squeue 已核对三个元素均申请 acd_u、2 GPU、16 CPU、480 GiB 内存。
+本次仅新增以上三个逻辑任务，未重提第一组或新增 A/E 训练。
+原始 Slurm 日志命名为 logs/unirank-sisa-hyformer-merrec-bcd-626760_<task_id>.out。
+目前尚无新组训练结果，提交成功与 CPU 测试通过不代表正式实验完成。
