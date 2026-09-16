@@ -9,7 +9,11 @@ Slurm job ID 建目录。
 复用 H100 seed 20262028 完整 SISA 对照；具体记录位于该目录。
 第三组：`sisa_components_hiformer_taac_bcd`，HiFormer–TAAC-25 的 B/C/D 三组组件消融，
 同样复用对应 H100 seed 20262028 完整 SISA 对照。
-当前尚无正式完成的消融 study。创建新实验时使用：
+截至 2026-09-16，RankMixer–KuaiRand 与 HyFormer–MerRec 的 B/C/D 均已完成并核验，
+HiFormer–TAAC-25 尚未形成完整比较。独立论文报告与全部紧凑结果已统一归档于
+`sisa_component_report/`，正文为 report.md；该目录保留明确的状态快照。
+
+创建新实验时使用：
 
 ```text
 experiments/ablations/<study_slug>/
