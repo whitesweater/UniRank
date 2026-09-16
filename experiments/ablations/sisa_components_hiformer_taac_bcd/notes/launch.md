@@ -18,4 +18,15 @@
 - 此次只新增 study 映射、配置、启动脚本和记录，未修改模型或训练实现。
 
 原始验证输出保存于 artifacts/sisa_components_hiformer_taac_bcd/validation/，由 Git 忽略。
-当前尚无第三组训练结果，提交后补记实际 job ID 与调度状态。
+已提交数组作业 626779，提交时实现版本为 43c65c0。
+
+| job/task | 组别 | 组件模式 | 提交后状态 |
+|---|---|---|---|
+| 626779_0 | B | content_only | PENDING / Priority |
+| 626779_1 | C | decay_only | PENDING / Priority |
+| 626779_2 | D | rotation_only | PENDING / Priority |
+
+squeue 已核对三个元素均申请 acd_u、2 GPU、16 CPU、480 GiB 内存。
+本次仅新增以上三个任务，前两组不重复提交。
+原始 Slurm 日志命名为 logs/unirank-sisa-hiformer-taac-bcd-626779_<task_id>.out。
+当前尚无第三组训练指标，提交成功与 CPU 检查通过不代表正式实验完成。
