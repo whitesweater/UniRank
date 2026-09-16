@@ -88,6 +88,31 @@ class SISAComponentAblationTest(unittest.TestCase):
 
 
 class ComponentStudyProtocolTest(unittest.TestCase):
+    def test_third_study_has_three_hiformer_taac_tasks_without_merrec_overrides(self):
+        from scripts.run_sisa_component_ablation import (
+            runtime_environment, study_task, training_command,
+        )
+
+        study = "sisa_components_hiformer_taac_bcd"
+        for task_id, variant in enumerate(("content_only", "decay_only", "rotation_only")):
+            task = study_task(task_id, study=study)
+            self.assertEqual(task.experiment, "HiFormer_TencentGR_10M_Action")
+            self.assertEqual(task.study, study)
+            self.assertEqual(task.variant, variant)
+            command = training_command(task)
+            self.assertIn("--nproc_per_node=2", command)
+            self.assertEqual(command[command.index("--seed") + 1], "20262028")
+            self.assertEqual(command[command.index("--batch-size") + 1], "16384")
+            self.assertEqual(command[command.index("--dataloader-seed") + 1], "2027")
+            self.assertEqual(command[command.index("--sisa-parameter-seed") + 1], "20260822")
+            self.assertNotIn("--sparse-optimizer-foreach", command)
+            self.assertNotIn("--sparse-adagrad-chunk-size", command)
+            self.assertNotIn("PYTORCH_CUDA_ALLOC_CONF", runtime_environment(task, {}))
+            self.assertNotEqual(task.run_id, study_task(task_id).run_id)
+            self.assertNotEqual(task.run_id, study_task(task_id, study="sisa_components_hyformer_merrec_bcd").run_id)
+        with self.assertRaises(ValueError):
+            study_task(3, study=study)
+
     def test_new_study_has_three_distinct_hyformer_merrec_tasks(self):
         from scripts.run_sisa_component_ablation import study_task, training_command
 

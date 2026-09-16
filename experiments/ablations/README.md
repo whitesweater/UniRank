@@ -7,6 +7,8 @@ Slurm job ID 建目录。
 复用 H100 完整 SISA 对照。提交状态见该目录的 notes/launch.md。
 追加 study：`sisa_components_hyformer_merrec_bcd`，HyFormer–MerRec 的 B/C/D 三组组件消融，
 复用 H100 seed 20262028 完整 SISA 对照；具体记录位于该目录。
+第三组：`sisa_components_hiformer_taac_bcd`，HiFormer–TAAC-25 的 B/C/D 三组组件消融，
+同样复用对应 H100 seed 20262028 完整 SISA 对照。
 当前尚无正式完成的消融 study。创建新实验时使用：
 
 ```text

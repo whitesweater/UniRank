@@ -25,6 +25,7 @@ STUDY_DIR = ROOT / "experiments" / "ablations" / STUDY
 STUDY_EXPERIMENTS = {
     STUDY: "RankMixer_KuaiRand_Video_Action",
     "sisa_components_hyformer_merrec_bcd": "HyFormer_MerRec_Action",
+    "sisa_components_hiformer_taac_bcd": "HiFormer_TencentGR_10M_Action",
 }
 EXPERIMENTS = (STUDY_EXPERIMENTS[STUDY],)
 VARIANTS = (("B", "content_only"), ("C", "decay_only"), ("D", "rotation_only"))

@@ -1,0 +1,7 @@
+split,rank,blocks,assigned_rows,batches,processed_rows,status
+train,0,8,293060408,17881,292962304,matches_reference_548166_14
+valid,0,4,8922909,543,8896512,matches_reference_548166_14
+test,0,4,76624928,4674,76578816,matches_reference_548166_14
+train,1,8,293057086,17883,292995072,matches_reference_548166_14
+valid,1,4,8923231,543,8896512,matches_reference_548166_14
+test,1,4,76618584,4674,76578816,matches_reference_548166_14
