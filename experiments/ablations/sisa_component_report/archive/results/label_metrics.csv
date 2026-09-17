@@ -43,5 +43,11 @@ sisa_components_hyformer_merrec_bcd,HyFormer,MerRec_Action,E,20262028,548166_1,C
 sisa_components_hyformer_merrec_bcd,HyFormer,MerRec_Action,E,20262028,548166_1,Offer,0.731796,0.021512
 sisa_components_hyformer_merrec_bcd,HyFormer,MerRec_Action,E,20262028,548166_1,Checkout,0.855579,0.004954
 sisa_components_hyformer_merrec_bcd,HyFormer,MerRec_Action,E,20262028,548166_1,Purchase,0.856109,0.003084
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,B,20262028,626779_0,is_click,0.834291,0.055085
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,B,20262028,626779_0,is_conversion,0.869865,0.021021
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,C,20262028,626779_1,is_click,0.842652,0.049993
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,C,20262028,626779_1,is_conversion,0.873904,0.019483
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,D,20262028,626779_2,is_click,0.841524,0.043109
+sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,D,20262028,626779_2,is_conversion,0.88274,0.014911
 sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,E,20262028,548166_14,is_click,0.851302,0.04341
 sisa_components_hiformer_taac_bcd,HiFormer,TencentGR_10M_Action,E,20262028,548166_14,is_conversion,0.890414,0.01718

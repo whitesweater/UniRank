@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T19:52:36+08:00",
+  "generated_at": "2026-09-17T14:19:22+08:00",
   "runs": [
     {
       "study": "sisa_components_bcd",
@@ -816,17 +816,21 @@
       "seed": 20262028,
       "run_id": "SISA_components_HiFormer_TencentGR_10M_Action_B_seed20262028_attempt1",
       "job_task_id": "626779_0",
-      "state": "RUNNING",
-      "eligible": false,
-      "issues": [
-        "sacct not successful: RUNNING/0:0",
-        "Missing or unsuccessful artifact outcome",
-        "Missing or duplicate exact component completion marker",
-        "Test label coverage mismatch: expected ['is_click', 'is_conversion'], got []"
-      ],
-      "metrics": {},
-      "macro_auc": null,
-      "macro_logloss": null,
+      "state": "COMPLETED",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "is_click": {
+          "AUC": 0.834291,
+          "logloss": 0.055085
+        },
+        "is_conversion": {
+          "AUC": 0.869865,
+          "logloss": 0.021021
+        }
+      },
+      "macro_auc": 0.852078,
+      "macro_logloss": 0.038053000000000003,
       "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_B_seed20262028_attempt1.log",
       "slurm_log": "logs/unirank-sisa-hiformer-taac-bcd-626779_0.out",
       "coverage": [
@@ -899,17 +903,21 @@
       "seed": 20262028,
       "run_id": "SISA_components_HiFormer_TencentGR_10M_Action_C_seed20262028_attempt1",
       "job_task_id": "626779_1",
-      "state": "RUNNING",
-      "eligible": false,
-      "issues": [
-        "sacct not successful: RUNNING/0:0",
-        "Missing or unsuccessful artifact outcome",
-        "Missing or duplicate exact component completion marker",
-        "Expected exactly one Test evaluation section, got 0"
-      ],
-      "metrics": {},
-      "macro_auc": null,
-      "macro_logloss": null,
+      "state": "COMPLETED",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "is_click": {
+          "AUC": 0.842652,
+          "logloss": 0.049993
+        },
+        "is_conversion": {
+          "AUC": 0.873904,
+          "logloss": 0.019483
+        }
+      },
+      "macro_auc": 0.858278,
+      "macro_logloss": 0.034738000000000005,
       "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_C_seed20262028_attempt1.log",
       "slurm_log": "logs/unirank-sisa-hiformer-taac-bcd-626779_1.out",
       "coverage": [
@@ -930,6 +938,14 @@
           "processed_rows": 8896512
         },
         {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 76624928,
+          "batches": 4674,
+          "processed_rows": 76578816
+        },
+        {
           "split": "train",
           "rank": 1,
           "blocks": 8,
@@ -944,6 +960,14 @@
           "assigned_rows": 8923231,
           "batches": 543,
           "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 76618584,
+          "batches": 4674,
+          "processed_rows": 76578816
         }
       ],
       "gpu_names": [
@@ -966,28 +990,81 @@
       "seed": 20262028,
       "run_id": "SISA_components_HiFormer_TencentGR_10M_Action_D_seed20262028_attempt1",
       "job_task_id": "626779_2",
-      "state": "RUNNING",
-      "eligible": false,
-      "issues": [
-        "sacct not successful: RUNNING/0:0",
-        "Missing or unsuccessful artifact outcome",
-        "Missing or duplicate exact component completion marker",
-        "Missing artifact manifest",
-        "checkpoint: Expected one Params session, got 0",
-        "Slurm: Expected one Params session, got 0",
-        "Expected exactly one Test evaluation section, got 0"
-      ],
-      "metrics": {},
-      "macro_auc": null,
-      "macro_logloss": null,
+      "state": "COMPLETED",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "is_click": {
+          "AUC": 0.841524,
+          "logloss": 0.043109
+        },
+        "is_conversion": {
+          "AUC": 0.88274,
+          "logloss": 0.014911
+        }
+      },
+      "macro_auc": 0.862132,
+      "macro_logloss": 0.02901,
       "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_D_seed20262028_attempt1.log",
       "slurm_log": "logs/unirank-sisa-hiformer-taac-bcd-626779_2.out",
-      "coverage": [],
-      "gpu_names": [],
-      "source_git_revision": null,
-      "protocol_fields_checked": 0,
-      "total_parameters": null,
-      "dense_parameters": null,
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 293060408,
+          "batches": 17881,
+          "processed_rows": 292962304
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8922909,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 76624928,
+          "batches": 4674,
+          "processed_rows": 76578816
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 293057086,
+          "batches": 17883,
+          "processed_rows": 292995072
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8923231,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 76618584,
+          "batches": 4674,
+          "processed_rows": 76578816
+        }
+      ],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": "48ff4333ef18c1db9d906a995121664790ea8625",
+      "protocol_fields_checked": 73,
+      "total_parameters": 574001993,
+      "dense_parameters": 87216009,
       "exit_code": "0:0",
       "raw_job_id": "626779"
     },
@@ -1430,6 +1507,91 @@
           }
         }
       }
+    },
+    {
+      "study": "sisa_components_hiformer_taac_bcd",
+      "model": "HiFormer",
+      "dataset": "TencentGR_10M_Action",
+      "macro": {
+        "C-B": {
+          "AUC": 0.006199999999999983,
+          "logloss": -0.0033149999999999985
+        },
+        "D-B": {
+          "AUC": 0.010054000000000007,
+          "logloss": -0.009043000000000002
+        },
+        "E-B": {
+          "AUC": 0.01878000000000002,
+          "logloss": -0.0077580000000000045
+        },
+        "E-C": {
+          "AUC": 0.012580000000000036,
+          "logloss": -0.004443000000000006
+        },
+        "E-D": {
+          "AUC": 0.008726000000000012,
+          "logloss": 0.001284999999999998
+        },
+        "E-C-D+B": {
+          "AUC": 0.0025260000000000282,
+          "logloss": 0.0045999999999999965
+        }
+      },
+      "labels": {
+        "is_click": {
+          "C-B": {
+            "AUC": 0.008360999999999952,
+            "logloss": -0.005091999999999999
+          },
+          "D-B": {
+            "AUC": 0.007233000000000045,
+            "logloss": -0.011976
+          },
+          "E-B": {
+            "AUC": 0.017011,
+            "logloss": -0.011675000000000005
+          },
+          "E-C": {
+            "AUC": 0.008650000000000047,
+            "logloss": -0.0065830000000000055
+          },
+          "E-D": {
+            "AUC": 0.009777999999999953,
+            "logloss": 0.0003009999999999957
+          },
+          "E-C-D+B": {
+            "AUC": 0.0014170000000000016,
+            "logloss": 0.005392999999999995
+          }
+        },
+        "is_conversion": {
+          "C-B": {
+            "AUC": 0.004039000000000015,
+            "logloss": -0.0015380000000000012
+          },
+          "D-B": {
+            "AUC": 0.01287499999999997,
+            "logloss": -0.006110000000000001
+          },
+          "E-B": {
+            "AUC": 0.02054900000000004,
+            "logloss": -0.0038410000000000007
+          },
+          "E-C": {
+            "AUC": 0.016510000000000025,
+            "logloss": -0.0023029999999999995
+          },
+          "E-D": {
+            "AUC": 0.00767400000000007,
+            "logloss": 0.002269
+          },
+          "E-C-D+B": {
+            "AUC": 0.003635000000000055,
+            "logloss": 0.0038070000000000014
+          }
+        }
+      }
     }
   ],
   "sources": [
@@ -1615,13 +1777,13 @@
     },
     {
       "path": "logs/unirank-sisa-hiformer-taac-bcd-626779_0.out",
-      "sha256": "b37606357691a7eccad17c8ebb351715c74d1d538562ac6402136ea76080812f",
-      "bytes": 11268763
+      "sha256": "7a25749637dcab847e85f15529fc84749480ac0ae2dd6720f52075663387250e",
+      "bytes": 11527468
     },
     {
       "path": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_B_seed20262028_attempt1.log",
-      "sha256": "7ce52899800c8a7bd256e883c9741a042ce15bc673b0b1f38864d35a2e289aef",
-      "bytes": 11166
+      "sha256": "0ad3e1b7ea46270c2aa49143e1c7edc2fc7e54459332288c099cc6ef35f8a9cb",
+      "bytes": 11579
     },
     {
       "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_B_seed20262028_attempt1/manifest.json",
@@ -1629,14 +1791,19 @@
       "bytes": 7658
     },
     {
+      "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_B_seed20262028_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
       "path": "logs/unirank-sisa-hiformer-taac-bcd-626779_1.out",
-      "sha256": "4d0026ded8ca3b6bc20cd1bee53fd14f844a965d123842b0b6220ccc2c2965d4",
-      "bytes": 9302765
+      "sha256": "59ff03bd6e099301f32b8a953201f9f5df059a7f638400e911291647f5f4d82e",
+      "bytes": 11528271
     },
     {
       "path": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_C_seed20262028_attempt1.log",
-      "sha256": "ddb9182d25b5f264eb9df42e4c3fe5275709c20d1209618822c8215c28c5e15a",
-      "bytes": 10155
+      "sha256": "f46b8af2dab47378e16562632fac1ff4b4f57674abc6cd6968df835426b43ff6",
+      "bytes": 11577
     },
     {
       "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_C_seed20262028_attempt1/manifest.json",
@@ -1644,9 +1811,29 @@
       "bytes": 7654
     },
     {
+      "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_C_seed20262028_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
       "path": "logs/unirank-sisa-hiformer-taac-bcd-626779_2.out",
-      "sha256": "32e4d0c97a6f3bb8ddfb51a729febdc729c4fa83aa8bf68754ac51d7cec16e52",
-      "bytes": 8219
+      "sha256": "3c017e1b1e677f99500598a8199344b17a33146bdbf17dc25b790a6004107617",
+      "bytes": 11529445
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_components_HiFormer_TencentGR_10M_Action_D_seed20262028_attempt1.log",
+      "sha256": "1df9c8f44d6426bd1982944542a89ea14dfe5c643c844597cb29110c67c526e9",
+      "bytes": 11580
+    },
+    {
+      "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_D_seed20262028_attempt1/manifest.json",
+      "sha256": "4b4fe541abd7bf23796520ec3fe449d2d1c4b0d3d8239d599581663f14eb4367",
+      "bytes": 7660
+    },
+    {
+      "path": "artifacts/sisa_components_hiformer_taac_bcd/SISA_components_HiFormer_TencentGR_10M_Action_D_seed20262028_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
     },
     {
       "path": "logs/unirank-sisa-seed20262028-ws2-548166_14.out",
@@ -1668,9 +1855,9 @@
       "626644,626760,626779",
       "--format=JobID,JobIDRaw,State,ExitCode"
     ],
-    "stdout": "626644_0|626682|COMPLETED|0:0\n626644_0.batch|626682.batch|COMPLETED|0:0\n626644_0.extern|626682.extern|COMPLETED|0:0\n626644_1|626683|COMPLETED|0:0\n626644_1.batch|626683.batch|COMPLETED|0:0\n626644_1.extern|626683.extern|COMPLETED|0:0\n626644_2|626644|COMPLETED|0:0\n626644_2.batch|626644.batch|COMPLETED|0:0\n626644_2.extern|626644.extern|COMPLETED|0:0\n626760_0|626761|COMPLETED|0:0\n626760_0.batch|626761.batch|COMPLETED|0:0\n626760_0.extern|626761.extern|COMPLETED|0:0\n626760_1|626762|COMPLETED|0:0\n626760_1.batch|626762.batch|COMPLETED|0:0\n626760_1.extern|626762.extern|COMPLETED|0:0\n626760_2|626760|COMPLETED|0:0\n626760_2.batch|626760.batch|COMPLETED|0:0\n626760_2.extern|626760.extern|COMPLETED|0:0\n626779_0|626793|RUNNING|0:0\n626779_0.batch|626793.batch|RUNNING|0:0\n626779_0.extern|626793.extern|RUNNING|0:0\n626779_1|626830|RUNNING|0:0\n626779_1.batch|626830.batch|RUNNING|0:0\n626779_1.extern|626830.extern|RUNNING|0:0\n626779_2|626779|RUNNING|0:0\n626779_2.batch|626779.batch|RUNNING|0:0\n626779_2.extern|626779.extern|RUNNING|0:0\n",
+    "stdout": "626644_0|626682|COMPLETED|0:0\n626644_0.batch|626682.batch|COMPLETED|0:0\n626644_0.extern|626682.extern|COMPLETED|0:0\n626644_1|626683|COMPLETED|0:0\n626644_1.batch|626683.batch|COMPLETED|0:0\n626644_1.extern|626683.extern|COMPLETED|0:0\n626644_2|626644|COMPLETED|0:0\n626644_2.batch|626644.batch|COMPLETED|0:0\n626644_2.extern|626644.extern|COMPLETED|0:0\n626760_0|626761|COMPLETED|0:0\n626760_0.batch|626761.batch|COMPLETED|0:0\n626760_0.extern|626761.extern|COMPLETED|0:0\n626760_1|626762|COMPLETED|0:0\n626760_1.batch|626762.batch|COMPLETED|0:0\n626760_1.extern|626762.extern|COMPLETED|0:0\n626760_2|626760|COMPLETED|0:0\n626760_2.batch|626760.batch|COMPLETED|0:0\n626760_2.extern|626760.extern|COMPLETED|0:0\n626779_0|626793|COMPLETED|0:0\n626779_0.batch|626793.batch|COMPLETED|0:0\n626779_0.extern|626793.extern|COMPLETED|0:0\n626779_1|626830|COMPLETED|0:0\n626779_1.batch|626830.batch|COMPLETED|0:0\n626779_1.extern|626830.extern|COMPLETED|0:0\n626779_2|626779|COMPLETED|0:0\n626779_2.batch|626779.batch|COMPLETED|0:0\n626779_2.extern|626779.extern|COMPLETED|0:0\n",
     "stderr": "",
-    "sha256": "6a07f4613e7ceae93020c89c8d852305b84a61ad055f4aad18f8228c268dc557"
+    "sha256": "849f593b2845cddd7f968dd99f59dbdb1f2e495639dc8f913a01cbf7b5fbf356"
   },
   "metric_definition": "Unweighted mean across all dataset task labels; Test only.",
   "parameter_definition": "total_parameters and dense_parameters are trainable parameter counts logged by count_parameters (requires_grad=True), not all allocated tensors.",
