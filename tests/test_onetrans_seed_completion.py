@@ -13,6 +13,19 @@ from scripts.run_onetrans_seed_completion import (
 
 
 class OneTransSeedCompletionTest(unittest.TestCase):
+    def test_cancelled_taobao_ids_cannot_be_launched_but_keep_audit_identity(self):
+        from scripts.run_onetrans_seed_completion import ACTIVE_TASK_IDS, validate_task_active
+
+        self.assertEqual(ACTIVE_TASK_IDS, (0, 1, 2, 3, 4, 5, 8, 9))
+        for task_id in range(10):
+            task = study_task(task_id)
+            if task_id in (6, 7):
+                self.assertEqual(task.dataset, "Taobao_Action")
+                with self.assertRaises(ValueError):
+                    validate_task_active(task)
+            else:
+                validate_task_active(task)
+
     def test_exactly_ten_missing_sisa_runs_without_baselines_or_seed27(self):
         tasks = [study_task(i) for i in range(10)]
         self.assertEqual({(t.dataset, t.seed) for t in tasks},

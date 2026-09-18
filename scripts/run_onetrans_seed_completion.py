@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run only the ten missing OneTrans full-SISA seed repetitions."""
+"""Run the eight retained OneTrans full-SISA repetitions after Taobao cancellation."""
 
 from __future__ import annotations
 
@@ -27,6 +27,7 @@ DATASETS = ("QK_Video_Action", "KuaiRand_Video_Action", "TencentGR_10M_Action",
             "Taobao_Action", "MerRec_Action")
 WORLD_SIZE = 4
 BATCH_SIZE = 8192
+ACTIVE_TASK_IDS = (0, 1, 2, 3, 4, 5, 8, 9)
 
 
 @dataclass(frozen=True)
@@ -66,6 +67,11 @@ def study_task(task_id: int, attempt: int = 1) -> SeedTask:
     if not 0 <= task_id < 10 or attempt < 1:
         raise ValueError("task_id must be 0..9 and attempt must be positive")
     return SeedTask(task_id, DATASETS[task_id // 2], 20262028 + task_id % 2, attempt)
+
+
+def validate_task_active(task: SeedTask) -> None:
+    if task.task_id not in ACTIVE_TASK_IDS:
+        raise ValueError("Taobao seed repetitions were cancelled by the user; do not relaunch")
 
 
 def parsed_value(value):
@@ -138,6 +144,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     task = study_task(args.task_id, args.attempt)
+    validate_task_active(task)
     os.chdir(ROOT)
     params = load_config(str(CONFIG_DIR), task.experiment)
     validate_protocol(task, params)

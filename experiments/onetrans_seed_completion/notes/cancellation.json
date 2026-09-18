@@ -1,0 +1,35 @@
+{
+  "cancelled_at": "2026-09-18T16:21:45+08:00",
+  "reason": "User explicitly requested cancelling Taobao tasks",
+  "command": [
+    "scancel",
+    "630948_6",
+    "630948_7"
+  ],
+  "cancelled_task_ids": [
+    6,
+    7
+  ],
+  "cancelled_job_task_ids": [
+    "630948_6",
+    "630948_7"
+  ],
+  "retained_task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9
+  ],
+  "dataset": "Taobao_Action",
+  "seeds": [
+    20262028,
+    20262029
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

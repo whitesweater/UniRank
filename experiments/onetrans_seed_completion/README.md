@@ -1,8 +1,10 @@
 # OneTrans SISA 三种子补齐
 
-按用户明确选择，仅补 SISA，覆盖 QK-Video、KuaiRand、TAAC-25、Taobao、MerRec
-五个数据集。复用已有 seed 20262027，为每个数据集新增 20262028、20262029，
-共十个任务；不重跑 baseline，也不重复已有 seed。完成后每个数据集有三次 SISA。
+按用户最新选择，仅补 SISA，覆盖 QK-Video、KuaiRand、TAAC-25、MerRec
+四个数据集。复用已有 seed 20262027，为每个数据集新增 20262028、20262029，
+共保留八个任务；不重跑 baseline，也不重复已有 seed。完成后每个数据集有三次 SISA。
+最初提交的十个任务中，Taobao 的 630948_6、630948_7 已按用户要求取消；保留
+原任务编号与旧结果供审计，启动器禁止重新启动这两个编号，未来默认提交也排除它们。
 
 本研究独立归档。OneTrans 及 Taobao 不在当前论文接受的四模型×四数据集证据范围内，
 本次用户授权的补跑结果不自动混入该主实验汇总。
@@ -40,7 +42,7 @@ configs/reference_params.json；原样历史路径快照放在Git忽略的artifa
 及明确的子seed外不允许新的有效参数差异。已有日志、checkpoint或artifact目录会
 阻止覆盖；需要重试时必须增加attempt并在采集器明确选择，不能按测试指标挑重试。
 
-## 十个新增任务
+## 原任务映射与当前保留范围
 
 | task_id | 数据集 | seed |
 |---|---|---:|
@@ -50,13 +52,14 @@ configs/reference_params.json；原样历史路径快照放在Git忽略的artifa
 | 3 | KuaiRand | 20262029 |
 | 4 | TAAC-25 | 20262028 |
 | 5 | TAAC-25 | 20262029 |
-| 6 | Taobao | 20262028 |
-| 7 | Taobao | 20262029 |
+| 6（已取消） | Taobao | 20262028 |
+| 7（已取消） | Taobao | 20262029 |
 | 8 | MerRec | 20262028 |
 | 9 | MerRec | 20262029 |
 
 精确run ID、初始化子seed与attempt见configs/tasks.csv。启动脚本为
-scripts/submit_onetrans_seed_completion.sbatch，实际提交记录在notes/submission.json。
+scripts/submit_onetrans_seed_completion.sbatch，实际提交记录在notes/submission.json，
+取消回执在notes/cancellation.json。configs/tasks.csv保留最初十任务映射，不重排编号。
 每次运行在artifacts/onetrans_seed_completion下保存manifest和outcome，包含源码散列、
 有效参数、命令、GPU、作业标识与返回码；原始日志和模型分别在logs及checkpoints下。
 
@@ -64,9 +67,10 @@ scripts/submit_onetrans_seed_completion.sbatch，实际提交记录在notes/subm
 
 只从成功完成并通过配置、覆盖和双日志核验的最终Test段取AUC与LogLoss。
 结果收集器为scripts/collect_onetrans_seed_completion.py，紧凑证据保存在results。
-未完成、失败或不一致的运行保留状态且指标留空；仅三次SISA均合格时生成均值与
+未完成、取消、失败或不一致的运行保留状态且指标留空；仅三次SISA均合格时生成均值与
 样本标准差（ddof=1），同时保留每个标签和每轮的结果。
 
 baseline仅有seed20262027，不把一个baseline复制成三个独立baseline；本研究不支持
 三种子配对增益或配对显著性检验。历史同seed27的baseline/SISA差值仍可单独描述，
-SISA三次均值与单次baseline的差值只能作为描述性补充。
+SISA三次均值与单次baseline的差值只能作为描述性补充。Taobao此次不补齐，不计算
+其三seed均值。刷新命令为 `.venv/bin/python scripts/collect_onetrans_seed_completion.py`。

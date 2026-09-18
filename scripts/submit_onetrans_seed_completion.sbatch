@@ -7,7 +7,7 @@
 #SBATCH --mem=960G
 #SBATCH --gres=gpu:4
 #SBATCH --time=12:00:00
-#SBATCH --array=0-9%4
+#SBATCH --array=0-5,8-9%4
 #SBATCH --no-requeue
 #SBATCH --output=logs/%x-%A_%a.out
 

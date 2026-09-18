@@ -25,6 +25,7 @@ expansion 的规模是历史运行总量，包含当前范围之外的诊断记�
 | SISA seed 20262028 | 已完成 | 16 tasks / 68 labels | [结果](sisa_single_seed20262028/results/) · [与 seed 20262027 比较](sisa_single_seed20262028/comparison/) |
 | SISA seed 20262029 | 已完成 | 16 tasks / 68 labels | [协议](sisa_single_seed20262029/protocol.md) · [结果](sisa_single_seed20262029/results/) · [与 seed 20262028 比较](sisa_single_seed20262029/comparison_vs_seed20262028/) |
 | SISA 三-seed 统一分析 | 已完成 | 3 seeds / 16 cells / 68 labels | [摘要](sisa_three_seed_unified/results/summary.md) · [HTML 报告](sisa_three_seed_unified/report/report.html) · [来源](sisa_three_seed_unified/sources/) |
+| OneTrans SISA 三-seed 补齐 | 已提交630948；Taobao两任务已按用户要求取消 | 保留4数据集×2新增seeds=8任务；仅SISA，复用旧seed27 | `onetrans_seed_completion/README.md`（独立研究，不混入accepted 16-cell） |
 | 后续消融实验 | 待开展 | 按 study 建档 | [消融索引与规范](ablations/README.md) |
 
 ## 统一目录约定
