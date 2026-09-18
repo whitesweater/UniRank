@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#SBATCH --partition=acd_u
+#SBATCH --job-name=unirank-onetrans-seeds
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=960G
+#SBATCH --gres=gpu:4
+#SBATCH --time=12:00:00
+#SBATCH --array=0-9%4
+#SBATCH --no-requeue
+#SBATCH --output=logs/%x-%A_%a.out
+
+set -euo pipefail
+repo_root="${SLURM_SUBMIT_DIR:?SLURM_SUBMIT_DIR is required}"
+cd "$repo_root"
+export PYTHONUNBUFFERED=1
+.venv/bin/python scripts/run_onetrans_seed_completion.py \
+  --task-id "${SLURM_ARRAY_TASK_ID:?SLURM_ARRAY_TASK_ID is required}" \
+  --attempt "${ONETRANS_ATTEMPT:-1}"

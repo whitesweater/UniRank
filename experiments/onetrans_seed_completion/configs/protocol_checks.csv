@@ -1,0 +1,11 @@
+task_id,dataset,seed,fields_checked,allowed_changes,valid
+0,QK_Video_Action,20262028,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+1,QK_Video_Action,20262029,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+2,KuaiRand_Video_Action,20262028,74,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+3,KuaiRand_Video_Action,20262029,74,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+4,TencentGR_10M_Action,20262028,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+5,TencentGR_10M_Action,20262029,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+6,Taobao_Action,20262028,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+7,Taobao_Action,20262029,73,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+8,MerRec_Action,20262028,74,model_id;seed;dataloader_seed;sisa_parameter_seed,True
+9,MerRec_Action,20262029,74,model_id;seed;dataloader_seed;sisa_parameter_seed,True
