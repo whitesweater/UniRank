@@ -10,8 +10,10 @@ Slurm job ID 建目录。
 第三组：`sisa_components_hiformer_taac_bcd`，HiFormer–TAAC-25 的 B/C/D 三组组件消融，
 同样复用对应 H100 seed 20262028 完整 SISA 对照。
 截至 2026-09-17 14:19:22（北京时间），三组 B/C/D 共九个新增任务均已完成并核验，
-连同三个历史 E 对照，共形成三组完整 B/C/D/E 比较。独立论文报告与全部紧凑结果已统一归档于
-`sisa_component_report/`，正文为 report.md；该目录保留明确的状态快照。
+连同三个历史 E 对照，共形成三组完整 B/C/D/E 比较。材料统一归档于
+`sisa_component_report/`：当前 `report.md` 为仅展示 HyFormer–MerRec 的手工修订正文；
+三组完整报告位于 `archive/reports/three_study_report.md`，全部紧凑结果仍在
+`archive/results/`。正文展示范围缩小不代表其他两组结果丢失或尚未完成。
 
 创建新实验时使用：
 

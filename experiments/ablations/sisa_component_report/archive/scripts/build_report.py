@@ -1,7 +1,8 @@
-"""Render this reviewed report snapshot from the strict component evidence.
+"""Render the archived three-study report from the strict component evidence.
 
 Narrative conclusions are scoped to the three reviewed, complete groups.
 Changed evidence requires a fresh interpretation review before publication.
+The hand-edited report.md is maintained separately and is never overwritten.
 """
 
 from __future__ import annotations
@@ -252,8 +253,10 @@ B 保留内容投影，可检查仅增加分数分支的效果，但它的有效
 正式结果经 checkpoint 最终测试段、对应 Slurm 输出、完成标记、有效配置及逐 rank 数据覆盖交叉核验。九个新增任务均成功退出，最终指标在两份日志中一致；历史 E 同时核对原始完成标记与既有归档。采集程序只纳入通过这些检查的运行。完整运行映射、逐任务 CSV、差值 CSV 和独立审计说明随报告归档；前两组的旧审计注明历史快照，第三组另有最终审计。原始训练日志及模型文件保留在运行目录，不作为论文附件提交。
 """
     assert "http://" not in content and "https://" not in content
-    (REPORT_DIR / "report.md").write_text(content, encoding="utf-8")
-    print(f"Wrote {REPORT_DIR / 'report.md'} ({len(content.splitlines())} lines)")
+    output = REPORT_DIR / "archive/reports/three_study_report.md"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(content, encoding="utf-8")
+    print(f"Wrote {output} ({len(content.splitlines())} lines)")
 
 
 if __name__ == "__main__":
