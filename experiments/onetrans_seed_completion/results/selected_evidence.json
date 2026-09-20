@@ -1,0 +1,3140 @@
+{
+  "generated_at": "2026-09-20T16:25:13+08:00",
+  "evidence_scope": "Separate OneTrans diagnostics; not part of accepted 16-cell paper aggregates",
+  "summary_definition": "Equal-label within-run macro; three-SISA-seed mean and sample SD only for complete triplets. Historical baseline has only seed20262027.",
+  "protocol_caveats": "KuaiRand and TAAC new runs use ws2; historical ws4 differs in dropped-tail sample coverage and rank RNG. No three-seed paired significance or pure-seed variance inference.",
+  "runs": [
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "setting": "baseline",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_QK_Video_Action_baseline_seed20262027",
+      "job_task_id": "14810_0",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 98652130,
+          "batches": 12038,
+          "processed_rows": 98615296
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12510789,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12136271,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 98682146,
+          "batches": 12043,
+          "processed_rows": 98656256
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12514303,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12139522,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 98632282,
+          "batches": 12037,
+          "processed_rows": 98607104
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12526377,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12151778,
+          "batches": 1483,
+          "processed_rows": 12148736
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 98680760,
+          "batches": 12042,
+          "processed_rows": 98648064
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12527558,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12152387,
+          "batches": 1483,
+          "processed_rows": 12148736
+        }
+      ],
+      "total_parameters": 151721828,
+      "dense_parameters": 11720708,
+      "eligible": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.935674,
+          "logloss": 0.248535
+        },
+        "follow": {
+          "AUC": 0.917042,
+          "logloss": 0.005088
+        },
+        "like": {
+          "AUC": 0.948348,
+          "logloss": 0.036389
+        },
+        "share": {
+          "AUC": 0.933407,
+          "logloss": 0.005297
+        }
+      },
+      "macro_auc": 0.93361775,
+      "macro_logloss": 0.07382725,
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_strict_OneTrans_QK_Video_Action_baseline_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14810_0.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "setting": "sisa",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_QK_Video_Action_sisa_seed20262027",
+      "job_task_id": "14810_1",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090",
+        "NVIDIA GeForce RTX 4090"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 98652130,
+          "batches": 12038,
+          "processed_rows": 98615296
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12510789,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12136271,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 98682146,
+          "batches": 12043,
+          "processed_rows": 98656256
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12514303,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12139522,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 98632282,
+          "batches": 12037,
+          "processed_rows": 98607104
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12526377,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12151778,
+          "batches": 1483,
+          "processed_rows": 12148736
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 98680760,
+          "batches": 12042,
+          "processed_rows": 98648064
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12527558,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12152387,
+          "batches": 1483,
+          "processed_rows": 12148736
+        }
+      ],
+      "total_parameters": 151784816,
+      "dense_parameters": 11783696,
+      "eligible": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.935902,
+          "logloss": 0.247955
+        },
+        "follow": {
+          "AUC": 0.918218,
+          "logloss": 0.005097
+        },
+        "like": {
+          "AUC": 0.948861,
+          "logloss": 0.036164
+        },
+        "share": {
+          "AUC": 0.933237,
+          "logloss": 0.00532
+        }
+      },
+      "macro_auc": 0.9340545,
+      "macro_logloss": 0.073634,
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_strict_OneTrans_QK_Video_Action_sisa_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14810_1.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "setting": "baseline",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_KuaiRand_Video_Action_baseline_seed20262027",
+      "job_task_id": "14811_2",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 64044603,
+          "batches": 7814,
+          "processed_rows": 64012288
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 8526433,
+          "batches": 1040,
+          "processed_rows": 8519680
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 8235836,
+          "batches": 1004,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 64092784,
+          "batches": 7819,
+          "processed_rows": 64053248
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 8613660,
+          "batches": 1051,
+          "processed_rows": 8609792
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 8259727,
+          "batches": 1007,
+          "processed_rows": 8249344
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 63921774,
+          "batches": 7798,
+          "processed_rows": 63881216
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 8596963,
+          "batches": 1048,
+          "processed_rows": 8585216
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 8247558,
+          "batches": 1006,
+          "processed_rows": 8241152
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 64051072,
+          "batches": 7814,
+          "processed_rows": 64012288
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 8597813,
+          "batches": 1049,
+          "processed_rows": 8593408
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 8276221,
+          "batches": 1009,
+          "processed_rows": 8265728
+        }
+      ],
+      "total_parameters": 525599510,
+      "dense_parameters": 12503558,
+      "eligible": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.772234,
+          "logloss": 0.566734
+        },
+        "is_follow": {
+          "AUC": 0.88308,
+          "logloss": 0.006201
+        },
+        "is_like": {
+          "AUC": 0.923693,
+          "logloss": 0.055033
+        },
+        "is_comment": {
+          "AUC": 0.896976,
+          "logloss": 0.01477
+        },
+        "is_forward": {
+          "AUC": 0.872306,
+          "logloss": 0.005742
+        },
+        "long_view": {
+          "AUC": 0.795764,
+          "logloss": 0.469541
+        }
+      },
+      "macro_auc": 0.8573421666666666,
+      "macro_logloss": 0.1863368333333333,
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/SISA_strict_OneTrans_KuaiRand_Video_Action_baseline_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14811_2.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "setting": "sisa",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_KuaiRand_Video_Action_sisa_seed20262027",
+      "job_task_id": "14811_3",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 64044603,
+          "batches": 7814,
+          "processed_rows": 64012288
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 8526433,
+          "batches": 1040,
+          "processed_rows": 8519680
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 8235836,
+          "batches": 1004,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 64092784,
+          "batches": 7819,
+          "processed_rows": 64053248
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 8613660,
+          "batches": 1051,
+          "processed_rows": 8609792
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 8259727,
+          "batches": 1007,
+          "processed_rows": 8249344
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 63921774,
+          "batches": 7798,
+          "processed_rows": 63881216
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 8596963,
+          "batches": 1048,
+          "processed_rows": 8585216
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 8247558,
+          "batches": 1006,
+          "processed_rows": 8241152
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 64051072,
+          "batches": 7814,
+          "processed_rows": 64012288
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 8597813,
+          "batches": 1049,
+          "processed_rows": 8593408
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 8276221,
+          "batches": 1009,
+          "processed_rows": 8265728
+        }
+      ],
+      "total_parameters": 525662498,
+      "dense_parameters": 12566546,
+      "eligible": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.791105,
+          "logloss": 0.538148
+        },
+        "is_follow": {
+          "AUC": 0.88643,
+          "logloss": 0.006128
+        },
+        "is_like": {
+          "AUC": 0.928058,
+          "logloss": 0.053581
+        },
+        "is_comment": {
+          "AUC": 0.896294,
+          "logloss": 0.014797
+        },
+        "is_forward": {
+          "AUC": 0.877678,
+          "logloss": 0.005611
+        },
+        "long_view": {
+          "AUC": 0.810629,
+          "logloss": 0.44734
+        }
+      },
+      "macro_auc": 0.8650323333333334,
+      "macro_logloss": 0.17760083333333332,
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/SISA_strict_OneTrans_KuaiRand_Video_Action_sisa_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14811_3.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "setting": "baseline",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_MerRec_Action_baseline_seed20262027",
+      "job_task_id": "14811_6",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ],
+      "total_parameters": 814332389,
+      "dense_parameters": 12060933,
+      "eligible": true,
+      "metrics": {
+        "Like": {
+          "AUC": 0.755615,
+          "logloss": 0.325279
+        },
+        "Cart": {
+          "AUC": 0.789147,
+          "logloss": 0.05446
+        },
+        "Offer": {
+          "AUC": 0.764039,
+          "logloss": 0.021467
+        },
+        "Checkout": {
+          "AUC": 0.86632,
+          "logloss": 0.006042
+        },
+        "Purchase": {
+          "AUC": 0.868531,
+          "logloss": 0.003837
+        }
+      },
+      "macro_auc": 0.8087304000000001,
+      "macro_logloss": 0.082217,
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_strict_OneTrans_MerRec_Action_baseline_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14811_6.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "setting": "sisa",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_strict_OneTrans_MerRec_Action_sisa_seed20262027",
+      "job_task_id": "14811_7",
+      "state": "COMPLETED_MARKER",
+      "exit_code": "0:0 (success marker)",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "success_marker",
+      "gpu_names": [
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S",
+        "NVIDIA L40S"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ],
+      "total_parameters": 814395377,
+      "dense_parameters": 12123921,
+      "eligible": true,
+      "metrics": {
+        "Like": {
+          "AUC": 0.765848,
+          "logloss": 0.319739
+        },
+        "Cart": {
+          "AUC": 0.820006,
+          "logloss": 0.051998
+        },
+        "Offer": {
+          "AUC": 0.75772,
+          "logloss": 0.02119
+        },
+        "Checkout": {
+          "AUC": 0.872093,
+          "logloss": 0.005122
+        },
+        "Purchase": {
+          "AUC": 0.873708,
+          "logloss": 0.003222
+        }
+      },
+      "macro_auc": 0.817875,
+      "macro_logloss": 0.0802542,
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_strict_OneTrans_MerRec_Action_sisa_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-strict-14811_7.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "setting": "baseline",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_expansion_OneTrans_TencentGR_10M_Action_baseline_seed20262027",
+      "job_task_id": "543887_0",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "sacct",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 146529893,
+          "batches": 17885,
+          "processed_rows": 146513920
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4462587,
+          "batches": 543,
+          "processed_rows": 4448256
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 38305740,
+          "batches": 4675,
+          "processed_rows": 38297600
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 146528489,
+          "batches": 17884,
+          "processed_rows": 146505728
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4461309,
+          "batches": 543,
+          "processed_rows": 4448256
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 38315429,
+          "batches": 4676,
+          "processed_rows": 38305792
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 4,
+          "assigned_rows": 146532603,
+          "batches": 17886,
+          "processed_rows": 146522112
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4462166,
+          "batches": 544,
+          "processed_rows": 4456448
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 38314258,
+          "batches": 4676,
+          "processed_rows": 38305792
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 4,
+          "assigned_rows": 146526509,
+          "batches": 17884,
+          "processed_rows": 146505728
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4460078,
+          "batches": 544,
+          "processed_rows": 4456448
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 38308085,
+          "batches": 4675,
+          "processed_rows": 38297600
+        }
+      ],
+      "total_parameters": 498604482,
+      "dense_parameters": 11818498,
+      "eligible": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.831705,
+          "logloss": 0.049415
+        },
+        "is_conversion": {
+          "AUC": 0.879542,
+          "logloss": 0.017811
+        }
+      },
+      "macro_auc": 0.8556235000000001,
+      "macro_logloss": 0.033613000000000004,
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_expansion_OneTrans_TencentGR_10M_Action_baseline_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-expansion-acd-543887_0.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "setting": "sisa",
+      "seed": 20262027,
+      "attempt": null,
+      "run_id": "SISA_expansion_OneTrans_TencentGR_10M_Action_sisa_seed20262027",
+      "job_task_id": "543257_1",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": true,
+      "source_git_revision": null,
+      "status_evidence": "sacct",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 146529893,
+          "batches": 17885,
+          "processed_rows": 146513920
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4462587,
+          "batches": 543,
+          "processed_rows": 4448256
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 38305740,
+          "batches": 4675,
+          "processed_rows": 38297600
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 146528489,
+          "batches": 17884,
+          "processed_rows": 146505728
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4461309,
+          "batches": 543,
+          "processed_rows": 4448256
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 38315429,
+          "batches": 4676,
+          "processed_rows": 38305792
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 4,
+          "assigned_rows": 146532603,
+          "batches": 17886,
+          "processed_rows": 146522112
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4462166,
+          "batches": 544,
+          "processed_rows": 4456448
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 38314258,
+          "batches": 4676,
+          "processed_rows": 38305792
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 4,
+          "assigned_rows": 146526509,
+          "batches": 17884,
+          "processed_rows": 146505728
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4460078,
+          "batches": 544,
+          "processed_rows": 4456448
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 38308085,
+          "batches": 4675,
+          "processed_rows": 38297600
+        }
+      ],
+      "total_parameters": 498667470,
+      "dense_parameters": 11881486,
+      "eligible": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.83895,
+          "logloss": 0.048848
+        },
+        "is_conversion": {
+          "AUC": 0.882543,
+          "logloss": 0.017955
+        }
+      },
+      "macro_auc": 0.8607465,
+      "macro_logloss": 0.0334015,
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_expansion_OneTrans_TencentGR_10M_Action_sisa_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-expansion-acd-543257_1.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "setting": "sisa",
+      "seed": 20262028,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1",
+      "job_task_id": "630948_0",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": false,
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 98652130,
+          "batches": 12038,
+          "processed_rows": 98615296
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12510789,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12136271,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 98682146,
+          "batches": 12043,
+          "processed_rows": 98656256
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12514303,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12139522,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 98632282,
+          "batches": 12037,
+          "processed_rows": 98607104
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12526377,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12151778,
+          "batches": 1483,
+          "processed_rows": 12148736
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 98680760,
+          "batches": 12042,
+          "processed_rows": 98648064
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12527558,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12152387,
+          "batches": 1483,
+          "processed_rows": 12148736
+        }
+      ],
+      "total_parameters": 151784816,
+      "dense_parameters": 11783696,
+      "eligible": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.936216,
+          "logloss": 0.248747
+        },
+        "follow": {
+          "AUC": 0.920085,
+          "logloss": 0.005003
+        },
+        "like": {
+          "AUC": 0.947813,
+          "logloss": 0.036928
+        },
+        "share": {
+          "AUC": 0.934852,
+          "logloss": 0.005328
+        }
+      },
+      "macro_auc": 0.9347415,
+      "macro_logloss": 0.0740015,
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-seeds-630948_0.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "setting": "sisa",
+      "seed": 20262029,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1",
+      "job_task_id": "630948_1",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": false,
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 98652130,
+          "batches": 12038,
+          "processed_rows": 98615296
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12510789,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 12136271,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 98682146,
+          "batches": 12043,
+          "processed_rows": 98656256
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12514303,
+          "batches": 1527,
+          "processed_rows": 12509184
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 12139522,
+          "batches": 1481,
+          "processed_rows": 12132352
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 8,
+          "assigned_rows": 98632282,
+          "batches": 12037,
+          "processed_rows": 98607104
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12526377,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 12151778,
+          "batches": 1483,
+          "processed_rows": 12148736
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 8,
+          "assigned_rows": 98680760,
+          "batches": 12042,
+          "processed_rows": 98648064
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12527558,
+          "batches": 1528,
+          "processed_rows": 12517376
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 12152387,
+          "batches": 1483,
+          "processed_rows": 12148736
+        }
+      ],
+      "total_parameters": 151784816,
+      "dense_parameters": 11783696,
+      "eligible": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.936008,
+          "logloss": 0.248195
+        },
+        "follow": {
+          "AUC": 0.917028,
+          "logloss": 0.005207
+        },
+        "like": {
+          "AUC": 0.948144,
+          "logloss": 0.03644
+        },
+        "share": {
+          "AUC": 0.933115,
+          "logloss": 0.005326
+        }
+      },
+      "macro_auc": 0.93357375,
+      "macro_logloss": 0.073792,
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-seeds-630948_1.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "task_id": 2,
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "setting": "sisa",
+      "seed": 20262028,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "dataloader_seed": 2027,
+      "sisa_parameter_seed": 20260822,
+      "array_job_id": "631034",
+      "job_id": "631036",
+      "job_task_id": "631034_2",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "historical": false,
+      "eligible": true,
+      "protocol": "ws2",
+      "metrics": {
+        "is_click": {
+          "AUC": 0.788841,
+          "logloss": 0.539704
+        },
+        "is_follow": {
+          "AUC": 0.883191,
+          "logloss": 0.006375
+        },
+        "is_like": {
+          "AUC": 0.926602,
+          "logloss": 0.053918
+        },
+        "is_comment": {
+          "AUC": 0.894963,
+          "logloss": 0.014862
+        },
+        "is_forward": {
+          "AUC": 0.868953,
+          "logloss": 0.00584
+        },
+        "long_view": {
+          "AUC": 0.808429,
+          "logloss": 0.447813
+        }
+      },
+      "macro_auc": 0.8618298333333333,
+      "macro_logloss": 0.17808533333333332,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 128010449,
+          "batches": 7804,
+          "processed_rows": 127860736
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 17124246,
+          "batches": 1043,
+          "processed_rows": 17088512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 16512057,
+          "batches": 1006,
+          "processed_rows": 16482304
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 128099784,
+          "batches": 7811,
+          "processed_rows": 127975424
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 17210623,
+          "batches": 1048,
+          "processed_rows": 17170432
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 16507285,
+          "batches": 1006,
+          "processed_rows": 16482304
+        }
+      ],
+      "issues": [],
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-ws2-631034_2.out"
+    },
+    {
+      "task_id": 3,
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "setting": "sisa",
+      "seed": 20262029,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1",
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "array_job_id": "631034",
+      "job_id": "631037",
+      "job_task_id": "631034_3",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "historical": false,
+      "eligible": true,
+      "protocol": "ws2",
+      "metrics": {
+        "is_click": {
+          "AUC": 0.793111,
+          "logloss": 0.528806
+        },
+        "is_follow": {
+          "AUC": 0.882387,
+          "logloss": 0.006193
+        },
+        "is_like": {
+          "AUC": 0.928199,
+          "logloss": 0.054109
+        },
+        "is_comment": {
+          "AUC": 0.89881,
+          "logloss": 0.014694
+        },
+        "is_forward": {
+          "AUC": 0.876046,
+          "logloss": 0.00555
+        },
+        "long_view": {
+          "AUC": 0.812217,
+          "logloss": 0.442607
+        }
+      },
+      "macro_auc": 0.8651283333333333,
+      "macro_logloss": 0.1753265,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 128010449,
+          "batches": 7804,
+          "processed_rows": 127860736
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 17124246,
+          "batches": 1043,
+          "processed_rows": 17088512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 16512057,
+          "batches": 1006,
+          "processed_rows": 16482304
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 128099784,
+          "batches": 7811,
+          "processed_rows": 127975424
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 17210623,
+          "batches": 1048,
+          "processed_rows": 17170432
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 16507285,
+          "batches": 1006,
+          "processed_rows": 16482304
+        }
+      ],
+      "issues": [],
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-ws2-631034_3.out"
+    },
+    {
+      "task_id": 4,
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "setting": "sisa",
+      "seed": 20262028,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "dataloader_seed": 2027,
+      "sisa_parameter_seed": 20260822,
+      "array_job_id": "631034",
+      "job_id": "631098",
+      "job_task_id": "631034_4",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "historical": false,
+      "eligible": true,
+      "protocol": "ws2",
+      "metrics": {
+        "is_click": {
+          "AUC": 0.833979,
+          "logloss": 0.05972
+        },
+        "is_conversion": {
+          "AUC": 0.876871,
+          "logloss": 0.024441
+        }
+      },
+      "macro_auc": 0.855425,
+      "macro_logloss": 0.0420805,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 293060408,
+          "batches": 17881,
+          "processed_rows": 292962304
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8922909,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 76624928,
+          "batches": 4674,
+          "processed_rows": 76578816
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 293057086,
+          "batches": 17883,
+          "processed_rows": 292995072
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8923231,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 76618584,
+          "batches": 4674,
+          "processed_rows": 76578816
+        }
+      ],
+      "issues": [],
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-ws2-631034_4.out"
+    },
+    {
+      "task_id": 5,
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "setting": "sisa",
+      "seed": 20262029,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1",
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "array_job_id": "631034",
+      "job_id": "631101",
+      "job_task_id": "631034_5",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "historical": false,
+      "eligible": true,
+      "protocol": "ws2",
+      "metrics": {
+        "is_click": {
+          "AUC": 0.835197,
+          "logloss": 0.067715
+        },
+        "is_conversion": {
+          "AUC": 0.876737,
+          "logloss": 0.024627
+        }
+      },
+      "macro_auc": 0.8559669999999999,
+      "macro_logloss": 0.046171,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 293060408,
+          "batches": 17881,
+          "processed_rows": 292962304
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8922909,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 76624928,
+          "batches": 4674,
+          "processed_rows": 76578816
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 293057086,
+          "batches": 17883,
+          "processed_rows": 292995072
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8923231,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 76618584,
+          "batches": 4674,
+          "processed_rows": 76578816
+        }
+      ],
+      "issues": [],
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-ws2-631034_5.out"
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "setting": "sisa",
+      "seed": 20262028,
+      "attempt": 1,
+      "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1",
+      "job_task_id": "630948_8",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": false,
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ],
+      "total_parameters": 814395377,
+      "dense_parameters": 12123921,
+      "eligible": true,
+      "metrics": {
+        "Like": {
+          "AUC": 0.755254,
+          "logloss": 0.325394
+        },
+        "Cart": {
+          "AUC": 0.813577,
+          "logloss": 0.052357
+        },
+        "Offer": {
+          "AUC": 0.760631,
+          "logloss": 0.021075
+        },
+        "Checkout": {
+          "AUC": 0.868478,
+          "logloss": 0.00458
+        },
+        "Purchase": {
+          "AUC": 0.865917,
+          "logloss": 0.003006
+        }
+      },
+      "macro_auc": 0.8127714,
+      "macro_logloss": 0.0812824,
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-onetrans-seeds-630948_8.out",
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "setting": "sisa",
+      "seed": 20262029,
+      "attempt": 2,
+      "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2",
+      "job_task_id": "636370_9",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "issues": [],
+      "historical": false,
+      "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ],
+      "total_parameters": 814395377,
+      "dense_parameters": 12123921,
+      "eligible": true,
+      "metrics": {
+        "Like": {
+          "AUC": 0.756572,
+          "logloss": 0.327379
+        },
+        "Cart": {
+          "AUC": 0.813263,
+          "logloss": 0.052418
+        },
+        "Offer": {
+          "AUC": 0.771867,
+          "logloss": 0.020843
+        },
+        "Checkout": {
+          "AUC": 0.86822,
+          "logloss": 0.004881
+        },
+        "Purchase": {
+          "AUC": 0.871166,
+          "logloss": 0.003145
+        }
+      },
+      "macro_auc": 0.8162176,
+      "macro_logloss": 0.08173319999999999,
+      "protocol": "ws4",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768,
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2.log",
+      "slurm_log": "logs/unirank-onetrans-seeds-636370_9.out"
+    }
+  ],
+  "previous_failed_attempt": {
+    "model": "OneTrans",
+    "dataset": "MerRec_Action",
+    "setting": "sisa",
+    "seed": 20262029,
+    "attempt": 1,
+    "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1",
+    "job_task_id": "630948_9",
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "issues": [
+      "sacct does not show COMPLETED/0:0",
+      "Missing or unsuccessful artifact outcome",
+      "Missing or duplicate exact completion marker",
+      "checkpoint: Expected one Params session, got 0",
+      "Slurm: Expected one Params session, got 0",
+      "Expected exactly one Test evaluation section, got 0"
+    ],
+    "historical": false,
+    "source_git_revision": "bdfd6bf6f6b59ccef6e54a11a1df87a51b8b8f0b",
+    "gpu_names": [
+      "NVIDIA H100 80GB HBM3",
+      "NVIDIA H100 80GB HBM3",
+      "NVIDIA H100 80GB HBM3",
+      "NVIDIA H100 80GB HBM3"
+    ],
+    "coverage": [],
+    "total_parameters": null,
+    "dense_parameters": null,
+    "eligible": false,
+    "metrics": {},
+    "macro_auc": null,
+    "macro_logloss": null,
+    "checkpoint_log": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1.log",
+    "slurm_log": "logs/unirank-onetrans-seeds-630948_9.out"
+  },
+  "macro_summary": [
+    {
+      "dataset": "QK_Video_Action",
+      "sisa_seed_count": 3,
+      "protocol_20262027": "ws4",
+      "protocol_20262028": "ws4",
+      "protocol_20262029": "ws4",
+      "baseline_auc": 0.93361775,
+      "sisa_20262027_auc": 0.9340545,
+      "sisa_20262028_auc": 0.9347415,
+      "sisa_20262029_auc": 0.93357375,
+      "sisa_auc_mean": 0.93412325,
+      "sisa_auc_sample_sd": 0.0005869028348031829,
+      "delta_auc_vs_baseline": 0.0005054999999999366,
+      "baseline_logloss": 0.07382725,
+      "sisa_20262027_logloss": 0.073634,
+      "sisa_20262028_logloss": 0.0740015,
+      "sisa_20262029_logloss": 0.073792,
+      "sisa_logloss_mean": 0.07380916666666666,
+      "sisa_logloss_sample_sd": 0.00018435043621682076,
+      "delta_logloss_vs_baseline": -1.8083333333335228e-05
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "sisa_seed_count": 3,
+      "protocol_20262027": "ws4",
+      "protocol_20262028": "ws2",
+      "protocol_20262029": "ws2",
+      "baseline_auc": 0.8573421666666666,
+      "sisa_20262027_auc": 0.8650323333333334,
+      "sisa_20262028_auc": 0.8618298333333333,
+      "sisa_20262029_auc": 0.8651283333333333,
+      "sisa_auc_mean": 0.8639968333333333,
+      "sisa_auc_sample_sd": 0.001877290800595393,
+      "delta_auc_vs_baseline": 0.006654666666666698,
+      "baseline_logloss": 0.1863368333333333,
+      "sisa_20262027_logloss": 0.17760083333333332,
+      "sisa_20262028_logloss": 0.17808533333333332,
+      "sisa_20262029_logloss": 0.1753265,
+      "sisa_logloss_mean": 0.1770042222222222,
+      "sisa_logloss_sample_sd": 0.0014730067731357126,
+      "delta_logloss_vs_baseline": -0.009332611111111111
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "sisa_seed_count": 3,
+      "protocol_20262027": "ws4",
+      "protocol_20262028": "ws2",
+      "protocol_20262029": "ws2",
+      "baseline_auc": 0.8556235000000001,
+      "sisa_20262027_auc": 0.8607465,
+      "sisa_20262028_auc": 0.855425,
+      "sisa_20262029_auc": 0.8559669999999999,
+      "sisa_auc_mean": 0.8573795,
+      "sisa_auc_sample_sd": 0.002928473621189036,
+      "delta_auc_vs_baseline": 0.0017559999999998688,
+      "baseline_logloss": 0.033613000000000004,
+      "sisa_20262027_logloss": 0.0334015,
+      "sisa_20262028_logloss": 0.0420805,
+      "sisa_20262029_logloss": 0.046171,
+      "sisa_logloss_mean": 0.040551,
+      "sisa_logloss_sample_sd": 0.006520702435320905,
+      "delta_logloss_vs_baseline": 0.006937999999999993
+    },
+    {
+      "dataset": "MerRec_Action",
+      "sisa_seed_count": 3,
+      "protocol_20262027": "ws4",
+      "protocol_20262028": "ws4",
+      "protocol_20262029": "ws4",
+      "baseline_auc": 0.8087304000000001,
+      "sisa_20262027_auc": 0.817875,
+      "sisa_20262028_auc": 0.8127714,
+      "sisa_20262029_auc": 0.8162176,
+      "sisa_auc_mean": 0.8156213333333333,
+      "sisa_auc_sample_sd": 0.0026035233229862328,
+      "delta_auc_vs_baseline": 0.006890933333333238,
+      "baseline_logloss": 0.082217,
+      "sisa_20262027_logloss": 0.0802542,
+      "sisa_20262028_logloss": 0.0812824,
+      "sisa_20262029_logloss": 0.08173319999999999,
+      "sisa_logloss_mean": 0.08108993333333334,
+      "sisa_logloss_sample_sd": 0.0007580519859042194,
+      "delta_logloss_vs_baseline": -0.0011270666666666623
+    }
+  ],
+  "three_seed_summary": [
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "scope": "macro",
+      "label": "__macro__",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.9340545,
+      "sisa_20262028_auc": 0.9347415,
+      "sisa_20262029_auc": 0.93357375,
+      "sisa_auc_mean": 0.93412325,
+      "sisa_auc_sample_sd": 0.0005869028348031829,
+      "baseline_20262027_auc": 0.93361775,
+      "sisa_20262027_logloss": 0.073634,
+      "sisa_20262028_logloss": 0.0740015,
+      "sisa_20262029_logloss": 0.073792,
+      "sisa_logloss_mean": 0.07380916666666666,
+      "sisa_logloss_sample_sd": 0.00018435043621682076,
+      "baseline_20262027_logloss": 0.07382725
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "scope": "label",
+      "label": "click",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.935902,
+      "sisa_20262028_auc": 0.936216,
+      "sisa_20262029_auc": 0.936008,
+      "sisa_auc_mean": 0.936042,
+      "sisa_auc_sample_sd": 0.00015973728431398977,
+      "baseline_20262027_auc": 0.935674,
+      "sisa_20262027_logloss": 0.247955,
+      "sisa_20262028_logloss": 0.248747,
+      "sisa_20262029_logloss": 0.248195,
+      "sisa_logloss_mean": 0.248299,
+      "sisa_logloss_sample_sd": 0.00040611328468789993,
+      "baseline_20262027_logloss": 0.248535
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "scope": "label",
+      "label": "follow",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.918218,
+      "sisa_20262028_auc": 0.920085,
+      "sisa_20262029_auc": 0.917028,
+      "sisa_auc_mean": 0.9184436666666667,
+      "sisa_auc_sample_sd": 0.0015409433258019164,
+      "baseline_20262027_auc": 0.917042,
+      "sisa_20262027_logloss": 0.005097,
+      "sisa_20262028_logloss": 0.005003,
+      "sisa_20262029_logloss": 0.005207,
+      "sisa_logloss_mean": 0.005102333333333333,
+      "sisa_logloss_sample_sd": 0.00010210452161061894,
+      "baseline_20262027_logloss": 0.005088
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "scope": "label",
+      "label": "like",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.948861,
+      "sisa_20262028_auc": 0.947813,
+      "sisa_20262029_auc": 0.948144,
+      "sisa_auc_mean": 0.9482726666666667,
+      "sisa_auc_sample_sd": 0.0005357166539629888,
+      "baseline_20262027_auc": 0.948348,
+      "sisa_20262027_logloss": 0.036164,
+      "sisa_20262028_logloss": 0.036928,
+      "sisa_20262029_logloss": 0.03644,
+      "sisa_logloss_mean": 0.03651066666666667,
+      "sisa_logloss_sample_sd": 0.0003868712102668455,
+      "baseline_20262027_logloss": 0.036389
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "scope": "label",
+      "label": "share",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.933237,
+      "sisa_20262028_auc": 0.934852,
+      "sisa_20262029_auc": 0.933115,
+      "sisa_auc_mean": 0.9337346666666667,
+      "sisa_auc_sample_sd": 0.0009695598657810371,
+      "baseline_20262027_auc": 0.933407,
+      "sisa_20262027_logloss": 0.00532,
+      "sisa_20262028_logloss": 0.005328,
+      "sisa_20262029_logloss": 0.005326,
+      "sisa_logloss_mean": 0.005324666666666667,
+      "sisa_logloss_sample_sd": 4.1633319989323315e-06,
+      "baseline_20262027_logloss": 0.005297
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "macro",
+      "label": "__macro__",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.8650323333333334,
+      "sisa_20262028_auc": 0.8618298333333333,
+      "sisa_20262029_auc": 0.8651283333333333,
+      "sisa_auc_mean": 0.8639968333333333,
+      "sisa_auc_sample_sd": 0.001877290800595393,
+      "baseline_20262027_auc": 0.8573421666666666,
+      "sisa_20262027_logloss": 0.17760083333333332,
+      "sisa_20262028_logloss": 0.17808533333333332,
+      "sisa_20262029_logloss": 0.1753265,
+      "sisa_logloss_mean": 0.1770042222222222,
+      "sisa_logloss_sample_sd": 0.0014730067731357126,
+      "baseline_20262027_logloss": 0.1863368333333333
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "is_click",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.791105,
+      "sisa_20262028_auc": 0.788841,
+      "sisa_20262029_auc": 0.793111,
+      "sisa_auc_mean": 0.791019,
+      "sisa_auc_sample_sd": 0.002136298668257785,
+      "baseline_20262027_auc": 0.772234,
+      "sisa_20262027_logloss": 0.538148,
+      "sisa_20262028_logloss": 0.539704,
+      "sisa_20262029_logloss": 0.528806,
+      "sisa_logloss_mean": 0.5355526666666667,
+      "sisa_logloss_sample_sd": 0.005894354700332605,
+      "baseline_20262027_logloss": 0.566734
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "is_follow",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.88643,
+      "sisa_20262028_auc": 0.883191,
+      "sisa_20262029_auc": 0.882387,
+      "sisa_auc_mean": 0.8840026666666667,
+      "sisa_auc_sample_sd": 0.002140225299666707,
+      "baseline_20262027_auc": 0.88308,
+      "sisa_20262027_logloss": 0.006128,
+      "sisa_20262028_logloss": 0.006375,
+      "sisa_20262029_logloss": 0.006193,
+      "sisa_logloss_mean": 0.006232,
+      "sisa_logloss_sample_sd": 0.00012803515142334926,
+      "baseline_20262027_logloss": 0.006201
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "is_like",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.928058,
+      "sisa_20262028_auc": 0.926602,
+      "sisa_20262029_auc": 0.928199,
+      "sisa_auc_mean": 0.9276196666666667,
+      "sisa_auc_sample_sd": 0.0008841404488729805,
+      "baseline_20262027_auc": 0.923693,
+      "sisa_20262027_logloss": 0.053581,
+      "sisa_20262028_logloss": 0.053918,
+      "sisa_20262029_logloss": 0.054109,
+      "sisa_logloss_mean": 0.05386933333333333,
+      "sisa_logloss_sample_sd": 0.0002673431004034585,
+      "baseline_20262027_logloss": 0.055033
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "is_comment",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.896294,
+      "sisa_20262028_auc": 0.894963,
+      "sisa_20262029_auc": 0.89881,
+      "sisa_auc_mean": 0.896689,
+      "sisa_auc_sample_sd": 0.001953681396748217,
+      "baseline_20262027_auc": 0.896976,
+      "sisa_20262027_logloss": 0.014797,
+      "sisa_20262028_logloss": 0.014862,
+      "sisa_20262029_logloss": 0.014694,
+      "sisa_logloss_mean": 0.014784333333333333,
+      "sisa_logloss_sample_sd": 8.471324178269475e-05,
+      "baseline_20262027_logloss": 0.01477
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "is_forward",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.877678,
+      "sisa_20262028_auc": 0.868953,
+      "sisa_20262029_auc": 0.876046,
+      "sisa_auc_mean": 0.8742256666666667,
+      "sisa_auc_sample_sd": 0.004638600686988836,
+      "baseline_20262027_auc": 0.872306,
+      "sisa_20262027_logloss": 0.005611,
+      "sisa_20262028_logloss": 0.00584,
+      "sisa_20262029_logloss": 0.00555,
+      "sisa_logloss_mean": 0.005667,
+      "sisa_logloss_sample_sd": 0.000152895389073706,
+      "baseline_20262027_logloss": 0.005742
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "scope": "label",
+      "label": "long_view",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.810629,
+      "sisa_20262028_auc": 0.808429,
+      "sisa_20262029_auc": 0.812217,
+      "sisa_auc_mean": 0.810425,
+      "sisa_auc_sample_sd": 0.001902221858774639,
+      "baseline_20262027_auc": 0.795764,
+      "sisa_20262027_logloss": 0.44734,
+      "sisa_20262028_logloss": 0.447813,
+      "sisa_20262029_logloss": 0.442607,
+      "sisa_logloss_mean": 0.44592,
+      "sisa_logloss_sample_sd": 0.002878872869718311,
+      "baseline_20262027_logloss": 0.469541
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "macro",
+      "label": "__macro__",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.817875,
+      "sisa_20262028_auc": 0.8127714,
+      "sisa_20262029_auc": 0.8162176,
+      "sisa_auc_mean": 0.8156213333333333,
+      "sisa_auc_sample_sd": 0.0026035233229862328,
+      "baseline_20262027_auc": 0.8087304000000001,
+      "sisa_20262027_logloss": 0.0802542,
+      "sisa_20262028_logloss": 0.0812824,
+      "sisa_20262029_logloss": 0.08173319999999999,
+      "sisa_logloss_mean": 0.08108993333333334,
+      "sisa_logloss_sample_sd": 0.0007580519859042194,
+      "baseline_20262027_logloss": 0.082217
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "label",
+      "label": "Like",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.765848,
+      "sisa_20262028_auc": 0.755254,
+      "sisa_20262029_auc": 0.756572,
+      "sisa_auc_mean": 0.7592246666666667,
+      "sisa_auc_sample_sd": 0.005773706723876194,
+      "baseline_20262027_auc": 0.755615,
+      "sisa_20262027_logloss": 0.319739,
+      "sisa_20262028_logloss": 0.325394,
+      "sisa_20262029_logloss": 0.327379,
+      "sisa_logloss_mean": 0.32417066666666666,
+      "sisa_logloss_sample_sd": 0.003964190753903411,
+      "baseline_20262027_logloss": 0.325279
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "label",
+      "label": "Cart",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.820006,
+      "sisa_20262028_auc": 0.813577,
+      "sisa_20262029_auc": 0.813263,
+      "sisa_auc_mean": 0.8156153333333334,
+      "sisa_auc_sample_sd": 0.003805668710402089,
+      "baseline_20262027_auc": 0.789147,
+      "sisa_20262027_logloss": 0.051998,
+      "sisa_20262028_logloss": 0.052357,
+      "sisa_20262029_logloss": 0.052418,
+      "sisa_logloss_mean": 0.05225766666666667,
+      "sisa_logloss_sample_sd": 0.00022693684877809648,
+      "baseline_20262027_logloss": 0.05446
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "label",
+      "label": "Offer",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.75772,
+      "sisa_20262028_auc": 0.760631,
+      "sisa_20262029_auc": 0.771867,
+      "sisa_auc_mean": 0.7634059999999999,
+      "sisa_auc_sample_sd": 0.007470600444408748,
+      "baseline_20262027_auc": 0.764039,
+      "sisa_20262027_logloss": 0.02119,
+      "sisa_20262028_logloss": 0.021075,
+      "sisa_20262029_logloss": 0.020843,
+      "sisa_logloss_mean": 0.021036,
+      "sisa_logloss_sample_sd": 0.000176756895197896,
+      "baseline_20262027_logloss": 0.021467
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "label",
+      "label": "Checkout",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.872093,
+      "sisa_20262028_auc": 0.868478,
+      "sisa_20262029_auc": 0.86822,
+      "sisa_auc_mean": 0.869597,
+      "sisa_auc_sample_sd": 0.0021654452198104804,
+      "baseline_20262027_auc": 0.86632,
+      "sisa_20262027_logloss": 0.005122,
+      "sisa_20262028_logloss": 0.00458,
+      "sisa_20262029_logloss": 0.004881,
+      "sisa_logloss_mean": 0.004861,
+      "sisa_logloss_sample_sd": 0.00027155294143131647,
+      "baseline_20262027_logloss": 0.006042
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "scope": "label",
+      "label": "Purchase",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.873708,
+      "sisa_20262028_auc": 0.865917,
+      "sisa_20262029_auc": 0.871166,
+      "sisa_auc_mean": 0.8702636666666667,
+      "sisa_auc_sample_sd": 0.003973106383339522,
+      "baseline_20262027_auc": 0.868531,
+      "sisa_20262027_logloss": 0.003222,
+      "sisa_20262028_logloss": 0.003006,
+      "sisa_20262029_logloss": 0.003145,
+      "sisa_logloss_mean": 0.003124333333333333,
+      "sisa_logloss_sample_sd": 0.0001094729799235105,
+      "baseline_20262027_logloss": 0.003837
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "scope": "macro",
+      "label": "__macro__",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.8607465,
+      "sisa_20262028_auc": 0.855425,
+      "sisa_20262029_auc": 0.8559669999999999,
+      "sisa_auc_mean": 0.8573795,
+      "sisa_auc_sample_sd": 0.002928473621189036,
+      "baseline_20262027_auc": 0.8556235000000001,
+      "sisa_20262027_logloss": 0.0334015,
+      "sisa_20262028_logloss": 0.0420805,
+      "sisa_20262029_logloss": 0.046171,
+      "sisa_logloss_mean": 0.040551,
+      "sisa_logloss_sample_sd": 0.006520702435320905,
+      "baseline_20262027_logloss": 0.033613000000000004
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "scope": "label",
+      "label": "is_click",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.83895,
+      "sisa_20262028_auc": 0.833979,
+      "sisa_20262029_auc": 0.835197,
+      "sisa_auc_mean": 0.836042,
+      "sisa_auc_sample_sd": 0.002590989965244925,
+      "baseline_20262027_auc": 0.831705,
+      "sisa_20262027_logloss": 0.048848,
+      "sisa_20262028_logloss": 0.05972,
+      "sisa_20262029_logloss": 0.067715,
+      "sisa_logloss_mean": 0.058761,
+      "sisa_logloss_sample_sd": 0.009469988542759699,
+      "baseline_20262027_logloss": 0.049415
+    },
+    {
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "scope": "label",
+      "label": "is_conversion",
+      "sisa_seed_count": 3,
+      "baseline_seed": 20262027,
+      "sisa_20262027_auc": 0.882543,
+      "sisa_20262028_auc": 0.876871,
+      "sisa_20262029_auc": 0.876737,
+      "sisa_auc_mean": 0.878717,
+      "sisa_auc_sample_sd": 0.003314090523808904,
+      "baseline_20262027_auc": 0.879542,
+      "sisa_20262027_logloss": 0.017955,
+      "sisa_20262028_logloss": 0.024441,
+      "sisa_20262029_logloss": 0.024627,
+      "sisa_logloss_mean": 0.022341,
+      "sisa_logloss_sample_sd": 0.003799525759881094,
+      "baseline_20262027_logloss": 0.017811
+    }
+  ],
+  "accounting_snapshot": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "630948,631034,636370",
+      "--format=JobID,JobIDRaw,State,ExitCode"
+    ],
+    "stdout": "630948_0|631032|COMPLETED|0:0\n630948_0.batch|631032.batch|COMPLETED|0:0\n630948_0.extern|631032.extern|COMPLETED|0:0\n630948_1|631033|COMPLETED|0:0\n630948_1.batch|631033.batch|COMPLETED|0:0\n630948_1.extern|631033.extern|COMPLETED|0:0\n630948_8|631129|COMPLETED|0:0\n630948_8.batch|631129.batch|COMPLETED|0:0\n630948_8.extern|631129.extern|COMPLETED|0:0\n630948_9|630948|FAILED|1:0\n630948_9.batch|630948.batch|FAILED|1:0\n630948_9.extern|630948.extern|COMPLETED|0:0\n631034_2|631036|COMPLETED|0:0\n631034_2.batch|631036.batch|COMPLETED|0:0\n631034_2.extern|631036.extern|COMPLETED|0:0\n631034_3|631037|COMPLETED|0:0\n631034_3.batch|631037.batch|COMPLETED|0:0\n631034_3.extern|631037.extern|COMPLETED|0:0\n631034_4|631098|COMPLETED|0:0\n631034_4.batch|631098.batch|COMPLETED|0:0\n631034_4.extern|631098.extern|COMPLETED|0:0\n631034_5|631101|COMPLETED|0:0\n631034_5.batch|631101.batch|COMPLETED|0:0\n631034_5.extern|631101.extern|COMPLETED|0:0\n631034_9|631034|CANCELLED by 13524|0:0\n636370_9|636370|PENDING|0:0\n",
+    "stderr": "",
+    "sha256": "b5967eb7418ba69e316dbf5f2c0af6eb4e1df73f424e587cf7ebd4299b980555"
+  },
+  "retry_submission": {
+    "submitted_at": "2026-09-20T15:35:19+08:00",
+    "array_job_id": "636370",
+    "task_ids": [
+      9
+    ],
+    "attempt": 2,
+    "protocol": "ws4",
+    "supersedes_job_task_id": "630948_9",
+    "reason": "User requested retry of missing MerRec seed20262029 and monitoring through normal training start; attempt1 failed before training during NCCL barrier with CUDA error 999.",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--array=9",
+      "--export=ALL,ONETRANS_ATTEMPT=2",
+      "--exclude=ACD1-23",
+      "scripts/submit_onetrans_seed_completion.sbatch"
+    ],
+    "raw_stdout": "636370\n",
+    "excluded_nodes": [
+      "ACD1-23"
+    ],
+    "dataset": "MerRec_Action",
+    "seed": 20262029,
+    "world_size": 4,
+    "per_gpu_batch": 8192,
+    "global_batch": 32768
+  },
+  "sources": [
+    {
+      "path": "experiments/onetrans_seed_completion/configs/reference_runs.csv",
+      "sha256": "d3ac1ecb043627c8dbf5bafc0bb223795953fd4fb2de430515960e9ae2032db8",
+      "bytes": 6002
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/configs/reference_params.json",
+      "sha256": "ce014788be8029a2a92f8c09aa2f23f08aac12cd5fcb8638e04131b4303be3b3",
+      "bytes": 51141
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/configs/data_coverage.csv",
+      "sha256": "e09fc8ea433b647cd83f0a5006d2134ef1cd5865ece61aeb89d0ee68135b3fbe",
+      "bytes": 6848
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/configs/tasks.csv",
+      "sha256": "2c56f230cb0612d5ed1c4fef8a39589c04243b32bf2e89b36ad4085093aa50c9",
+      "bytes": 1585
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/notes/submission.json",
+      "sha256": "55daf9eec930585dccc553a57fbea06bdfbc812baf2411ec5d5656f1cd9ffcc2",
+      "bytes": 525
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/notes/cancellation.json",
+      "sha256": "5791054002ef216a3c19eeaebb16fd22ef70c4b965037426adfe25678dede990",
+      "bytes": 502
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_strict_OneTrans_QK_Video_Action_baseline_seed20262027.log",
+      "sha256": "bbbda0d9eea09a750aca9257949ac49a4257a9b32890a0f3dfc8804b94f7a527",
+      "bytes": 8153
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14810_0.out",
+      "sha256": "52c68a61c9dbda74f0aab771ee8716d029b2ba5dc5b71c94f5620190691617e2",
+      "bytes": 15456194
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_strict_OneTrans_QK_Video_Action_sisa_seed20262027.log",
+      "sha256": "afc5de04bb8ffefd7755d410ff50381993df810131ff73143aac357372b920aa",
+      "bytes": 8259
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14810_1.out",
+      "sha256": "34534ae2b62a84b5b2dd180bb8f43438aabb4fcc59dc72a52873db166f331b30",
+      "bytes": 15622894
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_strict_OneTrans_KuaiRand_Video_Action_baseline_seed20262027.log",
+      "sha256": "fcb7e63b69a5f5154791486c4c33dab87a0235676873fc1eb7be5d32aafc4851",
+      "bytes": 14300
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14811_2.out",
+      "sha256": "20ff500c2154dd8ad007f1d7d0714cff2870ed27a9287b7b254b89131ba59b37",
+      "bytes": 10086936
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_strict_OneTrans_KuaiRand_Video_Action_sisa_seed20262027.log",
+      "sha256": "b6821e6fd15c05711182bb1dd6ff3c366da4973c9a7e5e589e76e61b36f2edca",
+      "bytes": 14406
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14811_3.out",
+      "sha256": "e7907b67a1af455b02f587ccb7124db995a5dc9d9036096874727a68c5104650",
+      "bytes": 10087195
+    },
+    {
+      "path": "checkpoints/Taobao_Action/SISA_strict_OneTrans_Taobao_Action_baseline_seed20262027.log",
+      "sha256": "dd9d9fb5bfee0bae02e9d011a5194efd09a7d6fe0e49e55da6816ea85868bd26",
+      "bytes": 10411
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14806_4.out",
+      "sha256": "924415d6ae7249abd375adaee947e9a5354d12757dd2b0963bea5331b68ceb61",
+      "bytes": 701502
+    },
+    {
+      "path": "checkpoints/Taobao_Action/SISA_strict_OneTrans_Taobao_Action_sisa_seed20262027.log",
+      "sha256": "e88aa7a4080e75ff9a04208484917d7ffb5a397b3b0cf1ead2c8ff2c8d94e875",
+      "bytes": 10517
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14810_5.out",
+      "sha256": "7a4006b859b68c8af422d06c69db0a5e672aee8713f8ed09c0a1bd4b614f6bc9",
+      "bytes": 710779
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_strict_OneTrans_MerRec_Action_baseline_seed20262027.log",
+      "sha256": "aecdd65d36004c22998dc7a296732bc45135a7909482dd42ef29138771004e08",
+      "bytes": 10591
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14811_6.out",
+      "sha256": "ccb655a57b806ba45cf00da228fee120c3c855f9ed5d38d1e8ef3764285868e4",
+      "bytes": 5629032
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_strict_OneTrans_MerRec_Action_sisa_seed20262027.log",
+      "sha256": "fdad36af73f19778458b335de1f2339ead65e02fc2ad1335fc9c2998b8413b3b",
+      "bytes": 10697
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14811_7.out",
+      "sha256": "b6131818d0273eb4c62cd4320942ba6073bc7a4f4c902078d69f7f06834f62a1",
+      "bytes": 5629219
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_expansion_OneTrans_TencentGR_10M_Action_baseline_seed20262027.log",
+      "sha256": "65fea3714bc977129ad09a1ae6f89be7afa9df037de9f53caec2b0970b950bc9",
+      "bytes": 11368
+    },
+    {
+      "path": "logs/unirank-sisa-expansion-acd-543887_0.out",
+      "sha256": "7be715fb173c015d871fa0084f4cf909b828bdc8f08bb87a89725ada39c26ade",
+      "bytes": 23206163
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_expansion_OneTrans_TencentGR_10M_Action_sisa_seed20262027.log",
+      "sha256": "552f9089e78b1a2c184d8f57f18f9f1cd50ed4b6ec1c682a05e450bac7228d1b",
+      "bytes": 11474
+    },
+    {
+      "path": "logs/unirank-sisa-expansion-acd-543257_1.out",
+      "sha256": "197692c2f1baa6f1293547676eec9b8a963425600632df722268a1f23d45f792",
+      "bytes": 23203288
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+      "sha256": "3d7c970f556c985c049034d8a90fdae66bda78c9c8c5965596584721833513f4",
+      "bytes": 8116
+    },
+    {
+      "path": "logs/unirank-onetrans-seeds-630948_0.out",
+      "sha256": "f7639a3af856a8985dceeb8177d59b0966b3bbb00e35d9acd988b1d197e69dd0",
+      "bytes": 11608028
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1/manifest.json",
+      "sha256": "6e5d51053dcf77915914aa5e65b95f489d25ec117b9bba54c60c0e913ded071d",
+      "bytes": 12547
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1.log",
+      "sha256": "e5701b60137a895ad37df117b670f8d03ee3823befd284611ac906c7bdfd5c7d",
+      "bytes": 8116
+    },
+    {
+      "path": "logs/unirank-onetrans-seeds-630948_1.out",
+      "sha256": "87a420f819136fa57eb17ce8d397877c38edd42282b0c8f39bdfc2cc7d351f9e",
+      "bytes": 11595642
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1/manifest.json",
+      "sha256": "8a4f07320c49ceac5e1ab518ae57fe28bf18b31d609d92f96ef4af98f0a678ec",
+      "bytes": 12547
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+      "sha256": "62a31a09e17f5f0812edd268f86ed8ebb972712258dcd23f79fe3342f421d61c",
+      "bytes": 10601
+    },
+    {
+      "path": "logs/unirank-onetrans-seeds-630948_8.out",
+      "sha256": "4fe9fadcf44eb34cb36f757316e4bc45e10477b471837dd8b55914f7de4d4932",
+      "bytes": 5601344
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1/manifest.json",
+      "sha256": "b9f4d68ae59c390e0709a15c88eb655e90cf6d737b11affe4d6c21c1f3743946",
+      "bytes": 14401
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "logs/unirank-onetrans-seeds-630948_9.out",
+      "sha256": "340ad2c56ce83db2e59e3c092ab9b3d6a996c6c01448c7475e71aef02e7b68a8",
+      "bytes": 17060
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1/manifest.json",
+      "sha256": "1d132816ee29e6759afe6cc883f9c6c5a0650a59ae436d35515b397be42ef48a",
+      "bytes": 14401
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1/outcome.json",
+      "sha256": "8869ca5e7f3ae989b151917c32f706ea8b83fd8d2ab5fd425117c4860c4e595f",
+      "bytes": 18
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/race_state.json",
+      "sha256": "d14d0397be5ab970f48186ed7f76cb5ceedb31d66f7b4742fc759ab5922cddb8",
+      "bytes": 4758
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/notes/retry_submission.json",
+      "sha256": "3df5c0169345861b6d0a946bf14c72ce0cb7b0ed931abcf598e110de51ac236f",
+      "bytes": 742
+    },
+    {
+      "path": "experiments/onetrans_seed_completion_ws2/configs/data_coverage.csv",
+      "sha256": "9b8d7765b6925aa2f1b956a22c008cbce6792d95d51b97ff91fe6b71a7a32fb3",
+      "bytes": 1312
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1/manifest.json",
+      "sha256": "5cc7d6e83f46c7bea6cabdd80bd922fce7e9b76c2f7c2e07f8d69030f5788f5b",
+      "bytes": 17719
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "3387ff1870678a2a4eb506c7e7a4eeb77ca034c3eb23490c50a53f505f9d65d1",
+      "bytes": 14587
+    },
+    {
+      "path": "logs/unirank-onetrans-ws2-631034_2.out",
+      "sha256": "ce69d6185288f4627667657b6fe1956201a87d8b3d4b471a2981a19155dc1d0e",
+      "bytes": 4968377
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1/manifest.json",
+      "sha256": "f85afc2e0376b3bd9e2e9410083a28482c06e45c765ca59604fd3c7b19614f8a",
+      "bytes": 17719
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "1a22ed15a24f41485a2862643357e3747ee4ff7014b7bc1e29c9d7ea5e955510",
+      "bytes": 14587
+    },
+    {
+      "path": "logs/unirank-onetrans-ws2-631034_3.out",
+      "sha256": "5f8b3c6499fd6ca28c1359ca94f769e98dd0dbb4eb0c1806093d5c54f4ca97ec",
+      "bytes": 4996378
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1/manifest.json",
+      "sha256": "32d4aa5cd776c0454176b16d825474833e5755352835c3f3ee43d1542ed6d952",
+      "bytes": 15834
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "0ff44dc4d1217a419dc3a1892d8c3cbd613618a83b050498de74bef75ee9a850",
+      "bytes": 11648
+    },
+    {
+      "path": "logs/unirank-onetrans-ws2-631034_4.out",
+      "sha256": "3f3ba869eae9d3b827f6e91b4638105d738ce1d31a64baef6ac4b62f11526e3f",
+      "bytes": 11522930
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1/manifest.json",
+      "sha256": "b4c00e507555f11762e169fbeef15cf776f5531cea6960c202c9fd02fc649d36",
+      "bytes": 15834
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion_ws2/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "be84fa5d23b16e16bbe70c703643bb7e282828122886f7e635f4b988e3c660ae",
+      "bytes": 11610
+    },
+    {
+      "path": "logs/unirank-onetrans-ws2-631034_5.out",
+      "sha256": "0668dae25b72a82c388e05e7e999e46bdff7973fce896e1aca463cc20551229a",
+      "bytes": 11520385
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2.log",
+      "sha256": "6d3c773259b7830ca17eff5a539bb09f18574c009d6f2457192ebbd79e12c3e5",
+      "bytes": 10601
+    },
+    {
+      "path": "logs/unirank-onetrans-seeds-636370_9.out",
+      "sha256": "31aba4408a732270c281468dbb1f179397e324653e5dfe6ece89efdc129841cd",
+      "bytes": 5602461
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2/manifest.json",
+      "sha256": "48dbece7e9e5d83d0e6f01952b9613b1801486fa4ad55612766115325998bba1",
+      "bytes": 14401
+    },
+    {
+      "path": "artifacts/onetrans_seed_completion/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    }
+  ],
+  "retry_accounting_snapshot": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "636370",
+      "--format=JobID,JobIDRaw,State,ExitCode,Start,End,Elapsed"
+    ],
+    "stdout": "636370_9|636370|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n636370_9.batch|636370.batch|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n636370_9.extern|636370.extern|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n",
+    "sha256": "6c9544f8f89573ce4ba00510a2d481a4fe6ac0b108cea2777f07328e0249c7dd"
+  },
+  "retry_startup_confirmation": {
+    "checked_at": "2026-09-20T15:44:41+08:00",
+    "job_task_id": "636370_9",
+    "status": "training_confirmed",
+    "slurm_state": "RUNNING",
+    "exit_code": "0:0",
+    "start": "2026-09-20T15:42:22",
+    "elapsed": "00:02:19",
+    "node": "ACD1-16",
+    "rank0_step": 327,
+    "previous_observed_step": 141,
+    "error_lines": [],
+    "log": "logs/unirank-onetrans-seeds-636370_9.out"
+  },
+  "retry_completion": {
+    "job_task_id": "636370_9",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "start": "2026-09-20T15:42:22+08:00",
+    "end": "2026-09-20T15:58:35+08:00",
+    "elapsed": "00:16:13",
+    "audit_issues": []
+  }
+}

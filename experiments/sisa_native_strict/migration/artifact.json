@@ -5,7 +5,7 @@
     "surface": "report",
     "title": "UniRank SISA 实验总报告：DIGAI Lab 32-task strict 与 HPC3 38-task 扩展",
     "description": "截至 2026-08-25，由 DIGAI Lab 迁入的 32 个 strict 训练元素与 HPC3 完成的 38 个扩展训练元素、baseline 复现审计、配对结果与证据边界。",
-    "generatedAt": "2026-08-25T12:12:37+08:00",
+    "generatedAt": "2026-09-20T16:25:13+08:00",
     "sources": [
       {
         "id": "strict_runs",
@@ -86,6 +86,94 @@
         "id": "expansion_report",
         "label": "Complete 38-task expansion report",
         "path": "experiments/sisa_expansion_acd/report.md"
+      },
+      {
+        "id": "onetrans_macro_source",
+        "label": "OneTrans四数据集三种子宏指标",
+        "path": "experiments/onetrans_seed_completion/results/selected_macro_summary.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "WITH runs AS (\n  SELECT json_extract(value, '$.dataset') AS dataset,\n         json_extract(value, '$.setting') AS setting,\n         json_extract(value, '$.seed') AS seed,\n         json_extract(value, '$.macro_auc') AS auc,\n         json_extract(value, '$.macro_logloss') AS logloss\n  FROM json_each(:runs_json)\n  WHERE json_extract(value, '$.eligible') = 1\n)\nSELECT dataset, COUNT(CASE WHEN setting = 'sisa' THEN 1 END) AS sisa_seed_count,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN auc END) AS baseline_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN auc END) AS sisa_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN auc END) AS sisa_20262028_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN auc END) AS sisa_20262029_auc,\n       mean(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_sample_sd,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN logloss END) AS baseline_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN logloss END) AS sisa_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN logloss END) AS sisa_20262028_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN logloss END) AS sisa_20262029_logloss,\n       mean(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_sample_sd\nFROM runs\nGROUP BY dataset\nHAVING COUNT(CASE WHEN setting = 'sisa' THEN 1 END) = 3;\n",
+          "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+          "tables_used": [
+            "experiments/onetrans_seed_completion/results/selected_evidence.json",
+            "experiments/onetrans_seed_completion/results/selected_macro_summary.csv"
+          ],
+          "filters": [
+            "model = OneTrans",
+            "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+            "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+            "excluded from accepted 16-cell aggregates"
+          ],
+          "metric_definitions": [
+            "within-run macro = equal-label mean",
+            "three-seed SD = sample SD, ddof=1",
+            "delta = SISA mean minus one historical baseline"
+          ]
+        }
+      },
+      {
+        "id": "onetrans_labels_source",
+        "label": "OneTrans 17个动作标签三种子统计",
+        "path": "experiments/onetrans_seed_completion/results/selected_three_seed_summary.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "WITH runs AS (\n  SELECT json_extract(r.value, '$.dataset') AS dataset,\n         json_extract(r.value, '$.setting') AS setting,\n         json_extract(r.value, '$.seed') AS seed, m.key AS label,\n         json_extract(m.value, '$.AUC') AS auc,\n         json_extract(m.value, '$.logloss') AS logloss\n  FROM json_each(:runs_json) AS r,\n       json_each(json_extract(r.value, '$.metrics')) AS m\n  WHERE json_extract(r.value, '$.eligible') = 1\n)\nSELECT dataset, label, COUNT(CASE WHEN setting = 'sisa' THEN 1 END) AS sisa_seed_count,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN auc END) AS baseline_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN auc END) AS sisa_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN auc END) AS sisa_20262028_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN auc END) AS sisa_20262029_auc,\n       mean(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_sample_sd,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN logloss END) AS baseline_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN logloss END) AS sisa_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN logloss END) AS sisa_20262028_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN logloss END) AS sisa_20262029_logloss,\n       mean(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_sample_sd\nFROM runs\nGROUP BY dataset, label\nHAVING COUNT(CASE WHEN setting = 'sisa' THEN 1 END) = 3;\n",
+          "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+          "tables_used": [
+            "experiments/onetrans_seed_completion/results/selected_evidence.json",
+            "experiments/onetrans_seed_completion/results/selected_three_seed_summary.csv"
+          ],
+          "filters": [
+            "model = OneTrans",
+            "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+            "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+            "excluded from accepted 16-cell aggregates"
+          ],
+          "metric_definitions": [
+            "within-run macro = equal-label mean",
+            "three-seed SD = sample SD, ddof=1",
+            "delta = SISA mean minus one historical baseline"
+          ]
+        }
+      },
+      {
+        "id": "onetrans_runs_source",
+        "label": "OneTrans最终选定运行与协议",
+        "path": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT\n  CASE json_extract(value, '$.dataset')\n    WHEN 'QK_Video_Action' THEN 'QK-Video'\n    WHEN 'KuaiRand_Video_Action' THEN 'KuaiRand'\n    WHEN 'TencentGR_10M_Action' THEN 'TAAC-25'\n    WHEN 'MerRec_Action' THEN 'MerRec' END AS dataset_name,\n  json_extract(value, '$.seed') AS seed,\n  json_extract(value, '$.job_task_id') AS job_task_id,\n  json_extract(value, '$.attempt') AS attempt,\n  json_extract(value, '$.state') AS state,\n  json_extract(value, '$.exit_code') AS exit_code,\n  json_extract(value, '$.world_size') || '×H100 / 每卡' || json_extract(value, '$.per_gpu_batch') AS layout,\n  json_extract(value, '$.global_batch') AS global_batch,\n  json_extract(value, '$.run_id') AS run_id\nFROM json_each(:runs_json)\nWHERE json_extract(value, '$.historical') = 0\n  AND json_extract(value, '$.eligible') = 1\nORDER BY CAST(key AS INTEGER);\n",
+          "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+          "tables_used": [
+            "experiments/onetrans_seed_completion/results/selected_evidence.json",
+            "experiments/onetrans_seed_completion/results/selected_runs.csv"
+          ],
+          "filters": [
+            "model = OneTrans",
+            "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+            "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+            "excluded from accepted 16-cell aggregates"
+          ],
+          "metric_definitions": [
+            "within-run macro = equal-label mean",
+            "three-seed SD = sample SD, ddof=1",
+            "delta = SISA mean minus one historical baseline"
+          ]
+        }
+      },
+      {
+        "id": "onetrans_evidence_source",
+        "label": "OneTrans完成、配置、覆盖与双日志核验证据",
+        "path": "experiments/onetrans_seed_completion/results/selected_evidence.json"
+      },
+      {
+        "id": "onetrans_coverage_source",
+        "label": "两卡与四卡的train/valid/test尾批覆盖差异",
+        "path": "experiments/onetrans_seed_completion_ws2/configs/coverage_comparison.csv"
       },
       {
         "id": "action_breakdown",
@@ -979,6 +1067,292 @@
             "type": "text"
           }
         ]
+      },
+      {
+        "id": "onetrans_seed_macro_auc",
+        "title": "OneTrans 宏平均 AUC",
+        "subtitle": "4个数据集；每轮先对标签等权；seed27/28/29 = 20262027/20262028/20262029；baseline仅seed27一次，SD为样本标准差。",
+        "dataset": "onetrans_seed_macro",
+        "sourceId": "onetrans_macro_source",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "dataset_name",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset_name",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "baseline_auc_display",
+            "label": "Baseline · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262027_auc_display",
+            "label": "SISA · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262028_auc_display",
+            "label": "SISA · seed28",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262029_auc_display",
+            "label": "SISA · seed29",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "auc_mean_sd_display",
+            "label": "三种子均值 ± SD",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_auc_display",
+            "label": "均值 − Baseline",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "onetrans_seed_macro_logloss",
+        "title": "OneTrans 宏平均 LogLoss",
+        "subtitle": "4个数据集；每轮先对标签等权；seed27/28/29 = 20262027/20262028/20262029；baseline仅seed27一次，SD为样本标准差。",
+        "dataset": "onetrans_seed_macro",
+        "sourceId": "onetrans_macro_source",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "dataset_name",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset_name",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "baseline_logloss_display",
+            "label": "Baseline · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262027_logloss_display",
+            "label": "SISA · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262028_logloss_display",
+            "label": "SISA · seed28",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262029_logloss_display",
+            "label": "SISA · seed29",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "logloss_mean_sd_display",
+            "label": "三种子均值 ± SD",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_logloss_display",
+            "label": "均值 − Baseline",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "onetrans_seed_labels_auc",
+        "title": "OneTrans 逐动作 AUC",
+        "subtitle": "17个动作标签；seed27/28/29 = 20262027/20262028/20262029；baseline仅seed27一次，SD为样本标准差。",
+        "dataset": "onetrans_seed_labels",
+        "sourceId": "onetrans_labels_source",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "dataset_name",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset_name",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "label",
+            "label": "动作",
+            "type": "text"
+          },
+          {
+            "field": "baseline_auc_display",
+            "label": "Baseline · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262027_auc_display",
+            "label": "SISA · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262028_auc_display",
+            "label": "SISA · seed28",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262029_auc_display",
+            "label": "SISA · seed29",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "auc_mean_sd_display",
+            "label": "三种子均值 ± SD",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_auc_display",
+            "label": "均值 − Baseline",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "onetrans_seed_labels_logloss",
+        "title": "OneTrans 逐动作 LogLoss",
+        "subtitle": "17个动作标签；seed27/28/29 = 20262027/20262028/20262029；baseline仅seed27一次，SD为样本标准差。",
+        "dataset": "onetrans_seed_labels",
+        "sourceId": "onetrans_labels_source",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "dataset_name",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset_name",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "label",
+            "label": "动作",
+            "type": "text"
+          },
+          {
+            "field": "baseline_logloss_display",
+            "label": "Baseline · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262027_logloss_display",
+            "label": "SISA · seed27",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262028_logloss_display",
+            "label": "SISA · seed28",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "sisa_20262029_logloss_display",
+            "label": "SISA · seed29",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "logloss_mean_sd_display",
+            "label": "三种子均值 ± SD",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_logloss_display",
+            "label": "均值 − Baseline",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "onetrans_seed_runs_table",
+        "title": "OneTrans新增种子的最终任务记录",
+        "subtitle": "8个新增逻辑任务均完成；MerRec seed20262029采用成功的attempt2，失败attempt1保留审计，不另算种子。",
+        "dataset": "onetrans_seed_runs",
+        "sourceId": "onetrans_runs_source",
+        "layout": "full",
+        "density": "dense",
+        "defaultSort": {
+          "field": "dataset_name",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "dataset_name",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "seed",
+            "label": "Seed",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "job_task_id",
+            "label": "Job / task",
+            "type": "text"
+          },
+          {
+            "field": "attempt",
+            "label": "Attempt",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "state",
+            "label": "最终状态",
+            "type": "text"
+          },
+          {
+            "field": "exit_code",
+            "label": "退出码",
+            "type": "text"
+          },
+          {
+            "field": "layout",
+            "label": "实际布局",
+            "type": "text"
+          }
+        ]
       }
     ],
     "blocks": [
@@ -991,6 +1365,61 @@
         "id": "evidence_scope_boundary",
         "type": "markdown",
         "body": "## 历史诊断档案与当前论文证据范围\n\n本报告保留早期 70-task / 35-cell 混合矩阵，相关总量、均值、极值与解读均为历史诊断记录，不作为当前论文证据。当前正式范围仅为 HiFormer、HyFormer、RankMixer、Zenith × QK-Video、KuaiRand、TAAC-25、MerRec。下方 Accepted 16-cell 的 68 条逐动作结果与 Diagnostic 79 条记录分别展示；完整论文汇总采用独立报告 sisa_paper_report/report.md。"
+      },
+      {
+        "id": "onetrans_seed_update",
+        "type": "markdown",
+        "sourceId": "onetrans_evidence_source",
+        "body": "## 2026-09-20补充：OneTrans四数据集三种子已齐\n\n**QK-Video、KuaiRand、TAAC-25、MerRec均已取得20262027／20262028／20262029三个SISA种子的最终Test结果。** MerRec重提任务636370_9于15:58:35成功结束，COMPLETED / 0:0；八个新增逻辑任务全部补齐。\n\n以下是独立OneTrans诊断记录，不计入accepted 16-cell论文统计，也不改变原70-task历史矩阵。baseline仅有历史seed20262027一次。AUC越高越好，LogLoss越低越好；先对每轮各标签等权，再对三个SISA种子求均值与样本SD（ddof=1）。三点统计不能当作三轮配对效应或显著性证据。"
+      },
+      {
+        "id": "onetrans_seed_auc_table_block",
+        "type": "table",
+        "tableId": "onetrans_seed_macro_auc"
+      },
+      {
+        "id": "onetrans_seed_logloss_note",
+        "type": "markdown",
+        "sourceId": "onetrans_macro_source",
+        "body": "## TAAC-25的AUC与LogLoss方向不同\n\nQK的平均AUC与历史baseline接近。KuaiRand、MerRec的三个SISA种子宏AUC均高于历史baseline，宏LogLoss均更低。**TAAC-25平均AUC为0.857380，高于baseline的0.855624，但平均LogLoss升至0.040551，baseline为0.033613。** 后两轮LogLoss分别为0.042081和0.046171，应同时保留这一负面结果。MerRec三种子AUC为**0.815621 ± 0.002604**，宏LogLoss为**0.081090 ± 0.000758**。"
+      },
+      {
+        "id": "onetrans_seed_logloss_table_block",
+        "type": "table",
+        "tableId": "onetrans_seed_macro_logloss"
+      },
+      {
+        "id": "onetrans_seed_protocol",
+        "type": "markdown",
+        "sourceId": "onetrans_evidence_source",
+        "body": "## 最终任务与协议：只重提了MerRec缺失的一个种子\n\n原630948_9在训练前的NCCL barrier报CUDA 999错误，29秒退出，没有Test指标；成功重提636370_9保留seed20262029、四卡和冻结配置，仅改为attempt2并避开原报错节点。Taobao此前按用户要求取消，不属于本轮四数据集补齐范围。\n\n完成记录核对了Slurm状态、outcome返回码、精确完成标记、manifest身份及有效配置、两份日志的最终Test指标一致性，以及对应布局的数据覆盖。16次有效运行包括4次历史baseline与12次SISA，共68行标签指标。QK／MerRec后两轮采用4×8192，KuaiRand／TAAC-25采用2×16384；global batch均为32768，训练1 epoch。"
+      },
+      {
+        "id": "onetrans_seed_runs_block",
+        "type": "table",
+        "tableId": "onetrans_seed_runs_table"
+      },
+      {
+        "id": "onetrans_seed_coverage",
+        "type": "markdown",
+        "sourceId": "onetrans_coverage_source",
+        "body": "## 三点波动包含布局与尾批覆盖差异\n\n历史seed27均为四卡。KuaiRand与TAAC-25后两轮改用两卡，测试覆盖分别较历史四卡少16,384和49,152个样本，train／valid尾批也有差异。因此相同global batch不保证逐rank随机流或评测集合相同，三种子SD不能解释为纯随机种子方差；新增H100与历史GPU之间的环境差异也需保留。"
+      },
+      {
+        "id": "onetrans_seed_labels_heading",
+        "type": "markdown",
+        "sourceId": "onetrans_labels_source",
+        "body": "## OneTrans逐动作明细：保留baseline、三个seed、均值与SD\n\n以下分别展示17个动作标签的AUC和LogLoss，供核对宏平均与不同动作方向。数值来自已完成的最终Test段；单个历史baseline没有被复制成三次独立baseline。"
+      },
+      {
+        "id": "onetrans_seed_label_auc_block",
+        "type": "table",
+        "tableId": "onetrans_seed_labels_auc"
+      },
+      {
+        "id": "onetrans_seed_label_logloss_block",
+        "type": "table",
+        "tableId": "onetrans_seed_labels_logloss"
       },
       {
         "id": "technical_summary",
@@ -1181,7 +1610,7 @@
   },
   "snapshot": {
     "version": 1,
-    "generatedAt": "2026-08-25T12:12:37+08:00",
+    "generatedAt": "2026-09-20T16:25:13+08:00",
     "status": "ready",
     "datasets": {
       "headline": [
@@ -1625,6 +2054,797 @@
           "file_count": 1,
           "total_bytes": 16987,
           "notes": "协议、结果、重试、限制与审计"
+        }
+      ],
+      "onetrans_seed_macro": [
+        {
+          "dataset": "QK_Video_Action",
+          "sisa_seed_count": 3,
+          "protocol_20262027": "ws4",
+          "protocol_20262028": "ws4",
+          "protocol_20262029": "ws4",
+          "baseline_auc": 0.93361775,
+          "sisa_20262027_auc": 0.9340545,
+          "sisa_20262028_auc": 0.9347415,
+          "sisa_20262029_auc": 0.93357375,
+          "sisa_auc_mean": 0.93412325,
+          "sisa_auc_sample_sd": 0.0005869028348031829,
+          "delta_auc_vs_baseline": 0.0005054999999999366,
+          "baseline_logloss": 0.07382725,
+          "sisa_20262027_logloss": 0.073634,
+          "sisa_20262028_logloss": 0.0740015,
+          "sisa_20262029_logloss": 0.073792,
+          "sisa_logloss_mean": 0.07380916666666666,
+          "sisa_logloss_sample_sd": 0.00018435043621682076,
+          "delta_logloss_vs_baseline": -1.8083333333335228e-05,
+          "dataset_name": "QK-Video",
+          "baseline_auc_display": "0.933618",
+          "sisa_20262027_auc_display": "0.934055",
+          "sisa_20262028_auc_display": "0.934742",
+          "sisa_20262029_auc_display": "0.933574",
+          "auc_mean_sd_display": "0.934123 ± 0.000587",
+          "delta_auc_display": "+0.0005055",
+          "baseline_logloss_display": "0.073827",
+          "sisa_20262027_logloss_display": "0.073634",
+          "sisa_20262028_logloss_display": "0.074002",
+          "sisa_20262029_logloss_display": "0.073792",
+          "logloss_mean_sd_display": "0.073809 ± 0.000184",
+          "delta_logloss_display": "-0.0000181"
+        },
+        {
+          "dataset": "KuaiRand_Video_Action",
+          "sisa_seed_count": 3,
+          "protocol_20262027": "ws4",
+          "protocol_20262028": "ws2",
+          "protocol_20262029": "ws2",
+          "baseline_auc": 0.8573421666666666,
+          "sisa_20262027_auc": 0.8650323333333334,
+          "sisa_20262028_auc": 0.8618298333333333,
+          "sisa_20262029_auc": 0.8651283333333333,
+          "sisa_auc_mean": 0.8639968333333333,
+          "sisa_auc_sample_sd": 0.001877290800595393,
+          "delta_auc_vs_baseline": 0.006654666666666698,
+          "baseline_logloss": 0.1863368333333333,
+          "sisa_20262027_logloss": 0.17760083333333332,
+          "sisa_20262028_logloss": 0.17808533333333332,
+          "sisa_20262029_logloss": 0.1753265,
+          "sisa_logloss_mean": 0.1770042222222222,
+          "sisa_logloss_sample_sd": 0.0014730067731357126,
+          "delta_logloss_vs_baseline": -0.009332611111111111,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.857342",
+          "sisa_20262027_auc_display": "0.865032",
+          "sisa_20262028_auc_display": "0.861830",
+          "sisa_20262029_auc_display": "0.865128",
+          "auc_mean_sd_display": "0.863997 ± 0.001877",
+          "delta_auc_display": "+0.0066547",
+          "baseline_logloss_display": "0.186337",
+          "sisa_20262027_logloss_display": "0.177601",
+          "sisa_20262028_logloss_display": "0.178085",
+          "sisa_20262029_logloss_display": "0.175327",
+          "logloss_mean_sd_display": "0.177004 ± 0.001473",
+          "delta_logloss_display": "-0.0093326"
+        },
+        {
+          "dataset": "TencentGR_10M_Action",
+          "sisa_seed_count": 3,
+          "protocol_20262027": "ws4",
+          "protocol_20262028": "ws2",
+          "protocol_20262029": "ws2",
+          "baseline_auc": 0.8556235000000001,
+          "sisa_20262027_auc": 0.8607465,
+          "sisa_20262028_auc": 0.855425,
+          "sisa_20262029_auc": 0.8559669999999999,
+          "sisa_auc_mean": 0.8573795,
+          "sisa_auc_sample_sd": 0.002928473621189036,
+          "delta_auc_vs_baseline": 0.0017559999999998688,
+          "baseline_logloss": 0.033613000000000004,
+          "sisa_20262027_logloss": 0.0334015,
+          "sisa_20262028_logloss": 0.0420805,
+          "sisa_20262029_logloss": 0.046171,
+          "sisa_logloss_mean": 0.040551,
+          "sisa_logloss_sample_sd": 0.006520702435320905,
+          "delta_logloss_vs_baseline": 0.006937999999999993,
+          "dataset_name": "TAAC-25",
+          "baseline_auc_display": "0.855624",
+          "sisa_20262027_auc_display": "0.860747",
+          "sisa_20262028_auc_display": "0.855425",
+          "sisa_20262029_auc_display": "0.855967",
+          "auc_mean_sd_display": "0.857380 ± 0.002928",
+          "delta_auc_display": "+0.0017560",
+          "baseline_logloss_display": "0.033613",
+          "sisa_20262027_logloss_display": "0.033402",
+          "sisa_20262028_logloss_display": "0.042081",
+          "sisa_20262029_logloss_display": "0.046171",
+          "logloss_mean_sd_display": "0.040551 ± 0.006521",
+          "delta_logloss_display": "+0.0069380"
+        },
+        {
+          "dataset": "MerRec_Action",
+          "sisa_seed_count": 3,
+          "protocol_20262027": "ws4",
+          "protocol_20262028": "ws4",
+          "protocol_20262029": "ws4",
+          "baseline_auc": 0.8087304000000001,
+          "sisa_20262027_auc": 0.817875,
+          "sisa_20262028_auc": 0.8127714,
+          "sisa_20262029_auc": 0.8162176,
+          "sisa_auc_mean": 0.8156213333333333,
+          "sisa_auc_sample_sd": 0.0026035233229862328,
+          "delta_auc_vs_baseline": 0.006890933333333238,
+          "baseline_logloss": 0.082217,
+          "sisa_20262027_logloss": 0.0802542,
+          "sisa_20262028_logloss": 0.0812824,
+          "sisa_20262029_logloss": 0.08173319999999999,
+          "sisa_logloss_mean": 0.08108993333333334,
+          "sisa_logloss_sample_sd": 0.0007580519859042194,
+          "delta_logloss_vs_baseline": -0.0011270666666666623,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.808730",
+          "sisa_20262027_auc_display": "0.817875",
+          "sisa_20262028_auc_display": "0.812771",
+          "sisa_20262029_auc_display": "0.816218",
+          "auc_mean_sd_display": "0.815621 ± 0.002604",
+          "delta_auc_display": "+0.0068909",
+          "baseline_logloss_display": "0.082217",
+          "sisa_20262027_logloss_display": "0.080254",
+          "sisa_20262028_logloss_display": "0.081282",
+          "sisa_20262029_logloss_display": "0.081733",
+          "logloss_mean_sd_display": "0.081090 ± 0.000758",
+          "delta_logloss_display": "-0.0011271"
+        }
+      ],
+      "onetrans_seed_labels": [
+        {
+          "model": "OneTrans",
+          "dataset": "QK_Video_Action",
+          "scope": "label",
+          "label": "click",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.935902,
+          "sisa_20262028_auc": 0.936216,
+          "sisa_20262029_auc": 0.936008,
+          "sisa_auc_mean": 0.936042,
+          "sisa_auc_sample_sd": 0.00015973728431398977,
+          "baseline_20262027_auc": 0.935674,
+          "sisa_20262027_logloss": 0.247955,
+          "sisa_20262028_logloss": 0.248747,
+          "sisa_20262029_logloss": 0.248195,
+          "sisa_logloss_mean": 0.248299,
+          "sisa_logloss_sample_sd": 0.00040611328468789993,
+          "baseline_20262027_logloss": 0.248535,
+          "dataset_name": "QK-Video",
+          "baseline_auc_display": "0.935674",
+          "sisa_20262027_auc_display": "0.935902",
+          "sisa_20262028_auc_display": "0.936216",
+          "sisa_20262029_auc_display": "0.936008",
+          "auc_mean_sd_display": "0.936042 ± 0.000160",
+          "delta_auc_display": "+0.0003680",
+          "baseline_logloss_display": "0.248535",
+          "sisa_20262027_logloss_display": "0.247955",
+          "sisa_20262028_logloss_display": "0.248747",
+          "sisa_20262029_logloss_display": "0.248195",
+          "logloss_mean_sd_display": "0.248299 ± 0.000406",
+          "delta_logloss_display": "-0.0002360"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "QK_Video_Action",
+          "scope": "label",
+          "label": "follow",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.918218,
+          "sisa_20262028_auc": 0.920085,
+          "sisa_20262029_auc": 0.917028,
+          "sisa_auc_mean": 0.9184436666666667,
+          "sisa_auc_sample_sd": 0.0015409433258019164,
+          "baseline_20262027_auc": 0.917042,
+          "sisa_20262027_logloss": 0.005097,
+          "sisa_20262028_logloss": 0.005003,
+          "sisa_20262029_logloss": 0.005207,
+          "sisa_logloss_mean": 0.005102333333333333,
+          "sisa_logloss_sample_sd": 0.00010210452161061894,
+          "baseline_20262027_logloss": 0.005088,
+          "dataset_name": "QK-Video",
+          "baseline_auc_display": "0.917042",
+          "sisa_20262027_auc_display": "0.918218",
+          "sisa_20262028_auc_display": "0.920085",
+          "sisa_20262029_auc_display": "0.917028",
+          "auc_mean_sd_display": "0.918444 ± 0.001541",
+          "delta_auc_display": "+0.0014017",
+          "baseline_logloss_display": "0.005088",
+          "sisa_20262027_logloss_display": "0.005097",
+          "sisa_20262028_logloss_display": "0.005003",
+          "sisa_20262029_logloss_display": "0.005207",
+          "logloss_mean_sd_display": "0.005102 ± 0.000102",
+          "delta_logloss_display": "+0.0000143"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "QK_Video_Action",
+          "scope": "label",
+          "label": "like",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.948861,
+          "sisa_20262028_auc": 0.947813,
+          "sisa_20262029_auc": 0.948144,
+          "sisa_auc_mean": 0.9482726666666667,
+          "sisa_auc_sample_sd": 0.0005357166539629888,
+          "baseline_20262027_auc": 0.948348,
+          "sisa_20262027_logloss": 0.036164,
+          "sisa_20262028_logloss": 0.036928,
+          "sisa_20262029_logloss": 0.03644,
+          "sisa_logloss_mean": 0.03651066666666667,
+          "sisa_logloss_sample_sd": 0.0003868712102668455,
+          "baseline_20262027_logloss": 0.036389,
+          "dataset_name": "QK-Video",
+          "baseline_auc_display": "0.948348",
+          "sisa_20262027_auc_display": "0.948861",
+          "sisa_20262028_auc_display": "0.947813",
+          "sisa_20262029_auc_display": "0.948144",
+          "auc_mean_sd_display": "0.948273 ± 0.000536",
+          "delta_auc_display": "-0.0000753",
+          "baseline_logloss_display": "0.036389",
+          "sisa_20262027_logloss_display": "0.036164",
+          "sisa_20262028_logloss_display": "0.036928",
+          "sisa_20262029_logloss_display": "0.036440",
+          "logloss_mean_sd_display": "0.036511 ± 0.000387",
+          "delta_logloss_display": "+0.0001217"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "QK_Video_Action",
+          "scope": "label",
+          "label": "share",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.933237,
+          "sisa_20262028_auc": 0.934852,
+          "sisa_20262029_auc": 0.933115,
+          "sisa_auc_mean": 0.9337346666666667,
+          "sisa_auc_sample_sd": 0.0009695598657810371,
+          "baseline_20262027_auc": 0.933407,
+          "sisa_20262027_logloss": 0.00532,
+          "sisa_20262028_logloss": 0.005328,
+          "sisa_20262029_logloss": 0.005326,
+          "sisa_logloss_mean": 0.005324666666666667,
+          "sisa_logloss_sample_sd": 4.1633319989323315e-06,
+          "baseline_20262027_logloss": 0.005297,
+          "dataset_name": "QK-Video",
+          "baseline_auc_display": "0.933407",
+          "sisa_20262027_auc_display": "0.933237",
+          "sisa_20262028_auc_display": "0.934852",
+          "sisa_20262029_auc_display": "0.933115",
+          "auc_mean_sd_display": "0.933735 ± 0.000970",
+          "delta_auc_display": "+0.0003277",
+          "baseline_logloss_display": "0.005297",
+          "sisa_20262027_logloss_display": "0.005320",
+          "sisa_20262028_logloss_display": "0.005328",
+          "sisa_20262029_logloss_display": "0.005326",
+          "logloss_mean_sd_display": "0.005325 ± 0.000004",
+          "delta_logloss_display": "+0.0000277"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "is_click",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.791105,
+          "sisa_20262028_auc": 0.788841,
+          "sisa_20262029_auc": 0.793111,
+          "sisa_auc_mean": 0.791019,
+          "sisa_auc_sample_sd": 0.002136298668257785,
+          "baseline_20262027_auc": 0.772234,
+          "sisa_20262027_logloss": 0.538148,
+          "sisa_20262028_logloss": 0.539704,
+          "sisa_20262029_logloss": 0.528806,
+          "sisa_logloss_mean": 0.5355526666666667,
+          "sisa_logloss_sample_sd": 0.005894354700332605,
+          "baseline_20262027_logloss": 0.566734,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.772234",
+          "sisa_20262027_auc_display": "0.791105",
+          "sisa_20262028_auc_display": "0.788841",
+          "sisa_20262029_auc_display": "0.793111",
+          "auc_mean_sd_display": "0.791019 ± 0.002136",
+          "delta_auc_display": "+0.0187850",
+          "baseline_logloss_display": "0.566734",
+          "sisa_20262027_logloss_display": "0.538148",
+          "sisa_20262028_logloss_display": "0.539704",
+          "sisa_20262029_logloss_display": "0.528806",
+          "logloss_mean_sd_display": "0.535553 ± 0.005894",
+          "delta_logloss_display": "-0.0311813"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "is_follow",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.88643,
+          "sisa_20262028_auc": 0.883191,
+          "sisa_20262029_auc": 0.882387,
+          "sisa_auc_mean": 0.8840026666666667,
+          "sisa_auc_sample_sd": 0.002140225299666707,
+          "baseline_20262027_auc": 0.88308,
+          "sisa_20262027_logloss": 0.006128,
+          "sisa_20262028_logloss": 0.006375,
+          "sisa_20262029_logloss": 0.006193,
+          "sisa_logloss_mean": 0.006232,
+          "sisa_logloss_sample_sd": 0.00012803515142334926,
+          "baseline_20262027_logloss": 0.006201,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.883080",
+          "sisa_20262027_auc_display": "0.886430",
+          "sisa_20262028_auc_display": "0.883191",
+          "sisa_20262029_auc_display": "0.882387",
+          "auc_mean_sd_display": "0.884003 ± 0.002140",
+          "delta_auc_display": "+0.0009227",
+          "baseline_logloss_display": "0.006201",
+          "sisa_20262027_logloss_display": "0.006128",
+          "sisa_20262028_logloss_display": "0.006375",
+          "sisa_20262029_logloss_display": "0.006193",
+          "logloss_mean_sd_display": "0.006232 ± 0.000128",
+          "delta_logloss_display": "+0.0000310"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "is_like",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.928058,
+          "sisa_20262028_auc": 0.926602,
+          "sisa_20262029_auc": 0.928199,
+          "sisa_auc_mean": 0.9276196666666667,
+          "sisa_auc_sample_sd": 0.0008841404488729805,
+          "baseline_20262027_auc": 0.923693,
+          "sisa_20262027_logloss": 0.053581,
+          "sisa_20262028_logloss": 0.053918,
+          "sisa_20262029_logloss": 0.054109,
+          "sisa_logloss_mean": 0.05386933333333333,
+          "sisa_logloss_sample_sd": 0.0002673431004034585,
+          "baseline_20262027_logloss": 0.055033,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.923693",
+          "sisa_20262027_auc_display": "0.928058",
+          "sisa_20262028_auc_display": "0.926602",
+          "sisa_20262029_auc_display": "0.928199",
+          "auc_mean_sd_display": "0.927620 ± 0.000884",
+          "delta_auc_display": "+0.0039267",
+          "baseline_logloss_display": "0.055033",
+          "sisa_20262027_logloss_display": "0.053581",
+          "sisa_20262028_logloss_display": "0.053918",
+          "sisa_20262029_logloss_display": "0.054109",
+          "logloss_mean_sd_display": "0.053869 ± 0.000267",
+          "delta_logloss_display": "-0.0011637"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "is_comment",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.896294,
+          "sisa_20262028_auc": 0.894963,
+          "sisa_20262029_auc": 0.89881,
+          "sisa_auc_mean": 0.896689,
+          "sisa_auc_sample_sd": 0.001953681396748217,
+          "baseline_20262027_auc": 0.896976,
+          "sisa_20262027_logloss": 0.014797,
+          "sisa_20262028_logloss": 0.014862,
+          "sisa_20262029_logloss": 0.014694,
+          "sisa_logloss_mean": 0.014784333333333333,
+          "sisa_logloss_sample_sd": 8.471324178269475e-05,
+          "baseline_20262027_logloss": 0.01477,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.896976",
+          "sisa_20262027_auc_display": "0.896294",
+          "sisa_20262028_auc_display": "0.894963",
+          "sisa_20262029_auc_display": "0.898810",
+          "auc_mean_sd_display": "0.896689 ± 0.001954",
+          "delta_auc_display": "-0.0002870",
+          "baseline_logloss_display": "0.014770",
+          "sisa_20262027_logloss_display": "0.014797",
+          "sisa_20262028_logloss_display": "0.014862",
+          "sisa_20262029_logloss_display": "0.014694",
+          "logloss_mean_sd_display": "0.014784 ± 0.000085",
+          "delta_logloss_display": "+0.0000143"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "is_forward",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.877678,
+          "sisa_20262028_auc": 0.868953,
+          "sisa_20262029_auc": 0.876046,
+          "sisa_auc_mean": 0.8742256666666667,
+          "sisa_auc_sample_sd": 0.004638600686988836,
+          "baseline_20262027_auc": 0.872306,
+          "sisa_20262027_logloss": 0.005611,
+          "sisa_20262028_logloss": 0.00584,
+          "sisa_20262029_logloss": 0.00555,
+          "sisa_logloss_mean": 0.005667,
+          "sisa_logloss_sample_sd": 0.000152895389073706,
+          "baseline_20262027_logloss": 0.005742,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.872306",
+          "sisa_20262027_auc_display": "0.877678",
+          "sisa_20262028_auc_display": "0.868953",
+          "sisa_20262029_auc_display": "0.876046",
+          "auc_mean_sd_display": "0.874226 ± 0.004639",
+          "delta_auc_display": "+0.0019197",
+          "baseline_logloss_display": "0.005742",
+          "sisa_20262027_logloss_display": "0.005611",
+          "sisa_20262028_logloss_display": "0.005840",
+          "sisa_20262029_logloss_display": "0.005550",
+          "logloss_mean_sd_display": "0.005667 ± 0.000153",
+          "delta_logloss_display": "-0.0000750"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand_Video_Action",
+          "scope": "label",
+          "label": "long_view",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.810629,
+          "sisa_20262028_auc": 0.808429,
+          "sisa_20262029_auc": 0.812217,
+          "sisa_auc_mean": 0.810425,
+          "sisa_auc_sample_sd": 0.001902221858774639,
+          "baseline_20262027_auc": 0.795764,
+          "sisa_20262027_logloss": 0.44734,
+          "sisa_20262028_logloss": 0.447813,
+          "sisa_20262029_logloss": 0.442607,
+          "sisa_logloss_mean": 0.44592,
+          "sisa_logloss_sample_sd": 0.002878872869718311,
+          "baseline_20262027_logloss": 0.469541,
+          "dataset_name": "KuaiRand",
+          "baseline_auc_display": "0.795764",
+          "sisa_20262027_auc_display": "0.810629",
+          "sisa_20262028_auc_display": "0.808429",
+          "sisa_20262029_auc_display": "0.812217",
+          "auc_mean_sd_display": "0.810425 ± 0.001902",
+          "delta_auc_display": "+0.0146610",
+          "baseline_logloss_display": "0.469541",
+          "sisa_20262027_logloss_display": "0.447340",
+          "sisa_20262028_logloss_display": "0.447813",
+          "sisa_20262029_logloss_display": "0.442607",
+          "logloss_mean_sd_display": "0.445920 ± 0.002879",
+          "delta_logloss_display": "-0.0236210"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec_Action",
+          "scope": "label",
+          "label": "Like",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.765848,
+          "sisa_20262028_auc": 0.755254,
+          "sisa_20262029_auc": 0.756572,
+          "sisa_auc_mean": 0.7592246666666667,
+          "sisa_auc_sample_sd": 0.005773706723876194,
+          "baseline_20262027_auc": 0.755615,
+          "sisa_20262027_logloss": 0.319739,
+          "sisa_20262028_logloss": 0.325394,
+          "sisa_20262029_logloss": 0.327379,
+          "sisa_logloss_mean": 0.32417066666666666,
+          "sisa_logloss_sample_sd": 0.003964190753903411,
+          "baseline_20262027_logloss": 0.325279,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.755615",
+          "sisa_20262027_auc_display": "0.765848",
+          "sisa_20262028_auc_display": "0.755254",
+          "sisa_20262029_auc_display": "0.756572",
+          "auc_mean_sd_display": "0.759225 ± 0.005774",
+          "delta_auc_display": "+0.0036097",
+          "baseline_logloss_display": "0.325279",
+          "sisa_20262027_logloss_display": "0.319739",
+          "sisa_20262028_logloss_display": "0.325394",
+          "sisa_20262029_logloss_display": "0.327379",
+          "logloss_mean_sd_display": "0.324171 ± 0.003964",
+          "delta_logloss_display": "-0.0011083"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec_Action",
+          "scope": "label",
+          "label": "Cart",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.820006,
+          "sisa_20262028_auc": 0.813577,
+          "sisa_20262029_auc": 0.813263,
+          "sisa_auc_mean": 0.8156153333333334,
+          "sisa_auc_sample_sd": 0.003805668710402089,
+          "baseline_20262027_auc": 0.789147,
+          "sisa_20262027_logloss": 0.051998,
+          "sisa_20262028_logloss": 0.052357,
+          "sisa_20262029_logloss": 0.052418,
+          "sisa_logloss_mean": 0.05225766666666667,
+          "sisa_logloss_sample_sd": 0.00022693684877809648,
+          "baseline_20262027_logloss": 0.05446,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.789147",
+          "sisa_20262027_auc_display": "0.820006",
+          "sisa_20262028_auc_display": "0.813577",
+          "sisa_20262029_auc_display": "0.813263",
+          "auc_mean_sd_display": "0.815615 ± 0.003806",
+          "delta_auc_display": "+0.0264683",
+          "baseline_logloss_display": "0.054460",
+          "sisa_20262027_logloss_display": "0.051998",
+          "sisa_20262028_logloss_display": "0.052357",
+          "sisa_20262029_logloss_display": "0.052418",
+          "logloss_mean_sd_display": "0.052258 ± 0.000227",
+          "delta_logloss_display": "-0.0022023"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec_Action",
+          "scope": "label",
+          "label": "Offer",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.75772,
+          "sisa_20262028_auc": 0.760631,
+          "sisa_20262029_auc": 0.771867,
+          "sisa_auc_mean": 0.7634059999999999,
+          "sisa_auc_sample_sd": 0.007470600444408748,
+          "baseline_20262027_auc": 0.764039,
+          "sisa_20262027_logloss": 0.02119,
+          "sisa_20262028_logloss": 0.021075,
+          "sisa_20262029_logloss": 0.020843,
+          "sisa_logloss_mean": 0.021036,
+          "sisa_logloss_sample_sd": 0.000176756895197896,
+          "baseline_20262027_logloss": 0.021467,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.764039",
+          "sisa_20262027_auc_display": "0.757720",
+          "sisa_20262028_auc_display": "0.760631",
+          "sisa_20262029_auc_display": "0.771867",
+          "auc_mean_sd_display": "0.763406 ± 0.007471",
+          "delta_auc_display": "-0.0006330",
+          "baseline_logloss_display": "0.021467",
+          "sisa_20262027_logloss_display": "0.021190",
+          "sisa_20262028_logloss_display": "0.021075",
+          "sisa_20262029_logloss_display": "0.020843",
+          "logloss_mean_sd_display": "0.021036 ± 0.000177",
+          "delta_logloss_display": "-0.0004310"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec_Action",
+          "scope": "label",
+          "label": "Checkout",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.872093,
+          "sisa_20262028_auc": 0.868478,
+          "sisa_20262029_auc": 0.86822,
+          "sisa_auc_mean": 0.869597,
+          "sisa_auc_sample_sd": 0.0021654452198104804,
+          "baseline_20262027_auc": 0.86632,
+          "sisa_20262027_logloss": 0.005122,
+          "sisa_20262028_logloss": 0.00458,
+          "sisa_20262029_logloss": 0.004881,
+          "sisa_logloss_mean": 0.004861,
+          "sisa_logloss_sample_sd": 0.00027155294143131647,
+          "baseline_20262027_logloss": 0.006042,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.866320",
+          "sisa_20262027_auc_display": "0.872093",
+          "sisa_20262028_auc_display": "0.868478",
+          "sisa_20262029_auc_display": "0.868220",
+          "auc_mean_sd_display": "0.869597 ± 0.002165",
+          "delta_auc_display": "+0.0032770",
+          "baseline_logloss_display": "0.006042",
+          "sisa_20262027_logloss_display": "0.005122",
+          "sisa_20262028_logloss_display": "0.004580",
+          "sisa_20262029_logloss_display": "0.004881",
+          "logloss_mean_sd_display": "0.004861 ± 0.000272",
+          "delta_logloss_display": "-0.0011810"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec_Action",
+          "scope": "label",
+          "label": "Purchase",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.873708,
+          "sisa_20262028_auc": 0.865917,
+          "sisa_20262029_auc": 0.871166,
+          "sisa_auc_mean": 0.8702636666666667,
+          "sisa_auc_sample_sd": 0.003973106383339522,
+          "baseline_20262027_auc": 0.868531,
+          "sisa_20262027_logloss": 0.003222,
+          "sisa_20262028_logloss": 0.003006,
+          "sisa_20262029_logloss": 0.003145,
+          "sisa_logloss_mean": 0.003124333333333333,
+          "sisa_logloss_sample_sd": 0.0001094729799235105,
+          "baseline_20262027_logloss": 0.003837,
+          "dataset_name": "MerRec",
+          "baseline_auc_display": "0.868531",
+          "sisa_20262027_auc_display": "0.873708",
+          "sisa_20262028_auc_display": "0.865917",
+          "sisa_20262029_auc_display": "0.871166",
+          "auc_mean_sd_display": "0.870264 ± 0.003973",
+          "delta_auc_display": "+0.0017327",
+          "baseline_logloss_display": "0.003837",
+          "sisa_20262027_logloss_display": "0.003222",
+          "sisa_20262028_logloss_display": "0.003006",
+          "sisa_20262029_logloss_display": "0.003145",
+          "logloss_mean_sd_display": "0.003124 ± 0.000109",
+          "delta_logloss_display": "-0.0007127"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "TencentGR_10M_Action",
+          "scope": "label",
+          "label": "is_click",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.83895,
+          "sisa_20262028_auc": 0.833979,
+          "sisa_20262029_auc": 0.835197,
+          "sisa_auc_mean": 0.836042,
+          "sisa_auc_sample_sd": 0.002590989965244925,
+          "baseline_20262027_auc": 0.831705,
+          "sisa_20262027_logloss": 0.048848,
+          "sisa_20262028_logloss": 0.05972,
+          "sisa_20262029_logloss": 0.067715,
+          "sisa_logloss_mean": 0.058761,
+          "sisa_logloss_sample_sd": 0.009469988542759699,
+          "baseline_20262027_logloss": 0.049415,
+          "dataset_name": "TAAC-25",
+          "baseline_auc_display": "0.831705",
+          "sisa_20262027_auc_display": "0.838950",
+          "sisa_20262028_auc_display": "0.833979",
+          "sisa_20262029_auc_display": "0.835197",
+          "auc_mean_sd_display": "0.836042 ± 0.002591",
+          "delta_auc_display": "+0.0043370",
+          "baseline_logloss_display": "0.049415",
+          "sisa_20262027_logloss_display": "0.048848",
+          "sisa_20262028_logloss_display": "0.059720",
+          "sisa_20262029_logloss_display": "0.067715",
+          "logloss_mean_sd_display": "0.058761 ± 0.009470",
+          "delta_logloss_display": "+0.0093460"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "TencentGR_10M_Action",
+          "scope": "label",
+          "label": "is_conversion",
+          "sisa_seed_count": 3,
+          "baseline_seed": 20262027,
+          "sisa_20262027_auc": 0.882543,
+          "sisa_20262028_auc": 0.876871,
+          "sisa_20262029_auc": 0.876737,
+          "sisa_auc_mean": 0.878717,
+          "sisa_auc_sample_sd": 0.003314090523808904,
+          "baseline_20262027_auc": 0.879542,
+          "sisa_20262027_logloss": 0.017955,
+          "sisa_20262028_logloss": 0.024441,
+          "sisa_20262029_logloss": 0.024627,
+          "sisa_logloss_mean": 0.022341,
+          "sisa_logloss_sample_sd": 0.003799525759881094,
+          "baseline_20262027_logloss": 0.017811,
+          "dataset_name": "TAAC-25",
+          "baseline_auc_display": "0.879542",
+          "sisa_20262027_auc_display": "0.882543",
+          "sisa_20262028_auc_display": "0.876871",
+          "sisa_20262029_auc_display": "0.876737",
+          "auc_mean_sd_display": "0.878717 ± 0.003314",
+          "delta_auc_display": "-0.0008250",
+          "baseline_logloss_display": "0.017811",
+          "sisa_20262027_logloss_display": "0.017955",
+          "sisa_20262028_logloss_display": "0.024441",
+          "sisa_20262029_logloss_display": "0.024627",
+          "logloss_mean_sd_display": "0.022341 ± 0.003800",
+          "delta_logloss_display": "+0.0045300"
+        }
+      ],
+      "onetrans_seed_runs": [
+        {
+          "dataset_name": "QK-Video",
+          "seed": 20262028,
+          "job_task_id": "630948_0",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "4×H100 / 每卡8192",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1"
+        },
+        {
+          "dataset_name": "QK-Video",
+          "seed": 20262029,
+          "job_task_id": "630948_1",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "4×H100 / 每卡8192",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1"
+        },
+        {
+          "dataset_name": "KuaiRand",
+          "seed": 20262028,
+          "job_task_id": "631034_2",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "2×H100 / 每卡16384",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1"
+        },
+        {
+          "dataset_name": "KuaiRand",
+          "seed": 20262029,
+          "job_task_id": "631034_3",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "2×H100 / 每卡16384",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1"
+        },
+        {
+          "dataset_name": "TAAC-25",
+          "seed": 20262028,
+          "job_task_id": "631034_4",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "2×H100 / 每卡16384",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1"
+        },
+        {
+          "dataset_name": "TAAC-25",
+          "seed": 20262029,
+          "job_task_id": "631034_5",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "2×H100 / 每卡16384",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1"
+        },
+        {
+          "dataset_name": "MerRec",
+          "seed": 20262028,
+          "job_task_id": "630948_8",
+          "attempt": 1,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "4×H100 / 每卡8192",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1"
+        },
+        {
+          "dataset_name": "MerRec",
+          "seed": 20262029,
+          "job_task_id": "636370_9",
+          "attempt": 2,
+          "state": "COMPLETED",
+          "exit_code": "0:0",
+          "layout": "4×H100 / 每卡8192",
+          "global_batch": 32768,
+          "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2"
         }
       ],
       "accepted_action_qk_video": [
@@ -4226,6 +5446,94 @@
       "id": "expansion_report",
       "label": "Complete 38-task expansion report",
       "path": "experiments/sisa_expansion_acd/report.md"
+    },
+    {
+      "id": "onetrans_macro_source",
+      "label": "OneTrans四数据集三种子宏指标",
+      "path": "experiments/onetrans_seed_completion/results/selected_macro_summary.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "WITH runs AS (\n  SELECT json_extract(value, '$.dataset') AS dataset,\n         json_extract(value, '$.setting') AS setting,\n         json_extract(value, '$.seed') AS seed,\n         json_extract(value, '$.macro_auc') AS auc,\n         json_extract(value, '$.macro_logloss') AS logloss\n  FROM json_each(:runs_json)\n  WHERE json_extract(value, '$.eligible') = 1\n)\nSELECT dataset, COUNT(CASE WHEN setting = 'sisa' THEN 1 END) AS sisa_seed_count,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN auc END) AS baseline_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN auc END) AS sisa_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN auc END) AS sisa_20262028_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN auc END) AS sisa_20262029_auc,\n       mean(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_sample_sd,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN logloss END) AS baseline_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN logloss END) AS sisa_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN logloss END) AS sisa_20262028_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN logloss END) AS sisa_20262029_logloss,\n       mean(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_sample_sd\nFROM runs\nGROUP BY dataset\nHAVING COUNT(CASE WHEN setting = 'sisa' THEN 1 END) = 3;\n",
+        "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+        "tables_used": [
+          "experiments/onetrans_seed_completion/results/selected_evidence.json",
+          "experiments/onetrans_seed_completion/results/selected_macro_summary.csv"
+        ],
+        "filters": [
+          "model = OneTrans",
+          "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+          "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+          "excluded from accepted 16-cell aggregates"
+        ],
+        "metric_definitions": [
+          "within-run macro = equal-label mean",
+          "three-seed SD = sample SD, ddof=1",
+          "delta = SISA mean minus one historical baseline"
+        ]
+      }
+    },
+    {
+      "id": "onetrans_labels_source",
+      "label": "OneTrans 17个动作标签三种子统计",
+      "path": "experiments/onetrans_seed_completion/results/selected_three_seed_summary.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "WITH runs AS (\n  SELECT json_extract(r.value, '$.dataset') AS dataset,\n         json_extract(r.value, '$.setting') AS setting,\n         json_extract(r.value, '$.seed') AS seed, m.key AS label,\n         json_extract(m.value, '$.AUC') AS auc,\n         json_extract(m.value, '$.logloss') AS logloss\n  FROM json_each(:runs_json) AS r,\n       json_each(json_extract(r.value, '$.metrics')) AS m\n  WHERE json_extract(r.value, '$.eligible') = 1\n)\nSELECT dataset, label, COUNT(CASE WHEN setting = 'sisa' THEN 1 END) AS sisa_seed_count,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN auc END) AS baseline_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN auc END) AS sisa_20262027_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN auc END) AS sisa_20262028_auc,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN auc END) AS sisa_20262029_auc,\n       mean(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN auc END) AS sisa_auc_sample_sd,\n       MAX(CASE WHEN setting = 'baseline' AND seed = 20262027 THEN logloss END) AS baseline_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262027 THEN logloss END) AS sisa_20262027_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262028 THEN logloss END) AS sisa_20262028_logloss,\n       MAX(CASE WHEN setting = 'sisa' AND seed = 20262029 THEN logloss END) AS sisa_20262029_logloss,\n       mean(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_mean,\n       sample_sd(CASE WHEN setting = 'sisa' THEN logloss END) AS sisa_logloss_sample_sd\nFROM runs\nGROUP BY dataset, label\nHAVING COUNT(CASE WHEN setting = 'sisa' THEN 1 END) = 3;\n",
+        "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+        "tables_used": [
+          "experiments/onetrans_seed_completion/results/selected_evidence.json",
+          "experiments/onetrans_seed_completion/results/selected_three_seed_summary.csv"
+        ],
+        "filters": [
+          "model = OneTrans",
+          "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+          "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+          "excluded from accepted 16-cell aggregates"
+        ],
+        "metric_definitions": [
+          "within-run macro = equal-label mean",
+          "three-seed SD = sample SD, ddof=1",
+          "delta = SISA mean minus one historical baseline"
+        ]
+      }
+    },
+    {
+      "id": "onetrans_runs_source",
+      "label": "OneTrans最终选定运行与协议",
+      "path": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT\n  CASE json_extract(value, '$.dataset')\n    WHEN 'QK_Video_Action' THEN 'QK-Video'\n    WHEN 'KuaiRand_Video_Action' THEN 'KuaiRand'\n    WHEN 'TencentGR_10M_Action' THEN 'TAAC-25'\n    WHEN 'MerRec_Action' THEN 'MerRec' END AS dataset_name,\n  json_extract(value, '$.seed') AS seed,\n  json_extract(value, '$.job_task_id') AS job_task_id,\n  json_extract(value, '$.attempt') AS attempt,\n  json_extract(value, '$.state') AS state,\n  json_extract(value, '$.exit_code') AS exit_code,\n  json_extract(value, '$.world_size') || '×H100 / 每卡' || json_extract(value, '$.per_gpu_batch') AS layout,\n  json_extract(value, '$.global_batch') AS global_batch,\n  json_extract(value, '$.run_id') AS run_id\nFROM json_each(:runs_json)\nWHERE json_extract(value, '$.historical') = 0\n  AND json_extract(value, '$.eligible') = 1\nORDER BY CAST(key AS INTEGER);\n",
+        "description": "将selected_evidence.json的runs数组绑定为:runs_json；mean与sample_sd分别注册为Python statistics.mean与statistics.stdev聚合器，忽略NULL。查询已执行并与报告数值逐项一致；展示字段仅格式化为六位小数，差值为SISA均值减baseline。",
+        "tables_used": [
+          "experiments/onetrans_seed_completion/results/selected_evidence.json",
+          "experiments/onetrans_seed_completion/results/selected_runs.csv"
+        ],
+        "filters": [
+          "model = OneTrans",
+          "datasets = QK-Video, KuaiRand, TAAC-25, MerRec",
+          "SISA seeds = 20262027, 20262028, 20262029; baseline seed = 20262027",
+          "excluded from accepted 16-cell aggregates"
+        ],
+        "metric_definitions": [
+          "within-run macro = equal-label mean",
+          "three-seed SD = sample SD, ddof=1",
+          "delta = SISA mean minus one historical baseline"
+        ]
+      }
+    },
+    {
+      "id": "onetrans_evidence_source",
+      "label": "OneTrans完成、配置、覆盖与双日志核验证据",
+      "path": "experiments/onetrans_seed_completion/results/selected_evidence.json"
+    },
+    {
+      "id": "onetrans_coverage_source",
+      "label": "两卡与四卡的train/valid/test尾批覆盖差异",
+      "path": "experiments/onetrans_seed_completion_ws2/configs/coverage_comparison.csv"
     },
     {
       "id": "action_breakdown",

@@ -14,6 +14,7 @@ from scripts.build_sisa_overall_report import (
     ACCEPTED_MODELS,
     DATASET_SPECS,
     build_action_rows,
+    restore_precise_table_fallbacks,
     update_artifact,
 )
 
@@ -23,6 +24,42 @@ MIGRATION_DIR = REPOSITORY / "experiments/sisa_native_strict/migration"
 
 
 class SisaOverallReportTest(unittest.TestCase):
+    def test_fallback_keeps_exact_display_strings_and_all_rows(self):
+        rows = [
+            {"label": f"label<{index}>", "delta_display": "+0.000228"}
+            for index in range(20)
+        ]
+        rows[-1]["delta_display"] = "-0.000000"
+        artifact = {
+            "manifest": {"tables": [{
+                "id": "precision_table", "title": "AUC & Logloss",
+                "subtitle": "所有指标固定显示 6 位小数", "dataset": "precision",
+                "columns": [
+                    {"field": "label", "label": "Label", "type": "text"},
+                    {"field": "delta_display", "label": "Delta", "type": "text", "align": "right"},
+                ],
+            }]},
+            "snapshot": {"datasets": {"precision": rows}},
+        }
+        report = (
+            '<section data-table-id="precision_table"><header><h2>Old</h2></header>'
+            '<div data-source-id="audited-source"></div>'
+            '<table><tr><td>0</td></tr></table>'
+            '<p class="portable-table-note">15 of 20 results</p></section>'
+            '<section id="unrelated">Keep this section</section>'
+        )
+        updated = restore_precise_table_fallbacks(report, artifact)
+        self.assertIn("+0.000228", updated)
+        self.assertIn("-0.000000", updated)
+        self.assertIn("label&lt;19&gt;", updated)
+        self.assertIn("AUC &amp; Logloss", updated)
+        self.assertIn("所有指标固定显示 6 位小数", updated)
+        self.assertEqual(updated.count("<tr>"), 21)
+        self.assertIn("20 results", updated)
+        self.assertIn('data-source-id="audited-source"', updated)
+        self.assertTrue(updated.endswith('<section id="unrelated">Keep this section</section>'))
+        self.assertEqual(restore_precise_table_fallbacks(updated, artifact), updated)
+
     def test_action_rows_cover_every_model_dataset_label_pair(self):
         rows = build_action_rows(REPOSITORY)
 

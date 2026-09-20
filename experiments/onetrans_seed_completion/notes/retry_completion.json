@@ -1,0 +1,25 @@
+{
+  "verified_at": "2026-09-20T16:25:13+08:00",
+  "job_task_id": "636370_9",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "start": "2026-09-20T15:42:22+08:00",
+  "end": "2026-09-20T15:58:35+08:00",
+  "elapsed": "00:16:13",
+  "audit_issues": [],
+  "macro_auc": 0.8162176,
+  "macro_logloss": 0.08173319999999999,
+  "accounting_snapshot": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "636370",
+      "--format=JobID,JobIDRaw,State,ExitCode,Start,End,Elapsed"
+    ],
+    "stdout": "636370_9|636370|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n636370_9.batch|636370.batch|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n636370_9.extern|636370.extern|COMPLETED|0:0|2026-09-20T15:42:22|2026-09-20T15:58:35|00:16:13\n",
+    "sha256": "6c9544f8f89573ce4ba00510a2d481a4fe6ac0b108cea2777f07328e0249c7dd"
+  }
+}

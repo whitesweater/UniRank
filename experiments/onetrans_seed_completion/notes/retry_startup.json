@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-20T15:44:41+08:00",
+  "job_task_id": "636370_9",
+  "status": "training_confirmed",
+  "slurm_state": "RUNNING",
+  "exit_code": "0:0",
+  "start": "2026-09-20T15:42:22",
+  "elapsed": "00:02:19",
+  "node": "ACD1-16",
+  "rank0_step": 327,
+  "previous_observed_step": 141,
+  "error_lines": [],
+  "log": "logs/unirank-onetrans-seeds-636370_9.out"
+}

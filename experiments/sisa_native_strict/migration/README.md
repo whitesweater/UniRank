@@ -3,6 +3,14 @@
 本目录的旧混合矩阵是历史诊断档案，不用于当前论文汇总。Accepted 16-cell 与
 Diagnostic 逐动作视图分别展示；当前论文以 `experiments/sisa_paper_report/report.md` 为准。
 
+2026-09-20更新：同一HTML页面新增独立的OneTrans三种子诊断区段，包含四个数据集的
+宏AUC/LogLoss、17个动作标签明细和八个新增任务的最终状态。MerRec重提636370_9已成功完成。
+原有区段、图表与数据保持不变；OneTrans不计入accepted 16-cell统计。新增来源为
+`experiments/onetrans_seed_completion/results/selected_`前缀文件。
+
+页面生成器会保留静态表格中预格式化指标的精度、差值符号和完整行数，避免离线或打印时
+被通用构建器舍入为两位小数。此处理使用同一 artifact.json，不修改原始指标或内嵌证据。
+
 本目录集中保存 2026-08-25 从 DIGAI Lab 迁入的原始 strict 报告和离线审计包。正式结论请从
 [统一报告](../report.md)和[机器可读结果](../results/)进入；本目录用于追溯迁移来源，
 不作为新的并列报告根目录。

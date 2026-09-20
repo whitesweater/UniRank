@@ -1019,7 +1019,12 @@ function themedBuild(input, options = {}) {
     ...options,
     runtimeHtml: themedRuntime,
   });
-  return injectBeforeHeadEnd(html, fallbackTheme);
+  const preciseHtml = execFileSync(
+    projectPython,
+    [actionBreakdownBuilder, "--repository", repository, "--repair-table-fallback"],
+    { input: html, encoding: "utf8", maxBuffer: 32 * 1024 * 1024 },
+  );
+  return injectBeforeHeadEnd(preciseHtml, fallbackTheme);
 }
 
 try {

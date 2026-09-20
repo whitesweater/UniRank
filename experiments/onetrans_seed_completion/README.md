@@ -1,5 +1,11 @@
 # OneTrans SISA 三种子补齐
 
+2026-09-20四数据集三种子已全部补齐，结果已加入
+[HTML总报告](../sisa_native_strict/migration/report.html)，每标签明细见`report.md`和`results/selected_`前缀文件。
+MerRec原任务630948_9启动失败；重提636370_9（attempt2）于15:58:35成功结束并通过最终Test审计。
+QK/MerRec采用四卡，KuaiRand/TAAC-25新增种子采用两卡；下方“四卡固定协议”记录原分支。
+旧四卡专用采集器及其结果文件保留原用途，不包含两卡选定结果。
+
 按用户最新选择，仅补 SISA，覆盖 QK-Video、KuaiRand、TAAC-25、MerRec
 四个数据集。复用已有 seed 20262027，为每个数据集新增 20262028、20262029，
 共保留八个任务；不重跑 baseline，也不重复已有 seed。完成后每个数据集有三次 SISA。
@@ -9,7 +15,7 @@
 本研究独立归档。OneTrans 及 Taobao 不在当前论文接受的四模型×四数据集证据范围内，
 本次用户授权的补跑结果不自动混入该主实验汇总。
 
-## 固定协议
+## 原四卡分支固定协议
 
 - 新任务全部使用 4×H100，DDP world size=4，每卡 batch=8192，全局 batch=32768。
 - 保持旧 OneTrans 的 1 epoch、最大历史长度100、梯度累积1、BF16、torch.compile，
@@ -66,7 +72,9 @@ scripts/submit_onetrans_seed_completion.sbatch，实际提交记录在notes/subm
 ## 结果口径
 
 只从成功完成并通过配置、覆盖和双日志核验的最终Test段取AUC与LogLoss。
-结果收集器为scripts/collect_onetrans_seed_completion.py，紧凑证据保存在results。
+当前选定结果为 results/selected_ 前缀文件，合并实际保留的四卡与两卡任务，
+各文件用途见 results/README.md。四卡专用采集器为 scripts/collect_onetrans_seed_completion.py；
+它只刷新 results 中无 selected_ 前缀的四卡结果，不重建当前混合布局报告。
 未完成、取消、失败或不一致的运行保留状态且指标留空；仅三次SISA均合格时生成均值与
 样本标准差（ddof=1），同时保留每个标签和每轮的结果。
 

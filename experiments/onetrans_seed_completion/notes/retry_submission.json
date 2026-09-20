@@ -1,0 +1,28 @@
+{
+  "submitted_at": "2026-09-20T15:35:19+08:00",
+  "array_job_id": "636370",
+  "task_ids": [
+    9
+  ],
+  "attempt": 2,
+  "protocol": "ws4",
+  "supersedes_job_task_id": "630948_9",
+  "reason": "User requested retry of missing MerRec seed20262029 and monitoring through normal training start; attempt1 failed before training during NCCL barrier with CUDA error 999.",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--array=9",
+    "--export=ALL,ONETRANS_ATTEMPT=2",
+    "--exclude=ACD1-23",
+    "scripts/submit_onetrans_seed_completion.sbatch"
+  ],
+  "raw_stdout": "636370\n",
+  "excluded_nodes": [
+    "ACD1-23"
+  ],
+  "dataset": "MerRec_Action",
+  "seed": 20262029,
+  "world_size": 4,
+  "per_gpu_batch": 8192,
+  "global_batch": 32768
+}

@@ -12,6 +12,7 @@ import json
 import math
 import re
 import sqlite3
+import sys
 from pathlib import Path
 from typing import Sequence
 
@@ -567,6 +568,61 @@ def fallback_action_html(rows: Sequence[dict[str, object]]) -> str:
     return "\n".join(parts)
 
 
+def restore_precise_table_fallbacks(report: str, artifact: dict) -> str:
+    """Keep preformatted metric strings and full rows in the static HTML tables.
+
+    The portable builder formats numeric-looking text to two decimals and limits
+    static tables to 15 rows. Use the frozen display values for these unfiltered
+    report tables while retaining their surrounding source metadata and blocks.
+    """
+    for table in artifact["manifest"]["tables"]:
+        columns = table["columns"]
+        if not any(column["field"].endswith("_display") for column in columns):
+            continue
+        rows = artifact["snapshot"]["datasets"][table["dataset"]]
+        sort = table.get("defaultSort")
+        if sort:
+            rows = sorted(rows, key=lambda row: row[sort["field"]],
+                          reverse=sort.get("direction") == "desc")
+        cells = [f'<table><caption>{html.escape(table["title"])}</caption><thead><tr>']
+        for column in columns:
+            cells.append(f'<th scope="col">{html.escape(column["label"])}</th>')
+        cells.append("</tr></thead><tbody>")
+        for row in rows:
+            cells.append("<tr>")
+            for column in columns:
+                value = row.get(column["field"])
+                display = "—" if value is None else str(value)
+                alignment = ' class="portable-table-number"' if column.get("align") == "right" else ""
+                cells.append(f"<td{alignment}>{html.escape(display)}</td>")
+            cells.append("</tr>")
+        cells.append("</tbody></table>")
+        section_pattern = re.compile(
+            r'<section\b[^>]*\bdata-table-id="' + re.escape(table["id"])
+            + r'"[^>]*>.*?</section>', re.DOTALL,
+        )
+
+        def replace_section(match):
+            section, count = re.subn(r"<table\b[^>]*>.*?</table>",
+                                    lambda _: "".join(cells), match.group(),
+                                    count=1, flags=re.DOTALL)
+            if count != 1:
+                raise ValueError(f"Missing static table for {table['id']}")
+            header = (f'<header class="portable-visual-header"><h2>{html.escape(table["title"])}</h2>'
+                      + (f'<p>{html.escape(table["subtitle"])}</p>' if table.get("subtitle") else "")
+                      + "</header>")
+            section = re.sub(r"<header\b[^>]*>.*?</header>", lambda _: header,
+                             section, count=1, flags=re.DOTALL)
+            return re.sub(r'<p class="portable-table-note">.*?</p>',
+                          lambda _: f'<p class="portable-table-note">{len(rows)} results</p>',
+                          section, count=1, flags=re.DOTALL)
+
+        report, count = section_pattern.subn(replace_section, report)
+        if count != 1:
+            raise ValueError(f"Expected one static section for {table['id']}, found {count}")
+    return report
+
+
 def update_embedded_report(
     report_path: Path,
     artifact_path: Path,
@@ -697,6 +753,7 @@ def update_embedded_report(
     if anchor not in report:
         raise ValueError("report HTML has no technical summary fallback anchor")
     report = report.replace(anchor, scope_html + anchor, 1)
+    report = restore_precise_table_fallbacks(report, artifact)
     report_path.write_text(report, encoding="utf-8")
     return True
 
@@ -704,11 +761,17 @@ def update_embedded_report(
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repository", type=Path, default=Path.cwd())
+    parser.add_argument("--repair-table-fallback", action="store_true",
+                        help="Read HTML from stdin and write precise static tables to stdout")
     args = parser.parse_args(argv)
     repository = args.repository.resolve()
     migration_dir = (
         repository / "experiments/sisa_native_strict/migration"
     )
+    if args.repair_table_fallback:
+        artifact = json.loads((migration_dir / "artifact.json").read_text(encoding="utf-8"))
+        sys.stdout.write(restore_precise_table_fallbacks(sys.stdin.read(), artifact))
+        return 0
     rows = build_action_rows(repository)
     artifact_path = migration_dir / "artifact.json"
     update_artifact(artifact_path, rows)
