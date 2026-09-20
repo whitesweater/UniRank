@@ -1,0 +1,163 @@
+{
+  "started_at": "2026-09-18T16:42:21+08:00",
+  "arrays": {
+    "ws4": "630948",
+    "ws2": "631034"
+  },
+  "decisions": {
+    "0": {
+      "selected_at": "2026-09-18T16:42:21+08:00",
+      "winner_protocol": "ws4",
+      "winner_job_id": "630948_0",
+      "winner_start": "2026-09-18T16:41:37",
+      "loser_protocol": "ws2",
+      "loser_job_id": "631034_0",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T16:42:21+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "1": {
+      "selected_at": "2026-09-18T16:42:21+08:00",
+      "winner_protocol": "ws4",
+      "winner_job_id": "630948_1",
+      "winner_start": "2026-09-18T16:41:37",
+      "loser_protocol": "ws2",
+      "loser_job_id": "631034_1",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T16:42:21+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "2": {
+      "selected_at": "2026-09-18T16:42:51+08:00",
+      "winner_protocol": "ws2",
+      "winner_job_id": "631034_2",
+      "winner_start": "2026-09-18T16:42:37",
+      "loser_protocol": "ws4",
+      "loser_job_id": "630948_2",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T16:42:51+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "3": {
+      "selected_at": "2026-09-18T16:42:51+08:00",
+      "winner_protocol": "ws2",
+      "winner_job_id": "631034_3",
+      "winner_start": "2026-09-18T16:42:37",
+      "loser_protocol": "ws4",
+      "loser_job_id": "630948_3",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T16:42:51+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "4": {
+      "selected_at": "2026-09-18T17:02:26+08:00",
+      "winner_protocol": "ws2",
+      "winner_job_id": "631034_4",
+      "winner_start": "2026-09-18T17:02:08",
+      "loser_protocol": "ws4",
+      "loser_job_id": "630948_4",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T17:02:26+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "5": {
+      "selected_at": "2026-09-18T17:02:56+08:00",
+      "winner_protocol": "ws2",
+      "winner_job_id": "631034_5",
+      "winner_start": "2026-09-18T17:02:38",
+      "loser_protocol": "ws4",
+      "loser_job_id": "630948_5",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T17:02:56+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "8": {
+      "selected_at": "2026-09-18T17:08:27+08:00",
+      "winner_protocol": "ws4",
+      "winner_job_id": "630948_8",
+      "winner_start": "2026-09-18T17:08:08",
+      "loser_protocol": "ws2",
+      "loser_job_id": "631034_8",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T17:08:27+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    },
+    "9": {
+      "selected_at": "2026-09-18T17:27:02+08:00",
+      "winner_protocol": "ws4",
+      "winner_job_id": "630948_9",
+      "winner_start": "2026-09-18T17:26:40",
+      "loser_protocol": "ws2",
+      "loser_job_id": "631034_9",
+      "cancellation_done": true,
+      "last_cancel_attempt": "2026-09-18T17:27:02+08:00",
+      "cancel_returncode": 0,
+      "cancel_stderr": ""
+    }
+  },
+  "updated_at": "2026-09-18T17:27:02+08:00",
+  "observations": {
+    "631034_9": {
+      "job_id": "631034_9",
+      "name": "unirank-onetrans-ws2",
+      "state": "PENDING",
+      "start": "Unknown"
+    },
+    "630948_9": {
+      "job_id": "630948_9",
+      "name": "unirank-onetrans-seeds",
+      "state": "RUNNING",
+      "start": "2026-09-18T17:26:40"
+    },
+    "631034_2": {
+      "job_id": "631034_2",
+      "name": "unirank-onetrans-ws2",
+      "state": "RUNNING",
+      "start": "2026-09-18T16:42:37"
+    },
+    "631034_5": {
+      "job_id": "631034_5",
+      "name": "unirank-onetrans-ws2",
+      "state": "RUNNING",
+      "start": "2026-09-18T17:02:38"
+    },
+    "631034_4": {
+      "job_id": "631034_4",
+      "name": "unirank-onetrans-ws2",
+      "state": "RUNNING",
+      "start": "2026-09-18T17:02:08"
+    },
+    "630948_0": {
+      "job_id": "630948_0",
+      "name": "unirank-onetrans-seeds",
+      "state": "COMPLETED",
+      "start": "2026-09-18T16:41:37"
+    },
+    "630948_1": {
+      "job_id": "630948_1",
+      "name": "unirank-onetrans-seeds",
+      "state": "COMPLETED",
+      "start": "2026-09-18T16:41:37"
+    },
+    "630948_8": {
+      "job_id": "630948_8",
+      "name": "unirank-onetrans-seeds",
+      "state": "COMPLETED",
+      "start": "2026-09-18T17:08:08"
+    },
+    "631034_3": {
+      "job_id": "631034_3",
+      "name": "unirank-onetrans-ws2",
+      "state": "COMPLETED",
+      "start": "2026-09-18T16:42:37"
+    }
+  },
+  "status": "all_pairs_selected"
+}

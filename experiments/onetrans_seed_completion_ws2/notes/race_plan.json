@@ -1,0 +1,24 @@
+{
+  "policy": "first_started_wins",
+  "authorization": "User explicitly selected keep the first-started version and cancel the other version for each matching dataset and seed",
+  "arrays": {
+    "ws4": "630948",
+    "ws2": "631034"
+  },
+  "job_names": {
+    "ws4": "unirank-onetrans-seeds",
+    "ws2": "unirank-onetrans-ws2"
+  },
+  "task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9
+  ],
+  "tie_break": "ws4 when actual Start times are equal to the second",
+  "poll_seconds": 30
+}

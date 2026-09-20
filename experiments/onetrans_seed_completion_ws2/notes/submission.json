@@ -1,0 +1,42 @@
+{
+  "array_job_id": "631034",
+  "submitted_at": "2026-09-18T16:41:47+08:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--hold",
+    "scripts/submit_onetrans_seed_completion_ws2.sbatch"
+  ],
+  "raw_stdout": "631034\n",
+  "task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9
+  ],
+  "settings": [
+    "sisa"
+  ],
+  "seeds": [
+    20262028,
+    20262029
+  ],
+  "world_size": 2,
+  "per_gpu_batch": 16384,
+  "global_batch": 32768,
+  "attempt": 1,
+  "initially_held": true,
+  "paired_four_gpu_array": "630948",
+  "selection_policy": "first_started_wins",
+  "released_at": "2026-09-18T16:42:22+08:00",
+  "release_command": [
+    "scontrol",
+    "release",
+    "631034"
+  ],
+  "monitor_pid": 651399
+}
