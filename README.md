@@ -65,6 +65,10 @@ Git 只同步实现和复现必需文件。以下内容按设计不进入仓库�
 
 ## 4. 目录和关键入口
 
+实验材料从 [实验总索引](experiments/README.md) 进入。当前主报告为
+[SISA 论文实验报告](experiments/sisa_paper_report/report.md)，消融正文、完整归档及
+独立诊断报告在索引中分别列出。
+
 ```text
 UniRank/
 ├── .git/                            # Git 历史、分支和对象数据库
@@ -83,6 +87,7 @@ UniRank/
 ├── artifacts/                       # 阶段性审计结果和失败重试现场
 ├── experiments/                     # 实验计划、报告、结果表与消融模板
 │   ├── README.md                    # 实验总索引与归档规范
+│   ├── sisa_paper_report/           # accepted 16-cell 论文主报告及证据归档
 │   ├── sisa_native_strict/          # 已完成 32-task 严格实验
 │   │   ├── report.md                # 统一正式报告
 │   │   ├── results/                 # 小型机器可读结果
@@ -91,7 +96,10 @@ UniRank/
 │   ├── sisa_single_seed20262028/     # seed 20262028 结果与两-seed 比较
 │   ├── sisa_single_seed20262029/     # seed 20262029 结果与同协议比较
 │   ├── sisa_three_seed_unified/      # 三-seed、baseline 与论文表统一分析
-│   ├── ablations/                   # 后续消融实验索引
+│   ├── ablations/                   # 已完成组件消融、论文正文及完整归档
+│   ├── hiformer_qk_diagnostic/      # HiFormer–QK 诊断报告及核验材料
+│   ├── onetrans_seed_completion/    # OneTrans 补齐诊断与最终选定结果
+│   ├── onetrans_seed_completion_ws2/ # OneTrans 两卡分支协议及选择回执
 │   └── templates/ablation/          # 消融报告模板
 ├── scripts/
 │   ├── submit_sisa_native_strict.sbatch
@@ -367,8 +375,8 @@ git merge --ff-only origin/main
 
 ## 11. 已知风险与后续工作
 
-- 扩展 38-task 已完成；下一阶段应按 `experiments/ablations/` 的单变量规范设计消融，
-  不应直接复用临时 job ID 或散落的 stdout 作为报告。
+- 三组组件消融已完成；后续研究继续按 `experiments/ablations/` 的单变量规范建档，
+  完成状态与报告入口统一维护在 `experiments/README.md`。
 - UltraHSTU 使用 FlexAttention；CPU 只用于前向/等价性测试，正式 backward 必须在
   CUDA smoke 中验证。
 - MerRec embedding 最大。扩展脚本对 MerRec 使用等价的 scalar/chunked Adagrad 路径，
