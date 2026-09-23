@@ -1,0 +1,50 @@
+{
+  "submitted_at": "2026-09-23T10:42:30+08:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--array=2",
+    "--gres=gpu:4",
+    "--cpus-per-task=32",
+    "--time=02:00:00",
+    "--export=ALL,SISA_SCORE_DIM_ATTEMPT=3",
+    "scripts/submit_sisa_score_dim.sbatch"
+  ],
+  "stdout": "644583\n",
+  "stderr": "",
+  "tasks": [
+    {
+      "task_id": 2,
+      "score_dim": 64,
+      "attempt": 3,
+      "array_id": "644583",
+      "job_task_id": "644583_2",
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768,
+      "gradient_checkpointing": false,
+      "source_snapshot": "experiments/ablations/sisa_score_dim/notes/source_sha256_r64_attempt3.json"
+    }
+  ],
+  "retry_of": [
+    "643736_2",
+    "643901_2"
+  ],
+  "reason": "User requested four GPUs with smaller per-GPU batch and unchanged global batch",
+  "cpu_regression": "Ran 151 tests in 26.662s",
+  "cpu_regression_status": "OK",
+  "protocol_changes": [
+    "world_size: 2 -> 4",
+    "batch_size: 16384 -> 8192"
+  ],
+  "unchanged": [
+    "global_batch=32768",
+    "epochs=1",
+    "seed=20262028",
+    "dataloader_seed=2027",
+    "sisa_parameter_seed=20260822",
+    "original model and compiler settings"
+  ],
+  "coverage": "experiments/ablations/sisa_score_dim/configs/data_coverage_ws4.csv"
+}

@@ -1,0 +1,4 @@
+task_id,score_dim,seed,attempt,run_id
+0,8,20262028,1,SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1
+1,32,20262028,1,SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1
+2,64,20262028,1,SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt1

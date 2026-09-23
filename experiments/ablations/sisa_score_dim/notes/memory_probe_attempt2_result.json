@@ -1,0 +1,12 @@
+{
+  "job_id": "643996",
+  "state": "FAILED",
+  "stage": "first backward pass",
+  "forward_pass_completed": true,
+  "optimizer_steps_completed": 0,
+  "gpu_equivalence": "138 tensors per rank, both ranks maximum absolute error 0",
+  "requested_allocation_gib": 1.56,
+  "allocated_gib": 76.74,
+  "free_mib": 657.06,
+  "log": "logs/unirank-sisa-dim-memory-probe-643996.out"
+}

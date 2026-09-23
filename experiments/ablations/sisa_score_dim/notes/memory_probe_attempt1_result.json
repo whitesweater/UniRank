@@ -1,0 +1,30 @@
+{
+  "job_id": "643933",
+  "state": "FAILED",
+  "gpu_equivalence": [
+    {
+      "rank": 0,
+      "tensors_compared": 138,
+      "dtype": "BF16 autocast",
+      "max_absolute_error": 0.0,
+      "rtol": 0.016,
+      "atol": 1e-05,
+      "activation_memory_budget": 0.0,
+      "passed": true
+    },
+    {
+      "rank": 1,
+      "tensors_compared": 138,
+      "dtype": "BF16 autocast",
+      "max_absolute_error": 0.0,
+      "rtol": 0.016,
+      "atol": 1e-05,
+      "activation_memory_budget": 0.0,
+      "passed": true
+    }
+  ],
+  "full_batch_probe_executed": false,
+  "cause": "Diagnostic-only hook imported RankModel, but the repository class is BaseModel",
+  "correction": "Import BaseModel at module load so CPU import tests cover the hook target",
+  "log": "logs/unirank-sisa-dim-memory-probe-643933.out"
+}

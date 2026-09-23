@@ -1,0 +1,20 @@
+[
+  {
+    "split": "train",
+    "reference_two_gpu_rows": 144048128,
+    "new_four_gpu_rows": 144072704,
+    "delta_rows": 24576
+  },
+  {
+    "split": "valid",
+    "reference_two_gpu_rows": 16449536,
+    "new_four_gpu_rows": 16482304,
+    "delta_rows": 32768
+  },
+  {
+    "split": "test",
+    "reference_two_gpu_rows": 11599872,
+    "new_four_gpu_rows": 11640832,
+    "delta_rows": 40960
+  }
+]

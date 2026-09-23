@@ -15,6 +15,12 @@ Slurm job ID 建目录。
 三组完整报告位于 `archive/reports/three_study_report.md`，全部紧凑结果仍在
 `archive/results/`。正文展示范围缩小不代表其他两组结果丢失或尚未完成。
 
+维度研究：`sisa_score_dim`，仅 HyFormer–MerRec。比较每头 8、16、32、64 维，
+16 维复用已审计的完整 SISA 任务 548166_1，新增训练 8、32、64 维三个任务。
+截至 2026-09-23 11:13，四种维度均已完成审计。64 维最终用四卡、每卡 batch 8192，
+全局 batch 保持 32768，DDP 与 drop_last 覆盖差异已披露。
+独立完整报告为该研究的 `report.md`，提交与守护记录位于 `notes/`，紧凑结果位于 `results/`。
+
 创建新实验时使用：
 
 ```text

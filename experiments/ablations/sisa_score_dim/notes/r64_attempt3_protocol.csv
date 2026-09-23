@@ -1,0 +1,76 @@
+field,reference,effective,status
+accumulation_steps,1,1,matches
+batch_size,16384,8192,documented_difference
+block_cache_size,2,2,matches
+blocked,true,true,matches
+data_format,"""parquet""","""parquet""",matches
+data_root,"""./datasets""","""./datasets""",matches
+dataloader_seed,2027,2027,matches
+dataset_id,"""MerRec_Action""","""MerRec_Action""",matches
+debug_mode,false,false,matches
+dense_learning_rate,0.0001,0.0001,matches
+dense_optimizer,"""AdamW""","""AdamW""",matches
+dense_weight_decay,0,0,matches
+distributed,true,true,matches
+dnn_activations,"""ReLU""","""ReLU""",matches
+early_stop_patience,2,2,matches
+embedding_dim,16,16,matches
+enable_bf16,true,true,matches
+enable_torch_compile,true,true,matches
+epochs,1,1,matches
+eval_steps,null,null,matches
+feature_cols,"[{""active"": true, ""dtype"": ""int"", ""name"": ""user_index"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_index"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""seq_len"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""user_id"", ""type"": ""categorical"", ""vocab_size"": 1697916}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 43817684}, {""active"": true, ""dtype"": ""int"", ""name"": ""product_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 893620}, {""active"": true, ""dtype"": ""int"", ""name"": ""price_bucket"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 10}, {""active"": true, ""dtype"": ""int"", ""name"": ""c0_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 18}, {""active"": true, ""dtype"": ""int"", ""name"": ""c1_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 310}, {""active"": true, ""dtype"": ""int"", ""name"": ""c2_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 3042}, {""active"": true, ""dtype"": ""int"", ""name"": ""brand_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 19783}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_condition_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 7}, {""active"": true, ""dtype"": ""int"", ""name"": ""size_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 356}, {""active"": true, ""dtype"": ""int"", ""name"": ""shipper_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 3}, {""active"": true, ""dtype"": ""int"", ""name"": ""color"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 7311}, {""active"": true, ""dtype"": ""int"", ""name"": ""session_id"", ""type"": ""categorical"", ""vocab_size"": 3701837}, {""active"": true, ""dtype"": ""int"", ""name"": ""day_of_week"", ""type"": ""categorical"", ""vocab_size"": 8}, {""active"": true, ""dtype"": ""int"", ""name"": ""is_weekend"", ""type"": ""categorical"", ""vocab_size"": 3}, {""active"": true, ""dtype"": ""int"", ""name"": ""hour"", ""type"": ""categorical"", ""vocab_size"": 25}, {""active"": true, ""dtype"": ""int"", ""name"": ""action"", ""source"": ""action"", ""type"": ""categorical"", ""vocab_size"": 33}]","[{""active"": true, ""dtype"": ""int"", ""name"": ""user_index"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_index"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""seq_len"", ""type"": ""meta""}, {""active"": true, ""dtype"": ""int"", ""name"": ""user_id"", ""type"": ""categorical"", ""vocab_size"": 1697916}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 43817684}, {""active"": true, ""dtype"": ""int"", ""name"": ""product_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 893620}, {""active"": true, ""dtype"": ""int"", ""name"": ""price_bucket"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 10}, {""active"": true, ""dtype"": ""int"", ""name"": ""c0_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 18}, {""active"": true, ""dtype"": ""int"", ""name"": ""c1_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 310}, {""active"": true, ""dtype"": ""int"", ""name"": ""c2_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 3042}, {""active"": true, ""dtype"": ""int"", ""name"": ""brand_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 19783}, {""active"": true, ""dtype"": ""int"", ""name"": ""item_condition_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 7}, {""active"": true, ""dtype"": ""int"", ""name"": ""size_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 356}, {""active"": true, ""dtype"": ""int"", ""name"": ""shipper_id"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 3}, {""active"": true, ""dtype"": ""int"", ""name"": ""color"", ""source"": ""item"", ""type"": ""categorical"", ""vocab_size"": 7311}, {""active"": true, ""dtype"": ""int"", ""name"": ""session_id"", ""type"": ""categorical"", ""vocab_size"": 3701837}, {""active"": true, ""dtype"": ""int"", ""name"": ""day_of_week"", ""type"": ""categorical"", ""vocab_size"": 8}, {""active"": true, ""dtype"": ""int"", ""name"": ""is_weekend"", ""type"": ""categorical"", ""vocab_size"": 3}, {""active"": true, ""dtype"": ""int"", ""name"": ""hour"", ""type"": ""categorical"", ""vocab_size"": 25}, {""active"": true, ""dtype"": ""int"", ""name"": ""action"", ""source"": ""action"", ""type"": ""categorical"", ""vocab_size"": 33}]",matches
+feature_config,null,null,matches
+feature_specs,null,null,matches
+gpu,0,0,matches
+gradient_checkpointing,false,false,matches
+group_id,"""user_id""","""user_id""",matches
+label_col,"[{""dtype"": ""float"", ""name"": ""Like""}, {""dtype"": ""float"", ""name"": ""Cart""}, {""dtype"": ""float"", ""name"": ""Offer""}, {""dtype"": ""float"", ""name"": ""Checkout""}, {""dtype"": ""float"", ""name"": ""Purchase""}]","[{""dtype"": ""float"", ""name"": ""Like""}, {""dtype"": ""float"", ""name"": ""Cart""}, {""dtype"": ""float"", ""name"": ""Offer""}, {""dtype"": ""float"", ""name"": ""Checkout""}, {""dtype"": ""float"", ""name"": ""Purchase""}]",matches
+local_rank,0,0,matches
+loss,"[""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy""]","[""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy"", ""binary_crossentropy""]",matches
+max_len,100,100,matches
+metrics,"[""logloss"", ""AUC""]","[""logloss"", ""AUC""]",matches
+model,"""HyFormer""","""HyFormer""",matches
+model_id,"""SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1""","""SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3""",documented_difference
+model_root,"""./checkpoints/""","""./checkpoints/""",matches
+monitor,"{""AUC"": 1, ""logloss"": 0}","{""AUC"": 1, ""logloss"": 0}",matches
+monitor_mode,"""max""","""max""",matches
+net_dropout,0,0,matches
+num_global_token,2,2,matches
+num_heads,2,2,matches
+num_layers,3,3,matches
+num_ns_token,4,4,matches
+num_tasks,5,5,matches
+num_workers,4,4,matches
+pickle_feature_encoder,true,true,matches
+rank,0,0,matches
+rebuild_dataset,false,false,matches
+save_best_only,true,true,matches
+seed,20262028,20262028,matches
+shuffle,true,true,matches
+sisa_enabled,true,true,matches
+sisa_lambda_init,0.1,0.1,matches
+sisa_parameter_seed,20260822,20260822,matches
+sisa_score_dim,16,64,documented_difference
+sisa_score_scale,1.0,1.0,matches
+sisa_variant,"""full""","""full""",matches
+sparse_adagrad_chunk_size,16777216,16777216,matches
+sparse_learning_rate,0.05,0.05,matches
+sparse_optimizer,"""Adagrad""","""Adagrad""",matches
+sparse_optimizer_foreach,false,false,matches
+task,"""binary_classification""","""binary_classification""",matches
+test_data,"""./datasets/MerRec_Action/test/data""","""./datasets/MerRec_Action/test/data""",matches
+test_item_info,"""./datasets/MerRec_Action/test/item_info""","""./datasets/MerRec_Action/test/item_info""",matches
+test_user_info,"""./datasets/MerRec_Action/test/user_info""","""./datasets/MerRec_Action/test/user_info""",matches
+token_dim,256,256,matches
+tower_activations,"""ReLU""","""ReLU""",matches
+tower_hidden_units,"[128, 64]","[128, 64]",matches
+train_data,"""./datasets/MerRec_Action/train/data""","""./datasets/MerRec_Action/train/data""",matches
+train_item_info,"""./datasets/MerRec_Action/train/item_info""","""./datasets/MerRec_Action/train/item_info""",matches
+train_user_info,"""./datasets/MerRec_Action/train/user_info""","""./datasets/MerRec_Action/train/user_info""",matches
+use_features,null,null,matches
+valid_data,"""./datasets/MerRec_Action/valid/data""","""./datasets/MerRec_Action/valid/data""",matches
+valid_item_info,"""./datasets/MerRec_Action/valid/item_info""","""./datasets/MerRec_Action/valid/item_info""",matches
+valid_user_info,"""./datasets/MerRec_Action/valid/user_info""","""./datasets/MerRec_Action/valid/user_info""",matches
+verbose,1,1,matches
+world_size,2,4,documented_difference

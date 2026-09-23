@@ -1,0 +1,84 @@
+{
+  "status": "share_with_caveats",
+  "dimensions": 4,
+  "labels_per_dimension": 5,
+  "independently_verified_label_metric_values": 40,
+  "macro_calculation": "Exact Decimal mean of five final Test labels",
+  "comparison_groups": {
+    "dimension_only": [
+      8,
+      16,
+      32
+    ],
+    "dimension_with_four_gpu_layout": [
+      64
+    ]
+  },
+  "issues": [],
+  "caveats": [
+    "one seed and one model-dataset pair",
+    "r64 uses four GPUs at batch 8192, other dimensions two GPUs at batch 16384",
+    "same global batch does not make DDP sharding and drop_last coverage identical",
+    "historical full software and source snapshots are unavailable",
+    "coverage counts do not prove historical sample byte identity"
+  ],
+  "sources": [
+    {
+      "score_dim": 8,
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1.log",
+      "sha256": "a63fa3a0d7fbf6ceeed638a59589cd9060c255c5a25f5b4c31f3f52560360ff8"
+    },
+    {
+      "score_dim": 8,
+      "path": "logs/unirank-sisa-score-dim-643736_0.out",
+      "sha256": "b1c4010468aeb45f98368eebecc42c9d974b9c1eefe6c6ef6f369014e5715f29"
+    },
+    {
+      "score_dim": 16,
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "4ef7b36faad3536a2d02079374457290f656324ad5ae5ae7ffaccee90d285dff"
+    },
+    {
+      "score_dim": 16,
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_1.out",
+      "sha256": "87cce12fb512b44b5a47af6c5e8a7fdfa95f5011d53bdbca3180783a7c017d35"
+    },
+    {
+      "score_dim": 32,
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1.log",
+      "sha256": "af6aea71bdb28cbd452afd6199175b55f6e458f9f76d9e55208bd8a7b4139ffc"
+    },
+    {
+      "score_dim": 32,
+      "path": "logs/unirank-sisa-score-dim-643736_1.out",
+      "sha256": "16dc776d23eb6002ea9973c613416bfb7c66380b41365bb996e18b9585b07e34"
+    },
+    {
+      "score_dim": 64,
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3.log",
+      "sha256": "60db030bb799fced3efc9009061c14af0935545c5d605ecc42a8d0ad468511f5"
+    },
+    {
+      "score_dim": 64,
+      "path": "logs/unirank-sisa-score-dim-644583_2.out",
+      "sha256": "82cd292aa77a34aad8286105030d317c603033e887dc219a31772186d6092d4e"
+    }
+  ],
+  "report_file": "experiments/ablations/sisa_score_dim/archive/reports/generated_report.md",
+  "report_sha256": "8f8fef4461956ced3ce67c5e2820da483c0da5afd5b01b2da94d84a8183ee481",
+  "evidence_sha256": "d89fe44b408f49ebe9db0cf0da8b036954e575315733bc783fad603bd5168573",
+  "primary_report": "experiments/ablations/sisa_score_dim/report.md",
+  "primary_matches_generated": true,
+  "presentation_qa": {
+    "format": "standalone Chinese Markdown",
+    "hyperlinks": 0,
+    "label_rows": 20,
+    "label_metric_values": 40,
+    "consistent_table_columns": true,
+    "primary_equals_generated": true,
+    "all_jobs_indexed": 10,
+    "runtime_artifacts_indexed": 31,
+    "retained_model_files": 4,
+    "diagnostic_source_files_preserved": 8
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-09-23T03:38:18+08:00",
+  "task_id": 2,
+  "score_dim": 64,
+  "attempt": 1,
+  "job_task_id": "643736_2",
+  "state": "FAILED",
+  "failure_stage": "first training batch, compiled forward",
+  "completed_training_batches": 0,
+  "errors": [
+    "[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 816.00 MiB. GPU 1 has a total capacity of 79.19 GiB of which 533.06 MiB is free. Including non-PyTorch memory, this process has 78.65 GiB memory in use. Of the allocated memory 77.01 GiB is allocated by PyTorch, and 156.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 816.00 MiB. GPU 0 has a total capacity of 79.19 GiB of which 533.06 MiB is free. Including non-PyTorch memory, this process has 78.65 GiB memory in use. Of the allocated memory 77.01 GiB is allocated by PyTorch, and 156.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+  ],
+  "accounting_stdout": "643736_2|FAILED|1:0|00:02:10|ACD1-2\n643736_2.batch|FAILED|1:0|00:02:10|ACD1-2\n643736_2.extern|COMPLETED|0:0|00:02:10|ACD1-2\n",
+  "slurm_log": "logs/unirank-sisa-score-dim-643736_2.out",
+  "log_sha256": "1e2ec3a5cd033d4ebb6b734961a02c4dbe0e8d870d2513d62d9e13aa11ae66a9",
+  "activation_checkpoint_cpu_check": {
+    "score_dim": 64,
+    "dtypes": [
+      "float32",
+      "bfloat16"
+    ],
+    "output_exact": true,
+    "input_gradients_exact": true,
+    "parameter_gradients_exact": true,
+    "compared_parameter_gradient_tensors": 132,
+    "limitation": "CPU HyFormerBlock test; full-batch GPU memory feasibility and compiled numerical equivalence not yet verified"
+  },
+  "next_action": "awaiting choice between activation-checkpoint retry and reporting OOM",
+  "resolution": "Retried only r64 as 643901_2 with existing non-reentrant activation checkpointing; batch, seeds and data coverage preserved"
+}

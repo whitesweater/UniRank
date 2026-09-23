@@ -1,0 +1,13 @@
+{
+  "job_task_id": "643901_2",
+  "attempt": 2,
+  "state": "FAILED",
+  "completed_training_batches": 0,
+  "errors": [
+    "[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 816.00 MiB. GPU 0 has a total capacity of 79.19 GiB of which 555.06 MiB is free. Including non-PyTorch memory, this process has 78.63 GiB memory in use. Of the allocated memory 77.01 GiB is allocated by PyTorch, and 131.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 816.00 MiB. GPU 1 has a total capacity of 79.19 GiB of which 555.06 MiB is free. Including non-PyTorch memory, this process has 78.63 GiB memory in use. Of the allocated memory 77.01 GiB is allocated by PyTorch, and 131.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+  ],
+  "source_sha256": "5bca9df3a656000fc72a99adbd3dec4725b966fd3b39cc6cf434726d00a5726e",
+  "conclusion": "Whole-block checkpoint around a compiled child did not prevent the compiled forward allocation peak",
+  "next_diagnostic": "Compiler activation_memory_budget=0.0 with original gradient_checkpointing=False; short numerical and full-batch GPU probe"
+}

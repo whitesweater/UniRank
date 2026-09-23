@@ -1,0 +1,31 @@
+{
+  "diagnostic_job": "643933",
+  "primary_training_entrypoint": "run_expid.py",
+  "model_code_modified": false,
+  "world_size": 2,
+  "per_gpu_batch": 16384,
+  "probe_steps": 3,
+  "ordinary_gradient_checkpointing": false,
+  "compiler_activation_memory_budget": 0.0,
+  "numeric_check": {
+    "device": "GPU",
+    "precision": "BF16 autocast",
+    "model": "HyFormerBlock",
+    "score_dim": 64,
+    "comparison": "compiler memory budget 1.0 versus 0.0",
+    "rtol": 0.016,
+    "atol": 1e-05
+  },
+  "local_implementation_evidence": [
+    "torch/_functorch/config.py: 0.0 uses the activation-memory level of checkpointing the compiled region",
+    "torch/_functorch/partitioners.py: memory_budget==0 returns node_info.inputs as saved values",
+    "unirank/pytorch/models/rank_model.py: dense child modules are compiled before the outer checkpoint call"
+  ],
+  "acceptance": [
+    "Slurm COMPLETED/0:0",
+    "both ranks pass GPU equivalence",
+    "both ranks finish three finite-loss optimizer steps",
+    "original batch and two-rank layout",
+    "no final Test metrics are generated"
+  ]
+}

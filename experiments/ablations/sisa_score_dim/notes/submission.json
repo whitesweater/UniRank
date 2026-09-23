@@ -1,0 +1,40 @@
+{
+  "selection_kind": "selected_attempts",
+  "selected_at": "2026-09-23T10:42:30+08:00",
+  "tasks": [
+    {
+      "task_id": 0,
+      "score_dim": 8,
+      "attempt": 1,
+      "array_id": "643736",
+      "job_task_id": "643736_0",
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1"
+    },
+    {
+      "task_id": 1,
+      "score_dim": 32,
+      "attempt": 1,
+      "array_id": "643736",
+      "job_task_id": "643736_1",
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1"
+    },
+    {
+      "task_id": 2,
+      "score_dim": 64,
+      "attempt": 3,
+      "array_id": "644583",
+      "job_task_id": "644583_2",
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3",
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768,
+      "gradient_checkpointing": false,
+      "source_snapshot": "experiments/ablations/sisa_score_dim/notes/source_sha256_r64_attempt3.json"
+    }
+  ],
+  "history_receipts": [
+    "experiments/ablations/sisa_score_dim/notes/submission_attempt1.json",
+    "experiments/ablations/sisa_score_dim/notes/submission_r64_attempt2.json",
+    "experiments/ablations/sisa_score_dim/notes/submission_r64_attempt3.json"
+  ]
+}

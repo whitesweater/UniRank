@@ -1,0 +1,19 @@
+{
+  "submitted_at": "2026-09-23T04:13:32+08:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=acd_u",
+    "scripts/submit_sisa_score_dim_probe.sbatch"
+  ],
+  "stdout": "643933\n",
+  "stderr": "",
+  "returncode": 0,
+  "purpose": "GPU numeric equivalence and three full-size DDP steps; no evaluation or formal metrics",
+  "debug_preflight_rejection": "QOSMaxCpuPerUserLimit; no diagnostic job was created in debug",
+  "source_sha256": {
+    "scripts/run_sisa_memory_budget.py": "3fbd6fdafd42ff69d4afd3789d00f98156426f70d684a2b02c9f6f8003f4feb1",
+    "scripts/submit_sisa_score_dim_probe.sbatch": "7dc21dbc3f0833be1b20ef4d3b186468b1891aace5429f712e3ffd50c27b7348"
+  },
+  "job_id": "643933"
+}

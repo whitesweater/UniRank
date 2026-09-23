@@ -1,0 +1,191 @@
+HyFormer_MerRec_Action:
+  model_root: ./checkpoints/
+  num_workers: 4
+  verbose: 1
+  early_stop_patience: 2
+  pickle_feature_encoder: true
+  save_best_only: true
+  eval_steps: null
+  debug_mode: false
+  group_id: user_id
+  use_features: null
+  feature_specs: null
+  feature_config: null
+  dense_optimizer: AdamW
+  sparse_optimizer: Adagrad
+  dense_learning_rate: 0.0001
+  sparse_learning_rate: 0.05
+  dense_weight_decay: 0
+  enable_torch_compile: true
+  gradient_checkpointing: true
+  model: HyFormer
+  dataset_id: MerRec_Action
+  loss:
+  - binary_crossentropy
+  - binary_crossentropy
+  - binary_crossentropy
+  - binary_crossentropy
+  - binary_crossentropy
+  metrics:
+  - logloss
+  - AUC
+  task: binary_classification
+  batch_size: 8192
+  embedding_dim: 16
+  tower_hidden_units:
+  - 128
+  - 64
+  num_tasks: 5
+  num_layers: 3
+  num_heads: 2
+  token_dim: 256
+  num_ns_token: 4
+  num_global_token: 2
+  dnn_activations: ReLU
+  tower_activations: ReLU
+  net_dropout: 0
+  epochs: 1
+  shuffle: true
+  seed: 20262027
+  monitor:
+    AUC: 1
+    logloss: 0
+  monitor_mode: max
+  max_len: 100
+  accumulation_steps: 1
+  model_id: HyFormer_MerRec_Action
+  data_root: ./datasets
+  data_format: parquet
+  train_data: ./datasets/MerRec_Action/train/data
+  valid_data: ./datasets/MerRec_Action/valid/data
+  test_data: ./datasets/MerRec_Action/test/data
+  train_user_info: ./datasets/MerRec_Action/train/user_info
+  train_item_info: ./datasets/MerRec_Action/train/item_info
+  valid_user_info: ./datasets/MerRec_Action/valid/user_info
+  valid_item_info: ./datasets/MerRec_Action/valid/item_info
+  test_user_info: ./datasets/MerRec_Action/test/user_info
+  test_item_info: ./datasets/MerRec_Action/test/item_info
+  rebuild_dataset: false
+  blocked: true
+  block_cache_size: 2
+  feature_cols:
+  - name: user_index
+    active: true
+    dtype: int
+    type: meta
+  - name: item_index
+    active: true
+    dtype: int
+    type: meta
+  - name: seq_len
+    active: true
+    dtype: int
+    type: meta
+  - name: user_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 1697916
+  - name: item_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 43817684
+    source: item
+  - name: product_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 893620
+    source: item
+  - name: price_bucket
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 10
+    source: item
+  - name: c0_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 18
+    source: item
+  - name: c1_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 310
+    source: item
+  - name: c2_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 3042
+    source: item
+  - name: brand_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 19783
+    source: item
+  - name: item_condition_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 7
+    source: item
+  - name: size_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 356
+    source: item
+  - name: shipper_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 3
+    source: item
+  - name: color
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 7311
+    source: item
+  - name: session_id
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 3701837
+  - name: day_of_week
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 8
+  - name: is_weekend
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 3
+  - name: hour
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 25
+  - name: action
+    active: true
+    dtype: int
+    type: categorical
+    vocab_size: 33
+    source: action
+  label_col:
+  - name: Like
+    dtype: float
+  - name: Cart
+    dtype: float
+  - name: Offer
+    dtype: float
+  - name: Checkout
+    dtype: float
+  - name: Purchase
+    dtype: float

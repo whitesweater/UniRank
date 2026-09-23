@@ -1,0 +1,885 @@
+{
+  "generated_at": "2026-09-23T11:13:15+08:00",
+  "study": "sisa_score_dim",
+  "model": "HyFormer",
+  "dataset": "MerRec_Action",
+  "seed": 20262028,
+  "runs": [
+    {
+      "task_id": 0,
+      "score_dim": 8,
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1",
+      "job_task_id": "643736_0",
+      "attempt": 1,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.750308,
+          "logloss": 0.333306
+        },
+        "Cart": {
+          "AUC": 0.806684,
+          "logloss": 0.052645
+        },
+        "Offer": {
+          "AUC": 0.729252,
+          "logloss": 0.021463
+        },
+        "Checkout": {
+          "AUC": 0.849075,
+          "logloss": 0.005
+        },
+        "Purchase": {
+          "AUC": 0.849988,
+          "logloss": 0.00315
+        }
+      },
+      "macro_auc": 0.7970614,
+      "macro_logloss": 0.0831128,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810042365,
+      "dense_parameters": 7770909,
+      "gradient_checkpointing": false,
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "comparison_scope": "dimension_only",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-score-dim-643736_0.out",
+      "latest_progress": "Rank 1 | Eval: 100%|██████████| 354/354 [00:41<00:00,  9.95it/s]\u001b[A"
+    },
+    {
+      "study": "sisa_components_hyformer_merrec_bcd",
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "setting": "E",
+      "variant": "full",
+      "seed": 20262028,
+      "run_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+      "job_task_id": "548166_1",
+      "state": "COMPLETED",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.750689,
+          "logloss": 0.331361
+        },
+        "Cart": {
+          "AUC": 0.810189,
+          "logloss": 0.052477
+        },
+        "Offer": {
+          "AUC": 0.731796,
+          "logloss": 0.021512
+        },
+        "Checkout": {
+          "AUC": 0.855579,
+          "logloss": 0.004954
+        },
+        "Purchase": {
+          "AUC": 0.856109,
+          "logloss": 0.003084
+        }
+      },
+      "macro_auc": 0.8008724,
+      "macro_logloss": 0.0826776,
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_1.out",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_git_revision": null,
+      "protocol_fields_checked": 74,
+      "total_parameters": 810103805,
+      "dense_parameters": 7832349,
+      "exit_code": "0:0",
+      "score_dim": 16,
+      "task_id": null,
+      "attempt": 1,
+      "historical": true,
+      "gradient_checkpointing": false,
+      "comparison_scope": "dimension_only",
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768
+    },
+    {
+      "task_id": 1,
+      "score_dim": 32,
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1",
+      "job_task_id": "643736_1",
+      "attempt": 1,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.748215,
+          "logloss": 0.333315
+        },
+        "Cart": {
+          "AUC": 0.804689,
+          "logloss": 0.052831
+        },
+        "Offer": {
+          "AUC": 0.754788,
+          "logloss": 0.021007
+        },
+        "Checkout": {
+          "AUC": 0.844783,
+          "logloss": 0.004791
+        },
+        "Purchase": {
+          "AUC": 0.843524,
+          "logloss": 0.003108
+        }
+      },
+      "macro_auc": 0.7991998,
+      "macro_logloss": 0.0830104,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810226685,
+      "dense_parameters": 7955229,
+      "gradient_checkpointing": false,
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "comparison_scope": "dimension_only",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-score-dim-643736_1.out",
+      "latest_progress": "Rank 0 | Eval: 100%|██████████| 354/354 [00:48<00:00,  7.32it/s]"
+    },
+    {
+      "task_id": 2,
+      "score_dim": 64,
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3",
+      "job_task_id": "644583_2",
+      "attempt": 3,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.749112,
+          "logloss": 0.326702
+        },
+        "Cart": {
+          "AUC": 0.809167,
+          "logloss": 0.052649
+        },
+        "Offer": {
+          "AUC": 0.755252,
+          "logloss": 0.021034
+        },
+        "Checkout": {
+          "AUC": 0.853866,
+          "logloss": 0.004727
+        },
+        "Purchase": {
+          "AUC": 0.854611,
+          "logloss": 0.003079
+        }
+      },
+      "macro_auc": 0.8044016,
+      "macro_logloss": 0.0816382,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810472445,
+      "dense_parameters": 8200989,
+      "gradient_checkpointing": false,
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768,
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ],
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3.log",
+      "slurm_log": "logs/unirank-sisa-score-dim-644583_2.out",
+      "latest_progress": "Rank 2 | Eval: 100%|██████████| 356/356 [00:29<00:00, 14.60it/s]\u001b[A\u001b[A"
+    }
+  ],
+  "comparisons": [
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "__macro__",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.003811000000000009,
+      "delta_logloss": 0.0004351999999999967
+    },
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "Like",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.0003810000000000757,
+      "delta_logloss": 0.0019449999999999745
+    },
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "Cart",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.0035050000000000914,
+      "delta_logloss": 0.00016799999999999454
+    },
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "Offer",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.0025439999999999907,
+      "delta_logloss": -4.900000000000043e-05
+    },
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "Checkout",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.006503999999999954,
+      "delta_logloss": 4.6000000000000034e-05
+    },
+    {
+      "score_dim": 8,
+      "reference_dim": 16,
+      "label": "Purchase",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.006121000000000043,
+      "delta_logloss": 6.600000000000009e-05
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "__macro__",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.001672600000000024,
+      "delta_logloss": 0.0003327999999999942
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "Like",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.0024740000000000872,
+      "delta_logloss": 0.0019539999999999558
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "Cart",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.00550000000000006,
+      "delta_logloss": 0.00035400000000000015
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "Offer",
+      "comparison_scope": "dimension_only",
+      "delta_auc": 0.022992000000000012,
+      "delta_logloss": -0.0005049999999999985
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "Checkout",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.010796000000000028,
+      "delta_logloss": -0.00016299999999999995
+    },
+    {
+      "score_dim": 32,
+      "reference_dim": 16,
+      "label": "Purchase",
+      "comparison_scope": "dimension_only",
+      "delta_auc": -0.012584999999999957,
+      "delta_logloss": 2.400000000000015e-05
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "__macro__",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": 0.00352920000000001,
+      "delta_logloss": -0.0010394000000000098
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "Like",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": -0.0015770000000000506,
+      "delta_logloss": -0.004659000000000024
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "Cart",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": -0.0010220000000000784,
+      "delta_logloss": 0.00017199999999999854
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "Offer",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": 0.023456000000000032,
+      "delta_logloss": -0.00047799999999999926
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "Checkout",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": -0.0017129999999999646,
+      "delta_logloss": -0.00022699999999999977
+    },
+    {
+      "score_dim": 64,
+      "reference_dim": 16,
+      "label": "Purchase",
+      "comparison_scope": "dimension_with_four_gpu_layout",
+      "delta_auc": -0.0014979999999999993,
+      "delta_logloss": -4.999999999999796e-06
+    }
+  ],
+  "sources": [
+    {
+      "path": "experiments/ablations/sisa_score_dim/configs/reference_evidence.json",
+      "sha256": "2bfea0ac65151231f02f45b9c38abc3cf01449fb53e84a99db478546c296ae3c",
+      "bytes": 3699
+    },
+    {
+      "path": "experiments/sisa_paper_report/archive/results/run_evidence.csv",
+      "sha256": "1ee4af840f6786ad135cbdfb95f4f3f9db73cb1399c39a3a8784938c69e9111f",
+      "bytes": 19794
+    },
+    {
+      "path": "experiments/sisa_paper_report/archive/results/label_results.csv",
+      "sha256": "a9c5cabf6939cbadb8b70765d327ba5bcaa2dbd8c5e7978b98d257e745705842",
+      "bytes": 19792
+    },
+    {
+      "path": "experiments/ablations/sisa_components_hyformer_merrec_bcd/configs/reference_params.json",
+      "sha256": "a24fc56bc3944f18480c54be881e8a89510bed3b4f4a6a46657c1ee4dc138ced",
+      "bytes": 4758
+    },
+    {
+      "path": "experiments/ablations/sisa_components_hyformer_merrec_bcd/configs/data_coverage.csv",
+      "sha256": "5d4ec5bce6585271b0e390b03a61c232b087c618301fa2676ac701133156b5dc",
+      "bytes": 415
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_1.out",
+      "sha256": "87cce12fb512b44b5a47af6c5e8a7fdfa95f5011d53bdbca3180783a7c017d35",
+      "bytes": 2812769
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "4ef7b36faad3536a2d02079374457290f656324ad5ae5ae7ffaccee90d285dff",
+      "bytes": 10669
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/notes/submission.json",
+      "sha256": "2530608983bbcab777fa833f9004df1a3e7e538b1d85f91612b1dc1dfd45b590",
+      "bytes": 1246
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/notes/source_sha256.json",
+      "sha256": "5bafd6484bbfdb8520ca567720846194f5a22fb44468567bbbe14e76ee425c43",
+      "bytes": 7209
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/configs/data_coverage.csv",
+      "sha256": "5d4ec5bce6585271b0e390b03a61c232b087c618301fa2676ac701133156b5dc",
+      "bytes": 415
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1.log",
+      "sha256": "a63fa3a0d7fbf6ceeed638a59589cd9060c255c5a25f5b4c31f3f52560360ff8",
+      "bytes": 10633
+    },
+    {
+      "path": "logs/unirank-sisa-score-dim-643736_0.out",
+      "sha256": "b1c4010468aeb45f98368eebecc42c9d974b9c1eefe6c6ef6f369014e5715f29",
+      "bytes": 2820995
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1/manifest.json",
+      "sha256": "46daa2fd6628f01844d9f5c2de052b8c4037ff9d9f1016410090d3485b0c88fb",
+      "bytes": 9194
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1.log",
+      "sha256": "af6aea71bdb28cbd452afd6199175b55f6e458f9f76d9e55208bd8a7b4139ffc",
+      "bytes": 10637
+    },
+    {
+      "path": "logs/unirank-sisa-score-dim-643736_1.out",
+      "sha256": "16dc776d23eb6002ea9973c613416bfb7c66380b41365bb996e18b9585b07e34",
+      "bytes": 2821192
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1/manifest.json",
+      "sha256": "cc5b8d51d6e179b4ae311e931e77a5706f10edf91c69a2b1aca497804ce8ac80",
+      "bytes": 9198
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/notes/source_sha256_r64_attempt3.json",
+      "sha256": "1204a482243a1f617f27ebb417b841a066262ab8e9d3c8f6dd005a1b0203def2",
+      "bytes": 7665
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/configs/data_coverage_ws4.csv",
+      "sha256": "9131fe19843e1ee4def4ef218e9fa77e5f578d686b1059a7b9f2c0b503aa888e",
+      "bytes": 436
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3.log",
+      "sha256": "60db030bb799fced3efc9009061c14af0935545c5d605ecc42a8d0ad468511f5",
+      "bytes": 10636
+    },
+    {
+      "path": "logs/unirank-sisa-score-dim-644583_2.out",
+      "sha256": "82cd292aa77a34aad8286105030d317c603033e887dc219a31772186d6092d4e",
+      "bytes": 5627129,
+      "utf8_replacement_characters": 1
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3/manifest.json",
+      "sha256": "5910557826d29a6cd2daf16edbba2d460d863479711077044f732476a946c0b5",
+      "bytes": 9979
+    },
+    {
+      "path": "artifacts/sisa_score_dim/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3/outcome.json",
+      "sha256": "df4d721d233a2334088d2d2e0110346ae9e509ff46bf0b379fbcfa85c715af4d",
+      "bytes": 18
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/notes/attempt_history.json",
+      "sha256": "a2a7b97cbd5afbb468de758074a69a253e53cf2064d18c260ae3daf9b1618d32",
+      "bytes": 3670
+    }
+  ],
+  "attempt_history": [
+    {
+      "task_id": 2,
+      "score_dim": 64,
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt1",
+      "job_task_id": "643736_2",
+      "attempt": 1,
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "eligible": false,
+      "issues": [
+        "No COMPLETED/0:0 accounting record",
+        "Missing or unsuccessful outcome",
+        "Missing or duplicate dimension completion marker",
+        "Coverage split/rank set differs from frozen reference",
+        "Slurm: runtime failure recorded",
+        "Missing or invalid final Test metrics"
+      ],
+      "metrics": {},
+      "macro_auc": null,
+      "macro_logloss": null,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810472445,
+      "dense_parameters": 8200989,
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        }
+      ],
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-score-dim-643736_2.out",
+      "latest_progress": "Rank 0 | Epoch 1:   0%|          | 0/4395 [00:44<?, ?it/s]"
+    },
+    {
+      "task_id": 2,
+      "score_dim": 64,
+      "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt2",
+      "job_task_id": "643901_2",
+      "attempt": 2,
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "eligible": false,
+      "issues": [
+        "No COMPLETED/0:0 accounting record",
+        "Missing or unsuccessful outcome",
+        "Missing or duplicate dimension completion marker",
+        "Coverage split/rank set differs from frozen reference",
+        "Slurm: runtime failure recorded",
+        "Missing or invalid final Test metrics"
+      ],
+      "metrics": {},
+      "macro_auc": null,
+      "macro_logloss": null,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810472445,
+      "dense_parameters": 8200989,
+      "gradient_checkpointing": true,
+      "comparison_scope": "dimension_with_activation_checkpointing",
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        }
+      ],
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt2.log",
+      "slurm_log": "logs/unirank-sisa-score-dim-643901_2.out",
+      "latest_progress": "Rank 0 | Epoch 1:   0%|          | 0/4395 [00:43<?, ?it/s]"
+    }
+  ],
+  "accounting": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "643736,644583",
+      "--format=JobID,JobIDRaw,State,ExitCode"
+    ],
+    "stdout": "643736_0|643789|COMPLETED|0:0\n643736_0.batch|643789.batch|COMPLETED|0:0\n643736_0.extern|643789.extern|COMPLETED|0:0\n643736_1|643791|COMPLETED|0:0\n643736_1.batch|643791.batch|COMPLETED|0:0\n643736_1.extern|643791.extern|COMPLETED|0:0\n643736_2|643736|FAILED|1:0\n643736_2.batch|643736.batch|FAILED|1:0\n643736_2.extern|643736.extern|COMPLETED|0:0\n644583_2|644583|COMPLETED|0:0\n644583_2.batch|644583.batch|COMPLETED|0:0\n644583_2.extern|644583.extern|COMPLETED|0:0\n",
+    "stderr": ""
+  },
+  "complete": true,
+  "metric_definition": "Final Test only; unweighted mean across all five labels.",
+  "coverage_definition": "Per-rank block, row and batch counts; not sample identity hashes."
+}

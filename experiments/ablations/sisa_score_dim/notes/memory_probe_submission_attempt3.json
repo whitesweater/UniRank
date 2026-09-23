@@ -1,0 +1,18 @@
+{
+  "submitted_at": "2026-09-23T04:37:00+08:00",
+  "job_id": "644025",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=acd_u",
+    "scripts/submit_sisa_score_dim_probe.sbatch"
+  ],
+  "stdout": "644025\n",
+  "stderr": "",
+  "retry_of": "643996",
+  "purpose": "Layerwise compiled recomputation: GPU numerical equivalence and three full-size DDP steps",
+  "source_sha256": {
+    "scripts/run_sisa_memory_budget.py": "82b3e0869597724e0235b32110aa19d9edb193c0647930163e7468ffcf5f61b8",
+    "scripts/submit_sisa_score_dim_probe.sbatch": "d122a8260ffd629552ca32676845bd5633c46e2b79b4c332c5a7489a775dd4af"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "job_id": "644025",
+  "state": "FAILED",
+  "stage": "small-batch BF16 numeric equivalence gate",
+  "full_batch_probe_executed": false,
+  "method": "layerwise compilation plus compiler budget 0.0",
+  "mismatched_elements": 718,
+  "compared_elements_in_first_output": 10240,
+  "max_absolute_error": 0.0087890625,
+  "disposition": "Not accepted for a formal retry under the current numeric gate",
+  "log": "logs/unirank-sisa-dim-memory-probe-644025.out"
+}

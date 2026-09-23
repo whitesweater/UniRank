@@ -1,0 +1,60 @@
+{
+  "verified_at": "2026-09-23T10:35:58+08:00",
+  "job_id": "644051",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "accepted_for_formal_retry": true,
+  "compiler_activation_memory_budget": 0.5,
+  "gradient_checkpointing": false,
+  "split_hyformer_compile": false,
+  "numeric_equivalence": [
+    {
+      "rank": 1,
+      "tensors_compared": 138,
+      "dtype": "BF16 autocast",
+      "max_absolute_error": 0.0,
+      "rtol": 0.016,
+      "atol": 1e-05,
+      "activation_memory_budget": 0.5,
+      "split_hyformer_compile": false,
+      "passed": true
+    },
+    {
+      "rank": 0,
+      "tensors_compared": 138,
+      "dtype": "BF16 autocast",
+      "max_absolute_error": 0.0,
+      "rtol": 0.016,
+      "atol": 1e-05,
+      "activation_memory_budget": 0.5,
+      "split_hyformer_compile": false,
+      "passed": true
+    }
+  ],
+  "full_batch_steps": [
+    {
+      "rank": 1,
+      "steps": 3,
+      "loss": 0.9479177594184875,
+      "peak_allocated_gib": 76.7573390007019,
+      "peak_reserved_gib": 77.490234375,
+      "activation_memory_budget": 0.5,
+      "split_hyformer_compile": false
+    },
+    {
+      "rank": 0,
+      "steps": 3,
+      "loss": 0.924177885055542,
+      "peak_allocated_gib": 76.7573390007019,
+      "peak_reserved_gib": 77.080078125,
+      "activation_memory_budget": 0.5,
+      "split_hyformer_compile": false
+    }
+  ],
+  "matched_effective_fields": 75,
+  "formal_test_metrics_generated": false,
+  "log": "logs/unirank-sisa-dim-memory-probe-644051.out",
+  "log_sha256": "2175808baa1a0c56daafb08cf3cb4fcb17f4dc39cf513306deed2bba962b7169",
+  "accounting": "644051|COMPLETED|0:0|00:03:26|ACD1-15\n644051.batch|COMPLETED|0:0|00:03:26|ACD1-15\n644051.extern|COMPLETED|0:0|00:03:26|ACD1-15\n",
+  "limitation": "Small-batch GPU equivalence and three real full-batch steps; not a complete training result"
+}
