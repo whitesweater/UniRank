@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-09-24T12:02:34.301983+00:00",
+  "complete": true,
+  "dataset_count": 4,
+  "label_count": 17,
+  "comparison_rows": 21,
+  "all_raw_and_curated_values_match_independent_audit": true,
+  "all_jobs_completed_exit_zero": true,
+  "no_pending_test_placeholders": true,
+  "cpu_regression_tests": 208,
+  "cpu_regression_status": "OK",
+  "new_training_or_test_jobs_submitted_this_turn": 0,
+  "source_sha256": {
+    "experiments/hiformer_target_only_extension/report.md": "518dba915f0925c460867d234333eaf0c7ea39dc528cfc54e8b6362a2a1ea41f",
+    "experiments/hiformer_target_only_extension/results/evidence.json": "d75484e2938384011b88e28725e7271db5d00691694908468cdfbb5bc25540cb",
+    "experiments/hiformer_target_only_extension/results/comparisons.csv": "1f07bb7e98176cb1eac30f9959586681367ddc58c6d835016176e8d7e2b41a31",
+    "experiments/hiformer_target_only_extension/results/label_metrics.csv": "297373507357dbb8c8eb62ed118b1a72de3d39ea1de232c00ad3da41cf084c1e",
+    "experiments/hiformer_target_only_extension/results/runs.csv": "a12b6dc297edc4f601780129638da8dffd031e0fb39b5560f57b2b16f6a14399"
+  },
+  "qk_target_only_task": "644098_1",
+  "new_extension_tasks": [
+    "648217_0",
+    "648217_1",
+    "648217_2"
+  ]
+}

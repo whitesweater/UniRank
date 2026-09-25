@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-09-24T15:29:17.052371+00:00",
+  "cpu_regression_tests": 232,
+  "cpu_regression_status": "OK",
+  "launcher_tests": 7,
+  "collector_tests": 12,
+  "cli_dry_runs": 8,
+  "normalized_reference_differences": {},
+  "shell_syntax": "passed",
+  "submitted_arrays": [
+    "649560",
+    "649561"
+  ],
+  "array_specs": [
+    "0-3",
+    "4-7"
+  ],
+  "concurrency_limit": null,
+  "source_frozen_per_new_task": 63,
+  "new_jobs": 8,
+  "reused_seed28_results": 4,
+  "initial_audit": {
+    "runs": 12,
+    "eligible": 4,
+    "new_run_issues": []
+  },
+  "report_test_maintenance": "Updated retired HTML-runtime test assertions to the current selector delivery entry; existing report implementation was unchanged",
+  "sources": {
+    "scripts/run_hiformer_target_only_multiseed.py": "b61f6ed097abf5990529c829992f2ddae3a821f77234c9ece2d03400412543c1",
+    "scripts/submit_hiformer_target_only_multiseed.sbatch": "a9eb39af16050e4d9e4c38967775c0730c35c5061ec0e49f928e2af4e5f877b8",
+    "scripts/collect_hiformer_target_only_multiseed.py": "f1687a8f25e9398d2de151468cbe4e7da346f8e582dc4f524c8a530fed7d73aa",
+    "scripts/monitor_hiformer_target_only_multiseed.sh": "f78f3a4ac6fe9cc228e2772caf44094f033418c5f948bec5c557436708524862"
+  }
+}

@@ -1,0 +1,7 @@
+kind,dataset,baseline_seed,baseline_job,baseline_auc,baseline_logloss
+paper_seed27,QK_Video_Action,20262027,14811_8,0.93316325,0.0753855
+paper_seed27,MerRec_Action,20262027,14810_14,0.8010968,0.08523339999999999
+paper_seed27,KuaiRand_Video_Action,20262027,14850_10,0.8584816666666666,0.1805495
+paper_seed27,TencentGR_10M_Action,20262027,543257_2,0.855235,0.0321885
+matched_seed28,QK_Video_Action,20262028,643809_1,0.933438,0.07563199999999999
+matched_seed28,TencentGR_10M_Action,20262028,643809_2,0.8539245,0.036219

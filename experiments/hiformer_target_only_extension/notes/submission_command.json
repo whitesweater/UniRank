@@ -1,0 +1,11 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "scripts/submit_hiformer_target_only_extension.sbatch"
+  ],
+  "returncode": 0,
+  "stdout": "648217\n",
+  "stderr": "",
+  "submitted_at_utc": "2026-09-24T09:44:00.714410+00:00"
+}

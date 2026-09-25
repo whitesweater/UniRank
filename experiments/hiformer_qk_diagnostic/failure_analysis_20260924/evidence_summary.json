@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-09-24T09:27:06.889074+00:00",
+  "scope_cells": 20,
+  "positive_cells": 19,
+  "negative_cell": {
+    "model": "HiFormer",
+    "dataset": "QK-Video"
+  },
+  "follow_net_loss_share": 0.681588447653427,
+  "sources": {
+    "cells": {
+      "path": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+      "sha256": "f200935a1d89dc20a7b72fb45dd60d98821b430e190cdb1c872afa09b28026b2"
+    },
+    "labels": {
+      "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+      "sha256": "4f16f3fd8332fc61bf02532064c384d07758b5f9f2fb794e00af4c5fdbf2be42"
+    },
+    "placements": {
+      "path": "experiments/rise_sample_analysis/results/targeted_training_comparisons.csv",
+      "sha256": "18906a5b944e151a74901a003a4fe5bfb221c6583670e51d3429558761340835"
+    },
+    "placement_runs": {
+      "path": "experiments/rise_sample_analysis/results/targeted_training_runs.csv",
+      "sha256": "3c1dc6f98624cbf41b62a35e37630a8dc059dabea12beadb6d5a6eda19937dac"
+    },
+    "placement_evidence": {
+      "path": "experiments/rise_sample_analysis/results/targeted_training_evidence.json",
+      "sha256": "b488bcef102d41994711f5e731ebabbcc9379b2671b3c38587f812e3ff1f4d9d"
+    },
+    "groups": {
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv",
+      "sha256": "0e8139d4e4f6d3584ee07d55a112ce9212d0ba7df05cbb457d28c2143c384352"
+    },
+    "group_manifest": {
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/manifest.json",
+      "sha256": "d1444123119c4a5ffee868821f284579b3574b8bb5b4d40838f97824f688ea79"
+    },
+    "replication": {
+      "path": "experiments/rise_sample_analysis/results/site_replication_comparisons.csv",
+      "sha256": "e1af906cfe1f697ff5514c955c92c9b13b149e6dc435a5635d6c4151cad47303"
+    },
+    "replication_evidence": {
+      "path": "experiments/rise_sample_analysis/results/site_replication_evidence.json",
+      "sha256": "a0b473d3ae3f08ad8532fbdbab27af628ad74b6be0495c3f8d6e1826ecf57f91"
+    },
+    "model": {
+      "path": "model_zoo/HiFormer.py",
+      "sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464"
+    },
+    "placement_code": {
+      "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py",
+      "sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc"
+    }
+  },
+  "supporting_datasets": {
+    "headline_comparison": [
+      {
+        "basis": "1. 当前整体汇总：三次 RISE 均值",
+        "baseline": "0.93316325",
+        "rise": "0.93085492",
+        "delta": "-0.00230833",
+        "baseline_ll": "0.07538550",
+        "rise_ll": "0.07562408"
+      },
+      {
+        "basis": "2. 早期主配对：seed 20262027",
+        "baseline": "0.93316325",
+        "rise": "0.93106300",
+        "delta": "-0.00210025",
+        "baseline_ll": "0.07538550",
+        "rise_ll": "0.07535625"
+      }
+    ],
+    "label_table": [
+      {
+        "label": "click",
+        "baseline": "0.93230600",
+        "rise": "0.93201100",
+        "delta": "-0.00029500",
+        "macro": "-0.00007375"
+      },
+      {
+        "label": "follow",
+        "baseline": "0.91991400",
+        "rise": "0.91362067",
+        "delta": "-0.00629333",
+        "macro": "-0.00157333"
+      },
+      {
+        "label": "like",
+        "baseline": "0.94669100",
+        "rise": "0.94538767",
+        "delta": "-0.00130333",
+        "macro": "-0.00032583"
+      },
+      {
+        "label": "share",
+        "baseline": "0.93374200",
+        "rise": "0.93240033",
+        "delta": "-0.00134167",
+        "macro": "-0.00033542"
+      }
+    ],
+    "placement_table": [
+      {
+        "metric": "1. 宏 AUC",
+        "baseline": "0.93343800",
+        "full": "0.93089125",
+        "target": "0.93441475",
+        "field": "0.92939075"
+      },
+      {
+        "metric": "2. ΔAUC vs Baseline",
+        "baseline": "+0.00000000",
+        "full": "-0.00254675",
+        "target": "+0.00097675",
+        "field": "-0.00404725"
+      },
+      {
+        "metric": "3. 宏 LogLoss",
+        "baseline": "0.07563200",
+        "full": "0.07584525",
+        "target": "0.07478300",
+        "field": "0.07632900"
+      }
+    ],
+    "length_table": [
+      {
+        "length": "1. 1-20",
+        "rows": "388,977",
+        "positive": "313",
+        "macro": "-0.00397917",
+        "follow": "-0.01342423"
+      },
+      {
+        "length": "2. 21-50",
+        "rows": "6,095,955",
+        "positive": "5,000",
+        "macro": "-0.00373383",
+        "follow": "-0.01074278"
+      },
+      {
+        "length": "3. 51-99",
+        "rows": "11,580,260",
+        "positive": "10,144",
+        "macro": "-0.00290013",
+        "follow": "-0.00836554"
+      },
+      {
+        "length": "4. 100",
+        "rows": "30,464,216",
+        "positive": "25,061",
+        "macro": "-0.00197862",
+        "follow": "-0.00654641"
+      }
+    ],
+    "replication_table": [
+      {
+        "config": "Zenith · history_only",
+        "baseline": "0.93463475",
+        "full": "0.93522050",
+        "site": "0.93578575",
+        "delta": "+0.00115100"
+      },
+      {
+        "config": "HyFormer · sequence_only",
+        "baseline": "0.93085800",
+        "full": "0.93130800",
+        "site": "0.93093600",
+        "delta": "+0.00007800"
+      },
+      {
+        "config": "Zenith · token_only",
+        "baseline": "0.93463475",
+        "full": "0.93522050",
+        "site": "0.93380000",
+        "delta": "-0.00083475"
+      },
+      {
+        "config": "HyFormer · query_only",
+        "baseline": "0.93085800",
+        "full": "0.93130800",
+        "site": "0.93122125",
+        "delta": "+0.00036325"
+      }
+    ],
+    "placement_deltas": [
+      {
+        "configuration": "Baseline",
+        "delta_auc": 0.0,
+        "auc": 0.933438,
+        "logloss": 0.07563199999999999
+      },
+      {
+        "configuration": "完整 RISE",
+        "delta_auc": -0.002546750000000042,
+        "auc": 0.93089125,
+        "logloss": 0.07584525
+      },
+      {
+        "configuration": "仅历史汇聚",
+        "delta_auc": 0.0009767499999999707,
+        "auc": 0.93441475,
+        "logloss": 0.074783
+      },
+      {
+        "configuration": "仅字段交互",
+        "delta_auc": -0.004047249999999947,
+        "auc": 0.92939075,
+        "logloss": 0.07632900000000001
+      }
+    ]
+  }
+}

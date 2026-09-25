@@ -1,0 +1,600 @@
+{
+  "generated_utc": "2026-09-25T07:46:11.443734+00:00",
+  "audit_scope": "Independent final Test parsing, checkpoint/Slurm equality and raw macros for 12 target_only plus 12 full RISE runs. Index coverage equality only; full protocol audit is in evidence.json. Baseline differences use indexed single-run values. No collector imports.",
+  "passed": true,
+  "final_log_pairs_checked": 24,
+  "raw_log_files_checked": 48,
+  "target_results_checked": 12,
+  "historical_results_checked": 12,
+  "summary_rows_checked": 4,
+  "per_seed": [
+    {
+      "dataset": "QK_Video_Action",
+      "seed": 20262027,
+      "target_only_job": "649560_0",
+      "full_rise_job": "14811_9",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.9344545,
+      "full_rise_auc": 0.931063,
+      "delta_auc": 0.0033914999999999917,
+      "target_only_logloss": 0.07445075,
+      "full_rise_logloss": 0.07535625,
+      "delta_logloss": -0.0009055000000000035
+    },
+    {
+      "dataset": "QK_Video_Action",
+      "seed": 20262028,
+      "target_only_job": "644098_1",
+      "full_rise_job": "548166_10",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.93441475,
+      "full_rise_auc": 0.93089125,
+      "delta_auc": 0.0035235000000000127,
+      "target_only_logloss": 0.074783,
+      "full_rise_logloss": 0.07584525,
+      "delta_logloss": -0.0010622500000000007
+    },
+    {
+      "dataset": "QK_Video_Action",
+      "seed": 20262029,
+      "target_only_job": "649561_4",
+      "full_rise_job": "549595_10",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.93393975,
+      "full_rise_auc": 0.9306105,
+      "delta_auc": 0.0033292499999999503,
+      "target_only_logloss": 0.07484375,
+      "full_rise_logloss": 0.07567075000000001,
+      "delta_logloss": -0.0008270000000000083
+    },
+    {
+      "dataset": "MerRec_Action",
+      "seed": 20262027,
+      "target_only_job": "649560_1",
+      "full_rise_job": "14810_15",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8111576,
+      "full_rise_auc": 0.8022904,
+      "delta_auc": 0.008867200000000075,
+      "target_only_logloss": 0.0830144,
+      "full_rise_logloss": 0.0834022,
+      "delta_logloss": -0.0003877999999999937
+    },
+    {
+      "dataset": "MerRec_Action",
+      "seed": 20262028,
+      "target_only_job": "648217_0",
+      "full_rise_job": "548166_2",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.810238,
+      "full_rise_auc": 0.8092764,
+      "delta_auc": 0.0009616000000000069,
+      "target_only_logloss": 0.0837334,
+      "full_rise_logloss": 0.08253239999999999,
+      "delta_logloss": 0.0012010000000000076
+    },
+    {
+      "dataset": "MerRec_Action",
+      "seed": 20262029,
+      "target_only_job": "649561_5",
+      "full_rise_job": "549595_2",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.7994568,
+      "full_rise_auc": 0.8039572,
+      "delta_auc": -0.004500400000000071,
+      "target_only_logloss": 0.08465900000000001,
+      "full_rise_logloss": 0.0843796,
+      "delta_logloss": 0.00027940000000001297
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "seed": 20262027,
+      "target_only_job": "649560_2",
+      "full_rise_job": "14850_11",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8652668333333333,
+      "full_rise_auc": 0.8621658333333333,
+      "delta_auc": 0.0031010000000000204,
+      "target_only_logloss": 0.177834,
+      "full_rise_logloss": 0.17738833333333334,
+      "delta_logloss": 0.0004456666666666498
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "seed": 20262028,
+      "target_only_job": "648217_1",
+      "full_rise_job": "548166_6",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8653573333333333,
+      "full_rise_auc": 0.864671,
+      "delta_auc": 0.0006863333333333443,
+      "target_only_logloss": 0.17513683333333332,
+      "full_rise_logloss": 0.17556466666666665,
+      "delta_logloss": -0.00042783333333332174
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "seed": 20262029,
+      "target_only_job": "649561_6",
+      "full_rise_job": "549595_6",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8620581666666667,
+      "full_rise_auc": 0.863319,
+      "delta_auc": -0.0012608333333332666,
+      "target_only_logloss": 0.17528116666666665,
+      "full_rise_logloss": 0.17683816666666666,
+      "delta_logloss": -0.0015570000000000028
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "seed": 20262027,
+      "target_only_job": "649560_3",
+      "full_rise_job": "543257_3",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.863113,
+      "full_rise_auc": 0.8667959999999999,
+      "delta_auc": -0.003682999999999881,
+      "target_only_logloss": 0.030981,
+      "full_rise_logloss": 0.0279535,
+      "delta_logloss": 0.0030275000000000024
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "seed": 20262028,
+      "target_only_job": "648217_2",
+      "full_rise_job": "548166_14",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8621115,
+      "full_rise_auc": 0.870858,
+      "delta_auc": -0.00874649999999999,
+      "target_only_logloss": 0.033837,
+      "full_rise_logloss": 0.030295,
+      "delta_logloss": 0.003542
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "seed": 20262029,
+      "target_only_job": "649561_7",
+      "full_rise_job": "549595_14",
+      "index_per_rank_coverage_matches": true,
+      "target_only_auc": 0.8513165,
+      "full_rise_auc": 0.86991,
+      "delta_auc": -0.01859349999999993,
+      "target_only_logloss": 0.034904,
+      "full_rise_logloss": 0.0324445,
+      "delta_logloss": 0.0024594999999999964
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "QK_Video_Action",
+      "seeds": [
+        20262027,
+        20262028,
+        20262029
+      ],
+      "auc_improving_seeds": 3,
+      "logloss_improving_seeds": 3,
+      "target_only_auc_mean": 0.9342696666666667,
+      "target_only_auc_sd": 0.00028640665291388627,
+      "full_rise_auc_mean": 0.9308549166666666,
+      "full_rise_auc_sd": 0.00022842755051290174,
+      "delta_auc_mean": 0.003414749999999985,
+      "delta_auc_sd": 9.919015828198797e-05,
+      "target_only_logloss_mean": 0.0746925,
+      "target_only_logloss_sd": 0.00021155362795282248,
+      "full_rise_logloss_mean": 0.07562408333333334,
+      "full_rise_logloss_sd": 0.00024781764128756954,
+      "delta_logloss_mean": -0.0009315833333333375,
+      "delta_logloss_sd": 0.00011977435382139395,
+      "single_seed_baseline_auc": 0.93316325,
+      "single_seed_baseline_logloss": 0.0753855,
+      "delta_auc_mean_vs_single_seed_baseline": 0.0011064166666666653,
+      "delta_logloss_mean_vs_single_seed_baseline": -0.0006929999999999992,
+      "auc_seeds_above_single_seed_baseline": 3,
+      "logloss_seeds_below_single_seed_baseline": 3
+    },
+    {
+      "dataset": "MerRec_Action",
+      "seeds": [
+        20262027,
+        20262028,
+        20262029
+      ],
+      "auc_improving_seeds": 2,
+      "logloss_improving_seeds": 1,
+      "target_only_auc_mean": 0.8069508,
+      "target_only_auc_sd": 0.006506261833034422,
+      "full_rise_auc_mean": 0.8051746666666667,
+      "full_rise_auc_sd": 0.003648659728356898,
+      "delta_auc_mean": 0.001776133333333337,
+      "delta_auc_sd": 0.006720921131313349,
+      "target_only_logloss_mean": 0.08380226666666667,
+      "target_only_logloss_sd": 0.0008244599767928956,
+      "full_rise_logloss_mean": 0.08343806666666666,
+      "full_rise_logloss_sd": 0.000924122163641442,
+      "delta_logloss_mean": 0.00036420000000000896,
+      "delta_logloss_sd": 0.0007977873400850634,
+      "single_seed_baseline_auc": 0.8010968,
+      "single_seed_baseline_logloss": 0.08523339999999999,
+      "delta_auc_mean_vs_single_seed_baseline": 0.005853999999999915,
+      "delta_logloss_mean_vs_single_seed_baseline": -0.0014311333333333204,
+      "auc_seeds_above_single_seed_baseline": 2,
+      "logloss_seeds_below_single_seed_baseline": 3
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "seeds": [
+        20262027,
+        20262028,
+        20262029
+      ],
+      "auc_improving_seeds": 2,
+      "logloss_improving_seeds": 2,
+      "target_only_auc_mean": 0.8642274444444444,
+      "target_only_auc_sd": 0.0018791945403204798,
+      "full_rise_auc_mean": 0.8633852777777777,
+      "full_rise_auc_sd": 0.0012538977489471856,
+      "delta_auc_mean": 0.0008421666666666994,
+      "delta_auc_sd": 0.002185088219678483,
+      "target_only_logloss_mean": 0.176084,
+      "target_only_logloss_sd": 0.0015172616873096684,
+      "full_rise_logloss_mean": 0.17659705555555555,
+      "full_rise_logloss_sd": 0.0009354362371127864,
+      "delta_logloss_mean": -0.0005130555555555583,
+      "delta_logloss_sd": 0.0010040495828467849,
+      "single_seed_baseline_auc": 0.8584816666666666,
+      "single_seed_baseline_logloss": 0.1805495,
+      "delta_auc_mean_vs_single_seed_baseline": 0.00574577777777785,
+      "delta_logloss_mean_vs_single_seed_baseline": -0.004465500000000011,
+      "auc_seeds_above_single_seed_baseline": 3,
+      "logloss_seeds_below_single_seed_baseline": 3
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "seeds": [
+        20262027,
+        20262028,
+        20262029
+      ],
+      "auc_improving_seeds": 0,
+      "logloss_improving_seeds": 0,
+      "target_only_auc_mean": 0.858847,
+      "target_only_auc_sd": 0.006540800658176332,
+      "full_rise_auc_mean": 0.869188,
+      "full_rise_auc_sd": 0.002125070351776676,
+      "delta_auc_mean": -0.010340999999999934,
+      "delta_auc_sd": 0.007582056136035939,
+      "target_only_logloss_mean": 0.03324066666666667,
+      "target_only_logloss_sd": 0.002028347192502636,
+      "full_rise_logloss_mean": 0.030231,
+      "full_rise_logloss_sd": 0.002246183930580932,
+      "delta_logloss_mean": 0.003009666666666666,
+      "delta_logloss_sd": 0.0005414702977387914,
+      "single_seed_baseline_auc": 0.855235,
+      "single_seed_baseline_logloss": 0.0321885,
+      "delta_auc_mean_vs_single_seed_baseline": 0.0036120000000000596,
+      "delta_logloss_mean_vs_single_seed_baseline": 0.0010521666666666665,
+      "auc_seeds_above_single_seed_baseline": 2,
+      "logloss_seeds_below_single_seed_baseline": 1
+    }
+  ],
+  "sources": [
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "sha256": "a54137e852351c6034b17955631152ba2cec71e7dcb42bc96f8f9b0480c9fb49",
+      "bytes": 8085,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649560_0.out",
+      "sha256": "342fbacf864390339a4ee7ee1b05934c332f0e9dd557d9171c7d1c41815f96ad",
+      "bytes": 11569765,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1.log",
+      "sha256": "c2a75a133a2215fa6c5c400da04b21237546b9776b7f23917154125347aa4803",
+      "bytes": 8038,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-targeted-controls-644098_1.out",
+      "sha256": "dae3bb11d6af0190298b10a1563809600820b4c80d2c2d2083fd38d350a55a36",
+      "bytes": 7543631,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "sha256": "6b4deb97471ae7e2c38b18d6d42404be489d5678a87ae0f6093944740bc1e07e",
+      "bytes": 8047,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649561_4.out",
+      "sha256": "97e71dab9c66b1a35a5178c01629b002473e33e0eea11684e4529b50cc4ccde0",
+      "bytes": 7535093,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "sha256": "a83349176732ad34b5ec9e9ec510da23a499270b0170eb34c8baf4265b013979",
+      "bytes": 10435,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649560_1.out",
+      "sha256": "122bc3a3bf15ed4be8fc3222774ed9c0b134fc119406f3c10a4aef57f3eec1ec",
+      "bytes": 5612510,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1.log",
+      "sha256": "274ca6158ba6566f625448556d27ada03c654fceb2133e28eb9d31e9fe7b8e34",
+      "bytes": 10396,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-only-648217_0.out",
+      "sha256": "1fafc959844dacd171e75e58826a6b6c56942117b3de34f2cf061bdf3822c018",
+      "bytes": 2745503,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "sha256": "adf2f3b067750e9486d0decbf19e621da31bbd233149bce92f62097457a5862a",
+      "bytes": 10526,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649561_5.out",
+      "sha256": "1ba6332d8349b9c044ccfd7427aa09a6d18911374bc8b8882e151c41e063aecf",
+      "bytes": 2748219,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "sha256": "12fbb6381fafa0edf398d46355eac20218b6e23efe9e613c6f62ed7163916076",
+      "bytes": 14460,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649560_2.out",
+      "sha256": "b159efe7a6353eec0fcaa12b3d9f2f931c4bbf2d70b94e15e18885481ff96393",
+      "bytes": 10005157,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1.log",
+      "sha256": "f34741c53afde2ba935e17d053e812336124990d81b575519196ad2320a62636",
+      "bytes": 14432,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-only-648217_1.out",
+      "sha256": "3bf0c05744724119267a4d6f39d384049693686d768ea8885ef45dd7e3d614d2",
+      "bytes": 4918405,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "sha256": "33f99837b96e001ee8e0ba4dd9c52509353a12091e6be17b1f7663d690883676",
+      "bytes": 14468,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649561_6.out",
+      "sha256": "5383360da97d9f70e81d55562561f8d65cac6a69e82f310d854c9eff189baca3",
+      "bytes": 4995160,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "sha256": "81bb36175fc250e12de140e3af55557e89ef7e893e78710dd1c535e57b30acb5",
+      "bytes": 11569,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649560_3.out",
+      "sha256": "2f6dca2d66e6fd913d27574e2b4f8340d916da39c376e673eadcd36decd68a80",
+      "bytes": 23225220,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1.log",
+      "sha256": "9af1da7c9d70cae1bc3c3e03691893b6c8d50f1f814ddc7da66bcd0c26945407",
+      "bytes": 11540,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-only-648217_2.out",
+      "sha256": "4dae2e54ac8c70b72b86af23dd66e9f096800a73457392413be6bc73fbdcd9e0",
+      "bytes": 11514953,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "sha256": "3e9fbd2b7734736500ccbb7c506da612bf297eb13584094fed6f6f2417c6da63",
+      "bytes": 11538,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/rise-hiformer-target-multiseed-649561_7.out",
+      "sha256": "b8f1098edf53260fe6c33ddb1232fbc3a74453f1e16365567e67fe2ad6df501b",
+      "bytes": 11515396,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_strict_HiFormer_QK_Video_Action_sisa_seed20262027.log",
+      "sha256": "83a415b5567f6cded796d33ad578144d8328eb8e27ea5b83159b082bfeaee4d7",
+      "bytes": 8226,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14811_9.out",
+      "sha256": "c1bb7c7cba5f78055716e8f916d4d0cbbc8097c2cd189365aebc6035d418e389",
+      "bytes": 15373093,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_strict_HiFormer_KuaiRand_Video_Action_sisa_seed20262027.log",
+      "sha256": "f45687cd8c0dabae60cf68d64d12dd7125fd46e831c45a159cbc2544126e96a6",
+      "bytes": 14379,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14850_11.out",
+      "sha256": "438452951d8faa83f61c5fd031bf240a11ebb29f2642bec88f5e17787b6ab1e2",
+      "bytes": 10112208,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_strict_HiFormer_MerRec_Action_sisa_seed20262027.log",
+      "sha256": "d9174ef234264c981a2e0c762f80b3d1bae90404e023dfabf2ab9b982cc986d6",
+      "bytes": 10620,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-strict-14810_15.out",
+      "sha256": "ed3526e13ce4b7a3ed2b2fd01f44d1b989da13bd7ab915a3d0a0b22528ee43e6",
+      "bytes": 5620669,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_expansion_HiFormer_TencentGR_10M_Action_sisa_seed20262027.log",
+      "sha256": "35f35135beaad0657a3350df65e6f5028fd22222aabfbd6e068f99f8a515f2a1",
+      "bytes": 11441,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-expansion-acd-543257_3.out",
+      "sha256": "f6cb50fe1a84d81dc0f6f81dee6d0096f140199d3906f7c4bc60a18826c40671",
+      "bytes": 23237921,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "e8813967cd9139029dfd2e35d73ac79a1829fc4d7cee1b40412828e1e5036295",
+      "bytes": 10603,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_2.out",
+      "sha256": "ee6101745e49dc9c61ab7abab7ae133cd843b12dd175087c741402ea28401a27",
+      "bytes": 2748165,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HiFormer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "6e20d9a2d3b58fe8c1ecfd69b4c66661eb7e4c00f37beb41c6cf8fc7575f6f1a",
+      "bytes": 14548,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_6.out",
+      "sha256": "5d83a48afa00a38b058104f63e50c1ba1f694f5679cd32ce5db611ae66eee1f7",
+      "bytes": 4991763,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "4b682120db61e1719ae5bd40f563c744606a7a95be95aa63a25473202c0a5195",
+      "bytes": 8121,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_10.out",
+      "sha256": "aedf53a2a146d4fc55ff67b94e5dd3653fe4b3a02db4b5e7cc36694cf6d887df",
+      "bytes": 7530374,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "4a19487851552d9f08759aaa576e7342ca73eea240f77977205c775a781e82c2",
+      "bytes": 11606,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_14.out",
+      "sha256": "255a7ab200b4487745fdfa00ce27196e1045775efd01c45faed515f003150bab",
+      "bytes": 11546075,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "cd41361dd8f2f9da7f0fd85868277efb028ceab6363aa9ba367611c08369f889",
+      "bytes": 10603,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262029-ws2-549595_2.out",
+      "sha256": "f0c9403e5464778c2c80ddc52a6329f0f1cce2f0ce61868d1c8030cf0dc6a0f0",
+      "bytes": 2746424,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HiFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "1cf436658d129c6cc53aff1361a9d649edb29ed88bb2c392bce4338d29d446ee",
+      "bytes": 14548,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262029-ws2-549595_6.out",
+      "sha256": "aa33fbea028e01ecc9554cc023659b01406ea88290666db78bfec3da92b45935",
+      "bytes": 4961020,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "3d7bf68a0fa2e675b32da5d8b2a9e9ee9b6dd96a544ba5717c10df80fb0a5429",
+      "bytes": 8121,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262029-ws2-549595_10.out",
+      "sha256": "91f1673c9b5392428c25b341269a74ada32a3bfdff85823f401b69f49528a0c0",
+      "bytes": 7534012,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "656d46e6d14f0dc7b1eb678ad31fafee0684b61d38513f40cf20b2070b10c599",
+      "bytes": 11606,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262029-ws2-549595_14.out",
+      "sha256": "bd153b9dafa3612236451a99244a166a643188bde4840bab6171aa2097f1d81a",
+      "bytes": 11524615,
+      "matches_evidence_source_hash": true
+    },
+    {
+      "path": "experiments/hiformer_target_only_multiseed/results/evidence.json",
+      "bytes": 969202,
+      "sha256": "b6faed1a9aa3d0111583edcbfd3f64e5b4a414962c031f33bb73bab65932174e"
+    },
+    {
+      "path": "experiments/hiformer_target_only_multiseed/results/summary.csv",
+      "bytes": 1717,
+      "sha256": "4640191109fe6db8ac36d5aa256a5ccbc2a33a59d018e6c1b70298d934981550"
+    },
+    {
+      "path": "experiments/hiformer_target_only_multiseed/results/runs.csv",
+      "bytes": 5277,
+      "sha256": "027a5d4118944f7f4e6d120738912c737463a843099fc66c8d8e68657aa707d4"
+    },
+    {
+      "path": "experiments/hiformer_target_only_multiseed/results/comparisons.csv",
+      "bytes": 9312,
+      "sha256": "36c4e43847c74b3a5eb0df4a04528bc67f533709afe3020d92bffc6be78ec6bb"
+    }
+  ],
+  "limitations": [
+    "Means and sample SD describe three seed/layout tuples, not strictly matched seed replication or statistical significance.",
+    "Seed27 uses four GPUs/batch8192; seed28/29 use two GPUs/batch16384. Global batch is 32768 but drop_last sample coverage differs.",
+    "Seed27 dataloader2026 and RISE parameter20260821 are reconstructed historical defaults, not explicit historical runtime Params.",
+    "Compare placement within each seed against its corresponding Full RISE and verify per-rank sample coverage; target_only removes field parameters.",
+    "Historical source/environment and dataset bytes are not fully traceable; seed27 local-path relocation preserves split suffixes.",
+    "Native Baseline values are existing single-run references, not three-seed baseline means. No native Baseline is newly trained."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-09-24T09:47:42.160847+00:00",
+  "full_cpu_suite": {
+    "command": ".venv/bin/python -m unittest discover -s tests -v",
+    "tests": 206,
+    "status": "OK",
+    "log": "experiments/hiformer_target_only_extension/notes/final_cpu_tests.log"
+  },
+  "legacy_targeted_control_tests": {
+    "tests": 7,
+    "status": "OK"
+  },
+  "shell_syntax": "Both new Slurm launcher and monitor passed bash -n",
+  "existing_test_maintenance": "Updated historical report pagination assertion from 16 to 20 rows to match the already updated report runtime; no report runtime change",
+  "source_sha256": {
+    "scripts/run_hiformer_target_only_extension.py": "49a18e50967027abd6451ced14d27a7991d894c450566a1e406dd48e73c35028",
+    "scripts/submit_hiformer_target_only_extension.sbatch": "a9fae76ce053c9e0d7e201f723b4588455572a330fe223fe3a9947ad565688b3",
+    "scripts/monitor_hiformer_target_only_extension.sh": "a77f59c6cf5fa6c1913f2ed1cfafec3707dc028d686df92eb77ab4f64565841a",
+    "scripts/collect_hiformer_target_only_extension.py": "32e6cb6622d6e195d3de7aec1021db828e36127ddc4e76e290fb2a65736cb869",
+    "tests/test_hiformer_target_only_extension.py": "470fd5aa843350bfd6548f71773a8ca79defb401639358906aacbbe5e26f5ad3",
+    "tests/test_collect_hiformer_target_only_extension.py": "26a7644124b3bad5731ca4977eeccb09cea5a46eb036da58e333f3c7ad61a838"
+  },
+  "monitor_pid": 3779499,
+  "training_array": "648217"
+}

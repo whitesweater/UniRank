@@ -1,0 +1,1298 @@
+{
+  "generated_utc": "2026-09-24T14:53:40.840692+00:00",
+  "scope": "Read-only independent final-test parsing of four native baselines seed20262027, two matched native baselines seed20262028, and four HiFormer target-only RISE runs seed20262028.",
+  "method": "Final Test evaluation section only; checkpoint and Slurm metrics must exactly agree; macro is equal-weight mean over labels; old baselines also checked against integrated_cells.csv",
+  "seed20262027_baselines": [
+    {
+      "dataset": "QK_Video_Action",
+      "job_task_id": "14811_8",
+      "seed": 20262027,
+      "macro_auc": 0.93316325,
+      "macro_logloss": 0.0753855,
+      "metrics": {
+        "click": {
+          "logloss": 0.253972,
+          "AUC": 0.932306
+        },
+        "follow": {
+          "logloss": 0.004997,
+          "AUC": 0.919914
+        },
+        "like": {
+          "logloss": 0.037272,
+          "AUC": 0.946691
+        },
+        "share": {
+          "logloss": 0.005301,
+          "AUC": 0.933742
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/QK_Video_Action/SISA_strict_HiFormer_QK_Video_Action_baseline_seed20262027.log",
+          "sha256": "d777d6c8984deefa4084ebe19dfbd06e458c6e6853cd4bbd337ce33f929b77ee",
+          "bytes": 8120,
+          "final_test_boundary_line": 114,
+          "metric_line_numbers": {
+            "click": 118,
+            "follow": 119,
+            "like": 120,
+            "share": 121
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.253972,
+              "AUC": 0.932306
+            },
+            "follow": {
+              "logloss": 0.004997,
+              "AUC": 0.919914
+            },
+            "like": {
+              "logloss": 0.037272,
+              "AUC": 0.946691
+            },
+            "share": {
+              "logloss": 0.005301,
+              "AUC": 0.933742
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-sisa-strict-14811_8.out",
+          "sha256": "605312918af0a1ea000c5c711469a3a4a2e174275c4d73c48dfce1972f0d6d80",
+          "bytes": 15362950,
+          "final_test_boundary_line": 244638,
+          "metric_line_numbers": {
+            "click": 248273,
+            "follow": 248274,
+            "like": 248275,
+            "share": 248276
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.253972,
+              "AUC": 0.932306
+            },
+            "follow": {
+              "logloss": 0.004997,
+              "AUC": 0.919914
+            },
+            "like": {
+              "logloss": 0.037272,
+              "AUC": 0.946691
+            },
+            "share": {
+              "logloss": 0.005301,
+              "AUC": 0.933742
+            }
+          }
+        }
+      ],
+      "source_index": "experiments/sisa_native_strict/results/runs.csv",
+      "matches_integrated_cells": true
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "job_task_id": "14850_10",
+      "seed": 20262027,
+      "macro_auc": 0.8584816666666666,
+      "macro_logloss": 0.1805495,
+      "metrics": {
+        "is_click": {
+          "logloss": 0.541932,
+          "AUC": 0.777662
+        },
+        "is_follow": {
+          "logloss": 0.006364,
+          "AUC": 0.879913
+        },
+        "is_like": {
+          "logloss": 0.053637,
+          "AUC": 0.928496
+        },
+        "is_comment": {
+          "logloss": 0.014709,
+          "AUC": 0.898789
+        },
+        "is_forward": {
+          "logloss": 0.005684,
+          "AUC": 0.87092
+        },
+        "long_view": {
+          "logloss": 0.460971,
+          "AUC": 0.79511
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/KuaiRand_Video_Action/SISA_strict_HiFormer_KuaiRand_Video_Action_baseline_seed20262027.log",
+          "sha256": "2f457bbe59652fdf414e4549a67358d36effe9d92ad7e852b060ca0ea0ce4954",
+          "bytes": 14273,
+          "final_test_boundary_line": 148,
+          "metric_line_numbers": {
+            "is_click": 152,
+            "is_follow": 153,
+            "is_like": 154,
+            "is_comment": 155,
+            "is_forward": 156,
+            "long_view": 157
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.541932,
+              "AUC": 0.777662
+            },
+            "is_follow": {
+              "logloss": 0.006364,
+              "AUC": 0.879913
+            },
+            "is_like": {
+              "logloss": 0.053637,
+              "AUC": 0.928496
+            },
+            "is_comment": {
+              "logloss": 0.014709,
+              "AUC": 0.898789
+            },
+            "is_forward": {
+              "logloss": 0.005684,
+              "AUC": 0.87092
+            },
+            "long_view": {
+              "logloss": 0.460971,
+              "AUC": 0.79511
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-sisa-strict-14850_10.out",
+          "sha256": "1f1cfefa50ad47799c77bb65265a73cfc4625c0847ff08872663fd1fead36b8f",
+          "bytes": 10094514,
+          "final_test_boundary_line": 161671,
+          "metric_line_numbers": {
+            "is_click": 166744,
+            "is_follow": 166745,
+            "is_like": 166746,
+            "is_comment": 166747,
+            "is_forward": 166748,
+            "long_view": 166749
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.541932,
+              "AUC": 0.777662
+            },
+            "is_follow": {
+              "logloss": 0.006364,
+              "AUC": 0.879913
+            },
+            "is_like": {
+              "logloss": 0.053637,
+              "AUC": 0.928496
+            },
+            "is_comment": {
+              "logloss": 0.014709,
+              "AUC": 0.898789
+            },
+            "is_forward": {
+              "logloss": 0.005684,
+              "AUC": 0.87092
+            },
+            "long_view": {
+              "logloss": 0.460971,
+              "AUC": 0.79511
+            }
+          }
+        }
+      ],
+      "source_index": "experiments/sisa_native_strict/results/runs.csv",
+      "matches_integrated_cells": true
+    },
+    {
+      "dataset": "MerRec_Action",
+      "job_task_id": "14810_14",
+      "seed": 20262027,
+      "macro_auc": 0.8010968,
+      "macro_logloss": 0.08523339999999999,
+      "metrics": {
+        "Like": {
+          "logloss": 0.328501,
+          "AUC": 0.74961
+        },
+        "Cart": {
+          "logloss": 0.053089,
+          "AUC": 0.810019
+        },
+        "Offer": {
+          "logloss": 0.023378,
+          "AUC": 0.775777
+        },
+        "Checkout": {
+          "logloss": 0.012448,
+          "AUC": 0.834515
+        },
+        "Purchase": {
+          "logloss": 0.008751,
+          "AUC": 0.835563
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/MerRec_Action/SISA_strict_HiFormer_MerRec_Action_baseline_seed20262027.log",
+          "sha256": "ea9e82fa9b4457c88a14e2900795b9244c86f29dda99a77403fa4b8445002371",
+          "bytes": 10514,
+          "final_test_boundary_line": 126,
+          "metric_line_numbers": {
+            "Like": 130,
+            "Cart": 131,
+            "Offer": 132,
+            "Checkout": 133,
+            "Purchase": 134
+          },
+          "metrics": {
+            "Like": {
+              "logloss": 0.328501,
+              "AUC": 0.74961
+            },
+            "Cart": {
+              "logloss": 0.053089,
+              "AUC": 0.810019
+            },
+            "Offer": {
+              "logloss": 0.023378,
+              "AUC": 0.775777
+            },
+            "Checkout": {
+              "logloss": 0.012448,
+              "AUC": 0.834515
+            },
+            "Purchase": {
+              "logloss": 0.008751,
+              "AUC": 0.835563
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-sisa-strict-14810_14.out",
+          "sha256": "9a2d356c07765887ad4f8a245e176ecaedaac5b418ca54c4bbc9e2a67ddbac5e",
+          "bytes": 5610721,
+          "final_test_boundary_line": 90272,
+          "metric_line_numbers": {
+            "Like": 91872,
+            "Cart": 91873,
+            "Offer": 91874,
+            "Checkout": 91875,
+            "Purchase": 91876
+          },
+          "metrics": {
+            "Like": {
+              "logloss": 0.328501,
+              "AUC": 0.74961
+            },
+            "Cart": {
+              "logloss": 0.053089,
+              "AUC": 0.810019
+            },
+            "Offer": {
+              "logloss": 0.023378,
+              "AUC": 0.775777
+            },
+            "Checkout": {
+              "logloss": 0.012448,
+              "AUC": 0.834515
+            },
+            "Purchase": {
+              "logloss": 0.008751,
+              "AUC": 0.835563
+            }
+          }
+        }
+      ],
+      "source_index": "experiments/sisa_native_strict/results/runs.csv",
+      "matches_integrated_cells": true
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "job_task_id": "543257_2",
+      "seed": 20262027,
+      "macro_auc": 0.855235,
+      "macro_logloss": 0.0321885,
+      "metrics": {
+        "is_click": {
+          "logloss": 0.047367,
+          "AUC": 0.837502
+        },
+        "is_conversion": {
+          "logloss": 0.01701,
+          "AUC": 0.872968
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/TencentGR_10M_Action/SISA_expansion_HiFormer_TencentGR_10M_Action_baseline_seed20262027.log",
+          "sha256": "732c85ae6f4922851f00d3c7286f53378534e7aa938845362f5eb0f441b45295",
+          "bytes": 11335,
+          "final_test_boundary_line": 130,
+          "metric_line_numbers": {
+            "is_click": 134,
+            "is_conversion": 135
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.047367,
+              "AUC": 0.837502
+            },
+            "is_conversion": {
+              "logloss": 0.01701,
+              "AUC": 0.872968
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-sisa-expansion-acd-543257_2.out",
+          "sha256": "335b4cce24ea9a23a8b9f3341e34a1f5156501cf029b081fa81e8038cb816233",
+          "bytes": 23193410,
+          "final_test_boundary_line": 360939,
+          "metric_line_numbers": {
+            "is_click": 378463,
+            "is_conversion": 378464
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.047367,
+              "AUC": 0.837502
+            },
+            "is_conversion": {
+              "logloss": 0.01701,
+              "AUC": 0.872968
+            }
+          }
+        }
+      ],
+      "source_index": "experiments/sisa_expansion_acd/results/runs.csv",
+      "matches_integrated_cells": true
+    }
+  ],
+  "seed20262028_baselines": [
+    {
+      "dataset": "QK_Video_Action",
+      "job_task_id": "643809_1",
+      "seed": 20262028,
+      "macro_auc": 0.933438,
+      "macro_logloss": 0.07563199999999999,
+      "metrics": {
+        "click": {
+          "logloss": 0.255011,
+          "AUC": 0.931452
+        },
+        "follow": {
+          "logloss": 0.005003,
+          "AUC": 0.921287
+        },
+        "like": {
+          "logloss": 0.037126,
+          "AUC": 0.946112
+        },
+        "share": {
+          "logloss": 0.005388,
+          "AUC": 0.934901
+        }
+      },
+      "sources": [
+        {
+          "path": "artifacts/rise_sample_analysis/training_checkpoints/QK_Video_Action/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1.log",
+          "sha256": "93fc042ae5f65bccb98dd4634f72ed1c24293e670aee01799dc39230242a6e3f",
+          "bytes": 8191,
+          "final_test_boundary_line": 120,
+          "metric_line_numbers": {
+            "click": 124,
+            "follow": 125,
+            "like": 126,
+            "share": 127
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.255011,
+              "AUC": 0.931452
+            },
+            "follow": {
+              "logloss": 0.005003,
+              "AUC": 0.921287
+            },
+            "like": {
+              "logloss": 0.037126,
+              "AUC": 0.946112
+            },
+            "share": {
+              "logloss": 0.005388,
+              "AUC": 0.934901
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-rise-matched-baseline-643809_1.out",
+          "sha256": "cc1880679e364923798eebec85ac780224e64ec5f753c753243a1d6f3613d19d",
+          "bytes": 7565081,
+          "final_test_boundary_line": 74169,
+          "metric_line_numbers": {
+            "click": 75903,
+            "follow": 75904,
+            "like": 75905,
+            "share": 75906
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.255011,
+              "AUC": 0.931452
+            },
+            "follow": {
+              "logloss": 0.005003,
+              "AUC": 0.921287
+            },
+            "like": {
+              "logloss": 0.037126,
+              "AUC": 0.946112
+            },
+            "share": {
+              "logloss": 0.005388,
+              "AUC": 0.934901
+            }
+          }
+        }
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "source_index": "experiments/rise_sample_analysis/results/new_training_runs.csv",
+      "matches_new_training_runs_csv": true,
+      "raw_coverage_exact_match_target_only": true,
+      "raw_coverage_matches_existing_audit": true
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "job_task_id": "643809_2",
+      "seed": 20262028,
+      "macro_auc": 0.8539245,
+      "macro_logloss": 0.036219,
+      "metrics": {
+        "is_click": {
+          "logloss": 0.051145,
+          "AUC": 0.836275
+        },
+        "is_conversion": {
+          "logloss": 0.021293,
+          "AUC": 0.871574
+        }
+      },
+      "sources": [
+        {
+          "path": "artifacts/rise_sample_analysis/training_checkpoints/TencentGR_10M_Action/RISE_matched_HiFormer_TencentGR_10M_Action_baseline_seed20262028_attempt1.log",
+          "sha256": "c32189a6bcd9b08dcdad721ea4987572f987b45da883b12992662ef4e80e3daa",
+          "bytes": 11676,
+          "final_test_boundary_line": 136,
+          "metric_line_numbers": {
+            "is_click": 140,
+            "is_conversion": 141
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.051145,
+              "AUC": 0.836275
+            },
+            "is_conversion": {
+              "logloss": 0.021293,
+              "AUC": 0.871574
+            }
+          }
+        },
+        {
+          "path": "logs/unirank-rise-matched-baseline-643809_2.out",
+          "sha256": "c6f5271cf0bae48200058706698b6185974aefac0414ee6c9b800b51214ceacd",
+          "bytes": 11494938,
+          "final_test_boundary_line": 108261,
+          "metric_line_numbers": {
+            "is_click": 115065,
+            "is_conversion": 115066
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.051145,
+              "AUC": 0.836275
+            },
+            "is_conversion": {
+              "logloss": 0.021293,
+              "AUC": 0.871574
+            }
+          }
+        }
+      ],
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 8,
+          "assigned_rows": 293060408,
+          "batches": 17881,
+          "processed_rows": 292962304
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8922909,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 76624928,
+          "batches": 4674,
+          "processed_rows": 76578816
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 8,
+          "assigned_rows": 293057086,
+          "batches": 17883,
+          "processed_rows": 292995072
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8923231,
+          "batches": 543,
+          "processed_rows": 8896512
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 76618584,
+          "batches": 4674,
+          "processed_rows": 76578816
+        }
+      ],
+      "source_index": "experiments/rise_sample_analysis/results/new_training_runs.csv",
+      "matches_new_training_runs_csv": true,
+      "raw_coverage_exact_match_target_only": true,
+      "raw_coverage_matches_existing_audit": true
+    }
+  ],
+  "seed20262028_targets": [
+    {
+      "dataset": "QK_Video_Action",
+      "job_task_id": "644098_1",
+      "seed": 20262028,
+      "macro_auc": 0.93441475,
+      "macro_logloss": 0.074783,
+      "metrics": {
+        "click": {
+          "logloss": 0.252158,
+          "AUC": 0.933251
+        },
+        "follow": {
+          "logloss": 0.005013,
+          "AUC": 0.921751
+        },
+        "like": {
+          "logloss": 0.036644,
+          "AUC": 0.9469
+        },
+        "share": {
+          "logloss": 0.005317,
+          "AUC": 0.935757
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1.log",
+          "sha256": "c2a75a133a2215fa6c5c400da04b21237546b9776b7f23917154125347aa4803",
+          "bytes": 8038,
+          "final_test_boundary_line": 120,
+          "metric_line_numbers": {
+            "click": 124,
+            "follow": 125,
+            "like": 126,
+            "share": 127
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.252158,
+              "AUC": 0.933251
+            },
+            "follow": {
+              "logloss": 0.005013,
+              "AUC": 0.921751
+            },
+            "like": {
+              "logloss": 0.036644,
+              "AUC": 0.9469
+            },
+            "share": {
+              "logloss": 0.005317,
+              "AUC": 0.935757
+            }
+          }
+        },
+        {
+          "path": "logs/rise-targeted-controls-644098_1.out",
+          "sha256": "dae3bb11d6af0190298b10a1563809600820b4c80d2c2d2083fd38d350a55a36",
+          "bytes": 7543631,
+          "final_test_boundary_line": 74060,
+          "metric_line_numbers": {
+            "click": 75715,
+            "follow": 75716,
+            "like": 75717,
+            "share": 75718
+          },
+          "metrics": {
+            "click": {
+              "logloss": 0.252158,
+              "AUC": 0.933251
+            },
+            "follow": {
+              "logloss": 0.005013,
+              "AUC": 0.921751
+            },
+            "like": {
+              "logloss": 0.036644,
+              "AUC": 0.9469
+            },
+            "share": {
+              "logloss": 0.005317,
+              "AUC": 0.935757
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "MerRec_Action",
+      "job_task_id": "648217_0",
+      "seed": 20262028,
+      "macro_auc": 0.810238,
+      "macro_logloss": 0.0837334,
+      "metrics": {
+        "Like": {
+          "logloss": 0.32456,
+          "AUC": 0.760989
+        },
+        "Cart": {
+          "logloss": 0.051857,
+          "AUC": 0.821196
+        },
+        "Offer": {
+          "logloss": 0.021625,
+          "AUC": 0.778892
+        },
+        "Checkout": {
+          "logloss": 0.012097,
+          "AUC": 0.841614
+        },
+        "Purchase": {
+          "logloss": 0.008528,
+          "AUC": 0.848499
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1.log",
+          "sha256": "274ca6158ba6566f625448556d27ada03c654fceb2133e28eb9d31e9fe7b8e34",
+          "bytes": 10396,
+          "final_test_boundary_line": 134,
+          "metric_line_numbers": {
+            "Like": 138,
+            "Cart": 139,
+            "Offer": 140,
+            "Checkout": 141,
+            "Purchase": 142
+          },
+          "metrics": {
+            "Like": {
+              "logloss": 0.32456,
+              "AUC": 0.760989
+            },
+            "Cart": {
+              "logloss": 0.051857,
+              "AUC": 0.821196
+            },
+            "Offer": {
+              "logloss": 0.021625,
+              "AUC": 0.778892
+            },
+            "Checkout": {
+              "logloss": 0.012097,
+              "AUC": 0.841614
+            },
+            "Purchase": {
+              "logloss": 0.008528,
+              "AUC": 0.848499
+            }
+          }
+        },
+        {
+          "path": "logs/rise-hiformer-target-only-648217_0.out",
+          "sha256": "1fafc959844dacd171e75e58826a6b6c56942117b3de34f2cf061bdf3822c018",
+          "bytes": 2745503,
+          "final_test_boundary_line": 27285,
+          "metric_line_numbers": {
+            "Like": 27819,
+            "Cart": 27820,
+            "Offer": 27821,
+            "Checkout": 27822,
+            "Purchase": 27823
+          },
+          "metrics": {
+            "Like": {
+              "logloss": 0.32456,
+              "AUC": 0.760989
+            },
+            "Cart": {
+              "logloss": 0.051857,
+              "AUC": 0.821196
+            },
+            "Offer": {
+              "logloss": 0.021625,
+              "AUC": 0.778892
+            },
+            "Checkout": {
+              "logloss": 0.012097,
+              "AUC": 0.841614
+            },
+            "Purchase": {
+              "logloss": 0.008528,
+              "AUC": 0.848499
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "job_task_id": "648217_1",
+      "seed": 20262028,
+      "macro_auc": 0.8653573333333333,
+      "macro_logloss": 0.17513683333333332,
+      "metrics": {
+        "is_click": {
+          "logloss": 0.524809,
+          "AUC": 0.794665
+        },
+        "is_follow": {
+          "logloss": 0.006108,
+          "AUC": 0.889155
+        },
+        "is_like": {
+          "logloss": 0.055474,
+          "AUC": 0.925485
+        },
+        "is_comment": {
+          "logloss": 0.014677,
+          "AUC": 0.899809
+        },
+        "is_forward": {
+          "logloss": 0.005651,
+          "AUC": 0.872086
+        },
+        "long_view": {
+          "logloss": 0.444102,
+          "AUC": 0.810944
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1.log",
+          "sha256": "f34741c53afde2ba935e17d053e812336124990d81b575519196ad2320a62636",
+          "bytes": 14432,
+          "final_test_boundary_line": 154,
+          "metric_line_numbers": {
+            "is_click": 158,
+            "is_follow": 159,
+            "is_like": 160,
+            "is_comment": 161,
+            "is_forward": 162,
+            "long_view": 163
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.524809,
+              "AUC": 0.794665
+            },
+            "is_follow": {
+              "logloss": 0.006108,
+              "AUC": 0.889155
+            },
+            "is_like": {
+              "logloss": 0.055474,
+              "AUC": 0.925485
+            },
+            "is_comment": {
+              "logloss": 0.014677,
+              "AUC": 0.899809
+            },
+            "is_forward": {
+              "logloss": 0.005651,
+              "AUC": 0.872086
+            },
+            "long_view": {
+              "logloss": 0.444102,
+              "AUC": 0.810944
+            }
+          }
+        },
+        {
+          "path": "logs/rise-hiformer-target-only-648217_1.out",
+          "sha256": "3bf0c05744724119267a4d6f39d384049693686d768ea8885ef45dd7e3d614d2",
+          "bytes": 4918405,
+          "final_test_boundary_line": 48605,
+          "metric_line_numbers": {
+            "is_click": 50143,
+            "is_follow": 50144,
+            "is_like": 50145,
+            "is_comment": 50146,
+            "is_forward": 50147,
+            "long_view": 50148
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.524809,
+              "AUC": 0.794665
+            },
+            "is_follow": {
+              "logloss": 0.006108,
+              "AUC": 0.889155
+            },
+            "is_like": {
+              "logloss": 0.055474,
+              "AUC": 0.925485
+            },
+            "is_comment": {
+              "logloss": 0.014677,
+              "AUC": 0.899809
+            },
+            "is_forward": {
+              "logloss": 0.005651,
+              "AUC": 0.872086
+            },
+            "long_view": {
+              "logloss": 0.444102,
+              "AUC": 0.810944
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "job_task_id": "648217_2",
+      "seed": 20262028,
+      "macro_auc": 0.8621115,
+      "macro_logloss": 0.033837,
+      "metrics": {
+        "is_click": {
+          "logloss": 0.048938,
+          "AUC": 0.844241
+        },
+        "is_conversion": {
+          "logloss": 0.018736,
+          "AUC": 0.879982
+        }
+      },
+      "sources": [
+        {
+          "path": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1.log",
+          "sha256": "9af1da7c9d70cae1bc3c3e03691893b6c8d50f1f814ddc7da66bcd0c26945407",
+          "bytes": 11540,
+          "final_test_boundary_line": 136,
+          "metric_line_numbers": {
+            "is_click": 140,
+            "is_conversion": 141
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.048938,
+              "AUC": 0.844241
+            },
+            "is_conversion": {
+              "logloss": 0.018736,
+              "AUC": 0.879982
+            }
+          }
+        },
+        {
+          "path": "logs/rise-hiformer-target-only-648217_2.out",
+          "sha256": "4dae2e54ac8c70b72b86af23dd66e9f096800a73457392413be6bc73fbdcd9e0",
+          "bytes": 11514953,
+          "final_test_boundary_line": 108337,
+          "metric_line_numbers": {
+            "is_click": 115372,
+            "is_conversion": 115373
+          },
+          "metrics": {
+            "is_click": {
+              "logloss": 0.048938,
+              "AUC": 0.844241
+            },
+            "is_conversion": {
+              "logloss": 0.018736,
+              "AUC": 0.879982
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "dataset": "QK_Video_Action",
+      "baseline_seed": 20262027,
+      "baseline_job": "14811_8",
+      "target_seed": 20262028,
+      "target_job": "644098_1",
+      "baseline_auc": 0.93316325,
+      "baseline_logloss": 0.0753855,
+      "target_auc": 0.93441475,
+      "target_logloss": 0.074783,
+      "delta_auc": 0.001251499999999961,
+      "delta_logloss": -0.0006024999999999919,
+      "labels": [
+        {
+          "label": "click",
+          "baseline_auc": 0.932306,
+          "baseline_logloss": 0.253972,
+          "target_auc": 0.933251,
+          "target_logloss": 0.252158,
+          "delta_auc": 0.0009450000000000847,
+          "delta_logloss": -0.0018139999999999823
+        },
+        {
+          "label": "follow",
+          "baseline_auc": 0.919914,
+          "baseline_logloss": 0.004997,
+          "target_auc": 0.921751,
+          "target_logloss": 0.005013,
+          "delta_auc": 0.0018369999999999775,
+          "delta_logloss": 1.600000000000039e-05
+        },
+        {
+          "label": "like",
+          "baseline_auc": 0.946691,
+          "baseline_logloss": 0.037272,
+          "target_auc": 0.9469,
+          "target_logloss": 0.036644,
+          "delta_auc": 0.00020900000000001473,
+          "delta_logloss": -0.0006279999999999966
+        },
+        {
+          "label": "share",
+          "baseline_auc": 0.933742,
+          "baseline_logloss": 0.005301,
+          "target_auc": 0.935757,
+          "target_logloss": 0.005317,
+          "delta_auc": 0.002014999999999989,
+          "delta_logloss": 1.599999999999952e-05
+        }
+      ]
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "baseline_seed": 20262027,
+      "baseline_job": "14850_10",
+      "target_seed": 20262028,
+      "target_job": "648217_1",
+      "baseline_auc": 0.8584816666666666,
+      "baseline_logloss": 0.1805495,
+      "target_auc": 0.8653573333333333,
+      "target_logloss": 0.17513683333333332,
+      "delta_auc": 0.006875666666666724,
+      "delta_logloss": -0.005412666666666677,
+      "labels": [
+        {
+          "label": "is_click",
+          "baseline_auc": 0.777662,
+          "baseline_logloss": 0.541932,
+          "target_auc": 0.794665,
+          "target_logloss": 0.524809,
+          "delta_auc": 0.01700299999999999,
+          "delta_logloss": -0.017123
+        },
+        {
+          "label": "is_follow",
+          "baseline_auc": 0.879913,
+          "baseline_logloss": 0.006364,
+          "target_auc": 0.889155,
+          "target_logloss": 0.006108,
+          "delta_auc": 0.009242000000000083,
+          "delta_logloss": -0.00025600000000000015
+        },
+        {
+          "label": "is_like",
+          "baseline_auc": 0.928496,
+          "baseline_logloss": 0.053637,
+          "target_auc": 0.925485,
+          "target_logloss": 0.055474,
+          "delta_auc": -0.003010999999999986,
+          "delta_logloss": 0.0018370000000000053
+        },
+        {
+          "label": "is_comment",
+          "baseline_auc": 0.898789,
+          "baseline_logloss": 0.014709,
+          "target_auc": 0.899809,
+          "target_logloss": 0.014677,
+          "delta_auc": 0.0010200000000000209,
+          "delta_logloss": -3.199999999999904e-05
+        },
+        {
+          "label": "is_forward",
+          "baseline_auc": 0.87092,
+          "baseline_logloss": 0.005684,
+          "target_auc": 0.872086,
+          "target_logloss": 0.005651,
+          "delta_auc": 0.0011660000000000004,
+          "delta_logloss": -3.300000000000004e-05
+        },
+        {
+          "label": "long_view",
+          "baseline_auc": 0.79511,
+          "baseline_logloss": 0.460971,
+          "target_auc": 0.810944,
+          "target_logloss": 0.444102,
+          "delta_auc": 0.015834000000000015,
+          "delta_logloss": -0.016869000000000023
+        }
+      ]
+    },
+    {
+      "dataset": "MerRec_Action",
+      "baseline_seed": 20262027,
+      "baseline_job": "14810_14",
+      "target_seed": 20262028,
+      "target_job": "648217_0",
+      "baseline_auc": 0.8010968,
+      "baseline_logloss": 0.08523339999999999,
+      "target_auc": 0.810238,
+      "target_logloss": 0.0837334,
+      "delta_auc": 0.00914119999999996,
+      "delta_logloss": -0.0014999999999999875,
+      "labels": [
+        {
+          "label": "Like",
+          "baseline_auc": 0.74961,
+          "baseline_logloss": 0.328501,
+          "target_auc": 0.760989,
+          "target_logloss": 0.32456,
+          "delta_auc": 0.011379000000000028,
+          "delta_logloss": -0.003940999999999972
+        },
+        {
+          "label": "Cart",
+          "baseline_auc": 0.810019,
+          "baseline_logloss": 0.053089,
+          "target_auc": 0.821196,
+          "target_logloss": 0.051857,
+          "delta_auc": 0.011176999999999992,
+          "delta_logloss": -0.001231999999999997
+        },
+        {
+          "label": "Offer",
+          "baseline_auc": 0.775777,
+          "baseline_logloss": 0.023378,
+          "target_auc": 0.778892,
+          "target_logloss": 0.021625,
+          "delta_auc": 0.003114999999999979,
+          "delta_logloss": -0.001753000000000001
+        },
+        {
+          "label": "Checkout",
+          "baseline_auc": 0.834515,
+          "baseline_logloss": 0.012448,
+          "target_auc": 0.841614,
+          "target_logloss": 0.012097,
+          "delta_auc": 0.0070989999999999664,
+          "delta_logloss": -0.0003510000000000006
+        },
+        {
+          "label": "Purchase",
+          "baseline_auc": 0.835563,
+          "baseline_logloss": 0.008751,
+          "target_auc": 0.848499,
+          "target_logloss": 0.008528,
+          "delta_auc": 0.012936000000000059,
+          "delta_logloss": -0.00022299999999999924
+        }
+      ]
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "baseline_seed": 20262027,
+      "baseline_job": "543257_2",
+      "target_seed": 20262028,
+      "target_job": "648217_2",
+      "baseline_auc": 0.855235,
+      "baseline_logloss": 0.0321885,
+      "target_auc": 0.8621115,
+      "target_logloss": 0.033837,
+      "delta_auc": 0.006876500000000063,
+      "delta_logloss": 0.0016484999999999972,
+      "labels": [
+        {
+          "label": "is_click",
+          "baseline_auc": 0.837502,
+          "baseline_logloss": 0.047367,
+          "target_auc": 0.844241,
+          "target_logloss": 0.048938,
+          "delta_auc": 0.0067390000000000505,
+          "delta_logloss": 0.001571000000000003
+        },
+        {
+          "label": "is_conversion",
+          "baseline_auc": 0.872968,
+          "baseline_logloss": 0.01701,
+          "target_auc": 0.879982,
+          "target_logloss": 0.018736,
+          "delta_auc": 0.007014000000000076,
+          "delta_logloss": 0.0017259999999999984
+        }
+      ]
+    },
+    {
+      "dataset": "QK_Video_Action",
+      "baseline_seed": 20262028,
+      "baseline_job": "643809_1",
+      "target_seed": 20262028,
+      "target_job": "644098_1",
+      "baseline_auc": 0.933438,
+      "baseline_logloss": 0.07563199999999999,
+      "target_auc": 0.93441475,
+      "target_logloss": 0.074783,
+      "delta_auc": 0.0009767499999999707,
+      "delta_logloss": -0.0008489999999999887,
+      "labels": [
+        {
+          "label": "click",
+          "baseline_auc": 0.931452,
+          "baseline_logloss": 0.255011,
+          "target_auc": 0.933251,
+          "target_logloss": 0.252158,
+          "delta_auc": 0.001799000000000106,
+          "delta_logloss": -0.0028529999999999944
+        },
+        {
+          "label": "follow",
+          "baseline_auc": 0.921287,
+          "baseline_logloss": 0.005003,
+          "target_auc": 0.921751,
+          "target_logloss": 0.005013,
+          "delta_auc": 0.00046400000000001995,
+          "delta_logloss": 1.000000000000046e-05
+        },
+        {
+          "label": "like",
+          "baseline_auc": 0.946112,
+          "baseline_logloss": 0.037126,
+          "target_auc": 0.9469,
+          "target_logloss": 0.036644,
+          "delta_auc": 0.0007880000000000109,
+          "delta_logloss": -0.0004819999999999963
+        },
+        {
+          "label": "share",
+          "baseline_auc": 0.934901,
+          "baseline_logloss": 0.005388,
+          "target_auc": 0.935757,
+          "target_logloss": 0.005317,
+          "delta_auc": 0.0008559999999999679,
+          "delta_logloss": -7.100000000000075e-05
+        }
+      ],
+      "raw_coverage_exact_match": true
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "baseline_seed": 20262028,
+      "baseline_job": "643809_2",
+      "target_seed": 20262028,
+      "target_job": "648217_2",
+      "baseline_auc": 0.8539245,
+      "baseline_logloss": 0.036219,
+      "target_auc": 0.8621115,
+      "target_logloss": 0.033837,
+      "delta_auc": 0.008187000000000055,
+      "delta_logloss": -0.002382000000000002,
+      "labels": [
+        {
+          "label": "is_click",
+          "baseline_auc": 0.836275,
+          "baseline_logloss": 0.051145,
+          "target_auc": 0.844241,
+          "target_logloss": 0.048938,
+          "delta_auc": 0.007966000000000029,
+          "delta_logloss": -0.0022070000000000006
+        },
+        {
+          "label": "is_conversion",
+          "baseline_auc": 0.871574,
+          "baseline_logloss": 0.021293,
+          "target_auc": 0.879982,
+          "target_logloss": 0.018736,
+          "delta_auc": 0.008408000000000082,
+          "delta_logloss": -0.0025570000000000002
+        }
+      ],
+      "raw_coverage_exact_match": true
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "audited_at_utc": "2026-09-25T07:45:56.448114+00:00",
+  "complete": true,
+  "runs": 12,
+  "new_runs": 8,
+  "reused_runs": 4,
+  "label_seed_rows": 51,
+  "macro_rows": 12,
+  "all_jobs_completed_exit_zero": true,
+  "all_config_source_coverage_model_test_gates_passed": true,
+  "all_means_and_sample_standard_deviations_recomputed": true,
+  "seed_outcomes": [
+    {
+      "dataset": "QK_Video_Action",
+      "auc_improved_seeds": 3,
+      "logloss_improved_seeds": 3,
+      "target_mean_delta_auc_vs_single_baseline": 0.0011064166666666653,
+      "target_mean_delta_logloss_vs_single_baseline": -0.0006929999999999992
+    },
+    {
+      "dataset": "MerRec_Action",
+      "auc_improved_seeds": 2,
+      "logloss_improved_seeds": 1,
+      "target_mean_delta_auc_vs_single_baseline": 0.005853999999999915,
+      "target_mean_delta_logloss_vs_single_baseline": -0.0014311333333333065
+    },
+    {
+      "dataset": "KuaiRand_Video_Action",
+      "auc_improved_seeds": 2,
+      "logloss_improved_seeds": 2,
+      "target_mean_delta_auc_vs_single_baseline": 0.00574577777777785,
+      "target_mean_delta_logloss_vs_single_baseline": -0.004465499999999983
+    },
+    {
+      "dataset": "TencentGR_10M_Action",
+      "auc_improved_seeds": 0,
+      "logloss_improved_seeds": 0,
+      "target_mean_delta_auc_vs_single_baseline": 0.0036120000000000596,
+      "target_mean_delta_logloss_vs_single_baseline": 0.0010521666666666665
+    }
+  ],
+  "monitor_finished_automatically": true,
+  "source_sha256": {
+    "experiments/hiformer_target_only_multiseed/report.md": "bdb97cb6a2aa74bb5c534e1b06b79835a5162f54116851150d4768c11890e7f0",
+    "experiments/hiformer_target_only_multiseed/results/evidence.json": "b6faed1a9aa3d0111583edcbfd3f64e5b4a414962c031f33bb73bab65932174e",
+    "experiments/hiformer_target_only_multiseed/results/summary.csv": "4640191109fe6db8ac36d5aa256a5ccbc2a33a59d018e6c1b70298d934981550",
+    "experiments/hiformer_target_only_multiseed/results/comparisons.csv": "36c4e43847c74b3a5eb0df4a04528bc67f533709afe3020d92bffc6be78ec6bb"
+  }
+}

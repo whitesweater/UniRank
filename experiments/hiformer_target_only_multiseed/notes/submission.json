@@ -1,0 +1,232 @@
+{
+  "study": "hiformer_target_only_multiseed",
+  "created_at_utc": "2026-09-24T15:27:04.617390+00:00",
+  "seeds": [
+    20262027,
+    20262028,
+    20262029
+  ],
+  "datasets": [
+    "QK_Video_Action",
+    "MerRec_Action",
+    "KuaiRand_Video_Action",
+    "TencentGR_10M_Action"
+  ],
+  "new_training_count": 8,
+  "reused_result_count": 4,
+  "total_result_count": 12,
+  "concurrency": "No array %N limit; both resource groups submitted independently",
+  "arrays": [
+    {
+      "array_id": "649560",
+      "seed": 20262027,
+      "task_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "world_size": 4,
+      "batch_size": 8192,
+      "array_spec": "0-3",
+      "concurrency_limit": null
+    },
+    {
+      "array_id": "649561",
+      "seed": 20262029,
+      "task_indices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "world_size": 2,
+      "batch_size": 16384,
+      "array_spec": "4-7",
+      "concurrency_limit": null
+    }
+  ],
+  "tasks": [
+    {
+      "task_index": 0,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "QK_Video_Action",
+      "seed": 20262027,
+      "attempt": 1,
+      "array_id": "649560",
+      "job_task_id": "649560_0",
+      "world_size": 4,
+      "batch_size": 8192,
+      "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649560_0.out",
+      "reference_job_task": "14811_9"
+    },
+    {
+      "task_index": 1,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "MerRec_Action",
+      "seed": 20262027,
+      "attempt": 1,
+      "array_id": "649560",
+      "job_task_id": "649560_1",
+      "world_size": 4,
+      "batch_size": 8192,
+      "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262027_ws4_bs8192_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_MerRec_Action_seed20262027_ws4_bs8192_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649560_1.out",
+      "reference_job_task": "14810_15"
+    },
+    {
+      "task_index": 2,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "KuaiRand_Video_Action",
+      "seed": 20262027,
+      "attempt": 1,
+      "array_id": "649560",
+      "job_task_id": "649560_2",
+      "world_size": 4,
+      "batch_size": 8192,
+      "run_id": "RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262027_ws4_bs8192_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262027_ws4_bs8192_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649560_2.out",
+      "reference_job_task": "14850_11"
+    },
+    {
+      "task_index": 3,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "TencentGR_10M_Action",
+      "seed": 20262027,
+      "attempt": 1,
+      "array_id": "649560",
+      "job_task_id": "649560_3",
+      "world_size": 4,
+      "batch_size": 8192,
+      "run_id": "RISE_hiformer_target_only_TencentGR_10M_Action_seed20262027_ws4_bs8192_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262027_ws4_bs8192_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262027_ws4_bs8192_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649560_3.out",
+      "reference_job_task": "543257_3"
+    },
+    {
+      "task_index": 4,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "QK_Video_Action",
+      "seed": 20262029,
+      "attempt": 1,
+      "array_id": "649561",
+      "job_task_id": "649561_4",
+      "world_size": 2,
+      "batch_size": 16384,
+      "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649561_4.out",
+      "reference_job_task": "549595_10"
+    },
+    {
+      "task_index": 5,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "MerRec_Action",
+      "seed": 20262029,
+      "attempt": 1,
+      "array_id": "649561",
+      "job_task_id": "649561_5",
+      "world_size": 2,
+      "batch_size": 16384,
+      "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649561_5.out",
+      "reference_job_task": "549595_2"
+    },
+    {
+      "task_index": 6,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "KuaiRand_Video_Action",
+      "seed": 20262029,
+      "attempt": 1,
+      "array_id": "649561",
+      "job_task_id": "649561_6",
+      "world_size": 2,
+      "batch_size": 16384,
+      "run_id": "RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262029_ws2_bs16384_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262029_ws2_bs16384_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649561_6.out",
+      "reference_job_task": "549595_6"
+    },
+    {
+      "task_index": 7,
+      "model": "HiFormer",
+      "mode": "target_only",
+      "dataset": "TencentGR_10M_Action",
+      "seed": 20262029,
+      "attempt": 1,
+      "array_id": "649561",
+      "job_task_id": "649561_7",
+      "world_size": 2,
+      "batch_size": 16384,
+      "run_id": "RISE_hiformer_target_only_TencentGR_10M_Action_seed20262029_ws2_bs16384_attempt1",
+      "manifest": "artifacts/rise_hiformer_target_only_multiseed/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262029_ws2_bs16384_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262029_ws2_bs16384_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-multiseed-649561_7.out",
+      "reference_job_task": "549595_14"
+    }
+  ],
+  "commands": [
+    {
+      "seed": 20262027,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--array=0-3",
+        "--gres=gpu:4",
+        "--cpus-per-task=32",
+        "--mem=960G",
+        "--export=ALL,RISE_HIFORMER_TARGET_ONLY_MULTISEED_ATTEMPT=1",
+        "scripts/submit_hiformer_target_only_multiseed.sbatch"
+      ],
+      "returncode": 0,
+      "stdout": "649560\n",
+      "stderr": "",
+      "submitted_at_utc": "2026-09-24T15:27:04.699440+00:00"
+    },
+    {
+      "seed": 20262029,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--array=4-7",
+        "--gres=gpu:2",
+        "--cpus-per-task=16",
+        "--mem=480G",
+        "--export=ALL,RISE_HIFORMER_TARGET_ONLY_MULTISEED_ATTEMPT=1",
+        "scripts/submit_hiformer_target_only_multiseed.sbatch"
+      ],
+      "returncode": 0,
+      "stdout": "649561\n",
+      "stderr": "",
+      "submitted_at_utc": "2026-09-24T15:27:04.753450+00:00"
+    }
+  ],
+  "validation": {
+    "full_cpu_tests": 232,
+    "full_cpu_status": "OK",
+    "launcher_tests": 7,
+    "collector_tests": 12,
+    "eight_cli_dry_runs": "passed",
+    "shell_syntax": "passed"
+  },
+  "all_requested_jobs_submitted": true
+}

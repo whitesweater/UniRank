@@ -1,0 +1,659 @@
+{
+  "checked_at_utc": "2026-09-24T15:34:01.527958+00:00",
+  "total_results": 12,
+  "reused_eligible": 4,
+  "new_run_states": {
+    "649560_0": "RUNNING",
+    "649561_4": "RUNNING",
+    "649560_1": "PENDING",
+    "649561_5": "RUNNING",
+    "649560_2": "PENDING",
+    "649561_6": "PENDING",
+    "649560_3": "PENDING",
+    "649561_7": "PENDING"
+  },
+  "running_audits": [
+    {
+      "job_task_id": "649560_0",
+      "world_size": 4,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "model_audits": {
+        "0": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260821,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 0,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1"
+        },
+        "1": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260821,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 1,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1"
+        },
+        "2": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260821,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 2,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1"
+        },
+        "3": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260821,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 3,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1"
+        }
+      },
+      "rng_audits": {
+        "0": {
+          "rank": 0,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "before_audit": {
+            "torch_cpu": "74e08542362445ddb56703c372efed95dbe095f544597a59aa9fe0e34494df46",
+            "python": "25410480fbf4b30e3a68033c9e44cb0ed2fe73709143f9fce6ea76cabf6a8e40",
+            "numpy": "92575b1edb0d2271025139bc879e5c240506909af5204a3af6c15d96b0a11bff",
+            "torch_cuda_current": "3b9275eb393415ae67492cf7b6318b54cc9a122d36c8ff4cb31b057ded1823ac"
+          },
+          "after_audit": {
+            "torch_cpu": "74e08542362445ddb56703c372efed95dbe095f544597a59aa9fe0e34494df46",
+            "python": "25410480fbf4b30e3a68033c9e44cb0ed2fe73709143f9fce6ea76cabf6a8e40",
+            "numpy": "92575b1edb0d2271025139bc879e5c240506909af5204a3af6c15d96b0a11bff",
+            "torch_cuda_current": "3b9275eb393415ae67492cf7b6318b54cc9a122d36c8ff4cb31b057ded1823ac"
+          },
+          "audit_preserved_rng": true
+        },
+        "1": {
+          "rank": 1,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "before_audit": {
+            "torch_cpu": "6d6975526a42124f655bd090b9610cc4f9561a911985c49681f149bcfec8fac3",
+            "python": "9913d9ec041fac223eb3f257ca55890ab7d9d0bc1332e36344aceec77d7f7507",
+            "numpy": "a356e8643f773385af53ac91256c9fd4e1e89b0b0ad1b9f908255cc4f59efd4b",
+            "torch_cuda_current": "9bb106bf8efc2c1cafb291d74fe557be8893f4a3ad3d8de95b748c6dff2b8706"
+          },
+          "after_audit": {
+            "torch_cpu": "6d6975526a42124f655bd090b9610cc4f9561a911985c49681f149bcfec8fac3",
+            "python": "9913d9ec041fac223eb3f257ca55890ab7d9d0bc1332e36344aceec77d7f7507",
+            "numpy": "a356e8643f773385af53ac91256c9fd4e1e89b0b0ad1b9f908255cc4f59efd4b",
+            "torch_cuda_current": "9bb106bf8efc2c1cafb291d74fe557be8893f4a3ad3d8de95b748c6dff2b8706"
+          },
+          "audit_preserved_rng": true
+        },
+        "2": {
+          "rank": 2,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "before_audit": {
+            "torch_cpu": "1daa47ebdc4faa707235fa69a94deba44f55f1cf6dd838e8ec832088f3cd36e1",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "after_audit": {
+            "torch_cpu": "1daa47ebdc4faa707235fa69a94deba44f55f1cf6dd838e8ec832088f3cd36e1",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "audit_preserved_rng": true
+        },
+        "3": {
+          "rank": 3,
+          "world_size": 4,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1",
+          "seed_bundle": {
+            "seed": 20262027,
+            "dataloader_seed": 2026,
+            "sisa_parameter_seed": 20260821
+          },
+          "before_audit": {
+            "torch_cpu": "c8d6f04d68e8ce66733f8881cb9687d55cbb26535900c2890234e12fbe070cc4",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "after_audit": {
+            "torch_cpu": "c8d6f04d68e8ce66733f8881cb9687d55cbb26535900c2890234e12fbe070cc4",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "audit_preserved_rng": true
+        }
+      },
+      "progress": {
+        "0": {
+          "epoch": 1,
+          "step": 1182,
+          "total_steps": 12038
+        },
+        "1": {
+          "epoch": 1,
+          "step": 1182,
+          "total_steps": 12043
+        },
+        "2": {
+          "epoch": 1,
+          "step": 1183,
+          "total_steps": 12037
+        },
+        "3": {
+          "epoch": 1,
+          "step": 1182,
+          "total_steps": 12042
+        }
+      },
+      "issues": []
+    },
+    {
+      "job_task_id": "649561_4",
+      "world_size": 2,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "model_audits": {
+        "0": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 0,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1"
+        },
+        "1": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 1,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "model_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1"
+        }
+      },
+      "rng_audits": {
+        "0": {
+          "rank": 0,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "before_audit": {
+            "torch_cpu": "1daa47ebdc4faa707235fa69a94deba44f55f1cf6dd838e8ec832088f3cd36e1",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "after_audit": {
+            "torch_cpu": "1daa47ebdc4faa707235fa69a94deba44f55f1cf6dd838e8ec832088f3cd36e1",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "audit_preserved_rng": true
+        },
+        "1": {
+          "rank": 1,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "before_audit": {
+            "torch_cpu": "c8d6f04d68e8ce66733f8881cb9687d55cbb26535900c2890234e12fbe070cc4",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "after_audit": {
+            "torch_cpu": "c8d6f04d68e8ce66733f8881cb9687d55cbb26535900c2890234e12fbe070cc4",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "audit_preserved_rng": true
+        }
+      },
+      "progress": {
+        "0": {
+          "epoch": 1,
+          "step": 1974,
+          "total_steps": 12038
+        },
+        "1": {
+          "epoch": 1,
+          "step": 1974,
+          "total_steps": 12036
+        }
+      },
+      "issues": []
+    },
+    {
+      "job_task_id": "649561_5",
+      "world_size": 2,
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "model_audits": {
+        "0": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 192,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 7874,
+              "active": 7874
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 869752487,
+          "active_parameters": 869752487,
+          "active_dense_parameters": 67481031,
+          "active_embedding_parameters": 802271456,
+          "rank": 0,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "model_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1"
+        },
+        "1": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 192,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 7874,
+              "active": 7874
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 869752487,
+          "active_parameters": 869752487,
+          "active_dense_parameters": 67481031,
+          "active_embedding_parameters": 802271456,
+          "rank": 1,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "model_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1"
+        }
+      },
+      "rng_audits": {
+        "0": {
+          "rank": 0,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "before_audit": {
+            "torch_cpu": "3548f34048df2557c346f5e2c1f5ad0b20cf09696fafd67abd54f3d26593ff5a",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "after_audit": {
+            "torch_cpu": "3548f34048df2557c346f5e2c1f5ad0b20cf09696fafd67abd54f3d26593ff5a",
+            "python": "4b41baf0bba6ea6330c4a554cf97c6bb7a5b0a1ac5c5aeeb66c6b3dd50716bac",
+            "numpy": "0be82d94f2d4fe7668038234000ce6db13637180ff70e051d74f1b834f9da017",
+            "torch_cuda_current": "107c4d69013cbc3ee2d7326c35177af2ef9e82d93c7d0fd6b8f84d5e41970707"
+          },
+          "audit_preserved_rng": true
+        },
+        "1": {
+          "rank": 1,
+          "world_size": 2,
+          "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1",
+          "seed_bundle": {
+            "seed": 20262029,
+            "dataloader_seed": 2028,
+            "sisa_parameter_seed": 20260823
+          },
+          "before_audit": {
+            "torch_cpu": "5f5e4e0e916c199c79ac983600178f84dd3ffa613d9a3f76b2e271ec1da11017",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "after_audit": {
+            "torch_cpu": "5f5e4e0e916c199c79ac983600178f84dd3ffa613d9a3f76b2e271ec1da11017",
+            "python": "2a06dc47dfdde52aadf40963f82966d24dfce42fae31239e9b1e3f99cc82ef3c",
+            "numpy": "63ba558270603d566197a7c0d24a8e5a07aac3f6cf2f5ff90bb7b5c0d2adc8c8",
+            "torch_cuda_current": "ae01fdb716939093c03ddf8fedef6aa1f2ddde20e43d3d5618a9df9869ad8533"
+          },
+          "audit_preserved_rng": true
+        }
+      },
+      "progress": {
+        "0": {
+          "epoch": 1,
+          "step": 539,
+          "total_steps": 4395
+        },
+        "1": {
+          "epoch": 1,
+          "step": 539,
+          "total_steps": 4397
+        }
+      },
+      "issues": []
+    }
+  ],
+  "no_current_audit_issues": true,
+  "all_datasets_show_one_of_three": true,
+  "three_seed_means_still_withheld": true
+}

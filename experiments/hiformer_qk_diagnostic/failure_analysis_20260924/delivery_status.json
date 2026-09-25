@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-09-24T09:53:15.468322+00:00",
+  "markdown_report": "report.md",
+  "markdown_status": "Reviewed by primary agent against fresh original-log, placement and group audits; ready",
+  "html_status": "not_delivered",
+  "last_reported_packaging_error": "$.manifest.blocks must include at least one chart block for report artifacts",
+  "html_visual_qa": "not_completed",
+  "note": "Canonical HTML packaging was not completed. Do not claim report.html exists or was published. The independently readable Chinese Markdown report is available.",
+  "current_followup": "Three HiFormer target_only extension training tasks submitted as array648217; see experiments/hiformer_target_only_extension"
+}

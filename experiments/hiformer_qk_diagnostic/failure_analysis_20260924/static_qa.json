@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": {
+    "eight_major_sections": true,
+    "no_hyperlinks_in_markdown": true,
+    "reader_method_is_rise": true,
+    "five_exact_tables": true,
+    "one_placement_chart": true,
+    "all_tables_source_backed": true,
+    "three_protocols_not_conflated": true,
+    "macro_auc_scope_and_ll_count": true
+  },
+  "markdown_characters": 5124
+}

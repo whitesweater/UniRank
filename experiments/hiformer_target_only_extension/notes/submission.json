@@ -1,0 +1,68 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "scripts/submit_hiformer_target_only_extension.sbatch"
+  ],
+  "returncode": 0,
+  "stdout": "648217\n",
+  "stderr": "",
+  "submitted_at_utc": "2026-09-24T09:44:00.714410+00:00",
+  "array_id": "648217",
+  "array": "0-2",
+  "tasks": [
+    {
+      "task_index": 0,
+      "model": "HiFormer",
+      "dataset": "MerRec_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "job_task_id": "648217_0",
+      "run_id": "RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1",
+      "reference_job_task": "548166_2",
+      "manifest": "artifacts/rise_hiformer_target_only_extension/RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-only-648217_0.out"
+    },
+    {
+      "task_index": 1,
+      "model": "HiFormer",
+      "dataset": "KuaiRand_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "job_task_id": "648217_1",
+      "run_id": "RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1",
+      "reference_job_task": "548166_6",
+      "manifest": "artifacts/rise_hiformer_target_only_extension/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-only-648217_1.out"
+    },
+    {
+      "task_index": 2,
+      "model": "HiFormer",
+      "dataset": "TencentGR_10M_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "job_task_id": "648217_2",
+      "run_id": "RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1",
+      "reference_job_task": "548166_14",
+      "manifest": "artifacts/rise_hiformer_target_only_extension/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1.log",
+      "slurm_log": "logs/rise-hiformer-target-only-648217_2.out"
+    }
+  ],
+  "protocol": "Same logged seed20262028 full RISE reference per dataset, 2 H100, perGPU16384, global32768, 1 epoch; target_only placement only",
+  "training_scope": "Exactly three additional HiFormer datasets; no QK repeat and no new native baseline",
+  "validation": {
+    "full_cpu_suite": {
+      "tests": 197,
+      "result": "OK",
+      "command": ".venv/bin/python -m unittest discover -s tests -v"
+    },
+    "targeted_control_regressions": 7,
+    "new_launcher_regressions_in_full_suite": 5,
+    "shell_syntax": "passed",
+    "three_cli_dry_runs": "passed"
+  },
+  "followup": "Persistent 600-second audit snapshots and automatic report collection"
+}

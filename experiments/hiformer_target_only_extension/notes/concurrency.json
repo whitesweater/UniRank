@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-09-24T09:52:40.007758+00:00",
+  "user_instruction": "继续，不要限制并发",
+  "submission_array": "0-2",
+  "submission_has_percent_cap": false,
+  "scheduler_has_array_task_throttle_field": false,
+  "queue": "648217_2|RUNNING|5:03|ACD1-36\n648217_1|RUNNING|7:34|ACD1-9\n648217_0|RUNNING|8:34|ACD1-17\n",
+  "all_three_running": true,
+  "gpus_per_task": 2,
+  "total_allocated_gpus": 6
+}

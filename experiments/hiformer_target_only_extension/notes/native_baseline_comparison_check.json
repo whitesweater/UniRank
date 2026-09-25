@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-09-24T14:57:28.866976+00:00",
+  "baseline_rows": 6,
+  "paper_seed27_rows": 4,
+  "matched_seed28_rows": 2,
+  "original_full_rise_comparison_rows_preserved": 21,
+  "independent_raw_baseline_metrics_match": true,
+  "report_values_verified": true,
+  "focused_collector_tests": 13,
+  "focused_collector_tests_status": "OK",
+  "new_training_jobs": 0
+}

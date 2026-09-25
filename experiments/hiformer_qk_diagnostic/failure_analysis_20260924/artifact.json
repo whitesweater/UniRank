@@ -1,0 +1,853 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "RISE 失败案例分析：HiFormer 在 QK-Video 上为何下降",
+    "description": "以二十组冻结结果、标签分解、接入位置控制和配对样本分层解释唯一负向单元。",
+    "generatedAt": "2026-09-24T09:27:06.889074+00:00",
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# RISE 失败案例分析：HiFormer 在 QK-Video 上为何下降"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## 一、负效应已经定位到字段交互接入配置\n\n**HiFormer × QK-Video 是当前 20 组结果中完整 RISE 宏 AUC 唯一下降的组合。已有位置控制表明：仅历史汇聚接入可以提高性能，字段交互接入会产生明显负向变化；两者共同接入后的净结果为下降。**\n\n这已经超出纯推测：字段接入的不利表现有实际对照支持。但其内部原因尚未唯一确定。字段/任务 token 的排列缺少行为时间语义，沿此排列施加累积偏置可能与 HiFormer 的全局字段交互冲突，是与代码和位置结果相容的解释，仍需专项控制确认。"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "body": "## 二、整体三次均值与位置对照使用不同 Baseline\n\n正式范围为 HiFormer、HyFormer、OneTrans、RankMixer、Zenith × MerRec、QK-Video、KuaiRand、TencentGR，共 20 个单元；当前 19 组宏 AUC 为正向，只有 HiFormer–QK-Video 为负向。这里的“19 组提升”仅指宏 AUC；宏 LogLoss 改善为 17/20 组，也不表示所有标签都改善。QK 的宏指标是 click、follow、like、share 的等权平均；Δ 均为 RISE 减参照，使用绝对 AUC 单位。\n\n当前整体汇总用历史单次 Baseline 对比三次 RISE 均值；追加位置控制使用 seed 20262028 对应的另一个 Baseline，不能交叉代入。三次完整 RISE 宏 AUC 分别为 0.93106300、0.93089125、0.93061050，均低于历史 Baseline，但协议不完全相同，尚未形成三个 seed 各自成对的完整重复（seed 20262028 已有追加 Baseline），不能当作三个严格配对重复。",
+        "sourceId": "cells"
+      },
+      {
+        "id": "headline_comparison_block",
+        "type": "table",
+        "tableId": "headline_comparison"
+      },
+      {
+        "id": "labels",
+        "type": "markdown",
+        "body": "## 三、follow 贡献 68.16% 的净宏 AUC 损失\n\n当前三次均值中四标签 AUC 都下降，follow 的下降最突出，占净宏损失的 68.16%；宏贡献按标签差值除以四计算。它定位了重点受损任务，不直接说明成因。当前三次均值的宏 LogLoss 也升高 0.00023858；早期单次配对的极小 LogLoss 改善不能沿用到当前均值。",
+        "sourceId": "labels"
+      },
+      {
+        "id": "label_table_block",
+        "type": "table",
+        "tableId": "label_table"
+      },
+      {
+        "id": "placements",
+        "type": "markdown",
+        "body": "## 四、关闭字段侧后，AUC 从下降转为提升\n\n位置对照使用 seed 20262028、2 卡、每卡 batch 16384、global batch 32768、1 epoch、最大历史长度 100；记录中的训练、验证、测试覆盖分别为 394,428,416、50,036,736、48,529,408 条。完整 RISE 接入一个历史汇聚位置和三个字段交互层。四种配置按已记录的协议和覆盖对齐，不表示历史代码与数据字节已完全追溯验证。\n\n只在字段侧接入相对 Baseline 下降 0.00404725；在仅历史汇聚的基础上加入字段侧，下降 0.00352350。反向看，历史汇聚接入在两个参照下都带来正向变化。因此，**字段交互接入是本配置重要的负面来源**。这些是分别训练后的配置差异，不能线性相加成固定组件贡献。",
+        "sourceId": "placements"
+      },
+      {
+        "id": "placement_chart_block",
+        "type": "chart",
+        "chartId": "placement_auc_delta"
+      },
+      {
+        "id": "placement_table_block",
+        "type": "table",
+        "tableId": "placement_table"
+      },
+      {
+        "id": "placement_follow",
+        "type": "markdown",
+        "body": "### follow 同样随字段接入而恶化、随仅历史接入而恢复\n\nseed 20262028 下，follow AUC 为 Baseline 0.921287、完整 RISE 0.913586、仅历史汇聚 0.921751、仅字段交互 0.912760。仅历史汇聚的四标签 AUC 都高于对应 Baseline，但 follow LogLoss 仍略高 0.000010；不能写成全部任务、全部指标改善。",
+        "sourceId": "placements"
+      },
+      {
+        "id": "mechanism",
+        "type": "markdown",
+        "body": "## 五、内部解释指向 token 语义与交互方式的不匹配\n\nHiFormer 先对行为历史做目标注意力汇聚，再将用户上下文、候选特征、历史汇聚和任务 token 拼接。后面的三层处理字段与任务关系，排列并不具有行为时间的同等含义。原生 Q/K/V 将全段 token 展平后做全局低秩投影，RISE 则从逐 token 表示构造修正并沿排列累计衰减与相位；两种构造可能对字段关系施加不相容的偏好。\n\n位置控制支持“字段接入配置不适配”，但未把字段顺序、衰减、相位、内容投影、容量和优化适应分开。不能直接写成“已证明旋转有害”或“已证明时间偏置造成下降”。",
+        "sourceId": "model"
+      },
+      {
+        "id": "groups",
+        "type": "markdown",
+        "body": "## 六、短历史更敏感，稀少性不足以单独解释 follow\n\n已有配对预测分析覆盖 48,529,408 条测试交互，本次核对其冻结结果：四个非空历史长度组的宏 AUC 与 follow AUC 差值都为负，短历史组的负向点估计更大。follow 有 40,518 个正例，占 0.08349%；share 同样稀少，占 0.10119%。因此，follow 的稀少性是事实，却不足以单独解释其更大损失。\n\n以下是固定模型的描述性分层：组间点估计不构成组间显著性检验，组内 AUC 加权平均不等于全局 AUC；部分频次组并非下降，不能泛化为所有人群都受损。",
+        "sourceId": "group_manifest"
+      },
+      {
+        "id": "length_table_block",
+        "type": "table",
+        "tableId": "length_table"
+      },
+      {
+        "id": "uniqueness",
+        "type": "markdown",
+        "body": "## 七、主表唯一负向，不代表其他模型没有局部负效应\n\nQK-Video 上其余四个模型、HiFormer 在其余三个数据集上的完整 RISE 宏 AUC 都为正向。更直接的反例是 Zenith：仅 token 交互接入也为负向，但完整 RISE 仍为正向，说明其他位置的收益可以抵消局部损失。HyFormer 的两个位置都处理行为序列，其单位置控制均为正向，不能把所有 sequence-end 参考方式等同于非时间字段。\n\n因此，HiFormer–QK-Video 的唯一净下降反映了该骨干、接入位置与数据条件共同作用后的最终表现；不能归结为 QK-Video 或 HiFormer 普遍不适用。下面的跨模型控制同为单种子探索，不能据此推出普遍规律。"
+      },
+      {
+        "id": "replication_table_block",
+        "type": "table",
+        "tableId": "replication_table"
+      },
+      {
+        "id": "boundaries",
+        "type": "markdown",
+        "body": "## 八、可用于论文的结论与尚未解决的问题\n\n位置控制为单种子的事后探索，且活跃稠密参数量不同：Baseline 27,824,132、完整 RISE 27,889,090、仅历史汇聚 27,826,102、仅字段交互 27,887,120。保留位置初始化与已记录协议的对齐，不消除容量及优化路径变化。只有一轮训练末端评测不足以证明过拟合或未收敛。主表应保留完整 RISE 负例，不能用事后选择的仅历史结果替换。\n\n优先补充一致协议的成对训练重复确认位置结论，再在字段侧分别控制内容投影、衰减、相位与排列，并观察实际附加分数和 follow 排序变化；这些工作尚未由本报告执行。\n\n### 可直接复制的论文表述\n\n在五个模型与四个数据集构成的 20 个实验单元中，HiFormer 在 QK-Video 上是完整 RISE 宏 AUC 唯一下降的组合。按当前汇总口径，其宏 AUC 从 0.93316325 降至 0.93085492，损失主要集中于 follow 任务。进一步的单种子接入位置控制表明，相对于对应原生 Baseline 的 0.93343800，仅在历史汇聚阶段接入 RISE 可将宏 AUC 提高至 0.93441475，而仅在字段交互层接入则降至 0.92939075；完整 RISE 为 0.93089125。该结果支持字段交互接入是此失败案例的重要负面来源。HiFormer 的字段层混合用户特征、候选特征、历史汇聚表示与任务 token，其排列不具有行为时间序列的同等含义；沿该排列引入累积偏置可能与既有字段交互机制不匹配。由于位置控制同时改变活跃参数量，且目前只有一个训练种子的探索性结果，这一解释尚不能进一步唯一归因于字段顺序、衰减或相位。该负例表明接入位置影响效果，并提示需考虑 token 语义与骨干信息流的匹配；不能假设所有 attention 位置均受益。"
+      }
+    ],
+    "cards": [],
+    "charts": [
+      {
+        "id": "placement_auc_delta",
+        "title": "接入位置与宏 AUC 差值",
+        "subtitle": "seed 20262028；相对对应 Baseline 的绝对 AUC 差值，零线为 Baseline",
+        "type": "horizontalBar",
+        "intent": "comparison",
+        "question": "不同接入位置相对同一 Baseline 的变化方向和幅度如何？",
+        "rationale": "四种配置的单一同尺度指标，带零点和明确正负符号；对应表格保留准确查值。",
+        "dataset": "placement_deltas",
+        "sourceId": "placements",
+        "palette": {
+          "kind": "diverging",
+          "midpoint": 0
+        },
+        "labels": {
+          "values": "auto"
+        },
+        "layout": "full",
+        "maxRows": 4,
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "configuration",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "接入位置"
+          },
+          "y": {
+            "field": "delta_auc",
+            "type": "quantitative",
+            "aggregate": "none",
+            "label": "ΔAUC（绝对值）"
+          },
+          "tooltip": [
+            {
+              "field": "auc",
+              "type": "quantitative",
+              "label": "宏 AUC"
+            },
+            {
+              "field": "logloss",
+              "type": "quantitative",
+              "label": "宏 LogLoss"
+            }
+          ]
+        },
+        "xAxisTitle": "接入位置",
+        "yAxisTitle": "ΔAUC（绝对值）"
+      }
+    ],
+    "tables": [
+      {
+        "id": "headline_comparison",
+        "title": "整体结果与早期配对结果",
+        "subtitle": "",
+        "showDescription": false,
+        "dataset": "headline_comparison",
+        "sourceId": "cells",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "basis",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "basis",
+            "label": "比较口径",
+            "type": "text"
+          },
+          {
+            "field": "baseline",
+            "label": "Baseline AUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "rise",
+            "label": "RISE AUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta",
+            "label": "ΔAUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "baseline_ll",
+            "label": "Baseline LogLoss",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "rise_ll",
+            "label": "RISE LogLoss",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "label_table",
+        "title": "当前三次均值的逐标签 AUC",
+        "subtitle": "",
+        "showDescription": false,
+        "dataset": "label_table",
+        "sourceId": "labels",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "label",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "label",
+            "label": "标签",
+            "type": "text"
+          },
+          {
+            "field": "baseline",
+            "label": "Baseline",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "rise",
+            "label": "RISE 三次均值",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta",
+            "label": "ΔAUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "macro",
+            "label": "对宏 ΔAUC 的贡献",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "placement_table",
+        "title": "HiFormer–QK-Video 的位置控制",
+        "subtitle": "三种 RISE 配置分别重新训练；这里只比较同一 seed 的探索性控制。",
+        "showDescription": true,
+        "dataset": "placement_table",
+        "sourceId": "placements",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "metric",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "metric",
+            "label": "指标",
+            "type": "text"
+          },
+          {
+            "field": "baseline",
+            "label": "Baseline",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "full",
+            "label": "完整 RISE",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "target",
+            "label": "仅历史汇聚",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "field",
+            "label": "仅字段交互",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "length_table",
+        "title": "有效历史长度分层",
+        "subtitle": "配对预测对应 seed 20262028；分组内 AUC 的加权平均不等于全局 AUC。",
+        "showDescription": true,
+        "dataset": "length_table",
+        "sourceId": "groups",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "length",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "length",
+            "label": "有效历史长度",
+            "type": "text"
+          },
+          {
+            "field": "rows",
+            "label": "测试交互数",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "positive",
+            "label": "follow 正例",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "macro",
+            "label": "宏 ΔAUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "follow",
+            "label": "follow ΔAUC",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "replication_table",
+        "title": "QK-Video 上的其他模型位置控制",
+        "subtitle": "",
+        "showDescription": false,
+        "dataset": "replication_table",
+        "sourceId": "replication",
+        "layout": "full",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "config",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "config",
+            "label": "模型 · 单位置配置",
+            "type": "text"
+          },
+          {
+            "field": "baseline",
+            "label": "Baseline",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "full",
+            "label": "完整 RISE",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "site",
+            "label": "单位置 AUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta",
+            "label": "单位置 ΔAUC",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "cells",
+        "label": "正式二十组结果的冻结汇总",
+        "path": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/integrated_cells.csv', header = true)",
+          "description": "正式二十组结果的冻结汇总",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/integrated_cells.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "labels",
+        "label": "HiFormer QK-Video 标签级冻结结果",
+        "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/label_comparison.csv', header = true)",
+          "description": "HiFormer QK-Video 标签级冻结结果",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/label_comparison.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "placements",
+        "label": "HiFormer QK-Video 接入位置控制",
+        "path": "experiments/rise_sample_analysis/results/targeted_training_comparisons.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/targeted_training_comparisons.csv', header = true)",
+          "description": "HiFormer QK-Video 接入位置控制",
+          "tables_used": [
+            "experiments/rise_sample_analysis/results/targeted_training_comparisons.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "placement_runs",
+        "label": "位置控制作业与参数量审计",
+        "path": "experiments/rise_sample_analysis/results/targeted_training_runs.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/targeted_training_runs.csv', header = true)",
+          "description": "位置控制作业与参数量审计",
+          "tables_used": [
+            "experiments/rise_sample_analysis/results/targeted_training_runs.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "placement_evidence",
+        "label": "位置控制日志及协议审计",
+        "path": "experiments/rise_sample_analysis/results/targeted_training_evidence.json"
+      },
+      {
+        "id": "groups",
+        "label": "QK-Video 同一样本配对分组结果",
+        "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv', header = true)",
+          "description": "QK-Video 同一样本配对分组结果",
+          "tables_used": [
+            "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "group_manifest",
+        "label": "QK-Video 预测复现与样本分组清单",
+        "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/manifest.json"
+      },
+      {
+        "id": "replication",
+        "label": "Zenith 与 HyFormer 位置控制",
+        "path": "experiments/rise_sample_analysis/results/site_replication_comparisons.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/site_replication_comparisons.csv', header = true)",
+          "description": "Zenith 与 HyFormer 位置控制",
+          "tables_used": [
+            "experiments/rise_sample_analysis/results/site_replication_comparisons.csv"
+          ],
+          "filters": [
+            "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+          ],
+          "metric_definitions": [
+            "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+            "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+          ]
+        }
+      },
+      {
+        "id": "replication_evidence",
+        "label": "跨模型位置控制审计",
+        "path": "experiments/rise_sample_analysis/results/site_replication_evidence.json"
+      },
+      {
+        "id": "model",
+        "label": "HiFormer 前向计算实现",
+        "path": "model_zoo/HiFormer.py"
+      },
+      {
+        "id": "placement_code",
+        "label": "位置控制开关和初始化核查实现",
+        "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-09-24T09:27:06.889074+00:00",
+    "status": "ready",
+    "datasets": {
+      "headline_comparison": [
+        {
+          "basis": "1. 当前整体汇总：三次 RISE 均值",
+          "baseline": "0.93316325",
+          "rise": "0.93085492",
+          "delta": "-0.00230833",
+          "baseline_ll": "0.07538550",
+          "rise_ll": "0.07562408"
+        },
+        {
+          "basis": "2. 早期主配对：seed 20262027",
+          "baseline": "0.93316325",
+          "rise": "0.93106300",
+          "delta": "-0.00210025",
+          "baseline_ll": "0.07538550",
+          "rise_ll": "0.07535625"
+        }
+      ],
+      "label_table": [
+        {
+          "label": "click",
+          "baseline": "0.93230600",
+          "rise": "0.93201100",
+          "delta": "-0.00029500",
+          "macro": "-0.00007375"
+        },
+        {
+          "label": "follow",
+          "baseline": "0.91991400",
+          "rise": "0.91362067",
+          "delta": "-0.00629333",
+          "macro": "-0.00157333"
+        },
+        {
+          "label": "like",
+          "baseline": "0.94669100",
+          "rise": "0.94538767",
+          "delta": "-0.00130333",
+          "macro": "-0.00032583"
+        },
+        {
+          "label": "share",
+          "baseline": "0.93374200",
+          "rise": "0.93240033",
+          "delta": "-0.00134167",
+          "macro": "-0.00033542"
+        }
+      ],
+      "placement_table": [
+        {
+          "metric": "1. 宏 AUC",
+          "baseline": "0.93343800",
+          "full": "0.93089125",
+          "target": "0.93441475",
+          "field": "0.92939075"
+        },
+        {
+          "metric": "2. ΔAUC vs Baseline",
+          "baseline": "+0.00000000",
+          "full": "-0.00254675",
+          "target": "+0.00097675",
+          "field": "-0.00404725"
+        },
+        {
+          "metric": "3. 宏 LogLoss",
+          "baseline": "0.07563200",
+          "full": "0.07584525",
+          "target": "0.07478300",
+          "field": "0.07632900"
+        }
+      ],
+      "length_table": [
+        {
+          "length": "1. 1-20",
+          "rows": "388,977",
+          "positive": "313",
+          "macro": "-0.00397917",
+          "follow": "-0.01342423"
+        },
+        {
+          "length": "2. 21-50",
+          "rows": "6,095,955",
+          "positive": "5,000",
+          "macro": "-0.00373383",
+          "follow": "-0.01074278"
+        },
+        {
+          "length": "3. 51-99",
+          "rows": "11,580,260",
+          "positive": "10,144",
+          "macro": "-0.00290013",
+          "follow": "-0.00836554"
+        },
+        {
+          "length": "4. 100",
+          "rows": "30,464,216",
+          "positive": "25,061",
+          "macro": "-0.00197862",
+          "follow": "-0.00654641"
+        }
+      ],
+      "replication_table": [
+        {
+          "config": "Zenith · history_only",
+          "baseline": "0.93463475",
+          "full": "0.93522050",
+          "site": "0.93578575",
+          "delta": "+0.00115100"
+        },
+        {
+          "config": "HyFormer · sequence_only",
+          "baseline": "0.93085800",
+          "full": "0.93130800",
+          "site": "0.93093600",
+          "delta": "+0.00007800"
+        },
+        {
+          "config": "Zenith · token_only",
+          "baseline": "0.93463475",
+          "full": "0.93522050",
+          "site": "0.93380000",
+          "delta": "-0.00083475"
+        },
+        {
+          "config": "HyFormer · query_only",
+          "baseline": "0.93085800",
+          "full": "0.93130800",
+          "site": "0.93122125",
+          "delta": "+0.00036325"
+        }
+      ],
+      "placement_deltas": [
+        {
+          "configuration": "Baseline",
+          "delta_auc": 0.0,
+          "auc": 0.933438,
+          "logloss": 0.07563199999999999
+        },
+        {
+          "configuration": "完整 RISE",
+          "delta_auc": -0.002546750000000042,
+          "auc": 0.93089125,
+          "logloss": 0.07584525
+        },
+        {
+          "configuration": "仅历史汇聚",
+          "delta_auc": 0.0009767499999999707,
+          "auc": 0.93441475,
+          "logloss": 0.074783
+        },
+        {
+          "configuration": "仅字段交互",
+          "delta_auc": -0.004047249999999947,
+          "auc": 0.92939075,
+          "logloss": 0.07632900000000001
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "cells",
+      "label": "正式二十组结果的冻结汇总",
+      "path": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/integrated_cells.csv', header = true)",
+        "description": "正式二十组结果的冻结汇总",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/integrated_cells.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "labels",
+      "label": "HiFormer QK-Video 标签级冻结结果",
+      "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/label_comparison.csv', header = true)",
+        "description": "HiFormer QK-Video 标签级冻结结果",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/label_comparison.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "placements",
+      "label": "HiFormer QK-Video 接入位置控制",
+      "path": "experiments/rise_sample_analysis/results/targeted_training_comparisons.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/targeted_training_comparisons.csv', header = true)",
+        "description": "HiFormer QK-Video 接入位置控制",
+        "tables_used": [
+          "experiments/rise_sample_analysis/results/targeted_training_comparisons.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "placement_runs",
+      "label": "位置控制作业与参数量审计",
+      "path": "experiments/rise_sample_analysis/results/targeted_training_runs.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/targeted_training_runs.csv', header = true)",
+        "description": "位置控制作业与参数量审计",
+        "tables_used": [
+          "experiments/rise_sample_analysis/results/targeted_training_runs.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "placement_evidence",
+      "label": "位置控制日志及协议审计",
+      "path": "experiments/rise_sample_analysis/results/targeted_training_evidence.json"
+    },
+    {
+      "id": "groups",
+      "label": "QK-Video 同一样本配对分组结果",
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv', header = true)",
+        "description": "QK-Video 同一样本配对分组结果",
+        "tables_used": [
+          "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "group_manifest",
+      "label": "QK-Video 预测复现与样本分组清单",
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/manifest.json"
+    },
+    {
+      "id": "replication",
+      "label": "Zenith 与 HyFormer 位置控制",
+      "path": "experiments/rise_sample_analysis/results/site_replication_comparisons.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT * FROM read_csv_auto('experiments/rise_sample_analysis/results/site_replication_comparisons.csv', header = true)",
+        "description": "Zenith 与 HyFormer 位置控制",
+        "tables_used": [
+          "experiments/rise_sample_analysis/results/site_replication_comparisons.csv"
+        ],
+        "filters": [
+          "正式范围仅含五个模型和四个数据集；失败案例为 HiFormer 与 QK-Video"
+        ],
+        "metric_definitions": [
+          "宏 AUC 和宏 LogLoss 为本单元标签的等权算术平均；AUC 越高越好，LogLoss 越低越好",
+          "所有差值为 RISE 或指定变体减去表中明确列出的 Baseline；单位为绝对原始尺度"
+        ]
+      }
+    },
+    {
+      "id": "replication_evidence",
+      "label": "跨模型位置控制审计",
+      "path": "experiments/rise_sample_analysis/results/site_replication_evidence.json"
+    },
+    {
+      "id": "model",
+      "label": "HiFormer 前向计算实现",
+      "path": "model_zoo/HiFormer.py"
+    },
+    {
+      "id": "placement_code",
+      "label": "位置控制开关和初始化核查实现",
+      "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py"
+    }
+  ]
+}
