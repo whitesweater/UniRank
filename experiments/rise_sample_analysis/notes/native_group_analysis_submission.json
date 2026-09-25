@@ -1,0 +1,13 @@
+{
+  "submitted_at_utc": "2026-09-22T20:04:07.411032+00:00",
+  "job_id": "643917",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_native_group_analysis.sbatch"
+  ],
+  "stdout": "643917\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "ea4f37fd2b31f41efe4e42147cce0af1b3024bbf483135898c17ac6d6c5b9116"
+}

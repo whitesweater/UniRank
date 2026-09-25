@@ -1,0 +1,12 @@
+{
+  "dataset": "QK_Video_Action",
+  "rows": 48529408,
+  "result_rows": 55,
+  "identity_verified": true,
+  "variants": [
+    "A",
+    "E"
+  ],
+  "group_results_sha256": "0e8139d4e4f6d3584ee07d55a112ce9212d0ba7df05cbb457d28c2143c384352",
+  "manifest_sha256": "d1444123119c4a5ffee868821f284579b3574b8bb5b4d40838f97824f688ea79"
+}

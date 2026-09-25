@@ -1,0 +1,217 @@
+% Main native-control analysis. Place before the companion component section.
+% Requires amsmath, booktabs. This fragment has no external hyperlinks.
+% Native A is always the leftmost model comparison column.
+\subsection{Conditional benefits relative to the native backbone}
+\label{sec:rise_native_merrec_conditions}
+
+\paragraph{A distinct comparison.}
+We evaluate Full RISE (E) against a newly completed native HyFormer control (A)
+under the matched MerRec seed-20262028 protocol. The native model was trained
+without the auxiliary RISE branch; Content-only (B), used in the companion
+component analysis, retains auxiliary content projections. Accordingly,
+$\delta_g^{E:A}=A_{E,g}-A_{A,g}$ measures the full intervention, whereas
+$\delta_g^{E:B}$ measures the additional difference between separately trained
+modulation configurations. These estimands should not be substituted for one
+another. Both comparisons use the same Full RISE predictions and 11,599,872
+retained test rows. All prediction-shard checksums, physical sample identities,
+six metadata fields, and five labels were verified. Evaluation follows the
+original eight-block incomplete-batch removal, rather than silently adding
+the omitted test tails.
+
+The unrounded prediction-based macro ROC-AUC increases from 0.785633637 to
+0.800872336, a difference of 0.015238700 with a nominal user-cluster interval
+$[0.013878878,0.016598521]$ (Table~\ref{tab:native_global_auc}). All five actions
+improve globally, but this does not imply that every subgroup or every quality
+metric improves. The comparison concerns this new matched seed, not recovery
+of the unavailable original seed-20262027 model instance.
+
+\paragraph{Sample conditions.}
+Table~\ref{tab:native_all_conditions} retains all one-dimensional groups.
+Their boundaries were fixed before formal effect inspection, with frequency
+cut points derived from training counts. Effective length excludes the target
+and counts valid positions in a
+100-token window. Frequency counts use training targets and global IDs;
+positive-frequency entity quartiles are 14/80 for users and 1/4 for items.
+Zero frequency means unseen as a training target, without establishing strict
+cold start. At fixed length 100, category entropy $H$ and candidate-category
+history fraction $Q$ exclude category codes 0 and 309; undefined values remain
+separate. Row counts are shared across actions, while positive counts remain
+label-specific and are never pooled into a macro count.
+
+The macro gain is 0.019479 at length 100 and 0.012081 at lengths 1--20.
+A direct contrast gives 0.007398, with interval $[0.003664,0.011133]$.
+Empty history instead yields 0.005278, with interval $[-0.004541,0.015097]$
+crossing zero. The positive
+Content-only-controlled empty-history result therefore cannot be reused as
+native-backbone evidence. Candidate and context inputs remain available, and
+separate training and native padding behavior prevent a direct attribution to
+history accumulation. The 51--99 point estimate also exceeds that at 100,
+so the pattern is not strictly monotone.
+
+Frequency effects are positive in every reported macro group but are not
+monotone. Item-frequency gains are 0.011887, 0.016704, 0.017181, and 0.015555
+for zero, one, two--four, and at least five occurrences. User-frequency gains
+are 0.014254, 0.014794, 0.019759, and 0.019177. These marginal comparisons do
+not separate frequency from history length, user composition, or label difficulty.
+
+Fixed-length diversity is likewise nonmonotone: gains across the four defined
+entropy groups are 0.004035, 0.022411, 0.014523, and 0.021134. Although the
+high-versus-middle entropy contrast is positive, 0.006610
+$[0.000914,0.012306]$, this local contrast does not imply increasing gains across
+the full entropy range. For sparse nonzero versus high candidate-category
+support, the effect difference is only 0.001487 $[-0.006770,0.009744]$.
+Thus, the corresponding Content-only-controlled contrast does not establish
+the same claim against the native backbone. The three contrasts were selected
+after inspecting the initial grouped mean effects of Full RISE minus
+Content-only; this native analysis reuses those same definitions. They remain
+exploratory, not preregistered or confirmatory, with no multiplicity correction.
+
+\paragraph{Task and probability-quality exceptions.}
+The complete subgroup inventory has four negative task-level ROC-AUC point
+estimates: Offer and Checkout at empty history, and the same actions in the
+near-zero-entropy length-100 group. Every corresponding nominal interval crosses
+zero. The latter group has only 24 Offer and four Checkout positives; it also
+has just two Purchase positives. Undefined candidate support has no Checkout
+or Purchase positives, so its five-action macro AUC is unavailable rather than
+recomputed over fewer actions.
+
+We retain original probabilities and supplement ROC-AUC with non-interpolated
+average precision (AP), Brier score, and Logloss
+(Table~\ref{tab:native_prediction_quality}). Macro AP increases from 0.077907499
+to 0.092808705, macro Brier decreases from 0.022998024 to 0.022297116, and
+macro Logloss decreases from 0.085562731 to 0.082677531. Nevertheless, Purchase
+AP decreases from 0.012851605 to 0.012773943 despite its ROC-AUC improvement.
+Offer and Checkout each have small increases in both Brier and Logloss.
+These descriptive differences show that ranking gains do not guarantee uniform
+probability-quality gains; they have no new confidence intervals. No calibrator
+was fitted and no decision threshold was selected. Fixed-grid calibration error
+is bin-dependent and is not used as evidence of uniformly improved calibration.
+
+\paragraph{AUC structure and inferential scope.}
+For each action, the exact identity
+\begin{equation}
+ A_m=\sum_{g,h:n_g^+n_h^->0}
+ \frac{n_g^+n_h^-}{N^+N^-}A_m^{g,h}
+\end{equation}
+separates positive--negative pairs within and across the five length groups,
+with half credit for ties. Equal-label averaging decomposes the native-control
+macro gain into 0.007672426 within-group and 0.007566274 cross-group contributions;
+the latter accounts for 49.65\%, not the component comparison's 51.76\%.
+The maximum reconstruction residual is $1.74\times10^{-16}$. This is an
+algebraic allocation for the chosen partition, not causal attribution.
+
+Intervals aggregate normalized paired AUC influences by user. Group contrasts
+retain shared-user covariance, and macro intervals average the five label
+influences before estimating variance. They condition on fixed trained models
+and do not include seed variability. A user's contribution combines all of
+that user's retained observations, including positive and negative examples.
+The variance includes the finite-cluster correction; actions sharing users are
+not counted as independent replications. The earlier exact-bootstrap check concerned
+E versus Content-only; it was not relabeled as an empirical bootstrap validation
+of E versus native A. One seed, added model capacity, correlated grouping variables,
+HyFormer padding, and unresolved availability times of MerRec's attributed
+historical outcomes limit causal and deployment interpretations. The native
+comparison should establish the primary conditional performance result; the
+component analysis then addresses the separate incremental AM/PA question.
+
+\begin{table*}[t]
+\centering\small
+\caption{Global native-backbone comparison on the same 11,599,872 retained rows.
+AUC differences use unrounded predictions. Intervals are nominal 95\%
+user-cluster intervals; macro AUC equally weights five actions and has no
+pooled positive count.}
+\label{tab:native_global_auc}
+\begin{tabular}{lrrrrl}\toprule
+Action & Positives & Native (A) & Full RISE (E) & $\Delta$ & Nominal 95\% interval \\
+\midrule
+Like & 1,432,490 & 0.729441 & 0.750689 & +0.021248 & [+0.020882, +0.021615] \\
+Cart & 128,634 & 0.787154 & 0.810189 & +0.023034 & [+0.022272, +0.023797] \\
+Offer & 39,437 & 0.726794 & 0.731796 & +0.005002 & [+0.003269, +0.006735] \\
+Checkout & 7,651 & 0.842007 & 0.855579 & +0.013572 & [+0.010433, +0.016711] \\
+Purchase & 4,642 & 0.842773 & 0.856109 & +0.013337 & [+0.009363, +0.017310] \\
+Macro & -- & 0.785634 & 0.800872 & +0.015239 & [+0.013879, +0.016599] \\
+\bottomrule\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{All input-defined groups, with native A as the leftmost model column.
+AUC is the equal mean over five actions; $\Delta=E-A$ in absolute AUC units.
+All intervals are nominal and conditional on the fixed models.}
+\label{tab:native_all_conditions}
+\begin{tabular}{lrrrrl}\toprule
+Group & $N$ & Native (A) & Full RISE (E) & $\Delta$ & Nominal 95\% interval \\
+\midrule
+\addlinespace[2pt]\multicolumn{6}{l}{\textit{Effective history length $L$}} \\
+$0$ & 14,208 & 0.583720 & 0.588998 & +0.005278 & [-0.004541, +0.015097] \\
+$1$--$20$ & 852,540 & 0.709818 & 0.721899 & +0.012081 & [+0.009411, +0.014751] \\
+$21$--$50$ & 1,157,429 & 0.715041 & 0.731961 & +0.016920 & [+0.012155, +0.021684] \\
+$51$--$99$ & 1,394,992 & 0.735010 & 0.754913 & +0.019904 & [+0.014615, +0.025192] \\
+$100$ & 8,180,703 & 0.777188 & 0.796667 & +0.019479 & [+0.016868, +0.022090] \\
+\addlinespace[2pt]\multicolumn{6}{l}{\textit{Item training-target frequency}} \\
+$0$ & 3,506,086 & 0.788862 & 0.800749 & +0.011887 & [+0.009641, +0.014132] \\
+$1$ & 1,173,599 & 0.798687 & 0.815392 & +0.016704 & [+0.011850, +0.021558] \\
+$2$--$4$ & 2,277,671 & 0.790684 & 0.807865 & +0.017181 & [+0.013931, +0.020431] \\
+$\geq5$ & 4,642,516 & 0.789655 & 0.805211 & +0.015555 & [+0.013458, +0.017652] \\
+\addlinespace[2pt]\multicolumn{6}{l}{\textit{User training-target frequency}} \\
+$0$ & 523,621 & 0.783404 & 0.797658 & +0.014254 & [+0.011778, +0.016729] \\
+$1$--$14$ & 967,941 & 0.723387 & 0.738182 & +0.014794 & [+0.011096, +0.018492] \\
+$15$--$80$ & 2,444,476 & 0.737312 & 0.757071 & +0.019759 & [+0.015996, +0.023522] \\
+$\geq81$ & 7,663,834 & 0.780522 & 0.799699 & +0.019177 & [+0.016491, +0.021862] \\
+\addlinespace[2pt]\multicolumn{6}{l}{\textit{Category entropy $H$, $L=100$}} \\
+Undefined & 0 & -- & -- & -- & -- \\
+$H\leq10^{-7}$ & 22,254 & 0.872793 & 0.876828 & +0.004035 & [-0.007299, +0.015368] \\
+$10^{-7}<H\leq\ln2$ & 574,067 & 0.791962 & 0.814373 & +0.022411 & [+0.014014, +0.030808] \\
+$\ln2<H\leq\ln5$ & 1,981,517 & 0.787908 & 0.802431 & +0.014523 & [+0.009949, +0.019098] \\
+$H>\ln5$ & 5,602,865 & 0.770286 & 0.791419 & +0.021134 & [+0.017729, +0.024538] \\
+\addlinespace[2pt]\multicolumn{6}{l}{\textit{Candidate-category fraction $Q$, $L=100$}} \\
+Undefined & 1,431 & -- & -- & -- & -- \\
+$0$ & 932,342 & 0.768041 & 0.791313 & +0.023272 & [+0.015393, +0.031151] \\
+$0<Q\leq0.25$ & 4,232,607 & 0.767981 & 0.788132 & +0.020152 & [+0.016149, +0.024155] \\
+$0.25<Q\leq0.75$ & 2,243,066 & 0.789502 & 0.806832 & +0.017330 & [+0.013264, +0.021396] \\
+$Q>0.75$ & 771,257 & 0.792607 & 0.811271 & +0.018665 & [+0.011430, +0.025899] \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.99\textwidth}\footnotesize
+Undefined entropy has zero rows. Undefined candidate support has no Checkout
+or Purchase positives, so five-action macro AUC and its interval are unavailable.
+The near-zero-entropy group has only four Checkout and two Purchase positives;
+its displayed estimates and interval should be read descriptively.
+\end{minipage}
+\end{table*}
+
+\begin{table*}[t]
+\centering\small
+\caption{Inherited exploratory native-control contrasts of five-action macro
+$E-A$ effects. Definitions were selected after inspecting the initial grouped
+mean Full RISE-minus-Content-only effects and reused for this native analysis.
+Entropy and candidate-support contrasts restrict length to 100.
+Shared-user and across-label covariance are retained; no multiplicity correction
+or training-seed uncertainty is represented.}
+\label{tab:native_group_contrasts}
+\begin{tabular}{lrl}\toprule
+First group minus second group & Effect difference & Nominal 95\% interval \\
+\midrule
+Length: $100$ minus $1$--$20$ & +0.007398 & [+0.003664, +0.011133] \\
+$H>\ln5$ minus $\ln2<H\leq\ln5$ & +0.006610 & [+0.000914, +0.012306] \\
+$0<Q\leq0.25$ minus $Q>0.75$ & +0.001487 & [-0.006770, +0.009744] \\
+\bottomrule\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Probability-quality checks on identical paired rows. AP is
+non-interpolated average precision, not trapezoidal PR-AUC. All differences are
+Full RISE minus native A; higher AP and lower Brier/Logloss are preferable.
+These are descriptive point estimates without new uncertainty intervals.}
+\label{tab:native_prediction_quality}
+\begin{tabular}{lrrrrr}\toprule
+Action & Native AP & Full RISE AP & $\Delta$AP & $\Delta$Brier & $\Delta$Logloss \\
+\midrule
+Like & 0.290451 & 0.341571 & $+5.112\times10^{-2}$ & $-3.336\times10^{-3}$ & $-1.242\times10^{-2}$ \\
+Cart & 0.056999 & 0.076324 & $+1.932\times10^{-2}$ & $-1.680\times10^{-4}$ & $-1.999\times10^{-3}$ \\
+Offer & 0.012898 & 0.013471 & $+5.729\times10^{-4}$ & $+1.619\times10^{-6}$ & $+1.513\times10^{-5}$ \\
+Checkout & 0.016337 & 0.019904 & $+3.567\times10^{-3}$ & $+6.093\times10^{-7}$ & $+1.518\times10^{-5}$ \\
+Purchase & 0.012852 & 0.012774 & $-7.766\times10^{-5}$ & $-2.931\times10^{-6}$ & $-3.970\times10^{-5}$ \\
+Macro & 0.077907 & 0.092809 & $+1.490\times10^{-2}$ & $-7.009\times10^{-4}$ & $-2.885\times10^{-3}$ \\
+\bottomrule\end{tabular}
+\end{table*}

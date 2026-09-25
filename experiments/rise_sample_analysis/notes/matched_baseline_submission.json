@@ -1,0 +1,22 @@
+{
+  "submitted_at_utc": "2026-09-22T18:56:02.166481+00:00",
+  "job_id": "643809",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_matched_baselines.sbatch"
+  ],
+  "stdout": "643809\n",
+  "stderr": "",
+  "array": "0-2%1",
+  "scope": [
+    "HyFormer-MerRec native baseline",
+    "HiFormer-QK native baseline",
+    "HiFormer-TAAC native baseline"
+  ],
+  "seed": 20262028,
+  "no_score_dim_files_modified": true,
+  "cpu_regression": "141 passed",
+  "launcher_tests": "4 passed",
+  "launcher_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3"
+}

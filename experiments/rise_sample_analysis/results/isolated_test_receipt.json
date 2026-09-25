@@ -1,0 +1,126 @@
+{
+  "created_utc": "20260923T025834Z",
+  "process_isolation": true,
+  "modules": [
+    {
+      "module": "test_auc_structure.py",
+      "returncode": 0,
+      "tests": 7
+    },
+    {
+      "module": "test_benchmark_cache.py",
+      "returncode": 0,
+      "tests": 6
+    },
+    {
+      "module": "test_collect_new_experiments.py",
+      "returncode": 0,
+      "tests": 9
+    },
+    {
+      "module": "test_collect_targeted_controls.py",
+      "returncode": 0,
+      "tests": 5
+    },
+    {
+      "module": "test_compiled_control_states.py",
+      "returncode": 0,
+      "tests": 2
+    },
+    {
+      "module": "test_compiled_mechanism_summary.py",
+      "returncode": 0,
+      "tests": 6
+    },
+    {
+      "module": "test_control_reconstruction.py",
+      "returncode": 0,
+      "tests": 5
+    },
+    {
+      "module": "test_controls.py",
+      "returncode": 0,
+      "tests": 9
+    },
+    {
+      "module": "test_group_analysis.py",
+      "returncode": 0,
+      "tests": 6
+    },
+    {
+      "module": "test_group_features.py",
+      "returncode": 0,
+      "tests": 9
+    },
+    {
+      "module": "test_hiformer_group_analysis.py",
+      "returncode": 0,
+      "tests": 9
+    },
+    {
+      "module": "test_hiformer_prediction_export.py",
+      "returncode": 0,
+      "tests": 6
+    },
+    {
+      "module": "test_matched_baseline.py",
+      "returncode": 0,
+      "tests": 4
+    },
+    {
+      "module": "test_mechanism.py",
+      "returncode": 0,
+      "tests": 11
+    },
+    {
+      "module": "test_mechanism_precision.py",
+      "returncode": 0,
+      "tests": 1
+    },
+    {
+      "module": "test_native_auc_structure.py",
+      "returncode": 0,
+      "tests": 2
+    },
+    {
+      "module": "test_prediction_export.py",
+      "returncode": 0,
+      "tests": 11
+    },
+    {
+      "module": "test_prediction_quality.py",
+      "returncode": 0,
+      "tests": 7
+    },
+    {
+      "module": "test_profile_population.py",
+      "returncode": 0,
+      "tests": 7
+    },
+    {
+      "module": "test_serial_prediction_export.py",
+      "returncode": 0,
+      "tests": 4
+    },
+    {
+      "module": "test_site_replication.py",
+      "returncode": 0,
+      "tests": 4
+    },
+    {
+      "module": "test_statistical_metrics.py",
+      "returncode": 0,
+      "tests": 7
+    },
+    {
+      "module": "test_targeted_controls.py",
+      "returncode": 0,
+      "tests": 7
+    }
+  ],
+  "all_passed": true,
+  "total_tests": 144,
+  "combined_process_failure_retained": "/tmp/rise_final_study_tests.txt",
+  "scope": "All study modules run; isolation is required for compiler-state tests. Does not claim combined-process suite passes.",
+  "log_directory": "artifacts/rise_sample_analysis/validation/isolated_tests_20260923T025834Z"
+}

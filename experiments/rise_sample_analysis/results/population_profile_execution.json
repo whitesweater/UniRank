@@ -1,0 +1,102 @@
+{
+  "job_id": "643859",
+  "attempt1": {
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "accounting": "643859|FAILED|1:0|00:00:06|ACD1-63|\n643859.batch|FAILED|1:0|00:00:06|ACD1-63|\n643859.extern|COMPLETED|0:0|00:00:06|ACD1-63|\n",
+    "log_archive": "artifacts/rise_sample_analysis/population_profile_attempt1.log",
+    "reason": "Generated part3 output mtime differs from producer by 5472000 ns; bytes and producer row count match."
+  },
+  "reconciliation": "Only generated-output mtime drift is recorded instead of fatal; sizes, current content hashes, complete physical row identity, raw user/seq, frequency equality and input source identities remain checked. Historical output byte identity is not claimed.",
+  "requeue_at_utc": "2026-09-22T19:31:57.713562+00:00",
+  "retry_script_sha256": "753a49bc46eb25773cc8b54b493a63f4f70b4d94e237d97a39b45b8153a8d55c",
+  "focused_tests_passed": 6,
+  "requeue_command": [
+    "scontrol",
+    "requeue",
+    "643859"
+  ],
+  "requeue_returncode": 1,
+  "requeue_stdout": "",
+  "requeue_stderr": "Requested operation is presently disabled for job 643859\n",
+  "attempt2_submission": {
+    "job_id": "643871",
+    "attempt": 2,
+    "submitted_at_utc": "2026-09-22T19:34:13.163410+00:00",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=debug",
+      "--job-name=unirank-rise-population-profile-attempt2",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=4",
+      "--mem=32G",
+      "--time=00:30:00",
+      "--no-requeue",
+      "--output=logs/%x-%j.out",
+      "--export=ALL,OMP_NUM_THREADS=4,PYTHONUNBUFFERED=1",
+      "--chdir=/data/user/yhao481/proj/UniRank",
+      "--wrap",
+      ".venv/bin/python experiments/rise_sample_analysis/scripts/profile_group_population.py --output-dir artifacts/rise_sample_analysis/population_profile/attempt2"
+    ],
+    "stdout": "643871\n",
+    "stderr": "",
+    "script_sha256": "e657da5690b728ae02d44c642f9ab47786cd9b817858d7dda6cf5014d0362938",
+    "output_dir": "artifacts/rise_sample_analysis/population_profile/attempt2",
+    "focused_tests_passed": 7,
+    "predecessor_job": "643859",
+    "reconciliation": "Record generated-output mtime drift only; all source/size/hash/row checks retained; independently recompute at least32 part3 windows and category entropy/target counts."
+  },
+  "attempt2_result": {
+    "job_id": "643871",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "accounting": "643871|COMPLETED|0:0|00:00:13|ACD1-63|\n643871.batch|COMPLETED|0:0|00:00:13|ACD1-63|\n643871.extern|COMPLETED|0:0|00:00:13|ACD1-63|\n",
+    "elapsed_seconds": 13,
+    "max_rss": "not populated in sacct output",
+    "validation": "All eight parts/physical row IDs/source row keys/raw user+seq/labels/frequencies; independent32 part3 feature reconstruction; dimension and label marginals; raw and train histogram totals reconcile.",
+    "outputs_promoted": [
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_groups.csv",
+        "bytes": 10350,
+        "sha256": "e5e7555b249710b90cbe0c111176ec1ef664fb7b5e1872dc66de9227d012b805"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_groups_wide.csv",
+        "bytes": 4256,
+        "sha256": "41f07aa790f769354948850a3ab6ab43908e0adde3bc4e325dd5e15b80d47d8b"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_part3_independent_check.json",
+        "bytes": 14231,
+        "sha256": "2f32303108fff2b7155bbd7f6b1a5e63b752843722432778fa379aa962c530bf"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_parts.csv",
+        "bytes": 1441,
+        "sha256": "aa84aedb6df5e1e566b897ecf29ba2ac8b0e60c26f025fa3a0612fe510fbe366"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_raw_history.csv",
+        "bytes": 206332,
+        "sha256": "e7f440fdb0287af7d33252181ca9f225dd0e8d67684c0d1533b4da241deef45c"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_sources.csv",
+        "bytes": 3542,
+        "sha256": "3ed4c46238fa84936f94f4aff8d073d82386159e3e33af7c3b0ab7105c8794fc"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_summary.json",
+        "bytes": 6275,
+        "sha256": "e71337a8fc1f47c066fa0516c4b2994e37c00551ba2037bf829d667733efc648"
+      },
+      {
+        "path": "experiments/rise_sample_analysis/results/population_profile_train_frequency_distribution.csv",
+        "bytes": 55246,
+        "sha256": "e6efb6886407fb7dcfac77e56d7938f96f035eb909460ef61bad74d7da020304"
+      }
+    ]
+  }
+}

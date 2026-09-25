@@ -1,0 +1,22 @@
+{
+  "at_utc": "2026-09-22T20:50:45.808122+00:00",
+  "job_id": "644098",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_targeted_controls.sbatch"
+  ],
+  "stdout": "644098\n",
+  "stderr": "",
+  "returncode": 0,
+  "tasks": [
+    "HyFormer-MerRec fixed cumulative",
+    "HiFormer-QK target-only",
+    "HiFormer-QK field-only"
+  ],
+  "array": "0-2%2",
+  "trigger": "RankMixer fixed near/full E and matched HiFormer-QK regression; exploratory follow-up, all outcomes retained",
+  "training_protocol": "historical E2028, 2 H100, batch16384, one epoch; all logged parameters except model_id unchanged",
+  "tests": "7 targeted tests, three frozen dry runs, bash syntax passed",
+  "launcher_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae"
+}

@@ -1,0 +1,18 @@
+{
+  "submitted_at_utc": "2026-09-22T19:41:37.274792+00:00",
+  "job_id": "643881",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:643809_2",
+    "experiments/rise_sample_analysis/scripts/submit_hiformer_predictions.sbatch",
+    "TencentGR_10M_Action",
+    "643809_2"
+  ],
+  "dependency": "643809_2",
+  "stdout": "643881\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "4f7b2623c348eb5c5eddd2f2f2b990b79b8f23fbddd988b4982267f84b210b30",
+  "status_at_submission": "submitted only; requires baseline success and global metric/identity verification"
+}

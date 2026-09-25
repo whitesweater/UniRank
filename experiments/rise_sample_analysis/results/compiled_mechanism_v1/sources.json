@@ -1,0 +1,101 @@
+{
+  "source_sha256": {
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/B_prediction_check.parquet": "b751e3b842274d65df8341b968194a21d0e4aa683b1173aa67f488523b4a153b",
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/B_prediction_gate.json": "1e04ba8b51b2e779e977aa82d9f3b975960d58eb064fa8d429897ed72585d09e",
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/E_prediction_check.parquet": "fb7c534a09f3a5be52f3e4f019c59d8dfd431ba1717f6fd2878459ff0d9fba3e",
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/E_prediction_gate.json": "4b2e24b016e01add4da77c12cf1bb8d0a4d2e0f0161043d7bf2370b8cdfcb492",
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/manifest.json": "cd0328ac22be32b257a01fcf72f577e5665551cd09c6099fb8e60d149021d3bd",
+    "artifacts/rise_sample_analysis/mechanism/observed_643858/sample_rows.parquet": "ad6a38ea0c15ec385045ca6e71e1c76b02e5eb24692950e07f5d2667623206d9",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/E_compiled_selection_validated.parquet": "2556c165adfa2c808e7ea258f99b34fcf5806f76c79c1cbc7f5ac55f49554389",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/E_diagnosis.json": "8b9d127e5cb92ce283c05e6fca5a23859458728ddf9982901268245b5b89bfe8",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/E_four_route_predictions.parquet": "c18ad9b48b791462f56cff2a97253eb86a5bc4e51e9959341592633ee45bcbb7",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/diagnosis_complete.json": "dcf10a5fea220d0175d58598ea62cd47961b2a07a510f7d80a2f673ad0fb0b0d",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/manifest.json": "2b74a4be3cae7da921c266b632841ce0e6b7639f3a0d43543afd0b22dad3d2bc",
+    "artifacts/rise_sample_analysis/mechanism/precision_E_643949/sample_rows.parquet": "ad6a38ea0c15ec385045ca6e71e1c76b02e5eb24692950e07f5d2667623206d9",
+    "artifacts/rise_sample_analysis/mechanism/precision_full_643911/B_compiled_selection_validated.parquet": "b8027357b19e0382092c35843f606782647ac2f8a34da0fa88c0e392421131f3",
+    "artifacts/rise_sample_analysis/mechanism/precision_full_643911/B_diagnosis.json": "b1b8222d22bdddc0f1e41018cbc1a24028271042753db4e30bc22f1c49993da9",
+    "artifacts/rise_sample_analysis/mechanism/precision_full_643911/B_four_route_predictions.parquet": "addd778ff544e2f3daa47b2c15d8f809ee2ca70503eabbc3e63bc96eed449240",
+    "artifacts/rise_sample_analysis/mechanism/precision_full_643911/manifest.json": "2b74a4be3cae7da921c266b632841ce0e6b7639f3a0d43543afd0b22dad3d2bc",
+    "artifacts/rise_sample_analysis/mechanism/precision_full_643911/sample_rows.parquet": "ad6a38ea0c15ec385045ca6e71e1c76b02e5eb24692950e07f5d2667623206d9",
+    "logs/unirank-rise-compiled-mechanism-643911.out": "27f41178dca466342ba7c6a1826a7f91ef337004644829d252f1aef3c53b0d78",
+    "logs/unirank-rise-compiled-mechanism-e-643949.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "variants": {
+    "B": {
+      "acceptance": "Complete, bitwise-validated B substage retained from overall FAILED 643911; E absent in that job",
+      "checkpoint_sha256": "2d1536723abc78d2aff8d3fefd893133bd27ad7ce8713a7629e9e6d2477533b8",
+      "device": {
+        "capability": [
+          9,
+          0
+        ],
+        "cuda_build": "12.6",
+        "cuda_visible_devices": "0",
+        "float32_matmul_precision": "high",
+        "name": "NVIDIA H100 80GB HBM3",
+        "node": "ACD1-63",
+        "torch": "2.8.0+cu126",
+        "total_memory": 85009367040,
+        "uuid": "164572cb-6868-a5e1-b032-dccb6efaf476"
+      },
+      "diagnostic_script_sha256": "fd0cc58aae0b8e50ef13a86d736e4241c44220bbdef8c3d8fd427d4c6d76729c",
+      "directory": "artifacts/rise_sample_analysis/mechanism/precision_full_643911",
+      "scheduler": {
+        "elapsed": "00:01:33",
+        "exit_code": "11:0",
+        "job_id": "643911",
+        "node": "ACD1-63",
+        "state": "FAILED"
+      },
+      "substage_prediction_identity_recomputed": true,
+      "validation": {
+        "examples_with_zero_valid_queries": 3,
+        "mathematical_tolerance": 1e-06,
+        "rows": 3072,
+        "sites": 6,
+        "top_order_certificate_violation_max": 0.0,
+        "tv_bound_violation_max": 0.0,
+        "unique_examples": 512
+      },
+      "whole_job_succeeded": false
+    },
+    "E": {
+      "acceptance": "Independently COMPLETED E-only job 643949",
+      "checkpoint_sha256": "75b0a6a8f520218d207eab2bf8b8d4e5dbd07e53583fe0e0d5651c91d236771a",
+      "device": {
+        "capability": [
+          9,
+          0
+        ],
+        "cuda_build": "12.6",
+        "cuda_visible_devices": "0",
+        "float32_matmul_precision": "high",
+        "name": "NVIDIA H100 80GB HBM3",
+        "node": "ACD1-63",
+        "torch": "2.8.0+cu126",
+        "total_memory": 85009367040,
+        "uuid": "164572cb-6868-a5e1-b032-dccb6efaf476"
+      },
+      "diagnostic_script_sha256": "fd0cc58aae0b8e50ef13a86d736e4241c44220bbdef8c3d8fd427d4c6d76729c",
+      "directory": "artifacts/rise_sample_analysis/mechanism/precision_E_643949",
+      "scheduler": {
+        "elapsed": "00:01:14",
+        "exit_code": "0:0",
+        "job_id": "643949",
+        "node": "ACD1-63",
+        "state": "COMPLETED"
+      },
+      "substage_prediction_identity_recomputed": true,
+      "validation": {
+        "examples_with_zero_valid_queries": 3,
+        "mathematical_tolerance": 1e-06,
+        "rows": 3072,
+        "sites": 6,
+        "top_order_certificate_violation_max": 0.0,
+        "tv_bound_violation_max": 0.0,
+        "unique_examples": 512
+      },
+      "whole_job_succeeded": true
+    }
+  }
+}

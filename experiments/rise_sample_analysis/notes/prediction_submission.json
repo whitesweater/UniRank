@@ -1,0 +1,16 @@
+{
+  "submitted_at_utc": "2026-09-22T19:13:30.167009+00:00",
+  "job_id": "643839",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_predictions.sbatch"
+  ],
+  "stdout": "643839\n",
+  "stderr": "",
+  "returncode": 0,
+  "export_script_sha256": "faa38a594284ee2331f5c6f74503a0cff9f892d0bbab12eb2f289ac7beb44995",
+  "scope": "2 ranks, batch16384, B/C/D/E, formal retained test population 11599872 per variant",
+  "smoke_job": "643834 COMPLETED 0:0",
+  "output": "artifacts/rise_sample_analysis/predictions/formal_20260923"
+}

@@ -1,0 +1,27 @@
+{
+  "job_id": "644019",
+  "submitted_at_utc": "2026-09-22T20:34:15.154655+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=debug",
+    "--job-name=unirank-rise-native-auc-structure",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--mem=32G",
+    "--time=00:30:00",
+    "--no-requeue",
+    "--output=logs/%x-%j.out",
+    "--export=ALL,OMP_NUM_THREADS=4,PYTHONUNBUFFERED=1",
+    "--chdir=/data/user/yhao481/proj/UniRank",
+    "--wrap",
+    ".venv/bin/python experiments/rise_sample_analysis/scripts/analyze_native_auc_structure.py --output-dir artifacts/rise_sample_analysis/native_auc_structure_v1"
+  ],
+  "stdout": "644019\n",
+  "stderr": "",
+  "script_sha256": "3fbb9befd0f459c3d80bb95fc588de5d23fd30c8435cc529a1c5bbf7d657205f",
+  "output_stage": "artifacts/rise_sample_analysis/native_auc_structure_v1",
+  "tests": "2 native-role tests plus reused verified exact/cluster functions; py_compile passed",
+  "scope": "A/E only: exact length-group AUC decomposition, full global user-cluster intervals, same3 exploratory macro group contrasts; no bootstrap rerun"
+}

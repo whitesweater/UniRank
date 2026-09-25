@@ -1,0 +1,13 @@
+{
+  "submitted_at_utc": "2026-09-22T20:04:07.447013+00:00",
+  "job_id": "643918",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_control_reconstruction.sbatch"
+  ],
+  "stdout": "643918\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "9889b7f0ffe4d88dd1cc9d738fbcde0c6de4936aa79b21be6dcfa1167e12a6df"
+}

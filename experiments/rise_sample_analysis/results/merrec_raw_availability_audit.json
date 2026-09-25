@@ -1,0 +1,83 @@
+{
+  "status": "raw_events_not_found_in_targeted_local_scope",
+  "filesystem_scope": "Explicit preprocessing/downloader paths; UniRank, temporal, ManCAR data directories; user HF cache names and small dataset_info metadata; no all-filesystem scan and no remote download.",
+  "path_probes": [
+    {
+      "path": "/data/user/yhao481/proj/UniRank/data/MerRec/20231001",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/UniRank/datasets/MerRec",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/UniRank/datasets/MerRec/20231001",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/UniRank-sisa-temporal/data/MerRec/20231001",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/ManCAR/data/MerRec/20231001",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/ManCAR/datasets",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/ManCAR-stage0/data/MerRec",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/proj/ManCAR-sisa-style-71a3226/data/MerRec",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/mnt/ceph-nj1-csp/bingoozhang/salmonli/data/ft_local/data/MerRec",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data_nvme/user/ywhao/proj/ManCAR/UniRank/data/MerRec",
+      "exists": false,
+      "is_directory": false
+    },
+    {
+      "path": "/data/user/yhao481/.cache/huggingface/hub",
+      "exists": true,
+      "matching_top_level_names": []
+    },
+    {
+      "path": "/data/user/yhao481/.cache/huggingface/datasets",
+      "exists": true,
+      "matching_top_level_names": []
+    },
+    {
+      "path": "/data/user/yhao481/cache/hf_datasets",
+      "exists": true,
+      "matching_top_level_names": []
+    }
+  ],
+  "hf_dataset_info_files_checked": 17,
+  "hf_dataset_info_matching_paths": [],
+  "download_receipt": {
+    "path": "datasets/download.log",
+    "sha256": "d412ff1d4304101ae0c093176750e12b81514593708b5fa4f27cc27dff7b6c8b",
+    "meaning": "salmon1802/MerRec processed package was downloaded; this is not a receipt for raw mercari-us/merrec events"
+  },
+  "raw_available": false,
+  "event_time_future_rate": null,
+  "cross_split_attribution_rate": null,
+  "raw_row_order_monotonicity": "unverified",
+  "reason_unavailable_rates": "Original action timestamps and original raw ID mapping are not recoverable from folded processed action tokens alone."
+}

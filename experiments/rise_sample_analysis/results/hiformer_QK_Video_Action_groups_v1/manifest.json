@@ -1,0 +1,198 @@
+{
+  "dataset": "QK_Video_Action",
+  "model": "HiFormer",
+  "seed": 20262028,
+  "variants": [
+    "A",
+    "E"
+  ],
+  "rows": 48529408,
+  "labels": [
+    "click",
+    "follow",
+    "like",
+    "share"
+  ],
+  "definitions": {
+    "effective_length": {
+      "groups": {
+        "0": "0",
+        "1": "1-20",
+        "2": "21-50",
+        "3": "51-99",
+        "4": "100"
+      },
+      "definition": "Valid input history tokens, excludes target/padding; max_len100",
+      "empty_groups": [
+        "0"
+      ]
+    },
+    "user_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_33",
+        "2": "gt_33_le_97",
+        "3": "gt_97"
+      },
+      "cuts": [
+        33,
+        97
+      ],
+      "quantile_method": "inverted_cdf",
+      "cut_population": "Distinct encoded global IDs with positive training-target frequency",
+      "zero_definition": "No training target occurrence; not necessarily absent from training histories",
+      "empty_groups": [
+        "train_target_unseen"
+      ]
+    },
+    "item_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_1",
+        "2": "gt_1_le_16",
+        "3": "gt_16"
+      },
+      "cuts": [
+        1,
+        16
+      ],
+      "quantile_method": "inverted_cdf",
+      "cut_population": "Distinct encoded global IDs with positive training-target frequency",
+      "zero_definition": "No training target occurrence; not necessarily absent from training histories",
+      "empty_groups": []
+    }
+  },
+  "source_sha256": {
+    "experiments/rise_sample_analysis/scripts/analyze_hiformer_groups.py": "990abd6ff1b6829243b79bb6d9f34ad42d5eb36146fe6197c0ff8cbea18cb76a",
+    "experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b",
+    "experiments/rise_sample_analysis/scripts/build_group_features.py": "1f2eb7ad9cbd370dbc3c1647cd1875547ab75ddfb590eb2999b3a8e29eca4f57"
+  },
+  "prediction_receipts": {
+    "A": {
+      "data_version": "e4c744336000104bc4322486af30db2866e102296a1623c444506fa8fe7a6ead",
+      "dataset": "QK_Video_Action",
+      "finished_utc": "2026-09-22T20:22:57.506466+00:00",
+      "historical_deviation": {
+        "click": {
+          "AUC": 9.007098089597321e-08,
+          "logloss": 4.5019096900356104e-07
+        },
+        "follow": {
+          "AUC": 4.994732644147959e-07,
+          "logloss": -2.5437779824829393e-07
+        },
+        "like": {
+          "AUC": 2.551711986154004e-08,
+          "logloss": 3.871388633974737e-08
+        },
+        "share": {
+          "AUC": 4.17174035649559e-07,
+          "logloss": -3.627975115058982e-07
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.9314520900709808,
+          "logloss": 0.255011450190969,
+          "positive": 9852579,
+          "rows": 48529408
+        },
+        "follow": {
+          "AUC": 0.9212874994732644,
+          "logloss": 0.005002745622201751,
+          "positive": 40518,
+          "rows": 48529408
+        },
+        "like": {
+          "AUC": 0.9461120255171198,
+          "logloss": 0.03712603871388634,
+          "positive": 546854,
+          "rows": 48529408
+        },
+        "share": {
+          "AUC": 0.9349014171740356,
+          "logloss": 0.0053876372024884945,
+          "positive": 49108,
+          "rows": 48529408
+        }
+      },
+      "model": "HiFormer",
+      "rows": 48529408,
+      "rows_by_rank": [
+        24264704,
+        24264704
+      ],
+      "smoke_only": false,
+      "variant": "A"
+    },
+    "E": {
+      "data_version": "e4c744336000104bc4322486af30db2866e102296a1623c444506fa8fe7a6ead",
+      "dataset": "QK_Video_Action",
+      "finished_utc": "2026-09-22T20:25:56.028649+00:00",
+      "historical_deviation": {
+        "click": {
+          "AUC": -1.1943255806556863e-07,
+          "logloss": 4.377319154924564e-07
+        },
+        "follow": {
+          "AUC": -1.9062967282490462e-07,
+          "logloss": -4.0447183921078766e-07
+        },
+        "like": {
+          "AUC": 7.91902692309776e-08,
+          "logloss": -2.9349141117407385e-07
+        },
+        "share": {
+          "AUC": -1.8564604531423612e-07,
+          "logloss": -2.1155917775440847e-08
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.9312908805674419,
+          "logloss": 0.2553254377319155,
+          "positive": 9852579,
+          "rows": 48529408
+        },
+        "follow": {
+          "AUC": 0.9135858093703272,
+          "logloss": 0.0051115955281607894,
+          "positive": 40518,
+          "rows": 48529408
+        },
+        "like": {
+          "AUC": 0.9454540791902692,
+          "logloss": 0.03749670650858883,
+          "positive": 546854,
+          "rows": 48529408
+        },
+        "share": {
+          "AUC": 0.9332338143539547,
+          "logloss": 0.005446978844082224,
+          "positive": 49108,
+          "rows": 48529408
+        }
+      },
+      "model": "HiFormer",
+      "rows": 48529408,
+      "rows_by_rank": [
+        24264704,
+        24264704
+      ],
+      "smoke_only": false,
+      "variant": "E"
+    }
+  },
+  "prediction_manifests_sha256": {
+    "baseline": "fa2f4ce6f6e3ebc559cf06f0579309c56dab995406b90f1eb646081a615f5c7a",
+    "rise": "949f44d16d4a70030713ea45792ab6c2cb146394cb10e3476813ce60817d14d8"
+  },
+  "frequency_manifest_sha256": "6d0d97940a646db9c1b4c3615f44e22b6f24a8b30351cb9b9e17e14bb6e017d9",
+  "frequency_train_rows": 394647318,
+  "ci_method": "user-cluster linearized influence; normal 95%; trained models fixed",
+  "macro_variance": "Average label influences within each global user, then cluster sandwich; never average SEs",
+  "statistical_scope": "Exploratory conditional effects; no training-seed variance or multiplicity-adjusted claims",
+  "created_utc": "2026-09-22T20:52:27.188748+00:00"
+}

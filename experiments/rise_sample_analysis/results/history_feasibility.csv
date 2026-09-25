@@ -1,0 +1,5 @@
+dataset,test_rows_footer,seq_len_min_footer,seq_len_max_footer,sample_rows,estimated_share_ge100
+QK_Video_Action,48579958,9,6012,32768,0.6337141583727575
+KuaiRand_Video_Action,33019342,0,228029,32768,0.9998771693835445
+TencentGR_10M_Action,153243512,0,99,32768,0.0
+MerRec_Action,11681154,0,26575,32768,0.7039457108521568

@@ -1,0 +1,4282 @@
+{
+  "generated_utc": "2026-09-23T07:45:12.055738+00:00",
+  "runs": [
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "baseline",
+      "dense": 11164164,
+      "embedding": 419988768,
+      "task_index": 0,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1",
+      "logical_task": "0",
+      "kind": "native_baseline",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "job_task_id": "644632_0",
+      "raw_job_id": "644633",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:29:55",
+      "node": "ACD1-1",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.93267,
+          "logloss": 0.253062
+        },
+        "follow": {
+          "AUC": 0.92335,
+          "logloss": 0.004935
+        },
+        "like": {
+          "AUC": 0.947279,
+          "logloss": 0.037359
+        },
+        "share": {
+          "AUC": 0.93524,
+          "logloss": 0.005363
+        }
+      },
+      "macro_auc": 0.93463475,
+      "macro_logloss": 0.07517975,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_0.out",
+      "parameter_counts": {
+        "total_parameters": 431152932,
+        "dense_parameters": 11164164,
+        "embedding_parameters": 419988768
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 1724661909,
+        "mtime_ns": 1790133957712305000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 104,
+        "state_metadata_bytes": 23263
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "baseline",
+      "dense": 7505412,
+      "embedding": 140001120,
+      "task_index": 1,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1",
+      "logical_task": "1",
+      "kind": "native_baseline",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "job_task_id": "644632_1",
+      "raw_job_id": "644634",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:51:15",
+      "node": "ACD1-1",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.932155,
+          "logloss": 0.254023
+        },
+        "follow": {
+          "AUC": 0.913908,
+          "logloss": 0.005218
+        },
+        "like": {
+          "AUC": 0.946032,
+          "logloss": 0.038063
+        },
+        "share": {
+          "AUC": 0.931337,
+          "logloss": 0.005489
+        }
+      },
+      "macro_auc": 0.930858,
+      "macro_logloss": 0.07569825,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_1.out",
+      "parameter_counts": {
+        "total_parameters": 147506532,
+        "dense_parameters": 7505412,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 590111212,
+        "mtime_ns": 1790135219584645000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 159,
+        "state_metadata_bytes": 34419
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "dense": 11167446,
+      "embedding": 419988768,
+      "task_index": 2,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1",
+      "logical_task": "2",
+      "kind": "site_control",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1.log",
+      "job_task_id": "644632_2",
+      "raw_job_id": "644708",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:30:55",
+      "node": "ACD1-1",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.934345,
+          "logloss": 0.250303
+        },
+        "follow": {
+          "AUC": 0.924854,
+          "logloss": 0.004911
+        },
+        "like": {
+          "AUC": 0.947871,
+          "logloss": 0.037099
+        },
+        "share": {
+          "AUC": 0.936073,
+          "logloss": 0.005325
+        }
+      },
+      "macro_auc": 0.93578575,
+      "macro_logloss": 0.0744095,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_2.out",
+      "parameter_counts": {
+        "total_parameters": 431156214,
+        "dense_parameters": 11167446,
+        "embedding_parameters": 419988768
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 1724684409,
+        "mtime_ns": 1790135818738896000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 110,
+        "state_metadata_bytes": 24255
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "dense": 7568400,
+      "embedding": 140001120,
+      "task_index": 3,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1",
+      "logical_task": "3",
+      "kind": "site_control",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1.log",
+      "job_task_id": "644632_3",
+      "raw_job_id": "644723",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:00:33",
+      "node": "ACD1-21",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.933257,
+          "logloss": 0.252902
+        },
+        "follow": {
+          "AUC": 0.913477,
+          "logloss": 0.005175
+        },
+        "like": {
+          "AUC": 0.946277,
+          "logloss": 0.037476
+        },
+        "share": {
+          "AUC": 0.930733,
+          "logloss": 0.005495
+        }
+      },
+      "macro_auc": 0.930936,
+      "macro_logloss": 0.07526200000000001,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_3.out",
+      "parameter_counts": {
+        "total_parameters": 147569520,
+        "dense_parameters": 7568400,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 590373263,
+        "mtime_ns": 1790137923048143000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 177,
+        "state_metadata_bytes": 37911
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "dense": 11227152,
+      "embedding": 419988768,
+      "task_index": 4,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1",
+      "logical_task": "4",
+      "kind": "site_control",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1.log",
+      "job_task_id": "644632_4",
+      "raw_job_id": "644724",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:32:56",
+      "node": "ACD1-22",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.932227,
+          "logloss": 0.253826
+        },
+        "follow": {
+          "AUC": 0.921671,
+          "logloss": 0.004947
+        },
+        "like": {
+          "AUC": 0.946704,
+          "logloss": 0.037442
+        },
+        "share": {
+          "AUC": 0.934598,
+          "logloss": 0.005381
+        }
+      },
+      "macro_auc": 0.9338,
+      "macro_logloss": 0.075399,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_4.out",
+      "parameter_counts": {
+        "total_parameters": 431215920,
+        "dense_parameters": 11227152,
+        "embedding_parameters": 419988768
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 1724929297,
+        "mtime_ns": 1790136292349033000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 122,
+        "state_metadata_bytes": 26795
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "dense": 7568400,
+      "embedding": 140001120,
+      "task_index": 5,
+      "attempt": 1,
+      "run_id": "RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1",
+      "artifact_dir": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1",
+      "logical_task": "5",
+      "kind": "site_control",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1.log",
+      "job_task_id": "644632_5",
+      "raw_job_id": "644632",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:00:14",
+      "node": "ACD1-22",
+      "issues": [],
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.933643,
+          "logloss": 0.251561
+        },
+        "follow": {
+          "AUC": 0.91345,
+          "logloss": 0.005159
+        },
+        "like": {
+          "AUC": 0.947079,
+          "logloss": 0.0375
+        },
+        "share": {
+          "AUC": 0.930713,
+          "logloss": 0.005507
+        }
+      },
+      "macro_auc": 0.93122125,
+      "macro_logloss": 0.07493174999999999,
+      "slurm_log": "logs/unirank-rise-site-replication-644632_5.out",
+      "parameter_counts": {
+        "total_parameters": 147569520,
+        "dense_parameters": 7568400,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 590372796,
+        "mtime_ns": 1790137897381321000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 177,
+        "state_metadata_bytes": 37974
+      },
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+          "frozen_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "current_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+          "frozen_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "current_sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "protocol_fields_checked": 72,
+      "runtime_errors": []
+    }
+  ],
+  "historical_E_audits": [
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "job_task_id": "548166_8",
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_single_seed_Zenith_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_8.out",
+      "state_source": "frozen historical selected-run archive",
+      "params": {
+        "accumulation_steps": 1,
+        "attention_dropout": 0,
+        "batch_size": 16384,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataloader_seed": 2027,
+        "dataset_id": "QK_Video_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "expansion_factor": 2,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 4996177
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3753437,
+            "source": "item"
+          },
+          {
+            "name": "video_category",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5,
+            "source": "item"
+          },
+          {
+            "name": "watching_times",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 419
+          },
+          {
+            "name": "gender",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5
+          },
+          {
+            "name": "age",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 17,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "id_dim": 48,
+        "label_col": [
+          {
+            "name": "click",
+            "dtype": "float"
+          },
+          {
+            "name": "follow",
+            "dtype": "float"
+          },
+          {
+            "name": "like",
+            "dtype": "float"
+          },
+          {
+            "name": "share",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "Zenith",
+        "model_id": "SISA_single_seed_Zenith_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_layers": 3,
+        "num_tasks": 4,
+        "num_token": 2,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262028,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_parameter_seed": 20260822,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "task": "binary_classification",
+        "test_data": "./datasets/QK_Video_Action/test/data",
+        "test_item_info": "./datasets/QK_Video_Action/test/item_info",
+        "test_user_info": "./datasets/QK_Video_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/QK_Video_Action/train/data",
+        "train_item_info": "./datasets/QK_Video_Action/train/item_info",
+        "train_user_info": "./datasets/QK_Video_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/QK_Video_Action/valid/data",
+        "valid_item_info": "./datasets/QK_Video_Action/valid/item_info",
+        "valid_user_info": "./datasets/QK_Video_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 2
+      },
+      "metrics": {
+        "click": {
+          "AUC": 0.934288,
+          "logloss": 0.25045
+        },
+        "follow": {
+          "AUC": 0.922992,
+          "logloss": 0.004942
+        },
+        "like": {
+          "AUC": 0.94831,
+          "logloss": 0.036833
+        },
+        "share": {
+          "AUC": 0.935292,
+          "logloss": 0.005326
+        }
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 431219202,
+        "dense_parameters": 11230434,
+        "embedding_parameters": 419988768
+      },
+      "eligible": true,
+      "issues": [],
+      "historical_training_source_revision_verified": false
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "job_task_id": "548166_9",
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_single_seed_HyFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_9.out",
+      "state_source": "frozen historical selected-run archive",
+      "params": {
+        "accumulation_steps": 1,
+        "batch_size": 16384,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataloader_seed": 2027,
+        "dataset_id": "QK_Video_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "dnn_activations": "ReLU",
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 4996177
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3753437,
+            "source": "item"
+          },
+          {
+            "name": "video_category",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5,
+            "source": "item"
+          },
+          {
+            "name": "watching_times",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 419
+          },
+          {
+            "name": "gender",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5
+          },
+          {
+            "name": "age",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 17,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "label_col": [
+          {
+            "name": "click",
+            "dtype": "float"
+          },
+          {
+            "name": "follow",
+            "dtype": "float"
+          },
+          {
+            "name": "like",
+            "dtype": "float"
+          },
+          {
+            "name": "share",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "HyFormer",
+        "model_id": "SISA_single_seed_HyFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_global_token": 2,
+        "num_heads": 2,
+        "num_layers": 3,
+        "num_ns_token": 4,
+        "num_tasks": 4,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262028,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_parameter_seed": 20260822,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "task": "binary_classification",
+        "test_data": "./datasets/QK_Video_Action/test/data",
+        "test_item_info": "./datasets/QK_Video_Action/test/item_info",
+        "test_user_info": "./datasets/QK_Video_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/QK_Video_Action/train/data",
+        "train_item_info": "./datasets/QK_Video_Action/train/item_info",
+        "train_user_info": "./datasets/QK_Video_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/QK_Video_Action/valid/data",
+        "valid_item_info": "./datasets/QK_Video_Action/valid/item_info",
+        "valid_user_info": "./datasets/QK_Video_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 2
+      },
+      "metrics": {
+        "click": {
+          "AUC": 0.934075,
+          "logloss": 0.250842
+        },
+        "follow": {
+          "AUC": 0.913611,
+          "logloss": 0.005121
+        },
+        "like": {
+          "AUC": 0.947015,
+          "logloss": 0.037439
+        },
+        "share": {
+          "AUC": 0.930531,
+          "logloss": 0.005428
+        }
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 147632508,
+        "dense_parameters": 7631388,
+        "embedding_parameters": 140001120
+      },
+      "eligible": true,
+      "issues": [],
+      "historical_training_source_revision_verified": false
+    }
+  ],
+  "accounting": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "644632,644633,644634,644708,644723,644724",
+      "--format=JobID%64,JobIDRaw%64,State%32,ExitCode,Elapsed,NodeList%64"
+    ],
+    "stdout": "644632_0|644633|COMPLETED|0:0|00:29:55|ACD1-1\n644632_0.batch|644633.batch|COMPLETED|0:0|00:29:55|ACD1-1\n644632_0.extern|644633.extern|COMPLETED|0:0|00:29:55|ACD1-1\n644632_1|644634|COMPLETED|0:0|00:51:15|ACD1-1\n644632_1.batch|644634.batch|COMPLETED|0:0|00:51:15|ACD1-1\n644632_1.extern|644634.extern|COMPLETED|0:0|00:51:15|ACD1-1\n644632_2|644708|COMPLETED|0:0|00:30:55|ACD1-1\n644632_2.batch|644708.batch|COMPLETED|0:0|00:30:55|ACD1-1\n644632_2.extern|644708.extern|COMPLETED|0:0|00:30:55|ACD1-1\n644632_3|644723|COMPLETED|0:0|01:00:33|ACD1-21\n644632_3.batch|644723.batch|COMPLETED|0:0|01:00:33|ACD1-21\n644632_3.extern|644723.extern|COMPLETED|0:0|01:00:33|ACD1-21\n644632_4|644724|COMPLETED|0:0|00:32:56|ACD1-22\n644632_4.batch|644724.batch|COMPLETED|0:0|00:32:56|ACD1-22\n644632_4.extern|644724.extern|COMPLETED|0:0|00:32:56|ACD1-22\n644632_5|644632|COMPLETED|0:0|01:00:14|ACD1-22\n644632_5.batch|644632.batch|COMPLETED|0:0|01:00:14|ACD1-22\n644632_5.extern|644632.extern|COMPLETED|0:0|01:00:14|ACD1-22\n",
+    "stderr": "",
+    "sha256": "43c1afee9643b956d5c5aca05a852d96b429276c0e3e1bfdf51f01201738d910"
+  },
+  "sources": [
+    {
+      "path": "experiments/sisa_single_seed20262028/results/runs.csv",
+      "bytes": 10108,
+      "sha256": "f3f55bd09763ff21e32ba5db402c7370055a1fdc742dcda7ab23d3b64119b380"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_single_seed_Zenith_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "bytes": 8110,
+      "sha256": "52b882a8215a3190d0c7c4b74a9b8f7b13c86c45106300f1a372a635d0826366"
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_8.out",
+      "bytes": 7530933,
+      "sha256": "aa46b6185c8965517956dfc4174a46cb14b59d68487483904865bf268240e854"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_single_seed_HyFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "bytes": 8187,
+      "sha256": "042df0b5cc2adb6832de580ccb0895a4e253b06a9ee78662dc9d378db578f1ae"
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_9.out",
+      "bytes": 7611499,
+      "sha256": "528cbfae09b04040fd3056029b70707dcb159e7631e009e70353361df8e4ee55"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16540,
+      "sha256": "c2eb1d87cd6e85c56251676bbee0776a38b22011c2357412b7e8572358830f59"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "97d5e03cdba3c9ede8504af493a04353f6de07a08353c787c45f24b172992b6e"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "8e1b6a329ca561f40dd7c55e25259009877946091b077d487b60ac5f6de43a77"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "bytes": 8028,
+      "sha256": "8823722454a00d82daa43ed69cc1b531f7f4e0da642d5761897d5f255e120745"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_0.out",
+      "bytes": 7539418,
+      "sha256": "61349ab6e89c928ab012db82a7bb956f2adbed6c8f80113519cb1e5bfce57f84"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+      "bytes": 7559,
+      "sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/run_site_replication.py",
+      "bytes": 11832,
+      "sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch",
+      "bytes": 611,
+      "sha256": "eb52b8d47342e5f478d1eadd6e77d7cdcea35d83566b37c9c1cf4ffe7185b5df"
+    },
+    {
+      "path": "model_zoo/EST.py",
+      "bytes": 12904,
+      "sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09"
+    },
+    {
+      "path": "model_zoo/HeMix.py",
+      "bytes": 15363,
+      "sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a"
+    },
+    {
+      "path": "model_zoo/HiFormer.py",
+      "bytes": 11883,
+      "sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464"
+    },
+    {
+      "path": "model_zoo/HyFormer.py",
+      "bytes": 17015,
+      "sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1"
+    },
+    {
+      "path": "model_zoo/INFNet.py",
+      "bytes": 13600,
+      "sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c"
+    },
+    {
+      "path": "model_zoo/LONGER.py",
+      "bytes": 13308,
+      "sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d"
+    },
+    {
+      "path": "model_zoo/MixFormer.py",
+      "bytes": 11610,
+      "sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0"
+    },
+    {
+      "path": "model_zoo/OneTrans.py",
+      "bytes": 17489,
+      "sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4"
+    },
+    {
+      "path": "model_zoo/RankMixer.py",
+      "bytes": 8639,
+      "sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d"
+    },
+    {
+      "path": "model_zoo/SSR.py",
+      "bytes": 12916,
+      "sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425"
+    },
+    {
+      "path": "model_zoo/TokenFormer.py",
+      "bytes": 13320,
+      "sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed"
+    },
+    {
+      "path": "model_zoo/TokenMixer.py",
+      "bytes": 9616,
+      "sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba"
+    },
+    {
+      "path": "model_zoo/UltraHSTU.py",
+      "bytes": 14719,
+      "sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03"
+    },
+    {
+      "path": "model_zoo/UniMixer.py",
+      "bytes": 18675,
+      "sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48"
+    },
+    {
+      "path": "model_zoo/Zenith.py",
+      "bytes": 13162,
+      "sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545"
+    },
+    {
+      "path": "model_zoo/__init__.py",
+      "bytes": 1203,
+      "sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 724,
+      "sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958"
+    },
+    {
+      "path": "run_expid.py",
+      "bytes": 15124,
+      "sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c"
+    },
+    {
+      "path": "unirank/__init__.py",
+      "bytes": 759,
+      "sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225"
+    },
+    {
+      "path": "unirank/features.py",
+      "bytes": 8166,
+      "sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30"
+    },
+    {
+      "path": "unirank/metrics.py",
+      "bytes": 7199,
+      "sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002"
+    },
+    {
+      "path": "unirank/preprocess/__init__.py",
+      "bytes": 838,
+      "sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459"
+    },
+    {
+      "path": "unirank/preprocess/build_dataset.py",
+      "bytes": 6181,
+      "sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f"
+    },
+    {
+      "path": "unirank/preprocess/feature_processor.py",
+      "bytes": 20697,
+      "sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3"
+    },
+    {
+      "path": "unirank/preprocess/normalizer.py",
+      "bytes": 1791,
+      "sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f"
+    },
+    {
+      "path": "unirank/preprocess/tokenizer.py",
+      "bytes": 7304,
+      "sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600"
+    },
+    {
+      "path": "unirank/pytorch/__init__.py",
+      "bytes": 760,
+      "sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/__init__.py",
+      "bytes": 921,
+      "sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+      "bytes": 3017,
+      "sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+      "bytes": 23549,
+      "sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566"
+    },
+    {
+      "path": "unirank/pytorch/layers/__init__.py",
+      "bytes": 1273,
+      "sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee"
+    },
+    {
+      "path": "unirank/pytorch/layers/activations.py",
+      "bytes": 1589,
+      "sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/__init__.py",
+      "bytes": 851,
+      "sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+      "bytes": 5243,
+      "sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/sisa.py",
+      "bytes": 13141,
+      "sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/target_attention.py",
+      "bytes": 4951,
+      "sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47"
+    },
+    {
+      "path": "unirank/pytorch/layers/blocks/__init__.py",
+      "bytes": 785,
+      "sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da"
+    },
+    {
+      "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+      "bytes": 3112,
+      "sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/__init__.py",
+      "bytes": 847,
+      "sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+      "bytes": 10737,
+      "sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+      "bytes": 6173,
+      "sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/__init__.py",
+      "bytes": 816,
+      "sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+      "bytes": 6507,
+      "sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/token_mix.py",
+      "bytes": 2003,
+      "sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0"
+    },
+    {
+      "path": "unirank/pytorch/layers/pooling.py",
+      "bytes": 2132,
+      "sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/__init__.py",
+      "bytes": 933,
+      "sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+      "bytes": 1629,
+      "sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+      "bytes": 2477,
+      "sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+      "bytes": 2218,
+      "sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+      "bytes": 3060,
+      "sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+      "bytes": 3718,
+      "sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe"
+    },
+    {
+      "path": "unirank/pytorch/models/__init__.py",
+      "bytes": 854,
+      "sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe"
+    },
+    {
+      "path": "unirank/pytorch/models/multitask_model.py",
+      "bytes": 10280,
+      "sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f"
+    },
+    {
+      "path": "unirank/pytorch/models/rank_model.py",
+      "bytes": 42784,
+      "sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc"
+    },
+    {
+      "path": "unirank/pytorch/torch_utils.py",
+      "bytes": 12676,
+      "sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788"
+    },
+    {
+      "path": "unirank/utils.py",
+      "bytes": 10472,
+      "sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 70018,
+      "sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 692,
+      "sha256": "d7324df255af13811c90835eb049ada2e35006cf7772a45073e86bd5622448f4"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 692,
+      "sha256": "31562b114225929574c330923bfcc6ad17bd177fea6f1d79f50703fd0515a6ed"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16806,
+      "sha256": "9bd450146c41413f9cb6be9387ce3e2af24e0420ef1aef1674bf510e591fac71"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "cb4c0dca902d18645ece827d99416a6a54290d7dc5e611d6e1f18582b7bd25af"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "a65a99881b5c584801cba13634f3c4aa3e3e2243d6b613e26ec7d95553292542"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "bytes": 8104,
+      "sha256": "f886b3f9ff33fb3c0e4d84aefaed520ef224a969445646b36287347a1f43c168"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_1.out",
+      "bytes": 7610293,
+      "sha256": "9d0ed334bc9c4ae474071f593e058f18e13e0bc2b6ca450fdfc14156e84f876c"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 963,
+      "sha256": "358553c647276576736f07378364fdca6551405f9f0e0c27e04ed6ad688114f3"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 963,
+      "sha256": "7ea3d2e98fdc1e36cc1defd6b2109329c2d166c19df87dd97a7854fa9d08924f"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16531,
+      "sha256": "e9d092fd1715ccdf146c847cfb2ad496f3e6093b97c7e9c4ba7f6fe6869eead3"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "020706b8fcb9470171df52a0eb914c5b66f488128f80273b8b84cf03df3d5ae6"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "5f9143cf99e9e884c6cec3f3e9f91f6f34af6a408472eea59c26831001ed5a05"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1.log",
+      "bytes": 8083,
+      "sha256": "965b17bfd31f4603358241efd9346846e2cb74c8d2f947776578e119db02fa6c"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_2.out",
+      "bytes": 7552904,
+      "sha256": "a12e5a1dca308b2d3b0f23f1a85ab67ec9c29096f513ef0c120f534328df9952"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 789,
+      "sha256": "e54f01de8b798945aa5b1378da1988a573c12994265a7934095b43987c979823"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 789,
+      "sha256": "558f7542edca783acdba4391fa7c9d738f1a4dada801acde488969d54c12e1ee"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16800,
+      "sha256": "c6d7b422eb5270f14670225c370901935a0aed1632499a4a1edfe4d1f0c7b371"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "2f20377227374a439e53fd4b273b638f1a43485dd97b077f48083bd69e0b45e5"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "dcf1fef554caa1da1914fba543e155daaed562811d6228622f66e4c778ae7e51"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1.log",
+      "bytes": 8163,
+      "sha256": "cd658d41b869df6dba3ac5f52a69d707e72578eb31b12fde8f072a06e3847524"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_3.out",
+      "bytes": 7610817,
+      "sha256": "0e49e7345eafa4f480d347891c07df41bbb373f6f8d40ee2b87dbec60de9ca41"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 1243,
+      "sha256": "46d389c4f5a8e9365d82b763c1a86f8112b2f6e1f179773dd21e0d3edb7f02ab"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 1243,
+      "sha256": "336c9603c8e075fb6830ceabb2f7771866d929b74c55c55c590ab50998b71d1a"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16525,
+      "sha256": "94e22e9515ca91ff9688e41dfec8b3ecc617769f10f8a8943a18c62aba7ae13b"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "195a2ccc9ad51b34fa65603d63b16b6a63d2e541e2366c3ca0c42fb25be6de5f"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "d86984ef2fa589445e93ef1f762c5175ccef9efacdcaa7947668aab81a62ddc4"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1.log",
+      "bytes": 7989,
+      "sha256": "5c5f225c02e54a8dc70b952091960f9985dba0eba9cb7cd75fe33ca2681e30c4"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_4.out",
+      "bytes": 7554908,
+      "sha256": "6dde0cae4bbcd8a01ea3a7b2ed61f8d65c2fcea7e389dd23d7bb524e8b74b0ce"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 966,
+      "sha256": "595e3f2dcea8a394e119076ca96dc0496b9c275ed3800dc7d683113680f2675b"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 966,
+      "sha256": "f756186de9d0c45169d980cc9d64cd206217989d478d6f6084f64e0396509d37"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16791,
+      "sha256": "788c30e1a3ead55a49afb815d10a62173f3081f375acb91fad6e0371c566782e"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "a8680609ee44943d2190042f56f7974877b52da10666dc7c079337f987259bd2"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "afb4c486e21778306a52e6fc99e9a840ff0a4b59c3bd5be0470fb7e3294066ce"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1.log",
+      "bytes": 8064,
+      "sha256": "423971017ef2976fcb9b7be0e20f7c5bd23bb5ad0a2a69b505cde0e9ce3fc371"
+    },
+    {
+      "path": "logs/unirank-rise-site-replication-644632_5.out",
+      "bytes": 7610639,
+      "sha256": "8cab4a79f4c5884f974cd86b1b80b54f1a3e62217e30ec374fd408cc6cb6ffd0"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 1237,
+      "sha256": "bfe1b8ba93c66f6ef12d73fafb0eeff86da8c345e4edb7899a97af08e346638e"
+    },
+    {
+      "path": "artifacts/rise_site_replication/RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 1237,
+      "sha256": "61f3645c6f862ea7f8104ce666baeeaa9129caa3929f6960bc60c16d029973df"
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "job_task_id": "644632_2",
+      "label": "click",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93267,
+      "Baseline_logloss": 0.253062,
+      "Full_RISE_AUC": 0.934288,
+      "Full_RISE_logloss": 0.25045,
+      "Placement_AUC": 0.934345,
+      "Placement_logloss": 0.250303,
+      "delta_AUC_vs_Baseline": 0.001674999999999982,
+      "delta_AUC_vs_Full_RISE": 5.699999999997374e-05
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "job_task_id": "644632_2",
+      "label": "follow",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.92335,
+      "Baseline_logloss": 0.004935,
+      "Full_RISE_AUC": 0.922992,
+      "Full_RISE_logloss": 0.004942,
+      "Placement_AUC": 0.924854,
+      "Placement_logloss": 0.004911,
+      "delta_AUC_vs_Baseline": 0.0015039999999999498,
+      "delta_AUC_vs_Full_RISE": 0.0018619999999999193
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "job_task_id": "644632_2",
+      "label": "like",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.947279,
+      "Baseline_logloss": 0.037359,
+      "Full_RISE_AUC": 0.94831,
+      "Full_RISE_logloss": 0.036833,
+      "Placement_AUC": 0.947871,
+      "Placement_logloss": 0.037099,
+      "delta_AUC_vs_Baseline": 0.0005920000000000369,
+      "delta_AUC_vs_Full_RISE": -0.0004389999999999672
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "job_task_id": "644632_2",
+      "label": "share",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93524,
+      "Baseline_logloss": 0.005363,
+      "Full_RISE_AUC": 0.935292,
+      "Full_RISE_logloss": 0.005326,
+      "Placement_AUC": 0.936073,
+      "Placement_logloss": 0.005325,
+      "delta_AUC_vs_Baseline": 0.0008330000000000837,
+      "delta_AUC_vs_Full_RISE": 0.0007810000000000317
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "history_only",
+      "job_task_id": "644632_2",
+      "label": "__macro__",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93463475,
+      "Baseline_logloss": 0.07517975,
+      "Full_RISE_AUC": 0.9352205,
+      "Full_RISE_logloss": 0.07438775,
+      "Placement_AUC": 0.93578575,
+      "Placement_logloss": 0.0744095,
+      "delta_AUC_vs_Baseline": 0.0011510000000000131,
+      "delta_AUC_vs_Full_RISE": 0.0005652499999999616
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "job_task_id": "644632_3",
+      "label": "click",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.932155,
+      "Baseline_logloss": 0.254023,
+      "Full_RISE_AUC": 0.934075,
+      "Full_RISE_logloss": 0.250842,
+      "Placement_AUC": 0.933257,
+      "Placement_logloss": 0.252902,
+      "delta_AUC_vs_Baseline": 0.0011020000000000474,
+      "delta_AUC_vs_Full_RISE": -0.0008179999999999854
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "job_task_id": "644632_3",
+      "label": "follow",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.913908,
+      "Baseline_logloss": 0.005218,
+      "Full_RISE_AUC": 0.913611,
+      "Full_RISE_logloss": 0.005121,
+      "Placement_AUC": 0.913477,
+      "Placement_logloss": 0.005175,
+      "delta_AUC_vs_Baseline": -0.0004310000000000702,
+      "delta_AUC_vs_Full_RISE": -0.00013399999999996748
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "job_task_id": "644632_3",
+      "label": "like",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.946032,
+      "Baseline_logloss": 0.038063,
+      "Full_RISE_AUC": 0.947015,
+      "Full_RISE_logloss": 0.037439,
+      "Placement_AUC": 0.946277,
+      "Placement_logloss": 0.037476,
+      "delta_AUC_vs_Baseline": 0.00024500000000005073,
+      "delta_AUC_vs_Full_RISE": -0.0007380000000000164
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "job_task_id": "644632_3",
+      "label": "share",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.931337,
+      "Baseline_logloss": 0.005489,
+      "Full_RISE_AUC": 0.930531,
+      "Full_RISE_logloss": 0.005428,
+      "Placement_AUC": 0.930733,
+      "Placement_logloss": 0.005495,
+      "delta_AUC_vs_Baseline": -0.0006039999999999379,
+      "delta_AUC_vs_Full_RISE": 0.00020200000000003548
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "sequence_only",
+      "job_task_id": "644632_3",
+      "label": "__macro__",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.930858,
+      "Baseline_logloss": 0.07569825,
+      "Full_RISE_AUC": 0.931308,
+      "Full_RISE_logloss": 0.0747075,
+      "Placement_AUC": 0.930936,
+      "Placement_logloss": 0.07526200000000001,
+      "delta_AUC_vs_Baseline": 7.80000000000225e-05,
+      "delta_AUC_vs_Full_RISE": -0.00037200000000003897
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "job_task_id": "644632_4",
+      "label": "click",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93267,
+      "Baseline_logloss": 0.253062,
+      "Full_RISE_AUC": 0.934288,
+      "Full_RISE_logloss": 0.25045,
+      "Placement_AUC": 0.932227,
+      "Placement_logloss": 0.253826,
+      "delta_AUC_vs_Baseline": -0.0004429999999999712,
+      "delta_AUC_vs_Full_RISE": -0.0020609999999999795
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "job_task_id": "644632_4",
+      "label": "follow",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.92335,
+      "Baseline_logloss": 0.004935,
+      "Full_RISE_AUC": 0.922992,
+      "Full_RISE_logloss": 0.004942,
+      "Placement_AUC": 0.921671,
+      "Placement_logloss": 0.004947,
+      "delta_AUC_vs_Baseline": -0.001678999999999986,
+      "delta_AUC_vs_Full_RISE": -0.0013210000000000166
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "job_task_id": "644632_4",
+      "label": "like",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.947279,
+      "Baseline_logloss": 0.037359,
+      "Full_RISE_AUC": 0.94831,
+      "Full_RISE_logloss": 0.036833,
+      "Placement_AUC": 0.946704,
+      "Placement_logloss": 0.037442,
+      "delta_AUC_vs_Baseline": -0.0005749999999999922,
+      "delta_AUC_vs_Full_RISE": -0.0016059999999999963
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "job_task_id": "644632_4",
+      "label": "share",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93524,
+      "Baseline_logloss": 0.005363,
+      "Full_RISE_AUC": 0.935292,
+      "Full_RISE_logloss": 0.005326,
+      "Placement_AUC": 0.934598,
+      "Placement_logloss": 0.005381,
+      "delta_AUC_vs_Baseline": -0.0006419999999999204,
+      "delta_AUC_vs_Full_RISE": -0.0006939999999999724
+    },
+    {
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "mode": "token_only",
+      "job_task_id": "644632_4",
+      "label": "__macro__",
+      "baseline_job": "644632_0",
+      "full_RISE_job": "548166_8",
+      "Baseline_AUC": 0.93463475,
+      "Baseline_logloss": 0.07517975,
+      "Full_RISE_AUC": 0.9352205,
+      "Full_RISE_logloss": 0.07438775,
+      "Placement_AUC": 0.9338,
+      "Placement_logloss": 0.075399,
+      "delta_AUC_vs_Baseline": -0.0008347499999999952,
+      "delta_AUC_vs_Full_RISE": -0.0014205000000000467
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "job_task_id": "644632_5",
+      "label": "click",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.932155,
+      "Baseline_logloss": 0.254023,
+      "Full_RISE_AUC": 0.934075,
+      "Full_RISE_logloss": 0.250842,
+      "Placement_AUC": 0.933643,
+      "Placement_logloss": 0.251561,
+      "delta_AUC_vs_Baseline": 0.0014880000000000448,
+      "delta_AUC_vs_Full_RISE": -0.00043199999999998795
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "job_task_id": "644632_5",
+      "label": "follow",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.913908,
+      "Baseline_logloss": 0.005218,
+      "Full_RISE_AUC": 0.913611,
+      "Full_RISE_logloss": 0.005121,
+      "Placement_AUC": 0.91345,
+      "Placement_logloss": 0.005159,
+      "delta_AUC_vs_Baseline": -0.00045800000000006946,
+      "delta_AUC_vs_Full_RISE": -0.00016099999999996673
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "job_task_id": "644632_5",
+      "label": "like",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.946032,
+      "Baseline_logloss": 0.038063,
+      "Full_RISE_AUC": 0.947015,
+      "Full_RISE_logloss": 0.037439,
+      "Placement_AUC": 0.947079,
+      "Placement_logloss": 0.0375,
+      "delta_AUC_vs_Baseline": 0.0010470000000000201,
+      "delta_AUC_vs_Full_RISE": 6.399999999995298e-05
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "job_task_id": "644632_5",
+      "label": "share",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.931337,
+      "Baseline_logloss": 0.005489,
+      "Full_RISE_AUC": 0.930531,
+      "Full_RISE_logloss": 0.005428,
+      "Placement_AUC": 0.930713,
+      "Placement_logloss": 0.005507,
+      "delta_AUC_vs_Baseline": -0.0006239999999999579,
+      "delta_AUC_vs_Full_RISE": 0.00018200000000001548
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "query_only",
+      "job_task_id": "644632_5",
+      "label": "__macro__",
+      "baseline_job": "644632_1",
+      "full_RISE_job": "548166_9",
+      "Baseline_AUC": 0.930858,
+      "Baseline_logloss": 0.07569825,
+      "Full_RISE_AUC": 0.931308,
+      "Full_RISE_logloss": 0.0747075,
+      "Placement_AUC": 0.93122125,
+      "Placement_logloss": 0.07493174999999999,
+      "delta_AUC_vs_Baseline": 0.00036325000000003715,
+      "delta_AUC_vs_Full_RISE": -8.675000000002431e-05
+    }
+  ],
+  "scope": "Exploratory QK placement replication, fixed seed20262028; no seed20262027 substitution.",
+  "limitations": [
+    "Single training seed; no significance claim for placement differences.",
+    "Active capacity differs by placement; retained site identity and initialization are checked.",
+    "Historical E source revision is not verified; full logged protocol and per-rank coverage are checked."
+  ]
+}

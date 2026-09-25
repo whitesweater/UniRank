@@ -1,0 +1,12 @@
+{
+  "dataset": "TencentGR_10M_Action",
+  "rows": 153157632,
+  "result_rows": 36,
+  "identity_verified": true,
+  "variants": [
+    "A",
+    "E"
+  ],
+  "group_results_sha256": "cf9be075426bb4ae93582c094b7a37ae8af6092cbf299108c2a5ae0ab05264ee",
+  "manifest_sha256": "af5ffef699b6eef3f65f2371ab077553bfcc5d470eb031ab4842a0242b18076f"
+}

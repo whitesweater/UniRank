@@ -1,0 +1,188 @@
+{
+  "status": "completed_descriptive_population_profile_no_prediction_or_gain_inference",
+  "generated_at_utc": "2026-09-22T19:34:26.891553+00:00",
+  "slurm_job_id": "643871",
+  "dataset": "MerRec_Action",
+  "train_target_population": {
+    "user": {
+      "distinct_observed_entities": 1656141,
+      "target_rows": 144108235,
+      "q25": 14,
+      "q75": 80,
+      "quantile_method": "inverted_cdf",
+      "quantile_population": "distinct global IDs with positive train target frequency"
+    },
+    "item": {
+      "distinct_observed_entities": 38740221,
+      "target_rows": 144108235,
+      "q25": 1,
+      "q75": 4,
+      "quantile_method": "inverted_cdf",
+      "quantile_population": "distinct global IDs with positive train target frequency"
+    }
+  },
+  "test_entity_population": {
+    "user": {
+      "distinct_retained_test_entities": 715813,
+      "distinct_test_entities_seen_in_train_targets": 689987,
+      "distinct_test_entities_unseen_in_train_targets": 25826
+    },
+    "item": {
+      "distinct_retained_test_entities": 7661685,
+      "distinct_test_entities_seen_in_train_targets": 5752938,
+      "distinct_test_entities_unseen_in_train_targets": 1908747
+    }
+  },
+  "frequency_cuts": {
+    "user": {
+      "q25": 14,
+      "q75": 80,
+      "method": "inverted_cdf"
+    },
+    "item": {
+      "q25": 1,
+      "q75": 4,
+      "method": "inverted_cdf"
+    }
+  },
+  "totals": {
+    "rows": 11599872,
+    "physical_test_rows": 11681154,
+    "history_valid_tokens": 970809353,
+    "history_unknown_tokens": 172967,
+    "history_ambiguous309_tokens": 24,
+    "rows_any_unknown_history_category": 146640,
+    "rows_any_ambiguous309_history_category": 24,
+    "rows_nonempty_history_without_known_category": 2,
+    "target_unknown_category_rows": 2169,
+    "target_zero_category_rows": 2169,
+    "target_ambiguous309_category_rows": 0,
+    "rows_effective_length_not_min_raw100": 0,
+    "raw_history_sum": 7332984427
+  },
+  "category_rates": {
+    "history_unknown_tokens_rate": 0.00017816783435954393,
+    "history_ambiguous309_tokens_rate": 2.4721640686541676e-08,
+    "rows_any_unknown_history_category_rate": 0.012641518802966102,
+    "rows_any_ambiguous309_history_category_rate": 2.068988347457627e-06,
+    "rows_nonempty_history_without_known_category_rate": 1.7241569562146893e-07,
+    "target_unknown_category_rows_rate": 0.00018698482190148305,
+    "target_zero_category_rows_rate": 0.00018698482190148305,
+    "target_ambiguous309_category_rows_rate": 0.0
+  },
+  "raw_history": {
+    "quantile_method": "inverted_cdf",
+    "quantiles": {
+      "0": 0,
+      "0.01": 5,
+      "0.1": 27,
+      "0.25": 79,
+      "0.5": 237,
+      "0.75": 643,
+      "0.9": 1510,
+      "0.95": 2476,
+      "0.99": 6194,
+      "1": 26575
+    },
+    "mean": 632.1608054813018
+  },
+  "labels": {
+    "Like": {
+      "positive": 1432490,
+      "negative": 10167382,
+      "positive_rate": 0.123491879910399
+    },
+    "Cart": {
+      "positive": 128634,
+      "negative": 11471238,
+      "positive_rate": 0.011089260295286016
+    },
+    "Offer": {
+      "positive": 39437,
+      "negative": 11560435,
+      "positive_rate": 0.003399778894111935
+    },
+    "Checkout": {
+      "positive": 7651,
+      "negative": 11592221,
+      "positive_rate": 0.0006595762435999293
+    },
+    "Purchase": {
+      "positive": 4642,
+      "negative": 11595230,
+      "positive_rate": 0.0004001768295374294
+    }
+  },
+  "row_key_sha256": "a28cc71895d446d60ed2e409992773456adbd6a67114abf4911161608b41d504",
+  "labels_sha256": "3ee71ba5af0d7a0befd572ef1010dcf8f3f66ddaceda1a3a85cfcf01de7c2369",
+  "category_policy": {
+    "unknown_ids": [
+      0,
+      309
+    ],
+    "ambiguous_ids": [
+      309
+    ],
+    "policy": "conservative exclusion; retain ambiguous counts for sensitivity analysis",
+    "evidence": {
+      "zero": "MerRec preprocessing excludes __MISSING__ and maps missing/rare feature values to 0.",
+      "legacy_c1_vocab": {
+        "source": {
+          "path": "/data/user/yhao481/proj/UniRank/datasets/MerRec_Action/feature_vocab.json",
+          "bytes": 1462759900,
+          "mtime_ns": 1787110267687295836
+        },
+        "canonical_object_sha256": "8077fe16eb7d3c596f34ea271d8a45923dc028fd8f7659e0e17f94e53d9c3763",
+        "reserved_tokens": {
+          "__OOV__": 309
+        }
+      },
+      "conflict": "Legacy identity vocabulary reserves its last ID as OOV, while author preprocessing encodes non-missing categories through vocab_size-1. It is not an original raw-to-encoded vocabulary. Positive reserved IDs are excluded conservatively, not proven truly missing."
+    }
+  },
+  "producer_output_mtime_discrepancies": [
+    {
+      "path": "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00003.parquet",
+      "bytes_unchanged": 31367412,
+      "producer_mtime_ns": 1790104113343525000,
+      "current_mtime_ns": 1790104113348997000,
+      "mtime_difference_ns": 5472000,
+      "scope": "Generated feature output only. Current content SHA and full row-key/raw alignment are verified separately; original output content SHA was not recorded."
+    }
+  ],
+  "group_boundaries": {
+    "effective_length": [
+      "0",
+      "1-20",
+      "21-50",
+      "51-99",
+      "100"
+    ],
+    "frequency": "zero; positive <= q25; q25 < positive <= q75; positive > q75. Tied quantiles may yield empty groups.",
+    "entropy_at_length100": [
+      "undefined",
+      "H<=1e-7",
+      "1e-7<H<=ln(2)",
+      "ln(2)<H<=ln(5)",
+      "H>ln(5)"
+    ],
+    "candidate_category_support_at_length100": [
+      "undefined",
+      "0",
+      "0<Q<=0.25",
+      "0.25<Q<=0.75",
+      "Q>0.75"
+    ]
+  },
+  "interpretation": [
+    "Test statistics describe the retained 11,599,872 rows, not the full 11,681,154-row split.",
+    "Observed distinct global IDs are counted from nonzero frequencies or actual retained targets, never vocabulary sizes.",
+    "Category unknown includes definite code 0 and conservatively excluded ambiguous code 309.",
+    "These are population properties only; no RISE effects, AUCs, causal explanations or action-time leakage rates are estimated."
+  ],
+  "independent_part3_feature_audit": {
+    "status": "passed",
+    "rows_checked": 32,
+    "details": "population_profile_part3_independent_check.json"
+  }
+}

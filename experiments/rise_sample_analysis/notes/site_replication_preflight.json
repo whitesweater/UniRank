@@ -1,0 +1,54 @@
+{
+  "Zenith": {
+    "train": {
+      "rank_steps": [
+        12038,
+        12036
+      ],
+      "processed_rows": 394428416,
+      "matched_reference": true
+    },
+    "valid": {
+      "rank_steps": [
+        1527,
+        1527
+      ],
+      "processed_rows": 50036736,
+      "matched_reference": true
+    },
+    "test": {
+      "rank_steps": [
+        1481,
+        1481
+      ],
+      "processed_rows": 48529408,
+      "matched_reference": true
+    }
+  },
+  "HyFormer": {
+    "train": {
+      "rank_steps": [
+        12038,
+        12036
+      ],
+      "processed_rows": 394428416,
+      "matched_reference": true
+    },
+    "valid": {
+      "rank_steps": [
+        1527,
+        1527
+      ],
+      "processed_rows": 50036736,
+      "matched_reference": true
+    },
+    "test": {
+      "rank_steps": [
+        1481,
+        1481
+      ],
+      "processed_rows": 48529408,
+      "matched_reference": true
+    }
+  }
+}

@@ -1,0 +1,4264 @@
+{
+  "generated_utc": "2026-09-23T02:33:59.114069+00:00",
+  "runs": [
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "dense": 7804797,
+      "embedding": 802271456,
+      "stored": 810103901,
+      "kind": "targeted_control",
+      "setting": "fixed_cumulative",
+      "task_index": 0,
+      "logical_task": "targeted_0",
+      "attempt": 1,
+      "run_id": "RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1",
+      "expected_job_task": "644098_0",
+      "artifact_dir": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1",
+      "manifest": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/MerRec_Action/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1.log",
+      "job_task_id": "644098_0",
+      "raw_job_id": "644100",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:33:59",
+      "node": "ACD1-3",
+      "seed": 20262028,
+      "slurm_log": "logs/rise-targeted-controls-644098_0.out",
+      "eligible": true,
+      "selected": true,
+      "issues": [],
+      "pending_checks": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.74193,
+          "logloss": 0.337892
+        },
+        "Cart": {
+          "AUC": 0.793004,
+          "logloss": 0.053644
+        },
+        "Offer": {
+          "AUC": 0.72931,
+          "logloss": 0.02144
+        },
+        "Checkout": {
+          "AUC": 0.846572,
+          "logloss": 0.004904
+        },
+        "Purchase": {
+          "AUC": 0.84296,
+          "logloss": 0.003152
+        }
+      },
+      "macro_auc": 0.7907552,
+      "macro_logloss": 0.0842064,
+      "model_audits": {
+        "0": {
+          "mode": "fixed_cumulative",
+          "sites": [
+            {
+              "site": "seq_layers.0",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260822,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "seq_layers.1",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "seq_layers.2",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260824,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.0",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260922,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.1",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260923,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.2",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260924,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            }
+          ],
+          "enabled_site_count": 6,
+          "stored_parameters": 810103901,
+          "active_parameters": 810076253,
+          "active_dense_parameters": 7804797,
+          "active_embedding_parameters": 802271456,
+          "rank": 0,
+          "model_id": "RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1"
+        },
+        "1": {
+          "mode": "fixed_cumulative",
+          "sites": [
+            {
+              "site": "seq_layers.0",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260822,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "seq_layers.1",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260823,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "seq_layers.2",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260824,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.0",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260922,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.1",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260923,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            },
+            {
+              "site": "decode_layers.2",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "FixedCumulativeScoreBias",
+              "parameter_seed": 20260924,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 21012,
+              "active": 16404
+            }
+          ],
+          "enabled_site_count": 6,
+          "stored_parameters": 810103901,
+          "active_parameters": 810076253,
+          "active_dense_parameters": 7804797,
+          "active_embedding_parameters": 802271456,
+          "rank": 1,
+          "model_id": "RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1"
+        }
+      },
+      "protocol_fields_checked": 74,
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_targeted_controls.py",
+          "frozen_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "current_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_targeted_controls.sbatch",
+          "frozen_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "current_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py",
+          "frozen_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "current_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 810076253,
+        "dense_parameters": 7804797,
+        "embedding_parameters": 802271456
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "progress": {
+        "0": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 4395,
+          "total_steps": 4395,
+          "logged_updates": 8792,
+          "advancing_within_snapshot": true
+        },
+        "1": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 4397,
+          "total_steps": 4397,
+          "logged_updates": 8795,
+          "advancing_within_snapshot": true
+        }
+      },
+      "runtime_error_signals": [],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 3240531581,
+        "mtime_ns": 1790112244923139000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 217,
+        "state_metadata_bytes": 46238
+      }
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "dense": 27826102,
+      "embedding": 140001120,
+      "stored": 167827222,
+      "kind": "targeted_control",
+      "setting": "target_only",
+      "task_index": 1,
+      "logical_task": "targeted_1",
+      "attempt": 1,
+      "run_id": "RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1",
+      "expected_job_task": "644098_1",
+      "artifact_dir": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1",
+      "manifest": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1.log",
+      "job_task_id": "644098_1",
+      "raw_job_id": "644101",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:29:35",
+      "node": "ACD1-20",
+      "seed": 20262028,
+      "slurm_log": "logs/rise-targeted-controls-644098_1.out",
+      "eligible": true,
+      "selected": true,
+      "issues": [],
+      "pending_checks": [],
+      "metrics": {
+        "click": {
+          "AUC": 0.933251,
+          "logloss": 0.252158
+        },
+        "follow": {
+          "AUC": 0.921751,
+          "logloss": 0.005013
+        },
+        "like": {
+          "AUC": 0.9469,
+          "logloss": 0.036644
+        },
+        "share": {
+          "AUC": 0.935757,
+          "logloss": 0.005317
+        }
+      },
+      "macro_auc": 0.93441475,
+      "macro_logloss": 0.074783,
+      "model_audits": {
+        "0": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260822,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 0,
+          "model_id": "RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1"
+        },
+        "1": {
+          "mode": "target_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260822,
+              "hidden_size": 48,
+              "heads": 1,
+              "score_dim": 16,
+              "stored": 1970,
+              "active": 1970
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": false
+            }
+          ],
+          "enabled_site_count": 1,
+          "stored_parameters": 167827222,
+          "active_parameters": 167827222,
+          "active_dense_parameters": 27826102,
+          "active_embedding_parameters": 140001120,
+          "rank": 1,
+          "model_id": "RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1"
+        }
+      },
+      "protocol_fields_checked": 72,
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_targeted_controls.py",
+          "frozen_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "current_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_targeted_controls.sbatch",
+          "frozen_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "current_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py",
+          "frozen_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "current_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 167827222,
+        "dense_parameters": 27826102,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "progress": {
+        "0": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 12038,
+          "total_steps": 12038,
+          "logged_updates": 24078,
+          "advancing_within_snapshot": true
+        },
+        "1": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 12036,
+          "total_steps": 12036,
+          "logged_updates": 24073,
+          "advancing_within_snapshot": true
+        }
+      },
+      "runtime_error_signals": [],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 671380937,
+        "mtime_ns": 1790111903561728000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 130,
+        "state_metadata_bytes": 30599
+      }
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "dense": 27887120,
+      "embedding": 140001120,
+      "stored": 167888240,
+      "kind": "targeted_control",
+      "setting": "field_only",
+      "task_index": 2,
+      "logical_task": "targeted_2",
+      "attempt": 1,
+      "run_id": "RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1",
+      "expected_job_task": "644098_2",
+      "artifact_dir": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1",
+      "manifest": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1.log",
+      "job_task_id": "644098_2",
+      "raw_job_id": "644098",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:31:14",
+      "node": "ACD1-20",
+      "seed": 20262028,
+      "slurm_log": "logs/rise-targeted-controls-644098_2.out",
+      "eligible": true,
+      "selected": true,
+      "issues": [],
+      "pending_checks": [],
+      "metrics": {
+        "click": {
+          "AUC": 0.930387,
+          "logloss": 0.256803
+        },
+        "follow": {
+          "AUC": 0.91276,
+          "logloss": 0.005116
+        },
+        "like": {
+          "AUC": 0.943511,
+          "logloss": 0.037935
+        },
+        "share": {
+          "AUC": 0.930905,
+          "logloss": 0.005462
+        }
+      },
+      "macro_auc": 0.92939075,
+      "macro_logloss": 0.07632900000000001,
+      "model_audits": {
+        "0": {
+          "mode": "field_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260922,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260923,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260924,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            }
+          ],
+          "enabled_site_count": 3,
+          "stored_parameters": 167888240,
+          "active_parameters": 167888240,
+          "active_dense_parameters": 27887120,
+          "active_embedding_parameters": 140001120,
+          "rank": 0,
+          "model_id": "RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1"
+        },
+        "1": {
+          "mode": "field_only",
+          "sites": [
+            {
+              "site": "attention_layers",
+              "reference": "query",
+              "enabled": false
+            },
+            {
+              "site": "mixer_layers.0",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260922,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            },
+            {
+              "site": "mixer_layers.1",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260923,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            },
+            {
+              "site": "mixer_layers.2",
+              "reference": "sequence_end",
+              "enabled": true,
+              "class_name": "SISAScoreBias",
+              "parameter_seed": 20260924,
+              "hidden_size": 256,
+              "heads": 2,
+              "score_dim": 16,
+              "stored": 20996,
+              "active": 20996
+            }
+          ],
+          "enabled_site_count": 3,
+          "stored_parameters": 167888240,
+          "active_parameters": 167888240,
+          "active_dense_parameters": 27887120,
+          "active_embedding_parameters": 140001120,
+          "rank": 1,
+          "model_id": "RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1"
+        }
+      },
+      "protocol_fields_checked": 72,
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_targeted_controls.py",
+          "frozen_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "current_sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/submit_targeted_controls.sbatch",
+          "frozen_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "current_sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22",
+          "matches": true
+        },
+        {
+          "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py",
+          "frozen_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "current_sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 167888240,
+        "dense_parameters": 27887120,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "progress": {
+        "1": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 12036,
+          "total_steps": 12036,
+          "logged_updates": 24073,
+          "advancing_within_snapshot": true
+        },
+        "0": {
+          "epoch": 1,
+          "first_step": 0,
+          "latest_step": 12038,
+          "total_steps": 12038,
+          "logged_updates": 24078,
+          "advancing_within_snapshot": true
+        }
+      },
+      "runtime_error_signals": [],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 671630575,
+        "mtime_ns": 1790113808308285000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 142,
+        "state_metadata_bytes": 33139
+      }
+    }
+  ],
+  "native_baseline_audits": [
+    {
+      "kind": "native_baseline",
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "setting": "A",
+      "logical_task": "baseline_0",
+      "task_index": 0,
+      "attempt": 1,
+      "run_id": "RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1",
+      "expected_job_task": "643809_0",
+      "artifact_dir": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1",
+      "manifest": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "artifacts/rise_sample_analysis/training_checkpoints/MerRec_Action/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1.log",
+      "slurm_prefix": "unirank-rise-matched-baseline",
+      "job_task_id": "643809_0",
+      "raw_job_id": "643845",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:28:43",
+      "node": "ACD1-3",
+      "seed": 20262028,
+      "slurm_log": "logs/unirank-rise-matched-baseline-643809_0.out",
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "Like": {
+          "AUC": 0.729441,
+          "logloss": 0.343779
+        },
+        "Cart": {
+          "AUC": 0.787154,
+          "logloss": 0.054475
+        },
+        "Offer": {
+          "AUC": 0.726794,
+          "logloss": 0.021497
+        },
+        "Checkout": {
+          "AUC": 0.842007,
+          "logloss": 0.004939
+        },
+        "Purchase": {
+          "AUC": 0.842773,
+          "logloss": 0.003124
+        }
+      },
+      "macro_auc": 0.7856338,
+      "macro_logloss": 0.0855628,
+      "issues": [],
+      "pending_checks": [],
+      "protocol_fields_checked": 74,
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "outcome": {
+        "returncode": 0,
+        "finished_at_utc": "2026-09-22T19:48:17.950296+00:00",
+        "job_id": "643845",
+        "metric_audit_pending": true
+      },
+      "parameter_counts": {
+        "total_parameters": 809977829,
+        "dense_parameters": 7706373,
+        "embedding_parameters": 802271456
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 3239993474,
+        "mtime_ns": 1790106411962168000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 175,
+        "state_metadata_bytes": 38060
+      }
+    },
+    {
+      "kind": "native_baseline",
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "setting": "A",
+      "logical_task": "baseline_1",
+      "task_index": 1,
+      "attempt": 1,
+      "run_id": "RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1",
+      "expected_job_task": "643809_1",
+      "artifact_dir": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1",
+      "manifest": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "checkpoint_log": "artifacts/rise_sample_analysis/training_checkpoints/QK_Video_Action/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "slurm_prefix": "unirank-rise-matched-baseline",
+      "job_task_id": "643809_1",
+      "raw_job_id": "643910",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:29:18",
+      "node": "ACD1-3",
+      "seed": 20262028,
+      "slurm_log": "logs/unirank-rise-matched-baseline-643809_1.out",
+      "eligible": true,
+      "selected": true,
+      "metrics": {
+        "click": {
+          "AUC": 0.931452,
+          "logloss": 0.255011
+        },
+        "follow": {
+          "AUC": 0.921287,
+          "logloss": 0.005003
+        },
+        "like": {
+          "AUC": 0.946112,
+          "logloss": 0.037126
+        },
+        "share": {
+          "AUC": 0.934901,
+          "logloss": 0.005388
+        }
+      },
+      "macro_auc": 0.933438,
+      "macro_logloss": 0.07563199999999999,
+      "issues": [],
+      "pending_checks": [],
+      "protocol_fields_checked": 72,
+      "source_hash_checks": [
+        {
+          "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+          "frozen_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "current_sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/EST.py",
+          "frozen_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "current_sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HeMix.py",
+          "frozen_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "current_sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HiFormer.py",
+          "frozen_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "current_sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/HyFormer.py",
+          "frozen_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "current_sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/INFNet.py",
+          "frozen_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "current_sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/LONGER.py",
+          "frozen_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "current_sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/MixFormer.py",
+          "frozen_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "current_sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/OneTrans.py",
+          "frozen_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "current_sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/RankMixer.py",
+          "frozen_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "current_sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/SSR.py",
+          "frozen_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "current_sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenFormer.py",
+          "frozen_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "current_sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/TokenMixer.py",
+          "frozen_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "current_sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UltraHSTU.py",
+          "frozen_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "current_sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/UniMixer.py",
+          "frozen_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "current_sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/Zenith.py",
+          "frozen_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "current_sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+          "matches": true
+        },
+        {
+          "path": "model_zoo/__init__.py",
+          "frozen_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "current_sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+          "matches": true
+        },
+        {
+          "path": "pyproject.toml",
+          "frozen_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "current_sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+          "matches": true
+        },
+        {
+          "path": "run_expid.py",
+          "frozen_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "current_sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c",
+          "matches": true
+        },
+        {
+          "path": "unirank/__init__.py",
+          "frozen_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "current_sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+          "matches": true
+        },
+        {
+          "path": "unirank/features.py",
+          "frozen_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "current_sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+          "matches": true
+        },
+        {
+          "path": "unirank/metrics.py",
+          "frozen_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "current_sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/__init__.py",
+          "frozen_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "current_sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/build_dataset.py",
+          "frozen_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "current_sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/feature_processor.py",
+          "frozen_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "current_sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/normalizer.py",
+          "frozen_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "current_sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+          "matches": true
+        },
+        {
+          "path": "unirank/preprocess/tokenizer.py",
+          "frozen_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "current_sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/__init__.py",
+          "frozen_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "current_sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/__init__.py",
+          "frozen_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "current_sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+          "frozen_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "current_sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+          "frozen_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "current_sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/__init__.py",
+          "frozen_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "current_sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/activations.py",
+          "frozen_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "current_sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/__init__.py",
+          "frozen_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "current_sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+          "frozen_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "current_sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/sisa.py",
+          "frozen_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "current_sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/attentions/target_attention.py",
+          "frozen_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "current_sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/__init__.py",
+          "frozen_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "current_sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+          "frozen_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "current_sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/__init__.py",
+          "frozen_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "current_sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+          "frozen_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "current_sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+          "frozen_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "current_sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/__init__.py",
+          "frozen_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "current_sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+          "frozen_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "current_sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/interactions/token_mix.py",
+          "frozen_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "current_sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/pooling.py",
+          "frozen_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "current_sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/__init__.py",
+          "frozen_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "current_sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+          "frozen_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "current_sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+          "frozen_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "current_sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+          "frozen_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "current_sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+          "frozen_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "current_sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+          "frozen_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "current_sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/__init__.py",
+          "frozen_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "current_sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/multitask_model.py",
+          "frozen_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "current_sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/models/rank_model.py",
+          "frozen_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "current_sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+          "matches": true
+        },
+        {
+          "path": "unirank/pytorch/torch_utils.py",
+          "frozen_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "current_sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+          "matches": true
+        },
+        {
+          "path": "unirank/utils.py",
+          "frozen_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "current_sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+          "matches": true
+        },
+        {
+          "path": "uv.lock",
+          "frozen_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "current_sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb",
+          "matches": true
+        }
+      ],
+      "outcome": {
+        "returncode": 0,
+        "finished_at_utc": "2026-09-22T20:19:25.171814+00:00",
+        "job_id": "643910",
+        "metric_audit_pending": true
+      },
+      "parameter_counts": {
+        "total_parameters": 167825252,
+        "dense_parameters": 27824132,
+        "embedding_parameters": 140001120
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "checkpoint": {
+        "exists": true,
+        "bytes": 671362335,
+        "mtime_ns": 1790108164888805000,
+        "zip_metadata_readable": true,
+        "full_content_hash_computed": false,
+        "zip_entries": 124,
+        "state_metadata_bytes": 29605
+      }
+    }
+  ],
+  "historical_E_audits": [
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "job_task_id": "548166_1",
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_1.out",
+      "state_source": "frozen historical selected-run archive",
+      "params": {
+        "accumulation_steps": 1,
+        "batch_size": 16384,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataloader_seed": 2027,
+        "dataset_id": "MerRec_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "dnn_activations": "ReLU",
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 1697916
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 43817684,
+            "source": "item"
+          },
+          {
+            "name": "product_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 893620,
+            "source": "item"
+          },
+          {
+            "name": "price_bucket",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10,
+            "source": "item"
+          },
+          {
+            "name": "c0_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 18,
+            "source": "item"
+          },
+          {
+            "name": "c1_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 310,
+            "source": "item"
+          },
+          {
+            "name": "c2_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3042,
+            "source": "item"
+          },
+          {
+            "name": "brand_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 19783,
+            "source": "item"
+          },
+          {
+            "name": "item_condition_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7,
+            "source": "item"
+          },
+          {
+            "name": "size_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 356,
+            "source": "item"
+          },
+          {
+            "name": "shipper_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3,
+            "source": "item"
+          },
+          {
+            "name": "color",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7311,
+            "source": "item"
+          },
+          {
+            "name": "session_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3701837
+          },
+          {
+            "name": "day_of_week",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 8
+          },
+          {
+            "name": "is_weekend",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3
+          },
+          {
+            "name": "hour",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 25
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 33,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "label_col": [
+          {
+            "name": "Like",
+            "dtype": "float"
+          },
+          {
+            "name": "Cart",
+            "dtype": "float"
+          },
+          {
+            "name": "Offer",
+            "dtype": "float"
+          },
+          {
+            "name": "Checkout",
+            "dtype": "float"
+          },
+          {
+            "name": "Purchase",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "HyFormer",
+        "model_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_global_token": 2,
+        "num_heads": 2,
+        "num_layers": 3,
+        "num_ns_token": 4,
+        "num_tasks": 5,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262028,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_parameter_seed": 20260822,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_adagrad_chunk_size": 16777216,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "sparse_optimizer_foreach": false,
+        "task": "binary_classification",
+        "test_data": "./datasets/MerRec_Action/test/data",
+        "test_item_info": "./datasets/MerRec_Action/test/item_info",
+        "test_user_info": "./datasets/MerRec_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/MerRec_Action/train/data",
+        "train_item_info": "./datasets/MerRec_Action/train/item_info",
+        "train_user_info": "./datasets/MerRec_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/MerRec_Action/valid/data",
+        "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+        "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 2
+      },
+      "metrics": {
+        "Like": {
+          "AUC": 0.750689,
+          "logloss": 0.331361
+        },
+        "Cart": {
+          "AUC": 0.810189,
+          "logloss": 0.052477
+        },
+        "Offer": {
+          "AUC": 0.731796,
+          "logloss": 0.021512
+        },
+        "Checkout": {
+          "AUC": 0.855579,
+          "logloss": 0.004954
+        },
+        "Purchase": {
+          "AUC": 0.856109,
+          "logloss": 0.003084
+        }
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 810103805,
+        "dense_parameters": 7832349,
+        "embedding_parameters": 802271456
+      },
+      "eligible": true,
+      "issues": [],
+      "historical_training_source_revision_verified": false
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "job_task_id": "548166_10",
+      "checkpoint_log": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_10.out",
+      "state_source": "frozen historical selected-run archive",
+      "params": {
+        "accumulation_steps": 1,
+        "attention_dropout": 0,
+        "batch_size": 16384,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataloader_seed": 2027,
+        "dataset_id": "QK_Video_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "expansion_factor": 2,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 4996177
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3753437,
+            "source": "item"
+          },
+          {
+            "name": "video_category",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5,
+            "source": "item"
+          },
+          {
+            "name": "watching_times",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 419
+          },
+          {
+            "name": "gender",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 5
+          },
+          {
+            "name": "age",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 17,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "label_col": [
+          {
+            "name": "click",
+            "dtype": "float"
+          },
+          {
+            "name": "follow",
+            "dtype": "float"
+          },
+          {
+            "name": "like",
+            "dtype": "float"
+          },
+          {
+            "name": "share",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "HiFormer",
+        "model_id": "SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_heads": 2,
+        "num_layers": 3,
+        "num_tasks": 4,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "qkv_rank": 256,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262028,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_parameter_seed": 20260822,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "task": "binary_classification",
+        "test_data": "./datasets/QK_Video_Action/test/data",
+        "test_item_info": "./datasets/QK_Video_Action/test/item_info",
+        "test_user_info": "./datasets/QK_Video_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/QK_Video_Action/train/data",
+        "train_item_info": "./datasets/QK_Video_Action/train/item_info",
+        "train_user_info": "./datasets/QK_Video_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/QK_Video_Action/valid/data",
+        "valid_item_info": "./datasets/QK_Video_Action/valid/item_info",
+        "valid_user_info": "./datasets/QK_Video_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 2
+      },
+      "metrics": {
+        "click": {
+          "AUC": 0.931291,
+          "logloss": 0.255325
+        },
+        "follow": {
+          "AUC": 0.913586,
+          "logloss": 0.005112
+        },
+        "like": {
+          "AUC": 0.945454,
+          "logloss": 0.037497
+        },
+        "share": {
+          "AUC": 0.933234,
+          "logloss": 0.005447
+        }
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 16,
+          "assigned_rows": 197339047,
+          "batches": 12038,
+          "processed_rows": 197230592
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 25037136,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 24287825,
+          "batches": 1481,
+          "processed_rows": 24264704
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 16,
+          "assigned_rows": 197308271,
+          "batches": 12036,
+          "processed_rows": 197197824
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 25041891,
+          "batches": 1527,
+          "processed_rows": 25018368
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 24292133,
+          "batches": 1481,
+          "processed_rows": 24264704
+        }
+      ],
+      "parameter_counts": {
+        "total_parameters": 167890210,
+        "dense_parameters": 27889090,
+        "embedding_parameters": 140001120
+      },
+      "eligible": true,
+      "issues": [],
+      "historical_training_source_revision_verified": false
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "Like",
+      "Baseline_AUC": 0.729441,
+      "Baseline_logloss": 0.343779,
+      "Full_RISE_AUC": 0.750689,
+      "Full_RISE_logloss": 0.331361,
+      "Targeted_AUC": 0.74193,
+      "Targeted_logloss": 0.337892,
+      "delta_AUC_vs_Baseline": 0.012488999999999972,
+      "delta_AUC_vs_Full_RISE": -0.008759000000000072,
+      "delta_logloss_vs_Baseline": -0.005886999999999976,
+      "delta_logloss_vs_Full_RISE": 0.006531000000000009
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "Cart",
+      "Baseline_AUC": 0.787154,
+      "Baseline_logloss": 0.054475,
+      "Full_RISE_AUC": 0.810189,
+      "Full_RISE_logloss": 0.052477,
+      "Targeted_AUC": 0.793004,
+      "Targeted_logloss": 0.053644,
+      "delta_AUC_vs_Baseline": 0.005850000000000022,
+      "delta_AUC_vs_Full_RISE": -0.017185000000000006,
+      "delta_logloss_vs_Baseline": -0.0008310000000000053,
+      "delta_logloss_vs_Full_RISE": 0.0011669999999999944
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "Offer",
+      "Baseline_AUC": 0.726794,
+      "Baseline_logloss": 0.021497,
+      "Full_RISE_AUC": 0.731796,
+      "Full_RISE_logloss": 0.021512,
+      "Targeted_AUC": 0.72931,
+      "Targeted_logloss": 0.02144,
+      "delta_AUC_vs_Baseline": 0.0025159999999999627,
+      "delta_AUC_vs_Full_RISE": -0.0024859999999999882,
+      "delta_logloss_vs_Baseline": -5.6999999999998024e-05,
+      "delta_logloss_vs_Full_RISE": -7.199999999999915e-05
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "Checkout",
+      "Baseline_AUC": 0.842007,
+      "Baseline_logloss": 0.004939,
+      "Full_RISE_AUC": 0.855579,
+      "Full_RISE_logloss": 0.004954,
+      "Targeted_AUC": 0.846572,
+      "Targeted_logloss": 0.004904,
+      "delta_AUC_vs_Baseline": 0.004565000000000041,
+      "delta_AUC_vs_Full_RISE": -0.009006999999999987,
+      "delta_logloss_vs_Baseline": -3.499999999999944e-05,
+      "delta_logloss_vs_Full_RISE": -4.99999999999997e-05
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "Purchase",
+      "Baseline_AUC": 0.842773,
+      "Baseline_logloss": 0.003124,
+      "Full_RISE_AUC": 0.856109,
+      "Full_RISE_logloss": 0.003084,
+      "Targeted_AUC": 0.84296,
+      "Targeted_logloss": 0.003152,
+      "delta_AUC_vs_Baseline": 0.00018700000000004824,
+      "delta_AUC_vs_Full_RISE": -0.013148999999999966,
+      "delta_logloss_vs_Baseline": 2.7999999999999813e-05,
+      "delta_logloss_vs_Full_RISE": 6.799999999999992e-05
+    },
+    {
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "mode": "fixed_cumulative",
+      "attempt": 1,
+      "targeted_job": "644098_0",
+      "baseline_job": "643809_0",
+      "full_RISE_job": "548166_1",
+      "label": "__macro__",
+      "Baseline_AUC": 0.7856338,
+      "Baseline_logloss": 0.0855628,
+      "Full_RISE_AUC": 0.8008724,
+      "Full_RISE_logloss": 0.0826776,
+      "Targeted_AUC": 0.7907552,
+      "Targeted_logloss": 0.0842064,
+      "delta_AUC_vs_Baseline": 0.005121399999999943,
+      "delta_AUC_vs_Full_RISE": -0.010117200000000048,
+      "delta_logloss_vs_Baseline": -0.0013563999999999937,
+      "delta_logloss_vs_Full_RISE": 0.0015287999999999968
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "targeted_job": "644098_1",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "click",
+      "Baseline_AUC": 0.931452,
+      "Baseline_logloss": 0.255011,
+      "Full_RISE_AUC": 0.931291,
+      "Full_RISE_logloss": 0.255325,
+      "Targeted_AUC": 0.933251,
+      "Targeted_logloss": 0.252158,
+      "delta_AUC_vs_Baseline": 0.001799000000000106,
+      "delta_AUC_vs_Full_RISE": 0.001960000000000073,
+      "delta_logloss_vs_Baseline": -0.0028529999999999944,
+      "delta_logloss_vs_Full_RISE": -0.003167000000000031
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "targeted_job": "644098_1",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "follow",
+      "Baseline_AUC": 0.921287,
+      "Baseline_logloss": 0.005003,
+      "Full_RISE_AUC": 0.913586,
+      "Full_RISE_logloss": 0.005112,
+      "Targeted_AUC": 0.921751,
+      "Targeted_logloss": 0.005013,
+      "delta_AUC_vs_Baseline": 0.00046400000000001995,
+      "delta_AUC_vs_Full_RISE": 0.008164999999999978,
+      "delta_logloss_vs_Baseline": 1.000000000000046e-05,
+      "delta_logloss_vs_Full_RISE": -9.900000000000013e-05
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "targeted_job": "644098_1",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "like",
+      "Baseline_AUC": 0.946112,
+      "Baseline_logloss": 0.037126,
+      "Full_RISE_AUC": 0.945454,
+      "Full_RISE_logloss": 0.037497,
+      "Targeted_AUC": 0.9469,
+      "Targeted_logloss": 0.036644,
+      "delta_AUC_vs_Baseline": 0.0007880000000000109,
+      "delta_AUC_vs_Full_RISE": 0.0014459999999999473,
+      "delta_logloss_vs_Baseline": -0.0004819999999999963,
+      "delta_logloss_vs_Full_RISE": -0.0008529999999999996
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "targeted_job": "644098_1",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "share",
+      "Baseline_AUC": 0.934901,
+      "Baseline_logloss": 0.005388,
+      "Full_RISE_AUC": 0.933234,
+      "Full_RISE_logloss": 0.005447,
+      "Targeted_AUC": 0.935757,
+      "Targeted_logloss": 0.005317,
+      "delta_AUC_vs_Baseline": 0.0008559999999999679,
+      "delta_AUC_vs_Full_RISE": 0.002522999999999942,
+      "delta_logloss_vs_Baseline": -7.100000000000075e-05,
+      "delta_logloss_vs_Full_RISE": -0.0001299999999999999
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "target_only",
+      "attempt": 1,
+      "targeted_job": "644098_1",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "__macro__",
+      "Baseline_AUC": 0.933438,
+      "Baseline_logloss": 0.07563199999999999,
+      "Full_RISE_AUC": 0.93089125,
+      "Full_RISE_logloss": 0.07584525,
+      "Targeted_AUC": 0.93441475,
+      "Targeted_logloss": 0.074783,
+      "delta_AUC_vs_Baseline": 0.0009767499999999707,
+      "delta_AUC_vs_Full_RISE": 0.0035235000000000127,
+      "delta_logloss_vs_Baseline": -0.0008489999999999887,
+      "delta_logloss_vs_Full_RISE": -0.0010622500000000007
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "attempt": 1,
+      "targeted_job": "644098_2",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "click",
+      "Baseline_AUC": 0.931452,
+      "Baseline_logloss": 0.255011,
+      "Full_RISE_AUC": 0.931291,
+      "Full_RISE_logloss": 0.255325,
+      "Targeted_AUC": 0.930387,
+      "Targeted_logloss": 0.256803,
+      "delta_AUC_vs_Baseline": -0.0010649999999999826,
+      "delta_AUC_vs_Full_RISE": -0.0009040000000000159,
+      "delta_logloss_vs_Baseline": 0.0017920000000000158,
+      "delta_logloss_vs_Full_RISE": 0.0014779999999999793
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "attempt": 1,
+      "targeted_job": "644098_2",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "follow",
+      "Baseline_AUC": 0.921287,
+      "Baseline_logloss": 0.005003,
+      "Full_RISE_AUC": 0.913586,
+      "Full_RISE_logloss": 0.005112,
+      "Targeted_AUC": 0.91276,
+      "Targeted_logloss": 0.005116,
+      "delta_AUC_vs_Baseline": -0.008526999999999951,
+      "delta_AUC_vs_Full_RISE": -0.0008259999999999934,
+      "delta_logloss_vs_Baseline": 0.00011300000000000025,
+      "delta_logloss_vs_Full_RISE": 3.9999999999996635e-06
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "attempt": 1,
+      "targeted_job": "644098_2",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "like",
+      "Baseline_AUC": 0.946112,
+      "Baseline_logloss": 0.037126,
+      "Full_RISE_AUC": 0.945454,
+      "Full_RISE_logloss": 0.037497,
+      "Targeted_AUC": 0.943511,
+      "Targeted_logloss": 0.037935,
+      "delta_AUC_vs_Baseline": -0.0026009999999999645,
+      "delta_AUC_vs_Full_RISE": -0.001943000000000028,
+      "delta_logloss_vs_Baseline": 0.0008090000000000042,
+      "delta_logloss_vs_Full_RISE": 0.0004380000000000009
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "attempt": 1,
+      "targeted_job": "644098_2",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "share",
+      "Baseline_AUC": 0.934901,
+      "Baseline_logloss": 0.005388,
+      "Full_RISE_AUC": 0.933234,
+      "Full_RISE_logloss": 0.005447,
+      "Targeted_AUC": 0.930905,
+      "Targeted_logloss": 0.005462,
+      "delta_AUC_vs_Baseline": -0.0039959999999999996,
+      "delta_AUC_vs_Full_RISE": -0.0023290000000000255,
+      "delta_logloss_vs_Baseline": 7.399999999999941e-05,
+      "delta_logloss_vs_Full_RISE": 1.5000000000000256e-05
+    },
+    {
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "mode": "field_only",
+      "attempt": 1,
+      "targeted_job": "644098_2",
+      "baseline_job": "643809_1",
+      "full_RISE_job": "548166_10",
+      "label": "__macro__",
+      "Baseline_AUC": 0.933438,
+      "Baseline_logloss": 0.07563199999999999,
+      "Full_RISE_AUC": 0.93089125,
+      "Full_RISE_logloss": 0.07584525,
+      "Targeted_AUC": 0.92939075,
+      "Targeted_logloss": 0.07632900000000001,
+      "delta_AUC_vs_Baseline": -0.004047249999999947,
+      "delta_AUC_vs_Full_RISE": -0.0015004999999999047,
+      "delta_logloss_vs_Baseline": 0.000697000000000017,
+      "delta_logloss_vs_Full_RISE": 0.000483750000000005
+    }
+  ],
+  "sources": [
+    {
+      "path": "experiments/sisa_single_seed20262028/results/runs.csv",
+      "bytes": 10108,
+      "sha256": "f3f55bd09763ff21e32ba5db402c7370055a1fdc742dcda7ab23d3b64119b380"
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "bytes": 10669,
+      "sha256": "4ef7b36faad3536a2d02079374457290f656324ad5ae5ae7ffaccee90d285dff"
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_1.out",
+      "bytes": 2812769,
+      "sha256": "87cce12fb512b44b5a47af6c5e8a7fdfa95f5011d53bdbca3180783a7c017d35"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+      "bytes": 8121,
+      "sha256": "4b682120db61e1719ae5bd40f563c744606a7a95be95aa63a25473202c0a5195"
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262028-ws2-548166_10.out",
+      "bytes": 7530374,
+      "sha256": "aedf53a2a146d4fc55ff67b94e5dd3653fe4b3a02db4b5e7cc36694cf6d887df"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 20067,
+      "sha256": "5dccff13263dff0e3143fc53a36bfab934d9239ac277e03b00a4750db8269b20"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1/started.json",
+      "bytes": 154,
+      "sha256": "e0796d28e25549818ce039ae07e8ed5477d60c3518f0883bfbec7daedfe49649"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1/outcome.json",
+      "bytes": 133,
+      "sha256": "8db8156b7d396ffbaa1f76fdfe8fa66001bd4572e442ea6fbcab68c54871ad54"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/training_checkpoints/MerRec_Action/RISE_matched_HyFormer_MerRec_Action_baseline_seed20262028_attempt1.log",
+      "bytes": 10739,
+      "sha256": "9fe1617b558447f26d848f9a94380fbeb6b0c8de9fb56a274b90eeb518a892ad"
+    },
+    {
+      "path": "logs/unirank-rise-matched-baseline-643809_0.out",
+      "bytes": 2748704,
+      "sha256": "d2e67f8178238a9b472984c0cf4021f3000303179dc44957927772757f76cdda"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/run_matched_baseline.py",
+      "bytes": 7559,
+      "sha256": "c629edb3c273d6cf7945c977be2358edde23f61e68df8a893417dfc019badde3"
+    },
+    {
+      "path": "model_zoo/EST.py",
+      "bytes": 12904,
+      "sha256": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09"
+    },
+    {
+      "path": "model_zoo/HeMix.py",
+      "bytes": 15363,
+      "sha256": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a"
+    },
+    {
+      "path": "model_zoo/HiFormer.py",
+      "bytes": 11883,
+      "sha256": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464"
+    },
+    {
+      "path": "model_zoo/HyFormer.py",
+      "bytes": 17015,
+      "sha256": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1"
+    },
+    {
+      "path": "model_zoo/INFNet.py",
+      "bytes": 13600,
+      "sha256": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c"
+    },
+    {
+      "path": "model_zoo/LONGER.py",
+      "bytes": 13308,
+      "sha256": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d"
+    },
+    {
+      "path": "model_zoo/MixFormer.py",
+      "bytes": 11610,
+      "sha256": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0"
+    },
+    {
+      "path": "model_zoo/OneTrans.py",
+      "bytes": 17489,
+      "sha256": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4"
+    },
+    {
+      "path": "model_zoo/RankMixer.py",
+      "bytes": 8639,
+      "sha256": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d"
+    },
+    {
+      "path": "model_zoo/SSR.py",
+      "bytes": 12916,
+      "sha256": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425"
+    },
+    {
+      "path": "model_zoo/TokenFormer.py",
+      "bytes": 13320,
+      "sha256": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed"
+    },
+    {
+      "path": "model_zoo/TokenMixer.py",
+      "bytes": 9616,
+      "sha256": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba"
+    },
+    {
+      "path": "model_zoo/UltraHSTU.py",
+      "bytes": 14719,
+      "sha256": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03"
+    },
+    {
+      "path": "model_zoo/UniMixer.py",
+      "bytes": 18675,
+      "sha256": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48"
+    },
+    {
+      "path": "model_zoo/Zenith.py",
+      "bytes": 13162,
+      "sha256": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545"
+    },
+    {
+      "path": "model_zoo/__init__.py",
+      "bytes": 1203,
+      "sha256": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 724,
+      "sha256": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958"
+    },
+    {
+      "path": "run_expid.py",
+      "bytes": 15124,
+      "sha256": "d454284f0dcf49b2cdf6586b762d410cd8e67d3f84986277ca42998488a3a03c"
+    },
+    {
+      "path": "unirank/__init__.py",
+      "bytes": 759,
+      "sha256": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225"
+    },
+    {
+      "path": "unirank/features.py",
+      "bytes": 8166,
+      "sha256": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30"
+    },
+    {
+      "path": "unirank/metrics.py",
+      "bytes": 7199,
+      "sha256": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002"
+    },
+    {
+      "path": "unirank/preprocess/__init__.py",
+      "bytes": 838,
+      "sha256": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459"
+    },
+    {
+      "path": "unirank/preprocess/build_dataset.py",
+      "bytes": 6181,
+      "sha256": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f"
+    },
+    {
+      "path": "unirank/preprocess/feature_processor.py",
+      "bytes": 20697,
+      "sha256": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3"
+    },
+    {
+      "path": "unirank/preprocess/normalizer.py",
+      "bytes": 1791,
+      "sha256": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f"
+    },
+    {
+      "path": "unirank/preprocess/tokenizer.py",
+      "bytes": 7304,
+      "sha256": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600"
+    },
+    {
+      "path": "unirank/pytorch/__init__.py",
+      "bytes": 760,
+      "sha256": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/__init__.py",
+      "bytes": 921,
+      "sha256": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/rank_dataloader.py",
+      "bytes": 3017,
+      "sha256": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2"
+    },
+    {
+      "path": "unirank/pytorch/dataloaders/unirank_dataloader.py",
+      "bytes": 23549,
+      "sha256": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566"
+    },
+    {
+      "path": "unirank/pytorch/layers/__init__.py",
+      "bytes": 1273,
+      "sha256": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee"
+    },
+    {
+      "path": "unirank/pytorch/layers/activations.py",
+      "bytes": 1589,
+      "sha256": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/__init__.py",
+      "bytes": 851,
+      "sha256": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/dot_product_attention.py",
+      "bytes": 5243,
+      "sha256": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/sisa.py",
+      "bytes": 13141,
+      "sha256": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465"
+    },
+    {
+      "path": "unirank/pytorch/layers/attentions/target_attention.py",
+      "bytes": 4951,
+      "sha256": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47"
+    },
+    {
+      "path": "unirank/pytorch/layers/blocks/__init__.py",
+      "bytes": 785,
+      "sha256": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da"
+    },
+    {
+      "path": "unirank/pytorch/layers/blocks/mlp_block.py",
+      "bytes": 3112,
+      "sha256": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/__init__.py",
+      "bytes": 847,
+      "sha256": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/feature_embedding.py",
+      "bytes": 10737,
+      "sha256": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732"
+    },
+    {
+      "path": "unirank/pytorch/layers/embeddings/pretrained_embedding.py",
+      "bytes": 6173,
+      "sha256": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/__init__.py",
+      "bytes": 816,
+      "sha256": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/per_token_ffn.py",
+      "bytes": 6507,
+      "sha256": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee"
+    },
+    {
+      "path": "unirank/pytorch/layers/interactions/token_mix.py",
+      "bytes": 2003,
+      "sha256": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0"
+    },
+    {
+      "path": "unirank/pytorch/layers/pooling.py",
+      "bytes": 2132,
+      "sha256": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/__init__.py",
+      "bytes": 933,
+      "sha256": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py",
+      "bytes": 1629,
+      "sha256": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/chunk_tokenizer.py",
+      "bytes": 2477,
+      "sha256": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py",
+      "bytes": 2218,
+      "sha256": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/random_split_tokenizer.py",
+      "bytes": 3060,
+      "sha256": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71"
+    },
+    {
+      "path": "unirank/pytorch/layers/tokenization/unified_tokenizer.py",
+      "bytes": 3718,
+      "sha256": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe"
+    },
+    {
+      "path": "unirank/pytorch/models/__init__.py",
+      "bytes": 854,
+      "sha256": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe"
+    },
+    {
+      "path": "unirank/pytorch/models/multitask_model.py",
+      "bytes": 10280,
+      "sha256": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f"
+    },
+    {
+      "path": "unirank/pytorch/models/rank_model.py",
+      "bytes": 42784,
+      "sha256": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc"
+    },
+    {
+      "path": "unirank/pytorch/torch_utils.py",
+      "bytes": 12676,
+      "sha256": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788"
+    },
+    {
+      "path": "unirank/utils.py",
+      "bytes": 10472,
+      "sha256": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 70018,
+      "sha256": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 16265,
+      "sha256": "11995f61a370afa675529046135928f875abdc1baccafb0d48bcc846aa714ce7"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1/started.json",
+      "bytes": 154,
+      "sha256": "1bee59b3d52b2a04648f7889da50c1fdc516e1fe0454b7fd98981fda6bd1eb0b"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/matched_baselines/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1/outcome.json",
+      "bytes": 133,
+      "sha256": "f3d6e36c222e12c70eb5531d698b13b50215fb8ed7ae753fbc65ad1cccb7379a"
+    },
+    {
+      "path": "artifacts/rise_sample_analysis/training_checkpoints/QK_Video_Action/RISE_matched_HiFormer_QK_Video_Action_baseline_seed20262028_attempt1.log",
+      "bytes": 8191,
+      "sha256": "93fc042ae5f65bccb98dd4634f72ed1c24293e670aee01799dc39230242a6e3f"
+    },
+    {
+      "path": "logs/unirank-rise-matched-baseline-643809_1.out",
+      "bytes": 7565081,
+      "sha256": "cc1880679e364923798eebec85ac780224e64ec5f753c753243a1d6f3613d19d"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 20979,
+      "sha256": "7df59f6ee6be3e9667f9559f3e42e5712daf61efcdb9e8498b9d1497e9af5c21"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "cc8000e8418b439d71d945925e446e0ce631953ae61931407f28738ede19a02b"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "a1d3fb162c42800257751be0ec2738d25aa537738fe9411ce336c99da99ef7fe"
+    },
+    {
+      "path": "checkpoints/MerRec_Action/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1.log",
+      "bytes": 10645,
+      "sha256": "d50f7bb68bba22306e7837d3d8af2ab5fe2fd85c6686a7cad66397ef6e12ae43"
+    },
+    {
+      "path": "logs/rise-targeted-controls-644098_0.out",
+      "bytes": 2803732,
+      "sha256": "bc1c87944765b3aa41e61d612c84d04049be934ef80794343fb2ae7bbddb9421"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/run_targeted_controls.py",
+      "bytes": 14587,
+      "sha256": "95b0295a4837a758366fadb527a3140355709e3dc32dad5d2fc40883881992ae"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/submit_targeted_controls.sbatch",
+      "bytes": 784,
+      "sha256": "43b4c2003949adaa23a5eb937f09d3a959a305d5b6996c85b1e7a3d6b326ac22"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/targeted_controls.py",
+      "bytes": 8898,
+      "sha256": "38c8521a4073d7e3effb50d28ac93e50cfff5650b30d97328b30c83bebbeb3bc"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 2091,
+      "sha256": "5f922c7d407e435ffa73a460ae16c3fcf46f48f144a5998f65f7a1a5ad32291e"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HyFormer_MerRec_Action_fixed_cumulative_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 2091,
+      "sha256": "fe8cf73561487c1b9bc1971efd337d13da431c1212eddf5ec99ff53a39b6ad33"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 17194,
+      "sha256": "edc4d7f81b68805f161e5c683bfc78d33379443a52477e3dbedd81560c7d27b3"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "fc4624a43cb904320a8a1115f3a9bbac7d9565ca5dc48a4bf8861c8f0495864e"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "0f78568629dae3e468779fe87ff249852f3e44671aef51b2a9d8ef63d61088e2"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1.log",
+      "bytes": 8038,
+      "sha256": "c2a75a133a2215fa6c5c400da04b21237546b9776b7f23917154125347aa4803"
+    },
+    {
+      "path": "logs/rise-targeted-controls-644098_1.out",
+      "bytes": 7543631,
+      "sha256": "dae3bb11d6af0190298b10a1563809600820b4c80d2c2d2083fd38d350a55a36"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 913,
+      "sha256": "ce98617ef5ddd08261e5c9e3480c92d5e769f8f3f1af1f123c698edece8586b1"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 913,
+      "sha256": "1c054cd6dab97eb33ed87e8d2ed5c7ae1cb6e0e14e1a435ac1bed1d0970e0a70"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/frozen_manifest.json",
+      "bytes": 17189,
+      "sha256": "0681ccc5f9a6a9447578535e1e01669cbfb53ce51bdeb1f8e5c7f90e8e59f0dc"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/started.json",
+      "bytes": 208,
+      "sha256": "be422c8fc750a09f2a1cdc61c5364ebf10bbbfa1573f80aca47a960e95c72010"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/outcome.json",
+      "bytes": 98,
+      "sha256": "63e0d24593987c368e39fdb16d1cf65bfaee2b8c20e482a03bea11f21f1c7424"
+    },
+    {
+      "path": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1.log",
+      "bytes": 8079,
+      "sha256": "59d5e852f1e3f85db2464c28397974be12eecbb90e62e83306dfc4041333b51d"
+    },
+    {
+      "path": "logs/rise-targeted-controls-644098_2.out",
+      "bytes": 7544645,
+      "sha256": "b564d2f0b4aed7938d5516e43c80fe03ada4b724890d73a1d49a2cc4fa20a964"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/model_audit_rank0.json",
+      "bytes": 1280,
+      "sha256": "004611cdd98d4dcbe2ecc853166ba2c9e5018c9cbd045458934c41b85a598d0c"
+    },
+    {
+      "path": "artifacts/rise_targeted_controls/RISE_targeted_HiFormer_QK_Video_Action_field_only_seed20262028_attempt1/model_audit_rank1.json",
+      "bytes": 1280,
+      "sha256": "d2b3bacae862b9cac9f8b4530b273d5fc2efa61519c013865bd8217d01e892c0"
+    }
+  ],
+  "accounting": {
+    "command": [
+      "sacct",
+      "--array",
+      "-n",
+      "-P",
+      "-j",
+      "643809,643845,643910,644098,644100,644101",
+      "--format=JobID%64,JobIDRaw%64,State%32,ExitCode,Elapsed,NodeList%64"
+    ],
+    "stdout": "643809_0|643845|COMPLETED|0:0|00:28:43|ACD1-3\n643809_0.batch|643845.batch|COMPLETED|0:0|00:28:43|ACD1-3\n643809_0.extern|643845.extern|COMPLETED|0:0|00:28:43|ACD1-3\n643809_1|643910|COMPLETED|0:0|00:29:18|ACD1-3\n643809_1.batch|643910.batch|COMPLETED|0:0|00:29:18|ACD1-3\n643809_1.extern|643910.extern|COMPLETED|0:0|00:29:18|ACD1-3\n643809_2|643809|COMPLETED|0:0|02:00:46|ACD1-20\n643809_2.batch|643809.batch|COMPLETED|0:0|02:00:46|ACD1-20\n643809_2.extern|643809.extern|COMPLETED|0:0|02:00:46|ACD1-20\n644098_0|644100|COMPLETED|0:0|00:33:59|ACD1-3\n644098_0.batch|644100.batch|COMPLETED|0:0|00:33:59|ACD1-3\n644098_0.extern|644100.extern|COMPLETED|0:0|00:33:59|ACD1-3\n644098_1|644101|COMPLETED|0:0|00:29:35|ACD1-20\n644098_1.batch|644101.batch|COMPLETED|0:0|00:29:35|ACD1-20\n644098_1.extern|644101.extern|COMPLETED|0:0|00:29:35|ACD1-20\n644098_2|644098|COMPLETED|0:0|00:31:14|ACD1-20\n644098_2.batch|644098.batch|COMPLETED|0:0|00:31:14|ACD1-20\n644098_2.extern|644098.extern|COMPLETED|0:0|00:31:14|ACD1-20\n",
+    "stderr": "",
+    "sha256": "822ca6e6926ccc379827b87ff7f029ee29dca9ac7d8cd52d63b5ae8da244cb67"
+  },
+  "collector_sources_sha256": {
+    "experiments/rise_sample_analysis/scripts/collect_targeted_controls.py": "af1c51be6331e53bdcf66028b240435efc5df3992b60960ac49bc9be2729e088",
+    "experiments/rise_sample_analysis/scripts/collect_new_experiments.py": "a9f284cf787cbdcb0ab56cb2f17a860abe015ce1ea35a80586281db60f7a1a50",
+    "scripts/collect_sisa_component_results.py": "1d14904e5a6dde98c37dd1855c305b83976f1d759a578142b10fe682ab6c1b44"
+  },
+  "scope": "Three targeted seed20262028 controls, same-protocol native A and historical E; no seed20262027 mixing",
+  "construction_gate": "Exact two-rank site identity, class, reference, seed offset, active/stored capacity; artifact and embedded log agree",
+  "incomplete_policy": "Pending/running/failed attempts retain status and progress only, without eligible metrics",
+  "attempt_policy": "Every attempt retained; highest eligible attempt selected without reference to score",
+  "coverage_scope": "Per-rank split counts; not proof of byte-identical historical sample contents",
+  "capacity_scope": "Fixed cumulative and site removals are not matched in active parameter count",
+  "progress_scope": "Advancement is established from successive tqdm updates inside the captured log snapshot; no long-running polling"
+}

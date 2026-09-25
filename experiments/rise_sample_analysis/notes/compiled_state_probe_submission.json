@@ -1,0 +1,14 @@
+{
+  "submitted_at_utc": "2026-09-22T20:27:22.799396+00:00",
+  "job_id": "644002",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_compiled_state_probe.sbatch"
+  ],
+  "stdout": "644002\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "5d44d5cf6be53d9ca4d5871dd0020130c79c8e90ab9686858e0dae127cc85380",
+  "scope": "actual compiled _final_channels tensor refs; original prediction gate retained; no reuse of failed eager reconstruction"
+}

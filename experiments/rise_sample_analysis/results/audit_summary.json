@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-09-22T18:31:05.494536+00:00",
+  "git_head": "dd782a509abe694e78db91480369d06f21db2f2e",
+  "paired_logs_reparsed": 32,
+  "paired_metric_values_verified": 272,
+  "component_logs_reparsed": 4,
+  "component_metric_values_verified": 40,
+  "component_differing_config_keys": [
+    "model_id",
+    "sisa_variant"
+  ],
+  "missing_main_pair_checkpoints": 32,
+  "explicit_main_checkpoint_deletions": 32,
+  "cell_macro_delta_auc": 0.0058409614583333005,
+  "positive_auc_cells": 15,
+  "positive_auc_labels": 57,
+  "component_macro_effects": {
+    "B_AUC": 0.7831212,
+    "C_AUC": 0.79588,
+    "D_AUC": 0.7952302,
+    "E_AUC": 0.8008724,
+    "C_minus_B": 0.012758800000000004,
+    "D_minus_B": 0.012109000000000036,
+    "E_minus_B": 0.017751200000000033,
+    "E_minus_C": 0.0049924000000000305,
+    "E_minus_D": 0.005642199999999997,
+    "interaction_E_C_D_B": -0.007116600000000006
+  },
+  "history_sampling_seed": 20260923,
+  "history_sampling_design": "One row group per test part, selected proportional to row count; up to 4096 rows without replacement; part estimates weighted by full part row counts.",
+  "history_sampling_limit": "Feasibility diagnostic only; one sampled row group per part can miss within-part heterogeneity. Not a full distribution or inferential result.",
+  "model_loading_or_forward_executed": false,
+  "training_executed": false,
+  "historical_data_full_hash_verified": false
+}

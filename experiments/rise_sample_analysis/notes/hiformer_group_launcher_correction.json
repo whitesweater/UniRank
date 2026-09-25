@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-09-22T20:48:29.524315+00:00",
+  "job_id": "644034",
+  "state_before": "PENDING",
+  "action": "cancel own pending CPU analysis only",
+  "reason": "Submitted launcher used formal results directory rejected by the analysis CLI. QK attempt644033 did no analysis; launcher output corrected to isolated artifacts subtree. Source prediction/training jobs remain untouched.",
+  "stdout": "",
+  "stderr": ""
+}

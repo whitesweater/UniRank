@@ -1,0 +1,20 @@
+{
+  "rows": 11599872,
+  "labels": [
+    "Like",
+    "Cart",
+    "Offer",
+    "Checkout",
+    "Purchase"
+  ],
+  "paired_sample_identity_verified": true,
+  "global_metric_recheck_passed": true,
+  "outputs_sha256": {
+    "manifest.json": "886f4f6ec7862c39f2d1be572e3d99b329ebe00212f827395712a37b574c938f",
+    "paired_deltas.csv": "639b3d06c7e17fcad053a6bb5964f807d56299115dbf714face2c5e217491885",
+    "calibration_bins.csv": "0ff67af039a6db625203710624d5131357fa3bf2e9685958c6fac3453c8f2001",
+    "input_sources.csv": "20c9bca6c1c55fc8264278c218e1353fbeaa4a41125502de35ac8afcf9388f01",
+    "summary.md": "c1692033aea54a25d4b03b49643601b94e972adf4eabaa02c79ca370a4fb9061",
+    "label_metrics.csv": "495e519094b98b2a28f05f29dfdcd5a39bac3fd54c7f8195b503563cd643f72c"
+  }
+}

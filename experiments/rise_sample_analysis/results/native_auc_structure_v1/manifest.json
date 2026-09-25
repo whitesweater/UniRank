@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "finished_utc": "2026-09-22T20:35:11.810350+00:00",
+  "slurm_job_id": "644019",
+  "comparison": "Full RISE(E) minus native HyFormer(A)",
+  "seed": 20262028,
+  "rows": 11599872,
+  "source_sha256": {
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/scripts/analyze_native_auc_structure.py": "3fbb9befd0f459c3d80bb95fc588de5d23fd30c8435cc529a1c5bbf7d657205f",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/scripts/analyze_auc_structure.py": "dff7470d226bbaae47c24312f79f1d756f1823b1fce69186d6efef16db93619e",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/scripts/analyze_groups.py": "2d6c27a56ccc6a5a20e879c583d6442e605ce551c8cc346b1e0069823bf3f8ed",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/results/group_analysis_native_v1/group_effects.csv": "ef5fca43d2ab1e74d44d41345d88a3bd930267298bf11e795442516a060c2f78",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/results/group_analysis_native_v1/manifest.json": "e2bd58a62f81abce69f8ff876923d9a51713abee187c13bee9e453121508986e",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/results/population_profile_summary.json": "e71337a8fc1f47c066fa0516c4b2994e37c00551ba2037bf829d667733efc648",
+    "/data/user/yhao481/proj/UniRank/experiments/rise_sample_analysis/results/population_profile_sources.csv": "3ed4c46238fa84936f94f4aff8d073d82386159e3e33af7c3b0ab7105c8794fc"
+  },
+  "row_key_sha256": "a28cc71895d446d60ed2e409992773456adbd6a67114abf4911161608b41d504",
+  "labels_sha256": "3ee71ba5af0d7a0befd572ef1010dcf8f3f66ddaceda1a3a85cfcf01de7c2369",
+  "prediction_complete_sha256": {
+    "A": "eecaa62a6d7981a347716d25fc3ed63f32beb97921229575335d5b86aecca6ef",
+    "E": "3b091b90b312d20cc63a6b2d2aa298ce9975fc60e3a4a559102a5368d4c1dc32"
+  },
+  "feature_sha256": {
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00000.parquet": "04b3a816fe1471f2d2344feddb5f86c0a0e32a3ea3c6254198e372e0113b91ad",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00001.parquet": "d676cf5e32d47d970c66f0654b41d9010e0c2a7fdfb68d4befbdddbca7028b95",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00002.parquet": "7531864d6ab9825f784179ee420f87e6e7cc8c98a388c2c11cb962c8191c16ad",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00003.parquet": "c7fa46e75d2b26dc6cb746a36512a8f89059d851868064e24abc9264ef8bd08e",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00004.parquet": "2c62ad21e3520c033d2ebc01743504cc2116d51d0a4d71971bc5e688c867fcb2",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00005.parquet": "637f82f7d906dbe0778dad0a2ee1e9d0a1d7d658333c29f082fbca06f75e836c",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00006.parquet": "51880ccdb96e2937e97ece3bc50556a72fdd00b05719f405722408c4987461b4",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00007.parquet": "a88e624d04de9156dcbbeb1d957732319ee2495d1999f76fc47929ae5baeb4c7"
+  },
+  "prediction_gate": "All shard content hashes/identity receipts, six metadata columns, labels and current population SHA verified.",
+  "statistics": "Exact positive-group/negative-group AUC decomposition per label; equal-five-label macro; user-cluster normal95 influence intervals retaining group and label covariance.",
+  "contrasts": "Same three group contrasts inherited from exploratory component analysis; no preregistration or multiplicity correction; fixed trained models only.",
+  "bootstrap": "Not rerun; prior E-B bootstrap is not relabeled as a validation of native E-A intervals.",
+  "output_sha256": {
+    "length_pair_auc_decomposition.csv": "37349860047ac480ed8930a35777ec3a265a2ce1211a9131b459748240979c9d",
+    "length_pair_auc_decomposition_macro.csv": "2ad901c62b8dc5221446ad1bc5ff4d9ab2626805dae034b660749d2f3cda0c31",
+    "global_and_structure_metrics.csv": "94310182f343f5f2ea8a2edbfb22d0a3e0956f875083c976ac2c180f2a7699ca",
+    "native_exploratory_group_contrasts.csv": "f8169c90622542a27042073cf18e14e8e90917ec0bcc4786c1413916ef7afd38"
+  }
+}

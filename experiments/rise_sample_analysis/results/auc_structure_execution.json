@@ -1,0 +1,33 @@
+{
+  "job_id": "643909",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed_seconds": 59,
+  "accounting": "643909|COMPLETED|0:0|00:00:59|ACD1-63|\n643909.batch|COMPLETED|0:0|00:00:59|ACD1-63|\n643909.extern|COMPLETED|0:0|00:00:59|ACD1-63|\n",
+  "output_stage": "artifacts/rise_sample_analysis/auc_structure_v1",
+  "formal_results": "experiments/rise_sample_analysis/results/auc_structure_v1",
+  "validation": {
+    "pair_rows": 125,
+    "macro_pair_rows": 25,
+    "contrast_rows": 19,
+    "bootstrap_replicate_rows": 1500,
+    "bootstrap_repetitions_per_label": 500,
+    "selected_users": 10000,
+    "maximum_auc_reconstruction_residual": 1.6653345369377348e-16,
+    "all_output_hashes_verified": true,
+    "paired_sample_and_label_sha_verified": true,
+    "user_selection_and_multinomial_weight_hashes_reproduced": true
+  },
+  "delivered_sha256": {
+    "manifest.json": "522f6b9dca3063b63ccef5466b3aa7d7c189ab1c903f69dcfc605e604e4ae635",
+    "readout.md": "9fc0c2d0ed8e8a936da3ce37717855a376847be55f84ebcd5a261bbcc2d2ed52",
+    "bootstrap_selected_users.csv": "8e768df862691fdf4ef8f6b9bc369f83474db6051a88cd2c17cbf3e4691d78e1",
+    "complete.json": "4aca87a8c53e740baaca4cb0e37f5c335a6b40c121416de829d3169e6d6fe302",
+    "length_pair_auc_decomposition.csv": "8a267122b54ede8a8f4800d905b5aedba776e68ca95edba956c6d025630102f2",
+    "exploratory_group_effect_contrasts.csv": "f0de1c9ec45a02c69ce8bf0852f95cf636aad9bf63bb85d503571c2a9dd18620",
+    "exact_user_bootstrap_replicates.csv": "5495705e17e631034c41f7edff504f886287400b1eab0614d424b65ecaa1e6f8",
+    "exact_user_bootstrap_summary.csv": "d7ba82e2bcc02e3592e3dcfb7881721535b76e2d0828480cc8857e4949f70052",
+    "length_auc_structure_summary.csv": "ae2ea1e94fe575ef431b56ffcc214fda95fe928a02ac4a8ca7dbc5f7463a56a9",
+    "length_pair_auc_decomposition_macro.csv": "21cbc7e91a970b029ea920424ebe7cfe309b4068c1e97a4aabbf076c18ec223f"
+  }
+}

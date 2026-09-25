@@ -1,0 +1,3 @@
+# 最终状态
+
+2026-09-23：工作完成。14项新增训练均通过审计；全部正式分组、统计、机制selection、预测质量与成本测量已完成。用户要求的跨模型接入位置研究已纳入主报告。当前入口final_research_report.md、paper/RISE_supplementary_analyses.pdf与RISE_final_delivery.zip。最终核验见notes/final_delivery_validation.md。AM/PA内部状态数值门槛失败保留为限制，不再等待新任务。不要重复提交任何已完成训练，也不要修改其他agent的score_dim研究。

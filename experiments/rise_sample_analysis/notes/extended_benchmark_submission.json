@@ -1,0 +1,13 @@
+{
+  "submitted_at_utc": "2026-09-22T20:16:48.176619+00:00",
+  "job_id": "643950",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_extended_benchmark.sbatch"
+  ],
+  "stdout": "643950\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "e11c3b6a8e50b31954052861ec3f64d05360c49507b9bb9e8b2559784e2baee2"
+}

@@ -1,0 +1,44 @@
+{
+  "job_id": "643909",
+  "submitted_at_utc": "2026-09-22T19:49:36.373441+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=debug",
+    "--job-name=unirank-rise-auc-structure",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--mem=32G",
+    "--time=00:30:00",
+    "--no-requeue",
+    "--output=logs/%x-%j.out",
+    "--export=ALL,OMP_NUM_THREADS=4,PYTHONUNBUFFERED=1",
+    "--chdir=/data/user/yhao481/proj/UniRank",
+    "--wrap",
+    ".venv/bin/python experiments/rise_sample_analysis/scripts/analyze_auc_structure.py --output-dir artifacts/rise_sample_analysis/auc_structure_v1"
+  ],
+  "stdout": "643909\n",
+  "stderr": "",
+  "source_sha256": {
+    "experiments/rise_sample_analysis/scripts/analyze_auc_structure.py": "dff7470d226bbaae47c24312f79f1d756f1823b1fce69186d6efef16db93619e",
+    "experiments/rise_sample_analysis/tests/test_auc_structure.py": "7a778962b161ba2e883c82ec758197fc5db0f67489c9760e8de398df28d0d07a",
+    "experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b",
+    "experiments/rise_sample_analysis/scripts/analyze_groups.py": "2d6c27a56ccc6a5a20e879c583d6442e605ce551c8cc346b1e0069823bf3f8ed"
+  },
+  "output_stage": "artifacts/rise_sample_analysis/auc_structure_v1",
+  "CPU_tests_passed": 7,
+  "design": {
+    "decomposition": "5 labels x5 positive length groups x5 negative length groups; equal-label macro contributions",
+    "E_minus_B_contrasts": [
+      "100 minus1-20",
+      "at100 entropy>ln5 minus ln2<H<=ln5",
+      "at100 fraction(0,.25] minus>.75"
+    ],
+    "posthoc_added": "Offer(E-D)_100 minus(E-D)_1-20; selected after observed group results",
+    "bootstrap": "500 exact paired user bootstrap replicates, uniform fixed sample<=10000 users all retained test rows; Like/Offer/Purchase; compare root linearization on same sample",
+    "user_selection_seed": 20260923,
+    "bootstrap_seed": 20260924
+  },
+  "scope": "CPU supplement, no mutation of predictions, features or existing statistical modules"
+}

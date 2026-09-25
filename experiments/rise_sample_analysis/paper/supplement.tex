@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx}
+\usepackage[T1]{fontenc}
+\graphicspath{{figures/}}
+\title{RISE: Supplementary Experimental Analyses}
+\author{Research supplement to the supplied manuscript}
+\date{23 September 2026}
+\begin{document}
+\maketitle
+\noindent This supplement reports completed exploratory analyses and matched controls.
+RISE is named SISA in the implementation; AM and PA correspond to decay and
+rotation. Native A denotes an independently trained backbone, whereas B retains
+auxiliary content projections. C, D, and E denote AM-only, PA-only, and Full RISE.
+The original 16-cell, seed-20262027 main table is unchanged. New controls use the
+matched seed-20262028 protocol, not replacements selected for the original table.
+Intervals quantify test-user sampling uncertainty conditional on fitted models,
+not training-seed variation. The accompanying Chinese dossier contains the full
+execution ledger, action-specific subgroup support, rejected diagnostics and
+reproduction records. These materials are proposed manuscript additions; the
+supplied manuscript PDF has not been edited.
+\section{Sample-conditional effects and statistical validation}
+\input{paper/native_merrec_analysis.tex}
+\clearpage
+\input{paper/component_analysis.tex}
+\clearpage
+\section{Architectural controls, efficiency and mechanism diagnostics}
+\input{paper/extended_analyses.tex}
+\clearpage
+\section{Additional native-control figures}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.96\textwidth]{figures/native_merrec_effect_by_history.pdf}
+\caption{Full RISE versus the native HyFormer backbone on MerRec by effective history length. Intervals condition on the trained models and use paired user-cluster influence functions.}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.96\textwidth]{figures/native_merrec_effect_by_frequency.pdf}
+\caption{Native-controlled MerRec effects by training-target frequency. Frequency zero is not proof of strict cold start.}
+\end{figure}
+\end{document}

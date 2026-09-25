@@ -1,0 +1,17 @@
+{
+  "submitted_utc": "2026-09-23T02:59:17.601639+00:00",
+  "job_id": "644632",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_site_replication.sbatch"
+  ],
+  "stdout": "644632\n",
+  "stderr": "",
+  "returncode": 0,
+  "array": "0-5%2",
+  "scope": "Zenith native/history-only/token-only; HyFormer native/sequence-only/query-only; QK fixed seed20262028",
+  "tests": "4 CPU tests including real-backbone initialization/RNG/site/capacity invariants; all train/valid/test rank coverage matches archived references",
+  "source_sha256": "46288d3a6b979b509d5b47c078f345a5c51b4ea2974de230dc50857ef4da12b4",
+  "reason": "Explicit user request to validate the placement finding on additional models"
+}

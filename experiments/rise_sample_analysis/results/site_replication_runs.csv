@@ -1,0 +1,7 @@
+model,dataset,mode,task_index,attempt,run_id,job_task_id,raw_job_id,state,exit_code,elapsed,node,eligible,selected,macro_auc,macro_logloss,total_parameters,dense_parameters,embedding_parameters,issues
+Zenith,QK_Video_Action,baseline,0,1,RISE_cross_sites_Zenith_QK_Video_Action_baseline_seed20262028_attempt1,644632_0,644633,COMPLETED,0:0,00:29:55,ACD1-1,True,True,0.93463475,0.07517975,431152932,11164164,419988768,
+HyFormer,QK_Video_Action,baseline,1,1,RISE_cross_sites_HyFormer_QK_Video_Action_baseline_seed20262028_attempt1,644632_1,644634,COMPLETED,0:0,00:51:15,ACD1-1,True,True,0.930858,0.07569825,147506532,7505412,140001120,
+Zenith,QK_Video_Action,history_only,2,1,RISE_cross_sites_Zenith_QK_Video_Action_history_only_seed20262028_attempt1,644632_2,644708,COMPLETED,0:0,00:30:55,ACD1-1,True,True,0.93578575,0.0744095,431156214,11167446,419988768,
+HyFormer,QK_Video_Action,sequence_only,3,1,RISE_cross_sites_HyFormer_QK_Video_Action_sequence_only_seed20262028_attempt1,644632_3,644723,COMPLETED,0:0,01:00:33,ACD1-21,True,True,0.930936,0.07526200000000001,147569520,7568400,140001120,
+Zenith,QK_Video_Action,token_only,4,1,RISE_cross_sites_Zenith_QK_Video_Action_token_only_seed20262028_attempt1,644632_4,644724,COMPLETED,0:0,00:32:56,ACD1-22,True,True,0.9338,0.075399,431215920,11227152,419988768,
+HyFormer,QK_Video_Action,query_only,5,1,RISE_cross_sites_HyFormer_QK_Video_Action_query_only_seed20262028_attempt1,644632_5,644632,COMPLETED,0:0,01:00:14,ACD1-22,True,True,0.93122125,0.07493174999999999,147569520,7568400,140001120,

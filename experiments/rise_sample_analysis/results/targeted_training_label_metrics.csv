@@ -1,0 +1,14 @@
+model,dataset,mode,attempt,job_task_id,selected,label,AUC,logloss
+HyFormer,MerRec_Action,fixed_cumulative,1,644098_0,True,Like,0.74193,0.337892
+HyFormer,MerRec_Action,fixed_cumulative,1,644098_0,True,Cart,0.793004,0.053644
+HyFormer,MerRec_Action,fixed_cumulative,1,644098_0,True,Offer,0.72931,0.02144
+HyFormer,MerRec_Action,fixed_cumulative,1,644098_0,True,Checkout,0.846572,0.004904
+HyFormer,MerRec_Action,fixed_cumulative,1,644098_0,True,Purchase,0.84296,0.003152
+HiFormer,QK_Video_Action,target_only,1,644098_1,True,click,0.933251,0.252158
+HiFormer,QK_Video_Action,target_only,1,644098_1,True,follow,0.921751,0.005013
+HiFormer,QK_Video_Action,target_only,1,644098_1,True,like,0.9469,0.036644
+HiFormer,QK_Video_Action,target_only,1,644098_1,True,share,0.935757,0.005317
+HiFormer,QK_Video_Action,field_only,1,644098_2,True,click,0.930387,0.256803
+HiFormer,QK_Video_Action,field_only,1,644098_2,True,follow,0.91276,0.005116
+HiFormer,QK_Video_Action,field_only,1,644098_2,True,like,0.943511,0.037935
+HiFormer,QK_Video_Action,field_only,1,644098_2,True,share,0.930905,0.005462

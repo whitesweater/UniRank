@@ -1,0 +1,359 @@
+{
+  "analysis_status": "bounded_processed_encoding_check_not_raw_event_time_audit",
+  "dataset": "MerRec_Action",
+  "split": "test",
+  "part_id": 0,
+  "rows_sampled": 32,
+  "sampling": "first 32 physical rows of one test block; not representative",
+  "distinct_users": 8,
+  "side_info_rows_read": 9728,
+  "side_info_action_tokens_read": 1754157,
+  "anchor_action_label_matches": 32,
+  "positive_target_rows": 1,
+  "samples_with_prior_positive_eventual_action": 32,
+  "history_view_timestamp_after_target_cases": 0,
+  "cannot_estimate": [
+    "historical action availability at target timestamp",
+    "cross-split outcome attribution rate",
+    "raw event row-order monotonicity"
+  ],
+  "records": [
+    {
+      "part_id": 0,
+      "row_offset": 0,
+      "user_id": 287963,
+      "seq_len": 42,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 13
+    },
+    {
+      "part_id": 0,
+      "row_offset": 1,
+      "user_id": 287963,
+      "seq_len": 43,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 13
+    },
+    {
+      "part_id": 0,
+      "row_offset": 2,
+      "user_id": 287963,
+      "seq_len": 44,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 13
+    },
+    {
+      "part_id": 0,
+      "row_offset": 3,
+      "user_id": 287963,
+      "seq_len": 45,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 13
+    },
+    {
+      "part_id": 0,
+      "row_offset": 4,
+      "user_id": 287963,
+      "seq_len": 46,
+      "anchor_action_code": 11,
+      "row_positive_labels": [
+        "Like"
+      ],
+      "anchor_action_labels": [
+        "Like"
+      ],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 13
+    },
+    {
+      "part_id": 0,
+      "row_offset": 5,
+      "user_id": 287963,
+      "seq_len": 47,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 14
+    },
+    {
+      "part_id": 0,
+      "row_offset": 6,
+      "user_id": 287987,
+      "seq_len": 230,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 1
+    },
+    {
+      "part_id": 0,
+      "row_offset": 7,
+      "user_id": 287987,
+      "seq_len": 231,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 1
+    },
+    {
+      "part_id": 0,
+      "row_offset": 8,
+      "user_id": 287987,
+      "seq_len": 232,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 1
+    },
+    {
+      "part_id": 0,
+      "row_offset": 9,
+      "user_id": 287987,
+      "seq_len": 233,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 1
+    },
+    {
+      "part_id": 0,
+      "row_offset": 10,
+      "user_id": 287987,
+      "seq_len": 234,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 1
+    },
+    {
+      "part_id": 0,
+      "row_offset": 11,
+      "user_id": 287995,
+      "seq_len": 182,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 12,
+      "user_id": 287995,
+      "seq_len": 183,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 13,
+      "user_id": 287995,
+      "seq_len": 184,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 14,
+      "user_id": 287995,
+      "seq_len": 185,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 15,
+      "user_id": 287995,
+      "seq_len": 186,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 16,
+      "user_id": 287995,
+      "seq_len": 187,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 17,
+      "user_id": 287995,
+      "seq_len": 188,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 18,
+      "user_id": 287997,
+      "seq_len": 67,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 19,
+      "user_id": 287997,
+      "seq_len": 68,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 20,
+      "user_id": 288016,
+      "seq_len": 29,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 21,
+      "user_id": 288016,
+      "seq_len": 30,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 22,
+      "user_id": 288016,
+      "seq_len": 31,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 23,
+      "user_id": 288016,
+      "seq_len": 32,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 2
+    },
+    {
+      "part_id": 0,
+      "row_offset": 24,
+      "user_id": 288020,
+      "seq_len": 30,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 25,
+      "user_id": 288051,
+      "seq_len": 61,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 26,
+      "user_id": 288051,
+      "seq_len": 62,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 27,
+      "user_id": 288051,
+      "seq_len": 63,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 28,
+      "user_id": 288051,
+      "seq_len": 64,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 6
+    },
+    {
+      "part_id": 0,
+      "row_offset": 29,
+      "user_id": 288077,
+      "seq_len": 563,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 7
+    },
+    {
+      "part_id": 0,
+      "row_offset": 30,
+      "user_id": 288077,
+      "seq_len": 564,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 7
+    },
+    {
+      "part_id": 0,
+      "row_offset": 31,
+      "user_id": 288077,
+      "seq_len": 565,
+      "anchor_action_code": 32,
+      "row_positive_labels": [],
+      "anchor_action_labels": [],
+      "earlier_view_tokens_with_positive_eventual_outcomes": 7
+    }
+  ],
+  "source_files": [
+    {
+      "path": "datasets/MerRec_Action/test/data/part-00000.parquet",
+      "bytes": 13222295,
+      "mtime_ns": 1787110091619577073
+    },
+    {
+      "path": "datasets/MerRec_Action/test/user_info/part-00000.parquet",
+      "bytes": 143778426,
+      "mtime_ns": 1787110985946459222
+    }
+  ],
+  "metadata_sha256": "13111649b5fff113558b6c5d8069f9d1bfa25822909f473384cb4a5f7daf3dd4"
+}

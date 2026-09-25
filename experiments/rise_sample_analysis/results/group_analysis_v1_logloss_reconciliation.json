@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "variant": "B",
+      "label": "Like",
+      "reconstructed_logloss": 0.3447009475512161,
+      "official_logloss": 0.3447009475512161,
+      "difference": 0.0
+    },
+    {
+      "variant": "B",
+      "label": "Cart",
+      "reconstructed_logloss": 0.05469978096372101,
+      "official_logloss": 0.05469978096372101,
+      "difference": 0.0
+    },
+    {
+      "variant": "B",
+      "label": "Offer",
+      "reconstructed_logloss": 0.02156470746310349,
+      "official_logloss": 0.021564707463103492,
+      "difference": -3.469446951953614e-18
+    },
+    {
+      "variant": "B",
+      "label": "Checkout",
+      "reconstructed_logloss": 0.0050160332376021025,
+      "official_logloss": 0.0050160332376021025,
+      "difference": 0.0
+    },
+    {
+      "variant": "B",
+      "label": "Purchase",
+      "reconstructed_logloss": 0.0032599499098033276,
+      "official_logloss": 0.0032599499098033276,
+      "difference": 0.0
+    },
+    {
+      "variant": "C",
+      "label": "Like",
+      "reconstructed_logloss": 0.3363258823984516,
+      "official_logloss": 0.3363258823984516,
+      "difference": 0.0
+    },
+    {
+      "variant": "C",
+      "label": "Cart",
+      "reconstructed_logloss": 0.05300978849671939,
+      "official_logloss": 0.05300978849671939,
+      "difference": 0.0
+    },
+    {
+      "variant": "C",
+      "label": "Offer",
+      "reconstructed_logloss": 0.021480571641305388,
+      "official_logloss": 0.021480571641305384,
+      "difference": 3.469446951953614e-18
+    },
+    {
+      "variant": "C",
+      "label": "Checkout",
+      "reconstructed_logloss": 0.004639902663627598,
+      "official_logloss": 0.004639902663627598,
+      "difference": 0.0
+    },
+    {
+      "variant": "C",
+      "label": "Purchase",
+      "reconstructed_logloss": 0.0030136429832875043,
+      "official_logloss": 0.0030136429832875043,
+      "difference": 0.0
+    },
+    {
+      "variant": "D",
+      "label": "Like",
+      "reconstructed_logloss": 0.334326658646406,
+      "official_logloss": 0.334326658646406,
+      "difference": 0.0
+    },
+    {
+      "variant": "D",
+      "label": "Cart",
+      "reconstructed_logloss": 0.05327537723115833,
+      "official_logloss": 0.05327537723115834,
+      "difference": -1.3877787807814457e-17
+    },
+    {
+      "variant": "D",
+      "label": "Offer",
+      "reconstructed_logloss": 0.02135033879011968,
+      "official_logloss": 0.021350338790119685,
+      "difference": -3.469446951953614e-18
+    },
+    {
+      "variant": "D",
+      "label": "Checkout",
+      "reconstructed_logloss": 0.005081382352441688,
+      "official_logloss": 0.005081382352441688,
+      "difference": 0.0
+    },
+    {
+      "variant": "D",
+      "label": "Purchase",
+      "reconstructed_logloss": 0.003281416171695996,
+      "official_logloss": 0.0032814161716959965,
+      "difference": -4.336808689942018e-19
+    },
+    {
+      "variant": "E",
+      "label": "Like",
+      "reconstructed_logloss": 0.3313609584039739,
+      "official_logloss": 0.3313609584039739,
+      "difference": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Cart",
+      "reconstructed_logloss": 0.052476507849942004,
+      "official_logloss": 0.05247650784994202,
+      "difference": -1.3877787807814457e-17
+    },
+    {
+      "variant": "E",
+      "label": "Offer",
+      "reconstructed_logloss": 0.02151219026848893,
+      "official_logloss": 0.021512190268488926,
+      "difference": 3.469446951953614e-18
+    },
+    {
+      "variant": "E",
+      "label": "Checkout",
+      "reconstructed_logloss": 0.004953826209317205,
+      "official_logloss": 0.004953826209317206,
+      "difference": -8.673617379884035e-19
+    },
+    {
+      "variant": "E",
+      "label": "Purchase",
+      "reconstructed_logloss": 0.0030841721329559887,
+      "official_logloss": 0.0030841721329559887,
+      "difference": 0.0
+    }
+  ],
+  "passed": true,
+  "v1_source_snapshot": "archive/scripts/analyze_groups_v1.py",
+  "clarification": "v1 probabilities were clipped using their float32 dtype. All 20 observed grouped logloss totals nevertheless equal official float64 evaluation within 1e-10. Future analysis explicitly casts float64 and has an endpoint regression test. AUC results and figures are unaffected."
+}

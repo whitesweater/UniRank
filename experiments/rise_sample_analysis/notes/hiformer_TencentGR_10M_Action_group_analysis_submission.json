@@ -1,0 +1,17 @@
+{
+  "submitted_at_utc": "2026-09-22T20:40:46.542188+00:00",
+  "job_id": "644034",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:643881",
+    "experiments/rise_sample_analysis/scripts/submit_hiformer_group_analysis.sbatch",
+    "TencentGR_10M_Action",
+    "artifacts/rise_sample_analysis/hiformer_frequencies/TencentGR_10M_Action/scan_643902_1/frequencies"
+  ],
+  "stdout": "644034\n",
+  "stderr": "",
+  "returncode": 0,
+  "dependency": "643881",
+  "prerequisite": "afterok:643881"
+}

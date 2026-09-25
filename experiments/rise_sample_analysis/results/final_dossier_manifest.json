@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026年09月23日 15:51",
+  "training_runs_audited": 14,
+  "report_sha256": "7de7317c370604b70d9128caacabe839604d0636711ae9c2fd21ef4244554aad",
+  "sources": [
+    {
+      "path": "experiments/rise_sample_analysis/notes/compiled_mechanism_v1_interpretation.md",
+      "sha256": "6c8392a0b95f9fdce249c5ed14e54929119a5dbafd18b737c50c8937c8a21a93"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/notes/component_analysis_verified_zh.md",
+      "sha256": "982954165a08fc0e66fdc11b9ae2d1c99e4ef1cf98aea98e3e90fd43faeb6b1e"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/notes/data_semantics_audit.md",
+      "sha256": "004752aa3a473e499915652df011215e94e9663f739d2352ed14909802146031"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/notes/native_merrec_analysis_verified_zh.md",
+      "sha256": "0be8c641e59078b9aa9907f09de9ede413b4f5c993592409ee5315c68534ab94"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/extended_benchmark_v1/complete.json",
+      "sha256": "8f6e7547d22f7074a78361a5ae958afe0e737ef431af0a4ca99fe9d72c8d64c6"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/extended_benchmark_v1/cost_measurements.csv",
+      "sha256": "df300b543f312a10aa3c3ef2ac47b4849daae9258a1128f879be16992689601c"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/group_analysis_native_v1/complete.json",
+      "sha256": "a8f2b3516fe481ed855c120c06c71061f12e32901562de938b9c26b1381a3530"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/complete.json",
+      "sha256": "fd6bd801c878acafec97757daa302c0f04f84a2ab58afd55891f664e0a426b86"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/hiformer_QK_Video_Action_groups_v1/group_results.csv",
+      "sha256": "0e8139d4e4f6d3584ee07d55a112ce9212d0ba7df05cbb457d28c2143c384352"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/hiformer_TencentGR_10M_Action_groups_v1/complete.json",
+      "sha256": "13086afc856ea90319cf06862699c279946d548e64f8bd3a476a613a49c5b6f0"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/hiformer_TencentGR_10M_Action_groups_v1/group_results.csv",
+      "sha256": "cf9be075426bb4ae93582c094b7a37ae8af6092cbf299108c2a5ae0ab05264ee"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/new_training_label_metrics.csv",
+      "sha256": "f44d4677f276305adf2c311b2d1c711b42f865e93c2879c83c2d2adbdd309c89"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/new_training_runs.csv",
+      "sha256": "13b423800545f9201a9f0e4e016f0cf7167d991694d45ae6bf28379fa454c2e9"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/paired_cells.csv",
+      "sha256": "89dd25edb3d600e77d1ee231cdb577490c392b1299c2ee02279698143b1eb364"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/paired_labels.csv",
+      "sha256": "f546192d7b2ad730ac3b9babafa0c2e14980143aa174c15f5b87d26727e71794"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/prediction_quality_merrec_v1/paired_deltas.csv",
+      "sha256": "639b3d06c7e17fcad053a6bb5964f807d56299115dbf714face2c5e217491885"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/site_replication_comparisons.csv",
+      "sha256": "e1af906cfe1f697ff5514c955c92c9b13b149e6dc435a5635d6c4151cad47303"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/site_replication_label_metrics.csv",
+      "sha256": "5a3181a90d4914ffffcb171456380e45025784c9f2f873aba06d6673e72c2442"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/site_replication_runs.csv",
+      "sha256": "656c95b9d4af6dbebfcbd65a5afa44e7a737a488e9fa46c224bc16b3607fba26"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/targeted_training_label_metrics.csv",
+      "sha256": "d28a924ac1347507120c18808db1185b3f6ac883f33d3cebca50b2c208209c52"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/results/targeted_training_runs.csv",
+      "sha256": "3c1dc6f98624cbf41b62a35e37630a8dc059dabea12beadb6d5a6eda19937dac"
+    },
+    {
+      "path": "experiments/rise_sample_analysis/scripts/build_final_dossier.py",
+      "sha256": "aefc1b39c7a4c6c600ec9c17e55e6bf3ab0f71ba6f46109645b256e3763f1856"
+    },
+    {
+      "path": "experiments/sisa_paper_report/archive/results/label_results.csv",
+      "sha256": "a9c5cabf6939cbadb8b70765d327ba5bcaa2dbd8c5e7978b98d257e745705842"
+    }
+  ],
+  "status": "complete; fourteen training runs audited; document, figures and compiled supplement QA passed",
+  "delivery_validation": "notes/final_delivery_validation.md"
+}

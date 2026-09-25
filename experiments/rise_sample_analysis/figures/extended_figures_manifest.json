@@ -1,0 +1,58 @@
+{
+  "renderer": "Matplotlib 3.10.6 in isolated uv figure_env",
+  "palette_policy": "two nonneutral roots (blue/gold) plus neutral native reference; marker/fill distinctions",
+  "figures": [
+    {
+      "name": "extended_hiformer_placement",
+      "family": "categorical dot",
+      "data_rows": 4,
+      "uncertainty": "none; one matched training seed",
+      "auc_values": [
+        0.933438,
+        0.93089125,
+        0.93441475,
+        0.92939075
+      ]
+    },
+    {
+      "name": "extended_hiformer_history_forest",
+      "family": "faceted dot and interval",
+      "data_rows": 8,
+      "uncertainty": "nominal 95% user-cluster linearized intervals; fixed trained models",
+      "empty_bins_retained": true
+    },
+    {
+      "name": "extended_inference_cost",
+      "family": "grouped dot and interval",
+      "data_rows": 18,
+      "uncertainty": "within-round block IQR; both execution orders shown",
+      "memory": "peak allocated minus resident baseline; not total allocation"
+    },
+    {
+      "name": "extended_compiled_site_tv",
+      "family": "grouped descriptive distribution",
+      "data_rows": 12,
+      "uncertainty": "sample 10\u201390 percentiles; no inferential confidence intervals",
+      "population_representative": false,
+      "selection_only": true,
+      "internal_AM_PA_observation_claim": false
+    }
+  ],
+  "source_sha256": {
+    "results/targeted_training_comparisons.csv": "18906a5b944e151a74901a003a4fe5bfb221c6583670e51d3429558761340835",
+    "results/new_training_comparisons.csv": "f9345fc7acc1e2cb92128ab279e399e03352cec4ec65019db530929c1c515bd3",
+    "results/hiformer_QK_Video_Action_groups_v1/complete.json": "fd6bd801c878acafec97757daa302c0f04f84a2ab58afd55891f664e0a426b86",
+    "results/hiformer_QK_Video_Action_groups_v1/group_results.csv": "0e8139d4e4f6d3584ee07d55a112ce9212d0ba7df05cbb457d28c2143c384352",
+    "results/hiformer_TencentGR_10M_Action_groups_v1/complete.json": "13086afc856ea90319cf06862699c279946d548e64f8bd3a476a613a49c5b6f0",
+    "results/hiformer_TencentGR_10M_Action_groups_v1/group_results.csv": "cf9be075426bb4ae93582c094b7a37ae8af6092cbf299108c2a5ae0ab05264ee",
+    "results/extended_benchmark_v1/cost_measurements.csv": "df300b543f312a10aa3c3ef2ac47b4849daae9258a1128f879be16992689601c",
+    "results/extended_benchmark_v1/complete.json": "8f6e7547d22f7074a78361a5ae958afe0e737ef431af0a4ca99fe9d72c8d64c6",
+    "results/compiled_mechanism_v1/complete.json": "01731c74a17afe6e435c9158603cac3166311d5167726ec616b2d1f43da6231c",
+    "results/compiled_mechanism_v1/site_quantiles.csv": "f1656d9f2a55276c751216a75628da42022734ca75c9f2084c8c4693e581f06c",
+    "results/site_replication_comparisons.csv": "e1af906cfe1f697ff5514c955c92c9b13b149e6dc435a5635d6c4151cad47303"
+  },
+  "script_sha256": "25d471711f3ce26ffd84e400e2f2c7cd0a84ed4226d91b5331eefc4b145aaa2d",
+  "tex_sha256": "08207af80e706ddae149c5d454cbf6d4419246f26a9305b92a17daeb56b23d93",
+  "cross_model_macro_rows": 4,
+  "visual_qa": "recorded separately in notes/extended_figures_validation.md"
+}

@@ -1,0 +1,14 @@
+{
+  "comparison": "Full RISE E minus independently trained native baseline A",
+  "figure_names": [
+    "native_merrec_effect_by_history",
+    "native_merrec_effect_by_frequency"
+  ],
+  "source_sha256": {
+    "results/group_analysis_native_v1/group_effects.csv": "ef5fca43d2ab1e74d44d41345d88a3bd930267298bf11e795442516a060c2f78",
+    "results/group_analysis_native_v1/complete.json": "a8f2b3516fe481ed855c120c06c71061f12e32901562de938b9c26b1381a3530",
+    "scripts/plot_native_merrec_analysis.py": "744e36edfb61e31de8d3d21fd2e2df928b7aa51412b06a9ba43e82c2870c0dad",
+    "scripts/plot_component_analysis.py": "555a7876ce4e9222e7f7768d89a87f6d521874a719c0e9b4a03cd7da4541b1ae"
+  },
+  "visual_qa": "passed: both exported PNGs inspected; compiled PDF figures inspected, no cropping or overlap"
+}

@@ -1,0 +1,5 @@
+setting,job_task_id,checkpoint,bytes,zip_entries,compiled_key_metadata,dense_parameters,macro_AUC,macro_logloss
+B,626760_0,checkpoints/MerRec_Action/SISA_components_HyFormer_MerRec_Action_B_seed20262028_attempt1.model,3240512506,211,True,7804689,0.7831212,0.08584839999999999
+C,626760_1,checkpoints/MerRec_Action/SISA_components_HyFormer_MerRec_Action_C_seed20262028_attempt1.model,3240512506,211,True,7807773,0.79588,0.0836942
+D,626760_2,checkpoints/MerRec_Action/SISA_components_HyFormer_MerRec_Action_D_seed20262028_attempt1.model,3240512506,211,True,7829265,0.7952302,0.0834628
+E,548166_1,checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model,3240529865,211,True,7832349,0.8008724,0.0826776

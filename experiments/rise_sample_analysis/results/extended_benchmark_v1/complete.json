@@ -1,0 +1,16 @@
+{
+  "job_id": "643950",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "models": 18,
+  "rounds": 6,
+  "batch_sizes": [
+    64,
+    256,
+    512
+  ],
+  "same_gpu_uuid": true,
+  "all_raw_blocks_retained": true,
+  "no_best_round_selection": true,
+  "source_dir": "artifacts/rise_sample_analysis/mechanism/extended_benchmark_643950"
+}

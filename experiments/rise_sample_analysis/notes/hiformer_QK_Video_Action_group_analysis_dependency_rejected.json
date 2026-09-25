@@ -1,0 +1,18 @@
+{
+  "submitted_at_utc": "2026-09-22T20:39:52.313631+00:00",
+  "job_id": null,
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:643880",
+    "experiments/rise_sample_analysis/scripts/submit_hiformer_group_analysis.sbatch",
+    "QK_Video_Action",
+    "artifacts/rise_sample_analysis/hiformer_frequencies/QK_Video_Action/scan_643902_0/frequencies"
+  ],
+  "stdout": "",
+  "stderr": "sbatch: error: Batch job submission failed: Job dependency problem\n",
+  "returncode": 1,
+  "script_sha256": "990abd6ff1b6829243b79bb6d9f34ad42d5eb36146fe6197c0ff8cbea18cb76a",
+  "dependency": "643880",
+  "frequency_manifest_sha256": "6d0d97940a646db9c1b4c3615f44e22b6f24a8b30351cb9b9e17e14bb6e017d9"
+}

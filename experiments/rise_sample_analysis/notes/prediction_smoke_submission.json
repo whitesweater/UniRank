@@ -1,0 +1,17 @@
+{
+  "submitted_at_utc": "2026-09-22T19:08:09.858626+00:00",
+  "job_id": "643834",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_prediction_smoke.sbatch"
+  ],
+  "stdout": "643834\n",
+  "stderr": "",
+  "returncode": 0,
+  "export_script_sha256": "faa38a594284ee2331f5c6f74503a0cff9f892d0bbab12eb2f289ac7beb44995",
+  "scope": "1 GPU, 1 rank, 2 batches per variant; smoke only, never a formal evaluation",
+  "formal_protocol": "2 GPUs/ranks with original per-block retained rows",
+  "initial_submit_failure": "debug_qos allows at most 1 GPU, 12 CPUs, 240G host memory per user; original 2-GPU debug request rejected before allocation",
+  "tests": "11 prediction-export tests passed"
+}

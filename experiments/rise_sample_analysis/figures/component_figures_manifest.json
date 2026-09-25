@@ -1,0 +1,31 @@
+{
+  "renderer": "Matplotlib 3.10.6 in isolated uv figure_env",
+  "scope": "matched components, not native-baseline comparison",
+  "figure_names": [
+    "component_effect_by_history",
+    "component_effect_by_frequency",
+    "task_effect_by_history",
+    "conditional_component_contrasts"
+  ],
+  "source_sha256": {
+    "results/group_analysis_components_v1/group_effects.csv": "f4e61ce62aa1dbe3ee32b1be69af0f870ddf363286a040641b1f02fc258f34ea",
+    "results/group_analysis_components_v1/complete.json": "19382f18d94f38490a98d6b6a80d2e7345ebaa7b71fc4fb7c49d57198d11e150",
+    "scripts/plot_component_analysis.py": "555a7876ce4e9222e7f7768d89a87f6d521874a719c0e9b4a03cd7da4541b1ae"
+  },
+  "chart_contract": "Static paper figures; restrained declared colors plus marker shapes; zero reference and explicit AUC percentage-point units; intervals conditional on fixed models.",
+  "visual_qa": "passed: four exported PNG figures inspected; history legend collision corrected; signs, zero lines, units and labels readable",
+  "output_sha256": {
+    "task_effect_by_history.svg": "3b4b4ed2b30cb2d58e5d44fa8359912436017ff0a8ab2c9ef04c5ad1422639d8",
+    "task_effect_by_history.png": "50d707c1128a21bf9d0323dd06fc6bf06cf61c85ffec108d642072ffe55e5e55",
+    "conditional_component_contrasts.pdf": "7080b697770857e3f0328da7834526fefff0c26344b3068c6f7ec90910d6f947",
+    "conditional_component_contrasts.svg": "4eb750d4b3f7994a713722ad1334196c796e65c0a7868561d77aeaddd8f6cb69",
+    "task_effect_by_history.pdf": "6eced8db9711b0247a7948d3b2114ce0856409911b972b07238ac4cafc68ce96",
+    "conditional_component_contrasts.png": "b4d9ef76f78e9d1479e63c86897c457d91ded411ee905bc719c03a89b29c10b8",
+    "component_effect_by_history.pdf": "8d09322a04a7ec5f892e8cdffeb1360ad67bf81cc017c01dc0e8d03e5fe6fc8b",
+    "component_effect_by_frequency.pdf": "4ff52b44691fc0534faa5cc2285d497361b67123a0756d4f9e590994d98e7abe",
+    "component_effect_by_history.svg": "058268f971678bd35632a7914ede8bdeaa3f2987af98f065319dc19b70d42bc3",
+    "component_effect_by_frequency.svg": "2af68e0e79b98a69a5ba3c1c7a26efe67fdfe7f7d8003a2d9144b3471f7d3ded",
+    "component_effect_by_history.png": "f065dae6e22216aa71866edd402993badc623c00edaa500a227dfd4514d82242",
+    "component_effect_by_frequency.png": "14a7feb0032491d3cec4f4d9cf122878f6ed8973e03ae44a130e02c99eda4303"
+  }
+}

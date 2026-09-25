@@ -1,0 +1,26 @@
+{
+  "submitted_at_utc": "2026-09-22T19:28:36.303065+00:00",
+  "job_id": "643859",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=debug",
+    "--job-name=unirank-rise-population-profile",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--mem=32G",
+    "--time=00:30:00",
+    "--no-requeue",
+    "--output=logs/%x-%j.out",
+    "--export=ALL,OMP_NUM_THREADS=4,PYTHONUNBUFFERED=1",
+    "--chdir=/data/user/yhao481/proj/UniRank",
+    "--wrap",
+    ".venv/bin/python experiments/rise_sample_analysis/scripts/profile_group_population.py"
+  ],
+  "stdout": "643859\n",
+  "stderr": "",
+  "script_sha256": "2cf827a820f137683d8b1914d01c53089c04080c5f0c9a1f9416fc4609e5609e",
+  "scope": "single CPU descriptive profile; no model predictions or training",
+  "tests": "5 focused CPU tests passed; py_compile passed"
+}

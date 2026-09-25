@@ -1,0 +1,357 @@
+{
+  "created_at_utc": "2026-09-22T19:36:50.632423+00:00",
+  "rows": 11599872,
+  "labels": [
+    "Like",
+    "Cart",
+    "Offer",
+    "Checkout",
+    "Purchase"
+  ],
+  "variants": [
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "definitions": {
+    "effective_length": {
+      "groups": {
+        "0": "0",
+        "1": "1-20",
+        "2": "21-50",
+        "3": "51-99",
+        "4": "100"
+      },
+      "included_rows": 11599872
+    },
+    "item_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_1",
+        "2": "gt_1_le_4",
+        "3": "gt_4"
+      },
+      "positive_entity_quartiles": [
+        1,
+        4
+      ],
+      "cut_population": "distinct training entities with positive target frequency",
+      "included_rows": 11599872
+    },
+    "user_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_14",
+        "2": "gt_14_le_80",
+        "3": "gt_80"
+      },
+      "positive_entity_quartiles": [
+        14,
+        80
+      ],
+      "cut_population": "distinct training entities with positive target frequency",
+      "included_rows": 11599872
+    },
+    "c1_entropy_at_length100": {
+      "groups": {
+        "0": "undefined",
+        "1": "one_effective_category",
+        "2": "effective_categories_1_to_2",
+        "3": "effective_categories_2_to_5",
+        "4": "effective_categories_gt5"
+      },
+      "restricted_to_effective_length": 100,
+      "excluded_category_codes": [
+        0,
+        309
+      ],
+      "included_rows": 8180703,
+      "empty_groups": [
+        "undefined"
+      ]
+    },
+    "candidate_category_support_at_length100": {
+      "groups": {
+        "0": "undefined",
+        "1": "zero",
+        "2": "positive_le_0.25",
+        "3": "gt_0.25_le_0.75",
+        "4": "gt_0.75"
+      },
+      "restricted_to_effective_length": 100,
+      "excluded_category_codes": [
+        0,
+        309
+      ],
+      "included_rows": 8180703
+    }
+  },
+  "prediction_receipts": {
+    "B": {
+      "data_version": "f5712b7f8eafc9133ad3b53e4c7a062bd3b1c6130af82e0a33063bfa1f5c7d6d",
+      "finished_utc": "2026-09-22T19:24:52.983606+00:00",
+      "historical_deviation": {
+        "Cart": {
+          "AUC": -4.475697740202733e-07,
+          "logloss": -2.1903627898944844e-07
+        },
+        "Checkout": {
+          "AUC": -7.809778090894781e-08,
+          "logloss": 3.323760210290072e-08
+        },
+        "Like": {
+          "AUC": 7.838147797478712e-08,
+          "logloss": -5.244878387156149e-08
+        },
+        "Offer": {
+          "AUC": -1.4139286141912066e-07,
+          "logloss": -2.925368965088493e-07
+        },
+        "Purchase": {
+          "AUC": -7.934349066651691e-09,
+          "logloss": -5.0090196672316484e-08
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "Cart": {
+          "AUC": 0.781964552430226,
+          "logloss": 0.05469978096372101,
+          "positive": 128634,
+          "rows": 11599872
+        },
+        "Checkout": {
+          "AUC": 0.8437529219022191,
+          "logloss": 0.0050160332376021025,
+          "positive": 7651,
+          "rows": 11599872
+        },
+        "Like": {
+          "AUC": 0.726746078381478,
+          "logloss": 0.3447009475512161,
+          "positive": 1432490,
+          "rows": 11599872
+        },
+        "Offer": {
+          "AUC": 0.7211618586071386,
+          "logloss": 0.021564707463103492,
+          "positive": 39437,
+          "rows": 11599872
+        },
+        "Purchase": {
+          "AUC": 0.8419799920656509,
+          "logloss": 0.0032599499098033276,
+          "positive": 4642,
+          "rows": 11599872
+        }
+      },
+      "rows": 11599872,
+      "smoke_only": false,
+      "variant": "B"
+    },
+    "C": {
+      "data_version": "f5712b7f8eafc9133ad3b53e4c7a062bd3b1c6130af82e0a33063bfa1f5c7d6d",
+      "finished_utc": "2026-09-22T19:26:48.638141+00:00",
+      "historical_deviation": {
+        "Cart": {
+          "AUC": -4.595962610487447e-09,
+          "logloss": -2.115032806115913e-07
+        },
+        "Checkout": {
+          "AUC": 5.2479160572715955e-08,
+          "logloss": -9.733637240227216e-08
+        },
+        "Like": {
+          "AUC": 3.085095725552378e-07,
+          "logloss": -1.1760154838835746e-07
+        },
+        "Offer": {
+          "AUC": -1.8648950905753026e-07,
+          "logloss": -4.2835869461591014e-07
+        },
+        "Purchase": {
+          "AUC": 1.3064624404535152e-07,
+          "logloss": -3.5701671249584524e-07
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "Cart": {
+          "AUC": 0.8000159954040373,
+          "logloss": 0.05300978849671939,
+          "positive": 128634,
+          "rows": 11599872
+        },
+        "Checkout": {
+          "AUC": 0.8552330524791606,
+          "logloss": 0.004639902663627598,
+          "positive": 7651,
+          "rows": 11599872
+        },
+        "Like": {
+          "AUC": 0.7448023085095725,
+          "logloss": 0.3363258823984516,
+          "positive": 1432490,
+          "rows": 11599872
+        },
+        "Offer": {
+          "AUC": 0.7286558135104909,
+          "logloss": 0.021480571641305384,
+          "positive": 39437,
+          "rows": 11599872
+        },
+        "Purchase": {
+          "AUC": 0.8506931306462441,
+          "logloss": 0.0030136429832875043,
+          "positive": 4642,
+          "rows": 11599872
+        }
+      },
+      "rows": 11599872,
+      "smoke_only": false,
+      "variant": "C"
+    },
+    "D": {
+      "data_version": "f5712b7f8eafc9133ad3b53e4c7a062bd3b1c6130af82e0a33063bfa1f5c7d6d",
+      "finished_utc": "2026-09-22T19:28:46.618941+00:00",
+      "historical_deviation": {
+        "Cart": {
+          "AUC": -3.1769219765998e-07,
+          "logloss": 3.7723115833832033e-07
+        },
+        "Checkout": {
+          "AUC": 2.4730617809165523e-07,
+          "logloss": 3.8235244168884075e-07
+        },
+        "Like": {
+          "AUC": -3.128307726196766e-07,
+          "logloss": -3.41353594002225e-07
+        },
+        "Offer": {
+          "AUC": -2.2948327793592682e-07,
+          "logloss": 3.387901196839904e-07
+        },
+        "Purchase": {
+          "AUC": 7.276730029648348e-08,
+          "logloss": 4.1617169599644094e-07
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "Cart": {
+          "AUC": 0.8001076823078024,
+          "logloss": 0.05327537723115834,
+          "positive": 128634,
+          "rows": 11599872
+        },
+        "Checkout": {
+          "AUC": 0.8484502473061781,
+          "logloss": 0.005081382352441688,
+          "positive": 7651,
+          "rows": 11599872
+        },
+        "Like": {
+          "AUC": 0.7439996871692274,
+          "logloss": 0.334326658646406,
+          "positive": 1432490,
+          "rows": 11599872
+        },
+        "Offer": {
+          "AUC": 0.733821770516722,
+          "logloss": 0.021350338790119685,
+          "positive": 39437,
+          "rows": 11599872
+        },
+        "Purchase": {
+          "AUC": 0.8497710727673004,
+          "logloss": 0.0032814161716959965,
+          "positive": 4642,
+          "rows": 11599872
+        }
+      },
+      "rows": 11599872,
+      "smoke_only": false,
+      "variant": "D"
+    },
+    "E": {
+      "data_version": "f5712b7f8eafc9133ad3b53e4c7a062bd3b1c6130af82e0a33063bfa1f5c7d6d",
+      "finished_utc": "2026-09-22T19:30:53.343508+00:00",
+      "historical_deviation": {
+        "Cart": {
+          "AUC": -2.303336276154866e-07,
+          "logloss": -4.921500579846416e-07
+        },
+        "Checkout": {
+          "AUC": -4.3438135688411705e-07,
+          "logloss": -1.7379068279442522e-07
+        },
+        "Like": {
+          "AUC": 4.962666333430121e-08,
+          "logloss": -4.1596026123524865e-08
+        },
+        "Offer": {
+          "AUC": 3.795271452666782e-08,
+          "logloss": 1.90268488926143e-07
+        },
+        "Purchase": {
+          "AUC": 2.5873181863644845e-07,
+          "logloss": 1.721329559887727e-07
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "Cart": {
+          "AUC": 0.8101887696663724,
+          "logloss": 0.05247650784994202,
+          "positive": 128634,
+          "rows": 11599872
+        },
+        "Checkout": {
+          "AUC": 0.8555785656186431,
+          "logloss": 0.004953826209317206,
+          "positive": 7651,
+          "rows": 11599872
+        },
+        "Like": {
+          "AUC": 0.7506890496266634,
+          "logloss": 0.3313609584039739,
+          "positive": 1432490,
+          "rows": 11599872
+        },
+        "Offer": {
+          "AUC": 0.7317960379527145,
+          "logloss": 0.021512190268488926,
+          "positive": 39437,
+          "rows": 11599872
+        },
+        "Purchase": {
+          "AUC": 0.8561092587318186,
+          "logloss": 0.0030841721329559887,
+          "positive": 4642,
+          "rows": 11599872
+        }
+      },
+      "rows": 11599872,
+      "smoke_only": false,
+      "variant": "E"
+    }
+  },
+  "source_sha256": {
+    "experiments/rise_sample_analysis/scripts/analyze_groups.py": "2e57b9f1de92f80f79cdac4c361fe905b252c65f3a2afe1ed06c6c7feaff8a58",
+    "experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b"
+  },
+  "feature_files_sha256": {
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00000.parquet": "04b3a816fe1471f2d2344feddb5f86c0a0e32a3ea3c6254198e372e0113b91ad",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00001.parquet": "d676cf5e32d47d970c66f0654b41d9010e0c2a7fdfb68d4befbdddbca7028b95",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00002.parquet": "7531864d6ab9825f784179ee420f87e6e7cc8c98a388c2c11cb962c8191c16ad",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00003.parquet": "c7fa46e75d2b26dc6cb746a36512a8f89059d851868064e24abc9264ef8bd08e",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00004.parquet": "2c62ad21e3520c033d2ebc01743504cc2116d51d0a4d71971bc5e688c867fcb2",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00005.parquet": "637f82f7d906dbe0778dad0a2ee1e9d0a1d7d658333c29f082fbca06f75e836c",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00006.parquet": "51880ccdb96e2937e97ece3bc50556a72fdd00b05719f405722408c4987461b4",
+    "/data/user/yhao481/proj/UniRank/artifacts/rise_sample_analysis/group_features/features/part-00007.parquet": "a88e624d04de9156dcbbeb1d957732319ee2495d1999f76fc47929ae5baeb4c7"
+  },
+  "ci_method": "user-cluster linearized influence normal 95%; conditional on trained models",
+  "statistical_claims": "Exploratory effect sizes; no independent training replication or multiplicity-corrected claims.",
+  "action_support_analysis": "Deferred until attribution availability is resolved; no point-in-time claim."
+}

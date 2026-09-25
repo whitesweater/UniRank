@@ -1,0 +1,111 @@
+{
+  "collected_utc": "2026-09-22T20:33:37.641151+00:00",
+  "collector_sha256": "d1ca6b7edb481a5a19ca89a647f9d8ef35f73034c94c2317c3887311a12c5215",
+  "dataset": "MerRec_Action",
+  "examples": 512,
+  "independent_training_replicates": 1,
+  "length_bins": [
+    "0",
+    "1-20",
+    "21-50",
+    "51-99",
+    "100"
+  ],
+  "math_tolerance": 1e-06,
+  "model": "HyFormer",
+  "no_eager_or_am_reconstruction_statistics_used": true,
+  "observation_rows_per_variant": 3072,
+  "population_representative": false,
+  "prediction_bitwise_equal_recomputed": true,
+  "row_identity_sha256": "7c2641a8d5d43cadb1d2d784018b19f80b7c31d903835b8792b4ec804b6ee2d0",
+  "sample_weighting": "equal interaction examples within each site; invalid history queries excluded by source",
+  "seed": 20262028,
+  "selection_only": true,
+  "sites": [
+    "unified_interaction_layers.seq_layers.0",
+    "unified_interaction_layers.decode_layers.0",
+    "unified_interaction_layers.seq_layers.1",
+    "unified_interaction_layers.decode_layers.1",
+    "unified_interaction_layers.seq_layers.2",
+    "unified_interaction_layers.decode_layers.2"
+  ],
+  "unique_users": 455,
+  "variants": {
+    "B": {
+      "acceptance": "Complete, bitwise-validated B substage retained from overall FAILED 643911; E absent in that job",
+      "checkpoint_sha256": "2d1536723abc78d2aff8d3fefd893133bd27ad7ce8713a7629e9e6d2477533b8",
+      "device": {
+        "capability": [
+          9,
+          0
+        ],
+        "cuda_build": "12.6",
+        "cuda_visible_devices": "0",
+        "float32_matmul_precision": "high",
+        "name": "NVIDIA H100 80GB HBM3",
+        "node": "ACD1-63",
+        "torch": "2.8.0+cu126",
+        "total_memory": 85009367040,
+        "uuid": "164572cb-6868-a5e1-b032-dccb6efaf476"
+      },
+      "diagnostic_script_sha256": "fd0cc58aae0b8e50ef13a86d736e4241c44220bbdef8c3d8fd427d4c6d76729c",
+      "directory": "artifacts/rise_sample_analysis/mechanism/precision_full_643911",
+      "scheduler": {
+        "elapsed": "00:01:33",
+        "exit_code": "11:0",
+        "job_id": "643911",
+        "node": "ACD1-63",
+        "state": "FAILED"
+      },
+      "substage_prediction_identity_recomputed": true,
+      "validation": {
+        "examples_with_zero_valid_queries": 3,
+        "mathematical_tolerance": 1e-06,
+        "rows": 3072,
+        "sites": 6,
+        "top_order_certificate_violation_max": 0.0,
+        "tv_bound_violation_max": 0.0,
+        "unique_examples": 512
+      },
+      "whole_job_succeeded": false
+    },
+    "E": {
+      "acceptance": "Independently COMPLETED E-only job 643949",
+      "checkpoint_sha256": "75b0a6a8f520218d207eab2bf8b8d4e5dbd07e53583fe0e0d5651c91d236771a",
+      "device": {
+        "capability": [
+          9,
+          0
+        ],
+        "cuda_build": "12.6",
+        "cuda_visible_devices": "0",
+        "float32_matmul_precision": "high",
+        "name": "NVIDIA H100 80GB HBM3",
+        "node": "ACD1-63",
+        "torch": "2.8.0+cu126",
+        "total_memory": 85009367040,
+        "uuid": "164572cb-6868-a5e1-b032-dccb6efaf476"
+      },
+      "diagnostic_script_sha256": "fd0cc58aae0b8e50ef13a86d736e4241c44220bbdef8c3d8fd427d4c6d76729c",
+      "directory": "artifacts/rise_sample_analysis/mechanism/precision_E_643949",
+      "scheduler": {
+        "elapsed": "00:01:14",
+        "exit_code": "0:0",
+        "job_id": "643949",
+        "node": "ACD1-63",
+        "state": "COMPLETED"
+      },
+      "substage_prediction_identity_recomputed": true,
+      "validation": {
+        "examples_with_zero_valid_queries": 3,
+        "mathematical_tolerance": 1e-06,
+        "rows": 3072,
+        "sites": 6,
+        "top_order_certificate_violation_max": 0.0,
+        "tv_bound_violation_max": 0.0,
+        "unique_examples": 512
+      },
+      "whole_job_succeeded": true
+    }
+  }
+}

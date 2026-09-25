@@ -1,0 +1,14 @@
+{
+  "submitted_at_utc": "2026-09-22T19:51:23.772586+00:00",
+  "job_id": "643911",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_compiled_mechanism.sbatch"
+  ],
+  "stdout": "643911\n",
+  "stderr": "",
+  "returncode": 0,
+  "prerequisite": "643882 compiled capture/plain bitwise equality for all 64 samples and five labels",
+  "scope": "512 cached samples B/E, compiled selection only; old eager observations remain unvalidated"
+}

@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "artifact_sha256": {
+    "length_sample_counts.csv": "5506514e2354462d7f62e11dcb278b4c9f0cf3670e33496b26cb24d3ce692a76",
+    "length_site_quantiles.csv": "dd635c156d29cac3eb1b863ae60196230ab4c0e2e68c75304595e59b8ce16887",
+    "length_site_summary.csv": "f219dfcdc55ef308a542560e3814b19204daf37a0efe1f37a133e086b77739eb",
+    "paired_site_differences.csv": "5e4fbbf1e153c64d957d3c41e68469ee9f5a8a476935f031810204c6960f4ac6",
+    "readout.md": "2902c9df651ca9f15c2d47ebf450ea70c3937333aa839ac61b2e9ba68eb931d4",
+    "sample_identities.csv": "d1ec1ae8da2da4451e0310b46a46b98cae9bdbe700b6e07632bcfa92d1e14bb7",
+    "scheduler_accounting.txt": "bc034c69d03a828d81f7b0c43cde6234c5f5e4bc856b36c1d9c14b89798a7185",
+    "site_quantiles.csv": "f1656d9f2a55276c751216a75628da42022734ca75c9f2084c8c4693e581f06c",
+    "site_summary.csv": "d4c7a20631978c85965e4575056ad137274072ea2f565d72f94d6ed3126c84c1",
+    "sources.json": "5fe219d8a36df2fdbb7f3fe480de47f0b2b88e9008cbe13a523bfe3daea5891e",
+    "summary.json": "4ebd2a0bcf60a73d4ce83e87018717c7dceae91c7d727623f58ded5f5ce18777"
+  },
+  "b_failed_job_substage_explicitly_preserved": true,
+  "examples": 512,
+  "source_whole_job_states": {
+    "B": "FAILED",
+    "E": "COMPLETED"
+  }
+}

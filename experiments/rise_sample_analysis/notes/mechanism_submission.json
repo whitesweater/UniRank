@@ -1,0 +1,19 @@
+{
+  "submitted_at_utc": "2026-09-22T19:28:03.628319+00:00",
+  "job_id": "643858",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_mechanism.sbatch"
+  ],
+  "stdout": "643858\n",
+  "stderr": "",
+  "returncode": 0,
+  "scope": "512 fixed diagnostic samples, six HyFormer sites, B/E; forward/reverse order inference benchmark, B is content-only",
+  "source_sha256": {
+    "observe_mechanism.py": "e5b36ed694454a40d6f7468652b2716f9de05f8f3812b4b8f274218351251f4d",
+    "benchmark_inference.py": "1b3ad4a6043a757fa5e2bac2a9c865358bbafabf0bee46c83c1c62a65f2e416b",
+    "submit_mechanism.sbatch": "b9a61210e10c1318025d5b7f88c43b71f2af9297ddb7ef57b91394b16c873c6d"
+  },
+  "tests": "11 mechanism and 5 group-analysis tests passed"
+}

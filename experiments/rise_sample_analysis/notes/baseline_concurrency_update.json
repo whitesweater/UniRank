@@ -1,0 +1,16 @@
+{
+  "updated_at_utc": "2026-09-22T20:01:49.672459+00:00",
+  "job_id": "643809",
+  "old_throttle": 1,
+  "new_throttle": 2,
+  "command": [
+    "scontrol",
+    "update",
+    "JobId=643809",
+    "ArrayTaskThrottle=2"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "reason": "MerRec baseline and formal component inference completed; permit the two remaining independent baselines to overlap. Per-run two-GPU training protocol, frozen sources, seeds, batch, and outputs unchanged; score_dim tasks untouched."
+}

@@ -1,0 +1,13 @@
+{
+  "submitted_at_utc": "2026-09-22T19:05:45.124175+00:00",
+  "job_id": "643821",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_group_features.sbatch"
+  ],
+  "stdout": "643821\n",
+  "stderr": "",
+  "script_sha256": "8633b69af0a43d95abaa9cb0ab13cc08fe71b1ee79971dfb2bff96645f8ae7e6",
+  "cpu_validation": "141 root regression tests and 39 study tests passed"
+}

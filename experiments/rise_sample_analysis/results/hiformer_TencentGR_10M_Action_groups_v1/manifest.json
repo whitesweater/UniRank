@@ -1,0 +1,154 @@
+{
+  "dataset": "TencentGR_10M_Action",
+  "model": "HiFormer",
+  "seed": 20262028,
+  "variants": [
+    "A",
+    "E"
+  ],
+  "rows": 153157632,
+  "labels": [
+    "is_click",
+    "is_conversion"
+  ],
+  "definitions": {
+    "effective_length": {
+      "groups": {
+        "0": "0",
+        "1": "1-20",
+        "2": "21-50",
+        "3": "51-99",
+        "4": "100"
+      },
+      "definition": "Valid input history tokens, excludes target/padding; max_len100",
+      "empty_groups": [
+        "100"
+      ]
+    },
+    "user_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_67",
+        "2": "gt_67_le_91",
+        "3": "gt_91"
+      },
+      "cuts": [
+        67,
+        91
+      ],
+      "quantile_method": "inverted_cdf",
+      "cut_population": "Distinct encoded global IDs with positive training-target frequency",
+      "zero_definition": "No training target occurrence; not necessarily absent from training histories",
+      "empty_groups": []
+    },
+    "item_train_target_frequency": {
+      "groups": {
+        "0": "train_target_unseen",
+        "1": "positive_le_1",
+        "2": "gt_1_le_11",
+        "3": "gt_11"
+      },
+      "cuts": [
+        1,
+        11
+      ],
+      "quantile_method": "inverted_cdf",
+      "cut_population": "Distinct encoded global IDs with positive training-target frequency",
+      "zero_definition": "No training target occurrence; not necessarily absent from training histories",
+      "empty_groups": []
+    }
+  },
+  "source_sha256": {
+    "experiments/rise_sample_analysis/scripts/analyze_hiformer_groups.py": "990abd6ff1b6829243b79bb6d9f34ad42d5eb36146fe6197c0ff8cbea18cb76a",
+    "experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b",
+    "experiments/rise_sample_analysis/scripts/build_group_features.py": "1f2eb7ad9cbd370dbc3c1647cd1875547ab75ddfb590eb2999b3a8e29eca4f57"
+  },
+  "prediction_receipts": {
+    "A": {
+      "data_version": "0a54db5aa9a2944983d535fc56a13261ba28ccf67ebc4df96daf940a436027f1",
+      "dataset": "TencentGR_10M_Action",
+      "finished_utc": "2026-09-22T22:21:40.090362+00:00",
+      "historical_deviation": {
+        "is_click": {
+          "AUC": 1.5911693562742357e-07,
+          "logloss": 3.644445135189689e-07
+        },
+        "is_conversion": {
+          "AUC": 4.6497964412139936e-07,
+          "logloss": -5.9321552878244255e-08
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.8362751591169356,
+          "logloss": 0.05114536444451352,
+          "positive": 802701,
+          "rows": 153157632
+        },
+        "is_conversion": {
+          "AUC": 0.8715744649796441,
+          "logloss": 0.02129294067844712,
+          "positive": 250217,
+          "rows": 153157632
+        }
+      },
+      "model": "HiFormer",
+      "rows": 153157632,
+      "rows_by_rank": [
+        76578816,
+        76578816
+      ],
+      "smoke_only": false,
+      "variant": "A"
+    },
+    "E": {
+      "data_version": "0a54db5aa9a2944983d535fc56a13261ba28ccf67ebc4df96daf940a436027f1",
+      "dataset": "TencentGR_10M_Action",
+      "finished_utc": "2026-09-22T22:33:22.383971+00:00",
+      "historical_deviation": {
+        "is_click": {
+          "AUC": 3.6718550433523234e-07,
+          "logloss": -3.80602068708602e-07
+        },
+        "is_conversion": {
+          "AUC": -4.4542230903665825e-08,
+          "logloss": 4.862806276748066e-07
+        }
+      },
+      "metric_check_passed": true,
+      "metrics": {
+        "is_click": {
+          "AUC": 0.8513023671855043,
+          "logloss": 0.04340961939793129,
+          "positive": 802701,
+          "rows": 153157632
+        },
+        "is_conversion": {
+          "AUC": 0.8904139554577691,
+          "logloss": 0.017180486280627676,
+          "positive": 250217,
+          "rows": 153157632
+        }
+      },
+      "model": "HiFormer",
+      "rows": 153157632,
+      "rows_by_rank": [
+        76578816,
+        76578816
+      ],
+      "smoke_only": false,
+      "variant": "E"
+    }
+  },
+  "prediction_manifests_sha256": {
+    "baseline": "1756a034213c77e0df63ce0b80627d779f20ed90d1b60f7d3166d802fe0ae00a",
+    "rise": "058b7b47fe66706c77dab7d526698658b1d1da32054937dcb8a1987b1d7e693a"
+  },
+  "frequency_manifest_sha256": "4d42829e9dca74f4438bdf5665dfc1d14fc41f2072264160c30d9db472e28c4e",
+  "frequency_train_rows": 586117494,
+  "ci_method": "user-cluster linearized influence; normal 95%; trained models fixed",
+  "macro_variance": "Average label influences within each global user, then cluster sandwich; never average SEs",
+  "statistical_scope": "Exploratory conditional effects; no training-seed variance or multiplicity-adjusted claims",
+  "created_utc": "2026-09-22T22:41:30.611991+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "submitted_at_utc": "2026-09-22T20:40:46.507049+00:00",
+  "job_id": "644033",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_hiformer_group_analysis.sbatch",
+    "QK_Video_Action",
+    "artifacts/rise_sample_analysis/hiformer_frequencies/QK_Video_Action/scan_643902_0/frequencies"
+  ],
+  "stdout": "644033\n",
+  "stderr": "",
+  "returncode": 0,
+  "dependency": null,
+  "prerequisite": "643880 COMPLETED0:0 and both formal receipts verified; expired scheduler dependency omitted"
+}

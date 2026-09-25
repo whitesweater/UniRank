@@ -1,0 +1,68 @@
+{
+  "created_at_utc": "2026-09-22T19:27:47.636580+00:00",
+  "synthetic_validation_only": true,
+  "scenarios": [
+    {
+      "seed": 101,
+      "synthetic_user_strength": 0.0,
+      "users": 600,
+      "rows": 8523,
+      "positives": 2580,
+      "auc_effect": 0.05457420429480575,
+      "linearized_cluster_se": 0.0063704970890047325,
+      "exact_user_bootstrap_replicates": 500,
+      "bootstrap_se": 0.0062961791536840315,
+      "linearized_over_bootstrap_se": 1.011803656393293,
+      "bootstrap_percentile_interval": [
+        0.04227869993403569,
+        0.06618481190352082
+      ],
+      "linearized_normal_interval": [
+        0.04208825943673922,
+        0.06706014915287228
+      ]
+    },
+    {
+      "seed": 102,
+      "synthetic_user_strength": 1.5,
+      "users": 600,
+      "rows": 8786,
+      "positives": 2789,
+      "auc_effect": 0.09491323885918124,
+      "linearized_cluster_se": 0.005362237069357047,
+      "exact_user_bootstrap_replicates": 500,
+      "bootstrap_se": 0.0054216351187768306,
+      "linearized_over_bootstrap_se": 0.9890442554472045,
+      "bootstrap_percentile_interval": [
+        0.08377443434095622,
+        0.10529641566745622
+      ],
+      "linearized_normal_interval": [
+        0.08440344732667582,
+        0.10542303039168666
+      ]
+    },
+    {
+      "seed": 103,
+      "synthetic_user_strength": 3.0,
+      "users": 600,
+      "rows": 8699,
+      "positives": 3541,
+      "auc_effect": 0.08941662608698686,
+      "linearized_cluster_se": 0.0040932379625656145,
+      "exact_user_bootstrap_replicates": 500,
+      "bootstrap_se": 0.004473775847911239,
+      "linearized_over_bootstrap_se": 0.9149403326670259,
+      "bootstrap_percentile_interval": [
+        0.08108642770200705,
+        0.09850702671905809
+      ],
+      "linearized_normal_interval": [
+        0.08139402710020614,
+        0.09743922507376758
+      ]
+    }
+  ],
+  "scope": "Finite-sample numerical agreement in these generated scenarios, not proof of universal coverage or of empirical user independence.",
+  "passed": true
+}

@@ -1,0 +1,14 @@
+{
+  "submitted_at_utc": "2026-09-22T19:42:13.792220+00:00",
+  "job_id": "643882",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_mechanism_precision.sbatch"
+  ],
+  "stdout": "643882\n",
+  "stderr": "",
+  "returncode": 0,
+  "scope": "four numerical paths on same 64 cached samples, original tolerance retained; diagnostic only",
+  "source_sha256": "fd0cc58aae0b8e50ef13a86d736e4241c44220bbdef8c3d8fd427d4c6d76729c"
+}

@@ -1,0 +1,127 @@
+{
+  "dataset": "MerRec_Action",
+  "model": "HyFormer",
+  "seed": 20262028,
+  "variants": [
+    "A",
+    "E"
+  ],
+  "rows": 11599872,
+  "labels": [
+    "Like",
+    "Cart",
+    "Offer",
+    "Checkout",
+    "Purchase"
+  ],
+  "paired_sample_identity_verified": true,
+  "source_sha256": {
+    "experiments/rise_sample_analysis/scripts/analyze_prediction_quality.py": "761f8eb75acae21aa0c56dd88ef25ac3c51591bc0ab5232f2737f9545ac55b55",
+    "experiments/rise_sample_analysis/scripts/statistical_metrics.py": "d0f705b6de1af84a6a2fcbb6aee2ed80b5c62b3305266693abafbf42a9d73c1b"
+  },
+  "sklearn_version": "1.9.0",
+  "AP_definition": "sklearn.metrics.average_precision_score; non-interpolated; not trapezoidal PR-AUC",
+  "Brier_definition": "Mean squared error of original probabilities; no clipping",
+  "Logloss_definition": "Float64 conversion then epsilon(float64) clipping, matching official evaluation",
+  "calibration_edges": [
+    0.0,
+    1e-06,
+    3e-06,
+    1e-05,
+    3e-05,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "calibration_closure": "Left closed/right open; final bin includes 1",
+  "empty_bin_policy": "N=0, positive_count=0; positive_rate and mean_prediction null",
+  "bin_policy": "Same fixed generic log/linear probability grid for every task and variant; chosen before this quality run, never fitted to test output",
+  "ECE_scope": "Bin-dependent descriptive weighted absolute bin calibration error only",
+  "calibrator_fitted": false,
+  "threshold_selected": false,
+  "training_executed": false,
+  "uncertainty_scope": "Single seed and fixed models; descriptive estimates without new confidence intervals or online claims",
+  "event_attribution_scope": "Inherited preprocessing event-time and split-attribution questions remain unresolved",
+  "global_metric_rechecks": [
+    {
+      "variant": "A",
+      "label": "Like",
+      "AUC_deviation_from_export": 0.0,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Like",
+      "AUC_deviation_from_export": 0.0,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "A",
+      "label": "Cart",
+      "AUC_deviation_from_export": 0.0,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Cart",
+      "AUC_deviation_from_export": -1.1102230246251565e-16,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "A",
+      "label": "Offer",
+      "AUC_deviation_from_export": 1.1102230246251565e-16,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Offer",
+      "AUC_deviation_from_export": 0.0,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "A",
+      "label": "Checkout",
+      "AUC_deviation_from_export": 0.0,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Checkout",
+      "AUC_deviation_from_export": -1.1102230246251565e-16,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "A",
+      "label": "Purchase",
+      "AUC_deviation_from_export": -1.1102230246251565e-16,
+      "Logloss_deviation_from_export": 0.0
+    },
+    {
+      "variant": "E",
+      "label": "Purchase",
+      "AUC_deviation_from_export": 1.1102230246251565e-16,
+      "Logloss_deviation_from_export": 0.0
+    }
+  ],
+  "independent_recheck_tolerance": 1e-10,
+  "prediction_completion_sha256": {
+    "A": "eecaa62a6d7981a347716d25fc3ed63f32beb97921229575335d5b86aecca6ef",
+    "E": "3b091b90b312d20cc63a6b2d2aa298ce9975fc60e3a4a559102a5368d4c1dc32"
+  },
+  "slurm_job_id": "643956",
+  "finished_utc": "2026-09-22T20:20:23.707459+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "submitted_at_utc": "2026-09-22T19:34:01.271737+00:00",
+  "job_id": "643870",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "experiments/rise_sample_analysis/scripts/submit_benchmark.sbatch"
+  ],
+  "stdout": "643870\n",
+  "stderr": "",
+  "returncode": 0,
+  "script_sha256": "9b1e09ae236664811937eb116f95e49e5efcd6517efc761530c6c7f4e2e05577",
+  "formal_prediction_identity_and_global_metric_gate_passed": true
+}

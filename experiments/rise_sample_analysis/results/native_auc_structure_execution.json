@@ -1,0 +1,24 @@
+{
+  "job_id": "644019",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed_seconds": 56,
+  "accounting": "644019|COMPLETED|0:0|00:00:56|ACD1-63|\n644019.batch|COMPLETED|0:0|00:00:56|ACD1-63|\n644019.extern|COMPLETED|0:0|00:00:56|ACD1-63|\n",
+  "rows": 11599872,
+  "exact_label_pair_rows": 125,
+  "macro_pair_rows": 25,
+  "contrast_rows": 18,
+  "max_auc_residual": 1.734723475976807e-16,
+  "global_AUC_matches_prediction_quality": true,
+  "bootstrap_rerun": false,
+  "output_stage": "artifacts/rise_sample_analysis/native_auc_structure_v1",
+  "formal_results": "experiments/rise_sample_analysis/results/native_auc_structure_v1",
+  "output_sha256": {
+    "manifest.json": "483a34b5e7efc9d6d597ec248a77f056e7e3c0b37bd19e4c3c0970b5752602cb",
+    "complete.json": "33b5fd2fcdd92e6b6dec46ea526f44959332f28e2b4947dd267b714fec68660a",
+    "length_pair_auc_decomposition.csv": "37349860047ac480ed8930a35777ec3a265a2ce1211a9131b459748240979c9d",
+    "length_pair_auc_decomposition_macro.csv": "2ad901c62b8dc5221446ad1bc5ff4d9ab2626805dae034b660749d2f3cda0c31",
+    "global_and_structure_metrics.csv": "94310182f343f5f2ea8a2edbfb22d0a3e0956f875083c976ac2c180f2a7699ca",
+    "native_exploratory_group_contrasts.csv": "f8169c90622542a27042073cf18e14e8e90917ec0bcc4786c1413916ef7afd38"
+  }
+}
