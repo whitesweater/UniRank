@@ -1,0 +1,13 @@
+{
+  "empty_examples": 0,
+  "examples": 512,
+  "historical_cross_batch_gate_passed": true,
+  "nonempty_examples": 512,
+  "prediction_bitwise_equal": true,
+  "top_key_changed_fraction": 0.783203125,
+  "tv_mean": 0.1644655261261505,
+  "tv_median": 0.16302945464849472,
+  "tv_p10": 0.1182132251560688,
+  "tv_p90": 0.21003386080265046,
+  "unique_users": 474
+}

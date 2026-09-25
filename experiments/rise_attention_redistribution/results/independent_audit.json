@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "job_id": "646303",
+  "artifact_directory": "/data/user/yhao481/proj/UniRank/artifacts/rise_attention_redistribution/tencent_646303",
+  "auditor_sha256": "eb43de1ffd74a98895fc1fc09831c807ee15632ca9aeda56bb83ed7f5659dcef",
+  "source_hashes_verified": 61,
+  "artifact_hashes_verified": 11,
+  "prediction_gates": {
+    "is_click": {
+      "capture_bitwise_equal": true,
+      "historical_max_abs_error": 0.0
+    },
+    "is_conversion": {
+      "capture_bitwise_equal": true,
+      "historical_max_abs_error": 0.0
+    }
+  },
+  "independent_softmax_max_abs_error": {
+    "weight_before": 8.676642251903566e-09,
+    "weight_after": 1.1691669701829888e-08
+  },
+  "recomputed_summary": {
+    "examples": 512,
+    "nonempty_examples": 512,
+    "empty_examples": 0,
+    "unique_users": 474,
+    "tv_mean": 0.164465525887465,
+    "tv_median": 0.16302946099312976,
+    "tv_p10": 0.11821322173345834,
+    "tv_p90": 0.2100338575895876,
+    "top_key_changed_fraction": 0.783203125
+  }
+}

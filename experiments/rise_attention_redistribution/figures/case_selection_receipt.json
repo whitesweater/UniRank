@@ -1,0 +1,71 @@
+{
+  "input_sources_sha256": {
+    "raw_attention.npz": "4132951be2bc23e3fb58eb69ba72b47721954c1071982ca2c49c633bebf4ff6a",
+    "meta.csv": "490f8833f1e540cf5aaae6714f7e44aa3c841f89b1749f0d12c97a33c6abbaa5",
+    "stats.csv": "9c0efefbff9d3723d0642dedd705d3c567f30f6e4d8bbb2c5a1d8378ee388d0d",
+    "manifest.json": "3e947e7065fa0b72d7c953d80f614e039ea77b752f57686af5339e10b5e27d33",
+    "complete.json": "b37f874842456548c5808168771d8b7dabe9d721bf618ab551cb0222eb72c422"
+  },
+  "selection_rule": "nearest to numpy linear TV quantile; ties by part_id,row_offset,sample_index",
+  "fixed_head": 0,
+  "candidate_count": 512,
+  "excluded_empty_count": 0,
+  "prediction_or_label_based_selection": false,
+  "annotation_rule": "five valid keys with largest absolute weight change; ties by position; shown in key order",
+  "shared_case_weight_color_range": [
+    0,
+    0.0707700178027153
+  ],
+  "shared_case_delta_color_range": [
+    -2.0,
+    2.0
+  ],
+  "scope": "fixed-window diagnostics; no full-test representativeness claim",
+  "cases": [
+    {
+      "array_index": 128,
+      "sample_index": 128,
+      "part_id": 2,
+      "row_offset": 413,
+      "effective_length": 92,
+      "tv": 0.16297724843025208,
+      "name": "main_p50",
+      "label": "Median-TV case",
+      "quantile": 0.5,
+      "quantile_target_tv": 0.16302945464849472,
+      "distance_to_target_tv": 5.2206218242645264e-05,
+      "empirical_cdf_at_case": 0.5,
+      "head": 0
+    },
+    {
+      "array_index": 429,
+      "sample_index": 429,
+      "part_id": 6,
+      "row_offset": 12230,
+      "effective_length": 90,
+      "tv": 0.11819327622652054,
+      "name": "appendix_p10",
+      "label": "Low-TV case",
+      "quantile": 0.1,
+      "quantile_target_tv": 0.1182132251560688,
+      "distance_to_target_tv": 1.994892954826355e-05,
+      "empirical_cdf_at_case": 0.1015625,
+      "head": 0
+    },
+    {
+      "array_index": 150,
+      "sample_index": 150,
+      "part_id": 2,
+      "row_offset": 5025,
+      "effective_length": 70,
+      "tv": 0.21006155014038086,
+      "name": "appendix_p90",
+      "label": "High-TV case",
+      "quantile": 0.9,
+      "quantile_target_tv": 0.21003386080265046,
+      "distance_to_target_tv": 2.7689337730396613e-05,
+      "empirical_cdf_at_case": 0.900390625,
+      "head": 0
+    }
+  ]
+}

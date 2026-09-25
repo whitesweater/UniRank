@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "source": {
+    "sources": {
+      "raw_attention.npz": "2c3376f94e0d52f274466732bed81e38e17ceeec73f0653e2a51f48475528eef",
+      "meta.csv": "c1a4077715007b4977d5d56205b1bb78c194ce43602837348e7a1bdf5f0db850",
+      "predictions.csv": "5eb1aab7f6e5ee0f619caf0004321ae9e99e1dee5e03c8b65cc1d0fc720ec04b",
+      "manifest.json": "410883e7e654db5ee92319b9cd241d6cb14a3cce0133dda816662ebbf7da5c99",
+      "prediction_gate.json": "37f38a8cb339ac6d9123a014f010731af5056c7e8a54202257701443f6a99541",
+      "local_intervention_gate.json": "cfdb9385e6afcc64131433ef5462dec30ec2da3d131eb6ab8c138c4ad01f3474"
+    },
+    "checks": {
+      "weight_before": {
+        "normalization_max_error": 2.384185791015625e-07,
+        "reconstruction_max_error": 4.6566128730773926e-09
+      },
+      "weight_after": {
+        "normalization_max_error": 1.7881393432617188e-07,
+        "reconstruction_max_error": 2.2351741790771484e-08
+      }
+    },
+    "observation_bitwise_equal": true,
+    "n": 512
+  },
+  "probe": {
+    "complete_sha256": "c0e7e3e81d406950bcf6dc53a96af2849e66db29ff91206f2cba8894c2730926",
+    "groups_sha256": "eba48c19e37db0633afbf8c3cc6440c936008d26cb3de55fb73bb71ffddf2df0",
+    "all_gates_passed": true,
+    "manifest_sha256": "4a68430404b797d4acc1dbb9e7ec4d631f54bf73366b0e931c76b692876e2749"
+  },
+  "positive_case_gate_passed": true,
+  "all_controls_retained": true,
+  "caption_sha256": "31892e220cd380e80f743b1ab1e591489037f7c0eb1f25e9900cdc163c32bdf7",
+  "actual_g_rollback_error": 4.085153341293335e-05,
+  "actual_equal_dose_difference": 2.6603229343891144e-05,
+  "files": [
+    {
+      "name": "mechanism_case_273.pdf",
+      "sha256": "924feea368bde9cb0bb76e170fc47295f8f284d6977c79286c43c4b8a8d5f8ae"
+    },
+    {
+      "name": "mechanism_case_273.svg",
+      "sha256": "15c672481da502e96102077000313247a6c2c8e3da46e15bc6b7899eedba744e"
+    },
+    {
+      "name": "mechanism_case_273.png",
+      "sha256": "d3d6a63ab5863c57114474180483ac1a25330d170410092992f867e1b1944228"
+    }
+  ],
+  "text_collisions": [],
+  "text_outside_canvas": [],
+  "axes_zero_origin": true,
+  "figure_inches": [
+    14,
+    11
+  ],
+  "visual_inspection": "Required separately against exported PNG hash",
+  "script_sha256": "d880b3352339b6d4e063a415436f25a9dbd4ea36ca748e1cd07c7bc2e5e729e4",
+  "sample_index": 273
+}

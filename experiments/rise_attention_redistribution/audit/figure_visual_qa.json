@@ -1,0 +1,86 @@
+{
+  "state": "PASS",
+  "input_dir": "artifacts/rise_attention_redistribution/tencent_646303",
+  "renderer_sha256": "aa23ec08f38efd1da509cb145efd2badd3b5d3d8bf11200ef866423c0172693e",
+  "surface": "standalone publication figures: PDF, SVG, PNG",
+  "inspected_pngs": [
+    "attention_main_p50.png",
+    "attention_appendix_p10.png",
+    "attention_appendix_p90.png",
+    "attention_tv_ecdf.png"
+  ],
+  "source": "real completed checkpoint inference; no synthetic figure data",
+  "checks": {
+    "completion_and_four_input_hashes": "PASS",
+    "same_checkpoint_gate_and_historical_gate": "PASS",
+    "numerical_reconstruction": "PASS; see figures/figure_numerical_validation.json",
+    "four_rows_aligned_to_all_100_original_keys": "PASS",
+    "before_after_same_scale_across_three_cases": "PASS",
+    "delta_zero_centered_and_difference_has_zero_line": "PASS",
+    "padding_gray_and_not_renormalized": "PASS",
+    "case_selection_and_p50_tie_rule": "PASS; sample 128, part 2, row 413; builtin float parsing",
+    "historical_action_vocabulary": "PASS; click=1, conversion=2, exposure=3",
+    "target_action_zero": "not interpreted as a behavior; explicit caption",
+    "legend_text_and_plot_overlap": "PASS after moving ECDF legend right",
+    "axis_formula_and_footer_spacing": "PASS after increasing ECDF bottom margin",
+    "file_format_signatures": "PASS",
+    "selected_case_position_rows": 300
+  },
+  "caption_boundaries": [
+    "same-checkpoint local correction, not independent baseline",
+    "FP32 reconstruction from captured real tensors",
+    "fixed-window diagnostic cohort, not full-test representative sample",
+    "TV magnitude does not imply prediction improvement",
+    "anonymous item IDs; sequence position does not imply elapsed time"
+  ],
+  "final_outputs": {
+    "attention_main_p50.png": {
+      "bytes": 383041,
+      "sha256": "72aa53a8b74d5f8e98d177499a50c4e1c50c9e07770034a7b018a63b52bfd5b9"
+    },
+    "attention_main_p50.svg": {
+      "bytes": 150363,
+      "sha256": "339f73ba82b57709b1d231a1b76bd526f2699277aeb380fbe049648c124c0c7c"
+    },
+    "attention_main_p50.pdf": {
+      "bytes": 47807,
+      "sha256": "ec77faa77276f9dc02c155987400a525097dc7f3cca5c559fe7a6e524f557930"
+    },
+    "attention_appendix_p10.png": {
+      "bytes": 385435,
+      "sha256": "43a77cc921a0a687ee0406d39f900428df2ddca1704c4009623394170e4fa21b"
+    },
+    "attention_appendix_p10.svg": {
+      "bytes": 150347,
+      "sha256": "12377917b985399303b817e0b34b6a2229fddf94809d767613b6c271d5ba4652"
+    },
+    "attention_appendix_p10.pdf": {
+      "bytes": 47761,
+      "sha256": "41e8b0025ae1eeb5a91b9494df6d26fde58b27f8d47cd83f0ed67e449063a892"
+    },
+    "attention_appendix_p90.png": {
+      "bytes": 391010,
+      "sha256": "9be952106d4aa8243deb5c1fc63489b3d7fbce987d7b01a95c1f8eb5a85b3956"
+    },
+    "attention_appendix_p90.svg": {
+      "bytes": 152582,
+      "sha256": "f7c8cecc1e6f4600f5693242f745cc59f9cdfeb24441f95be6b5048756a472f2"
+    },
+    "attention_appendix_p90.pdf": {
+      "bytes": 46814,
+      "sha256": "5ec467da17d9afc3c2de2f02001fdaca1d91a4c8388999171c517327951b45d0"
+    },
+    "attention_tv_ecdf.png": {
+      "bytes": 210058,
+      "sha256": "d4b52bf61c485bef603cbf3cd4a520568b0fc58ff79f7966f1bf44028eab60cf"
+    },
+    "attention_tv_ecdf.svg": {
+      "bytes": 30277,
+      "sha256": "daedfd393c1a692f5ab841f08384a5783d6a360970cadba6885cf8fda2554dac"
+    },
+    "attention_tv_ecdf.pdf": {
+      "bytes": 34185,
+      "sha256": "9aeef7e9a4bbf0eda9db9f333f9e3e197cd65fbca32320b9d0db13b95fd7367a"
+    }
+  }
+}

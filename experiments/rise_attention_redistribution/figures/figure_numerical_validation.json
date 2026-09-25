@@ -1,0 +1,18 @@
+{
+  "state": "PASS",
+  "sample_count": 512,
+  "heads": 1,
+  "key_positions": 100,
+  "nonempty_count": 512,
+  "empty_history_count": 0,
+  "weights_reconstructed_with_fp32": true,
+  "reconstruction_max_absolute_errors": {
+    "weight_before": 1.4901161193847656e-08,
+    "weight_after": 2.9802322387695312e-08
+  },
+  "tv_max_absolute_error": 2.1886080503463745e-08,
+  "probability_sum_atol": 2e-06,
+  "softmax_atol": 2e-06,
+  "softmax_rtol": 2e-05,
+  "small_cohort_warning": false
+}

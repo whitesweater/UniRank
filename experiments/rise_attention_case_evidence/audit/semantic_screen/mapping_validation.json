@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "mapping": "encoded item_id = official final_video_id + 1; zero is padding",
+  "official_id_range": [
+    0,
+    32038724
+  ],
+  "official_id_space_source": "https://kuairand.com/figs/three-version.png",
+  "official_metadata_source": "https://zenodo.org/records/18159199/files/kuairand_video_captions.csv",
+  "processed_source": "datasets/KuaiRand_Video_Action/test/item_info/part-00000.parquet",
+  "processed_source_sha256": "e5bfa63a0a8f43be78631ac39f4a26361faab1be8d42b78871504dce52a3dfc2",
+  "preprocessing_source": "data/KuaiRand/preprocess_Kuairand_seq_action.py",
+  "preprocessing_sha256": "ce2f090ea2ec55a2865c00abaf9d0311f1850c82160a6c66fae4250c5a33204e",
+  "prefix_files": [
+    {
+      "path": "artifacts/rise_attention_semantic/metadata/captions_head.csv",
+      "sha256": "359c074008c3141d54890ac97e7f16968d41083513870a3bb6a1141403aec583",
+      "bytes": 131072
+    },
+    {
+      "path": "artifacts/rise_attention_semantic/metadata/captions_range_probe.part",
+      "sha256": "8c3b7b3cb676ca49fd3730695cfd34a41d1b7ee2dda6b2cf511149fb89503aed",
+      "bytes": 8388608
+    }
+  ],
+  "records": 77495,
+  "min_id": 0,
+  "max_id": 77494,
+  "csv_issues": [],
+  "invalid_duration": {
+    "missing": 14406,
+    "invalid_numeric": 372
+  },
+  "valid_duration_records": 62717,
+  "matched_records": 44382,
+  "duration_agreement": 1.0,
+  "observed_duration_label_to_code": {
+    "7-15s": 2,
+    "60s+": 1,
+    "3-7s": 6,
+    "30-60s": 4,
+    "15-30s": 3,
+    "0-3s": 7
+  },
+  "duration_joint_counts": [
+    {
+      "label": "7-15s",
+      "encoded_code": 2,
+      "n": 9911
+    },
+    {
+      "label": "60s+",
+      "encoded_code": 1,
+      "n": 19220
+    },
+    {
+      "label": "3-7s",
+      "encoded_code": 6,
+      "n": 1968
+    },
+    {
+      "label": "30-60s",
+      "encoded_code": 4,
+      "n": 6454
+    },
+    {
+      "label": "15-30s",
+      "encoded_code": 3,
+      "n": 6825
+    },
+    {
+      "label": "0-3s",
+      "encoded_code": 7,
+      "n": 4
+    }
+  ],
+  "shifted_join_controls": [
+    {
+      "offset_from_correct_join": -1,
+      "n": 43406,
+      "agree": 11711,
+      "agreement": 0.2698014099433258
+    },
+    {
+      "offset_from_correct_join": 1,
+      "n": 43376,
+      "agree": 11683,
+      "agreement": 0.26934249354481743
+    }
+  ],
+  "scope": "Bounded prefix and one existing processed test item table; no model input changed.",
+  "limitations": [
+    "Absent duration code 5 is not inferred from this audit.",
+    "Official annotations can have empty or malformed fields; retain their raw values."
+  ]
+}

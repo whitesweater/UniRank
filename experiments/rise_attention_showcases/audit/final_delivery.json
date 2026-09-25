@@ -1,0 +1,45 @@
+{
+  "completed": true,
+  "accepted_examples": [
+    416,
+    24
+  ],
+  "secondary_explanatory_roles": {
+    "416": "negative historical evidence and local prediction effect",
+    "24": "local attention order reversal; small local prediction effect"
+  },
+  "tested_but_not_main": [
+    155
+  ],
+  "job_id": "646610",
+  "new_datasets": 0,
+  "new_training_jobs": 0,
+  "files_sha256": {
+    "experiments/rise_attention_showcases/README.md": "481726de1c9242fd262e6fb1c1a8c00d8c91cd61da6c8d0991d079ed986720f9",
+    "experiments/rise_attention_showcases/audit/food_pdf_check.png": "504bae81c71b1f5100050d39e16764d7b128005f64ddc2b5357ee074d9aabd42",
+    "experiments/rise_attention_showcases/audit/negative_pdf_check.png": "6e81bb170e6ac9d016cbb05412e696444266ba5dddd7f9b06f93de6e18e39b20",
+    "experiments/rise_attention_showcases/figures/case_data.json": "41f3bba5903d507b40ad18b1127dda4590d4499b7220f411fe8766567ac1a453",
+    "experiments/rise_attention_showcases/figures/figure_qa.json": "f5e8b23409105b390acc7512f39ec6d341c5c6f26690f57ed66ff3ebbe0dd4aa",
+    "experiments/rise_attention_showcases/figures/local_order_24.pdf": "0ba3b8b1646ce5b5706c6db908d10dee78ef656ffb78fea72e202dcfbc9e5986",
+    "experiments/rise_attention_showcases/figures/local_order_24.png": "bb8f03aed10774d0ef0e7b8cd48419ba7585ca0e4e51c0575acd738e6ac84b2c",
+    "experiments/rise_attention_showcases/figures/local_order_24.svg": "d1d1689cf9d3b675868d62ecc480f4ad3b1e1a1cd0841e1160f0fc308d8d766c",
+    "experiments/rise_attention_showcases/figures/negative_evidence_416.pdf": "9cd45258fedae98c3bbb582076f01a2e6a8537bba7e2004ceac830bc0f619535",
+    "experiments/rise_attention_showcases/figures/negative_evidence_416.png": "62b2ff6fd64d8ce6ae072db67a7a44db4f4098f4638221670f0288357b45d533",
+    "experiments/rise_attention_showcases/figures/negative_evidence_416.svg": "52bd2fac6cbcc14ce190ef357f126ee670e7f73174ce24d3362a8e60ab69368c",
+    "experiments/rise_attention_showcases/figures/source_caption_records.json": "3d53d9d8019eec18860fc88bca15dcdd815816149d6cbca4a7599ad9e3309c60",
+    "experiments/rise_attention_showcases/groups.json": "4d79c18621e9c41196e6523d867ed40e6a943baf92d83e1d5b1143a8f228c004",
+    "experiments/rise_attention_showcases/protocol.md": "9d08d737a6f12db8f99a22de2ba4ed48a137f782d2a4a7b9226ff09eff789efe",
+    "experiments/rise_attention_showcases/report.md": "8258f8ee4bcc1ce92f52ae5f42d944edd48c3d5640e960c940eaf3bdff74b30f",
+    "experiments/rise_attention_showcases/results/case_decisions.csv": "4a853df40273561eceea9212885a693b8ea28e77a459659c5553a4ecb4940e55",
+    "experiments/rise_attention_showcases/results/complete.json": "752203a3551134510408e55588247d3e30fe04ddcc2ad73d400dfbc28b92879e",
+    "experiments/rise_attention_showcases/results/gates.json": "49da739a69b6e8d81bce449da1558392ab7bde6b4f80ee0581cb730163c8b0ed",
+    "experiments/rise_attention_showcases/results/group_mass.csv": "cdef78bdf98b465a18ada0254b340112f67f5ccccb40700ea6e33769833b0be7",
+    "experiments/rise_attention_showcases/results/groups.json": "4d79c18621e9c41196e6523d867ed40e6a943baf92d83e1d5b1143a8f228c004",
+    "experiments/rise_attention_showcases/results/independent_audit.json": "1004219337e6c4e9871ac1e4ca1c6ed74bfb507e5afe616b229e848fd5d6e625",
+    "experiments/rise_attention_showcases/results/manifest.json": "a5c8bcf5a26aeb8fbe349b8fb3dabebed4c19031b3b156ccc5126efb97fb29e3",
+    "experiments/rise_attention_showcases/results/predictions.csv": "b12ceb074db1ad56436d25a4c2f94ce4e8414c3b61de86947cd15ffd1948b298",
+    "experiments/rise_attention_showcases/results/scheduler_accounting.txt": "468aa0e09aaae1078f7295da42b6d2dc1eb7ee0c8a12b58cb5c9c475f9237b9b",
+    "scripts/audit_rise_showcase_probe.py": "3c9cdfced7fce16dce15af3dd36abb85b353c1e3dd05d38be1d8a341875b3bf0",
+    "scripts/plot_rise_showcases.py": "499072c2194e9c5ecf619ac36db8fd05bd45de49ef019a9084b0fcc2f669c2ff"
+  }
+}

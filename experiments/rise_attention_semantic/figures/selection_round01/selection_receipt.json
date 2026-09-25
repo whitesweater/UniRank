@@ -1,0 +1,176 @@
+{
+  "mode": "selection_only",
+  "task": "is_click",
+  "positive_label_only": true,
+  "gain_epsilon": 1e-06,
+  "median_rule": "nearest within-direction median; ties part_id,row_offset,sample_index",
+  "readability_rule": "caption then cover text; at least 4 alphanumeric characters",
+  "annotation_skips": [],
+  "selected": [],
+  "pending_requests": [
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 1133814,
+      "final_video_id": 1133813,
+      "role": "target",
+      "history_position_zero_based": -1,
+      "duration_bucket": 2
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 959138,
+      "final_video_id": 959137,
+      "role": "history",
+      "history_position_zero_based": 99,
+      "duration_bucket": 3
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 3252577,
+      "final_video_id": 3252576,
+      "role": "history",
+      "history_position_zero_based": 97,
+      "duration_bucket": 3
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 1038022,
+      "final_video_id": 1038021,
+      "role": "history",
+      "history_position_zero_based": 98,
+      "duration_bucket": 1
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 709914,
+      "final_video_id": 709913,
+      "role": "history",
+      "history_position_zero_based": 9,
+      "duration_bucket": 3
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 3204198,
+      "final_video_id": 3204197,
+      "role": "history",
+      "history_position_zero_based": 33,
+      "duration_bucket": 1
+    },
+    {
+      "group": "improved",
+      "rank": 1,
+      "sample_index": 330,
+      "encoded_item_id": 1939039,
+      "final_video_id": 1939038,
+      "role": "history",
+      "history_position_zero_based": 25,
+      "duration_bucket": 2
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 1563090,
+      "final_video_id": 1563089,
+      "role": "target",
+      "history_position_zero_based": -1,
+      "duration_bucket": 4
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 365595,
+      "final_video_id": 365594,
+      "role": "history",
+      "history_position_zero_based": 98,
+      "duration_bucket": 1
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 3371681,
+      "final_video_id": 3371680,
+      "role": "history",
+      "history_position_zero_based": 97,
+      "duration_bucket": 1
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 3348504,
+      "final_video_id": 3348503,
+      "role": "history",
+      "history_position_zero_based": 96,
+      "duration_bucket": 3
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 2359400,
+      "final_video_id": 2359399,
+      "role": "history",
+      "history_position_zero_based": 29,
+      "duration_bucket": 2
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 3226885,
+      "final_video_id": 3226884,
+      "role": "history",
+      "history_position_zero_based": 25,
+      "duration_bucket": 4
+    },
+    {
+      "group": "degraded",
+      "rank": 1,
+      "sample_index": 18,
+      "encoded_item_id": 1335756,
+      "final_video_id": 1335755,
+      "role": "history",
+      "history_position_zero_based": 19,
+      "duration_bucket": 3
+    }
+  ],
+  "candidate_group_counts": {
+    "improved": 100,
+    "degraded": 78
+  },
+  "sources": {
+    "raw_attention.npz": "2c3376f94e0d52f274466732bed81e38e17ceeec73f0653e2a51f48475528eef",
+    "meta.csv": "c1a4077715007b4977d5d56205b1bb78c194ce43602837348e7a1bdf5f0db850",
+    "predictions.csv": "5eb1aab7f6e5ee0f619caf0004321ae9e99e1dee5e03c8b65cc1d0fc720ec04b",
+    "manifest.json": "410883e7e654db5ee92319b9cd241d6cb14a3cce0133dda816662ebbf7da5c99",
+    "prediction_gate.json": "37f38a8cb339ac6d9123a014f010731af5056c7e8a54202257701443f6a99541",
+    "local_intervention_gate.json": "cfdb9385e6afcc64131433ef5462dec30ec2da3d131eb6ab8c138c4ad01f3474"
+  },
+  "checks": {
+    "weight_before": {
+      "normalization_max_error": 2.384185791015625e-07,
+      "reconstruction_max_error": 4.6566128730773926e-09
+    },
+    "weight_after": {
+      "normalization_max_error": 1.7881393432617188e-07,
+      "reconstruction_max_error": 2.2351741790771484e-08
+    }
+  },
+  "observation_bitwise_equal": true,
+  "n": 512
+}

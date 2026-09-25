@@ -1,0 +1,6 @@
+sample_index,position,group,item_id,final_video_id,caption,show_cover_text,display_summary,summary_kind,action_names,actions_chinese,weight_before,weight_full,weight_difference,native_score,score_delta,shown
+273,96,C,3555863,3555862,草原上的条件虽然有限，但是也要让陶陶成为村里最幸福的孕妇 #今日三农爆款  #草原美食  @快手热点(O40300129) ,,草原上的孕妇生活,human_reading_aid_not_model_input,exposure,曝光（六项反馈均为0）,0.00959837343543768,0.05079776048660278,0.04119938611984253,-0.034762345254421234,2.46875,True
+273,97,G,1032889,1032888,感觉糖大了些😂 #请开始你的表演 #萌娃日常 #美国生活 ,🇺🇸爸爸借棒棒糖骗吻😂,萌娃与棒棒糖,human_reading_aid_not_model_input,is_click,点击,0.011173494160175323,0.057314470410346985,0.04614097625017166,0.11718849092721939,2.4375,True
+273,98,G,2746103,2746102,汉武大帝27、汉景帝这一生呐喊，喊出了多少无奈 #汉武大帝 ,,《汉武大帝》片段,human_reading_aid_not_model_input,is_click|long_view,点击、长观看,0.009439441375434399,0.05932498723268509,0.049885544925928116,-0.05145907402038574,2.640625,True
+273,99,G,1409359,1409358,第十天的人类幼崽、盖上被不行、自己把脚抬起来了😂 #月子里的宝宝 ,,出生第10天的宝宝,human_reading_aid_not_model_input,is_click|long_view,点击、长观看,0.010894662700593472,0.0585661418735981,0.04767147824168205,0.09191707521677017,2.484375,True
+273,100,C,938061,938060,#教育 #育儿 #正能量,,教育、育儿标签,human_reading_aid_not_model_input,exposure,曝光（六项反馈均为0）,0.009903410449624062,0.05939072370529175,0.049487315118312836,-0.0034766504541039467,2.59375,True

@@ -1,0 +1,29 @@
+{
+  "selection_priority": [273, 154, 363],
+  "position_indexing": "zero_based",
+  "semantic_review_source": "artifacts/rise_attention_case_search/metadata/semantic_groups_frozen.json",
+  "semantic_review_sha256": "bbb5261e4f773923e9014c992a790494a77b31b4aa72bdf4c318f38b3fb49892",
+  "cases": [
+    {
+      "case_id": "pregnancy_newborn_273",
+      "sample_index": 273,
+      "related_positions": [88, 89, 95, 98],
+      "control_positions": [97],
+      "semantic_reason": "Target describes having a baby; related texts explicitly concern infant care, pregnancy and a ten-day-old newborn. Control is a historical television drama. Ambiguous older-child/education content and missing-duration records are excluded."
+    },
+    {
+      "case_id": "special_forces_154",
+      "sample_index": 154,
+      "related_positions": [96, 99],
+      "control_positions": [93, 95],
+      "semantic_reason": "Target describes special-forces training; one related history explicitly describes selection at a special-forces brigade, the other explicitly identifies a military drama. Controls concern hotpot and cloth shoes. The target does not name its series, so same-series identity is not claimed."
+    },
+    {
+      "case_id": "same_game_363",
+      "sample_index": 363,
+      "related_positions": [88, 89, 95, 96, 97],
+      "control_positions": [94, 98, 99],
+      "semantic_reason": "Related texts concern characters and gameplay of the same game as the candidate's Diaochan build; control histories concern a different game and social conversation. This is content interpretation from explicit character names, not an official relevance label."
+    }
+  ]
+}

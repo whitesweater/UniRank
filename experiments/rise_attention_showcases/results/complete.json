@@ -1,0 +1,26 @@
+{
+  "all_gates_passed": true,
+  "cases": [
+    155,
+    416,
+    24
+  ],
+  "completed": true,
+  "files_sha256": {
+    "attention_control_equal_mass.npz": "5a0cb9be4943efadf8bbb2f46f5308dfe4334a1f375d37f34ca37dcefeda8f2a",
+    "attention_full_hook.npz": "2e18f4384824aa109a2530ddf353e8f5c5e10ddec87e39f6c71c4ba91012145e",
+    "attention_position_template.npz": "0e1345bfb1b243d45de3640ccca98951c2f8ba67159d0aa8342c77aa151839c4",
+    "attention_related_equal_mass.npz": "862fb5aa392b85dc378332553960f38046dc478ab2e0879f0ec276a204fa4f00",
+    "attention_related_revert.npz": "501df7723109e4ac7d67af8bea5ebbd59e751e1ab66512174dd8cab931428033",
+    "frozen_sources/experiments/rise_attention_case_evidence/protocol.md": "fead78588a03930884e516f57b72f47f8dd1a7a5f1437abe20bf55d0199a1e85",
+    "frozen_sources/scripts/probe_rise_case_groups.py": "8c788bd70b379d538590c43f4300faa170cc13fb8c5e89a471f2911ab291f061",
+    "frozen_sources/scripts/submit_rise_case_groups.sbatch": "f54ce1953cfe9c5b772367ab98e75bfdce699bb9d86917c3c7d42718ed9c2d76",
+    "frozen_sources/tests/test_rise_case_groups.py": "a17bbf11ace47bcbe3540dd1f6107b9c0217af37a16a2a2b00b5f09bb88f3558",
+    "gates.json": "49da739a69b6e8d81bce449da1558392ab7bde6b4f80ee0581cb730163c8b0ed",
+    "group_mass.csv": "cdef78bdf98b465a18ada0254b340112f67f5ccccb40700ea6e33769833b0be7",
+    "groups.json": "4d79c18621e9c41196e6523d867ed40e6a943baf92d83e1d5b1143a8f228c004",
+    "manifest.json": "a5c8bcf5a26aeb8fbe349b8fb3dabebed4c19031b3b156ccc5126efb97fb29e3",
+    "predictions.csv": "b12ceb074db1ad56436d25a4c2f94ce4e8414c3b61de86947cd15ffd1948b298",
+    "progress.json": "addf7acad884240ae24ec72406d52e7c71d3e77338f54b995d3b30853b0341f6"
+  }
+}

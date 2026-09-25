@@ -1,0 +1,17 @@
+{
+  "review": "recency_confound",
+  "review_time": "20260924_012706",
+  "archive": "experiments/rise_attention_case_evidence/archive/20260924_012706_before_recency_review",
+  "recommendation": "Supplementary recency/local-sensitivity diagnostic only; not the main content/state-adaptive selection case.",
+  "verified_numbers": {
+    "position_template_p": 0.333984375,
+    "full_p": 0.337890625,
+    "bce_gain_reproduced_fraction": 0.9286005842846641,
+    "clicked_share_recent_before": 0.6176824382754436,
+    "clicked_share_recent_after": 0.6139076139149237,
+    "max_gain_last5": 512,
+    "diagnostic_sample_count": 512,
+    "delta_position_correlation_median": 0.8578219900141932
+  },
+  "runtime_data_and_figures_modified": false
+}

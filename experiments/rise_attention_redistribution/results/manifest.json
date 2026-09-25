@@ -1,0 +1,677 @@
+{
+  "action_vocab": {
+    "click": 1,
+    "conversion": 2,
+    "exposure": 3
+  },
+  "branch": "main",
+  "checkpoint": {
+    "bytes": 2296183079,
+    "mtime_ns": 1787674542732880000,
+    "path": "/data/user/yhao481/proj/UniRank/checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model"
+  },
+  "checkpoint_log": {
+    "bytes": 11606,
+    "mtime_ns": 1787675276722656000,
+    "path": "/data/user/yhao481/proj/UniRank/checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log"
+  },
+  "checkpoint_log_sha256": "4a19487851552d9f08759aaa576e7342ca73eea240f77977205c775a781e82c2",
+  "checkpoint_sha256": "a4a34eb4e0cb0b17f961752b583a69b0cf2d5c86019d15381d2a9ecae2206ca5",
+  "commit": "22515f5fd4fa35094e565cb23f6988d2b5cff87b",
+  "compiler_cache_reset_after_hook_registration": true,
+  "data_files": {
+    "datasets/TencentGR_10M_Action/test/data/part-00000.parquet": {
+      "bytes": 318612215,
+      "mtime_ns": 1787111828693264531,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00000.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00001.parquet": {
+      "bytes": 318340397,
+      "mtime_ns": 1787111840493467447,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00001.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00002.parquet": {
+      "bytes": 318745062,
+      "mtime_ns": 1787111843565519993,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00002.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00003.parquet": {
+      "bytes": 212726490,
+      "mtime_ns": 1787111837177410598,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00003.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00004.parquet": {
+      "bytes": 212720672,
+      "mtime_ns": 1787111842125495377,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00004.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00005.parquet": {
+      "bytes": 212505105,
+      "mtime_ns": 1787111839657453127,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00005.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00006.parquet": {
+      "bytes": 318190984,
+      "mtime_ns": 1787111851821660647,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00006.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/data/part-00007.parquet": {
+      "bytes": 213020596,
+      "mtime_ns": 1787111866449907866,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/data/part-00007.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00000.parquet": {
+      "bytes": 177123637,
+      "mtime_ns": 1787111955059354749,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00000.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00001.parquet": {
+      "bytes": 177233940,
+      "mtime_ns": 1787111961195451946,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00001.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00002.parquet": {
+      "bytes": 177168484,
+      "mtime_ns": 1787111972303626985,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00002.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00003.parquet": {
+      "bytes": 148334426,
+      "mtime_ns": 1787111959959432397,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00003.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00004.parquet": {
+      "bytes": 148306721,
+      "mtime_ns": 1787111969727586498,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00004.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00005.parquet": {
+      "bytes": 148176571,
+      "mtime_ns": 1787111965287516565,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00005.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00006.parquet": {
+      "bytes": 176960551,
+      "mtime_ns": 1787111998784039605,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00006.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/item_info/part-00007.parquet": {
+      "bytes": 148318374,
+      "mtime_ns": 1787111990179906240,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/item_info/part-00007.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00000.parquet": {
+      "bytes": 1133252400,
+      "mtime_ns": 1787337150255571666,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00000.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00001.parquet": {
+      "bytes": 1133274963,
+      "mtime_ns": 1787337024065256192,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00001.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00002.parquet": {
+      "bytes": 1133143174,
+      "mtime_ns": 1787337080460399138,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00002.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00003.parquet": {
+      "bytes": 754075546,
+      "mtime_ns": 1787337029969157936,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00003.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00004.parquet": {
+      "bytes": 754118749,
+      "mtime_ns": 1787337196075153819,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00004.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00005.parquet": {
+      "bytes": 753862770,
+      "mtime_ns": 1787337263810697661,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00005.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00006.parquet": {
+      "bytes": 1133727402,
+      "mtime_ns": 1787337505206324564,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00006.parquet"
+    },
+    "datasets/TencentGR_10M_Action/test/user_info/part-00007.parquet": {
+      "bytes": 754755080,
+      "mtime_ns": 1787337416506265417,
+      "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/test/user_info/part-00007.parquet"
+    }
+  },
+  "dataset": "TencentGR_10M_Action",
+  "device": {
+    "capability": [
+      9,
+      0
+    ],
+    "cuda_build": "12.6",
+    "cuda_visible_devices": "0",
+    "float32_matmul_precision": "high",
+    "name": "NVIDIA H100 80GB HBM3",
+    "node": "ACD1-63",
+    "torch": "2.8.0+cu126",
+    "total_memory": 85009367040,
+    "uuid": "164572cb-6868-a5e1-b032-dccb6efaf476"
+  },
+  "examples": 512,
+  "frozen_input_files": {
+    "frozen_inputs/checkpoint.log": "4a19487851552d9f08759aaa576e7342ca73eea240f77977205c775a781e82c2",
+    "frozen_inputs/meta_data.json": "a32bdac75e0ca2fb04260d87ff243c812a405fdbc7a758e46a29b7c8e7dc6683"
+  },
+  "full_forward_rows_per_route": 131072,
+  "git_status": " M AGENTS.md\n M README.md\n M experiments/README.md\n M experiments/ablations/README.md\n M experiments/ablations/sisa_score_dim/README.md\n M experiments/ablations/sisa_score_dim/archive/reports/generated_report.md\n M experiments/ablations/sisa_score_dim/notes/completion_audit.json\n M experiments/ablations/sisa_score_dim/notes/current_status.json\n M experiments/ablations/sisa_score_dim/notes/final_validation.json\n M experiments/ablations/sisa_score_dim/notes/runtime_artifact_inventory.csv\n M experiments/ablations/sisa_score_dim/report.md\n M experiments/ablations/sisa_score_dim/results/comparisons.csv\n M experiments/ablations/sisa_score_dim/results/evidence.json\n M experiments/ablations/sisa_score_dim/results/job_index.csv\n M experiments/ablations/sisa_score_dim/results/label_metrics.csv\n M experiments/ablations/sisa_score_dim/results/runs.csv\n M experiments/onetrans_seed_completion/README.md\n M experiments/onetrans_seed_completion/report.md\n M experiments/onetrans_seed_completion/results/README.md\n M experiments/sisa_paper_report/report.md\n M scripts/build_sisa_score_dim_report.py\n M scripts/collect_sisa_score_dim_results.py\n M tests/test_sisa_score_dim.py\n?? document.pdf\n?? experiments/ablations/sisa_score_dim/archive/pre_three_run_reference/\n?? experiments/ablations/sisa_score_dim/results/run_label_metrics.csv\n?? experiments/ablations/sisa_score_dim/results/summary.csv\n?? experiments/rise_attention_redistribution/\n?? experiments/rise_sample_analysis/\n?? experiments/sisa_seed_variability_20260923/\n?? scripts/audit_rise_attention_redistribution.py\n?? scripts/export_rise_attention_redistribution.py\n?? scripts/plot_rise_attention_redistribution.py\n?? scripts/submit_rise_attention_redistribution.sbatch\n?? tests/test_rise_attention_redistribution.py\n",
+  "head": 0,
+  "historical_cross_batch_atol": 0.0005,
+  "historical_cross_batch_rtol": 0.005,
+  "historical_metrics": {
+    "is_click": {
+      "AUC": 0.851302,
+      "logloss": 0.04341
+    },
+    "is_conversion": {
+      "AUC": 0.890414,
+      "logloss": 0.01718
+    }
+  },
+  "independent_baseline_comparison": false,
+  "inference_batch_size": 16384,
+  "metadata_file": {
+    "bytes": 6554,
+    "mtime_ns": 1787111619317333431,
+    "path": "/data/user/yhao481/proj/UniRank/datasets/TencentGR_10M_Action/meta_data.json"
+  },
+  "metadata_sha256": "a32bdac75e0ca2fb04260d87ff243c812a405fdbc7a758e46a29b7c8e7dc6683",
+  "model": "HiFormer",
+  "population_representative": false,
+  "reconstruction": "FP32 softmax from actual compiled Q/K/Delta; pre-dropout; native hard mask",
+  "reference_record": {
+    "array_job": "548166",
+    "attempt": "1",
+    "checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+    "complete": "True",
+    "completion_marker": "True",
+    "dataloader_seed": "2027",
+    "dataset": "TencentGR_10M_Action",
+    "error_class": "none",
+    "error_classes": "",
+    "error_count": "0",
+    "exit_code": "0:0",
+    "finite_test_metrics": "True",
+    "global_batch": "32768",
+    "gpu_count": "2",
+    "gpu_name": "NVIDIA H100 80GB HBM3",
+    "h100_valid": "True",
+    "host": "ACD1-19",
+    "incomplete_reasons": "",
+    "job_task_id": "548166_14",
+    "metrics_json": "{\"is_click\": {\"AUC\": 0.851302, \"logloss\": 0.04341}, \"is_conversion\": {\"AUC\": 0.890414, \"logloss\": 0.01718}}",
+    "model": "HiFormer",
+    "per_gpu_batch": "16384",
+    "protocol": "ws2_bs16384_acc1",
+    "protocol_valid": "True",
+    "seed": "20262028",
+    "setting": "sisa",
+    "sisa_parameter_seed": "20260822",
+    "slurm_log": "logs/unirank-sisa-seed20262028-ws2-548166_14.out",
+    "state": "COMPLETED",
+    "state_source": "sacct",
+    "task_id": "14",
+    "world_size": "2"
+  },
+  "same_checkpoint_local_comparison": true,
+  "sample_seed": 20260923,
+  "samples_per_part": 64,
+  "sampling": "SHA256 priorities within first 16384 retained rows of each of 8 test parts",
+  "sampling_frame": [
+    {
+      "formal_retained_rows": 22970368,
+      "part_id": 0,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 22953984,
+      "part_id": 1,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 22970368,
+      "part_id": 2,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 15335424,
+      "part_id": 3,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 15319040,
+      "part_id": 4,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 15319040,
+      "part_id": 5,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 22937600,
+      "part_id": 6,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    },
+    {
+      "formal_retained_rows": 15351808,
+      "part_id": 7,
+      "selected_rows": 64,
+      "window_rows": 16384,
+      "window_start": 0
+    }
+  ],
+  "schema_version": 1,
+  "seed": 20262028,
+  "site": "attention_layers.dot_attention",
+  "source_sha256": {
+    "experiments/rise_attention_redistribution/protocol.md": "cfb81ea7f89df8eda7942f5638bd2cdf8d5b4e9732edf1954c46cd3cc7dbb47b",
+    "experiments/rise_sample_analysis/scripts/export_hiformer_predictions.py": "e704b5fa30e09a494c568e0c5c6cdcb7686b0cc984ac86bf8593e0b6e0cd5107",
+    "experiments/rise_sample_analysis/scripts/export_predictions.py": "faa38a594284ee2331f5c6f74503a0cff9f892d0bbab12eb2f289ac7beb44995",
+    "experiments/rise_sample_analysis/scripts/observe_mechanism.py": "e5b36ed694454a40d6f7468652b2716f9de05f8f3812b4b8f274218351251f4d",
+    "model_zoo/EST.py": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+    "model_zoo/HeMix.py": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+    "model_zoo/HiFormer.py": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+    "model_zoo/HyFormer.py": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+    "model_zoo/INFNet.py": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+    "model_zoo/LONGER.py": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+    "model_zoo/MixFormer.py": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+    "model_zoo/OneTrans.py": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+    "model_zoo/RankMixer.py": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+    "model_zoo/SSR.py": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+    "model_zoo/TokenFormer.py": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+    "model_zoo/TokenMixer.py": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+    "model_zoo/UltraHSTU.py": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+    "model_zoo/UniMixer.py": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+    "model_zoo/Zenith.py": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+    "model_zoo/__init__.py": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+    "pyproject.toml": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+    "scripts/export_rise_attention_redistribution.py": "da43dabf545b691deac3da2ae8d5b0eca40cb0f804f61c65060bcc1346b09799",
+    "unirank/__init__.py": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+    "unirank/features.py": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+    "unirank/metrics.py": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+    "unirank/preprocess/__init__.py": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+    "unirank/preprocess/build_dataset.py": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+    "unirank/preprocess/feature_processor.py": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+    "unirank/preprocess/normalizer.py": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+    "unirank/preprocess/tokenizer.py": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+    "unirank/pytorch/__init__.py": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+    "unirank/pytorch/dataloaders/__init__.py": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+    "unirank/pytorch/dataloaders/rank_dataloader.py": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+    "unirank/pytorch/dataloaders/unirank_dataloader.py": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+    "unirank/pytorch/layers/__init__.py": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+    "unirank/pytorch/layers/activations.py": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+    "unirank/pytorch/layers/attentions/__init__.py": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+    "unirank/pytorch/layers/attentions/dot_product_attention.py": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+    "unirank/pytorch/layers/attentions/sisa.py": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+    "unirank/pytorch/layers/attentions/target_attention.py": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+    "unirank/pytorch/layers/blocks/__init__.py": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+    "unirank/pytorch/layers/blocks/mlp_block.py": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+    "unirank/pytorch/layers/embeddings/__init__.py": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+    "unirank/pytorch/layers/embeddings/feature_embedding.py": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+    "unirank/pytorch/layers/embeddings/pretrained_embedding.py": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+    "unirank/pytorch/layers/interactions/__init__.py": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+    "unirank/pytorch/layers/interactions/per_token_ffn.py": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+    "unirank/pytorch/layers/interactions/token_mix.py": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+    "unirank/pytorch/layers/pooling.py": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+    "unirank/pytorch/layers/tokenization/__init__.py": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+    "unirank/pytorch/layers/tokenization/auto_split_tokenizer.py": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+    "unirank/pytorch/layers/tokenization/chunk_tokenizer.py": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+    "unirank/pytorch/layers/tokenization/field_wise_tokenizer.py": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+    "unirank/pytorch/layers/tokenization/random_split_tokenizer.py": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+    "unirank/pytorch/layers/tokenization/unified_tokenizer.py": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+    "unirank/pytorch/models/__init__.py": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+    "unirank/pytorch/models/multitask_model.py": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+    "unirank/pytorch/models/rank_model.py": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+    "unirank/pytorch/torch_utils.py": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+    "unirank/utils.py": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+    "uv.lock": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb"
+  },
+  "strict_capture_atol": 0,
+  "strict_capture_rtol": 0,
+  "training_params": {
+    "accumulation_steps": 1,
+    "attention_dropout": 0,
+    "batch_size": 16384,
+    "block_cache_size": 2,
+    "blocked": true,
+    "data_format": "parquet",
+    "data_root": "./datasets",
+    "dataloader_seed": 2027,
+    "dataset_id": "TencentGR_10M_Action",
+    "debug_mode": false,
+    "dense_learning_rate": 0.0001,
+    "dense_optimizer": "AdamW",
+    "dense_weight_decay": 0,
+    "distributed": true,
+    "early_stop_patience": 2,
+    "embedding_dim": 16,
+    "enable_bf16": true,
+    "enable_torch_compile": true,
+    "epochs": 1,
+    "eval_steps": null,
+    "expansion_factor": 2,
+    "feature_cols": [
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "seq_len",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_id",
+        "type": "categorical",
+        "vocab_size": 7706779
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_id",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 17487677
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "100",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 7
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "101",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 54
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "102",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 173463
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "112",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 31
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "114",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 34
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "115",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 989
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "116",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 21
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "117",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 559
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "118",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 1637
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "119",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 4951
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "120",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 4046
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "121",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 5041300
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "122",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 2389
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "103",
+        "type": "categorical",
+        "vocab_size": 88
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "104",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "105",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "109",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "106",
+        "type": "sequence",
+        "vocab_size": 15
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "107",
+        "type": "sequence",
+        "vocab_size": 20
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "108",
+        "type": "sequence",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "110",
+        "type": "sequence",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "day_of_week",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_weekend",
+        "type": "categorical",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "hour",
+        "type": "categorical",
+        "vocab_size": 25
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "action",
+        "source": "action",
+        "type": "categorical",
+        "vocab_size": 4
+      }
+    ],
+    "feature_config": null,
+    "feature_specs": null,
+    "gpu": 0,
+    "gradient_checkpointing": false,
+    "group_id": "user_index",
+    "label_col": [
+      {
+        "dtype": "float",
+        "name": "is_click"
+      },
+      {
+        "dtype": "float",
+        "name": "is_conversion"
+      }
+    ],
+    "local_rank": 0,
+    "loss": [
+      "binary_crossentropy",
+      "binary_crossentropy"
+    ],
+    "max_len": 100,
+    "metrics": [
+      "logloss",
+      "AUC"
+    ],
+    "model": "HiFormer",
+    "model_id": "SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+    "model_root": "./checkpoints/",
+    "monitor": {
+      "AUC": 1,
+      "logloss": 0
+    },
+    "monitor_mode": "max",
+    "net_dropout": 0,
+    "num_heads": 2,
+    "num_layers": 3,
+    "num_tasks": 2,
+    "num_workers": 4,
+    "pickle_feature_encoder": true,
+    "qkv_rank": 256,
+    "rank": 0,
+    "rebuild_dataset": false,
+    "save_best_only": true,
+    "seed": 20262028,
+    "shuffle": true,
+    "sisa_enabled": true,
+    "sisa_lambda_init": 0.1,
+    "sisa_parameter_seed": 20260822,
+    "sisa_score_dim": 16,
+    "sisa_score_scale": 1.0,
+    "sparse_learning_rate": 0.05,
+    "sparse_optimizer": "Adagrad",
+    "task": "binary_classification",
+    "test_data": "./datasets/TencentGR_10M_Action/test/data",
+    "test_item_info": "./datasets/TencentGR_10M_Action/test/item_info",
+    "test_user_info": "./datasets/TencentGR_10M_Action/test/user_info",
+    "token_dim": 256,
+    "tower_activations": "ReLU",
+    "tower_hidden_units": [
+      128,
+      64
+    ],
+    "train_data": "./datasets/TencentGR_10M_Action/train/data",
+    "train_item_info": "./datasets/TencentGR_10M_Action/train/item_info",
+    "train_user_info": "./datasets/TencentGR_10M_Action/train/user_info",
+    "use_features": null,
+    "valid_data": "./datasets/TencentGR_10M_Action/valid/data",
+    "valid_item_info": "./datasets/TencentGR_10M_Action/valid/item_info",
+    "valid_user_info": "./datasets/TencentGR_10M_Action/valid/user_info",
+    "verbose": 1,
+    "world_size": 2
+  },
+  "unique_users": 474
+}

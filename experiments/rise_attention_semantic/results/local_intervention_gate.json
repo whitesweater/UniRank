@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "scope": "All 512 selected interactions, all actual heads; Q/K/V dtype, shape and raw bytes",
+  "selected_qkv_bitwise_equal": true,
+  "site_structure_equal": true
+}

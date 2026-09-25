@@ -1,0 +1,34 @@
+{
+  "atol": 0,
+  "bitwise_equal": true,
+  "full_forward_predictions_bitwise_equal": true,
+  "full_forward_rows": 131072,
+  "labels": {
+    "is_click": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_comment": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_follow": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_forward": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_like": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    },
+    "long_view": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0
+    }
+  },
+  "passed": true,
+  "rtol": 0
+}

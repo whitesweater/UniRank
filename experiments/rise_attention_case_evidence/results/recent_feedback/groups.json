@@ -1,0 +1,62 @@
+{
+  "study_stage": "exploratory_followup_to_failed_topic_groups",
+  "phase1_job": "646549",
+  "selection_priority": [
+    273,
+    154,
+    363
+  ],
+  "active_protocol": "experiments/rise_attention_case_evidence/behavior_protocol.md",
+  "active_protocol_sha256": "8045bef1f9ef455317907a79c053e8f813d61af1200b29435152cefc3527a2ac",
+  "position_indexing": "zero_based",
+  "cases": [
+    {
+      "case_id": "recent_clicked_273",
+      "sample_index": 273,
+      "related_positions": [
+        96,
+        97,
+        98
+      ],
+      "control_positions": [
+        95,
+        99
+      ],
+      "semantic_reason": "Stage 2 behavior groups: last 5 valid histories, is_click present versus absent; topic relation is not a group criterion.",
+      "group_mean_position_1based": 98.0,
+      "control_mean_position_1based": 98.0
+    },
+    {
+      "case_id": "recent_clicked_154",
+      "sample_index": 154,
+      "related_positions": [
+        95,
+        96,
+        97,
+        98
+      ],
+      "control_positions": [
+        99
+      ],
+      "semantic_reason": "Stage 2 behavior groups: last 5 valid histories, is_click present versus absent; topic relation is not a group criterion.",
+      "group_mean_position_1based": 97.5,
+      "control_mean_position_1based": 100.0
+    },
+    {
+      "case_id": "recent_clicked_363",
+      "sample_index": 363,
+      "related_positions": [
+        95,
+        96,
+        98,
+        99
+      ],
+      "control_positions": [
+        97
+      ],
+      "semantic_reason": "Stage 2 behavior groups: last 5 valid histories, is_click present versus absent; topic relation is not a group criterion.",
+      "group_mean_position_1based": 98.0,
+      "control_mean_position_1based": 98.0
+    }
+  ]
+}

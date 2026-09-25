@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "selected_case_sample_indices": [
+    443,
+    426
+  ],
+  "requested_item_ids": [
+    430552,
+    527518,
+    549656,
+    638202,
+    697405,
+    1091822,
+    1451547,
+    1712614,
+    1855600,
+    2026287,
+    2834713,
+    2992961,
+    3907664,
+    4039002
+  ],
+  "records_requested": 14,
+  "records_usable": 14,
+  "all_exact_ids_verified": true,
+  "all_overlapping_records_equal": true,
+  "all_displayed_duration_buckets_verified": true,
+  "request_sources": [
+    {
+      "path": "experiments/rise_attention_semantic/figures/selection_round02/requested_item_ids.json",
+      "sha256": "8ce115f5f2adbd9f4cec30eaddcc58bfbf070844713195a288d829f14fce211d"
+    },
+    {
+      "path": "experiments/rise_attention_semantic/figures/selection_round02/requested_metadata.csv",
+      "sha256": "331d4ef1e26e2e2e4aae4b4c8e759db85c6d443c49277c2855ac20b573329afc"
+    }
+  ],
+  "source_identity": {
+    "url": "https://zenodo.org/records/18159199/files/kuairand_video_captions.csv",
+    "last_modified": "Tue, 06 Jan 2026 07:36:57 GMT",
+    "total_bytes": 3222932768,
+    "tls_verification": true,
+    "official_md5_not_locally_verified": "9fd4e7587ffd0c8dc289d013858fb229"
+  },
+  "source_identity_rechecked_after_lookup": true,
+  "mapping_receipt_sha256": "6a403cb3c2341419264d91f808400268e5ba1b8387f986148a11449b25694ead",
+  "reproduction_script_sha256": "a5e370aaf2033940bc32858ddb80a5b1188f5c324b2376c6bdc188335a1cacb0",
+  "output_files": [
+    {
+      "path": "artifacts/rise_attention_semantic/metadata/selected_captions.json",
+      "sha256": "1720960084dddda5ced1f6d98d630dbd67b63955d2699ae0a6659d72917d45d2"
+    },
+    {
+      "path": "artifacts/rise_attention_semantic/metadata/selected_captions.csv",
+      "sha256": "479cab23a287d05c50a6e852d25f5f783714e3a466f4c52416c461d6a7508392"
+    },
+    {
+      "path": "artifacts/rise_attention_semantic/metadata/range_receipts.json",
+      "sha256": "6757b5f1f868893aff458e76541e439a58c8a1d1f4de279a3ed3b7874d5564b4"
+    }
+  ],
+  "scope": "14 displayed records; complete official 3.2 GB file MD5 not locally verified",
+  "previous_round": {
+    "sample_indices": [
+      330,
+      18
+    ],
+    "skipped_missing_caption_and_cover_item_ids": [
+      1939039,
+      1563090
+    ],
+    "recorded_in": "experiments/rise_attention_semantic/figures/selection_round01"
+  },
+  "caption_source_hash_matches_figure_receipt": true
+}

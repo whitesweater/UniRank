@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "command": ".venv/bin/python -m unittest discover -s tests -p test_rise_attention_redistribution.py -v",
+  "tests_run": 16,
+  "unittest_elapsed_seconds": 5.731,
+  "exit_code": 0,
+  "result": "OK",
+  "evidence_type": "receipt_from_observed_tool_output",
+  "raw_log_saved": false,
+  "recorded_at_utc": "2026-09-23T15:09:46.407358+00:00",
+  "test_file": "tests/test_rise_attention_redistribution.py",
+  "test_file_sha256": "09100dda7f799a7a992cf182ca0ca41b7374f2f1f278925d872741792aea2a6e",
+  "new_regression": "test_capture_route_recompiles_cached_plain_graph_and_preserves_predictions",
+  "new_regression_description": "Real CPU torch.compile backend=eager, SDPA, Capture and run_route; a plain compiled forward precedes capture on a fresh model of the same class. Captured predictions must be bitwise equal and selected attention arrays must equal direct reconstruction. Only checkpoint loading is replaced with construction of the small compiled model.",
+  "independent_reproduction": {
+    "without_reset_capture_entries": 0,
+    "with_reset_capture_entries": 1,
+    "predictions_equal": true
+  },
+  "scope": "CPU regression; compiled BF16 GPU acceptance is independently recorded for job 646303."
+}

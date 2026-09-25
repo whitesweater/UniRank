@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "method": "Viewed both final exported PNG images after last layout edit; also checked text bounding boxes, portable SVG paths and embedded PDF fonts.",
+  "inspected_pngs": {
+    "semantic_improved.png": "ceb32f20e0406b114de4c9746593b59a94e3288d653cda2a31259883276b93e9",
+    "semantic_degraded.png": "1becfb327172dd72b955eda3761fdb9bbe10bf4072de557562da400c71976bee"
+  },
+  "checks": {
+    "real_matplotlib_line_legend_not_missing_unicode_glyph": true,
+    "cjk_text_readable": true,
+    "candidate_and_history_text_from_official_source": true,
+    "complete_text_saved_in_csv": true,
+    "neutral_gray_and_blue_not_green_red_good_bad": true,
+    "axis_origin_zero": true,
+    "same_weight_axis_across_cases": true,
+    "numeric_labels_match_source": true,
+    "no_text_collisions_or_clipping": true,
+    "history_actions_separated_from_next_position_header": true,
+    "other_94_keys_not_renormalized": true,
+    "bce_and_probability_direction_agree_with_click_label": true,
+    "fixed_model_local_comparison_not_trained_baseline": true,
+    "increased_weight_not_claimed_ground_truth_relevance": true,
+    "font_independent_svg_paths": true,
+    "pdf_fonts_embedded": true
+  },
+  "selected_samples": {
+    "improved": 443,
+    "degraded": 426
+  },
+  "source_numeric_qa_sha256": "7ffac976637a433c22878ff89e604c8079628af1863a300297fba7375734cead",
+  "script_sha256": "3806671f40674f23ec2aff1eacdc3777d2ead5a6c155a6c80258bd94ea48cbce",
+  "pdf_render_check": {
+    "status": "PASS",
+    "image": "experiments/rise_attention_semantic/audit/semantic_improved_pdf_check.png",
+    "image_sha256": "f5496847765ff152f8841dbd404a617ff2c080e6d141d4364ffe2577c0fde3f1",
+    "renderer": "pdftoppm",
+    "visually_inspected": true,
+    "stderr_note": "Poppler reports a font type versus embedded-file mismatch for the Noto CFF font; both font subsets are embedded and the actual PDF rasterization was visually inspected without missing or malformed CJK text."
+  }
+}

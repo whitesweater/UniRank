@@ -1,0 +1,11 @@
+{
+  "capture_bitwise_equal": true,
+  "empty_examples": 0,
+  "examples": 512,
+  "formal_test_metrics_recomputed": false,
+  "interpretation": "Descriptive local sensitivity on fixed diagnostic interactions; no population gain or causal content attribution claim",
+  "nonempty_examples": 512,
+  "tv_mean": 0.4313819408416748,
+  "tv_median": 0.4320460259914398,
+  "unique_users": 92
+}

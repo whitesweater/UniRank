@@ -1,0 +1,15 @@
+group,rank,sample_index,encoded_item_id,final_video_id,role,history_position_zero_based,duration_bucket
+improved,2,443,549656,549655,target,-1,3
+improved,2,443,1712614,1712613,history,99,2
+improved,2,443,3907664,3907663,history,98,1
+improved,2,443,430552,430551,history,97,4
+improved,2,443,2026287,2026286,history,22,2
+improved,2,443,1855600,1855599,history,20,1
+improved,2,443,527518,527517,history,19,4
+degraded,2,426,1451547,1451546,target,-1,6
+degraded,2,426,638202,638201,history,98,3
+degraded,2,426,4039002,4039001,history,99,6
+degraded,2,426,2834713,2834712,history,97,1
+degraded,2,426,2992961,2992960,history,56,4
+degraded,2,426,697405,697404,history,13,2
+degraded,2,426,1091822,1091821,history,52,4

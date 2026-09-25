@@ -1,0 +1,78 @@
+{
+  "requested_item_ids": [
+    25226,
+    117043,
+    340602,
+    530145,
+    602512,
+    603955,
+    618412,
+    877888,
+    923490,
+    938061,
+    1032889,
+    1409359,
+    1677624,
+    1708296,
+    1772385,
+    1842865,
+    1923849,
+    1956315,
+    2160198,
+    2297449,
+    2438821,
+    2746103,
+    2751585,
+    2853559,
+    3381060,
+    3493465,
+    3521700,
+    3543820,
+    3555863,
+    3601662,
+    3612310,
+    4108265,
+    4158122,
+    4249660,
+    4287048,
+    4326001
+  ],
+  "request_sources": [
+    {
+      "path": "artifacts/rise_attention_case_search/metadata/requested_ids.json",
+      "sha256": "f2da8f0b4cd55781884e30d9a00199a67c2aee1382c2b709bb01c2950edbf0b3"
+    },
+    {
+      "path": "artifacts/rise_attention_case_search/metadata/requested_tokens.csv",
+      "sha256": "2a05be67e55db8d73a4cc8fb52717a2dacd3630e631b55858c00b86bc9679dc6"
+    }
+  ],
+  "records_requested": 36,
+  "records_usable": 32,
+  "all_exact_ids_verified": true,
+  "source_identity": {
+    "url": "https://zenodo.org/records/18159199/files/kuairand_video_captions.csv",
+    "last_modified": "Tue, 06 Jan 2026 07:36:57 GMT",
+    "total_bytes": 3222932768,
+    "tls_verification": true,
+    "official_md5_not_locally_verified": "9fd4e7587ffd0c8dc289d013858fb229"
+  },
+  "source_identity_rechecked_after_lookup": true,
+  "mapping_receipt_sha256": "6a403cb3c2341419264d91f808400268e5ba1b8387f986148a11449b25694ead",
+  "lookup_script_sha256": "a5e370aaf2033940bc32858ddb80a5b1188f5c324b2376c6bdc188335a1cacb0",
+  "output_files": [
+    {
+      "path": "artifacts/rise_attention_case_search/metadata/selected_captions.json",
+      "sha256": "31892e220cd380e80f743b1ab1e591489037f7c0eb1f25e9900cdc163c32bdf7"
+    },
+    {
+      "path": "artifacts/rise_attention_case_search/metadata/selected_captions.csv",
+      "sha256": "e5416dda049cbc527e723ba496a86a09f0b220f74a9429df97c1f1ede0d6db01"
+    },
+    {
+      "path": "artifacts/rise_attention_case_search/metadata/range_receipts.json",
+      "sha256": "aa89b245591a9cb41ad199a3879f00bdc6e5bdfe791c2ecdc9cd1bd8be91ec8f"
+    }
+  ],
+  "scope": "Requested records and cached HTTP ranges only; complete file MD5 not verified."
+}

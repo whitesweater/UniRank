@@ -1,0 +1,55 @@
+{
+  "sample273": {
+    "strict_newborn_positions_1based": [
+      89,
+      99
+    ],
+    "pregnancy_newborn_positions_1based": [
+      89,
+      90,
+      96,
+      99
+    ],
+    "clearly_unrelated_positions_1based": [
+      98
+    ],
+    "related_but_metadata_unusable_positions_1based": [
+      92
+    ],
+    "ambiguous_positions_1based": [
+      97,
+      100
+    ]
+  },
+  "sample154": {
+    "strict_special_forces_training_positions_1based": [
+      97
+    ],
+    "supporting_military_drama_positions_1based": [
+      100
+    ],
+    "metadata_unusable_positions_1based": [
+      98
+    ]
+  },
+  "sample363": {
+    "same_game_positions_1based": [
+      89,
+      90,
+      96,
+      97,
+      98
+    ],
+    "different_game_positions_1based": [
+      95
+    ],
+    "unrelated_social_topic_positions_1based": [
+      99,
+      100
+    ]
+  },
+  "sample378": {
+    "verdict": "reject_broad_drama_only"
+  },
+  "judgment_scope": "Text-only manual review. Not based on attention values or prediction gains. Candidate cohort itself is exploratory and structurally preselected."
+}

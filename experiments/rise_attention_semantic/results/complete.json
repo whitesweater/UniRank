@@ -1,0 +1,27 @@
+{
+  "completed": true,
+  "files_sha256": {
+    "label_sensitivity.csv": "be204f8fd7842a1a2336d5295be3f89a512e05d150768aed8dded3fff95f4237",
+    "local_intervention_gate.json": "cfdb9385e6afcc64131433ef5462dec30ec2da3d131eb6ab8c138c4ad01f3474",
+    "manifest.json": "410883e7e654db5ee92319b9cd241d6cb14a3cce0133dda816662ebbf7da5c99",
+    "meta.csv": "c1a4077715007b4977d5d56205b1bb78c194ce43602837348e7a1bdf5f0db850",
+    "prediction_gate.json": "37f38a8cb339ac6d9123a014f010731af5056c7e8a54202257701443f6a99541",
+    "predictions.csv": "5eb1aab7f6e5ee0f619caf0004321ae9e99e1dee5e03c8b65cc1d0fc720ec04b",
+    "progress.json": "1c44ed70c06f45fa442643f5e2fcf8e09366144bb1ea2a65db2b8bb0629c87dd",
+    "raw_attention.npz": "2c3376f94e0d52f274466732bed81e38e17ceeec73f0653e2a51f48475528eef",
+    "sample_batches.pt": "3178cc655b31fdbd9fe6260a52c1d62e47b473de41d0e81966a69994c07d4ea0",
+    "stats.csv": "9c4d97540eb990fe96e27e462dec9bf082f11e48e93b24446779a432e7b24191",
+    "summary.json": "98c568d648e7cd861b1327304c534a4205248a0c305f61c3864b822203f2ad19"
+  },
+  "summary": {
+    "capture_bitwise_equal": true,
+    "empty_examples": 0,
+    "examples": 512,
+    "formal_test_metrics_recomputed": false,
+    "interpretation": "Descriptive local sensitivity on fixed diagnostic interactions; no population gain or causal content attribution claim",
+    "nonempty_examples": 512,
+    "tv_mean": 0.4313819408416748,
+    "tv_median": 0.4320460259914398,
+    "unique_users": 92
+  }
+}

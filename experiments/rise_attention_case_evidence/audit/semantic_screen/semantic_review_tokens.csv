@@ -1,0 +1,37 @@
+sample_index,role,position_0based,position_1based,encoded_item_id,duration_bucket,primary_tag,action_code,selection_reason,action_raw,action_chinese,official_final_video_id,caption,cover_text,official_duration_raw,duration_bucket_verified,record_usable
+378,target,,,25226,1,1,,target,,目标：真实点击标签由既有评估表提供,25225,痴情的钢琴家上演农夫与蛇 #超级好看的电视剧推荐  #我在快手追好剧 ,,122120.0,True,True
+378,history,87,88,1772385,1,1,33,earlier_same_tag,is_click|long_view,点击、长观看,1772384,幻月太惨了 #影视解说持续更新  #那江烟花那江雨 ,,138066.0,True,True
+378,history,89,90,530145,1,1,33,earlier_same_tag,is_click|long_view,点击、长观看,530144,智雅阿范利用怨灵记忆合力查出天台女孩被害原因#超级好看的韩剧 #驱魔师 ,,121866.0,True,True
+378,history,93,94,923490,3,1,33,recent_same_tag,is_click|long_view,点击、长观看,923489,,,,False,False
+378,history,95,96,4326001,2,18,1,recent_different_tag,exposure,曝光（无所列正反馈）,4326000,实测对比普通拖鞋和防滑拖鞋,,12766.0,True,True
+378,history,96,97,117043,1,1,33,recent_same_tag,is_click|long_view,点击、长观看,117042,总裁为救被竞争对手陷害入狱的女友，连夜彻查对手黑料，意外发现他们争抢的森林地下竟然蕴藏着价值55万亿的矿产   #集结吧光合创作者 ,,211933.0,True,True
+378,history,97,98,618412,1,1,1,recent_same_tag,exposure,曝光（无所列正反馈）,618411,,,,False,False
+378,history,98,99,4287048,4,26,33,recent_different_tag,is_click|long_view,点击、长观看,4287047,一定要看完！看好自己的小孩！#警示迷途者 ,,35333.0,True,True
+378,history,99,100,2438821,1,1,33,recent_same_tag,is_click|long_view,点击、长观看,2438820,护工竟突然亲吻自己的病人，然后还说对方非礼她！#土剧 ,,161120.0,True,True
+154,target,,,602512,1,1,,target,,目标：真实点击标签由既有评估表提供,602511,所有幸存的菜鸟们集体被带到特战旅开始训练 #军旅  #好剧推荐 ,,192833.0,True,True
+154,history,72,73,2297449,1,1,1,earlier_same_tag,exposure,曝光（无所列正反馈）,2297448,杀人犯刚入狱，就被狱霸欺负，黑老大都看不下去了！犯罪剧,,253320.0,True,True
+154,history,73,74,3612310,1,1,1,earlier_same_tag,exposure,曝光（无所列正反馈）,3612309,第一集：失散二十年，没想到以这种方式相见… #情感 #什么是真爱 #原创 ,终成眷属    三生石,313633.0,True,True
+154,history,93,94,3521700,3,9,33,recent_different_tag,is_click|long_view,点击、长观看,3521699,#火锅底料 #麻辣鲜香 重庆火锅，我一周要吃三顿,,23566.0,True,True
+154,history,95,96,2853559,2,18,14,recent_different_tag,is_click|is_follow|long_view,点击、关注、长观看,2853558,春暖花开的季节是穿它的时候啦 #千层底布鞋 ,,15000.0,True,True
+154,history,96,97,1842865,1,1,33,recent_same_tag,is_click|long_view,点击、长观看,1842864,王艳兵参加特战旅考核，为躲避追击秒变乞丐，太逗了 #特警力量 #我是特种兵之利刃出鞘 #搞笑视频 @快手热点(O40300129) ,,404931.0,True,True
+154,history,97,98,3543820,1,1,33,recent_same_tag,is_click|long_view,点击、长观看,3543819,,,,False,False
+154,history,98,99,1677624,1,1,2,recent_same_tag,is_click,点击,1677623,好好的课不上竟在下面招惹霉女，这下尴尬了！ #原创  #我的快手影集  #影视解说 ,,151916.0,True,True
+154,history,99,100,877888,1,1,1,recent_same_tag,exposure,曝光（无所列正反馈）,877887,#我是特种兵之利刃出鞘 #军旅剧 #吴京 ,,283240.0,True,True
+363,target,,,1708296,1,7,,target,,目标：真实点击标签由既有评估表提供,1708295,难道大主播的出装就一定是正确的吗？一分钟教你用貂爆流貂蝉轻松上荣耀！普通人更适合的暴力出装！,,80150.0,True,True
+363,history,88,89,3381060,1,7,33,earlier_same_tag,is_click|long_view,点击、长观看,3381059,#集结吧光合创作者 国一猴子青帝VS路人韩信，身法猴和无影步，究竟谁能技高一筹？ @我要上热门(O1907752910)  #青帝 #游戏凡星计划 ,,316400.0,True,True
+363,history,89,90,1923849,1,7,2,earlier_same_tag,is_click,点击,1923848,我花80多块钱买的皮肤，你们居然可以白嫖？ 你们礼貌吗？ #集结吧光合创作者 #宫本武藏全皮肤优化,,177100.0,True,True
+363,history,94,95,3493465,1,7,1,recent_same_tag,exposure,曝光（无所列正反馈）,3493464,每天都在坚持六战神 #油桶老六团 #和平精英班主任 #老六团 ,,117866.0,True,True
+363,history,95,96,4249660,1,7,33,recent_same_tag,is_click|long_view,点击、长观看,4249659,永远自信#柱子达摩 ,,61933.0,True,True
+363,history,96,97,340602,1,7,2,recent_same_tag,is_click,点击,340601,#集结吧光合创作者 赖神巅峰赛遭狙击，老夫子直接被禁？赖神：我用肉铠没输过！,,157280.0,True,True
+363,history,97,98,603955,1,7,1,recent_same_tag,exposure,曝光（无所列正反馈）,603954,这场直播看过嘛,节奏大师遇钟馗处理四V六,350100.0,True,True
+363,history,98,99,1956315,6,16,33,recent_different_tag,is_click|long_view,点击、长观看,1956314,《全国男生的统一话术》,,6458.0,True,True
+363,history,99,100,4158122,6,16,33,recent_different_tag,is_click|long_view,点击、长观看,4158121,《超过六条以上就做一辈子的好兄弟》,,6416.0,True,True
+273,target,,,3601662,4,35,,target,,目标：真实点击标签由既有评估表提供,3601661,昨天没更新，去生了个宝宝。,,37733.0,True,True
+273,history,88,89,2160198,6,35,1,earlier_same_tag,exposure,曝光（无所列正反馈）,2160197,每天一遍排气操，告别夜醒哭闹。小宝宝发育没有完善，容易吐奶肠胀气 肠绞痛。不要忽视，我们一起来每天一遍。 #宝宝排气操 #宝宝育儿小知识 #人类幼崽有多可爱 ,,6200.0,True,True
+273,history,89,90,4108265,1,35,1,earlier_same_tag,exposure,曝光（无所列正反馈）,4108264, #孕期  #孕期知识每天更新 ,,62233.0,True,True
+273,history,91,92,2751585,5,35,1,recent_same_tag,exposure,曝光（无所列正反馈）,2751584,#预产期倒计时 #预产期 #亲子装系列   31➕4去检查偏大两个星期 医生说是不是日子记错了😅看着快34周了都 😄 说不让吃高蛋白的食物 回头不好生 我说我平时也不爱吃鸡蛋也不喜欢吃肉 奶也不咋喝 😂😂 ,每次检查都偏大两个星期 医生说是不是日子记错了😅,,False,False
+273,history,95,96,3555863,1,35,1,recent_same_tag,exposure,曝光（无所列正反馈）,3555862,草原上的条件虽然有限，但是也要让陶陶成为村里最幸福的孕妇 #今日三农爆款  #草原美食  @快手热点(O40300129) ,,212300.0,True,True
+273,history,96,97,1032889,2,20,2,recent_different_tag,is_click,点击,1032888,感觉糖大了些😂 #请开始你的表演 #萌娃日常 #美国生活 ,🇺🇸爸爸借棒棒糖骗吻😂,9160.0,True,True
+273,history,97,98,2746103,1,1,33,recent_different_tag,is_click|long_view,点击、长观看,2746102,汉武大帝27、汉景帝这一生呐喊，喊出了多少无奈 #汉武大帝 ,,252140.0,True,True
+273,history,98,99,1409359,6,35,33,recent_same_tag,is_click|long_view,点击、长观看,1409358,第十天的人类幼崽、盖上被不行、自己把脚抬起来了😂 #月子里的宝宝 ,,5666.0,True,True
+273,history,99,100,938061,6,35,1,recent_same_tag,exposure,曝光（无所列正反馈）,938060,#教育 #育儿 #正能量,,6200.0,True,True

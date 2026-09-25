@@ -1,0 +1,86 @@
+{
+  "numeric_status": "PASS",
+  "visual_status": "PASS",
+  "script_sha256": "499072c2194e9c5ecf619ac36db8fd05bd45de49ef019a9084b0fcc2f669c2ff",
+  "caption_file_sha256": "3cb21672aa1f641cf12e6e4e8388134984ad8115a1ee84173a87234c1bbb5917",
+  "displayed_records": 5,
+  "scope": "Two intentionally selected examples; different explanatory roles; no population or component-necessity claim",
+  "cases": [
+    {
+      "sample_index": 416,
+      "kind": "negative_evidence",
+      "history_position": 97,
+      "same_video_verified": true,
+      "weight_before": 0.00992625579237938,
+      "weight_after": 0.05330736190080643,
+      "p_off": 0.6484375,
+      "p_full": 0.55859375,
+      "p_revert": 0.59375,
+      "files": [
+        {
+          "file": "negative_evidence_416.pdf",
+          "sha256": "9cd45258fedae98c3bbb582076f01a2e6a8537bba7e2004ceac830bc0f619535"
+        },
+        {
+          "file": "negative_evidence_416.svg",
+          "sha256": "52bd2fac6cbcc14ce190ef357f126ee670e7f73174ce24d3362a8e60ab69368c"
+        },
+        {
+          "file": "negative_evidence_416.png",
+          "sha256": "62b2ff6fd64d8ce6ae072db67a7a44db4f4098f4638221670f0288357b45d533"
+        }
+      ]
+    },
+    {
+      "sample_index": 24,
+      "kind": "local_order",
+      "positions": [
+        94,
+        95
+      ],
+      "before_weights": [
+        0.009166439063847065,
+        0.01049809530377388
+      ],
+      "position_template_weights": [
+        0.03469555452466011,
+        0.0450267419219017
+      ],
+      "full_weights": [
+        0.03775971010327339,
+        0.03641615808010101
+      ],
+      "rank_reversal_verified": true,
+      "p_off": 0.439453125,
+      "p_full": 0.482421875,
+      "p_revert": 0.48046875,
+      "files": [
+        {
+          "file": "local_order_24.pdf",
+          "sha256": "0ba3b8b1646ce5b5706c6db908d10dee78ef656ffb78fea72e202dcfbc9e5986"
+        },
+        {
+          "file": "local_order_24.svg",
+          "sha256": "d1d1689cf9d3b675868d62ecc480f4ad3b1e1a1cd0841e1160f0fc308d8d766c"
+        },
+        {
+          "file": "local_order_24.png",
+          "sha256": "bb8f03aed10774d0ef0e7b8cd48419ba7585ca0e4e51c0575acd738e6ac84b2c"
+        }
+      ]
+    }
+  ],
+  "visual_checks": {
+    "both_final_PNGs_inspected": true,
+    "both_actual_PDF_rasterizations_inspected": true,
+    "no_visible_missing_glyphs_or_clipping": true,
+    "negative_case_axis_label_spacing_fixed": true,
+    "original_100_key_weights_not_renormalized": true,
+    "position_template_and_local_effect_limits_visible": true
+  },
+  "pdf_checks": {
+    "negative_pdf_check.png": "6e81bb170e6ac9d016cbb05412e696444266ba5dddd7f9b06f93de6e18e39b20",
+    "food_pdf_check.png": "504bae81c71b1f5100050d39e16764d7b128005f64ddc2b5357ee074d9aabd42"
+  },
+  "pdf_renderer_note": "Poppler emits Noto font type warnings; both actual PDF renderings were visually checked without malformed text."
+}

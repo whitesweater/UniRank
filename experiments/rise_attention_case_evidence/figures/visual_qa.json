@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "reviewer": "mechanism_figure",
+  "surface": "Exported PNG, 2520 x 1980, inspected with view_image",
+  "png_sha256": "d3d6a63ab5863c57114474180483ac1a25330d170410092992f867e1b1944228",
+  "checks": {
+    "chinese_text_readable_no_missing_glyphs": true,
+    "titles_labels_and_footnotes_fit": true,
+    "no_visible_overlaps_or_clipping": true,
+    "zero_origin_bar_axes": true,
+    "recent_five_chronological_positions_96_to_100": true,
+    "clicked_group_marked_by_text_weight_and_G_letter": true,
+    "all_three_main_predictions_directly_labeled": true,
+    "equal_mass_comparison_and_position_template_visible": true,
+    "first_stage_failure_and_case_scope_disclosed": true,
+    "not_claiming_semantic_alignment_or_component_necessity": true,
+    "full_original_captions_preserved_in_csv": true
+  },
+  "notes": [
+    "Uses concise source-grounded reading aids and exact recorded action labels.",
+    "Main rollback label means original total G mass, not original per-key weights.",
+    "Shows G share inside the recent five decreases slightly, so the figure does not claim selective amplification only for clicked records."
+  ],
+  "independent_root_png_and_pdf_visual_check": "PASS: both the final PNG and actual pdftoppm PDF rasterization were inspected; no missing CJK glyphs or clipping.",
+  "pdf_check_sha256": "9c28a8914cceb9f3d7f788d7fd69f270bc866afb034ad251eb6c86bad42b5a48",
+  "pdf_renderer_note": "Poppler emits a font type/embedded-file warning; actual rendered CJK text and plot were inspected successfully."
+}

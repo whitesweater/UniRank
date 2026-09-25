@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "job_id": "646410",
+  "examples": 512,
+  "unique_users": 92,
+  "prediction_bitwise_equal": true,
+  "full_prediction_hashes_equal": true,
+  "local_off_qkv_hashes_equal": true,
+  "softmax_max_abs_error": {
+    "weight_before": 2.870028213350362e-09,
+    "weight_after": 1.3754083719175192e-08
+  },
+  "independent_label_sensitivity": [
+    {
+      "label": "is_click",
+      "mean_bce_gain": 0.003097151807707371,
+      "improved": 297,
+      "degraded": 206,
+      "unchanged": 9,
+      "positives": 182
+    },
+    {
+      "label": "is_follow",
+      "mean_bce_gain": -6.168234381032482e-06,
+      "improved": 248,
+      "degraded": 202,
+      "unchanged": 62,
+      "positives": 0
+    },
+    {
+      "label": "is_like",
+      "mean_bce_gain": -0.001313223469943986,
+      "improved": 263,
+      "degraded": 213,
+      "unchanged": 36,
+      "positives": 7
+    },
+    {
+      "label": "is_comment",
+      "mean_bce_gain": 0.00027389768532589434,
+      "improved": 269,
+      "degraded": 191,
+      "unchanged": 52,
+      "positives": 1
+    },
+    {
+      "label": "is_forward",
+      "mean_bce_gain": 4.2616768599967285e-06,
+      "improved": 244,
+      "degraded": 205,
+      "unchanged": 63,
+      "positives": 0
+    },
+    {
+      "label": "long_view",
+      "mean_bce_gain": 0.0032497758493879366,
+      "improved": 287,
+      "degraded": 214,
+      "unchanged": 11,
+      "positives": 129
+    }
+  ],
+  "auditor_sha256": "50fb757f088a6f27a71ef7a6f7873895c94cd524df5df8fb6a5b4f2cab73c71e",
+  "source_hashes_verified": 63,
+  "artifact_hashes_verified": 11
+}

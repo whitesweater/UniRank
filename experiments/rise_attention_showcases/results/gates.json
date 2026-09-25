@@ -1,0 +1,472 @@
+{
+  "control_equal_mass": {
+    "all_selected_qkv_equal_full": true,
+    "nonprobe_predictions": [
+      {
+        "atol": 0,
+        "batch_number": 0,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 2,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 6,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      }
+    ],
+    "passed": true
+  },
+  "full_hook": {
+    "all_window_predictions_equal": true,
+    "passed": true,
+    "qkv_equal_source": true,
+    "raw_equal_source": true
+  },
+  "plain_vs_source512": {
+    "atol": 0,
+    "bitwise_equal": true,
+    "labels": {
+      "is_click": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      },
+      "is_comment": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      },
+      "is_follow": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      },
+      "is_forward": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      },
+      "is_like": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      },
+      "long_view": {
+        "bitwise_equal": true,
+        "max_abs_error": 0.0
+      }
+    },
+    "passed": true,
+    "rtol": 0
+  },
+  "position_template": {
+    "all_selected_qkv_equal_full": true,
+    "nonprobe_predictions": [
+      {
+        "atol": 0,
+        "batch_number": 0,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 2,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 6,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      }
+    ],
+    "passed": true
+  },
+  "related_equal_mass": {
+    "all_selected_qkv_equal_full": true,
+    "nonprobe_predictions": [
+      {
+        "atol": 0,
+        "batch_number": 0,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 2,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 6,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      }
+    ],
+    "passed": true
+  },
+  "related_revert": {
+    "all_selected_qkv_equal_full": true,
+    "nonprobe_predictions": [
+      {
+        "atol": 0,
+        "batch_number": 0,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 2,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      },
+      {
+        "atol": 0,
+        "batch_number": 6,
+        "bitwise_equal": true,
+        "compared_rows": 16383,
+        "labels": {
+          "is_click": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_comment": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_follow": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_forward": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "is_like": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          },
+          "long_view": {
+            "bitwise_equal": true,
+            "max_abs_error": 0.0
+          }
+        },
+        "passed": true,
+        "rtol": 0
+      }
+    ],
+    "passed": true
+  }
+}

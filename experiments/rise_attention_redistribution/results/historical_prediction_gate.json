@@ -1,0 +1,18 @@
+{
+  "atol": 0.0005,
+  "bitwise_equal": true,
+  "labels": {
+    "is_click": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0,
+      "passed": true
+    },
+    "is_conversion": {
+      "bitwise_equal": true,
+      "max_abs_error": 0.0,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "rtol": 0.005
+}

@@ -1,0 +1,42 @@
+{
+  "study_stage": "illustrative_case_search_after_user_relaxes_distance_constraint",
+  "position_indexing": "zero_based",
+  "case_scope": "Selected true examples, not representative population evidence; both click and nonclick outcomes are allowed.",
+  "cases": [
+    {
+      "case_id": "repeat_positive_155",
+      "sample_index": 155,
+      "related_positions": [
+        95
+      ],
+      "control_positions": [
+        96
+      ],
+      "semantic_reason": "G is exactly the current candidate video previously clicked; C is the adjacent newer cooking video. Current target is clicked."
+    },
+    {
+      "case_id": "repeat_negative_416",
+      "sample_index": 416,
+      "related_positions": [
+        96
+      ],
+      "control_positions": [
+        97
+      ],
+      "semantic_reason": "G is exactly the current candidate game video previously exposed without click; C is the adjacent newer clip from a different game. Current target is not clicked."
+    },
+    {
+      "case_id": "food_order_24",
+      "sample_index": 24,
+      "related_positions": [
+        93
+      ],
+      "control_positions": [
+        94
+      ],
+      "semantic_reason": "Candidate is dorayaki food. G is a quick-breakfast recipe with click and long-view, C a newer drama clip with exposure only. G and C reverse their relative attention order after correction. Current target is clicked."
+    }
+  ],
+  "active_protocol": "experiments/rise_attention_showcases/protocol.md",
+  "active_protocol_sha256": "9d08d737a6f12db8f99a22de2ba4ed48a137f782d2a4a7b9226ff09eff789efe"
+}

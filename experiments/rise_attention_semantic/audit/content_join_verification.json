@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "items": 14,
+  "encoded_item_ids": [
+    549656,
+    1712614,
+    3907664,
+    430552,
+    2026287,
+    1855600,
+    527518,
+    1451547,
+    638202,
+    4039002,
+    2834713,
+    2992961,
+    697405,
+    1091822
+  ],
+  "checks": [
+    "exact +1 ID relation",
+    "both source byte-range SHA256",
+    "independent CSV row fields in both ranges",
+    "all per-record usability gates",
+    "expected model duration bucket"
+  ],
+  "caption_sha256": "1720960084dddda5ced1f6d98d630dbd67b63955d2699ae0a6659d72917d45d2"
+}
