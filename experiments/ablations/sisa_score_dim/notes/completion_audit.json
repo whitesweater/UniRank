@@ -23,7 +23,7 @@
     {
       "id": "all_experiments",
       "status": "verified",
-      "finding": "Three new successful dimensions plus predeclared historical r16; all four COMPLETED/0:0",
+      "finding": "Three new successful variants plus three historical r16 runs form four reported points; all six raw runs completed.",
       "evidence": [
         "results/evidence.json",
         "results/job_index.csv"
@@ -41,7 +41,7 @@
     {
       "id": "result_verification",
       "status": "verified",
-      "finding": "Both raw final Test logs, exact label coverage, per-layout sample coverage, parameter counts and source snapshots verified; 40 metric values independently recomputed",
+      "finding": "60 raw Test metric values and 40 reported values independently verified; r16 is the equal mean of all three runs.",
       "evidence": [
         "notes/final_validation.json"
       ]
@@ -49,7 +49,7 @@
     {
       "id": "complete_archive",
       "status": "verified",
-      "finding": "10 jobs, 31 hashed runtime artifacts, four retained model checkpoints, all failed attempts and diagnostic source versions preserved",
+      "finding": "Twelve relevant job records; prior report archived; runtime artifacts and raw runs retained without alteration.",
       "evidence": [
         "results/job_index.csv",
         "notes/runtime_artifact_inventory.csv",
@@ -69,14 +69,16 @@
   "required_work_remaining": [],
   "data_or_execution_errors_remaining": [],
   "scientific_limitations": [
-    "one seed and one model-dataset pair",
-    "r64 uses four GPUs at batch 8192, other dimensions two GPUs at batch 16384",
+    "r16 averages three runs; other dimensions have only one run each",
+    "r16 references have mixed GPU layouts and internal seed overrides",
+    "r64 uses four GPUs at batch 8192; r8/r32 use two GPUs at batch 16384",
     "same global batch does not make DDP sharding and drop_last coverage identical",
     "historical full software and source snapshots are unavailable",
     "coverage counts do not prove historical sample byte identity"
   ],
   "live_selected_jobs": [],
   "study_monitor_running": false,
-  "report_sha256": "8f8fef4461956ced3ce67c5e2820da483c0da5afd5b01b2da94d84a8183ee481",
-  "evidence_sha256": "d89fe44b408f49ebe9db0cf0da8b036954e575315733bc783fad603bd5168573"
+  "report_sha256": "14c6e3a898f069658506078e298f84e1634cc8116485f20e23bd1ae6fb50068a",
+  "evidence_sha256": "09c1cfac1325e8c0be434a52fb78652299b3324924c1861aa606d4ca09cf7e20",
+  "reporting_correction": "Use the equal mean of all three historical r16 runs; original per-run facts and frozen training protocol remain unchanged."
 }

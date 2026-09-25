@@ -157,6 +157,47 @@ class SISAScoreDimensionProtocolTest(unittest.TestCase):
 
 
 class SISAScoreDimensionEvidenceTest(unittest.TestCase):
+    def test_report_reference_requires_all_three_distinct_runs(self):
+        reference_runs = []
+        for seed, auc, loss in ((20262027, .8061308, .0812370),
+                                (20262028, .8008724, .0826776),
+                                (20262029, .8065828, .0820006)):
+            reference_runs.append(dict(self.audit(), score_dim=16, seed=seed,
+                job_task_id=str(seed), macro_auc=auc, macro_logloss=loss,
+                metrics={label: {"AUC": auc, "logloss": loss} for label in self.labels}))
+        variants = [dict(self.audit(), score_dim=dim, seed=20262028,
+                         job_task_id=str(dim)) for dim in (8, 32, 64)]
+        summary = collector.summarize_dimensions(reference_runs + variants)
+        reference = next(row for row in summary if row["score_dim"] == 16)
+        self.assertEqual(reference["n_runs"], 3)
+        self.assertEqual(reference["seeds"], [20262027, 20262028, 20262029])
+        self.assertAlmostEqual(reference["macro_auc"], .8045286666666667)
+        self.assertAlmostEqual(reference["macro_logloss"], .08197173333333333)
+        self.assertNotIn("job_task_id", reference)
+        self.assertEqual(len(reference["job_task_ids"]), 3)
+        for incomplete in (reference_runs[:2], reference_runs + [reference_runs[0]],
+                           [dict(row, eligible=False) if i == 2 else row
+                            for i, row in enumerate(reference_runs)]):
+            with self.subTest(count=len(incomplete)):
+                candidate = collector.summarize_dimensions(incomplete + variants)
+                self.assertFalse(next(row for row in candidate if row["score_dim"] == 16)["eligible"])
+                self.assertEqual(collector.comparisons(candidate), [])
+
+    def test_corrected_deltas_use_three_run_mean_without_changing_run_facts(self):
+        import copy
+        reference_runs = [dict(self.audit(), score_dim=16, seed=seed,
+                              job_task_id=str(seed), macro_auc=auc, macro_logloss=loss,
+                              metrics={label: {"AUC": auc, "logloss": loss} for label in self.labels})
+                          for seed, auc, loss in ((20262027, .8061308, .0812370),
+                              (20262028, .8008724, .0826776), (20262029, .8065828, .0820006))]
+        r64 = dict(self.audit(), score_dim=64, seed=20262028, macro_auc=.8044016, macro_logloss=.0816382)
+        original = copy.deepcopy(reference_runs)
+        summary = collector.summarize_dimensions(reference_runs + [r64])
+        delta = next(row for row in collector.comparisons(summary) if row["label"] == "__macro__")
+        self.assertAlmostEqual(delta["delta_auc"], -.0001270666666667)
+        self.assertAlmostEqual(delta["delta_logloss"], -.00033353333333333)
+        self.assertEqual(reference_runs, original)
+
     def test_interleaved_progress_utf8_keeps_raw_hash_and_ascii_metrics(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

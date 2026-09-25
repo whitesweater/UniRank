@@ -1,0 +1,5 @@
+score_dim,n_runs,statistic,seeds,job_task_ids,eligible,macro_auc,macro_logloss,comparison_scope
+8,1,single_run,20262028,643736_0,True,0.7970614,0.0831128,single_run_vs_three_run_reference
+16,3,three_run_mean,20262027;20262028;20262029,543257_27;548166_1;549595_1,True,0.8045286666666667,0.08197173333333334,mixed_protocol_three_run_reference
+32,1,single_run,20262028,643736_1,True,0.7991998,0.0830104,single_run_vs_three_run_reference
+64,1,single_run,20262028,644583_2,True,0.8044016,0.0816382,single_run_vs_three_run_reference

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T11:13:15+08:00",
+  "generated_at": "2026-09-23T16:01:02+08:00",
   "study": "sisa_score_dim",
   "model": "HyFormer",
   "dataset": "MerRec_Action",
@@ -9,6 +9,7 @@
       "task_id": 0,
       "score_dim": 8,
       "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1",
+      "seed": 20262028,
       "job_task_id": "643736_0",
       "attempt": 1,
       "state": "COMPLETED",
@@ -103,6 +104,416 @@
       "checkpoint_log": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1.log",
       "slurm_log": "logs/unirank-sisa-score-dim-643736_0.out",
       "latest_progress": "Rank 1 | Eval: 100%|██████████| 354/354 [00:41<00:00,  9.95it/s]\u001b[A"
+    },
+    {
+      "score_dim": 16,
+      "seed": 20262027,
+      "task_id": null,
+      "attempt": 1,
+      "historical": true,
+      "run_id": "SISA_expansion_HyFormer_MerRec_Action_sisa_seed20262027",
+      "job_task_id": "543257_27",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.75901,
+          "logloss": 0.322929
+        },
+        "Cart": {
+          "AUC": 0.813835,
+          "logloss": 0.052342
+        },
+        "Offer": {
+          "AUC": 0.745556,
+          "logloss": 0.021918
+        },
+        "Checkout": {
+          "AUC": 0.856995,
+          "logloss": 0.005343
+        },
+        "Purchase": {
+          "AUC": 0.855258,
+          "logloss": 0.003653
+        }
+      },
+      "macro_auc": 0.8061308,
+      "macro_logloss": 0.081237,
+      "world_size": 4,
+      "per_gpu_batch": 8192,
+      "global_batch": 32768,
+      "gradient_checkpointing": false,
+      "comparison_scope": "historical_reference",
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_expansion_HyFormer_MerRec_Action_sisa_seed20262027.log",
+      "slurm_log": "logs/unirank-sisa-expansion-acd-543257_27.out",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810103805,
+      "dense_parameters": 7832349,
+      "logged_params": {
+        "accumulation_steps": 1,
+        "batch_size": 8192,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataset_id": "MerRec_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "dnn_activations": "ReLU",
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 1697916
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 43817684,
+            "source": "item"
+          },
+          {
+            "name": "product_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 893620,
+            "source": "item"
+          },
+          {
+            "name": "price_bucket",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10,
+            "source": "item"
+          },
+          {
+            "name": "c0_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 18,
+            "source": "item"
+          },
+          {
+            "name": "c1_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 310,
+            "source": "item"
+          },
+          {
+            "name": "c2_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3042,
+            "source": "item"
+          },
+          {
+            "name": "brand_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 19783,
+            "source": "item"
+          },
+          {
+            "name": "item_condition_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7,
+            "source": "item"
+          },
+          {
+            "name": "size_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 356,
+            "source": "item"
+          },
+          {
+            "name": "shipper_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3,
+            "source": "item"
+          },
+          {
+            "name": "color",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7311,
+            "source": "item"
+          },
+          {
+            "name": "session_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3701837
+          },
+          {
+            "name": "day_of_week",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 8
+          },
+          {
+            "name": "is_weekend",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3
+          },
+          {
+            "name": "hour",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 25
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 33,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "label_col": [
+          {
+            "name": "Like",
+            "dtype": "float"
+          },
+          {
+            "name": "Cart",
+            "dtype": "float"
+          },
+          {
+            "name": "Offer",
+            "dtype": "float"
+          },
+          {
+            "name": "Checkout",
+            "dtype": "float"
+          },
+          {
+            "name": "Purchase",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "HyFormer",
+        "model_id": "SISA_expansion_HyFormer_MerRec_Action_sisa_seed20262027",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_global_token": 2,
+        "num_heads": 2,
+        "num_layers": 3,
+        "num_ns_token": 4,
+        "num_tasks": 5,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262027,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_adagrad_chunk_size": 16777216,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "sparse_optimizer_foreach": false,
+        "task": "binary_classification",
+        "test_data": "./datasets/MerRec_Action/test/data",
+        "test_item_info": "./datasets/MerRec_Action/test/item_info",
+        "test_user_info": "./datasets/MerRec_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/MerRec_Action/train/data",
+        "train_item_info": "./datasets/MerRec_Action/train/item_info",
+        "train_user_info": "./datasets/MerRec_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/MerRec_Action/valid/data",
+        "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+        "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 4
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 36090865,
+          "batches": 4405,
+          "processed_rows": 36085760
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 4124870,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 2,
+          "assigned_rows": 2919932,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 36015649,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 4125781,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 2,
+          "assigned_rows": 2919325,
+          "batches": 355,
+          "processed_rows": 2908160
+        },
+        {
+          "split": "train",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 35988714,
+          "batches": 4392,
+          "processed_rows": 35979264
+        },
+        {
+          "split": "valid",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 4131361,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 2,
+          "blocks": 2,
+          "assigned_rows": 2921329,
+          "batches": 356,
+          "processed_rows": 2916352
+        },
+        {
+          "split": "train",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 36013007,
+          "batches": 4395,
+          "processed_rows": 36003840
+        },
+        {
+          "split": "valid",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 4133558,
+          "batches": 503,
+          "processed_rows": 4120576
+        },
+        {
+          "split": "test",
+          "rank": 3,
+          "blocks": 2,
+          "assigned_rows": 2920568,
+          "batches": 355,
+          "processed_rows": 2908160
+        }
+      ]
     },
     {
       "study": "sisa_components_hyformer_merrec_bcd",
@@ -212,9 +623,372 @@
       "global_batch": 32768
     },
     {
+      "score_dim": 16,
+      "seed": 20262029,
+      "task_id": null,
+      "attempt": 1,
+      "historical": true,
+      "run_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1",
+      "job_task_id": "549595_1",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "eligible": true,
+      "issues": [],
+      "metrics": {
+        "Like": {
+          "AUC": 0.755749,
+          "logloss": 0.326671
+        },
+        "Cart": {
+          "AUC": 0.811112,
+          "logloss": 0.052343
+        },
+        "Offer": {
+          "AUC": 0.75603,
+          "logloss": 0.021099
+        },
+        "Checkout": {
+          "AUC": 0.853285,
+          "logloss": 0.00613
+        },
+        "Purchase": {
+          "AUC": 0.856738,
+          "logloss": 0.00376
+        }
+      },
+      "macro_auc": 0.8065828,
+      "macro_logloss": 0.0820006,
+      "world_size": 2,
+      "per_gpu_batch": 16384,
+      "global_batch": 32768,
+      "gradient_checkpointing": false,
+      "comparison_scope": "historical_reference",
+      "checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "slurm_log": "logs/unirank-sisa-seed20262029-ws2-549595_1.out",
+      "gpu_names": [
+        "NVIDIA H100 80GB HBM3",
+        "NVIDIA H100 80GB HBM3"
+      ],
+      "total_parameters": 810103805,
+      "dense_parameters": 7832349,
+      "logged_params": {
+        "accumulation_steps": 1,
+        "batch_size": 16384,
+        "block_cache_size": 2,
+        "blocked": true,
+        "data_format": "parquet",
+        "data_root": "./datasets",
+        "dataloader_seed": 2028,
+        "dataset_id": "MerRec_Action",
+        "debug_mode": false,
+        "dense_learning_rate": 0.0001,
+        "dense_optimizer": "AdamW",
+        "dense_weight_decay": 0,
+        "distributed": true,
+        "dnn_activations": "ReLU",
+        "early_stop_patience": 2,
+        "embedding_dim": 16,
+        "enable_bf16": true,
+        "enable_torch_compile": true,
+        "epochs": 1,
+        "eval_steps": null,
+        "feature_cols": [
+          {
+            "name": "user_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "item_index",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "seq_len",
+            "active": true,
+            "dtype": "int",
+            "type": "meta"
+          },
+          {
+            "name": "user_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 1697916
+          },
+          {
+            "name": "item_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 43817684,
+            "source": "item"
+          },
+          {
+            "name": "product_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 893620,
+            "source": "item"
+          },
+          {
+            "name": "price_bucket",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 10,
+            "source": "item"
+          },
+          {
+            "name": "c0_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 18,
+            "source": "item"
+          },
+          {
+            "name": "c1_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 310,
+            "source": "item"
+          },
+          {
+            "name": "c2_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3042,
+            "source": "item"
+          },
+          {
+            "name": "brand_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 19783,
+            "source": "item"
+          },
+          {
+            "name": "item_condition_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7,
+            "source": "item"
+          },
+          {
+            "name": "size_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 356,
+            "source": "item"
+          },
+          {
+            "name": "shipper_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3,
+            "source": "item"
+          },
+          {
+            "name": "color",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 7311,
+            "source": "item"
+          },
+          {
+            "name": "session_id",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3701837
+          },
+          {
+            "name": "day_of_week",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 8
+          },
+          {
+            "name": "is_weekend",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 3
+          },
+          {
+            "name": "hour",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 25
+          },
+          {
+            "name": "action",
+            "active": true,
+            "dtype": "int",
+            "type": "categorical",
+            "vocab_size": 33,
+            "source": "action"
+          }
+        ],
+        "feature_config": null,
+        "feature_specs": null,
+        "gpu": 0,
+        "gradient_checkpointing": false,
+        "group_id": "user_id",
+        "label_col": [
+          {
+            "name": "Like",
+            "dtype": "float"
+          },
+          {
+            "name": "Cart",
+            "dtype": "float"
+          },
+          {
+            "name": "Offer",
+            "dtype": "float"
+          },
+          {
+            "name": "Checkout",
+            "dtype": "float"
+          },
+          {
+            "name": "Purchase",
+            "dtype": "float"
+          }
+        ],
+        "local_rank": 0,
+        "loss": [
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy",
+          "binary_crossentropy"
+        ],
+        "max_len": 100,
+        "metrics": [
+          "logloss",
+          "AUC"
+        ],
+        "model": "HyFormer",
+        "model_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1",
+        "model_root": "./checkpoints/",
+        "monitor": {
+          "AUC": 1,
+          "logloss": 0
+        },
+        "monitor_mode": "max",
+        "net_dropout": 0,
+        "num_global_token": 2,
+        "num_heads": 2,
+        "num_layers": 3,
+        "num_ns_token": 4,
+        "num_tasks": 5,
+        "num_workers": 4,
+        "pickle_feature_encoder": true,
+        "rank": 0,
+        "rebuild_dataset": false,
+        "save_best_only": true,
+        "seed": 20262029,
+        "shuffle": true,
+        "sisa_enabled": true,
+        "sisa_lambda_init": 0.1,
+        "sisa_parameter_seed": 20260823,
+        "sisa_score_dim": 16,
+        "sisa_score_scale": 1.0,
+        "sparse_adagrad_chunk_size": 16777216,
+        "sparse_learning_rate": 0.05,
+        "sparse_optimizer": "Adagrad",
+        "sparse_optimizer_foreach": false,
+        "task": "binary_classification",
+        "test_data": "./datasets/MerRec_Action/test/data",
+        "test_item_info": "./datasets/MerRec_Action/test/item_info",
+        "test_user_info": "./datasets/MerRec_Action/test/user_info",
+        "token_dim": 256,
+        "tower_activations": "ReLU",
+        "tower_hidden_units": [
+          128,
+          64
+        ],
+        "train_data": "./datasets/MerRec_Action/train/data",
+        "train_item_info": "./datasets/MerRec_Action/train/item_info",
+        "train_user_info": "./datasets/MerRec_Action/train/user_info",
+        "use_features": null,
+        "valid_data": "./datasets/MerRec_Action/valid/data",
+        "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+        "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+        "verbose": 1,
+        "world_size": 2
+      },
+      "coverage": [
+        {
+          "split": "train",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 72030878,
+          "batches": 4395,
+          "processed_rows": 72007680
+        },
+        {
+          "split": "valid",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 8258428,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 0,
+          "blocks": 4,
+          "assigned_rows": 5841229,
+          "batches": 354,
+          "processed_rows": 5799936
+        },
+        {
+          "split": "train",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 72077357,
+          "batches": 4397,
+          "processed_rows": 72040448
+        },
+        {
+          "split": "valid",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 8257142,
+          "batches": 502,
+          "processed_rows": 8224768
+        },
+        {
+          "split": "test",
+          "rank": 1,
+          "blocks": 4,
+          "assigned_rows": 5839925,
+          "batches": 354,
+          "processed_rows": 5799936
+        }
+      ]
+    },
+    {
       "task_id": 1,
       "score_dim": 32,
       "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r32_seed20262028_attempt1",
+      "seed": 20262028,
       "job_task_id": "643736_1",
       "attempt": 1,
       "state": "COMPLETED",
@@ -314,6 +1088,7 @@
       "task_id": 2,
       "score_dim": 64,
       "run_id": "SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3",
+      "seed": 20262028,
       "job_task_id": "644583_2",
       "attempt": 3,
       "state": "COMPLETED",
@@ -460,150 +1235,312 @@
       "latest_progress": "Rank 2 | Eval: 100%|██████████| 356/356 [00:29<00:00, 14.60it/s]\u001b[A\u001b[A"
     }
   ],
+  "summary": [
+    {
+      "score_dim": 8,
+      "n_runs": 1,
+      "seeds": [
+        20262028
+      ],
+      "job_task_ids": [
+        "643736_0"
+      ],
+      "eligible": true,
+      "statistic": "single_run",
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "macro_auc": 0.7970614,
+      "macro_logloss": 0.0831128,
+      "metrics": {
+        "Like": {
+          "AUC": 0.750308,
+          "logloss": 0.333306
+        },
+        "Cart": {
+          "AUC": 0.806684,
+          "logloss": 0.052645
+        },
+        "Offer": {
+          "AUC": 0.729252,
+          "logloss": 0.021463
+        },
+        "Checkout": {
+          "AUC": 0.849075,
+          "logloss": 0.005
+        },
+        "Purchase": {
+          "AUC": 0.849988,
+          "logloss": 0.00315
+        }
+      },
+      "total_parameters": 810042365,
+      "dense_parameters": 7770909
+    },
+    {
+      "score_dim": 16,
+      "n_runs": 3,
+      "seeds": [
+        20262027,
+        20262028,
+        20262029
+      ],
+      "job_task_ids": [
+        "543257_27",
+        "548166_1",
+        "549595_1"
+      ],
+      "eligible": true,
+      "statistic": "three_run_mean",
+      "comparison_scope": "mixed_protocol_three_run_reference",
+      "macro_auc": 0.8045286666666667,
+      "macro_logloss": 0.08197173333333334,
+      "metrics": {
+        "Like": {
+          "AUC": 0.7551493333333333,
+          "logloss": 0.326987
+        },
+        "Cart": {
+          "AUC": 0.811712,
+          "logloss": 0.052387333333333334
+        },
+        "Offer": {
+          "AUC": 0.7444606666666667,
+          "logloss": 0.021509666666666667
+        },
+        "Checkout": {
+          "AUC": 0.8552863333333334,
+          "logloss": 0.005475666666666667
+        },
+        "Purchase": {
+          "AUC": 0.856035,
+          "logloss": 0.003499
+        }
+      },
+      "total_parameters": 810103805,
+      "dense_parameters": 7832349
+    },
+    {
+      "score_dim": 32,
+      "n_runs": 1,
+      "seeds": [
+        20262028
+      ],
+      "job_task_ids": [
+        "643736_1"
+      ],
+      "eligible": true,
+      "statistic": "single_run",
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "macro_auc": 0.7991998,
+      "macro_logloss": 0.0830104,
+      "metrics": {
+        "Like": {
+          "AUC": 0.748215,
+          "logloss": 0.333315
+        },
+        "Cart": {
+          "AUC": 0.804689,
+          "logloss": 0.052831
+        },
+        "Offer": {
+          "AUC": 0.754788,
+          "logloss": 0.021007
+        },
+        "Checkout": {
+          "AUC": 0.844783,
+          "logloss": 0.004791
+        },
+        "Purchase": {
+          "AUC": 0.843524,
+          "logloss": 0.003108
+        }
+      },
+      "total_parameters": 810226685,
+      "dense_parameters": 7955229
+    },
+    {
+      "score_dim": 64,
+      "n_runs": 1,
+      "seeds": [
+        20262028
+      ],
+      "job_task_ids": [
+        "644583_2"
+      ],
+      "eligible": true,
+      "statistic": "single_run",
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "macro_auc": 0.8044016,
+      "macro_logloss": 0.0816382,
+      "metrics": {
+        "Like": {
+          "AUC": 0.749112,
+          "logloss": 0.326702
+        },
+        "Cart": {
+          "AUC": 0.809167,
+          "logloss": 0.052649
+        },
+        "Offer": {
+          "AUC": 0.755252,
+          "logloss": 0.021034
+        },
+        "Checkout": {
+          "AUC": 0.853866,
+          "logloss": 0.004727
+        },
+        "Purchase": {
+          "AUC": 0.854611,
+          "logloss": 0.003079
+        }
+      },
+      "total_parameters": 810472445,
+      "dense_parameters": 8200989
+    }
+  ],
   "comparisons": [
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "__macro__",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.003811000000000009,
-      "delta_logloss": 0.0004351999999999967
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.007467266666666639,
+      "delta_logloss": 0.0011410666666666625
     },
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "Like",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.0003810000000000757,
-      "delta_logloss": 0.0019449999999999745
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.004841333333333364,
+      "delta_logloss": 0.0063189999999999635
     },
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "Cart",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.0035050000000000914,
-      "delta_logloss": 0.00016799999999999454
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0050280000000000324,
+      "delta_logloss": 0.000257666666666663
     },
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "Offer",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.0025439999999999907,
-      "delta_logloss": -4.900000000000043e-05
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.015208666666666648,
+      "delta_logloss": -4.666666666666708e-05
     },
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "Checkout",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.006503999999999954,
-      "delta_logloss": 4.6000000000000034e-05
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0062113333333333465,
+      "delta_logloss": -0.00047566666666666677
     },
     {
       "score_dim": 8,
       "reference_dim": 16,
       "label": "Purchase",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.006121000000000043,
-      "delta_logloss": 6.600000000000009e-05
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.006047000000000025,
+      "delta_logloss": -0.0003489999999999999
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "__macro__",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.001672600000000024,
-      "delta_logloss": 0.0003327999999999942
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.005328866666666654,
+      "delta_logloss": 0.00103866666666666
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "Like",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.0024740000000000872,
-      "delta_logloss": 0.0019539999999999558
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.006934333333333376,
+      "delta_logloss": 0.006327999999999945
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "Cart",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.00550000000000006,
-      "delta_logloss": 0.00035400000000000015
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0070230000000000015,
+      "delta_logloss": 0.0004436666666666686
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "Offer",
-      "comparison_scope": "dimension_only",
-      "delta_auc": 0.022992000000000012,
-      "delta_logloss": -0.0005049999999999985
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": 0.010327333333333355,
+      "delta_logloss": -0.0005026666666666652
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "Checkout",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.010796000000000028,
-      "delta_logloss": -0.00016299999999999995
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.01050333333333342,
+      "delta_logloss": -0.0006846666666666668
     },
     {
       "score_dim": 32,
       "reference_dim": 16,
       "label": "Purchase",
-      "comparison_scope": "dimension_only",
-      "delta_auc": -0.012584999999999957,
-      "delta_logloss": 2.400000000000015e-05
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.012510999999999939,
+      "delta_logloss": -0.00039099999999999985
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "__macro__",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": 0.00352920000000001,
-      "delta_logloss": -0.0010394000000000098
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0001270666666666198,
+      "delta_logloss": -0.000333533333333344
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "Like",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": -0.0015770000000000506,
-      "delta_logloss": -0.004659000000000024
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.006037333333333339,
+      "delta_logloss": -0.0002850000000000352
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "Cart",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": -0.0010220000000000784,
-      "delta_logloss": 0.00017199999999999854
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0025450000000000195,
+      "delta_logloss": 0.000261666666666667
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "Offer",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": 0.023456000000000032,
-      "delta_logloss": -0.00047799999999999926
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": 0.010791333333333375,
+      "delta_logloss": -0.0004756666666666659
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "Checkout",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": -0.0017129999999999646,
-      "delta_logloss": -0.00022699999999999977
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0014203333333333568,
+      "delta_logloss": -0.0007486666666666666
     },
     {
       "score_dim": 64,
       "reference_dim": 16,
       "label": "Purchase",
-      "comparison_scope": "dimension_with_four_gpu_layout",
-      "delta_auc": -0.0014979999999999993,
-      "delta_logloss": -4.999999999999796e-06
+      "comparison_scope": "single_run_vs_three_run_reference",
+      "delta_auc": -0.0014239999999999808,
+      "delta_logloss": -0.0004199999999999998
     }
   ],
   "sources": [
@@ -648,14 +1585,44 @@
       "bytes": 1246
     },
     {
-      "path": "experiments/ablations/sisa_score_dim/notes/source_sha256.json",
-      "sha256": "5bafd6484bbfdb8520ca567720846194f5a22fb44468567bbbe14e76ee425c43",
-      "bytes": 7209
+      "path": "checkpoints/MerRec_Action/SISA_expansion_HyFormer_MerRec_Action_sisa_seed20262027.log",
+      "sha256": "0634c40d0daecfd238318f7f7b879bb77896709653e5a8392d0302f910228d59",
+      "bytes": 10507
+    },
+    {
+      "path": "logs/unirank-sisa-expansion-acd-543257_27.out",
+      "sha256": "eec0bd9ea8cc1a4e8d47f8186b25b3959cc8ccca3be8a2695c4fdd4b761b4b28",
+      "bytes": 5629249
+    },
+    {
+      "path": "experiments/sisa_paper_report/archive/results/source_manifest.csv",
+      "sha256": "cca35dc30bb238b3196553b402fedc66385d34643db4a0beb5756f48e40ef1b3",
+      "bytes": 21890
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/configs/data_coverage_ws4.csv",
+      "sha256": "9131fe19843e1ee4def4ef218e9fa77e5f578d686b1059a7b9f2c0b503aa888e",
+      "bytes": 436
+    },
+    {
+      "path": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+      "sha256": "ddbb434f0d980087641ea3a8d485d2a69de3060548ff654b7a59aefa81062f60",
+      "bytes": 10669
+    },
+    {
+      "path": "logs/unirank-sisa-seed20262029-ws2-549595_1.out",
+      "sha256": "4abb6ca8a958cf1c263e489f8e9d898c7900123873b8a21ad2c9e2d7477bb6c3",
+      "bytes": 2812836
     },
     {
       "path": "experiments/ablations/sisa_score_dim/configs/data_coverage.csv",
       "sha256": "5d4ec5bce6585271b0e390b03a61c232b087c618301fa2676ac701133156b5dc",
       "bytes": 415
+    },
+    {
+      "path": "experiments/ablations/sisa_score_dim/notes/source_sha256.json",
+      "sha256": "5bafd6484bbfdb8520ca567720846194f5a22fb44468567bbbe14e76ee425c43",
+      "bytes": 7209
     },
     {
       "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r8_seed20262028_attempt1.log",
@@ -703,11 +1670,6 @@
       "bytes": 7665
     },
     {
-      "path": "experiments/ablations/sisa_score_dim/configs/data_coverage_ws4.csv",
-      "sha256": "9131fe19843e1ee4def4ef218e9fa77e5f578d686b1059a7b9f2c0b503aa888e",
-      "bytes": 436
-    },
-    {
       "path": "checkpoints/MerRec_Action/SISA_score_dim_HyFormer_MerRec_Action_r64_seed20262028_attempt3.log",
       "sha256": "60db030bb799fced3efc9009061c14af0935545c5d605ecc42a8d0ad468511f5",
       "bytes": 10636
@@ -734,6 +1696,16 @@
       "bytes": 3670
     }
   ],
+  "report_reference": {
+    "score_dim": 16,
+    "statistic": "three_run_mean",
+    "seeds": [
+      20262027,
+      20262028,
+      20262029
+    ]
+  },
+  "training_protocol_reference_job": "548166_1",
   "attempt_history": [
     {
       "task_id": 2,
@@ -880,6 +1852,6 @@
     "stderr": ""
   },
   "complete": true,
-  "metric_definition": "Final Test only; unweighted mean across all five labels.",
+  "metric_definition": "Final Test only; equal mean of five labels per run. Report r16 as equal mean of all three historical runs; other dimensions have one run each.",
   "coverage_definition": "Per-rank block, row and batch counts; not sample identity hashes."
 }

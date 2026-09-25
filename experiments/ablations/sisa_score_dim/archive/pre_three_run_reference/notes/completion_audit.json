@@ -1,0 +1,82 @@
+{
+  "checked_at": "2026-09-23T11:28:00+08:00",
+  "requirements": [
+    {
+      "id": "authorized_scope",
+      "status": "verified",
+      "finding": "Only HyFormer-MerRec; dimensions 8/16/32/64; no r4 training",
+      "evidence": [
+        "configs/tasks.csv",
+        "results/runs.csv"
+      ]
+    },
+    {
+      "id": "protocol_and_code",
+      "status": "verified",
+      "finding": "Frozen configs, 152 CPU tests and shell checks; unchanged global batch 32768",
+      "evidence": [
+        "notes/preflight.json",
+        "notes/submission_r64_attempt3.json",
+        "notes/r64_attempt3_protocol.csv"
+      ]
+    },
+    {
+      "id": "all_experiments",
+      "status": "verified",
+      "finding": "Three new successful dimensions plus predeclared historical r16; all four COMPLETED/0:0",
+      "evidence": [
+        "results/evidence.json",
+        "results/job_index.csv"
+      ]
+    },
+    {
+      "id": "guarding",
+      "status": "verified",
+      "finding": "Sleep-600 monitoring and terminal completion marker; no selected live job or active study monitor",
+      "evidence": [
+        "notes/monitor.json",
+        "notes/launch.md"
+      ]
+    },
+    {
+      "id": "result_verification",
+      "status": "verified",
+      "finding": "Both raw final Test logs, exact label coverage, per-layout sample coverage, parameter counts and source snapshots verified; 40 metric values independently recomputed",
+      "evidence": [
+        "notes/final_validation.json"
+      ]
+    },
+    {
+      "id": "complete_archive",
+      "status": "verified",
+      "finding": "10 jobs, 31 hashed runtime artifacts, four retained model checkpoints, all failed attempts and diagnostic source versions preserved",
+      "evidence": [
+        "results/job_index.csv",
+        "notes/runtime_artifact_inventory.csv",
+        "notes/diagnostic_source_index.csv"
+      ]
+    },
+    {
+      "id": "standalone_report",
+      "status": "verified",
+      "finding": "Full Chinese report with exact macro and label tables, DDP/sample-coverage caveats and no hyperlinks",
+      "evidence": [
+        "report.md",
+        "archive/reports/generated_report.md"
+      ]
+    }
+  ],
+  "required_work_remaining": [],
+  "data_or_execution_errors_remaining": [],
+  "scientific_limitations": [
+    "one seed and one model-dataset pair",
+    "r64 uses four GPUs at batch 8192, other dimensions two GPUs at batch 16384",
+    "same global batch does not make DDP sharding and drop_last coverage identical",
+    "historical full software and source snapshots are unavailable",
+    "coverage counts do not prove historical sample byte identity"
+  ],
+  "live_selected_jobs": [],
+  "study_monitor_running": false,
+  "report_sha256": "8f8fef4461956ced3ce67c5e2820da483c0da5afd5b01b2da94d84a8183ee481",
+  "evidence_sha256": "d89fe44b408f49ebe9db0cf0da8b036954e575315733bc783fad603bd5168573"
+}

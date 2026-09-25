@@ -9,14 +9,34 @@
   ],
   "remaining_final_dimensions": [],
   "selected_jobs": {
-    "8": "643736_0",
-    "16": "548166_1",
-    "32": "643736_1",
-    "64": "644583_2"
+    "8": [
+      "643736_0"
+    ],
+    "16": [
+      "543257_27",
+      "548166_1",
+      "549595_1"
+    ],
+    "32": [
+      "643736_1"
+    ],
+    "64": [
+      "644583_2"
+    ]
   },
   "failed_formal_attempts": [
     "643736_2",
     "643901_2"
   ],
-  "report": "experiments/ablations/sisa_score_dim/report.md"
+  "report": "experiments/ablations/sisa_score_dim/report.md",
+  "report_reference": {
+    "score_dim": 16,
+    "statistic": "three_run_mean",
+    "seeds": [
+      20262027,
+      20262028,
+      20262029
+    ]
+  },
+  "report_updated_at": "2026-09-23T16:01:02+08:00"
 }
