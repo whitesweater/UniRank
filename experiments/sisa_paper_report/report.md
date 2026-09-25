@@ -1,5 +1,10 @@
 # UniRank SISA 实验设置与结果报告
 
+> 范围更新（2026-09-23）：项目正式范围现为 HiFormer、HyFormer、OneTrans、RankMixer、
+> Zenith × MerRec、QK-Video、KuaiRand、TencentGR，共 20 个组合。本文保留原四模型、
+> 16 个组合的历史统计；正文中排除 OneTrans 的范围约定仅适用于该历史快照。
+> 本文尚未合并 OneTrans 或重算 20 个组合的结果，TencentGR 在本文中称 TAAC-25。
+
 ## 技术摘要：单 seed 配对支持整体改善，多 seed 因果结论仍待补齐
 
 本报告整理 UniRank 中 SISA 的论文实验材料，证据冻结日为 **2026-09-14（Asia/Shanghai）**，实验运行集中于 2026 年 8 月。正式范围限定为 **HiFormer、HyFormer、RankMixer、Zenith × QK-Video、KuaiRand、TAAC-25、MerRec**，共 16 个模型–数据集单元、17 种数据集–标签任务和 68 个模型–数据集–标签组合。

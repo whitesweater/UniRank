@@ -65,9 +65,12 @@ Git 只同步实现和复现必需文件。以下内容按设计不进入仓库�
 
 ## 4. 目录和关键入口
 
-实验材料从 [实验总索引](experiments/README.md) 进入。当前主报告为
-[SISA 论文实验报告](experiments/sisa_paper_report/report.md)，消融正文、完整归档及
-独立诊断报告在索引中分别列出。
+实验材料从 [实验总索引](experiments/README.md) 进入。2026-09-23 起，正式实验范围为
+**HiFormer、HyFormer、OneTrans、RankMixer、Zenith × MerRec、QK-Video、KuaiRand、TencentGR**，
+共 **20 个模型–数据集组合**。TencentGR 对应 `TencentGR_10M_Action`，旧报告称 TAAC-25。
+现有 [SISA 论文实验报告](experiments/sisa_paper_report/report.md) 保留原四模型、16 个组合的
+历史统计；扩展范围后的汇总须核验 OneTrans 配对证据并重新计算。消融正文、完整归档及
+各研究报告在索引中分别列出。
 
 ```text
 UniRank/
@@ -87,7 +90,7 @@ UniRank/
 ├── artifacts/                       # 阶段性审计结果和失败重试现场
 ├── experiments/                     # 实验计划、报告、结果表与消融模板
 │   ├── README.md                    # 实验总索引与归档规范
-│   ├── sisa_paper_report/           # accepted 16-cell 论文主报告及证据归档
+│   ├── sisa_paper_report/           # 原四模型 16-cell 论文报告及证据归档
 │   ├── sisa_native_strict/          # 已完成 32-task 严格实验
 │   │   ├── report.md                # 统一正式报告
 │   │   ├── results/                 # 小型机器可读结果
@@ -98,7 +101,7 @@ UniRank/
 │   ├── sisa_three_seed_unified/      # 三-seed、baseline 与论文表统一分析
 │   ├── ablations/                   # 已完成组件消融、论文正文及完整归档
 │   ├── hiformer_qk_diagnostic/      # HiFormer–QK 诊断报告及核验材料
-│   ├── onetrans_seed_completion/    # OneTrans 补齐诊断与最终选定结果
+│   ├── onetrans_seed_completion/    # OneTrans 补齐记录与最终选定结果
 │   ├── onetrans_seed_completion_ws2/ # OneTrans 两卡分支协议及选择回执
 │   └── templates/ablation/          # 消融报告模板
 ├── scripts/

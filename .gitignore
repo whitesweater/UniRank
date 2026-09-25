@@ -4,7 +4,7 @@ __pycache__/
 *.py[cod]
 *.model
 checkpoints/
-/.venv/
+.venv/
 /datasets
 /logs/
 /artifacts/
@@ -24,3 +24,28 @@ checkpoints/
 /experiments/sisa_paper_report/archive/logs/
 /experiments/sisa_paper_report/archive/previews/
 *.html.tmp-*
+
+# Collector polling snapshots; final tables alongside these directories are tracked.
+/experiments/**/results/snapshots/
+/experiments/**/results/*_snapshots/
+
+# Raw local validation and scheduler output; retain compact audit receipts.
+/experiments/**/notes/*.log
+/experiments/**/audit/*.log
+/experiments/**/audit/*_scheduler.txt
+/experiments/hiformer_target_only_extension/notes/concurrency_scontrol.txt
+/experiments/hiformer_target_only_multiseed/notes/scheduler_concurrency.txt
+/experiments/hiformer_target_only_extension/notes/monitor.json
+/experiments/hiformer_target_only_extension/notes/monitor_completion.json
+/experiments/hiformer_target_only_multiseed/notes/monitor.json
+/experiments/sisa_seed_variability_20260923/rerun/**/watcher.json
+/experiments/sisa_seed_variability_20260923/rerun/**/startup.json
+/experiments/sisa_seed_variability_20260923/rerun/followup_20260923/git_environment_fix.json
+
+# Redundant editing backups; keep the documented complete report before the selector.
+/experiments/sisa_three_seed_unified/report/archive/20260924_before_20cell_merge/
+/experiments/sisa_three_seed_unified/report/archive/20260924_before_matrix_layout/
+
+# User-supplied manuscript and locally assembled delivery bundle.
+/document.pdf
+/experiments/rise_sample_analysis/RISE_final_delivery.zip

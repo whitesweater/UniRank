@@ -8,12 +8,14 @@ Keep formal plans, reports, and compact result tables under `experiments/<study_
 
 ## Accepted Experimental Evidence Scope
 
-For SISA paper claims, result aggregation, and follow-up experiment planning, treat only the following 4 x 4 model-dataset cells as accepted evidence:
+For SISA paper claims, result aggregation, and follow-up experiment planning, the accepted scope is the following 5 x 4 model-dataset matrix (20 cells), updated on 2026-09-23:
 
-- Models: `HiFormer`, `HyFormer`, `RankMixer`, and `Zenith`.
-- Datasets: `QK_Video_Action` (QK-Video), `KuaiRand_Video_Action` (KuaiRand), `TencentGR_10M_Action` (TAAC-25), and `MerRec_Action` (MerRec).
+- Models: `HiFormer`, `HyFormer`, `OneTrans`, `RankMixer`, and `Zenith`.
+- Datasets: `MerRec_Action` (MerRec), `QK_Video_Action` (QK-Video), `KuaiRand_Video_Action` (KuaiRand), and `TencentGR_10M_Action` (TencentGR; called TAAC-25 in historical reports).
 
-Do not use results from other models or datasets, including `OneTrans`, `UniMixer`, `UltraHSTU`, or `Taobao_Action`, to support paper claims, aggregate statistics, or experiment conclusions. Such runs may remain as diagnostic or runtime records, but reports must keep them separate from the accepted 16-cell evidence scope. Exact GPU-model matching is not required for accepting a comparison; record hardware differences and keep the data split, preprocessing, training budget, global batch, seed semantics, and evaluation protocol aligned.
+OneTrans is part of the formal scope. Earlier instructions excluding it apply only to historical 16-cell snapshots. Existing reports and their builders may still encode that historical scope; verify inputs and recompute aggregates before presenting them as 20-cell results. Expanding the scope does not itself validate every historical run.
+
+Do not use results from other models or datasets, including `UniMixer`, `UltraHSTU`, or `Taobao_Action`, to support paper claims, aggregate statistics, or experiment conclusions. Such runs may remain as diagnostic or runtime records, but reports must keep them separate from the accepted 20-cell evidence scope. Exact GPU-model matching is not required for accepting a comparison; record hardware differences and keep the data split, preprocessing, training budget, global batch, seed semantics, and evaluation protocol aligned.
 
 ## Build, Test, and Development Commands
 
