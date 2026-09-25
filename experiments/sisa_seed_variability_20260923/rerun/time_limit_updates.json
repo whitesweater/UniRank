@@ -1,0 +1,78 @@
+{
+  "updated_at": "2026-09-23T16:25:09.497538+08:00",
+  "reason": "Walltime at least twice historical duration plus 30 minutes; training remains one epoch; improve backfill eligibility",
+  "updates": [
+    {
+      "job_id": "645223",
+      "time_limit": "04:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645223",
+        "TimeLimit=04:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "job_id": "645224",
+      "time_limit": "02:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645224",
+        "TimeLimit=02:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "job_id": "645225",
+      "time_limit": "02:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645225",
+        "TimeLimit=02:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "job_id": "645226",
+      "time_limit": "03:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645226",
+        "TimeLimit=03:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "job_id": "645227",
+      "time_limit": "02:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645227",
+        "TimeLimit=02:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "job_id": "645228",
+      "time_limit": "05:00:00",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=645228",
+        "TimeLimit=05:00:00"
+      ],
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,3268 @@
+{
+  "version": 1,
+  "generated_at": "2026-09-24T21:58:42.312274+08:00",
+  "digest": "fe7d834b1a7fd6b61b7150f42a95ec3e0b892d35887d2fbf2267ce86726d406d",
+  "models": [
+    "HiFormer",
+    "HyFormer",
+    "OneTrans",
+    "RankMixer",
+    "Zenith"
+  ],
+  "datasets": [
+    {
+      "id": "QK_Video_Action",
+      "name": "QK-Video"
+    },
+    {
+      "id": "KuaiRand_Video_Action",
+      "name": "KuaiRand"
+    },
+    {
+      "id": "TencentGR_10M_Action",
+      "name": "TAAC-25"
+    },
+    {
+      "id": "MerRec_Action",
+      "name": "MerRec"
+    }
+  ],
+  "cells": [
+    {
+      "id": "HiFormer|QK_Video_Action",
+      "model": "HiFormer",
+      "dataset": "QK_Video_Action",
+      "dataset_name": "QK-Video",
+      "baseline": {
+        "id": "HiFormer|QK_Video_Action|20262027|14811_8",
+        "seed": 20262027,
+        "job": "14811_8",
+        "kind": "baseline",
+        "auc": 0.93316325,
+        "logloss": 0.0753855,
+        "labels": [
+          {
+            "label": "click",
+            "auc": 0.932306,
+            "logloss": 0.253972
+          },
+          {
+            "label": "follow",
+            "auc": 0.919914,
+            "logloss": 0.004997
+          },
+          {
+            "label": "like",
+            "auc": 0.946691,
+            "logloss": 0.037272
+          },
+          {
+            "label": "share",
+            "auc": 0.933742,
+            "logloss": 0.005301
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HiFormer|QK_Video_Action|20262027|14811_9",
+          "seed": 20262027,
+          "job": "14811_9",
+          "kind": "original",
+          "auc": 0.931063,
+          "logloss": 0.07535625,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.932526,
+              "logloss": 0.25365
+            },
+            {
+              "label": "follow",
+              "auc": 0.913924,
+              "logloss": 0.005111
+            },
+            {
+              "label": "like",
+              "auc": 0.945462,
+              "logloss": 0.037298
+            },
+            {
+              "label": "share",
+              "auc": 0.93234,
+              "logloss": 0.005366
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_strict_HiFormer_QK_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|QK_Video_Action|20262028|548166_10",
+          "seed": 20262028,
+          "job": "548166_10",
+          "kind": "original",
+          "auc": 0.93089125,
+          "logloss": 0.07584525,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.931291,
+              "logloss": 0.255325
+            },
+            {
+              "label": "follow",
+              "auc": 0.913586,
+              "logloss": 0.005112
+            },
+            {
+              "label": "like",
+              "auc": 0.945454,
+              "logloss": 0.037497
+            },
+            {
+              "label": "share",
+              "auc": 0.933234,
+              "logloss": 0.005447
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|QK_Video_Action|20262029|549595_10",
+          "seed": 20262029,
+          "job": "549595_10",
+          "kind": "original",
+          "auc": 0.9306105,
+          "logloss": 0.07567075000000001,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.932216,
+              "logloss": 0.253956
+            },
+            {
+              "label": "follow",
+              "auc": 0.913352,
+              "logloss": 0.00528
+            },
+            {
+              "label": "like",
+              "auc": 0.945247,
+              "logloss": 0.037883
+            },
+            {
+              "label": "share",
+              "auc": 0.931627,
+              "logloss": 0.005564
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.9308549166666666,
+      "original_three_seed_logloss": 0.07562408333333333
+    },
+    {
+      "id": "HiFormer|KuaiRand_Video_Action",
+      "model": "HiFormer",
+      "dataset": "KuaiRand_Video_Action",
+      "dataset_name": "KuaiRand",
+      "baseline": {
+        "id": "HiFormer|KuaiRand_Video_Action|20262027|14850_10",
+        "seed": 20262027,
+        "job": "14850_10",
+        "kind": "baseline",
+        "auc": 0.8584816666666666,
+        "logloss": 0.1805495,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.777662,
+            "logloss": 0.541932
+          },
+          {
+            "label": "is_comment",
+            "auc": 0.898789,
+            "logloss": 0.014709
+          },
+          {
+            "label": "is_follow",
+            "auc": 0.879913,
+            "logloss": 0.006364
+          },
+          {
+            "label": "is_forward",
+            "auc": 0.87092,
+            "logloss": 0.005684
+          },
+          {
+            "label": "is_like",
+            "auc": 0.928496,
+            "logloss": 0.053637
+          },
+          {
+            "label": "long_view",
+            "auc": 0.79511,
+            "logloss": 0.460971
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HiFormer|KuaiRand_Video_Action|20262027|14850_11",
+          "seed": 20262027,
+          "job": "14850_11",
+          "kind": "original",
+          "auc": 0.8621658333333334,
+          "logloss": 0.17738833333333334,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.797238,
+              "logloss": 0.521549
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.895209,
+              "logloss": 0.014806
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.881796,
+              "logloss": 0.00618
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.86945,
+              "logloss": 0.005692
+            },
+            {
+              "label": "is_like",
+              "auc": 0.925869,
+              "logloss": 0.054294
+            },
+            {
+              "label": "long_view",
+              "auc": 0.803433,
+              "logloss": 0.461809
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_strict_HiFormer_KuaiRand_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|KuaiRand_Video_Action|20262028|548166_6",
+          "seed": 20262028,
+          "job": "548166_6",
+          "kind": "original",
+          "auc": 0.864671,
+          "logloss": 0.17556466666666667,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.795981,
+              "logloss": 0.524404
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.898652,
+              "logloss": 0.014701
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.88538,
+              "logloss": 0.006254
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.868933,
+              "logloss": 0.005698
+            },
+            {
+              "label": "is_like",
+              "auc": 0.929336,
+              "logloss": 0.053535
+            },
+            {
+              "label": "long_view",
+              "auc": 0.809744,
+              "logloss": 0.448796
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HiFormer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|KuaiRand_Video_Action|20262029|549595_6",
+          "seed": 20262029,
+          "job": "549595_6",
+          "kind": "original",
+          "auc": 0.8633190000000001,
+          "logloss": 0.17683816666666666,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.796055,
+              "logloss": 0.52325
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.896727,
+              "logloss": 0.014736
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.886823,
+              "logloss": 0.006182
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.867965,
+              "logloss": 0.005663
+            },
+            {
+              "label": "is_like",
+              "auc": 0.926401,
+              "logloss": 0.054387
+            },
+            {
+              "label": "long_view",
+              "auc": 0.805943,
+              "logloss": 0.456811
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HiFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8633852777777777,
+      "original_three_seed_logloss": 0.17659705555555558
+    },
+    {
+      "id": "HiFormer|TencentGR_10M_Action",
+      "model": "HiFormer",
+      "dataset": "TencentGR_10M_Action",
+      "dataset_name": "TAAC-25",
+      "baseline": {
+        "id": "HiFormer|TencentGR_10M_Action|20262027|543257_2",
+        "seed": 20262027,
+        "job": "543257_2",
+        "kind": "baseline",
+        "auc": 0.855235,
+        "logloss": 0.0321885,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.837502,
+            "logloss": 0.047367
+          },
+          {
+            "label": "is_conversion",
+            "auc": 0.872968,
+            "logloss": 0.01701
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HiFormer|TencentGR_10M_Action|20262027|543257_3",
+          "seed": 20262027,
+          "job": "543257_3",
+          "kind": "original",
+          "auc": 0.8667959999999999,
+          "logloss": 0.0279535,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.846706,
+              "logloss": 0.040661
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.886886,
+              "logloss": 0.015246
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_expansion_HiFormer_TencentGR_10M_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|TencentGR_10M_Action|20262028|548166_14",
+          "seed": 20262028,
+          "job": "548166_14",
+          "kind": "original",
+          "auc": 0.870858,
+          "logloss": 0.030295,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.851302,
+              "logloss": 0.04341
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.890414,
+              "logloss": 0.01718
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|TencentGR_10M_Action|20262029|549595_14",
+          "seed": 20262029,
+          "job": "549595_14",
+          "kind": "original",
+          "auc": 0.86991,
+          "logloss": 0.0324445,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.850097,
+              "logloss": 0.047388
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.889723,
+              "logloss": 0.017501
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.869188,
+      "original_three_seed_logloss": 0.030230999999999997
+    },
+    {
+      "id": "HiFormer|MerRec_Action",
+      "model": "HiFormer",
+      "dataset": "MerRec_Action",
+      "dataset_name": "MerRec",
+      "baseline": {
+        "id": "HiFormer|MerRec_Action|20262027|14810_14",
+        "seed": 20262027,
+        "job": "14810_14",
+        "kind": "baseline",
+        "auc": 0.8010968,
+        "logloss": 0.08523339999999999,
+        "labels": [
+          {
+            "label": "Cart",
+            "auc": 0.810019,
+            "logloss": 0.053089
+          },
+          {
+            "label": "Checkout",
+            "auc": 0.834515,
+            "logloss": 0.012448
+          },
+          {
+            "label": "Like",
+            "auc": 0.74961,
+            "logloss": 0.328501
+          },
+          {
+            "label": "Offer",
+            "auc": 0.775777,
+            "logloss": 0.023378
+          },
+          {
+            "label": "Purchase",
+            "auc": 0.835563,
+            "logloss": 0.008751
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HiFormer|MerRec_Action|20262027|14810_15",
+          "seed": 20262027,
+          "job": "14810_15",
+          "kind": "original",
+          "auc": 0.8022904000000001,
+          "logloss": 0.08340220000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.813548,
+              "logloss": 0.052204
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.838614,
+              "logloss": 0.011611
+            },
+            {
+              "label": "Like",
+              "auc": 0.764396,
+              "logloss": 0.3216
+            },
+            {
+              "label": "Offer",
+              "auc": 0.761824,
+              "logloss": 0.023437
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.83307,
+              "logloss": 0.008159
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_strict_HiFormer_MerRec_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|MerRec_Action|20262028|548166_2",
+          "seed": 20262028,
+          "job": "548166_2",
+          "kind": "original",
+          "auc": 0.8092763999999999,
+          "logloss": 0.08253239999999999,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.818659,
+              "logloss": 0.051844
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.845414,
+              "logloss": 0.009625
+            },
+            {
+              "label": "Like",
+              "auc": 0.765716,
+              "logloss": 0.323721
+            },
+            {
+              "label": "Offer",
+              "auc": 0.769679,
+              "logloss": 0.021428
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.846914,
+              "logloss": 0.006044
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|MerRec_Action|20262029|549595_2",
+          "seed": 20262029,
+          "job": "549595_2",
+          "kind": "original",
+          "auc": 0.8039571999999999,
+          "logloss": 0.0843796,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.820005,
+              "logloss": 0.051863
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.829334,
+              "logloss": 0.014377
+            },
+            {
+              "label": "Like",
+              "auc": 0.761906,
+              "logloss": 0.32395
+            },
+            {
+              "label": "Offer",
+              "auc": 0.773916,
+              "logloss": 0.023083
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.834625,
+              "logloss": 0.008625
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|MerRec_Action|20262029|645226_2",
+          "seed": 20262029,
+          "job": "645226_2",
+          "kind": "rerun",
+          "auc": 0.8039571999999999,
+          "logloss": 0.0843796,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.820005,
+              "logloss": 0.051863
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.829334,
+              "logloss": 0.014377
+            },
+            {
+              "label": "Like",
+              "auc": 0.761906,
+              "logloss": 0.32395
+            },
+            {
+              "label": "Offer",
+              "auc": 0.773916,
+              "logloss": 0.023083
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.834625,
+              "logloss": 0.008625
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "HiFormer|MerRec_Action|20262030|645444_2",
+          "seed": 20262030,
+          "job": "645444_2",
+          "kind": "new_seed",
+          "auc": 0.8065784,
+          "logloss": 0.0833928,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.81874,
+              "logloss": 0.051685
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.839959,
+              "logloss": 0.011605
+            },
+            {
+              "label": "Like",
+              "auc": 0.762839,
+              "logloss": 0.323042
+            },
+            {
+              "label": "Offer",
+              "auc": 0.766527,
+              "logloss": 0.023031
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.844827,
+              "logloss": 0.007601
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262030_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8051746666666667,
+      "original_three_seed_logloss": 0.08343806666666666
+    },
+    {
+      "id": "HyFormer|QK_Video_Action",
+      "model": "HyFormer",
+      "dataset": "QK_Video_Action",
+      "dataset_name": "QK-Video",
+      "baseline": {
+        "id": "HyFormer|QK_Video_Action|20262027|543255_18",
+        "seed": 20262027,
+        "job": "543255_18",
+        "kind": "baseline",
+        "auc": 0.9302425,
+        "logloss": 0.07509475,
+        "labels": [
+          {
+            "label": "click",
+            "auc": 0.933053,
+            "logloss": 0.252904
+          },
+          {
+            "label": "follow",
+            "auc": 0.91174,
+            "logloss": 0.005132
+          },
+          {
+            "label": "like",
+            "auc": 0.946457,
+            "logloss": 0.036969
+          },
+          {
+            "label": "share",
+            "auc": 0.92972,
+            "logloss": 0.005374
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HyFormer|QK_Video_Action|20262027|543257_19",
+          "seed": 20262027,
+          "job": "543257_19",
+          "kind": "original",
+          "auc": 0.9312455,
+          "logloss": 0.074335,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.934587,
+              "logloss": 0.250224
+            },
+            {
+              "label": "follow",
+              "auc": 0.911898,
+              "logloss": 0.005131
+            },
+            {
+              "label": "like",
+              "auc": 0.947302,
+              "logloss": 0.036658
+            },
+            {
+              "label": "share",
+              "auc": 0.931195,
+              "logloss": 0.005327
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_expansion_HyFormer_QK_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|QK_Video_Action|20262028|548166_9",
+          "seed": 20262028,
+          "job": "548166_9",
+          "kind": "original",
+          "auc": 0.931308,
+          "logloss": 0.0747075,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.934075,
+              "logloss": 0.250842
+            },
+            {
+              "label": "follow",
+              "auc": 0.913611,
+              "logloss": 0.005121
+            },
+            {
+              "label": "like",
+              "auc": 0.947015,
+              "logloss": 0.037439
+            },
+            {
+              "label": "share",
+              "auc": 0.930531,
+              "logloss": 0.005428
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_HyFormer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|QK_Video_Action|20262029|549595_9",
+          "seed": 20262029,
+          "job": "549595_9",
+          "kind": "original",
+          "auc": 0.93116,
+          "logloss": 0.074686,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.934379,
+              "logloss": 0.250461
+            },
+            {
+              "label": "follow",
+              "auc": 0.912153,
+              "logloss": 0.005266
+            },
+            {
+              "label": "like",
+              "auc": 0.946284,
+              "logloss": 0.037557
+            },
+            {
+              "label": "share",
+              "auc": 0.931824,
+              "logloss": 0.00546
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_HyFormer_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.9312378333333333,
+      "original_three_seed_logloss": 0.07457616666666667
+    },
+    {
+      "id": "HyFormer|KuaiRand_Video_Action",
+      "model": "HyFormer",
+      "dataset": "KuaiRand_Video_Action",
+      "dataset_name": "KuaiRand",
+      "baseline": {
+        "id": "HyFormer|KuaiRand_Video_Action|20262027|543257_20",
+        "seed": 20262027,
+        "job": "543257_20",
+        "kind": "baseline",
+        "auc": 0.8571901666666667,
+        "logloss": 0.1797498333333333,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.782927,
+            "logloss": 0.540743
+          },
+          {
+            "label": "is_comment",
+            "auc": 0.889771,
+            "logloss": 0.015035
+          },
+          {
+            "label": "is_follow",
+            "auc": 0.879855,
+            "logloss": 0.006594
+          },
+          {
+            "label": "is_forward",
+            "auc": 0.86964,
+            "logloss": 0.005816
+          },
+          {
+            "label": "is_like",
+            "auc": 0.922436,
+            "logloss": 0.055706
+          },
+          {
+            "label": "long_view",
+            "auc": 0.798512,
+            "logloss": 0.454605
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HyFormer|KuaiRand_Video_Action|20262027|543257_21",
+          "seed": 20262027,
+          "job": "543257_21",
+          "kind": "original",
+          "auc": 0.8638568333333333,
+          "logloss": 0.1750151666666667,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.795817,
+              "logloss": 0.525387
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.891853,
+              "logloss": 0.014859
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.886716,
+              "logloss": 0.006261
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.872832,
+              "logloss": 0.005598
+            },
+            {
+              "label": "is_like",
+              "auc": 0.925135,
+              "logloss": 0.054406
+            },
+            {
+              "label": "long_view",
+              "auc": 0.810788,
+              "logloss": 0.44358
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_expansion_HyFormer_KuaiRand_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|KuaiRand_Video_Action|20262028|548166_5",
+          "seed": 20262028,
+          "job": "548166_5",
+          "kind": "original",
+          "auc": 0.8619408333333333,
+          "logloss": 0.17719033333333334,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.793189,
+              "logloss": 0.532893
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.893,
+              "logloss": 0.015244
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.885166,
+              "logloss": 0.006285
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.868786,
+              "logloss": 0.005668
+            },
+            {
+              "label": "is_like",
+              "auc": 0.925453,
+              "logloss": 0.056911
+            },
+            {
+              "label": "long_view",
+              "auc": 0.806051,
+              "logloss": 0.446141
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|KuaiRand_Video_Action|20262029|549595_5",
+          "seed": 20262029,
+          "job": "549595_5",
+          "kind": "original",
+          "auc": 0.8616241666666666,
+          "logloss": 0.17471133333333333,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.795028,
+              "logloss": 0.524111
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.889446,
+              "logloss": 0.015025
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.875987,
+              "logloss": 0.006358
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.871262,
+              "logloss": 0.005849
+            },
+            {
+              "label": "is_like",
+              "auc": 0.926478,
+              "logloss": 0.05416
+            },
+            {
+              "label": "long_view",
+              "auc": 0.811544,
+              "logloss": 0.442765
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|KuaiRand_Video_Action|20262029|645226_5",
+          "seed": 20262029,
+          "job": "645226_5",
+          "kind": "rerun",
+          "auc": 0.8624451666666667,
+          "logloss": 0.17413283333333332,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.796397,
+              "logloss": 0.523205
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.890274,
+              "logloss": 0.014994
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.877468,
+              "logloss": 0.006382
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.870401,
+              "logloss": 0.005742
+            },
+            {
+              "label": "is_like",
+              "auc": 0.927315,
+              "logloss": 0.054044
+            },
+            {
+              "label": "long_view",
+              "auc": 0.812816,
+              "logloss": 0.44043
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8624739444444444,
+      "original_three_seed_logloss": 0.17563894444444447
+    },
+    {
+      "id": "HyFormer|TencentGR_10M_Action",
+      "model": "HyFormer",
+      "dataset": "TencentGR_10M_Action",
+      "dataset_name": "TAAC-25",
+      "baseline": {
+        "id": "HyFormer|TencentGR_10M_Action|20262027|543257_22",
+        "seed": 20262027,
+        "job": "543257_22",
+        "kind": "baseline",
+        "auc": 0.851237,
+        "logloss": 0.0349765,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.825794,
+            "logloss": 0.051701
+          },
+          {
+            "label": "is_conversion",
+            "auc": 0.87668,
+            "logloss": 0.018252
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HyFormer|TencentGR_10M_Action|20262027|543257_23",
+          "seed": 20262027,
+          "job": "543257_23",
+          "kind": "original",
+          "auc": 0.862471,
+          "logloss": 0.033365,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.838596,
+              "logloss": 0.049836
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.886346,
+              "logloss": 0.016894
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_expansion_HyFormer_TencentGR_10M_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|TencentGR_10M_Action|20262027|645223_13",
+          "seed": 20262027,
+          "job": "645223_13",
+          "kind": "rerun",
+          "auc": 0.863969,
+          "logloss": 0.033007999999999996,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.840107,
+              "logloss": 0.048857
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.887831,
+              "logloss": 0.017159
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HyFormer_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|TencentGR_10M_Action|20262028|548166_13",
+          "seed": 20262028,
+          "job": "548166_13",
+          "kind": "original",
+          "auc": 0.8744435,
+          "logloss": 0.0325065,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.85179,
+              "logloss": 0.047312
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.897097,
+              "logloss": 0.017701
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HyFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|TencentGR_10M_Action|20262029|549595_13",
+          "seed": 20262029,
+          "job": "549595_13",
+          "kind": "original",
+          "auc": 0.8674335,
+          "logloss": 0.0358825,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.845539,
+              "logloss": 0.052826
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.889328,
+              "logloss": 0.018939
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HyFormer_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.868116,
+      "original_three_seed_logloss": 0.033918
+    },
+    {
+      "id": "HyFormer|MerRec_Action",
+      "model": "HyFormer",
+      "dataset": "MerRec_Action",
+      "dataset_name": "MerRec",
+      "baseline": {
+        "id": "HyFormer|MerRec_Action|20262027|543257_26",
+        "seed": 20262027,
+        "job": "543257_26",
+        "kind": "baseline",
+        "auc": 0.7937372,
+        "logloss": 0.0838562,
+        "labels": [
+          {
+            "label": "Cart",
+            "auc": 0.798071,
+            "logloss": 0.053872
+          },
+          {
+            "label": "Checkout",
+            "auc": 0.848886,
+            "logloss": 0.00552
+          },
+          {
+            "label": "Like",
+            "auc": 0.73532,
+            "logloss": 0.334592
+          },
+          {
+            "label": "Offer",
+            "auc": 0.739902,
+            "logloss": 0.021683
+          },
+          {
+            "label": "Purchase",
+            "auc": 0.846507,
+            "logloss": 0.003614
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "HyFormer|MerRec_Action|20262027|543257_27",
+          "seed": 20262027,
+          "job": "543257_27",
+          "kind": "original",
+          "auc": 0.8061308,
+          "logloss": 0.081237,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.813835,
+              "logloss": 0.052342
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.856995,
+              "logloss": 0.005343
+            },
+            {
+              "label": "Like",
+              "auc": 0.75901,
+              "logloss": 0.322929
+            },
+            {
+              "label": "Offer",
+              "auc": 0.745556,
+              "logloss": 0.021918
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.855258,
+              "logloss": 0.003653
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_expansion_HyFormer_MerRec_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|MerRec_Action|20262028|548166_1",
+          "seed": 20262028,
+          "job": "548166_1",
+          "kind": "original",
+          "auc": 0.8008724,
+          "logloss": 0.0826776,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.810189,
+              "logloss": 0.052477
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.855579,
+              "logloss": 0.004954
+            },
+            {
+              "label": "Like",
+              "auc": 0.750689,
+              "logloss": 0.331361
+            },
+            {
+              "label": "Offer",
+              "auc": 0.731796,
+              "logloss": 0.021512
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.856109,
+              "logloss": 0.003084
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|MerRec_Action|20262028|645224_1",
+          "seed": 20262028,
+          "job": "645224_1",
+          "kind": "rerun",
+          "auc": 0.8008724,
+          "logloss": 0.0826776,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.810189,
+              "logloss": 0.052477
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.855579,
+              "logloss": 0.004954
+            },
+            {
+              "label": "Like",
+              "auc": 0.750689,
+              "logloss": 0.331361
+            },
+            {
+              "label": "Offer",
+              "auc": 0.731796,
+              "logloss": 0.021512
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.856109,
+              "logloss": 0.003084
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|MerRec_Action|20262029|549595_1",
+          "seed": 20262029,
+          "job": "549595_1",
+          "kind": "original",
+          "auc": 0.8065827999999999,
+          "logloss": 0.0820006,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.811112,
+              "logloss": 0.052343
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.853285,
+              "logloss": 0.00613
+            },
+            {
+              "label": "Like",
+              "auc": 0.755749,
+              "logloss": 0.326671
+            },
+            {
+              "label": "Offer",
+              "auc": 0.75603,
+              "logloss": 0.021099
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.856738,
+              "logloss": 0.00376
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "HyFormer|MerRec_Action|20262030|645444_1",
+          "seed": 20262030,
+          "job": "645444_1",
+          "kind": "new_seed",
+          "auc": 0.7989772,
+          "logloss": 0.0819256,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.792775,
+              "logloss": 0.053719
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.850113,
+              "logloss": 0.006788
+            },
+            {
+              "label": "Like",
+              "auc": 0.760157,
+              "logloss": 0.322389
+            },
+            {
+              "label": "Offer",
+              "auc": 0.742508,
+              "logloss": 0.022065
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.849333,
+              "logloss": 0.004667
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262030_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8045286666666667,
+      "original_three_seed_logloss": 0.08197173333333334
+    },
+    {
+      "id": "OneTrans|QK_Video_Action",
+      "model": "OneTrans",
+      "dataset": "QK_Video_Action",
+      "dataset_name": "QK-Video",
+      "baseline": {
+        "id": "OneTrans|QK_Video_Action|20262027|14810_0",
+        "seed": 20262027,
+        "job": "14810_0",
+        "kind": "baseline",
+        "auc": 0.93361775,
+        "logloss": 0.07382725,
+        "labels": [
+          {
+            "label": "click",
+            "auc": 0.935674,
+            "logloss": 0.248535
+          },
+          {
+            "label": "follow",
+            "auc": 0.917042,
+            "logloss": 0.005088
+          },
+          {
+            "label": "like",
+            "auc": 0.948348,
+            "logloss": 0.036389
+          },
+          {
+            "label": "share",
+            "auc": 0.933407,
+            "logloss": 0.005297
+          }
+        ],
+        "source": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "OneTrans|QK_Video_Action|20262027|14810_1",
+          "seed": 20262027,
+          "job": "14810_1",
+          "kind": "original",
+          "auc": 0.9340545,
+          "logloss": 0.073634,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.935902,
+              "logloss": 0.247955
+            },
+            {
+              "label": "follow",
+              "auc": 0.918218,
+              "logloss": 0.005097
+            },
+            {
+              "label": "like",
+              "auc": 0.948861,
+              "logloss": 0.036164
+            },
+            {
+              "label": "share",
+              "auc": 0.933237,
+              "logloss": 0.00532
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_strict_OneTrans_QK_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|QK_Video_Action|20262028|630948_0",
+          "seed": 20262028,
+          "job": "630948_0",
+          "kind": "original",
+          "auc": 0.9347415,
+          "logloss": 0.0740015,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.936216,
+              "logloss": 0.248747
+            },
+            {
+              "label": "follow",
+              "auc": 0.920085,
+              "logloss": 0.005003
+            },
+            {
+              "label": "like",
+              "auc": 0.947813,
+              "logloss": 0.036928
+            },
+            {
+              "label": "share",
+              "auc": 0.934852,
+              "logloss": 0.005328
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|QK_Video_Action|20262029|630948_1",
+          "seed": 20262029,
+          "job": "630948_1",
+          "kind": "original",
+          "auc": 0.93357375,
+          "logloss": 0.073792,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.936008,
+              "logloss": 0.248195
+            },
+            {
+              "label": "follow",
+              "auc": 0.917028,
+              "logloss": 0.005207
+            },
+            {
+              "label": "like",
+              "auc": 0.948144,
+              "logloss": 0.03644
+            },
+            {
+              "label": "share",
+              "auc": 0.933115,
+              "logloss": 0.005326
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_seed_completion_OneTrans_QK_Video_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.93412325,
+      "original_three_seed_logloss": 0.07380916666666666
+    },
+    {
+      "id": "OneTrans|KuaiRand_Video_Action",
+      "model": "OneTrans",
+      "dataset": "KuaiRand_Video_Action",
+      "dataset_name": "KuaiRand",
+      "baseline": {
+        "id": "OneTrans|KuaiRand_Video_Action|20262027|14811_2",
+        "seed": 20262027,
+        "job": "14811_2",
+        "kind": "baseline",
+        "auc": 0.8573421666666666,
+        "logloss": 0.1863368333333333,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.772234,
+            "logloss": 0.566734
+          },
+          {
+            "label": "is_comment",
+            "auc": 0.896976,
+            "logloss": 0.01477
+          },
+          {
+            "label": "is_follow",
+            "auc": 0.88308,
+            "logloss": 0.006201
+          },
+          {
+            "label": "is_forward",
+            "auc": 0.872306,
+            "logloss": 0.005742
+          },
+          {
+            "label": "is_like",
+            "auc": 0.923693,
+            "logloss": 0.055033
+          },
+          {
+            "label": "long_view",
+            "auc": 0.795764,
+            "logloss": 0.469541
+          }
+        ],
+        "source": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "OneTrans|KuaiRand_Video_Action|20262027|14811_3",
+          "seed": 20262027,
+          "job": "14811_3",
+          "kind": "original",
+          "auc": 0.8650323333333333,
+          "logloss": 0.17760083333333332,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.791105,
+              "logloss": 0.538148
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.896294,
+              "logloss": 0.014797
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.88643,
+              "logloss": 0.006128
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.877678,
+              "logloss": 0.005611
+            },
+            {
+              "label": "is_like",
+              "auc": 0.928058,
+              "logloss": 0.053581
+            },
+            {
+              "label": "long_view",
+              "auc": 0.810629,
+              "logloss": 0.44734
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_strict_OneTrans_KuaiRand_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|KuaiRand_Video_Action|20262028|631034_2",
+          "seed": 20262028,
+          "job": "631034_2",
+          "kind": "original",
+          "auc": 0.8618298333333333,
+          "logloss": 0.17808533333333332,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.788841,
+              "logloss": 0.539704
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.894963,
+              "logloss": 0.014862
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.883191,
+              "logloss": 0.006375
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.868953,
+              "logloss": 0.00584
+            },
+            {
+              "label": "is_like",
+              "auc": 0.926602,
+              "logloss": 0.053918
+            },
+            {
+              "label": "long_view",
+              "auc": 0.808429,
+              "logloss": 0.447813
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|KuaiRand_Video_Action|20262029|631034_3",
+          "seed": 20262029,
+          "job": "631034_3",
+          "kind": "original",
+          "auc": 0.8651283333333333,
+          "logloss": 0.17532649999999997,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.793111,
+              "logloss": 0.528806
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.89881,
+              "logloss": 0.014694
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.882387,
+              "logloss": 0.006193
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.876046,
+              "logloss": 0.00555
+            },
+            {
+              "label": "is_like",
+              "auc": 0.928199,
+              "logloss": 0.054109
+            },
+            {
+              "label": "long_view",
+              "auc": 0.812217,
+              "logloss": 0.442607
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_seed_completion_OneTrans_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8639968333333333,
+      "original_three_seed_logloss": 0.1770042222222222
+    },
+    {
+      "id": "OneTrans|TencentGR_10M_Action",
+      "model": "OneTrans",
+      "dataset": "TencentGR_10M_Action",
+      "dataset_name": "TAAC-25",
+      "baseline": {
+        "id": "OneTrans|TencentGR_10M_Action|20262027|543887_0",
+        "seed": 20262027,
+        "job": "543887_0",
+        "kind": "baseline",
+        "auc": 0.8556235000000001,
+        "logloss": 0.033613000000000004,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.831705,
+            "logloss": 0.049415
+          },
+          {
+            "label": "is_conversion",
+            "auc": 0.879542,
+            "logloss": 0.017811
+          }
+        ],
+        "source": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "OneTrans|TencentGR_10M_Action|20262027|543257_1",
+          "seed": 20262027,
+          "job": "543257_1",
+          "kind": "original",
+          "auc": 0.8607465,
+          "logloss": 0.0334015,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.83895,
+              "logloss": 0.048848
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.882543,
+              "logloss": 0.017955
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_expansion_OneTrans_TencentGR_10M_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|TencentGR_10M_Action|20262028|631034_4",
+          "seed": 20262028,
+          "job": "631034_4",
+          "kind": "original",
+          "auc": 0.855425,
+          "logloss": 0.0420805,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.833979,
+              "logloss": 0.05972
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.876871,
+              "logloss": 0.024441
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|TencentGR_10M_Action|20262029|631034_5",
+          "seed": 20262029,
+          "job": "631034_5",
+          "kind": "original",
+          "auc": 0.8559669999999999,
+          "logloss": 0.046171,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.835197,
+              "logloss": 0.067715
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.876737,
+              "logloss": 0.024627
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|TencentGR_10M_Action|20262029|645445_5",
+          "seed": 20262029,
+          "job": "645445_5",
+          "kind": "rerun",
+          "auc": 0.8597095,
+          "logloss": 0.044752,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.83852,
+              "logloss": 0.066002
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.880899,
+              "logloss": 0.023502
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8573795,
+      "original_three_seed_logloss": 0.040551
+    },
+    {
+      "id": "OneTrans|MerRec_Action",
+      "model": "OneTrans",
+      "dataset": "MerRec_Action",
+      "dataset_name": "MerRec",
+      "baseline": {
+        "id": "OneTrans|MerRec_Action|20262027|14811_6",
+        "seed": 20262027,
+        "job": "14811_6",
+        "kind": "baseline",
+        "auc": 0.8087304,
+        "logloss": 0.082217,
+        "labels": [
+          {
+            "label": "Cart",
+            "auc": 0.789147,
+            "logloss": 0.05446
+          },
+          {
+            "label": "Checkout",
+            "auc": 0.86632,
+            "logloss": 0.006042
+          },
+          {
+            "label": "Like",
+            "auc": 0.755615,
+            "logloss": 0.325279
+          },
+          {
+            "label": "Offer",
+            "auc": 0.764039,
+            "logloss": 0.021467
+          },
+          {
+            "label": "Purchase",
+            "auc": 0.868531,
+            "logloss": 0.003837
+          }
+        ],
+        "source": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "OneTrans|MerRec_Action|20262027|14811_7",
+          "seed": 20262027,
+          "job": "14811_7",
+          "kind": "original",
+          "auc": 0.8178750000000001,
+          "logloss": 0.0802542,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.820006,
+              "logloss": 0.051998
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.872093,
+              "logloss": 0.005122
+            },
+            {
+              "label": "Like",
+              "auc": 0.765848,
+              "logloss": 0.319739
+            },
+            {
+              "label": "Offer",
+              "auc": 0.75772,
+              "logloss": 0.02119
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.873708,
+              "logloss": 0.003222
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_strict_OneTrans_MerRec_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|MerRec_Action|20262028|630948_8",
+          "seed": 20262028,
+          "job": "630948_8",
+          "kind": "original",
+          "auc": 0.8127713999999999,
+          "logloss": 0.0812824,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.813577,
+              "logloss": 0.052357
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.868478,
+              "logloss": 0.00458
+            },
+            {
+              "label": "Like",
+              "auc": 0.755254,
+              "logloss": 0.325394
+            },
+            {
+              "label": "Offer",
+              "auc": 0.760631,
+              "logloss": 0.021075
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.865917,
+              "logloss": 0.003006
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|MerRec_Action|20262028|645227_8",
+          "seed": 20262028,
+          "job": "645227_8",
+          "kind": "rerun",
+          "auc": 0.8128702000000001,
+          "logloss": 0.08147259999999999,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.814132,
+              "logloss": 0.052312
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.868056,
+              "logloss": 0.004703
+            },
+            {
+              "label": "Like",
+              "auc": 0.753833,
+              "logloss": 0.326175
+            },
+            {
+              "label": "Offer",
+              "auc": 0.761284,
+              "logloss": 0.0211
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.867046,
+              "logloss": 0.003073
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "OneTrans|MerRec_Action|20262029|636370_9",
+          "seed": 20262029,
+          "job": "636370_9",
+          "kind": "original",
+          "auc": 0.8162176000000001,
+          "logloss": 0.08173319999999999,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.813263,
+              "logloss": 0.052418
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.86822,
+              "logloss": 0.004881
+            },
+            {
+              "label": "Like",
+              "auc": 0.756572,
+              "logloss": 0.327379
+            },
+            {
+              "label": "Offer",
+              "auc": 0.771867,
+              "logloss": 0.020843
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.871166,
+              "logloss": 0.003145
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262029_ws4_bs8192_acc1_attempt2.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8156213333333334,
+      "original_three_seed_logloss": 0.08108993333333332
+    },
+    {
+      "id": "RankMixer|QK_Video_Action",
+      "model": "RankMixer",
+      "dataset": "QK_Video_Action",
+      "dataset_name": "QK-Video",
+      "baseline": {
+        "id": "RankMixer|QK_Video_Action|20262027|14810_16",
+        "seed": 20262027,
+        "job": "14810_16",
+        "kind": "baseline",
+        "auc": 0.92890725,
+        "logloss": 0.07570500000000001,
+        "labels": [
+          {
+            "label": "click",
+            "auc": 0.931713,
+            "logloss": 0.254815
+          },
+          {
+            "label": "follow",
+            "auc": 0.910614,
+            "logloss": 0.005177
+          },
+          {
+            "label": "like",
+            "auc": 0.944118,
+            "logloss": 0.037417
+          },
+          {
+            "label": "share",
+            "auc": 0.929184,
+            "logloss": 0.005411
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "RankMixer|QK_Video_Action|20262027|14810_17",
+          "seed": 20262027,
+          "job": "14810_17",
+          "kind": "original",
+          "auc": 0.9301385,
+          "logloss": 0.0749415,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.9333,
+              "logloss": 0.252233
+            },
+            {
+              "label": "follow",
+              "auc": 0.911848,
+              "logloss": 0.005163
+            },
+            {
+              "label": "like",
+              "auc": 0.945435,
+              "logloss": 0.036966
+            },
+            {
+              "label": "share",
+              "auc": 0.929971,
+              "logloss": 0.005404
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_strict_RankMixer_QK_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|QK_Video_Action|20262028|548166_11",
+          "seed": 20262028,
+          "job": "548166_11",
+          "kind": "original",
+          "auc": 0.92911525,
+          "logloss": 0.07575925,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.932455,
+              "logloss": 0.253516
+            },
+            {
+              "label": "follow",
+              "auc": 0.912944,
+              "logloss": 0.005261
+            },
+            {
+              "label": "like",
+              "auc": 0.943098,
+              "logloss": 0.038666
+            },
+            {
+              "label": "share",
+              "auc": 0.927964,
+              "logloss": 0.005594
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_RankMixer_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|QK_Video_Action|20262029|549595_11",
+          "seed": 20262029,
+          "job": "549595_11",
+          "kind": "original",
+          "auc": 0.929155,
+          "logloss": 0.0756665,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.932877,
+              "logloss": 0.253871
+            },
+            {
+              "label": "follow",
+              "auc": 0.910454,
+              "logloss": 0.005258
+            },
+            {
+              "label": "like",
+              "auc": 0.943617,
+              "logloss": 0.038093
+            },
+            {
+              "label": "share",
+              "auc": 0.929672,
+              "logloss": 0.005444
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_RankMixer_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.9294695833333333,
+      "original_three_seed_logloss": 0.07545575
+    },
+    {
+      "id": "RankMixer|KuaiRand_Video_Action",
+      "model": "RankMixer",
+      "dataset": "KuaiRand_Video_Action",
+      "dataset_name": "KuaiRand",
+      "baseline": {
+        "id": "RankMixer|KuaiRand_Video_Action|20262027|14811_18",
+        "seed": 20262027,
+        "job": "14811_18",
+        "kind": "baseline",
+        "auc": 0.852376,
+        "logloss": 0.17961016666666665,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.780693,
+            "logloss": 0.541045
+          },
+          {
+            "label": "is_comment",
+            "auc": 0.884469,
+            "logloss": 0.015211
+          },
+          {
+            "label": "is_follow",
+            "auc": 0.873795,
+            "logloss": 0.006422
+          },
+          {
+            "label": "is_forward",
+            "auc": 0.851098,
+            "logloss": 0.005811
+          },
+          {
+            "label": "is_like",
+            "auc": 0.923963,
+            "logloss": 0.055584
+          },
+          {
+            "label": "long_view",
+            "auc": 0.800238,
+            "logloss": 0.453588
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "RankMixer|KuaiRand_Video_Action|20262027|14811_19",
+          "seed": 20262027,
+          "job": "14811_19",
+          "kind": "original",
+          "auc": 0.8609731666666667,
+          "logloss": 0.17476683333333334,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.794759,
+              "logloss": 0.525008
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.891848,
+              "logloss": 0.014913
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.880471,
+              "logloss": 0.006296
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.860017,
+              "logloss": 0.005742
+            },
+            {
+              "label": "is_like",
+              "auc": 0.927324,
+              "logloss": 0.053812
+            },
+            {
+              "label": "long_view",
+              "auc": 0.81142,
+              "logloss": 0.44283
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_strict_RankMixer_KuaiRand_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|KuaiRand_Video_Action|20262028|548166_7",
+          "seed": 20262028,
+          "job": "548166_7",
+          "kind": "original",
+          "auc": 0.8615015,
+          "logloss": 0.17456966666666665,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.794903,
+              "logloss": 0.525134
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.890161,
+              "logloss": 0.014956
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.87721,
+              "logloss": 0.006344
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.866626,
+              "logloss": 0.005663
+            },
+            {
+              "label": "is_like",
+              "auc": 0.927295,
+              "logloss": 0.053911
+            },
+            {
+              "label": "long_view",
+              "auc": 0.812814,
+              "logloss": 0.44141
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|KuaiRand_Video_Action|20262029|549595_7",
+          "seed": 20262029,
+          "job": "549595_7",
+          "kind": "original",
+          "auc": 0.8640258333333334,
+          "logloss": 0.17368399999999998,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.796813,
+              "logloss": 0.522401
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.894452,
+              "logloss": 0.014853
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.882847,
+              "logloss": 0.006237
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.867082,
+              "logloss": 0.005708
+            },
+            {
+              "label": "is_like",
+              "auc": 0.928654,
+              "logloss": 0.053569
+            },
+            {
+              "label": "long_view",
+              "auc": 0.814307,
+              "logloss": 0.439336
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8621668333333333,
+      "original_three_seed_logloss": 0.17434016666666666
+    },
+    {
+      "id": "RankMixer|TencentGR_10M_Action",
+      "model": "RankMixer",
+      "dataset": "TencentGR_10M_Action",
+      "dataset_name": "TAAC-25",
+      "baseline": {
+        "id": "RankMixer|TencentGR_10M_Action|20262027|543257_4",
+        "seed": 20262027,
+        "job": "543257_4",
+        "kind": "baseline",
+        "auc": 0.844863,
+        "logloss": 0.042245000000000005,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.815759,
+            "logloss": 0.061211
+          },
+          {
+            "label": "is_conversion",
+            "auc": 0.873967,
+            "logloss": 0.023279
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "RankMixer|TencentGR_10M_Action|20262027|543257_5",
+          "seed": 20262027,
+          "job": "543257_5",
+          "kind": "original",
+          "auc": 0.8551255,
+          "logloss": 0.0405025,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.827592,
+              "logloss": 0.05899
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.882659,
+              "logloss": 0.022015
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_expansion_RankMixer_TencentGR_10M_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|TencentGR_10M_Action|20262028|548166_15",
+          "seed": 20262028,
+          "job": "548166_15",
+          "kind": "original",
+          "auc": 0.8478414999999999,
+          "logloss": 0.046897,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.821511,
+              "logloss": 0.066827
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.874172,
+              "logloss": 0.026967
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_RankMixer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|TencentGR_10M_Action|20262029|549595_15",
+          "seed": 20262029,
+          "job": "549595_15",
+          "kind": "original",
+          "auc": 0.8505815000000001,
+          "logloss": 0.046498500000000005,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.82403,
+              "logloss": 0.067723
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.877133,
+              "logloss": 0.025274
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_RankMixer_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8511828333333332,
+      "original_three_seed_logloss": 0.044632666666666675
+    },
+    {
+      "id": "RankMixer|MerRec_Action",
+      "model": "RankMixer",
+      "dataset": "MerRec_Action",
+      "dataset_name": "MerRec",
+      "baseline": {
+        "id": "RankMixer|MerRec_Action|20262027|14811_22",
+        "seed": 20262027,
+        "job": "14811_22",
+        "kind": "baseline",
+        "auc": 0.7886293999999999,
+        "logloss": 0.08299179999999999,
+        "labels": [
+          {
+            "label": "Cart",
+            "auc": 0.792999,
+            "logloss": 0.053894
+          },
+          {
+            "label": "Checkout",
+            "auc": 0.836097,
+            "logloss": 0.004732
+          },
+          {
+            "label": "Like",
+            "auc": 0.744913,
+            "logloss": 0.331885
+          },
+          {
+            "label": "Offer",
+            "auc": 0.728575,
+            "logloss": 0.021398
+          },
+          {
+            "label": "Purchase",
+            "auc": 0.840563,
+            "logloss": 0.00305
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "RankMixer|MerRec_Action|20262027|14811_23",
+          "seed": 20262027,
+          "job": "14811_23",
+          "kind": "original",
+          "auc": 0.7961358,
+          "logloss": 0.0808056,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.81089,
+              "logloss": 0.05233
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.83858,
+              "logloss": 0.004693
+            },
+            {
+              "label": "Like",
+              "auc": 0.759983,
+              "logloss": 0.322562
+            },
+            {
+              "label": "Offer",
+              "auc": 0.732952,
+              "logloss": 0.02141
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.838274,
+              "logloss": 0.003033
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_strict_RankMixer_MerRec_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|MerRec_Action|20262028|548166_3",
+          "seed": 20262028,
+          "job": "548166_3",
+          "kind": "original",
+          "auc": 0.8022434,
+          "logloss": 0.0810094,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.814349,
+              "logloss": 0.052303
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.847677,
+              "logloss": 0.00464
+            },
+            {
+              "label": "Like",
+              "auc": 0.760581,
+              "logloss": 0.323712
+            },
+            {
+              "label": "Offer",
+              "auc": 0.734759,
+              "logloss": 0.021394
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.853851,
+              "logloss": 0.002998
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_RankMixer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "RankMixer|MerRec_Action|20262029|549595_3",
+          "seed": 20262029,
+          "job": "549595_3",
+          "kind": "original",
+          "auc": 0.7969801999999999,
+          "logloss": 0.08054320000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.810422,
+              "logloss": 0.052437
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.834801,
+              "logloss": 0.004868
+            },
+            {
+              "label": "Like",
+              "auc": 0.763228,
+              "logloss": 0.320886
+            },
+            {
+              "label": "Offer",
+              "auc": 0.738775,
+              "logloss": 0.021356
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.837675,
+              "logloss": 0.003169
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_RankMixer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.7984531333333332,
+      "original_three_seed_logloss": 0.08078606666666667
+    },
+    {
+      "id": "Zenith|QK_Video_Action",
+      "model": "Zenith",
+      "dataset": "QK_Video_Action",
+      "dataset_name": "QK-Video",
+      "baseline": {
+        "id": "Zenith|QK_Video_Action|20262027|14811_24",
+        "seed": 20262027,
+        "job": "14811_24",
+        "kind": "baseline",
+        "auc": 0.93491875,
+        "logloss": 0.07493549999999999,
+        "labels": [
+          {
+            "label": "click",
+            "auc": 0.933477,
+            "logloss": 0.252005
+          },
+          {
+            "label": "follow",
+            "auc": 0.922279,
+            "logloss": 0.005022
+          },
+          {
+            "label": "like",
+            "auc": 0.947958,
+            "logloss": 0.037439
+          },
+          {
+            "label": "share",
+            "auc": 0.935961,
+            "logloss": 0.005276
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "Zenith|QK_Video_Action|20262027|14811_25",
+          "seed": 20262027,
+          "job": "14811_25",
+          "kind": "original",
+          "auc": 0.935655,
+          "logloss": 0.0742715,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.93471,
+              "logloss": 0.249782
+            },
+            {
+              "label": "follow",
+              "auc": 0.923107,
+              "logloss": 0.004978
+            },
+            {
+              "label": "like",
+              "auc": 0.948299,
+              "logloss": 0.037061
+            },
+            {
+              "label": "share",
+              "auc": 0.936504,
+              "logloss": 0.005265
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_strict_Zenith_QK_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|QK_Video_Action|20262028|548166_8",
+          "seed": 20262028,
+          "job": "548166_8",
+          "kind": "original",
+          "auc": 0.9352205,
+          "logloss": 0.07438775,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.934288,
+              "logloss": 0.25045
+            },
+            {
+              "label": "follow",
+              "auc": 0.922992,
+              "logloss": 0.004942
+            },
+            {
+              "label": "like",
+              "auc": 0.94831,
+              "logloss": 0.036833
+            },
+            {
+              "label": "share",
+              "auc": 0.935292,
+              "logloss": 0.005326
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_Zenith_QK_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|QK_Video_Action|20262029|549595_8",
+          "seed": 20262029,
+          "job": "549595_8",
+          "kind": "original",
+          "auc": 0.93502875,
+          "logloss": 0.07437275,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.93453,
+              "logloss": 0.25016
+            },
+            {
+              "label": "follow",
+              "auc": 0.921674,
+              "logloss": 0.004998
+            },
+            {
+              "label": "like",
+              "auc": 0.947288,
+              "logloss": 0.037029
+            },
+            {
+              "label": "share",
+              "auc": 0.936623,
+              "logloss": 0.005304
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/SISA_single_seed_Zenith_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.9353014166666668,
+      "original_three_seed_logloss": 0.07434400000000001
+    },
+    {
+      "id": "Zenith|KuaiRand_Video_Action",
+      "model": "Zenith",
+      "dataset": "KuaiRand_Video_Action",
+      "dataset_name": "KuaiRand",
+      "baseline": {
+        "id": "Zenith|KuaiRand_Video_Action|20262027|14854_26",
+        "seed": 20262027,
+        "job": "14854_26",
+        "kind": "baseline",
+        "auc": 0.8596625000000001,
+        "logloss": 0.18007216666666667,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.781888,
+            "logloss": 0.538991
+          },
+          {
+            "label": "is_comment",
+            "auc": 0.897885,
+            "logloss": 0.014788
+          },
+          {
+            "label": "is_follow",
+            "auc": 0.881683,
+            "logloss": 0.006761
+          },
+          {
+            "label": "is_forward",
+            "auc": 0.871088,
+            "logloss": 0.005649
+          },
+          {
+            "label": "is_like",
+            "auc": 0.928141,
+            "logloss": 0.054321
+          },
+          {
+            "label": "long_view",
+            "auc": 0.79729,
+            "logloss": 0.459923
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "Zenith|KuaiRand_Video_Action|20262027|14854_27",
+          "seed": 20262027,
+          "job": "14854_27",
+          "kind": "original",
+          "auc": 0.8663958333333334,
+          "logloss": 0.17542516666666666,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.792759,
+              "logloss": 0.527799
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.901214,
+              "logloss": 0.014609
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.890208,
+              "logloss": 0.006251
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.873619,
+              "logloss": 0.005596
+            },
+            {
+              "label": "is_like",
+              "auc": 0.930466,
+              "logloss": 0.053227
+            },
+            {
+              "label": "long_view",
+              "auc": 0.810109,
+              "logloss": 0.445069
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_strict_Zenith_KuaiRand_Video_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|KuaiRand_Video_Action|20262028|548166_4",
+          "seed": 20262028,
+          "job": "548166_4",
+          "kind": "original",
+          "auc": 0.8611663333333334,
+          "logloss": 0.17932883333333335,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.787549,
+              "logloss": 0.536917
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.896437,
+              "logloss": 0.014745
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.885366,
+              "logloss": 0.006155
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.869064,
+              "logloss": 0.005672
+            },
+            {
+              "label": "is_like",
+              "auc": 0.925888,
+              "logloss": 0.055153
+            },
+            {
+              "label": "long_view",
+              "auc": 0.802694,
+              "logloss": 0.457331
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_Zenith_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|KuaiRand_Video_Action|20262029|549595_4",
+          "seed": 20262029,
+          "job": "549595_4",
+          "kind": "original",
+          "auc": 0.8619309999999999,
+          "logloss": 0.18047933333333332,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.785892,
+              "logloss": 0.538663
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.895144,
+              "logloss": 0.014827
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.889686,
+              "logloss": 0.00617
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.873658,
+              "logloss": 0.005579
+            },
+            {
+              "label": "is_like",
+              "auc": 0.927028,
+              "logloss": 0.055352
+            },
+            {
+              "label": "long_view",
+              "auc": 0.800178,
+              "logloss": 0.462285
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_Zenith_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8631643888888889,
+      "original_three_seed_logloss": 0.1784111111111111
+    },
+    {
+      "id": "Zenith|TencentGR_10M_Action",
+      "model": "Zenith",
+      "dataset": "TencentGR_10M_Action",
+      "dataset_name": "TAAC-25",
+      "baseline": {
+        "id": "Zenith|TencentGR_10M_Action|20262027|543257_6",
+        "seed": 20262027,
+        "job": "543257_6",
+        "kind": "baseline",
+        "auc": 0.8394885,
+        "logloss": 0.039786,
+        "labels": [
+          {
+            "label": "is_click",
+            "auc": 0.819024,
+            "logloss": 0.059201
+          },
+          {
+            "label": "is_conversion",
+            "auc": 0.859953,
+            "logloss": 0.020371
+          }
+        ],
+        "source": "experiments/sisa_expansion_acd/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "Zenith|TencentGR_10M_Action|20262027|543257_7",
+          "seed": 20262027,
+          "job": "543257_7",
+          "kind": "original",
+          "auc": 0.849057,
+          "logloss": 0.0368295,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.831846,
+              "logloss": 0.054814
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.866268,
+              "logloss": 0.018845
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_expansion_Zenith_TencentGR_10M_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|TencentGR_10M_Action|20262027|645223_12",
+          "seed": 20262027,
+          "job": "645223_12",
+          "kind": "rerun",
+          "auc": 0.8504054999999999,
+          "logloss": 0.0380485,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.830792,
+              "logloss": 0.056878
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.870019,
+              "logloss": 0.019219
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_Zenith_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|TencentGR_10M_Action|20262028|548166_12",
+          "seed": 20262028,
+          "job": "548166_12",
+          "kind": "original",
+          "auc": 0.8637505,
+          "logloss": 0.0379885,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.839413,
+              "logloss": 0.054888
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.888088,
+              "logloss": 0.021089
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_Zenith_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|TencentGR_10M_Action|20262029|549595_12",
+          "seed": 20262029,
+          "job": "549595_12",
+          "kind": "original",
+          "auc": 0.854715,
+          "logloss": 0.042425,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.83908,
+              "logloss": 0.06301
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.87035,
+              "logloss": 0.02184
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_Zenith_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8558408333333333,
+      "original_three_seed_logloss": 0.039081
+    },
+    {
+      "id": "Zenith|MerRec_Action",
+      "model": "Zenith",
+      "dataset": "MerRec_Action",
+      "dataset_name": "MerRec",
+      "baseline": {
+        "id": "Zenith|MerRec_Action|20262027|14843_30",
+        "seed": 20262027,
+        "job": "14843_30",
+        "kind": "baseline",
+        "auc": 0.8060438,
+        "logloss": 0.0845422,
+        "labels": [
+          {
+            "label": "Cart",
+            "auc": 0.806908,
+            "logloss": 0.053756
+          },
+          {
+            "label": "Checkout",
+            "auc": 0.852295,
+            "logloss": 0.010226
+          },
+          {
+            "label": "Like",
+            "auc": 0.744505,
+            "logloss": 0.329855
+          },
+          {
+            "label": "Offer",
+            "auc": 0.773288,
+            "logloss": 0.022102
+          },
+          {
+            "label": "Purchase",
+            "auc": 0.853223,
+            "logloss": 0.006772
+          }
+        ],
+        "source": "experiments/sisa_native_strict/results/runs.csv",
+        "protocol": ""
+      },
+      "runs": [
+        {
+          "id": "Zenith|MerRec_Action|20262027|14846_31",
+          "seed": 20262027,
+          "job": "14846_31",
+          "kind": "original",
+          "auc": 0.8092279999999998,
+          "logloss": 0.08320540000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.814763,
+              "logloss": 0.053028
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.853138,
+              "logloss": 0.010215
+            },
+            {
+              "label": "Like",
+              "auc": 0.759388,
+              "logloss": 0.323222
+            },
+            {
+              "label": "Offer",
+              "auc": 0.766747,
+              "logloss": 0.022682
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.852104,
+              "logloss": 0.00688
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_strict_Zenith_MerRec_Action_sisa_seed20262027.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|MerRec_Action|20262028|548166_0",
+          "seed": 20262028,
+          "job": "548166_0",
+          "kind": "original",
+          "auc": 0.8095332000000001,
+          "logloss": 0.08355660000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.81658,
+              "logloss": 0.05211
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.846522,
+              "logloss": 0.011335
+            },
+            {
+              "label": "Like",
+              "auc": 0.758067,
+              "logloss": 0.324592
+            },
+            {
+              "label": "Offer",
+              "auc": 0.775302,
+              "logloss": 0.021595
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.851195,
+              "logloss": 0.008151
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|MerRec_Action|20262029|549797_0",
+          "seed": 20262029,
+          "job": "549797_0",
+          "kind": "original",
+          "auc": 0.8033585999999999,
+          "logloss": 0.08426059999999999,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.812453,
+              "logloss": 0.053386
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.843908,
+              "logloss": 0.012052
+            },
+            {
+              "label": "Like",
+              "auc": 0.754835,
+              "logloss": 0.325968
+            },
+            {
+              "label": "Offer",
+              "auc": 0.764756,
+              "logloss": 0.022429
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.840841,
+              "logloss": 0.007468
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2.log",
+          "protocol": ""
+        },
+        {
+          "id": "Zenith|MerRec_Action|20262029|645225_0",
+          "seed": 20262029,
+          "job": "645225_0",
+          "kind": "rerun",
+          "auc": 0.8062988000000001,
+          "logloss": 0.08390600000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.813769,
+              "logloss": 0.053218
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.846303,
+              "logloss": 0.012434
+            },
+            {
+              "label": "Like",
+              "auc": 0.75921,
+              "logloss": 0.323861
+            },
+            {
+              "label": "Offer",
+              "auc": 0.769222,
+              "logloss": 0.022093
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.84299,
+              "logloss": 0.007924
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3.log",
+          "protocol": ""
+        }
+      ],
+      "original_three_seed_auc": 0.8073732666666666,
+      "original_three_seed_logloss": 0.08367419999999999
+    }
+  ],
+  "sources": [
+    {
+      "file": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+      "sha256": "4f16f3fd8332fc61bf02532064c384d07758b5f9f2fb794e00af4c5fdbf2be42"
+    },
+    {
+      "file": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+      "sha256": "f200935a1d89dc20a7b72fb45dd60d98821b430e190cdb1c872afa09b28026b2"
+    },
+    {
+      "file": "experiments/sisa_seed_variability_20260923/results/verified_label_metrics.csv",
+      "sha256": "a5ef528d3d33d866ab132172b9cb5a4826efc8fb2d81beedef734ee6c2a0d41d"
+    },
+    {
+      "file": "experiments/sisa_seed_variability_20260923/results/run_log_audit.csv",
+      "sha256": "5211852f37265d6644cce66fa01c04ac85758afb471182ed56b2944eb56176a8"
+    },
+    {
+      "file": "experiments/sisa_seed_variability_20260923/results/final_comparison.csv",
+      "sha256": "82b3955675b1aa5474eab821341348f5e7d36e0ecff6775a04598cfa77fd702a"
+    },
+    {
+      "file": "experiments/sisa_seed_variability_20260923/rerun/results/label_comparison.csv",
+      "sha256": "1c2feefd4f052e0c4dee6c21a38239d4477e4b691d8641d4fb61a300199f8005"
+    },
+    {
+      "file": "experiments/sisa_seed_variability_20260923/rerun/followup_20260923/results/label_comparison.csv",
+      "sha256": "39780d9756599f937341cd388ddffdd8826b68e6807c3c70924dcf6d5d413600"
+    },
+    {
+      "file": "experiments/onetrans_seed_completion/results/selected_label_metrics.csv",
+      "sha256": "4132ef85736ad8a9b7ebd8734bb7c84c7f91b69346bbdbc3d1349b8580cdb5a2"
+    },
+    {
+      "file": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+      "sha256": "af1dd0676f50e13317f67513b701116ca17ea29ec9ac10e15fc882e85bd66203"
+    },
+    {
+      "file": "experiments/sisa_native_strict/results/runs.csv",
+      "sha256": "7bad9e9bf86b4f012c0a74e9e73a5025a8e519f445b57fe59bd2e1f97086ff43"
+    },
+    {
+      "file": "experiments/sisa_expansion_acd/results/runs.csv",
+      "sha256": "03d6213b05978f11d248be2fe6e351650faab130ae078ade1b5603ace3f18678"
+    }
+  ]
+}

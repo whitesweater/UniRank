@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-09-23T18:03:30.488673+08:00",
+  "git_revision": "22515f5fd4fa35094e565cb23f6988d2b5cff87b",
+  "failed_job": "645228_5",
+  "failed_log": "logs/ur-lowretry-one-ws2-645228_5.out",
+  "failed_log_sha256": "ba2cec7e4d5aa6296a518c4fb716ced3606b11773de1c356d89f102d92d101eb",
+  "git_error": "FileNotFoundError: [Errno 2] No such file or directory: 'git'",
+  "new_seed": 20262030,
+  "dataloader_seed": 2029,
+  "sisa_parameter_seed": 20260824,
+  "task_count": 3,
+  "effective_params_match": true,
+  "training_source_guard": "experiments/sisa_seed_variability_20260923/rerun/preflight.json"
+}

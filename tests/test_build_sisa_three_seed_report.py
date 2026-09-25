@@ -106,16 +106,16 @@ class SisaThreeSeedReportTest(unittest.TestCase):
         self.assertIn("read_csv_auto('experiments/", metadata["query"]["sql"])
         self.assertFalse(str(metadata["path"]).startswith("/"))
 
-    def test_delivery_runtime_keeps_all_cell_rows_on_one_page(self):
+    def test_delivery_entry_uses_current_selector_builder(self):
         wrapper = (
             REPOSITORY
             / "experiments/sisa_three_seed_unified/report/deliver_report.mjs"
         ).read_text(encoding="utf-8")
-        self.assertIn("showAllCellRowsOnOnePage", wrapper)
-        self.assertIn('return html.replace(tableCardPageSizePattern, "$116$2")', wrapper)
-        self.assertIn('min-width: 936px !important', wrapper)
-        self.assertIn('--ds-report-content-max-width: min(1180px, calc(100vw - 48px))', wrapper)
-        self.assertIn('.report-stack-item-markdown', wrapper)
+        self.assertIn('resolve(repository, ".venv/bin/python")', wrapper)
+        self.assertIn('resolve(directory, "build_selector.py")', wrapper)
+        self.assertTrue(
+            (REPOSITORY / "experiments/sisa_three_seed_unified/report/build_selector.py").is_file()
+        )
 
 
 if __name__ == "__main__":

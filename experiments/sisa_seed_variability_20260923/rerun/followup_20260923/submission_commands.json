@@ -1,0 +1,49 @@
+[
+  {
+    "group": "s30-a1",
+    "task_ids": [
+      1,
+      2
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-s30-a1",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=02:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=1,2%2",
+      "--export=ALL,SISA_SEED=20262030,SISA_DATALOADER_SEED=2029,SISA_PARAMETER_SEED=20260824,SISA_STUDY=sisa_single_seed20262030,SISA_ATTEMPT=1",
+      "--wrap=export PATH=/data/user/yhao481/proj/UniRank/artifacts/runtime_tools/unirank_git_2_43_0:\"$PATH\"; .venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && git --version && git rev-parse HEAD && bash scripts/submit_sisa_single_seed_acd.sbatch"
+    ]
+  },
+  {
+    "group": "one-ws2-a3",
+    "task_ids": [
+      5
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-one-ws2-a3",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=05:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=5%2",
+      "--export=ALL,ONETRANS_WS2_ATTEMPT=3",
+      "--wrap=export PATH=/data/user/yhao481/proj/UniRank/artifacts/runtime_tools/unirank_git_2_43_0:\"$PATH\"; .venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && git --version && git rev-parse HEAD && bash scripts/submit_onetrans_seed_completion_ws2.sbatch"
+    ]
+  }
+]

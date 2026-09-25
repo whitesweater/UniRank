@@ -1,0 +1,21 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=acd_u",
+    "--job-name=ur-lowretry-collect",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=00:10:00",
+    "--no-requeue",
+    "--dependency=afterany:645223:645224:645225:645226:645227:645228",
+    "--output=logs/%x-%j.out",
+    "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/collect.py --require-complete"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "sbatch: error: \u9519\u8bef: \u63d0\u4ea4\u81f3 ACD \u961f\u5217\u5fc5\u987b\u4f7f\u7528 --gres=gpu:N \u6307\u5b9a\u5361\u6570\nsbatch: error: Batch job submission failed: Unspecified error\n",
+  "resolution": "No GPU allocated for collection; replaced rejected CPU-only Slurm submission with local lightweight watcher recorded in watcher.json"
+}

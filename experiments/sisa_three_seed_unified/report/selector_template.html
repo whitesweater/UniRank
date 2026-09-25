@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>SISA 最终结果选择</title>
+<style>
+  :root{--ink:#172337;--muted:#637188;--line:#dce4ec;--soft:#f6f8fb;--paper:#fff;--green:#12745b;--green-bg:#e8f6f0;--red:#b73d4c;--red-bg:#fceff0;--blue:#345dc7;--blue-bg:#eef2fc;--shadow:0 16px 44px rgba(21,38,63,.11)}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+  button,input{font:inherit}
+  button{cursor:pointer}
+  button:focus-visible,input:focus-visible{outline:3px solid #83aaff;outline-offset:2px}
+  .shell{max-width:1500px;margin:auto;padding:0 30px 72px}
+  .topbar{border-bottom:1px solid var(--line);background:#fff}
+  .topbar-inner{max-width:1500px;margin:auto;padding:16px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .eyebrow{font-size:11px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .title{margin:12px 0 3px;font-size:clamp(25px,2.8vw,38px);font-weight:690;letter-spacing:-.035em;line-height:1.2}
+  .sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+  .top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:9px 14px;font-size:13px;font-weight:650;white-space:nowrap}
+  .button:hover{border-color:#9eb5d9;background:#f8faff}
+  .button.primary{border-color:var(--ink);background:var(--ink);color:#fff}
+  .button.primary:hover{background:#2d4363}
+  .button.ghost{border-color:transparent;color:var(--muted)}
+  .button:disabled{opacity:.42;cursor:not-allowed}
+  .hero{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;padding:26px 0 20px}
+  .hero p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+  .statline{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+  .stat{min-width:110px;border-left:1px solid var(--line);padding-left:16px}
+  .stat strong{display:block;font-size:20px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .stat span{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 12px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;padding:3px;background:var(--soft);gap:2px}
+  .seg button{border:0;background:transparent;color:var(--muted);font-size:12px;font-weight:700;padding:7px 12px;border-radius:7px}
+  .seg button.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(16,36,67,.1)}
+  .legend{display:flex;gap:14px;color:var(--muted);font-size:11px;flex-wrap:wrap;justify-content:flex-end}
+  .legend b{font-weight:750}
+  .swipe-tip{display:none}
+  .green{color:var(--green)}.red{color:var(--red)}.blue{color:var(--blue)}
+  .matrix-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+  .matrix{border-collapse:separate;border-spacing:0;width:100%;min-width:1090px;table-layout:fixed}
+  .matrix th{font-size:12px;color:var(--muted);font-weight:700;text-align:left;padding:15px 11px;background:#fbfcfe;border-bottom:1px solid var(--line)}
+  .matrix th:first-child{width:114px;padding-left:19px}
+  .matrix td{border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top}
+  .matrix tr:last-child td{border-bottom:0}
+  .matrix .row-name{font-size:14px;font-weight:700;padding:26px 10px 0 19px;white-space:nowrap}
+  .cell{display:block;width:100%;min-height:116px;text-align:left;border:1px solid transparent;border-radius:10px;background:#fff;padding:10px 12px 9px;transition:background .12s,border-color .12s,transform .12s}
+  .cell:hover{background:#f7faff;border-color:#bccfea;transform:translateY(-1px)}
+  .cell-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+  .cell-value{display:flex;align-items:baseline;gap:7px;margin-top:7px;font-size:22px;font-weight:720;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+  .delta{font-size:11px;font-weight:750;letter-spacing:0;border-radius:6px;padding:3px 5px;font-variant-numeric:tabular-nums}
+  .delta.good{color:var(--green);background:var(--green-bg)}.delta.bad{color:var(--red);background:var(--red-bg)}.delta.flat{color:var(--muted);background:var(--soft)}
+  .seeds{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+  .seed{font-size:10px;color:#65758a;background:#f1f4f8;border:1px solid #e9eef4;border-radius:5px;padding:2px 5px;font-variant-numeric:tabular-nums}
+  .seed.repeated{border-color:#bcd0f3;background:#eef4ff;color:#315796}.seed.extra{background:var(--blue-bg);color:var(--blue);border-color:#dce5fb}
+  .hint{font-size:11px;color:var(--muted);margin:10px 3px 0}
+  .summary{display:none;border:1px solid var(--line);border-radius:14px;overflow:auto}
+  .summary.active{display:block}
+  .summary table{border-collapse:collapse;width:100%;min-width:1100px;font-variant-numeric:tabular-nums;font-size:12px}
+  .summary th,.summary td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:right;white-space:nowrap}
+  .summary th{position:sticky;top:0;background:#f8fafc;color:var(--muted);font-size:11px;z-index:1}
+  .summary th:first-child,.summary td:first-child,.summary th:nth-child(2),.summary td:nth-child(2){text-align:left}
+  .summary tbody tr:hover{background:#f7faff;cursor:pointer}
+  .summary small{display:block;color:var(--muted);font-size:10px}
+  .summary-controls{display:none;align-items:center;justify-content:space-between;margin:14px 0;gap:8px;flex-wrap:wrap}
+  .summary-controls.active{display:flex}
+  .quiet{font-size:11px;color:var(--muted);line-height:1.5}
+  .veil{position:fixed;inset:0;background:rgba(9,20,36,.43);z-index:20;display:none}
+  .veil.open{display:block}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100vw);background:#fff;box-shadow:var(--shadow);z-index:21;display:none;flex-direction:column}
+  .drawer.open{display:flex}
+  .drawer-head{padding:22px 25px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .drawer-head h2{margin:5px 0 0;font-size:22px;letter-spacing:-.025em}
+  .icon-button{height:32px;width:32px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:18px}
+  .drawer-body{padding:20px 25px 28px;overflow:auto;flex:1}
+  .baseline-strip{border:1px solid var(--line);border-radius:10px;padding:13px 15px;display:flex;justify-content:space-between;gap:8px;align-items:center;background:#fafbfd}
+  .baseline-strip strong{font-size:16px;font-variant-numeric:tabular-nums}
+  .baseline-strip small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+  .drawer-hint{font-size:12px;color:var(--muted);margin:16px 0 8px;line-height:1.5}
+  .seed-group{border:1px solid var(--line);border-radius:11px;margin:8px 0;overflow:hidden}
+  .seed-group.selected{border-color:#b7c8e3}
+  .seed-group-head{display:flex;align-items:center;gap:9px;padding:11px 12px;background:#fbfcfe;font-size:13px;font-weight:720}
+  .seed-group-head input{width:16px;height:16px;accent-color:#294e93}
+  .seed-group-head .tag{margin-left:auto;color:var(--muted);font-size:10px;font-weight:550}
+  .run-options{padding:3px 9px 10px}
+  .run-choice{display:flex;align-items:center;gap:9px;width:100%;padding:9px 10px;text-align:left;border:1px solid transparent;border-radius:8px;background:#fff;color:var(--ink)}
+  .run-choice:hover{background:#f4f7fc}
+  .run-choice.active{border-color:#b4c8ec;background:#f1f5fd}
+  .radio-dot{flex:none;height:15px;width:15px;border:1.5px solid #8b9db7;border-radius:50%;display:grid;place-items:center}
+  .run-choice.active .radio-dot{border-color:var(--blue)}.run-choice.active .radio-dot:after{content:"";height:7px;width:7px;background:var(--blue);border-radius:50%}
+  .run-copy{flex:1;min-width:0}.run-copy b{font-size:12px}.run-copy small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+  .run-values{font-size:12px;font-weight:690;font-variant-numeric:tabular-nums;text-align:right}
+  .run-values small{display:block;font-size:10px;font-weight:500;color:var(--muted)}
+  .plot{margin:19px 0 4px;border-top:1px solid var(--line);padding-top:16px}
+  .plot h3{font-size:12px;margin:0 0 12px}.plot-row{display:grid;grid-template-columns:70px 1fr 74px;gap:8px;align-items:center;margin:9px 0;font-size:10px;color:var(--muted)}
+  .plot-row strong{color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;font-size:11px}
+  .plot-track{position:relative;height:7px;border-radius:5px;background:#eaf0f6}
+  .plot-track i{position:absolute;top:-4px;width:15px;height:15px;border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 1px #bbc7d7;background:#7489a5}
+  .plot-row.choice .plot-track i{background:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+  .drawer-foot{padding:14px 25px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:space-between;align-items:center}
+  .foot-actions{display:flex;gap:8px}.message{font-size:11px;color:var(--red);min-height:14px}
+  .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#172337;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:var(--shadow);font-size:12px;z-index:30;display:none}
+  .toast.show{display:block}
+  @media(max-width:760px){.shell{padding:0 16px 48px}.topbar-inner{display:block;padding:13px 16px}.top-actions{justify-content:flex-start;margin-top:8px;gap:5px}.top-actions .button{padding:7px 9px;font-size:11px}.title{font-size:25px}.hero{display:block;padding-top:18px}.statline{justify-content:flex-start;margin-top:16px;gap:12px}.stat{min-width:90px}.toolbar{display:block}.legend{justify-content:flex-start;margin-top:10px}.swipe-tip{display:inline;color:var(--blue);font-weight:700}.matrix{min-width:1080px}.drawer-body,.drawer-head,.drawer-foot{padding-left:16px;padding-right:16px}}
+  @media(prefers-reduced-motion:reduce){.cell{transition:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><span class="eyebrow">UNIRANK / EXPERIMENTS</span><div class="top-actions"><button class="button" id="view-toggle" type="button">最终汇总表</button><button class="button primary" id="download-report" type="button">下载最终报告</button><button class="button ghost" id="reset-all" type="button">重置</button></div></div></div>
+<main class="shell">
+  <h1 class="title">SISA 最终结果选择</h1>
+  <p class="sub">每个组合保留 1 条 Baseline；最终只选 3 个不同的 SISA seed。同种子的原始运行与复跑可切换。</p>
+  <section class="hero" aria-label="选择概况"><div><span class="eyebrow">RESULT MATRIX</span><p>点击任意单元格查看全部有效运行并调整最终选择。</p></div><div class="statline"><div class="stat"><strong id="stat-cells">20</strong><span>模型×数据集</span></div><div class="stat"><strong id="stat-runs">60</strong><span>已选 SISA 运行</span></div><div class="stat"><strong id="stat-positive">—</strong><span>AUC 高于 Baseline</span></div><div class="stat"><strong id="stat-delta">—</strong><span>平均 ΔAUC</span></div></div></section>
+  <div class="toolbar"><div class="seg" role="group" aria-label="指标"><button type="button" data-metric="auc" class="active">AUC</button><button type="button" data-metric="logloss">LogLoss</button></div><div class="legend"><span><b class="green">●</b> 改善</span><span><b class="red">●</b> 下降</span><span><b class="blue">●</b> seed30 可选</span><span class="swipe-tip">← 横向滑动 →</span></div></div>
+  <div id="matrix-view"><div class="matrix-wrap"><table class="matrix" id="matrix" aria-label="模型行与数据集列的实验结果选择矩阵"></table></div><p class="hint">窄屏可横向滑动 · 基于已核验最终测试结果 · 选择保存在本浏览器</p></div>
+  <div id="summary-controls" class="summary-controls"><span class="quiet">每行恰好三个不同 seed；结果随选择即时更新。</span><div class="top-actions"><button class="button" id="download-csv" type="button">下载 CSV</button><button class="button" id="download-selection" type="button">下载选择 JSON</button><button class="button" id="import-selection" type="button">导入选择</button><input id="import-file" type="file" accept="application/json,.json" hidden></div></div>
+  <div id="summary-view" class="summary"></div>
+  <noscript><div class="matrix-wrap">__FALLBACK_TABLE__</div><p class="hint">交互选择需要启用浏览器 JavaScript。</p></noscript>
+</main>
+<div class="veil" id="veil"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title"><div class="drawer-head"><div><span class="eyebrow">RUN SELECTION</span><h2 id="drawer-title"></h2></div><button class="icon-button" type="button" id="close-drawer" aria-label="关闭">×</button></div><div class="drawer-body" id="drawer-body"></div><div class="drawer-foot"><span class="message" id="drawer-message"></span><div class="foot-actions"><button class="button" id="reset-cell" type="button">恢复原始三种子</button><button class="button primary" id="apply-cell" type="button">应用选择</button></div></div></aside><div id="toast" class="toast" role="status"></div>
+<script type="application/json" id="catalog">__CATALOG_JSON__</script>
+<script>
+(() => {
+  "use strict";
+  const catalog = JSON.parse(document.getElementById("catalog").textContent);
+  const cells = catalog.cells;
+  const byId = Object.fromEntries(cells.map(cell => [cell.id, cell]));
+  const key = "unirank-sisa-three-seed-" + catalog.digest;
+  const $ = id => document.getElementById(id);
+  const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char]));
+  const fmt = value => Number(value).toFixed(7);
+  const signed = value => (value > 0 ? "+" : "") + Number(value).toFixed(7);
+  const good = value => value > 0.00000005 ? "good" : value < -0.00000005 ? "bad" : "flat";
+  const defaultFor = cell => Object.fromEntries([20262027,20262028,20262029].map(seed => [String(seed), cell.runs.find(run => run.seed === seed && run.kind === "original").id]));
+  const defaults = Object.fromEntries(cells.map(cell => [cell.id, defaultFor(cell)]));
+  const clone = value => JSON.parse(JSON.stringify(value));
+  let choices = clone(defaults);
+  let metric = "auc";
+  let view = "matrix";
+  let opened = null;
+  let draft = null;
+  let lastFocus = null;
+  let toastTimer;
+
+  function validCell(cell, selected) {
+    if (!selected || Object.keys(selected).length !== 3) return false;
+    return Object.entries(selected).every(([seed,id]) => cell.runs.some(run => String(run.seed) === seed && run.id === id));
+  }
+  function validAll(selection) {
+    return selection && Object.keys(selection).length === cells.length && cells.every(cell => validCell(cell, selection[cell.id]));
+  }
+  try { const stored = JSON.parse(localStorage.getItem(key)); if (validAll(stored)) choices = stored; } catch {}
+  function save() { try { localStorage.setItem(key, JSON.stringify(choices)); } catch {} }
+  function runsFor(cell, selected = choices[cell.id]) {
+    return Object.entries(selected).map(([seed,id]) => {
+      const run = cell.runs.find(item => item.id === id && String(item.seed) === seed);
+      if (!run) throw new Error("Invalid run selection for " + cell.id);
+      return run;
+    }).sort((a,b) => a.seed-b.seed);
+  }
+  function resultFor(cell, selected = choices[cell.id], field = metric) {
+    const runs = runsFor(cell, selected);
+    const mean = runs.reduce((sum,run) => sum + run[field],0) / 3;
+    const baseline = cell.baseline[field];
+    const improvement = field === "auc" ? mean-baseline : baseline-mean;
+    return {runs,mean,baseline,improvement};
+  }
+  function toast(text) { clearTimeout(toastTimer); $("toast").textContent=text; $("toast").classList.add("show"); toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2700); }
+  function updateStats() {
+    const improvements = cells.map(cell => resultFor(cell,choices[cell.id],"auc").improvement);
+    $("stat-cells").textContent=cells.length;
+    $("stat-runs").textContent=cells.length*3;
+    $("stat-positive").textContent=improvements.filter(value=>value>0).length+" / "+cells.length;
+    $("stat-delta").textContent=signed(improvements.reduce((a,b)=>a+b,0)/cells.length);
+  }
+  function renderMatrix() {
+    let output='<thead><tr><th scope="col">模型</th>'+catalog.datasets.map(ds=>'<th scope="col">'+esc(ds.name)+'</th>').join("")+'</tr></thead><tbody>';
+    for (const model of catalog.models) {
+      output+='<tr><th scope="row" class="row-name">'+esc(model)+'</th>';
+      for (const dataset of catalog.datasets) {
+        const cell=byId[model+"|"+dataset.id];
+        const result=resultFor(cell);
+        const chosen=result.runs;
+        const extra=chosen.some(run=>run.seed===20262030);
+        const repeated=chosen.some(run=>run.kind==="rerun");
+        output+='<td><button class="cell" data-cell-id="'+esc(cell.id)+'" aria-label="选择 '+esc(model)+' '+esc(dataset.name)+' 的三种子结果">'+
+          '<div class="cell-top"><span>BASELINE '+fmt(result.baseline)+'</span><span aria-hidden="true">↗</span></div>'+
+          '<div class="cell-value">'+fmt(result.mean)+'</div>'+
+          '<span class="delta '+good(result.improvement)+'">'+(result.improvement>=0?'▲ ':'▼ ')+signed(result.improvement)+'</span>'+
+          '<div class="seeds">'+chosen.map(run=>'<span class="seed '+(run.kind==="rerun"?'repeated ':"")+(run.seed===20262030?'extra':'')+'">'+String(run.seed).slice(-2)+(run.kind==="rerun"?' · R':'')+'</span>').join("")+'</div>'+
+          '</button></td>';
+      }
+      output+='</tr>';
+    }
+    $("matrix").innerHTML=output+'</tbody>';
+  }
+  function renderSummary() {
+    let output='<table><thead><tr><th>模型</th><th>数据集</th><th>Baseline</th><th>种子 1</th><th>种子 2</th><th>种子 3</th><th>三次均值</th><th>改善</th></tr></thead><tbody>';
+    for (const cell of cells) {
+      const result=resultFor(cell);
+      output+='<tr data-cell-id="'+esc(cell.id)+'"><td>'+esc(cell.model)+'</td><td>'+esc(cell.dataset_name)+'</td><td>'+fmt(result.baseline)+'</td>'+
+        result.runs.map(run=>'<td><small>'+run.seed+(run.kind==="rerun"?' · 复跑':'')+'</small>'+fmt(run[metric])+'</td>').join("")+
+        '<td><strong>'+fmt(result.mean)+'</strong></td><td class="'+(result.improvement>=0?'green':'red')+'">'+signed(result.improvement)+'</td></tr>';
+    }
+    $("summary-view").innerHTML=output+'</tbody></table>';
+  }
+  function render() {
+    updateStats(); renderMatrix(); renderSummary();
+    $("matrix-view").style.display=view==="matrix"?"block":"none";
+    $("summary-controls").classList.toggle("active",view==="summary");
+    $("summary-view").classList.toggle("active",view==="summary");
+    $("view-toggle").textContent=view==="matrix"?"最终汇总表":"返回选择矩阵";
+    document.querySelectorAll("[data-metric]").forEach(button=>button.classList.toggle("active",button.dataset.metric===metric));
+  }
+  function plot(cell, selected) {
+    const runs=runsFor(cell,selected);
+    const series=[{name:"Baseline",value:cell.baseline[metric]},...runs.map(run=>({name:String(run.seed).slice(-2)+(run.kind==="rerun"?' R':''),value:run[metric]}))];
+    const vals=series.map(p=>p.value),min=Math.min(...vals),max=Math.max(...vals),spread=Math.max(max-min,0.000001);
+    return '<div class="plot"><h3>'+esc(metric==="auc"?'AUC 对照':'LogLoss 对照')+'</h3>'+series.map((point,i)=>{
+      const left=8+84*(point.value-min)/spread;
+      return '<div class="plot-row '+(i?'choice':'')+'"><span>'+esc(point.name)+'</span><div class="plot-track"><i style="left:calc('+left.toFixed(2)+'% - 7px)"></i></div><strong>'+fmt(point.value)+'</strong></div>';
+    }).join("")+'</div>';
+  }
+  function renderDrawer() {
+    if (!opened) return;
+    const cell=byId[opened], selectedCount=Object.keys(draft).length;
+    $("drawer-title").textContent=cell.model+" / "+cell.dataset_name;
+    const base=cell.baseline;
+    let output='<div class="baseline-strip"><div><span class="eyebrow">BASELINE / 固定</span><small>seed '+base.seed+' · 作业 '+esc(base.job)+'</small></div><div><strong>AUC '+fmt(base.auc)+'</strong><small>LogLoss '+fmt(base.logloss)+'</small></div></div>'+
+      '<p class="drawer-hint">选择恰好三个不同实验 seed；同一 seed 有多次运行时，选择其中一条。</p>';
+    const seeds=[...new Set(cell.runs.map(run=>run.seed))].sort();
+    for (const seed of seeds) {
+      const available=cell.runs.filter(run=>run.seed===seed),chosen=draft[String(seed)];
+      output+='<div class="seed-group '+(chosen?'selected':'')+'"><label class="seed-group-head"><input type="checkbox" data-seed="'+seed+'" '+(chosen?'checked':'')+'><span>seed '+seed+'</span><span class="tag">'+(available.length>1?available.length+' 次有效运行':'1 次有效运行')+'</span></label>';
+      if(chosen) output+='<div class="run-options">'+available.map(run=>'<button type="button" class="run-choice '+(chosen===run.id?'active':'')+'" data-run-id="'+esc(run.id)+'"><span class="radio-dot"></span><span class="run-copy"><b>'+({original:'原始',rerun:'复跑',new_seed:'新增种子'}[run.kind]||run.kind)+'</b><small>作业 '+esc(run.job)+'</small></span><span class="run-values">AUC '+fmt(run.auc)+'<small>LogLoss '+fmt(run.logloss)+'</small></span></button>').join("")+'</div>';
+      output+='</div>';
+    }
+    if(selectedCount===3)output+=plot(cell,draft);
+    $("drawer-body").innerHTML=output;
+    $("apply-cell").disabled=selectedCount!==3;
+    $("drawer-message").textContent=selectedCount===3?'':`已选 ${selectedCount}/3 个 seed`;
+  }
+  function openDrawer(id) {
+    opened=id; draft=clone(choices[id]); lastFocus=document.activeElement;
+    $("veil").classList.add("open"); $("drawer").classList.add("open");
+    document.body.style.overflow="hidden";renderDrawer();$("close-drawer").focus();
+  }
+  function closeDrawer() {
+    $("veil").classList.remove("open");$("drawer").classList.remove("open");
+    document.body.style.overflow="";opened=null;draft=null;
+    if(lastFocus && document.contains(lastFocus))lastFocus.focus();
+  }
+  function download(name,content,type) {
+    const blob=new Blob(["\ufeff",content],{type});const url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+  }
+  function finalRows() {
+    return cells.map(cell=>({cell,selected:runsFor(cell),auc:resultFor(cell,choices[cell.id],"auc"),logloss:resultFor(cell,choices[cell.id],"logloss")}));
+  }
+  function exportMarkdown() {
+    const rows=finalRows(),lines=['# SISA 最终三种子结果','','每个模型×数据集使用一个历史 Baseline 和三个不同实验 seed。Baseline 仅有 seed20262027 一次；同种子的原始运行或复跑按本次选择取其一。AUC 越高越好，LogLoss 越低越好。','','| 模型 | 数据集 | Baseline AUC | 种子 1 AUC | 种子 2 AUC | 种子 3 AUC | 三种子 AUC | ΔAUC | Baseline LogLoss | 种子 1 LogLoss | 种子 2 LogLoss | 种子 3 LogLoss | 三种子 LogLoss | LogLoss 改善 |','|---|---|---:|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|'];
+    for(const {cell,selected,auc,logloss} of rows)lines.push('| '+[cell.model,cell.dataset_name,fmt(auc.baseline),...selected.map(run=>run.seed+' '+fmt(run.auc)+(run.kind==='rerun'?'（复跑）':'')),fmt(auc.mean),signed(auc.improvement),fmt(logloss.baseline),...selected.map(run=>fmt(run.logloss)),fmt(logloss.mean),signed(logloss.improvement)].join(' | ')+' |');
+    lines.push('','## 最终选择的运行','','| 模型 | 数据集 | seed | 类型 | 作业 | AUC | LogLoss |','|---|---|---:|---|---|---:|---:|');
+    for(const {cell,selected} of rows)for(const run of selected)lines.push('| '+[cell.model,cell.dataset_name,run.seed,run.kind,run.job,fmt(run.auc),fmt(run.logloss)].join(' | ')+' |');
+    lines.push('','## 标签结果','','每个标签按所选三次运行等权求均值。','','| 模型 | 数据集 | 标签 | Baseline AUC | seed 1 AUC | seed 2 AUC | seed 3 AUC | 平均 AUC | Baseline LogLoss | seed 1 LogLoss | seed 2 LogLoss | seed 3 LogLoss | 平均 LogLoss |','|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|');
+    for(const {cell,selected} of rows)for(const base of cell.baseline.labels){const vals=selected.map(run=>run.labels.find(label=>label.label===base.label));const ma=vals.reduce((s,x)=>s+x.auc,0)/3,ml=vals.reduce((s,x)=>s+x.logloss,0)/3;lines.push('| '+[cell.model,cell.dataset_name,base.label,fmt(base.auc),...vals.map(v=>fmt(v.auc)),fmt(ma),fmt(base.logloss),...vals.map(v=>fmt(v.logloss)),fmt(ml)].join(' | ')+' |');}
+    lines.push('','本表是所选三种子的描述性结果；它不自动替换原始实验记录。');
+    return lines.join('\n')+'\n';
+  }
+  function exportCsv() {
+    const fields=['model','dataset','baseline_auc','seed1','run1','auc1','logloss1','seed2','run2','auc2','logloss2','seed3','run3','auc3','logloss3','mean_auc','delta_auc','baseline_logloss','mean_logloss','logloss_improvement'];
+    const quote=value=>'"'+String(value).replaceAll('"','""')+'"';
+    const rows=finalRows().map(({cell,selected,auc,logloss})=>[cell.model,cell.dataset,fmt(auc.baseline),...selected.flatMap(run=>[run.seed,run.job,fmt(run.auc),fmt(run.logloss)]),fmt(auc.mean),signed(auc.improvement),fmt(logloss.baseline),fmt(logloss.mean),signed(logloss.improvement)]);
+    return [fields.map(quote).join(','),...rows.map(row=>row.map(quote).join(','))].join('\n')+'\n';
+  }
+  $("matrix").addEventListener("click",event=>{const button=event.target.closest('[data-cell-id]');if(button)openDrawer(button.dataset.cellId);});
+  $("summary-view").addEventListener("click",event=>{const row=event.target.closest('[data-cell-id]');if(row)openDrawer(row.dataset.cellId);});
+  document.querySelectorAll('[data-metric]').forEach(button=>button.addEventListener('click',()=>{metric=button.dataset.metric;render();if(opened)renderDrawer();}));
+  $("view-toggle").addEventListener("click",()=>{view=view==='matrix'?'summary':'matrix';render();});
+  $("drawer-body").addEventListener("change",event=>{const control=event.target.closest('[data-seed]');if(!control)return;const seed=control.dataset.seed,cell=byId[opened];if(control.checked){if(Object.keys(draft).length>=3){control.checked=false;$("drawer-message").textContent='请先取消一个种子';return;}draft[seed]=cell.runs.find(run=>String(run.seed)===seed).id;}else delete draft[seed];renderDrawer();});
+  $("drawer-body").addEventListener("click",event=>{const button=event.target.closest('[data-run-id]');if(!button)return;const run=byId[opened].runs.find(item=>item.id===button.dataset.runId);if(run){draft[String(run.seed)]=run.id;renderDrawer();}});
+  $("apply-cell").addEventListener("click",()=>{if(!validCell(byId[opened],draft))return;choices[opened]=clone(draft);save();closeDrawer();render();toast('已更新此组合的三个种子');});
+  $("reset-cell").addEventListener("click",()=>{draft=defaultFor(byId[opened]);renderDrawer();});
+  $("close-drawer").addEventListener("click",closeDrawer);$("veil").addEventListener("click",closeDrawer);
+  document.addEventListener("keydown",event=>{if(event.key==='Escape'&&opened)closeDrawer();});
+  $("reset-all").addEventListener("click",()=>{choices=clone(defaults);save();render();toast('已恢复原始 seed27 / 28 / 29');});
+  $("download-report").addEventListener("click",()=>download('sisa_final_three_seed_report.md',exportMarkdown(),'text/markdown;charset=utf-8'));
+  $("download-csv").addEventListener("click",()=>download('sisa_final_three_seed_cells.csv',exportCsv(),'text/csv;charset=utf-8'));
+  $("download-selection").addEventListener("click",()=>download('sisa_three_seed_selection.json',JSON.stringify({version:1,catalog_digest:catalog.digest,selected_at:new Date().toISOString(),choices},null,2)+'\n','application/json;charset=utf-8'));
+  $("import-selection").addEventListener("click",()=>$('import-file').click());
+  $("import-file").addEventListener("change",async event=>{const file=event.target.files?.[0];if(!file)return;try{const imported=JSON.parse(await file.text());if(imported.catalog_digest!==catalog.digest||!validAll(imported.choices))throw new Error('选择文件与当前结果不匹配');choices=clone(imported.choices);save();render();toast('已导入 20 组选择');}catch(error){toast(error.message||'导入失败');}event.target.value='';});
+  render();
+})();
+</script>
+</body>
+</html>

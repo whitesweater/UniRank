@@ -1,0 +1,46 @@
+{
+  "verified_at": "2026-09-23T16:12:43.755453+08:00",
+  "user_scope": "Compare all requested seeds without filtering by GPU layout",
+  "paper_scope": "OneTrans listed separately following user-provided AGENTS instructions",
+  "run_count": 60,
+  "logs_reparsed": 120,
+  "label_seed_rows": 255,
+  "cell_count": 20,
+  "label_count": 85,
+  "macro_auc_threshold": 0.005,
+  "label_auc_threshold": 0.01,
+  "macro_auc_flagged": 10,
+  "label_auc_flagged": 14,
+  "logloss_relative_threshold": 0.1,
+  "threshold_status": "Descriptive screening thresholds, not significance tests",
+  "sources": [
+    {
+      "path": "experiments/sisa_three_seed_unified/results/label_comparison.csv",
+      "sha256": "4f16f3fd8332fc61bf02532064c384d07758b5f9f2fb794e00af4c5fdbf2be42"
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/results/selected_label_metrics.csv",
+      "sha256": "4132ef85736ad8a9b7ebd8734bb7c84c7f91b69346bbdbc3d1349b8580cdb5a2"
+    },
+    {
+      "path": "experiments/sisa_native_strict/results/runs.csv",
+      "sha256": "7bad9e9bf86b4f012c0a74e9e73a5025a8e519f445b57fe59bd2e1f97086ff43"
+    },
+    {
+      "path": "experiments/sisa_expansion_acd/results/runs.csv",
+      "sha256": "03d6213b05978f11d248be2fe6e351650faab130ae078ade1b5603ace3f18678"
+    },
+    {
+      "path": "experiments/sisa_single_seed20262028/results/runs.csv",
+      "sha256": "f3f55bd09763ff21e32ba5db402c7370055a1fdc742dcda7ab23d3b64119b380"
+    },
+    {
+      "path": "experiments/sisa_single_seed20262029/results/runs.csv",
+      "sha256": "6dcc478a2d34a6bec93b2586212ee2ad6ffba888d0743662c47dddb990dcf6f0"
+    },
+    {
+      "path": "experiments/onetrans_seed_completion/results/selected_runs.csv",
+      "sha256": "af1dd0676f50e13317f67513b701116ca17ea29ec9ac10e15fc882e85bd66203"
+    }
+  ]
+}

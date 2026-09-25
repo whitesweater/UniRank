@@ -1,0 +1,200 @@
+[
+  {
+    "group": "s27-a2",
+    "task_ids": [
+      12,
+      13
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-s27-a2",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=32",
+      "--mem=960G",
+      "--gres=gpu:4",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=12,13%2",
+      "--export=ALL,SISA_WORLD_SIZE=4,SISA_BATCH_SIZE=8192,SISA_PROTOCOL=ws4_bs8192_acc1,SISA_SEED=20262027,SISA_DATALOADER_SEED=2026,SISA_PARAMETER_SEED=20260821,SISA_STUDY=sisa_single_seed20262027,SISA_ATTEMPT=2",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/run_sisa_single_seed_task.sh"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.270410+08:00",
+    "returncode": 0,
+    "stdout": "645223\n",
+    "stderr": "",
+    "array_job_id": "645223"
+  },
+  {
+    "group": "s28-a2",
+    "task_ids": [
+      1
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-s28-a2",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=1%2",
+      "--export=ALL,SISA_WORLD_SIZE=2,SISA_BATCH_SIZE=16384,SISA_PROTOCOL=ws2_bs16384_acc1,SISA_SEED=20262028,SISA_DATALOADER_SEED=2027,SISA_PARAMETER_SEED=20260822,SISA_STUDY=sisa_single_seed20262028,SISA_ATTEMPT=2",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/run_sisa_single_seed_task.sh"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.312339+08:00",
+    "returncode": 0,
+    "stdout": "645224\n",
+    "stderr": "",
+    "array_job_id": "645224"
+  },
+  {
+    "group": "s29-a3",
+    "task_ids": [
+      0
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-s29-a3",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=0%2",
+      "--export=ALL,SISA_WORLD_SIZE=2,SISA_BATCH_SIZE=16384,SISA_PROTOCOL=ws2_bs16384_acc1,SISA_SEED=20262029,SISA_DATALOADER_SEED=2028,SISA_PARAMETER_SEED=20260823,SISA_STUDY=sisa_single_seed20262029,SISA_ATTEMPT=3",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/run_sisa_single_seed_task.sh"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.358782+08:00",
+    "returncode": 0,
+    "stdout": "645225\n",
+    "stderr": "",
+    "array_job_id": "645225"
+  },
+  {
+    "group": "s29-a2",
+    "task_ids": [
+      2,
+      5
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-s29-a2",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=2,5%2",
+      "--export=ALL,SISA_WORLD_SIZE=2,SISA_BATCH_SIZE=16384,SISA_PROTOCOL=ws2_bs16384_acc1,SISA_SEED=20262029,SISA_DATALOADER_SEED=2028,SISA_PARAMETER_SEED=20260823,SISA_STUDY=sisa_single_seed20262029,SISA_ATTEMPT=2",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/run_sisa_single_seed_task.sh"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.390952+08:00",
+    "returncode": 0,
+    "stdout": "645226\n",
+    "stderr": "",
+    "array_job_id": "645226"
+  },
+  {
+    "group": "one-ws4",
+    "task_ids": [
+      8
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-one-ws4",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=32",
+      "--mem=960G",
+      "--gres=gpu:4",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=8%2",
+      "--export=ALL,ONETRANS_ATTEMPT=2",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/submit_onetrans_seed_completion.sbatch"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.422053+08:00",
+    "returncode": 0,
+    "stdout": "645227\n",
+    "stderr": "",
+    "array_job_id": "645227"
+  },
+  {
+    "group": "one-ws2",
+    "task_ids": [
+      5
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-one-ws2",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=12:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=5%2",
+      "--export=ALL,ONETRANS_WS2_ATTEMPT=2",
+      "--wrap=.venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && bash scripts/submit_onetrans_seed_completion_ws2.sbatch"
+    ],
+    "submitted_at": "2026-09-23T16:21:49.455350+08:00",
+    "returncode": 0,
+    "stdout": "645228\n",
+    "stderr": "",
+    "array_job_id": "645228"
+  },
+  {
+    "group": "one-ws2-a3",
+    "task_ids": [
+      5
+    ],
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--job-name=ur-lowretry-one-ws2-a3",
+      "--nodes=1",
+      "--ntasks=1",
+      "--cpus-per-task=16",
+      "--mem=480G",
+      "--gres=gpu:2",
+      "--time=05:00:00",
+      "--no-requeue",
+      "--output=logs/%x-%A_%a.out",
+      "--array=5%2",
+      "--export=ALL,ONETRANS_WS2_ATTEMPT=3",
+      "--wrap=export PATH=/data/user/yhao481/proj/UniRank/artifacts/runtime_tools/unirank_git_2_43_0:\"$PATH\"; .venv/bin/python experiments/sisa_seed_variability_20260923/rerun/verify_frozen.py && git --version && git rev-parse HEAD && bash scripts/submit_onetrans_seed_completion_ws2.sbatch"
+    ],
+    "submitted_at": "2026-09-23T18:03:45.153606+08:00",
+    "returncode": 0,
+    "stdout": "645445\n",
+    "stderr": "",
+    "array_job_id": "645445"
+  }
+]

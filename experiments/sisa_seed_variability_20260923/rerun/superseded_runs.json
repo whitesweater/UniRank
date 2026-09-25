@@ -1,0 +1,8 @@
+[
+  {
+    "failed_job": "645228_5",
+    "replacement_job": "645445_5",
+    "reason": "Shared Git runtime fix; original failure retained",
+    "receipt": "experiments/sisa_seed_variability_20260923/rerun/followup_20260923/submission.json"
+  }
+]

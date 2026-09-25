@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "html": "experiments/sisa_three_seed_unified/report/report.html",
+  "stages": {
+    "validation": "passed",
+    "package": "passed",
+    "verification": "passed"
+  },
+  "counts": {
+    "blocks": 43,
+    "charts": 2,
+    "html": 0,
+    "metrics": 7,
+    "tables": 11
+  },
+  "sourceDialog": "passed",
+  "sourceInteraction": "keyboard_menu_semantic_click",
+  "viewports": [
+    1440,
+    390
+  ],
+  "recordedAt": "2026-09-24T21:38:29.424395+08:00",
+  "artifact_sha256": "38bdaa1d7d833ce44b45c68f183b16be0e71663c96e4f8e3473d9f17587e34e3",
+  "html_sha256": "67d9c2fca06e24ee3a7e7f542ce5120e251ee9a31e11cdae3584d75c83c0cabc"
+}

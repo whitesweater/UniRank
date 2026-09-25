@@ -1,0 +1,9 @@
+{
+  "batch_collection_smoke": "passed",
+  "original_batch_size": 8,
+  "followup_batch_size": 3,
+  "preserved_completed_runs": 4,
+  "shell_syntax": "passed",
+  "new_seed": 20262030,
+  "git_fallback_revision": "22515f5fd4fa35094e565cb23f6988d2b5cff87b"
+}

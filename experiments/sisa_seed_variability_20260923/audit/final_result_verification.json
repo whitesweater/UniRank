@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-09-24T01:44:18.564803+08:00",
+  "logical_retry_runs": 8,
+  "new_seed_runs": 2,
+  "valid_new_runs": 10,
+  "label_metrics": 42,
+  "dual_final_logs_verified": 20,
+  "old_failed_job": "645228_5",
+  "replacement_job": "645445_5",
+  "scheduler_states": "All ten valid jobs COMPLETED/0:0",
+  "one_trans_outcome": 0
+}

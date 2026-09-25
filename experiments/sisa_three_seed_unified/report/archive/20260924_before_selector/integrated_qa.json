@@ -1,0 +1,34 @@
+{
+  "integrated_auc_table": {
+    "model_rows": 5,
+    "dataset_columns": 4
+  },
+  "integrated_logloss_table": {
+    "model_rows": 5,
+    "dataset_columns": 4
+  },
+  "integrated_attempts_table": {
+    "model_rows": 10,
+    "dataset_columns": null
+  },
+  "unchanged_source_cells": 20,
+  "preserved_old_datasets": 10,
+  "same_seed_values_together": true,
+  "browser_delivery": {
+    "validation": "passed",
+    "package": "passed",
+    "verification": "passed",
+    "viewports": [
+      1440,
+      390
+    ],
+    "source_dialog": "passed"
+  },
+  "visual_layout": {
+    "checked_at": "2026-09-24T21:38:29.413247+08:00",
+    "desktop_1440": "Five matrix columns visible; values and colored markers legible",
+    "mobile_390": "Model and first dataset visible; horizontal swipe note present",
+    "root_cause": "width:100% on the native table caused its scroll-content intrinsic width to expand to 1000000px",
+    "fix": "removed forced table width; native explicit column widths now control the matrix"
+  }
+}

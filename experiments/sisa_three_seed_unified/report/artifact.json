@@ -3,9 +3,9 @@
   "manifest": {
     "version": 1,
     "surface": "report",
-    "title": "UniRank SISA 三-seed 统一对比报告",
-    "description": "论文表值、本地 baseline 与 SISA experiment seeds 20262027/20262028/20262029 的统一技术汇报。",
-    "generatedAt": "2026-08-27T17:09:43+08:00",
+    "title": "UniRank SISA 五模型整体结果与复跑对照",
+    "description": "20 个正式模型×数据集单元；三种子原记录、最新核验运行、复跑与新增种子。",
+    "generatedAt": "2026-09-24T02:21:16.694368+08:00",
     "sources": [
       {
         "id": "paper_table",
@@ -170,6 +170,55 @@
           ],
           "filters": [],
           "metric_definitions": []
+        }
+      },
+      {
+        "id": "integrated_20_cells_source",
+        "label": "20 组原三种子与最新有效运行复算",
+        "path": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/integrated_cells.csv', header = true)",
+          "description": "20 组原三种子与最新有效运行复算",
+          "tables_used": [
+            "experiments/sisa_three_seed_unified/results/cell_summary.csv",
+            "experiments/onetrans_seed_completion/results/selected_macro_summary.csv",
+            "experiments/sisa_seed_variability_20260923/results/final_comparison.csv"
+          ],
+          "filters": [
+            "five accepted models",
+            "four accepted datasets"
+          ],
+          "metric_definitions": [
+            "cell AUC and LogLoss equal the arithmetic mean of test labels",
+            "latest seed value selects the most recent audited completed attempt for that logical seed regardless of its metric",
+            "the seed20262030 values are shown separately and excluded from the comparable three-seed mean",
+            "positive logloss improvement means lower LogLoss"
+          ]
+        }
+      },
+      {
+        "id": "integrated_attempts_source",
+        "label": "10 次有效复跑及新增种子的审计对照",
+        "path": "experiments/sisa_seed_variability_20260923/results/final_comparison.csv",
+        "query": {
+          "engine": "duckdb",
+          "sql": "SELECT * FROM read_csv_auto('experiments/sisa_seed_variability_20260923/results/final_comparison.csv', header = true)",
+          "description": "10 次有效复跑及新增种子的审计对照",
+          "tables_used": [
+            "experiments/sisa_seed_variability_20260923/results/final_comparison.csv",
+            "experiments/sisa_seed_variability_20260923/audit/final_result_verification.json"
+          ],
+          "filters": [
+            "five accepted models",
+            "four accepted datasets"
+          ],
+          "metric_definitions": [
+            "cell AUC and LogLoss equal the arithmetic mean of test labels",
+            "latest seed value selects the most recent audited completed attempt for that logical seed regardless of its metric",
+            "the seed20262030 values are shown separately and excluded from the comparable three-seed mean",
+            "positive logloss improvement means lower LogLoss"
+          ]
         }
       }
     ],
@@ -916,13 +965,208 @@
             "type": "text"
           }
         ]
+      },
+      {
+        "id": "integrated_auc_table",
+        "title": "AUC：模型为行，数据集为列",
+        "subtitle": "每格保留 Baseline、最新三种子均值及同种子多次运行；只有两组有新增 seed30",
+        "dataset": "integrated_matrix",
+        "sourceId": "integrated_20_cells_source",
+        "layout": "full",
+        "density": "dense",
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "QK_Video_Action_auc",
+            "label": "QK-Video",
+            "type": "text"
+          },
+          {
+            "field": "KuaiRand_Video_Action_auc",
+            "label": "KuaiRand",
+            "type": "text"
+          },
+          {
+            "field": "TencentGR_10M_Action_auc",
+            "label": "TAAC-25",
+            "type": "text"
+          },
+          {
+            "field": "MerRec_Action_auc",
+            "label": "MerRec",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "integrated_logloss_table",
+        "title": "LogLoss：模型为行，数据集为列",
+        "subtitle": "每格保留 Baseline、最新三种子均值及同种子多次运行；只有两组有新增 seed30",
+        "dataset": "integrated_matrix",
+        "sourceId": "integrated_20_cells_source",
+        "layout": "full",
+        "density": "dense",
+        "columns": [
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "QK_Video_Action_logloss",
+            "label": "QK-Video",
+            "type": "text"
+          },
+          {
+            "field": "KuaiRand_Video_Action_logloss",
+            "label": "KuaiRand",
+            "type": "text"
+          },
+          {
+            "field": "TencentGR_10M_Action_logloss",
+            "label": "TAAC-25",
+            "type": "text"
+          },
+          {
+            "field": "MerRec_Action_logloss",
+            "label": "MerRec",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "integrated_attempts_table",
+        "title": "本轮复跑与新种子逐任务对照",
+        "subtitle": "10 次有效运行；AUC 差值为本次减参考，LogLoss 改善为参考减本次",
+        "dataset": "integrated_attempts",
+        "sourceId": "integrated_attempts_source",
+        "layout": "full",
+        "density": "dense",
+        "columns": [
+          {
+            "field": "type",
+            "label": "类型",
+            "type": "text"
+          },
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "dataset",
+            "label": "数据集",
+            "type": "text"
+          },
+          {
+            "field": "reference_seed",
+            "label": "参考种子",
+            "type": "text"
+          },
+          {
+            "field": "run_seed",
+            "label": "本次种子",
+            "type": "text"
+          },
+          {
+            "field": "reference_auc",
+            "label": "参考 AUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "run_auc",
+            "label": "本次 AUC",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "delta_auc",
+            "label": "ΔAUC",
+            "type": "text",
+            "align": "right",
+            "movement": true
+          },
+          {
+            "field": "reference_logloss",
+            "label": "参考 LogLoss",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "run_logloss",
+            "label": "本次 LogLoss",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "logloss_improvement",
+            "label": "LogLoss 改善",
+            "type": "text",
+            "align": "right",
+            "movement": true
+          },
+          {
+            "field": "job_task_id",
+            "label": "作业",
+            "type": "text"
+          }
+        ]
       }
     ],
     "blocks": [
       {
         "id": "title",
         "type": "markdown",
-        "body": "# UniRank SISA 三-seed 统一对比报告"
+        "body": "# UniRank SISA 五模型整体结果与复跑对照"
+      },
+      {
+        "id": "integrated_summary",
+        "type": "markdown",
+        "sourceId": "integrated_20_cells_source",
+        "body": "## 最新 20 组结果\n\n五个模型×四个数据集已组成 **20 组、85 个标签**。按每个逻辑种子最新核验运行计算，三种子 cell-macro AUC 相对历史单种子 Baseline 为 **+0.0060964**，其中 **19/20** 组高于 Baseline；对应 LogLoss 改善为 **+0.0014088**（正值表示降低）。复跑前的 20 组三种子 AUC 差值为 **+0.0059223**。本轮针对低值组合选择性复跑，最新运行均值仅供查看复算后的整体观测，不按测试表现择优替换原始三种子证据。"
+      },
+      {
+        "id": "integrated_auc_explanation",
+        "type": "markdown",
+        "sourceId": "integrated_20_cells_source",
+        "body": "## AUC：模型为行，数据集为列\n\n每格列出 Baseline、最新三种子均值和相对 Baseline 的变化。同一种子有两次有效运行时用“原值 → 复跑值”完整展示，即使两次完全一致；🟢 表示 AUC 提升，🔴 表示下降，⚪ 表示一致；🔵 是仅两组有记录的 seed30，它不进入三种子均值。窄屏可左右滑动表格。"
+      },
+      {
+        "id": "integrated_auc_table_block",
+        "type": "table",
+        "tableId": "integrated_auc_table"
+      },
+      {
+        "id": "integrated_logloss_explanation",
+        "type": "markdown",
+        "sourceId": "integrated_20_cells_source",
+        "body": "## LogLoss：同样按模型行和数据集列查看\n\n每格显示 Baseline、最新三种子均值以及存在复跑时的原值与新值。较 Baseline 的改善定义为 Baseline 减最新三种子均值；🟢 表示 LogLoss 降低，🔴 表示升高，⚪ 表示一致；🔵 标出新增 seed30。OneTrans–TAAC-25 seed29 复跑后为 0.0447520，仍高于该模型 seed27 的 0.0334015和 seed28 的 0.0420805。"
+      },
+      {
+        "id": "integrated_logloss_table_block",
+        "type": "table",
+        "tableId": "integrated_logloss_table"
+      },
+      {
+        "id": "integrated_attempts_explanation",
+        "type": "markdown",
+        "sourceId": "integrated_attempts_source",
+        "body": "## 10 次新增有效运行的原值与新值\n\n八个同种子逻辑任务全部完成，另有两个 seed20262030 新种子。OneTrans–TAAC-25 的首次复跑 645228_5 在训练前因计算节点缺少 Git 失败；表中仅列修复后完成的 645445_5。两项同种子完全一致的 MerRec 组合新增 seed30 后方向相反：HyFormer AUC 降低，HiFormer AUC 升高。这张表只描述这些选定组合的变化，不把较高的测试值自动升格为论文主结果。"
+      },
+      {
+        "id": "integrated_attempts_table_block",
+        "type": "table",
+        "tableId": "integrated_attempts_table"
+      },
+      {
+        "id": "historical_16_scope",
+        "type": "markdown",
+        "body": "## 历史 16 组报告（原始快照）\n\n以下保留原四模型、68 标签的三种子报告及图表，数值口径停留在原始运行。上述 20 组新表包含 OneTrans 和本轮复跑。请按各自的范围阅读，不要把以下历史 16 组汇总当作当前 20 组汇总。"
       },
       {
         "id": "technical_summary",
@@ -1090,7 +1334,7 @@
   },
   "snapshot": {
     "version": 1,
-    "generatedAt": "2026-08-27T17:09:43+08:00",
+    "generatedAt": "2026-09-24T02:21:16.694368+08:00",
     "status": "ready",
     "datasets": {
       "headline": [
@@ -3364,6 +3608,667 @@
           "sequence_length": 100,
           "comparability": "与 seed 20262028 同协议；task 0 使用同协议 attempt2"
         }
+      ],
+      "integrated_cells": [
+        {
+          "model": "HiFormer",
+          "dataset": "QK-Video",
+          "retry_seed": "—",
+          "baseline_auc": "0.9331632",
+          "latest_20262027_auc": "0.9310630",
+          "latest_20262028_auc": "0.9308912",
+          "latest_20262029_auc": "0.9306105",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.9308549",
+          "latest_three_seed_mean_auc": "0.9308549",
+          "baseline_logloss": "0.0753855",
+          "latest_20262027_logloss": "0.0753562",
+          "latest_20262028_logloss": "0.0758453",
+          "latest_20262029_logloss": "0.0756708",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0756241",
+          "latest_three_seed_mean_logloss": "0.0756241",
+          "auc_delta_vs_baseline": "-0.0023083",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "-0.0002386",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "KuaiRand",
+          "retry_seed": "—",
+          "baseline_auc": "0.8584817",
+          "latest_20262027_auc": "0.8621658",
+          "latest_20262028_auc": "0.8646710",
+          "latest_20262029_auc": "0.8633190",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8633853",
+          "latest_three_seed_mean_auc": "0.8633853",
+          "baseline_logloss": "0.1805495",
+          "latest_20262027_logloss": "0.1773883",
+          "latest_20262028_logloss": "0.1755647",
+          "latest_20262029_logloss": "0.1768382",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.1765971",
+          "latest_three_seed_mean_logloss": "0.1765971",
+          "auc_delta_vs_baseline": "+0.0049036",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0039524",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "TAAC-25",
+          "retry_seed": "—",
+          "baseline_auc": "0.8552350",
+          "latest_20262027_auc": "0.8667960",
+          "latest_20262028_auc": "0.8708580",
+          "latest_20262029_auc": "0.8699100",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8691880",
+          "latest_three_seed_mean_auc": "0.8691880",
+          "baseline_logloss": "0.0321885",
+          "latest_20262027_logloss": "0.0279535",
+          "latest_20262028_logloss": "0.0302950",
+          "latest_20262029_logloss": "0.0324445",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0302310",
+          "latest_three_seed_mean_logloss": "0.0302310",
+          "auc_delta_vs_baseline": "+0.0139530",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0019575",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "retry_seed": "29",
+          "baseline_auc": "0.8010968",
+          "latest_20262027_auc": "0.8022904",
+          "latest_20262028_auc": "0.8092764",
+          "latest_20262029_auc": "0.8039572",
+          "seed30_auc": "0.8065784",
+          "original_three_seed_mean_auc": "0.8051747",
+          "latest_three_seed_mean_auc": "0.8051747",
+          "baseline_logloss": "0.0852334",
+          "latest_20262027_logloss": "0.0834022",
+          "latest_20262028_logloss": "0.0825324",
+          "latest_20262029_logloss": "0.0843796",
+          "seed30_logloss": "0.0833928",
+          "original_three_seed_mean_logloss": "0.0834381",
+          "latest_three_seed_mean_logloss": "0.0834381",
+          "auc_delta_vs_baseline": "+0.0040779",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0017953",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "QK-Video",
+          "retry_seed": "—",
+          "baseline_auc": "0.9302425",
+          "latest_20262027_auc": "0.9312455",
+          "latest_20262028_auc": "0.9313080",
+          "latest_20262029_auc": "0.9311600",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.9312378",
+          "latest_three_seed_mean_auc": "0.9312378",
+          "baseline_logloss": "0.0750948",
+          "latest_20262027_logloss": "0.0743350",
+          "latest_20262028_logloss": "0.0747075",
+          "latest_20262029_logloss": "0.0746860",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0745762",
+          "latest_three_seed_mean_logloss": "0.0745762",
+          "auc_delta_vs_baseline": "+0.0009953",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0005186",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "retry_seed": "29",
+          "baseline_auc": "0.8571902",
+          "latest_20262027_auc": "0.8638568",
+          "latest_20262028_auc": "0.8619408",
+          "latest_20262029_auc": "0.8624452",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8624739",
+          "latest_three_seed_mean_auc": "0.8627476",
+          "baseline_logloss": "0.1797498",
+          "latest_20262027_logloss": "0.1750152",
+          "latest_20262028_logloss": "0.1771903",
+          "latest_20262029_logloss": "0.1741328",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.1756389",
+          "latest_three_seed_mean_logloss": "0.1754461",
+          "auc_delta_vs_baseline": "+0.0055574",
+          "auc_delta_latest_vs_original": "+0.0002737",
+          "logloss_improvement_vs_baseline": "+0.0043037",
+          "logloss_improvement_vs_original": "+0.0001928"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TAAC-25",
+          "retry_seed": "27",
+          "baseline_auc": "0.8512370",
+          "latest_20262027_auc": "0.8639690",
+          "latest_20262028_auc": "0.8744435",
+          "latest_20262029_auc": "0.8674335",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8681160",
+          "latest_three_seed_mean_auc": "0.8686153",
+          "baseline_logloss": "0.0349765",
+          "latest_20262027_logloss": "0.0330080",
+          "latest_20262028_logloss": "0.0325065",
+          "latest_20262029_logloss": "0.0358825",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0339180",
+          "latest_three_seed_mean_logloss": "0.0337990",
+          "auc_delta_vs_baseline": "+0.0173783",
+          "auc_delta_latest_vs_original": "+0.0004993",
+          "logloss_improvement_vs_baseline": "+0.0011775",
+          "logloss_improvement_vs_original": "+0.0001190"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "retry_seed": "28",
+          "baseline_auc": "0.7937372",
+          "latest_20262027_auc": "0.8061308",
+          "latest_20262028_auc": "0.8008724",
+          "latest_20262029_auc": "0.8065828",
+          "seed30_auc": "0.7989772",
+          "original_three_seed_mean_auc": "0.8045287",
+          "latest_three_seed_mean_auc": "0.8045287",
+          "baseline_logloss": "0.0838562",
+          "latest_20262027_logloss": "0.0812370",
+          "latest_20262028_logloss": "0.0826776",
+          "latest_20262029_logloss": "0.0820006",
+          "seed30_logloss": "0.0819256",
+          "original_three_seed_mean_logloss": "0.0819717",
+          "latest_three_seed_mean_logloss": "0.0819717",
+          "auc_delta_vs_baseline": "+0.0107915",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0018845",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "QK-Video",
+          "retry_seed": "—",
+          "baseline_auc": "0.9336178",
+          "latest_20262027_auc": "0.9340545",
+          "latest_20262028_auc": "0.9347415",
+          "latest_20262029_auc": "0.9335737",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.9341232",
+          "latest_three_seed_mean_auc": "0.9341232",
+          "baseline_logloss": "0.0738272",
+          "latest_20262027_logloss": "0.0736340",
+          "latest_20262028_logloss": "0.0740015",
+          "latest_20262029_logloss": "0.0737920",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0738092",
+          "latest_three_seed_mean_logloss": "0.0738092",
+          "auc_delta_vs_baseline": "+0.0005055",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0000181",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "KuaiRand",
+          "retry_seed": "—",
+          "baseline_auc": "0.8573422",
+          "latest_20262027_auc": "0.8650323",
+          "latest_20262028_auc": "0.8618298",
+          "latest_20262029_auc": "0.8651283",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8639968",
+          "latest_three_seed_mean_auc": "0.8639968",
+          "baseline_logloss": "0.1863368",
+          "latest_20262027_logloss": "0.1776008",
+          "latest_20262028_logloss": "0.1780853",
+          "latest_20262029_logloss": "0.1753265",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.1770042",
+          "latest_three_seed_mean_logloss": "0.1770042",
+          "auc_delta_vs_baseline": "+0.0066547",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0093326",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "TAAC-25",
+          "retry_seed": "29",
+          "baseline_auc": "0.8556235",
+          "latest_20262027_auc": "0.8607465",
+          "latest_20262028_auc": "0.8554250",
+          "latest_20262029_auc": "0.8597095",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8573795",
+          "latest_three_seed_mean_auc": "0.8586270",
+          "baseline_logloss": "0.0336130",
+          "latest_20262027_logloss": "0.0334015",
+          "latest_20262028_logloss": "0.0420805",
+          "latest_20262029_logloss": "0.0447520",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0405510",
+          "latest_three_seed_mean_logloss": "0.0400780",
+          "auc_delta_vs_baseline": "+0.0030035",
+          "auc_delta_latest_vs_original": "+0.0012475",
+          "logloss_improvement_vs_baseline": "-0.0064650",
+          "logloss_improvement_vs_original": "+0.0004730"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec",
+          "retry_seed": "28",
+          "baseline_auc": "0.8087304",
+          "latest_20262027_auc": "0.8178750",
+          "latest_20262028_auc": "0.8128702",
+          "latest_20262029_auc": "0.8162176",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8156213",
+          "latest_three_seed_mean_auc": "0.8156543",
+          "baseline_logloss": "0.0822170",
+          "latest_20262027_logloss": "0.0802542",
+          "latest_20262028_logloss": "0.0814726",
+          "latest_20262029_logloss": "0.0817332",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0810899",
+          "latest_three_seed_mean_logloss": "0.0811533",
+          "auc_delta_vs_baseline": "+0.0069239",
+          "auc_delta_latest_vs_original": "+0.0000329",
+          "logloss_improvement_vs_baseline": "+0.0010637",
+          "logloss_improvement_vs_original": "-0.0000634"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "QK-Video",
+          "retry_seed": "—",
+          "baseline_auc": "0.9289072",
+          "latest_20262027_auc": "0.9301385",
+          "latest_20262028_auc": "0.9291152",
+          "latest_20262029_auc": "0.9291550",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.9294696",
+          "latest_three_seed_mean_auc": "0.9294696",
+          "baseline_logloss": "0.0757050",
+          "latest_20262027_logloss": "0.0749415",
+          "latest_20262028_logloss": "0.0757593",
+          "latest_20262029_logloss": "0.0756665",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0754558",
+          "latest_three_seed_mean_logloss": "0.0754558",
+          "auc_delta_vs_baseline": "+0.0005623",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0002493",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "KuaiRand",
+          "retry_seed": "—",
+          "baseline_auc": "0.8523760",
+          "latest_20262027_auc": "0.8609732",
+          "latest_20262028_auc": "0.8615015",
+          "latest_20262029_auc": "0.8640258",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8621668",
+          "latest_three_seed_mean_auc": "0.8621668",
+          "baseline_logloss": "0.1796102",
+          "latest_20262027_logloss": "0.1747668",
+          "latest_20262028_logloss": "0.1745697",
+          "latest_20262029_logloss": "0.1736840",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.1743402",
+          "latest_three_seed_mean_logloss": "0.1743402",
+          "auc_delta_vs_baseline": "+0.0097908",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0052700",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "TAAC-25",
+          "retry_seed": "—",
+          "baseline_auc": "0.8448630",
+          "latest_20262027_auc": "0.8551255",
+          "latest_20262028_auc": "0.8478415",
+          "latest_20262029_auc": "0.8505815",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8511828",
+          "latest_three_seed_mean_auc": "0.8511828",
+          "baseline_logloss": "0.0422450",
+          "latest_20262027_logloss": "0.0405025",
+          "latest_20262028_logloss": "0.0468970",
+          "latest_20262029_logloss": "0.0464985",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0446327",
+          "latest_three_seed_mean_logloss": "0.0446327",
+          "auc_delta_vs_baseline": "+0.0063198",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "-0.0023877",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "RankMixer",
+          "dataset": "MerRec",
+          "retry_seed": "—",
+          "baseline_auc": "0.7886294",
+          "latest_20262027_auc": "0.7961358",
+          "latest_20262028_auc": "0.8022434",
+          "latest_20262029_auc": "0.7969802",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.7984531",
+          "latest_three_seed_mean_auc": "0.7984531",
+          "baseline_logloss": "0.0829918",
+          "latest_20262027_logloss": "0.0808056",
+          "latest_20262028_logloss": "0.0810094",
+          "latest_20262029_logloss": "0.0805432",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0807861",
+          "latest_three_seed_mean_logloss": "0.0807861",
+          "auc_delta_vs_baseline": "+0.0098237",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0022057",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "QK-Video",
+          "retry_seed": "—",
+          "baseline_auc": "0.9349188",
+          "latest_20262027_auc": "0.9356550",
+          "latest_20262028_auc": "0.9352205",
+          "latest_20262029_auc": "0.9350287",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.9353014",
+          "latest_three_seed_mean_auc": "0.9353014",
+          "baseline_logloss": "0.0749355",
+          "latest_20262027_logloss": "0.0742715",
+          "latest_20262028_logloss": "0.0743878",
+          "latest_20262029_logloss": "0.0743728",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0743440",
+          "latest_three_seed_mean_logloss": "0.0743440",
+          "auc_delta_vs_baseline": "+0.0003827",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0005915",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "KuaiRand",
+          "retry_seed": "—",
+          "baseline_auc": "0.8596625",
+          "latest_20262027_auc": "0.8663958",
+          "latest_20262028_auc": "0.8611663",
+          "latest_20262029_auc": "0.8619310",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8631644",
+          "latest_three_seed_mean_auc": "0.8631644",
+          "baseline_logloss": "0.1800722",
+          "latest_20262027_logloss": "0.1754252",
+          "latest_20262028_logloss": "0.1793288",
+          "latest_20262029_logloss": "0.1804793",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.1784111",
+          "latest_three_seed_mean_logloss": "0.1784111",
+          "auc_delta_vs_baseline": "+0.0035019",
+          "auc_delta_latest_vs_original": "0.0000000",
+          "logloss_improvement_vs_baseline": "+0.0016611",
+          "logloss_improvement_vs_original": "0.0000000"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "TAAC-25",
+          "retry_seed": "27",
+          "baseline_auc": "0.8394885",
+          "latest_20262027_auc": "0.8504055",
+          "latest_20262028_auc": "0.8637505",
+          "latest_20262029_auc": "0.8547150",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8558408",
+          "latest_three_seed_mean_auc": "0.8562903",
+          "baseline_logloss": "0.0397860",
+          "latest_20262027_logloss": "0.0380485",
+          "latest_20262028_logloss": "0.0379885",
+          "latest_20262029_logloss": "0.0424250",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0390810",
+          "latest_three_seed_mean_logloss": "0.0394873",
+          "auc_delta_vs_baseline": "+0.0168018",
+          "auc_delta_latest_vs_original": "+0.0004495",
+          "logloss_improvement_vs_baseline": "+0.0002987",
+          "logloss_improvement_vs_original": "-0.0004063"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "retry_seed": "29",
+          "baseline_auc": "0.8060438",
+          "latest_20262027_auc": "0.8092280",
+          "latest_20262028_auc": "0.8095332",
+          "latest_20262029_auc": "0.8062988",
+          "seed30_auc": "",
+          "original_three_seed_mean_auc": "0.8073733",
+          "latest_three_seed_mean_auc": "0.8083533",
+          "baseline_logloss": "0.0845422",
+          "latest_20262027_logloss": "0.0832054",
+          "latest_20262028_logloss": "0.0835566",
+          "latest_20262029_logloss": "0.0839060",
+          "seed30_logloss": "",
+          "original_three_seed_mean_logloss": "0.0836742",
+          "latest_three_seed_mean_logloss": "0.0835560",
+          "auc_delta_vs_baseline": "+0.0023095",
+          "auc_delta_latest_vs_original": "+0.0009801",
+          "logloss_improvement_vs_baseline": "+0.0009862",
+          "logloss_improvement_vs_original": "+0.0001182"
+        }
+      ],
+      "integrated_attempts": [
+        {
+          "model": "Zenith",
+          "dataset": "TAAC-25",
+          "type": "同种子复跑",
+          "reference_seed": "20262027",
+          "run_seed": "20262027",
+          "reference_auc": "0.8490570",
+          "run_auc": "0.8504055",
+          "delta_auc": "+0.0013485",
+          "reference_logloss": "0.0368295",
+          "run_logloss": "0.0380485",
+          "logloss_improvement": "-0.0012190",
+          "job_task_id": "645223_12"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "TAAC-25",
+          "type": "同种子复跑",
+          "reference_seed": "20262027",
+          "run_seed": "20262027",
+          "reference_auc": "0.8624710",
+          "run_auc": "0.8639690",
+          "delta_auc": "+0.0014980",
+          "reference_logloss": "0.0333650",
+          "run_logloss": "0.0330080",
+          "logloss_improvement": "+0.0003570",
+          "job_task_id": "645223_13"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "type": "同种子复跑",
+          "reference_seed": "20262028",
+          "run_seed": "20262028",
+          "reference_auc": "0.8008724",
+          "run_auc": "0.8008724",
+          "delta_auc": "0.0000000",
+          "reference_logloss": "0.0826776",
+          "run_logloss": "0.0826776",
+          "logloss_improvement": "0.0000000",
+          "job_task_id": "645224_1"
+        },
+        {
+          "model": "Zenith",
+          "dataset": "MerRec",
+          "type": "同种子复跑",
+          "reference_seed": "20262029",
+          "run_seed": "20262029",
+          "reference_auc": "0.8033586",
+          "run_auc": "0.8062988",
+          "delta_auc": "+0.0029402",
+          "reference_logloss": "0.0842606",
+          "run_logloss": "0.0839060",
+          "logloss_improvement": "+0.0003546",
+          "job_task_id": "645225_0"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "type": "同种子复跑",
+          "reference_seed": "20262029",
+          "run_seed": "20262029",
+          "reference_auc": "0.8039572",
+          "run_auc": "0.8039572",
+          "delta_auc": "0.0000000",
+          "reference_logloss": "0.0843796",
+          "run_logloss": "0.0843796",
+          "logloss_improvement": "0.0000000",
+          "job_task_id": "645226_2"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "KuaiRand",
+          "type": "同种子复跑",
+          "reference_seed": "20262029",
+          "run_seed": "20262029",
+          "reference_auc": "0.8616242",
+          "run_auc": "0.8624452",
+          "delta_auc": "+0.0008210",
+          "reference_logloss": "0.1747113",
+          "run_logloss": "0.1741328",
+          "logloss_improvement": "+0.0005785",
+          "job_task_id": "645226_5"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "MerRec",
+          "type": "同种子复跑",
+          "reference_seed": "20262028",
+          "run_seed": "20262028",
+          "reference_auc": "0.8127714",
+          "run_auc": "0.8128702",
+          "delta_auc": "+0.0000988",
+          "reference_logloss": "0.0812824",
+          "run_logloss": "0.0814726",
+          "logloss_improvement": "-0.0001902",
+          "job_task_id": "645227_8"
+        },
+        {
+          "model": "OneTrans",
+          "dataset": "TAAC-25",
+          "type": "同种子复跑",
+          "reference_seed": "20262029",
+          "run_seed": "20262029",
+          "reference_auc": "0.8559670",
+          "run_auc": "0.8597095",
+          "delta_auc": "+0.0037425",
+          "reference_logloss": "0.0461710",
+          "run_logloss": "0.0447520",
+          "logloss_improvement": "+0.0014190",
+          "job_task_id": "645445_5"
+        },
+        {
+          "model": "HyFormer",
+          "dataset": "MerRec",
+          "type": "新种子实验",
+          "reference_seed": "20262028",
+          "run_seed": "20262030",
+          "reference_auc": "0.8008724",
+          "run_auc": "0.7989772",
+          "delta_auc": "-0.0018952",
+          "reference_logloss": "0.0826776",
+          "run_logloss": "0.0819256",
+          "logloss_improvement": "+0.0007520",
+          "job_task_id": "645444_1"
+        },
+        {
+          "model": "HiFormer",
+          "dataset": "MerRec",
+          "type": "新种子实验",
+          "reference_seed": "20262029",
+          "run_seed": "20262030",
+          "reference_auc": "0.8039572",
+          "run_auc": "0.8065784",
+          "delta_auc": "+0.0026212",
+          "reference_logloss": "0.0843796",
+          "run_logloss": "0.0833928",
+          "logloss_improvement": "+0.0009868",
+          "job_task_id": "645444_2"
+        }
+      ],
+      "integrated_matrix": [
+        {
+          "model": "HiFormer",
+          "QK_Video_Action_auc": "Baseline 0.9331632\n三种子均值 0.9308549 🔴 -0.0023083",
+          "QK_Video_Action_logloss": "Baseline 0.0753855\n三种子均值 0.0756241 🔴 -0.0002386",
+          "KuaiRand_Video_Action_auc": "Baseline 0.8584817\n三种子均值 0.8633853 🟢 +0.0049036",
+          "KuaiRand_Video_Action_logloss": "Baseline 0.1805495\n三种子均值 0.1765971 🟢 +0.0039524",
+          "TencentGR_10M_Action_auc": "Baseline 0.8552350\n三种子均值 0.8691880 🟢 +0.0139530",
+          "TencentGR_10M_Action_logloss": "Baseline 0.0321885\n三种子均值 0.0302310 🟢 +0.0019575",
+          "MerRec_Action_auc": "Baseline 0.8010968\n三种子均值 0.8051747 🟢 +0.0040779\n29 0.8039572 → 0.8039572 ⚪\n🔵 30 0.8065784",
+          "MerRec_Action_logloss": "Baseline 0.0852334\n三种子均值 0.0834381 🟢 +0.0017953\n29 0.0843796 → 0.0843796 ⚪\n🔵 30 0.0833928"
+        },
+        {
+          "model": "HyFormer",
+          "QK_Video_Action_auc": "Baseline 0.9302425\n三种子均值 0.9312378 🟢 +0.0009953",
+          "QK_Video_Action_logloss": "Baseline 0.0750948\n三种子均值 0.0745762 🟢 +0.0005186",
+          "KuaiRand_Video_Action_auc": "Baseline 0.8571902\n三种子均值 0.8627476 🟢 +0.0055574\n29 0.8616242 → 0.8624452 🟢",
+          "KuaiRand_Video_Action_logloss": "Baseline 0.1797498\n三种子均值 0.1754461 🟢 +0.0043037\n29 0.1747113 → 0.1741328 🟢",
+          "TencentGR_10M_Action_auc": "Baseline 0.8512370\n三种子均值 0.8686153 🟢 +0.0173783\n27 0.8624710 → 0.8639690 🟢",
+          "TencentGR_10M_Action_logloss": "Baseline 0.0349765\n三种子均值 0.0337990 🟢 +0.0011775\n27 0.0333650 → 0.0330080 🟢",
+          "MerRec_Action_auc": "Baseline 0.7937372\n三种子均值 0.8045287 🟢 +0.0107915\n28 0.8008724 → 0.8008724 ⚪\n🔵 30 0.7989772",
+          "MerRec_Action_logloss": "Baseline 0.0838562\n三种子均值 0.0819717 🟢 +0.0018845\n28 0.0826776 → 0.0826776 ⚪\n🔵 30 0.0819256"
+        },
+        {
+          "model": "OneTrans",
+          "QK_Video_Action_auc": "Baseline 0.9336178\n三种子均值 0.9341232 🟢 +0.0005055",
+          "QK_Video_Action_logloss": "Baseline 0.0738272\n三种子均值 0.0738092 🟢 +0.0000181",
+          "KuaiRand_Video_Action_auc": "Baseline 0.8573422\n三种子均值 0.8639968 🟢 +0.0066547",
+          "KuaiRand_Video_Action_logloss": "Baseline 0.1863368\n三种子均值 0.1770042 🟢 +0.0093326",
+          "TencentGR_10M_Action_auc": "Baseline 0.8556235\n三种子均值 0.8586270 🟢 +0.0030035\n29 0.8559670 → 0.8597095 🟢",
+          "TencentGR_10M_Action_logloss": "Baseline 0.0336130\n三种子均值 0.0400780 🔴 -0.0064650\n29 0.0461710 → 0.0447520 🟢",
+          "MerRec_Action_auc": "Baseline 0.8087304\n三种子均值 0.8156543 🟢 +0.0069239\n28 0.8127714 → 0.8128702 🟢",
+          "MerRec_Action_logloss": "Baseline 0.0822170\n三种子均值 0.0811533 🟢 +0.0010637\n28 0.0812824 → 0.0814726 🔴"
+        },
+        {
+          "model": "RankMixer",
+          "QK_Video_Action_auc": "Baseline 0.9289072\n三种子均值 0.9294696 🟢 +0.0005623",
+          "QK_Video_Action_logloss": "Baseline 0.0757050\n三种子均值 0.0754558 🟢 +0.0002493",
+          "KuaiRand_Video_Action_auc": "Baseline 0.8523760\n三种子均值 0.8621668 🟢 +0.0097908",
+          "KuaiRand_Video_Action_logloss": "Baseline 0.1796102\n三种子均值 0.1743402 🟢 +0.0052700",
+          "TencentGR_10M_Action_auc": "Baseline 0.8448630\n三种子均值 0.8511828 🟢 +0.0063198",
+          "TencentGR_10M_Action_logloss": "Baseline 0.0422450\n三种子均值 0.0446327 🔴 -0.0023877",
+          "MerRec_Action_auc": "Baseline 0.7886294\n三种子均值 0.7984531 🟢 +0.0098237",
+          "MerRec_Action_logloss": "Baseline 0.0829918\n三种子均值 0.0807861 🟢 +0.0022057"
+        },
+        {
+          "model": "Zenith",
+          "QK_Video_Action_auc": "Baseline 0.9349188\n三种子均值 0.9353014 🟢 +0.0003827",
+          "QK_Video_Action_logloss": "Baseline 0.0749355\n三种子均值 0.0743440 🟢 +0.0005915",
+          "KuaiRand_Video_Action_auc": "Baseline 0.8596625\n三种子均值 0.8631644 🟢 +0.0035019",
+          "KuaiRand_Video_Action_logloss": "Baseline 0.1800722\n三种子均值 0.1784111 🟢 +0.0016611",
+          "TencentGR_10M_Action_auc": "Baseline 0.8394885\n三种子均值 0.8562903 🟢 +0.0168018\n27 0.8490570 → 0.8504055 🟢",
+          "TencentGR_10M_Action_logloss": "Baseline 0.0397860\n三种子均值 0.0394873 🟢 +0.0002987\n27 0.0368295 → 0.0380485 🔴",
+          "MerRec_Action_auc": "Baseline 0.8060438\n三种子均值 0.8083533 🟢 +0.0023095\n29 0.8033586 → 0.8062988 🟢",
+          "MerRec_Action_logloss": "Baseline 0.0845422\n三种子均值 0.0835560 🟢 +0.0009862\n29 0.0842606 → 0.0839060 🟢"
+        }
       ]
     }
   },
@@ -3531,6 +4436,55 @@
         ],
         "filters": [],
         "metric_definitions": []
+      }
+    },
+    {
+      "id": "integrated_20_cells_source",
+      "label": "20 组原三种子与最新有效运行复算",
+      "path": "experiments/sisa_three_seed_unified/results/integrated_cells.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_three_seed_unified/results/integrated_cells.csv', header = true)",
+        "description": "20 组原三种子与最新有效运行复算",
+        "tables_used": [
+          "experiments/sisa_three_seed_unified/results/cell_summary.csv",
+          "experiments/onetrans_seed_completion/results/selected_macro_summary.csv",
+          "experiments/sisa_seed_variability_20260923/results/final_comparison.csv"
+        ],
+        "filters": [
+          "five accepted models",
+          "four accepted datasets"
+        ],
+        "metric_definitions": [
+          "cell AUC and LogLoss equal the arithmetic mean of test labels",
+          "latest seed value selects the most recent audited completed attempt for that logical seed regardless of its metric",
+          "the seed20262030 values are shown separately and excluded from the comparable three-seed mean",
+          "positive logloss improvement means lower LogLoss"
+        ]
+      }
+    },
+    {
+      "id": "integrated_attempts_source",
+      "label": "10 次有效复跑及新增种子的审计对照",
+      "path": "experiments/sisa_seed_variability_20260923/results/final_comparison.csv",
+      "query": {
+        "engine": "duckdb",
+        "sql": "SELECT * FROM read_csv_auto('experiments/sisa_seed_variability_20260923/results/final_comparison.csv', header = true)",
+        "description": "10 次有效复跑及新增种子的审计对照",
+        "tables_used": [
+          "experiments/sisa_seed_variability_20260923/results/final_comparison.csv",
+          "experiments/sisa_seed_variability_20260923/audit/final_result_verification.json"
+        ],
+        "filters": [
+          "five accepted models",
+          "four accepted datasets"
+        ],
+        "metric_definitions": [
+          "cell AUC and LogLoss equal the arithmetic mean of test labels",
+          "latest seed value selects the most recent audited completed attempt for that logical seed regardless of its metric",
+          "the seed20262030 values are shown separately and excluded from the comparable three-seed mean",
+          "positive logloss improvement means lower LogLoss"
+        ]
       }
     }
   ]

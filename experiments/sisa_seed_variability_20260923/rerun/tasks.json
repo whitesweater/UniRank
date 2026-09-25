@@ -1,0 +1,2621 @@
+[
+  {
+    "model": "Zenith",
+    "dataset": "TencentGR_10M_Action",
+    "seed": 20262027,
+    "reason": "macro_auc",
+    "original_job_task_id": "543257_7",
+    "original_checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_expansion_Zenith_TencentGR_10M_Action_sisa_seed20262027.log",
+    "run_id": "SISA_single_seed_Zenith_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2",
+    "group": "s27-a2",
+    "task_id": 12,
+    "attempt": 2,
+    "world_size": 4,
+    "per_gpu_batch": 8192,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "Zenith",
+      "dataset_id": "TencentGR_10M_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "num_tasks": 2,
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 8192,
+      "embedding_dim": 16,
+      "num_layers": 3,
+      "expansion_factor": 2,
+      "id_dim": 48,
+      "token_dim": 256,
+      "num_token": 2,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "tower_activations": "ReLU",
+      "attention_dropout": 0,
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262027,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_Zenith_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/TencentGR_10M_Action/train/data",
+      "valid_data": "./datasets/TencentGR_10M_Action/valid/data",
+      "test_data": "./datasets/TencentGR_10M_Action/test/data",
+      "train_user_info": "./datasets/TencentGR_10M_Action/train/user_info",
+      "train_item_info": "./datasets/TencentGR_10M_Action/train/item_info",
+      "valid_user_info": "./datasets/TencentGR_10M_Action/valid/user_info",
+      "valid_item_info": "./datasets/TencentGR_10M_Action/valid/item_info",
+      "test_user_info": "./datasets/TencentGR_10M_Action/test/user_info",
+      "test_item_info": "./datasets/TencentGR_10M_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7706779
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 17487677,
+          "source": "item"
+        },
+        {
+          "name": "100",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "101",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 54,
+          "source": "item"
+        },
+        {
+          "name": "102",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 173463,
+          "source": "item"
+        },
+        {
+          "name": "112",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 31,
+          "source": "item"
+        },
+        {
+          "name": "114",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 34,
+          "source": "item"
+        },
+        {
+          "name": "115",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 989,
+          "source": "item"
+        },
+        {
+          "name": "116",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 21,
+          "source": "item"
+        },
+        {
+          "name": "117",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 559,
+          "source": "item"
+        },
+        {
+          "name": "118",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1637,
+          "source": "item"
+        },
+        {
+          "name": "119",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4951,
+          "source": "item"
+        },
+        {
+          "name": "120",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4046,
+          "source": "item"
+        },
+        {
+          "name": "121",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5041300,
+          "source": "item"
+        },
+        {
+          "name": "122",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 2389,
+          "source": "item"
+        },
+        {
+          "name": "103",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 88
+        },
+        {
+          "name": "104",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "105",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "109",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "106",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 15
+        },
+        {
+          "name": "107",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 20
+        },
+        {
+          "name": "108",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 5
+        },
+        {
+          "name": "110",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 3
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "is_click",
+          "dtype": "float"
+        },
+        {
+          "name": "is_conversion",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2026,
+      "sisa_parameter_seed": 20260821,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 4,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0
+    }
+  },
+  {
+    "model": "HyFormer",
+    "dataset": "TencentGR_10M_Action",
+    "seed": 20262027,
+    "reason": "macro_auc",
+    "original_job_task_id": "543257_23",
+    "original_checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_expansion_HyFormer_TencentGR_10M_Action_sisa_seed20262027.log",
+    "run_id": "SISA_single_seed_HyFormer_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2",
+    "group": "s27-a2",
+    "task_id": 13,
+    "attempt": 2,
+    "world_size": 4,
+    "per_gpu_batch": 8192,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "HyFormer",
+      "dataset_id": "TencentGR_10M_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 8192,
+      "embedding_dim": 16,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "num_tasks": 2,
+      "num_layers": 3,
+      "num_heads": 2,
+      "token_dim": 256,
+      "num_ns_token": 4,
+      "num_global_token": 2,
+      "dnn_activations": "ReLU",
+      "tower_activations": "ReLU",
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262027,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_HyFormer_TencentGR_10M_Action_sisa_seed20262027_ws4_bs8192_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/TencentGR_10M_Action/train/data",
+      "valid_data": "./datasets/TencentGR_10M_Action/valid/data",
+      "test_data": "./datasets/TencentGR_10M_Action/test/data",
+      "train_user_info": "./datasets/TencentGR_10M_Action/train/user_info",
+      "train_item_info": "./datasets/TencentGR_10M_Action/train/item_info",
+      "valid_user_info": "./datasets/TencentGR_10M_Action/valid/user_info",
+      "valid_item_info": "./datasets/TencentGR_10M_Action/valid/item_info",
+      "test_user_info": "./datasets/TencentGR_10M_Action/test/user_info",
+      "test_item_info": "./datasets/TencentGR_10M_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7706779
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 17487677,
+          "source": "item"
+        },
+        {
+          "name": "100",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "101",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 54,
+          "source": "item"
+        },
+        {
+          "name": "102",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 173463,
+          "source": "item"
+        },
+        {
+          "name": "112",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 31,
+          "source": "item"
+        },
+        {
+          "name": "114",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 34,
+          "source": "item"
+        },
+        {
+          "name": "115",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 989,
+          "source": "item"
+        },
+        {
+          "name": "116",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 21,
+          "source": "item"
+        },
+        {
+          "name": "117",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 559,
+          "source": "item"
+        },
+        {
+          "name": "118",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1637,
+          "source": "item"
+        },
+        {
+          "name": "119",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4951,
+          "source": "item"
+        },
+        {
+          "name": "120",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4046,
+          "source": "item"
+        },
+        {
+          "name": "121",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5041300,
+          "source": "item"
+        },
+        {
+          "name": "122",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 2389,
+          "source": "item"
+        },
+        {
+          "name": "103",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 88
+        },
+        {
+          "name": "104",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "105",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "109",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "106",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 15
+        },
+        {
+          "name": "107",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 20
+        },
+        {
+          "name": "108",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 5
+        },
+        {
+          "name": "110",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 3
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "is_click",
+          "dtype": "float"
+        },
+        {
+          "name": "is_conversion",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2026,
+      "sisa_parameter_seed": 20260821,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 4,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0
+    }
+  },
+  {
+    "model": "HyFormer",
+    "dataset": "MerRec_Action",
+    "seed": 20262028,
+    "reason": "macro_auc; Offer",
+    "original_job_task_id": "548166_1",
+    "original_checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
+    "run_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt2",
+    "group": "s28-a2",
+    "task_id": 1,
+    "attempt": 2,
+    "world_size": 2,
+    "per_gpu_batch": 16384,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "HyFormer",
+      "dataset_id": "MerRec_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 16384,
+      "embedding_dim": 16,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "num_tasks": 5,
+      "num_layers": 3,
+      "num_heads": 2,
+      "token_dim": 256,
+      "num_ns_token": 4,
+      "num_global_token": 2,
+      "dnn_activations": "ReLU",
+      "tower_activations": "ReLU",
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262028,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_HyFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/MerRec_Action/train/data",
+      "valid_data": "./datasets/MerRec_Action/valid/data",
+      "test_data": "./datasets/MerRec_Action/test/data",
+      "train_user_info": "./datasets/MerRec_Action/train/user_info",
+      "train_item_info": "./datasets/MerRec_Action/train/item_info",
+      "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+      "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+      "test_user_info": "./datasets/MerRec_Action/test/user_info",
+      "test_item_info": "./datasets/MerRec_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1697916
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 43817684,
+          "source": "item"
+        },
+        {
+          "name": "product_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 893620,
+          "source": "item"
+        },
+        {
+          "name": "price_bucket",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10,
+          "source": "item"
+        },
+        {
+          "name": "c0_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 18,
+          "source": "item"
+        },
+        {
+          "name": "c1_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 310,
+          "source": "item"
+        },
+        {
+          "name": "c2_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3042,
+          "source": "item"
+        },
+        {
+          "name": "brand_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 19783,
+          "source": "item"
+        },
+        {
+          "name": "item_condition_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "size_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 356,
+          "source": "item"
+        },
+        {
+          "name": "shipper_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3,
+          "source": "item"
+        },
+        {
+          "name": "color",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7311,
+          "source": "item"
+        },
+        {
+          "name": "session_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3701837
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 33,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "Like",
+          "dtype": "float"
+        },
+        {
+          "name": "Cart",
+          "dtype": "float"
+        },
+        {
+          "name": "Offer",
+          "dtype": "float"
+        },
+        {
+          "name": "Checkout",
+          "dtype": "float"
+        },
+        {
+          "name": "Purchase",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2027,
+      "sisa_parameter_seed": 20260822,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 2,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0,
+      "sparse_optimizer_foreach": false,
+      "sparse_adagrad_chunk_size": 16777216
+    }
+  },
+  {
+    "model": "Zenith",
+    "dataset": "MerRec_Action",
+    "seed": 20262029,
+    "reason": "macro_auc; Purchase",
+    "original_job_task_id": "549797_0",
+    "original_checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2.log",
+    "run_id": "SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3",
+    "group": "s29-a3",
+    "task_id": 0,
+    "attempt": 3,
+    "world_size": 2,
+    "per_gpu_batch": 16384,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "Zenith",
+      "dataset_id": "MerRec_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "num_tasks": 5,
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 16384,
+      "embedding_dim": 16,
+      "num_layers": 3,
+      "expansion_factor": 2,
+      "id_dim": 48,
+      "token_dim": 256,
+      "num_token": 2,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "tower_activations": "ReLU",
+      "attention_dropout": 0,
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262029,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_Zenith_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/MerRec_Action/train/data",
+      "valid_data": "./datasets/MerRec_Action/valid/data",
+      "test_data": "./datasets/MerRec_Action/test/data",
+      "train_user_info": "./datasets/MerRec_Action/train/user_info",
+      "train_item_info": "./datasets/MerRec_Action/train/item_info",
+      "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+      "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+      "test_user_info": "./datasets/MerRec_Action/test/user_info",
+      "test_item_info": "./datasets/MerRec_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1697916
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 43817684,
+          "source": "item"
+        },
+        {
+          "name": "product_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 893620,
+          "source": "item"
+        },
+        {
+          "name": "price_bucket",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10,
+          "source": "item"
+        },
+        {
+          "name": "c0_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 18,
+          "source": "item"
+        },
+        {
+          "name": "c1_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 310,
+          "source": "item"
+        },
+        {
+          "name": "c2_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3042,
+          "source": "item"
+        },
+        {
+          "name": "brand_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 19783,
+          "source": "item"
+        },
+        {
+          "name": "item_condition_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "size_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 356,
+          "source": "item"
+        },
+        {
+          "name": "shipper_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3,
+          "source": "item"
+        },
+        {
+          "name": "color",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7311,
+          "source": "item"
+        },
+        {
+          "name": "session_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3701837
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 33,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "Like",
+          "dtype": "float"
+        },
+        {
+          "name": "Cart",
+          "dtype": "float"
+        },
+        {
+          "name": "Offer",
+          "dtype": "float"
+        },
+        {
+          "name": "Checkout",
+          "dtype": "float"
+        },
+        {
+          "name": "Purchase",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 2,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0,
+      "sparse_optimizer_foreach": false,
+      "sparse_adagrad_chunk_size": 16777216
+    }
+  },
+  {
+    "model": "HiFormer",
+    "dataset": "MerRec_Action",
+    "seed": 20262029,
+    "reason": "Checkout",
+    "original_job_task_id": "549595_2",
+    "original_checkpoint_log": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+    "run_id": "SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2",
+    "group": "s29-a2",
+    "task_id": 2,
+    "attempt": 2,
+    "world_size": 2,
+    "per_gpu_batch": 16384,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "HiFormer",
+      "dataset_id": "MerRec_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "num_tasks": 5,
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 16384,
+      "embedding_dim": 16,
+      "num_layers": 3,
+      "expansion_factor": 2,
+      "token_dim": 256,
+      "num_heads": 2,
+      "qkv_rank": 256,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "tower_activations": "ReLU",
+      "attention_dropout": 0,
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262029,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/MerRec_Action/train/data",
+      "valid_data": "./datasets/MerRec_Action/valid/data",
+      "test_data": "./datasets/MerRec_Action/test/data",
+      "train_user_info": "./datasets/MerRec_Action/train/user_info",
+      "train_item_info": "./datasets/MerRec_Action/train/item_info",
+      "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+      "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+      "test_user_info": "./datasets/MerRec_Action/test/user_info",
+      "test_item_info": "./datasets/MerRec_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1697916
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 43817684,
+          "source": "item"
+        },
+        {
+          "name": "product_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 893620,
+          "source": "item"
+        },
+        {
+          "name": "price_bucket",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10,
+          "source": "item"
+        },
+        {
+          "name": "c0_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 18,
+          "source": "item"
+        },
+        {
+          "name": "c1_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 310,
+          "source": "item"
+        },
+        {
+          "name": "c2_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3042,
+          "source": "item"
+        },
+        {
+          "name": "brand_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 19783,
+          "source": "item"
+        },
+        {
+          "name": "item_condition_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "size_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 356,
+          "source": "item"
+        },
+        {
+          "name": "shipper_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3,
+          "source": "item"
+        },
+        {
+          "name": "color",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7311,
+          "source": "item"
+        },
+        {
+          "name": "session_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3701837
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 33,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "Like",
+          "dtype": "float"
+        },
+        {
+          "name": "Cart",
+          "dtype": "float"
+        },
+        {
+          "name": "Offer",
+          "dtype": "float"
+        },
+        {
+          "name": "Checkout",
+          "dtype": "float"
+        },
+        {
+          "name": "Purchase",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 2,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0,
+      "sparse_optimizer_foreach": false,
+      "sparse_adagrad_chunk_size": 16777216
+    }
+  },
+  {
+    "model": "HyFormer",
+    "dataset": "KuaiRand_Video_Action",
+    "seed": 20262029,
+    "reason": "is_follow",
+    "original_job_task_id": "549595_5",
+    "original_checkpoint_log": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+    "run_id": "SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2",
+    "group": "s29-a2",
+    "task_id": 5,
+    "attempt": 2,
+    "world_size": 2,
+    "per_gpu_batch": 16384,
+    "global_batch": 32768,
+    "training_command": [
+      "bash",
+      "scripts/run_sisa_single_seed_task.sh"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "HyFormer",
+      "dataset_id": "KuaiRand_Video_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 16384,
+      "embedding_dim": 16,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "num_tasks": 6,
+      "num_layers": 3,
+      "num_heads": 2,
+      "token_dim": 256,
+      "num_ns_token": 4,
+      "num_global_token": 2,
+      "dnn_activations": "ReLU",
+      "tower_activations": "ReLU",
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262029,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_single_seed_HyFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/KuaiRand_Video_Action/train/data",
+      "valid_data": "./datasets/KuaiRand_Video_Action/valid/data",
+      "test_data": "./datasets/KuaiRand_Video_Action/test/data",
+      "train_user_info": "./datasets/KuaiRand_Video_Action/train/user_info",
+      "train_item_info": "./datasets/KuaiRand_Video_Action/train/item_info",
+      "valid_user_info": "./datasets/KuaiRand_Video_Action/valid/user_info",
+      "valid_item_info": "./datasets/KuaiRand_Video_Action/valid/item_info",
+      "test_user_info": "./datasets/KuaiRand_Video_Action/test/user_info",
+      "test_item_info": "./datasets/KuaiRand_Video_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 27286
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 32038726,
+          "source": "item"
+        },
+        {
+          "name": "video_type",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4,
+          "source": "item"
+        },
+        {
+          "name": "primary_tag",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 60,
+          "source": "item"
+        },
+        {
+          "name": "music_type",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8,
+          "source": "item"
+        },
+        {
+          "name": "duration_bucket",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8,
+          "source": "item"
+        },
+        {
+          "name": "user_active_degree",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 11
+        },
+        {
+          "name": "is_lowactive_period",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "is_live_streamer",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "is_video_author",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "follow_user_num_range",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10
+        },
+        {
+          "name": "fans_user_num_range",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 11
+        },
+        {
+          "name": "friend_user_num_range",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 9
+        },
+        {
+          "name": "register_days_range",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10
+        },
+        {
+          "name": "onehot_feat0",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "onehot_feat1",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 9
+        },
+        {
+          "name": "onehot_feat2",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 52
+        },
+        {
+          "name": "onehot_feat3",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1473
+        },
+        {
+          "name": "onehot_feat4",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 18
+        },
+        {
+          "name": "onehot_feat5",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 36
+        },
+        {
+          "name": "onehot_feat6",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat7",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 120
+        },
+        {
+          "name": "onehot_feat8",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 456
+        },
+        {
+          "name": "onehot_feat9",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 9
+        },
+        {
+          "name": "onehot_feat10",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7
+        },
+        {
+          "name": "onehot_feat11",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7
+        },
+        {
+          "name": "onehot_feat12",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat13",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat14",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat15",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat16",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "onehot_feat17",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5
+        },
+        {
+          "name": "tab",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 16
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 65,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "is_click",
+          "dtype": "float"
+        },
+        {
+          "name": "is_follow",
+          "dtype": "float"
+        },
+        {
+          "name": "is_like",
+          "dtype": "float"
+        },
+        {
+          "name": "is_comment",
+          "dtype": "float"
+        },
+        {
+          "name": "is_forward",
+          "dtype": "float"
+        },
+        {
+          "name": "long_view",
+          "dtype": "float"
+        }
+      ],
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "enable_bf16": true,
+      "world_size": 2,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0
+    }
+  },
+  {
+    "model": "OneTrans",
+    "dataset": "MerRec_Action",
+    "seed": 20262028,
+    "reason": "macro_auc",
+    "original_job_task_id": "630948_8",
+    "original_checkpoint_log": "checkpoints/MerRec_Action/SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt1.log",
+    "run_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt2",
+    "group": "one-ws4",
+    "task_id": 8,
+    "attempt": 2,
+    "world_size": 4,
+    "per_gpu_batch": 8192,
+    "global_batch": 32768,
+    "training_command": [
+      ".venv/bin/torchrun",
+      "--standalone",
+      "--nproc_per_node=4",
+      "run_expid.py",
+      "--config",
+      "experiments/onetrans_seed_completion/configs/runtime",
+      "--expid",
+      "OneTrans_MerRec_Action",
+      "--gpu",
+      "0,1,2,3",
+      "--run-id",
+      "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt2",
+      "--seed",
+      "20262028",
+      "--batch-size",
+      "8192",
+      "--dataloader-seed",
+      "2027",
+      "--sisa-parameter-seed",
+      "20260822",
+      "--sisa-enabled",
+      "--sisa-score-dim",
+      "16",
+      "--sisa-lambda-init",
+      "0.1",
+      "--sisa-score-scale",
+      "1.0"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "OneTrans",
+      "dataset_id": "MerRec_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 8192,
+      "embedding_dim": 16,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "num_tasks": 5,
+      "num_layers": 3,
+      "num_heads": 2,
+      "token_dim": 256,
+      "num_ns_token": 4,
+      "reduction_ratio": 0.5,
+      "tokenizer_type": "Auto",
+      "attention_activation_type": "SoftMax",
+      "dnn_activations": "ReLU",
+      "tower_activations": "ReLU",
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262028,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_seed_completion_OneTrans_MerRec_Action_sisa_seed20262028_ws4_bs8192_acc1_attempt2",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/MerRec_Action/train/data",
+      "valid_data": "./datasets/MerRec_Action/valid/data",
+      "test_data": "./datasets/MerRec_Action/test/data",
+      "train_user_info": "./datasets/MerRec_Action/train/user_info",
+      "train_item_info": "./datasets/MerRec_Action/train/item_info",
+      "valid_user_info": "./datasets/MerRec_Action/valid/user_info",
+      "valid_item_info": "./datasets/MerRec_Action/valid/item_info",
+      "test_user_info": "./datasets/MerRec_Action/test/user_info",
+      "test_item_info": "./datasets/MerRec_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1697916
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 43817684,
+          "source": "item"
+        },
+        {
+          "name": "product_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 893620,
+          "source": "item"
+        },
+        {
+          "name": "price_bucket",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 10,
+          "source": "item"
+        },
+        {
+          "name": "c0_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 18,
+          "source": "item"
+        },
+        {
+          "name": "c1_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 310,
+          "source": "item"
+        },
+        {
+          "name": "c2_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3042,
+          "source": "item"
+        },
+        {
+          "name": "brand_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 19783,
+          "source": "item"
+        },
+        {
+          "name": "item_condition_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "size_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 356,
+          "source": "item"
+        },
+        {
+          "name": "shipper_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3,
+          "source": "item"
+        },
+        {
+          "name": "color",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7311,
+          "source": "item"
+        },
+        {
+          "name": "session_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3701837
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 33,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "Like",
+          "dtype": "float"
+        },
+        {
+          "name": "Cart",
+          "dtype": "float"
+        },
+        {
+          "name": "Offer",
+          "dtype": "float"
+        },
+        {
+          "name": "Checkout",
+          "dtype": "float"
+        },
+        {
+          "name": "Purchase",
+          "dtype": "float"
+        }
+      ],
+      "enable_bf16": true,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "dataloader_seed": 2027,
+      "sisa_parameter_seed": 20260822,
+      "world_size": 4,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0
+    }
+  },
+  {
+    "model": "OneTrans",
+    "dataset": "TencentGR_10M_Action",
+    "seed": 20262029,
+    "reason": "Repair Git availability before manifest creation; retry failed pre-training attempt 645228_5",
+    "original_job_task_id": "631034_5",
+    "original_checkpoint_log": "checkpoints/TencentGR_10M_Action/SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
+    "run_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3",
+    "group": "one-ws2-a3",
+    "task_id": 5,
+    "attempt": 3,
+    "world_size": 2,
+    "per_gpu_batch": 16384,
+    "global_batch": 32768,
+    "training_command": [
+      ".venv/bin/torchrun",
+      "--standalone",
+      "--nproc_per_node=2",
+      "run_expid.py",
+      "--config",
+      "experiments/onetrans_seed_completion/configs/runtime",
+      "--expid",
+      "OneTrans_TencentGR_10M_Action",
+      "--gpu",
+      "0,1",
+      "--run-id",
+      "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3",
+      "--seed",
+      "20262029",
+      "--batch-size",
+      "16384",
+      "--dataloader-seed",
+      "2028",
+      "--sisa-parameter-seed",
+      "20260823",
+      "--sisa-enabled",
+      "--sisa-score-dim",
+      "16",
+      "--sisa-lambda-init",
+      "0.1",
+      "--sisa-score-scale",
+      "1.0"
+    ],
+    "effective_params": {
+      "model_root": "./checkpoints/",
+      "num_workers": 4,
+      "verbose": 1,
+      "early_stop_patience": 2,
+      "pickle_feature_encoder": true,
+      "save_best_only": true,
+      "eval_steps": null,
+      "debug_mode": false,
+      "group_id": "user_id",
+      "use_features": null,
+      "feature_specs": null,
+      "feature_config": null,
+      "dense_optimizer": "AdamW",
+      "sparse_optimizer": "Adagrad",
+      "dense_learning_rate": 0.0001,
+      "sparse_learning_rate": 0.05,
+      "dense_weight_decay": 0,
+      "enable_torch_compile": true,
+      "gradient_checkpointing": false,
+      "model": "OneTrans",
+      "dataset_id": "TencentGR_10M_Action",
+      "loss": [
+        "binary_crossentropy",
+        "binary_crossentropy"
+      ],
+      "metrics": [
+        "logloss",
+        "AUC"
+      ],
+      "task": "binary_classification",
+      "batch_size": 16384,
+      "embedding_dim": 16,
+      "tower_hidden_units": [
+        128,
+        64
+      ],
+      "num_tasks": 2,
+      "num_layers": 3,
+      "num_heads": 2,
+      "token_dim": 256,
+      "num_ns_token": 4,
+      "reduction_ratio": 0.5,
+      "tokenizer_type": "Auto",
+      "dnn_activations": "ReLU",
+      "tower_activations": "ReLU",
+      "net_dropout": 0,
+      "epochs": 1,
+      "shuffle": true,
+      "seed": 20262029,
+      "monitor": {
+        "AUC": 1,
+        "logloss": 0
+      },
+      "monitor_mode": "max",
+      "max_len": 100,
+      "accumulation_steps": 1,
+      "model_id": "SISA_seed_completion_OneTrans_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt3",
+      "data_root": "./datasets",
+      "data_format": "parquet",
+      "train_data": "./datasets/TencentGR_10M_Action/train/data",
+      "valid_data": "./datasets/TencentGR_10M_Action/valid/data",
+      "test_data": "./datasets/TencentGR_10M_Action/test/data",
+      "train_user_info": "./datasets/TencentGR_10M_Action/train/user_info",
+      "train_item_info": "./datasets/TencentGR_10M_Action/train/item_info",
+      "valid_user_info": "./datasets/TencentGR_10M_Action/valid/user_info",
+      "valid_item_info": "./datasets/TencentGR_10M_Action/valid/item_info",
+      "test_user_info": "./datasets/TencentGR_10M_Action/test/user_info",
+      "test_item_info": "./datasets/TencentGR_10M_Action/test/item_info",
+      "rebuild_dataset": false,
+      "blocked": true,
+      "block_cache_size": 2,
+      "feature_cols": [
+        {
+          "name": "user_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "item_index",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "seq_len",
+          "active": true,
+          "dtype": "int",
+          "type": "meta"
+        },
+        {
+          "name": "user_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7706779
+        },
+        {
+          "name": "item_id",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 17487677,
+          "source": "item"
+        },
+        {
+          "name": "100",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 7,
+          "source": "item"
+        },
+        {
+          "name": "101",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 54,
+          "source": "item"
+        },
+        {
+          "name": "102",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 173463,
+          "source": "item"
+        },
+        {
+          "name": "112",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 31,
+          "source": "item"
+        },
+        {
+          "name": "114",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 34,
+          "source": "item"
+        },
+        {
+          "name": "115",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 989,
+          "source": "item"
+        },
+        {
+          "name": "116",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 21,
+          "source": "item"
+        },
+        {
+          "name": "117",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 559,
+          "source": "item"
+        },
+        {
+          "name": "118",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 1637,
+          "source": "item"
+        },
+        {
+          "name": "119",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4951,
+          "source": "item"
+        },
+        {
+          "name": "120",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4046,
+          "source": "item"
+        },
+        {
+          "name": "121",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 5041300,
+          "source": "item"
+        },
+        {
+          "name": "122",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 2389,
+          "source": "item"
+        },
+        {
+          "name": "103",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 88
+        },
+        {
+          "name": "104",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "105",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "109",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4
+        },
+        {
+          "name": "106",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 15
+        },
+        {
+          "name": "107",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 20
+        },
+        {
+          "name": "108",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 5
+        },
+        {
+          "name": "110",
+          "active": true,
+          "dtype": "int",
+          "type": "sequence",
+          "max_len": 5,
+          "vocab_size": 3
+        },
+        {
+          "name": "day_of_week",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 8
+        },
+        {
+          "name": "is_weekend",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 3
+        },
+        {
+          "name": "hour",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 25
+        },
+        {
+          "name": "action",
+          "active": true,
+          "dtype": "int",
+          "type": "categorical",
+          "vocab_size": 4,
+          "source": "action"
+        }
+      ],
+      "label_col": [
+        {
+          "name": "is_click",
+          "dtype": "float"
+        },
+        {
+          "name": "is_conversion",
+          "dtype": "float"
+        }
+      ],
+      "enable_bf16": true,
+      "sisa_enabled": true,
+      "sisa_score_dim": 16,
+      "sisa_lambda_init": 0.1,
+      "sisa_score_scale": 1.0,
+      "dataloader_seed": 2028,
+      "sisa_parameter_seed": 20260823,
+      "world_size": 2,
+      "distributed": true,
+      "rank": 0,
+      "local_rank": 0,
+      "gpu": 0
+    },
+    "experiment_kind": "failed_start_retry",
+    "supersedes_job_task_id": "645228_5",
+    "original_seed": 20262029
+  }
+]
