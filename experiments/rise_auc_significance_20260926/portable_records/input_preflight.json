@@ -1,0 +1,614 @@
+{
+  "status": "INPUT_CLASS_SUPPORT_AND_TIES_VERIFIED",
+  "created_at_utc": "2026-09-25T18:45:06.193316+00:00",
+  "formula": "P(no positive support) = ((U - m_positive) / U)^U; analogous for negatives",
+  "sampling_assumption": "Draw exactly U user clusters uniformly with replacement; retain all rows of each selected cluster with multiplicity.",
+  "undefined_probability": "No-positive and no-negative events are disjoint because every selected user has at least one row; their probabilities add.",
+  "probability_representation": "Both natural-log and log10 values retained; null log denotes exact zero when every user supports the class.",
+  "tie_definition": "Exact equality of retained raw prediction values parsed with round_trip; no rounding or jitter.",
+  "cohorts": {
+    "RankMixer": {
+      "rows": 131072,
+      "users": 107,
+      "identity_fields": [
+        "row_index",
+        "part_id",
+        "row_offset",
+        "user_id",
+        "item_id",
+        "effective_length",
+        "is_click",
+        "is_follow",
+        "is_like",
+        "is_comment",
+        "is_forward",
+        "long_view"
+      ],
+      "ordered_eligible_identity_sha256": "4444f73719a15b086faef8483ff6cedc8fed70f4b9a06d8653c29c6575282576",
+      "labels": {
+        "is_click": {
+          "positive_rows": 46220,
+          "negative_rows": 84852,
+          "users_with_positive": 107,
+          "users_with_negative": 106,
+          "users_with_both_classes": 106,
+          "miss_all_positive": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "miss_all_negative": {
+            "probability": 7.1768817012647e-218,
+            "log_probability": -499.9926852874239,
+            "log10_probability": -217.1440642123174,
+            "structurally_impossible": false
+          },
+          "probability_undefined_auc_per_draw": 7.1768817012647e-218,
+          "expected_undefined_auc_draws_out_of_2000": 1.43537634025294e-214
+        },
+        "is_follow": {
+          "positive_rows": 84,
+          "negative_rows": 130988,
+          "users_with_positive": 38,
+          "users_with_negative": 107,
+          "users_with_both_classes": 38,
+          "miss_all_positive": {
+            "probability": 4.100043803188712e-21,
+            "log_probability": -46.943289295517204,
+            "log10_probability": -20.38721150343111,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "probability_undefined_auc_per_draw": 4.100043803188712e-21,
+          "expected_undefined_auc_draws_out_of_2000": 8.200087606377424e-18
+        },
+        "is_like": {
+          "positive_rows": 2048,
+          "negative_rows": 129024,
+          "users_with_positive": 78,
+          "users_with_negative": 107,
+          "users_with_both_classes": 78,
+          "miss_all_positive": {
+            "probability": 2.1504114453599846e-61,
+            "log_probability": -139.69203147887123,
+            "log10_probability": -60.66747843712912,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "probability_undefined_auc_per_draw": 2.1504114453599846e-61,
+          "expected_undefined_auc_draws_out_of_2000": 4.300822890719969e-58
+        },
+        "is_comment": {
+          "positive_rows": 313,
+          "negative_rows": 130759,
+          "users_with_positive": 48,
+          "users_with_negative": 107,
+          "users_with_both_classes": 48,
+          "miss_all_positive": {
+            "probability": 2.1732066904804643e-28,
+            "log_probability": -63.69617878951198,
+            "log10_probability": -27.662898966608,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "probability_undefined_auc_per_draw": 2.1732066904804643e-28,
+          "expected_undefined_auc_draws_out_of_2000": 4.346413380960929e-25
+        },
+        "is_forward": {
+          "positive_rows": 80,
+          "negative_rows": 130992,
+          "users_with_positive": 28,
+          "users_with_negative": 107,
+          "users_with_both_classes": 28,
+          "miss_all_positive": {
+            "probability": 7.980581842981415e-15,
+            "log_probability": -32.46176507345265,
+            "log10_probability": -14.097965444240195,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "probability_undefined_auc_per_draw": 7.980581842981415e-15,
+          "expected_undefined_auc_draws_out_of_2000": 1.596116368596283e-11
+        },
+        "long_view": {
+          "positive_rows": 31837,
+          "negative_rows": 99235,
+          "users_with_positive": 107,
+          "users_with_negative": 106,
+          "users_with_both_classes": 106,
+          "miss_all_positive": {
+            "probability": 0.0,
+            "log_probability": null,
+            "log10_probability": null,
+            "structurally_impossible": true
+          },
+          "miss_all_negative": {
+            "probability": 7.1768817012647e-218,
+            "log_probability": -499.9926852874239,
+            "log10_probability": -217.1440642123174,
+            "structurally_impossible": false
+          },
+          "probability_undefined_auc_per_draw": 7.1768817012647e-218,
+          "expected_undefined_auc_draws_out_of_2000": 1.43537634025294e-214
+        }
+      }
+    },
+    "HiFormer": {
+      "rows": 131070,
+      "users": 6563,
+      "identity_fields": [
+        "row_index",
+        "part_id",
+        "row_offset",
+        "user_id",
+        "item_id",
+        "effective_length",
+        "is_click",
+        "is_conversion"
+      ],
+      "ordered_eligible_identity_sha256": "6cd66fa35fadb986fdea8dfb2e9e0a4b6d649ddc1c1bb7fd2b68b0e16b9dfb04",
+      "labels": {
+        "is_click": {
+          "positive_rows": 731,
+          "negative_rows": 130339,
+          "users_with_positive": 608,
+          "users_with_negative": 6552,
+          "users_with_both_classes": 597,
+          "miss_all_positive": {
+            "probability": 8.052855951835679e-278,
+            "log_probability": -638.032629047207,
+            "log10_probability": -277.09405006942643,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": -41946.15323365553,
+            "log10_probability": -18216.98288644484,
+            "structurally_impossible": false
+          },
+          "probability_undefined_auc_per_draw": 8.052855951835679e-278,
+          "expected_undefined_auc_draws_out_of_2000": 1.610571190367136e-274
+        },
+        "is_conversion": {
+          "positive_rows": 215,
+          "negative_rows": 130855,
+          "users_with_positive": 197,
+          "users_with_negative": 6558,
+          "users_with_both_classes": 192,
+          "miss_all_positive": {
+            "probability": 1.3603218507813202e-87,
+            "log_probability": -200.01718176374612,
+            "log10_probability": -86.86635832583467,
+            "structurally_impossible": false
+          },
+          "miss_all_negative": {
+            "probability": 0.0,
+            "log_probability": -47120.79888972615,
+            "log10_probability": -20464.30294068094,
+            "structurally_impossible": false
+          },
+          "probability_undefined_auc_per_draw": 1.3603218507813202e-87,
+          "expected_undefined_auc_draws_out_of_2000": 2.7206437015626406e-84
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "model": "RankMixer",
+      "checkpoint_seed": 20262028,
+      "source_dir": "./experiments/rise_discussion_validation_20260925/results_651654",
+      "checked_input_sha256": {
+        "predictions.csv": "4f6bf5ed785a7ce057726f900ec6bfe968428842ac661e7d7d8cf9a5a2254aea",
+        "meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+        "plan.json": "1feecba039e6d1c44db8662c39176ea7b54604233f5d438a7da4ee88babdf652",
+        "gates.json": "63028c55ec54d8dbbf1f873b04f9042b179e81f9cacc9d5d779e7c77908e249c",
+        "manifest.json": "219cc7ada734fd4868cc593de4d4350c8644d7bcce0b0335c1a1a7ffae641ebb",
+        "complete.json": "5c65430ab9b5e31672c73466474f6718dd6bad66a08a6bcfb10b6d93a13cc6a1"
+      },
+      "same_cohort_as_other_seed": true,
+      "rows": 131072,
+      "users": 107,
+      "score_ties": {
+        "is_click": {
+          "full": {
+            "distinct_scores": 600,
+            "tied_score_groups": 576,
+            "rows_in_tied_groups": 131048,
+            "duplicate_rows_beyond_first_per_score": 130472,
+            "largest_tie_group": 641,
+            "cross_class_tied_pairs": 8028266,
+            "cross_class_pair_count": 3921859440
+          },
+          "template_rms": {
+            "distinct_scores": 598,
+            "tied_score_groups": 575,
+            "rows_in_tied_groups": 131049,
+            "duplicate_rows_beyond_first_per_score": 130474,
+            "largest_tie_group": 638,
+            "cross_class_tied_pairs": 8018737,
+            "cross_class_pair_count": 3921859440
+          }
+        },
+        "is_follow": {
+          "full": {
+            "distinct_scores": 256,
+            "tied_score_groups": 240,
+            "rows_in_tied_groups": 131056,
+            "duplicate_rows_beyond_first_per_score": 130816,
+            "largest_tie_group": 3574,
+            "cross_class_tied_pairs": 71330,
+            "cross_class_pair_count": 11002992
+          },
+          "template_rms": {
+            "distinct_scores": 260,
+            "tied_score_groups": 244,
+            "rows_in_tied_groups": 131056,
+            "duplicate_rows_beyond_first_per_score": 130812,
+            "largest_tie_group": 3589,
+            "cross_class_tied_pairs": 71961,
+            "cross_class_pair_count": 11002992
+          }
+        },
+        "is_like": {
+          "full": {
+            "distinct_scores": 625,
+            "tied_score_groups": 614,
+            "rows_in_tied_groups": 131061,
+            "duplicate_rows_beyond_first_per_score": 130447,
+            "largest_tie_group": 1398,
+            "cross_class_tied_pairs": 312863,
+            "cross_class_pair_count": 264241152
+          },
+          "template_rms": {
+            "distinct_scores": 625,
+            "tied_score_groups": 616,
+            "rows_in_tied_groups": 131063,
+            "duplicate_rows_beyond_first_per_score": 130447,
+            "largest_tie_group": 1375,
+            "cross_class_tied_pairs": 311563,
+            "cross_class_pair_count": 264241152
+          }
+        },
+        "is_comment": {
+          "full": {
+            "distinct_scores": 307,
+            "tied_score_groups": 286,
+            "rows_in_tied_groups": 131051,
+            "duplicate_rows_beyond_first_per_score": 130765,
+            "largest_tie_group": 2202,
+            "cross_class_tied_pairs": 121972,
+            "cross_class_pair_count": 40927567
+          },
+          "template_rms": {
+            "distinct_scores": 313,
+            "tied_score_groups": 296,
+            "rows_in_tied_groups": 131055,
+            "duplicate_rows_beyond_first_per_score": 130759,
+            "largest_tie_group": 2170,
+            "cross_class_tied_pairs": 120952,
+            "cross_class_pair_count": 40927567
+          }
+        },
+        "is_forward": {
+          "full": {
+            "distinct_scores": 261,
+            "tied_score_groups": 236,
+            "rows_in_tied_groups": 131047,
+            "duplicate_rows_beyond_first_per_score": 130811,
+            "largest_tie_group": 2301,
+            "cross_class_tied_pairs": 56255,
+            "cross_class_pair_count": 10479360
+          },
+          "template_rms": {
+            "distinct_scores": 289,
+            "tied_score_groups": 258,
+            "rows_in_tied_groups": 131041,
+            "duplicate_rows_beyond_first_per_score": 130783,
+            "largest_tie_group": 2323,
+            "cross_class_tied_pairs": 56745,
+            "cross_class_pair_count": 10479360
+          }
+        },
+        "long_view": {
+          "full": {
+            "distinct_scores": 614,
+            "tied_score_groups": 595,
+            "rows_in_tied_groups": 131053,
+            "duplicate_rows_beyond_first_per_score": 130458,
+            "largest_tie_group": 506,
+            "cross_class_tied_pairs": 5181946,
+            "cross_class_pair_count": 3159344695
+          },
+          "template_rms": {
+            "distinct_scores": 609,
+            "tied_score_groups": 600,
+            "rows_in_tied_groups": 131063,
+            "duplicate_rows_beyond_first_per_score": 130463,
+            "largest_tie_group": 506,
+            "cross_class_tied_pairs": 5173486,
+            "cross_class_pair_count": 3159344695
+          }
+        }
+      }
+    },
+    {
+      "model": "RankMixer",
+      "checkpoint_seed": 20262029,
+      "source_dir": "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results",
+      "checked_input_sha256": {
+        "predictions.csv": "b4185bf402fffa229b87b58b268d40084e1b47b6f5ea3d0827c0420800fa5fbe",
+        "meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+        "plan.json": "abc31e6a0a442958cc5d6da1ca416a09d3ac592c5e1bcdb5b1b2b71a2fa97154",
+        "gates.json": "07e0181d5e3d3caafa5919babc18e26a383b8b6c5cc63265a98d69c90931cf07",
+        "manifest.json": "8ba17335c682ca37b534b873aaafb16317bb3a638d3e2ec58006671258d7aa35",
+        "complete.json": "79496438f1df89f1fac7afb05532657ab55c5207aa808ef2f9a1af41761a2a56"
+      },
+      "same_cohort_as_other_seed": true,
+      "rows": 131072,
+      "users": 107,
+      "score_ties": {
+        "is_click": {
+          "full": {
+            "distinct_scores": 584,
+            "tied_score_groups": 577,
+            "rows_in_tied_groups": 131065,
+            "duplicate_rows_beyond_first_per_score": 130488,
+            "largest_tie_group": 664,
+            "cross_class_tied_pairs": 8068527,
+            "cross_class_pair_count": 3921859440
+          },
+          "template_rms": {
+            "distinct_scores": 583,
+            "tied_score_groups": 566,
+            "rows_in_tied_groups": 131055,
+            "duplicate_rows_beyond_first_per_score": 130489,
+            "largest_tie_group": 692,
+            "cross_class_tied_pairs": 8069869,
+            "cross_class_pair_count": 3921859440
+          }
+        },
+        "is_follow": {
+          "full": {
+            "distinct_scores": 257,
+            "tied_score_groups": 243,
+            "rows_in_tied_groups": 131058,
+            "duplicate_rows_beyond_first_per_score": 130815,
+            "largest_tie_group": 2749,
+            "cross_class_tied_pairs": 64482,
+            "cross_class_pair_count": 11002992
+          },
+          "template_rms": {
+            "distinct_scores": 264,
+            "tied_score_groups": 248,
+            "rows_in_tied_groups": 131056,
+            "duplicate_rows_beyond_first_per_score": 130808,
+            "largest_tie_group": 2734,
+            "cross_class_tied_pairs": 64752,
+            "cross_class_pair_count": 11002992
+          }
+        },
+        "is_like": {
+          "full": {
+            "distinct_scores": 655,
+            "tied_score_groups": 640,
+            "rows_in_tied_groups": 131057,
+            "duplicate_rows_beyond_first_per_score": 130417,
+            "largest_tie_group": 1180,
+            "cross_class_tied_pairs": 309057,
+            "cross_class_pair_count": 264241152
+          },
+          "template_rms": {
+            "distinct_scores": 658,
+            "tied_score_groups": 636,
+            "rows_in_tied_groups": 131050,
+            "duplicate_rows_beyond_first_per_score": 130414,
+            "largest_tie_group": 1173,
+            "cross_class_tied_pairs": 303963,
+            "cross_class_pair_count": 264241152
+          }
+        },
+        "is_comment": {
+          "full": {
+            "distinct_scores": 334,
+            "tied_score_groups": 321,
+            "rows_in_tied_groups": 131059,
+            "duplicate_rows_beyond_first_per_score": 130738,
+            "largest_tie_group": 1874,
+            "cross_class_tied_pairs": 118044,
+            "cross_class_pair_count": 40927567
+          },
+          "template_rms": {
+            "distinct_scores": 341,
+            "tied_score_groups": 329,
+            "rows_in_tied_groups": 131060,
+            "duplicate_rows_beyond_first_per_score": 130731,
+            "largest_tie_group": 1850,
+            "cross_class_tied_pairs": 116879,
+            "cross_class_pair_count": 40927567
+          }
+        },
+        "is_forward": {
+          "full": {
+            "distinct_scores": 271,
+            "tied_score_groups": 250,
+            "rows_in_tied_groups": 131051,
+            "duplicate_rows_beyond_first_per_score": 130801,
+            "largest_tie_group": 2531,
+            "cross_class_tied_pairs": 65518,
+            "cross_class_pair_count": 10479360
+          },
+          "template_rms": {
+            "distinct_scores": 274,
+            "tied_score_groups": 254,
+            "rows_in_tied_groups": 131052,
+            "duplicate_rows_beyond_first_per_score": 130798,
+            "largest_tie_group": 2466,
+            "cross_class_tied_pairs": 66019,
+            "cross_class_pair_count": 10479360
+          }
+        },
+        "long_view": {
+          "full": {
+            "distinct_scores": 641,
+            "tied_score_groups": 623,
+            "rows_in_tied_groups": 131054,
+            "duplicate_rows_beyond_first_per_score": 130431,
+            "largest_tie_group": 526,
+            "cross_class_tied_pairs": 5035116,
+            "cross_class_pair_count": 3159344695
+          },
+          "template_rms": {
+            "distinct_scores": 640,
+            "tied_score_groups": 621,
+            "rows_in_tied_groups": 131053,
+            "duplicate_rows_beyond_first_per_score": 130432,
+            "largest_tie_group": 564,
+            "cross_class_tied_pairs": 5033094,
+            "cross_class_pair_count": 3159344695
+          }
+        }
+      }
+    },
+    {
+      "model": "HiFormer",
+      "checkpoint_seed": 20262028,
+      "source_dir": "./experiments/rise_discussion_validation_hiformer_20260925/results_651691",
+      "checked_input_sha256": {
+        "predictions.csv": "61045a71979c3aedbb470c46ff8cf44f385f63632062915ae58183c3dda933e7",
+        "meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+        "plan.json": "fb9dda36a90acf7b577691c0b2d384e85bd35a227312539186a5785ca281e90a",
+        "gates.json": "8cba4077bf47efc0b8d45719c085ed0d45de609a6c819e52e18e981a44e92d6e",
+        "manifest.json": "a59457cacca38cef3c98841365d26a921fde54e6d707024c4eb777595d2c49aa",
+        "complete.json": "c2d3022447355b6f8a8ceef6780d93145184accb5ad45145f174544a0697f429"
+      },
+      "same_cohort_as_other_seed": true,
+      "rows": 131070,
+      "users": 6563,
+      "score_ties": {
+        "is_click": {
+          "full": {
+            "distinct_scores": 510,
+            "tied_score_groups": 480,
+            "rows_in_tied_groups": 131040,
+            "duplicate_rows_beyond_first_per_score": 130560,
+            "largest_tie_group": 1664,
+            "cross_class_tied_pairs": 232648,
+            "cross_class_pair_count": 95277809
+          },
+          "template_rms": {
+            "distinct_scores": 507,
+            "tied_score_groups": 474,
+            "rows_in_tied_groups": 131037,
+            "duplicate_rows_beyond_first_per_score": 130563,
+            "largest_tie_group": 1699,
+            "cross_class_tied_pairs": 233193,
+            "cross_class_pair_count": 95277809
+          }
+        },
+        "is_conversion": {
+          "full": {
+            "distinct_scores": 464,
+            "tied_score_groups": 425,
+            "rows_in_tied_groups": 131031,
+            "duplicate_rows_beyond_first_per_score": 130606,
+            "largest_tie_group": 1120,
+            "cross_class_tied_pairs": 58310,
+            "cross_class_pair_count": 28133825
+          },
+          "template_rms": {
+            "distinct_scores": 464,
+            "tied_score_groups": 421,
+            "rows_in_tied_groups": 131027,
+            "duplicate_rows_beyond_first_per_score": 130606,
+            "largest_tie_group": 1094,
+            "cross_class_tied_pairs": 58282,
+            "cross_class_pair_count": 28133825
+          }
+        }
+      }
+    },
+    {
+      "model": "HiFormer",
+      "checkpoint_seed": 20262029,
+      "source_dir": "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results",
+      "checked_input_sha256": {
+        "predictions.csv": "df713c30070e3624b59221a3cea196399feab909cc6483d7e3719b13bfc4df6b",
+        "meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+        "plan.json": "cd09cc8050db09ece162718d61719a491f48a7b59c34ed802133345d28ad515a",
+        "gates.json": "10f6105b5facdf8e367ed545c4c75c4a511306a5578ada54f7621855c2200118",
+        "manifest.json": "b015223915eede6614638ff4a04a8d545cabda46572beb12c9df53c5ba5eea32",
+        "complete.json": "604bf5fb06578ea6789950fb0eae88cb5052b2cd4c66245573c569db1f9dbea8"
+      },
+      "same_cohort_as_other_seed": true,
+      "rows": 131070,
+      "users": 6563,
+      "score_ties": {
+        "is_click": {
+          "full": {
+            "distinct_scores": 490,
+            "tied_score_groups": 469,
+            "rows_in_tied_groups": 131049,
+            "duplicate_rows_beyond_first_per_score": 130580,
+            "largest_tie_group": 1794,
+            "cross_class_tied_pairs": 245625,
+            "cross_class_pair_count": 95277809
+          },
+          "template_rms": {
+            "distinct_scores": 487,
+            "tied_score_groups": 463,
+            "rows_in_tied_groups": 131046,
+            "duplicate_rows_beyond_first_per_score": 130583,
+            "largest_tie_group": 1814,
+            "cross_class_tied_pairs": 247404,
+            "cross_class_pair_count": 95277809
+          }
+        },
+        "is_conversion": {
+          "full": {
+            "distinct_scores": 439,
+            "tied_score_groups": 400,
+            "rows_in_tied_groups": 131031,
+            "duplicate_rows_beyond_first_per_score": 130631,
+            "largest_tie_group": 1019,
+            "cross_class_tied_pairs": 62807,
+            "cross_class_pair_count": 28133825
+          },
+          "template_rms": {
+            "distinct_scores": 437,
+            "tied_score_groups": 393,
+            "rows_in_tied_groups": 131026,
+            "duplicate_rows_beyond_first_per_score": 130633,
+            "largest_tie_group": 1020,
+            "cross_class_tied_pairs": 63945,
+            "cross_class_pair_count": 28133825
+          }
+        }
+      }
+    }
+  ],
+  "script_sha256": "c9e7fc53f0a03f9247455ecd0a39a416d86d468fa5289fe1c4a7ea365b40ee93",
+  "python_version": "3.12.12 (main, Dec  9 2025, 19:02:36) [Clang 21.1.4 ]",
+  "scope": "Read-only input audit only. No bootstrap draws, AUC effects, confidence intervals, inference, training, or paper edits."
+}

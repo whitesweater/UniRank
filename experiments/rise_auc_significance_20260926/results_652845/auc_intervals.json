@@ -1,0 +1,352 @@
+{
+  "endpoints": [
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262028,
+      "ci95": [
+        -0.0009413487325295982,
+        0.00045494544779283667
+      ],
+      "ci99_375_bonferroni8": [
+        -0.0013457208570917534,
+        0.0006782042333531973
+      ],
+      "draws": 10000,
+      "endpoint": "macro_auc",
+      "full_point_auc": 0.8456473998231403,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "RankMixer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": -0.00014308978811794493,
+      "rms_point_auc": 0.8457904896112582,
+      "rows": 131072,
+      "users": 107,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262028,
+      "ci95": [
+        4.045161835622979e-05,
+        0.00027256274330775536
+      ],
+      "ci99_375_bonferroni8": [
+        -6.625429744182981e-06,
+        0.00032262667426839997
+      ],
+      "draws": 10000,
+      "endpoint": "click_auc",
+      "full_point_auc": 0.8017486814876772,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "RankMixer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.00015177099258811833,
+      "rms_point_auc": 0.8015969104950891,
+      "rows": 131072,
+      "users": 107,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        -3.365483058164198e-05,
+        0.0013101263664919837
+      ],
+      "ci99_375_bonferroni8": [
+        -0.00031576971522298097,
+        0.0016879521574419654
+      ],
+      "draws": 10000,
+      "endpoint": "macro_auc",
+      "full_point_auc": 0.8503370906318847,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "RankMixer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0006146445526601374,
+      "rms_point_auc": 0.8497224460792245,
+      "rows": 131072,
+      "users": 107,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "Full_higher_AUC",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        0.0001998820652266531,
+        0.0006150408497700987
+      ],
+      "ci99_375_bonferroni8": [
+        0.00012141607728245602,
+        0.0007081941992677046
+      ],
+      "draws": 10000,
+      "endpoint": "click_auc",
+      "full_point_auc": 0.8024968461133835,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "RankMixer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0003950350653056933,
+      "rms_point_auc": 0.8021018110480778,
+      "rows": 131072,
+      "users": 107,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262028,
+      "ci95": [
+        -0.001265395533298358,
+        -7.693780679335924e-05
+      ],
+      "ci99_375_bonferroni8": [
+        -0.001518500210637443,
+        0.0001590892408645076
+      ],
+      "draws": 10000,
+      "endpoint": "macro_auc",
+      "full_point_auc": 0.8667492906477179,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": -0.0006779466139594792,
+      "rms_point_auc": 0.8674272372616774,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "RMS_higher_AUC",
+      "checkpoint_seed": 20262028,
+      "ci95": [
+        -0.0019057661165518657,
+        -0.0005302382236287016
+      ],
+      "ci99_375_bonferroni8": [
+        -0.002228006711085556,
+        -0.0002674543295685091
+      ],
+      "draws": 10000,
+      "endpoint": "click_auc",
+      "full_point_auc": 0.846241374001369,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": -0.001212827007808226,
+      "rms_point_auc": 0.8474542010091772,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        -0.00023531685144413116,
+        0.0010410619469400637
+      ],
+      "ci99_375_bonferroni8": [
+        -0.0004873531821093208,
+        0.0012571768140647072
+      ],
+      "draws": 10000,
+      "endpoint": "macro_auc",
+      "full_point_auc": 0.8625408299771813,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0003870285253668726,
+      "rms_point_auc": 0.8621538014518144,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        -0.0004064155584670936,
+        0.0010515513905493407
+      ],
+      "ci99_375_bonferroni8": [
+        -0.0006928417263864509,
+        0.0013316462517341029
+      ],
+      "draws": 10000,
+      "endpoint": "click_auc",
+      "full_point_auc": 0.8413382123428133,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0003184844437386092,
+      "rms_point_auc": 0.8410197278990746,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    }
+  ],
+  "environment": {
+    "packages": {
+      "numpy": "2.5.2",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0"
+    },
+    "python": "3.12.12 (main, Dec  9 2025, 19:02:36) [Clang 21.1.4 ]",
+    "threads": {
+      "MKL_NUM_THREADS": "8",
+      "OMP_NUM_THREADS": "8",
+      "OPENBLAS_NUM_THREADS": "8"
+    }
+  },
+  "focal_HiFormer_seed20262029": [
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        -0.00023531685144413116,
+        0.0010410619469400637
+      ],
+      "ci99_375_bonferroni8": [
+        -0.0004873531821093208,
+        0.0012571768140647072
+      ],
+      "draws": 10000,
+      "endpoint": "macro_auc",
+      "full_point_auc": 0.8625408299771813,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0003870285253668726,
+      "rms_point_auc": 0.8621538014518144,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    },
+    {
+      "adjusted_direction": "unresolved",
+      "checkpoint_seed": 20262029,
+      "ci95": [
+        -0.0004064155584670936,
+        0.0010515513905493407
+      ],
+      "ci99_375_bonferroni8": [
+        -0.0006928417263864509,
+        0.0013316462517341029
+      ],
+      "draws": 10000,
+      "endpoint": "click_auc",
+      "full_point_auc": 0.8413382123428133,
+      "interval_policy": "All prespecified draws retained; percentile intervals, no centering or studentization",
+      "invalid_draws": 0,
+      "model": "HiFormer",
+      "p_value": null,
+      "p_value_method": "No p-values; interval-based exploratory comparison",
+      "point_difference_full_minus_rms": 0.0003184844437386092,
+      "rms_point_auc": 0.8410197278990746,
+      "rows": 131070,
+      "users": 6563,
+      "valid_draws": 10000
+    }
+  ],
+  "focal_selection": "HiFormer seed 20262029 was selected after inspecting its AUC/BCE point estimates; no confirmatory or prespecified-study claim",
+  "invalid_class_draws": {
+    "HiFormer": {
+      "is_click": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "is_conversion": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      }
+    },
+    "RankMixer": {
+      "is_click": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "is_comment": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "is_follow": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "is_forward": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "is_like": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      },
+      "long_view": {
+        "no_negative_draws": 0,
+        "no_positive_draws": 0,
+        "undefined_draws": 0
+      }
+    }
+  },
+  "model_timings": {
+    "HiFormer": {
+      "identical_cohort_draws_shared_across_checkpoint_seeds": true,
+      "seconds": 7.243243824224919
+    },
+    "RankMixer": {
+      "identical_cohort_draws_shared_across_checkpoint_seeds": true,
+      "seconds": 1.1599491918459535
+    }
+  },
+  "monte_carlo_note": "10000 draws give about31 observations per adjusted tail; reported bootstrap endpoints have Monte Carlo uncertainty and are not exact coverage guarantees",
+  "no_gpu": true,
+  "no_new_inference": true,
+  "no_training": true,
+  "peak_rss_kib": 475264,
+  "plan_hash": "e0ecb3a4221290dd1985abae296abf07ecc659a78ff18d2d923b59cc8919c414",
+  "saved_bootstrap_arrays": {
+    "HiFormer": {
+      "axis_order": "draw, checkpoint_seed[20262028,20262029], route[full,template_rms], original_label_order",
+      "path": "hiformer_draw_auc.npz",
+      "sha256": "566253ded35586f2fb79533b5366ea8772d3a04b74acbdd23e0ba147747b8c21",
+      "user_draw_stream_sha256_int64": "021265acf70e640e5040cafc03165f8c174bdeeccfe2bd6a0291380835ab841f"
+    },
+    "RankMixer": {
+      "axis_order": "draw, checkpoint_seed[20262028,20262029], route[full,template_rms], original_label_order",
+      "path": "rankmixer_draw_auc.npz",
+      "sha256": "6777033849a45d84228e1a03d02e6c8db47e9c3fc2dd4323514471ac88cb7a5b",
+      "user_draw_stream_sha256_int64": "e04676ea49d0d2f9cd04556344a97a51c26969bbf95086d5400ca1e380f788ec"
+    }
+  },
+  "slurm_job_id": "652845",
+  "source_and_input_hashes_unchanged_at_end": true,
+  "status": "complete",
+  "total_seconds": 14.41367791686207,
+  "uncertainty_scope": "Conditional on these trained checkpoints, chosen windows and estimated shared templates; no training-seed replication uncertainty, population generalization or template re-estimation inside bootstrap"
+}

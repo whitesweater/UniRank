@@ -1,0 +1,579 @@
+{
+  "auc": "Canonical float32 retained probabilities, ascending exact tie groups, weighted Mann-Whitney numerator with 0.5 credit for ties; original point AUC verified against sklearn and stored metrics",
+  "batch_size": 128,
+  "bootstrap": "Each model resets default_rng(20260926), draws U users with replacement as multinomial counts; same multiplicities across all routes, labels and both identical-cohort checkpoint seeds within model",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20260926,
+  "cases": [
+    {
+      "checkpoint_seed": 20262028,
+      "class_support": {
+        "is_click": {
+          "negative_rows": 84852,
+          "positive_rows": 46220,
+          "users_with_negative_rows": 106,
+          "users_with_positive_rows": 107
+        },
+        "is_comment": {
+          "negative_rows": 130759,
+          "positive_rows": 313,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 48
+        },
+        "is_follow": {
+          "negative_rows": 130988,
+          "positive_rows": 84,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 38
+        },
+        "is_forward": {
+          "negative_rows": 130992,
+          "positive_rows": 80,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 28
+        },
+        "is_like": {
+          "negative_rows": 129024,
+          "positive_rows": 2048,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 78
+        },
+        "long_view": {
+          "negative_rows": 99235,
+          "positive_rows": 31837,
+          "users_with_negative_rows": 106,
+          "users_with_positive_rows": 107
+        }
+      },
+      "cohort_hash": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+      "inventory": {
+        "full": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8017486814876772,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 600
+          },
+          {
+            "label": "is_follow",
+            "point_auc": 0.8128484506759616,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 256
+          },
+          {
+            "label": "is_like",
+            "point_auc": 0.9382574425803291,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 625
+          },
+          {
+            "label": "is_comment",
+            "point_auc": 0.8769461668708526,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 307
+          },
+          {
+            "label": "is_forward",
+            "point_auc": 0.8232243667552217,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 261
+          },
+          {
+            "label": "long_view",
+            "point_auc": 0.8208592905687995,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 614
+          }
+        ],
+        "template_rms": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8015969104950891,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 598
+          },
+          {
+            "label": "is_follow",
+            "point_auc": 0.8130740711253812,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 260
+          },
+          {
+            "label": "is_like",
+            "point_auc": 0.9380549949312967,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 625
+          },
+          {
+            "label": "is_comment",
+            "point_auc": 0.876753998105971,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 313
+          },
+          {
+            "label": "is_forward",
+            "point_auc": 0.824534179568218,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 289
+          },
+          {
+            "label": "long_view",
+            "point_auc": 0.8207287834415928,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 609
+          }
+        ]
+      },
+      "model": "RankMixer",
+      "point_auc": {
+        "full": [
+          0.8017486814876772,
+          0.8128484506759616,
+          0.9382574425803291,
+          0.8769461668708526,
+          0.8232243667552217,
+          0.8208592905687995
+        ],
+        "template_rms": [
+          0.8015969104950891,
+          0.8130740711253812,
+          0.9380549949312967,
+          0.876753998105971,
+          0.824534179568218,
+          0.8207287834415928
+        ]
+      },
+      "rows": 131072,
+      "users": 107
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "class_support": {
+        "is_click": {
+          "negative_rows": 84852,
+          "positive_rows": 46220,
+          "users_with_negative_rows": 106,
+          "users_with_positive_rows": 107
+        },
+        "is_comment": {
+          "negative_rows": 130759,
+          "positive_rows": 313,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 48
+        },
+        "is_follow": {
+          "negative_rows": 130988,
+          "positive_rows": 84,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 38
+        },
+        "is_forward": {
+          "negative_rows": 130992,
+          "positive_rows": 80,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 28
+        },
+        "is_like": {
+          "negative_rows": 129024,
+          "positive_rows": 2048,
+          "users_with_negative_rows": 107,
+          "users_with_positive_rows": 78
+        },
+        "long_view": {
+          "negative_rows": 99235,
+          "positive_rows": 31837,
+          "users_with_negative_rows": 106,
+          "users_with_positive_rows": 107
+        }
+      },
+      "cohort_hash": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+      "inventory": {
+        "full": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8024968461133835,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 584
+          },
+          {
+            "label": "is_follow",
+            "point_auc": 0.8234326626793875,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 257
+          },
+          {
+            "label": "is_like",
+            "point_auc": 0.937139838460892,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 655
+          },
+          {
+            "label": "is_comment",
+            "point_auc": 0.8729536256088714,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 334
+          },
+          {
+            "label": "is_forward",
+            "point_auc": 0.8444635931965311,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 271
+          },
+          {
+            "label": "long_view",
+            "point_auc": 0.821535977732243,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 641
+          }
+        ],
+        "template_rms": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8021018110480778,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 583
+          },
+          {
+            "label": "is_follow",
+            "point_auc": 0.8218147391182326,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 264
+          },
+          {
+            "label": "is_like",
+            "point_auc": 0.9370423782439459,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 658
+          },
+          {
+            "label": "is_comment",
+            "point_auc": 0.8728956817784942,
+            "point_error_vs_stored": 0.0,
+            "representation": "dense",
+            "score_groups": 341
+          },
+          {
+            "label": "is_forward",
+            "point_auc": 0.8432525936698424,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 274
+          },
+          {
+            "label": "long_view",
+            "point_auc": 0.8212274726167541,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "dense",
+            "score_groups": 640
+          }
+        ]
+      },
+      "model": "RankMixer",
+      "point_auc": {
+        "full": [
+          0.8024968461133835,
+          0.8234326626793875,
+          0.937139838460892,
+          0.8729536256088714,
+          0.8444635931965311,
+          0.821535977732243
+        ],
+        "template_rms": [
+          0.8021018110480778,
+          0.8218147391182326,
+          0.9370423782439459,
+          0.8728956817784942,
+          0.8432525936698424,
+          0.8212274726167541
+        ]
+      },
+      "rows": 131072,
+      "users": 107
+    },
+    {
+      "checkpoint_seed": 20262028,
+      "class_support": {
+        "is_click": {
+          "negative_rows": 130339,
+          "positive_rows": 731,
+          "users_with_negative_rows": 6552,
+          "users_with_positive_rows": 608
+        },
+        "is_conversion": {
+          "negative_rows": 130855,
+          "positive_rows": 215,
+          "users_with_negative_rows": 6558,
+          "users_with_positive_rows": 197
+        }
+      },
+      "cohort_hash": "5bcc958d55c45640575fc28e941d232c4ae6e8e63f6577d10129fbae714a1f22",
+      "inventory": {
+        "full": [
+          {
+            "label": "is_click",
+            "point_auc": 0.846241374001369,
+            "point_error_vs_stored": 0.0,
+            "representation": "sparse",
+            "score_groups": 510
+          },
+          {
+            "label": "is_conversion",
+            "point_auc": 0.8872572072940669,
+            "point_error_vs_stored": 0.0,
+            "representation": "sparse",
+            "score_groups": 464
+          }
+        ],
+        "template_rms": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8474542010091772,
+            "point_error_vs_stored": -1.1102230246251565e-16,
+            "representation": "sparse",
+            "score_groups": 507
+          },
+          {
+            "label": "is_conversion",
+            "point_auc": 0.8874002735141774,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "sparse",
+            "score_groups": 464
+          }
+        ]
+      },
+      "model": "HiFormer",
+      "point_auc": {
+        "full": [
+          0.846241374001369,
+          0.8872572072940669
+        ],
+        "template_rms": [
+          0.8474542010091772,
+          0.8874002735141774
+        ]
+      },
+      "rows": 131070,
+      "users": 6563
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "class_support": {
+        "is_click": {
+          "negative_rows": 130339,
+          "positive_rows": 731,
+          "users_with_negative_rows": 6552,
+          "users_with_positive_rows": 608
+        },
+        "is_conversion": {
+          "negative_rows": 130855,
+          "positive_rows": 215,
+          "users_with_negative_rows": 6558,
+          "users_with_positive_rows": 197
+        }
+      },
+      "cohort_hash": "5bcc958d55c45640575fc28e941d232c4ae6e8e63f6577d10129fbae714a1f22",
+      "inventory": {
+        "full": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8413382123428133,
+            "point_error_vs_stored": 0.0,
+            "representation": "sparse",
+            "score_groups": 490
+          },
+          {
+            "label": "is_conversion",
+            "point_auc": 0.8837434476115494,
+            "point_error_vs_stored": 0.0,
+            "representation": "sparse",
+            "score_groups": 439
+          }
+        ],
+        "template_rms": [
+          {
+            "label": "is_click",
+            "point_auc": 0.8410197278990746,
+            "point_error_vs_stored": 1.1102230246251565e-16,
+            "representation": "sparse",
+            "score_groups": 487
+          },
+          {
+            "label": "is_conversion",
+            "point_auc": 0.8832878750045541,
+            "point_error_vs_stored": 0.0,
+            "representation": "sparse",
+            "score_groups": 437
+          }
+        ]
+      },
+      "model": "HiFormer",
+      "point_auc": {
+        "full": [
+          0.8413382123428133,
+          0.8837434476115494
+        ],
+        "template_rms": [
+          0.8410197278990746,
+          0.8832878750045541
+        ]
+      },
+      "rows": 131070,
+      "users": 6563
+    }
+  ],
+  "ci": {
+    "adjusted_level": 0.99375,
+    "bonferroni8": [
+      0.003125,
+      0.996875
+    ],
+    "method": "percentile, numpy quantile method=linear",
+    "nominal": [
+      0.025,
+      0.975
+    ]
+  },
+  "decision": "Full advantage only if adjusted lower bound > 0; RMS advantage only if adjusted upper bound < 0; otherwise unresolved, not equivalence",
+  "difference": "AUC(Full) minus AUC(shared RMS); positive favors Full",
+  "environment": {
+    "packages": {
+      "numpy": "2.5.2",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0"
+    },
+    "python": "3.12.12 (main, Dec  9 2025, 19:02:36) [Clang 21.1.4 ]",
+    "threads": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    }
+  },
+  "family": [
+    {
+      "checkpoint_seed": 20262028,
+      "endpoint": "macro_auc",
+      "model": "RankMixer"
+    },
+    {
+      "checkpoint_seed": 20262028,
+      "endpoint": "click_auc",
+      "model": "RankMixer"
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "endpoint": "macro_auc",
+      "model": "RankMixer"
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "endpoint": "click_auc",
+      "model": "RankMixer"
+    },
+    {
+      "checkpoint_seed": 20262028,
+      "endpoint": "macro_auc",
+      "model": "HiFormer"
+    },
+    {
+      "checkpoint_seed": 20262028,
+      "endpoint": "click_auc",
+      "model": "HiFormer"
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "endpoint": "macro_auc",
+      "model": "HiFormer"
+    },
+    {
+      "checkpoint_seed": 20262029,
+      "endpoint": "click_auc",
+      "model": "HiFormer"
+    }
+  ],
+  "input_sha256": {
+    "./experiments/rise_discussion_validation_20260925/results_651654/analysis/metrics.csv": "7793903beec34058dc164850d1f142e4ba9651de65107a7391f903ae8eccb4aa",
+    "./experiments/rise_discussion_validation_20260925/results_651654/analysis/summary.json": "1e2a921665a1b4c0b1010b0d5563ff08c39613e0cfc3467cc695db825933140d",
+    "./experiments/rise_discussion_validation_20260925/results_651654/complete.json": "5c65430ab9b5e31672c73466474f6718dd6bad66a08a6bcfb10b6d93a13cc6a1",
+    "./experiments/rise_discussion_validation_20260925/results_651654/gates.json": "63028c55ec54d8dbbf1f873b04f9042b179e81f9cacc9d5d779e7c77908e249c",
+    "./experiments/rise_discussion_validation_20260925/results_651654/meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+    "./experiments/rise_discussion_validation_20260925/results_651654/plan.json": "1feecba039e6d1c44db8662c39176ea7b54604233f5d438a7da4ee88babdf652",
+    "./experiments/rise_discussion_validation_20260925/results_651654/predictions.csv": "4f6bf5ed785a7ce057726f900ec6bfe968428842ac661e7d7d8cf9a5a2254aea",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/analysis/metrics.csv": "32e61e0048b2efbf7fc3838b02d79089a5a5f039681b5e359498fac5aad32732",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/analysis/summary.json": "68db83a1c390637ab199448e6dd13f8218d2f99ff2fabf610ddb05e2dd2cd94e",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/complete.json": "c2d3022447355b6f8a8ceef6780d93145184accb5ad45145f174544a0697f429",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/gates.json": "8cba4077bf47efc0b8d45719c085ed0d45de609a6c819e52e18e981a44e92d6e",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/plan.json": "fb9dda36a90acf7b577691c0b2d384e85bd35a227312539186a5785ca281e90a",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/predictions.csv": "61045a71979c3aedbb470c46ff8cf44f385f63632062915ae58183c3dda933e7",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/analysis/metrics.csv": "d9f394db4577319bcaef8ddd0c411c2d8220204a06139df97166ec50ac328428",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/analysis/summary.json": "e5aed4f1c132e7d2fdbe0316c6dd362f38702b0df3fb511553caec6bb8e39430",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/complete.json": "604bf5fb06578ea6789950fb0eae88cb5052b2cd4c66245573c569db1f9dbea8",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/gates.json": "10f6105b5facdf8e367ed545c4c75c4a511306a5578ada54f7621855c2200118",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/plan.json": "cd09cc8050db09ece162718d61719a491f48a7b59c34ed802133345d28ad515a",
+    "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results/predictions.csv": "df713c30070e3624b59221a3cea196399feab909cc6483d7e3719b13bfc4df6b",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/analysis/metrics.csv": "6a505173c2dd8ff241815a6d625ae131a2bd41077eaf87f1435eb84569a0ef23",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/analysis/summary.json": "c460f3510f0ccfb272cba8f1ab3af94e056626132e449701d594fd0c9bf9acad",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/complete.json": "79496438f1df89f1fac7afb05532657ab55c5207aa808ef2f9a1af41761a2a56",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/gates.json": "07e0181d5e3d3caafa5919babc18e26a383b8b6c5cc63265a98d69c90931cf07",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/plan.json": "abc31e6a0a442958cc5d6da1ca416a09d3ac592c5e1bcdb5b1b2b71a2fa97154",
+    "./experiments/rise_score_profile_repeats_20260926/rankmixer_kuairand_seed20262029/results/predictions.csv": "b4185bf402fffa229b87b58b268d40084e1b47b6f5ea3d0827c0420800fa5fbe"
+  },
+  "invalid_draw_policy": "Keep all 10000 attempted draws. Undefined class AUC is NaN; any missing label makes macro NaN. Record positive/negative class-drop counts. If any endpoint draw undefined, withhold its intervals and statistical-direction classification; never resample or condition on finite draws.",
+  "labels": {
+    "HiFormer": [
+      "is_click",
+      "is_conversion"
+    ],
+    "RankMixer": [
+      "is_click",
+      "is_follow",
+      "is_like",
+      "is_comment",
+      "is_forward",
+      "long_view"
+    ]
+  },
+  "macro": "Equal mean of all six/two task AUCs computed inside each draw; no pooled-label AUC, no averaging of label CI bounds, no nanmean",
+  "monte_carlo_note": "10000 draws give about31 observations per adjusted tail; reported bootstrap endpoints have Monte Carlo uncertainty and are not exact coverage guarantees",
+  "no_gpu": true,
+  "no_new_inference": true,
+  "no_training": true,
+  "p_values": "None; no centered-bootstrap p or exchangeability-based permutation test",
+  "plan_hash": "e0ecb3a4221290dd1985abae296abf07ecc659a78ff18d2d923b59cc8919c414",
+  "post_hoc_focal_case": "HiFormer seed 20262029 was selected after inspecting its AUC/BCE point estimates; no confirmatory or prespecified-study claim",
+  "prepared_at_utc": "2026-09-25T18:55:54.208874+00:00",
+  "primary_endpoints": "Four macro AUC differences; click AUC is secondary but all eight endpoints included in the correction family",
+  "schema_version": 1,
+  "source_sha256": {
+    "auc_core.py": "64cc1f6da1061020732524ad3541fbfdc69589597bae7b9e790a56c333d042de",
+    "run_auc.py": "73ffabd432180606b9f15c6c2a62f6c6027fbe9533abc1c119afdbe9bdf3de88",
+    "submit_auc.sbatch": "fb75423c81aa6aec09d2539537a6c05dea8030a449409adff4633a6b715ebd37",
+    "test_auc.py": "a13f0d47e9c135c67d4770306b842b1dddb2c2c82bb8baab652844fb7a77455e"
+  },
+  "study": "Exploratory paired user-cluster AUC intervals for fixed Full and shared RMS checkpoints",
+  "uncertainty": "Conditional on these trained checkpoints, chosen windows and estimated shared templates; no training-seed replication uncertainty, population generalization or template re-estimation inside bootstrap"
+}

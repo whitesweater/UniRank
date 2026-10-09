@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "files_sha256": {
+    "auc_intervals.json": "1aca75a7ca91a2b6411a6f1fcc7b0205891e2d47dca69e8f857100efe9f93859",
+    "auc_intervals.md": "09a032ab15e7270b9ccc81b1f635bf9c2ed137c141674f1b83d353f8c7848bfe",
+    "hiformer_draw_auc.npz": "566253ded35586f2fb79533b5366ea8772d3a04b74acbdd23e0ba147747b8c21",
+    "plan.json": "cc89ab1fc738340c0cf0ae30062a46a0ec0e4549a96baf5b506edc0f982eaa24",
+    "progress.json": "9267da12a09e28211731dbcb62cc1d550701ae25c54e13c03a9a83337da1f30b",
+    "rankmixer_draw_auc.npz": "6777033849a45d84228e1a03d02e6c8db47e9c3fc2dd4323514471ac88cb7a5b"
+  },
+  "plan_hash": "e0ecb3a4221290dd1985abae296abf07ecc659a78ff18d2d923b59cc8919c414"
+}

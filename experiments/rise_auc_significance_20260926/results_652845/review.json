@@ -1,0 +1,181 @@
+{
+  "endpoint_checks": [
+    {
+      "adjusted_ci": [
+        -0.0013457208570917534,
+        0.0006782042333531973
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -0.0009413487325295982,
+        0.00045494544779283667
+      ],
+      "direction": "unresolved",
+      "endpoint": "macro_auc",
+      "model": "RankMixer",
+      "point_difference": -0.00014308978811794493,
+      "seed": 20262028
+    },
+    {
+      "adjusted_ci": [
+        -6.625429744182981e-06,
+        0.00032262667426839997
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        4.045161835622979e-05,
+        0.00027256274330775536
+      ],
+      "direction": "unresolved",
+      "endpoint": "click_auc",
+      "model": "RankMixer",
+      "point_difference": 0.00015177099258822935,
+      "seed": 20262028
+    },
+    {
+      "adjusted_ci": [
+        -0.00031576971522298097,
+        0.0016879521574419654
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -3.365483058164198e-05,
+        0.0013101263664919837
+      ],
+      "direction": "unresolved",
+      "endpoint": "macro_auc",
+      "model": "RankMixer",
+      "point_difference": 0.0006146445526601374,
+      "seed": 20262029
+    },
+    {
+      "adjusted_ci": [
+        0.00012141607728245602,
+        0.0007081941992677046
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        0.0001998820652266531,
+        0.0006150408497700987
+      ],
+      "direction": "Full_higher_AUC",
+      "endpoint": "click_auc",
+      "model": "RankMixer",
+      "point_difference": 0.0003950350653055823,
+      "seed": 20262029
+    },
+    {
+      "adjusted_ci": [
+        -0.001518500210637443,
+        0.0001590892408645076
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -0.001265395533298358,
+        -7.693780679335924e-05
+      ],
+      "direction": "unresolved",
+      "endpoint": "macro_auc",
+      "model": "HiFormer",
+      "point_difference": -0.0006779466139594792,
+      "seed": 20262028
+    },
+    {
+      "adjusted_ci": [
+        -0.002228006711085556,
+        -0.0002674543295685091
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -0.0019057661165518657,
+        -0.0005302382236287016
+      ],
+      "direction": "RMS_higher_AUC",
+      "endpoint": "click_auc",
+      "model": "HiFormer",
+      "point_difference": -0.001212827007808337,
+      "seed": 20262028
+    },
+    {
+      "adjusted_ci": [
+        -0.0004873531821093208,
+        0.0012571768140647072
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -0.00023531685144413116,
+        0.0010410619469400637
+      ],
+      "direction": "unresolved",
+      "endpoint": "macro_auc",
+      "model": "HiFormer",
+      "point_difference": 0.0003870285253669836,
+      "seed": 20262029
+    },
+    {
+      "adjusted_ci": [
+        -0.0006928417263864509,
+        0.0013316462517341029
+      ],
+      "all10000_draws_valid": true,
+      "ci95": [
+        -0.0004064155584670936,
+        0.0010515513905493407
+      ],
+      "direction": "unresolved",
+      "endpoint": "click_auc",
+      "model": "HiFormer",
+      "point_difference": 0.0003184844437387202,
+      "seed": 20262029
+    }
+  ],
+  "fixed_oracle_draws": [
+    0,
+    4999,
+    9999
+  ],
+  "models": {
+    "HiFormer": {
+      "all10000_class_masks_verified": true,
+      "array_shape": [
+        10000,
+        2,
+        2,
+        2
+      ],
+      "macro_equivalent_arithmetic_max_roundoff": 1.1102230246251565e-16,
+      "max_abs_oracle_error": 1.1102230246251565e-16,
+      "sklearn_weighted_oracle_comparisons": 24,
+      "user_draw_hash_verified": "021265acf70e640e5040cafc03165f8c174bdeeccfe2bd6a0291380835ab841f",
+      "users": 6563
+    },
+    "RankMixer": {
+      "all10000_class_masks_verified": true,
+      "array_shape": [
+        10000,
+        2,
+        2,
+        6
+      ],
+      "macro_equivalent_arithmetic_max_roundoff": 4.070908107139948e-16,
+      "max_abs_oracle_error": 2.220446049250313e-16,
+      "sklearn_weighted_oracle_comparisons": 72,
+      "user_draw_hash_verified": "e04676ea49d0d2f9cd04556344a97a51c26969bbf95086d5400ca1e380f788ec",
+      "users": 107
+    }
+  },
+  "no_full_auc_bootstrap_rerun": true,
+  "plan_hash": "e0ecb3a4221290dd1985abae296abf07ecc659a78ff18d2d923b59cc8919c414",
+  "report_review": {
+    "english_methods_complete": true,
+    "no_remaining_blockers": true,
+    "report_path": "D:\\\u6587\u4ef6\u5939\\\u6295\u7a3f\\rec\\build\\rise_auc_significance_20260926\\REPORT.md",
+    "report_sha256": "47f60922bbfea11fea8a5e20421e4c05d9aff362c505a7ac4d098ed41a8c8a9a",
+    "status": "APPROVED"
+  },
+  "scope": "Reviewer writes only review.json/md in this statistics directory; no claim about concurrent manuscript-file hashes",
+  "status": "INDEPENDENT_AUDIT_PASSED",
+  "verified_input_files": 28,
+  "verified_result_files": 6,
+  "verified_source_files": 4
+}
