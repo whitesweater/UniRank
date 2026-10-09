@@ -1,0 +1,795 @@
+{
+  "audit_utc": "2026-09-25T09:29:57.264820+00:00",
+  "auditor": "probe_code_verifier independent paired-row groupby audit",
+  "source": "./experiments/rise_discussion_validation_20260925/results_651654",
+  "scheduler": "JobID|State|ExitCode|Elapsed\n651654|COMPLETED|0:0|00:06:21\n651654.batch|COMPLETED|0:0|00:06:21\n651654.extern|COMPLETED|0:0|00:06:21\n651657|COMPLETED|0:0|00:00:08\n651657.batch|COMPLETED|0:0|00:00:08\n651657.extern|COMPLETED|0:0|00:00:08\n",
+  "completion_hashes_verified": 22,
+  "runtime_gates_all_passed": true,
+  "rows": 131072,
+  "unique_users": 107,
+  "cluster_sizes": {
+    "min": 9,
+    "median": 892.0,
+    "max": 8446,
+    "sum": 131072,
+    "effective_by_row_concentration": 52.956463124454004
+  },
+  "positive_counts": {
+    "is_click": 46220,
+    "is_follow": 84,
+    "is_like": 2048,
+    "is_comment": 313,
+    "is_forward": 80,
+    "long_view": 31837
+  },
+  "comparisons_verified": {
+    "routes": 7,
+    "metric_cells": 49,
+    "contrasts": 49,
+    "bootstrap_draws": 2000,
+    "seed": 20260925
+  },
+  "max_abs_errors": {
+    "metrics_bce": 0.0,
+    "metrics_balanced": 3.3306690738754696e-16,
+    "metrics_auc": 0.0,
+    "cluster_loss_sums": 3.9108272176235914e-11,
+    "contrasts": 3.634245682171411e-16,
+    "bootstrap_ci": 6.019490461639521e-16,
+    "balanced_ci": 1.717376241217039e-16
+  },
+  "primary": {
+    "contrast": "full_minus_template_rms",
+    "label": "is_click",
+    "difference": 3.698967436300636e-05,
+    "ci": [
+      -0.00011408117487842822,
+      0.00016957996005351032
+    ],
+    "user_balanced_difference": 2.8416005684811095e-05,
+    "user_balanced_ci": [
+      -0.00015109142000038387,
+      0.00021914572422855342
+    ]
+  },
+  "selected_contrasts": [
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "is_click",
+      "difference": 3.698967436300636e-05,
+      "ci": [
+        -0.00011408117487842822,
+        0.00016957996005351032
+      ],
+      "user_balanced_difference": 2.8416005684811095e-05,
+      "user_balanced_ci": [
+        -0.00015109142000038387,
+        0.00021914572422855342
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "is_follow",
+      "difference": -9.937657613462445e-08,
+      "ci": [
+        -1.5598400369757403e-05,
+        1.6723345357969638e-05
+      ],
+      "user_balanced_difference": 4.500965604937892e-06,
+      "user_balanced_ci": [
+        -4.4791828466240867e-05,
+        7.613026518165847e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "is_like",
+      "difference": -5.778045965263326e-05,
+      "ci": [
+        -0.00011750172772553725,
+        -1.390321782789481e-05
+      ],
+      "user_balanced_difference": -6.645565351797028e-05,
+      "user_balanced_ci": [
+        -0.00022470121218566062,
+        8.27474243715508e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "is_comment",
+      "difference": 1.3966047962759584e-05,
+      "ci": [
+        -1.512391693328942e-05,
+        5.393302340245348e-05
+      ],
+      "user_balanced_difference": 5.928995909514796e-05,
+      "user_balanced_ci": [
+        -2.1772320249394458e-05,
+        0.0001882240161316077
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "is_forward",
+      "difference": -1.3644532333385208e-05,
+      "ci": [
+        -3.33598817282217e-05,
+        4.120067820876975e-06
+      ],
+      "user_balanced_difference": -3.596580144269008e-05,
+      "user_balanced_ci": [
+        -7.967375454232419e-05,
+        6.188034937948667e-06
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "long_view",
+      "difference": 6.3660621480462135e-06,
+      "ci": [
+        -0.00013117862215871715,
+        0.00012472399747685391
+      ],
+      "user_balanced_difference": -4.429936089873248e-05,
+      "user_balanced_ci": [
+        -0.0001987591529589793,
+        0.00011491711277143459
+      ]
+    },
+    {
+      "contrast": "full_minus_template_rms",
+      "label": "label_macro",
+      "difference": -2.367097348056903e-06,
+      "ci": [
+        -4.851238945675655e-05,
+        3.803307621074015e-05
+      ],
+      "user_balanced_difference": -9.08564757908244e-06,
+      "user_balanced_ci": [
+        -6.704188595720624e-05,
+        4.8264380319447746e-05
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "is_click",
+      "difference": 0.00714434625428506,
+      "ci": [
+        0.005733288850707015,
+        0.00863344585569604
+      ],
+      "user_balanced_difference": 0.007718195826491528,
+      "user_balanced_ci": [
+        0.005554696900557581,
+        0.00970409105231276
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "is_follow",
+      "difference": 6.484230358481212e-05,
+      "ci": [
+        1.0175471286414056e-05,
+        0.0001326320726657934
+      ],
+      "user_balanced_difference": 0.0001072515786682782,
+      "user_balanced_ci": [
+        -1.1666193847934435e-05,
+        0.0002585576580965938
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "is_like",
+      "difference": 0.00024676673388553875,
+      "ci": [
+        2.625752896477487e-05,
+        0.0005343471324180149
+      ],
+      "user_balanced_difference": 0.0006858325356311934,
+      "user_balanced_ci": [
+        7.7201778038188e-05,
+        0.0015260922423432736
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "is_comment",
+      "difference": 8.461583546793332e-05,
+      "ci": [
+        3.7342757339469718e-06,
+        0.0001782204729089712
+      ],
+      "user_balanced_difference": 0.00023796395625009964,
+      "user_balanced_ci": [
+        -2.992561055988755e-05,
+        0.0006236861969457954
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "is_forward",
+      "difference": -3.146778749397559e-05,
+      "ci": [
+        -6.320277912441991e-05,
+        9.514464959881152e-07
+      ],
+      "user_balanced_difference": -7.6250892717347e-05,
+      "user_balanced_ci": [
+        -0.00017740998518133517,
+        1.3606454999929897e-05
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "long_view",
+      "difference": 0.005844399688667119,
+      "ci": [
+        0.004479209989752393,
+        0.007442322970963814
+      ],
+      "user_balanced_difference": 0.007428025396473231,
+      "user_balanced_ci": [
+        0.005505653728702876,
+        0.009570645729156606
+      ]
+    },
+    {
+      "contrast": "local_off_minus_template_raw",
+      "label": "label_macro",
+      "difference": 0.0022255838380660815,
+      "ci": [
+        0.0017747596645540115,
+        0.002730469491003075
+      ],
+      "user_balanced_difference": 0.0026835030667994976,
+      "user_balanced_ci": [
+        0.0020537141679983686,
+        0.0033302997562877756
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "is_click",
+      "difference": 4.670267231924938e-05,
+      "ci": [
+        -3.052057357166887e-05,
+        0.00013280869483807165
+      ],
+      "user_balanced_difference": 0.0001711438760282157,
+      "user_balanced_ci": [
+        -2.733165452340046e-05,
+        0.00038294990749083557
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "is_follow",
+      "difference": -1.5060739524389505e-06,
+      "ci": [
+        -7.159381790877093e-06,
+        3.5060365408761217e-06
+      ],
+      "user_balanced_difference": 5.374650748546338e-07,
+      "user_balanced_ci": [
+        -1.47061731771533e-05,
+        1.6383067369606488e-05
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "is_like",
+      "difference": 1.048949371793573e-05,
+      "ci": [
+        -1.0832299846008563e-05,
+        3.857396155702094e-05
+      ],
+      "user_balanced_difference": 2.4750763159060776e-05,
+      "user_balanced_ci": [
+        -1.7308237019237646e-05,
+        7.568366455954276e-05
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "is_comment",
+      "difference": -5.645534194201856e-06,
+      "ci": [
+        -1.3410386218130389e-05,
+        1.1950772278617267e-06
+      ],
+      "user_balanced_difference": -5.2527665435915265e-06,
+      "user_balanced_ci": [
+        -2.8128118599561442e-05,
+        2.055910858265063e-05
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "is_forward",
+      "difference": -8.145668443004784e-07,
+      "ci": [
+        -5.5686212909616215e-06,
+        3.89461598831371e-06
+      ],
+      "user_balanced_difference": -9.600589338121442e-06,
+      "user_balanced_ci": [
+        -3.159163102526566e-05,
+        6.810329230459772e-06
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "long_view",
+      "difference": 8.677426705878973e-05,
+      "ci": [
+        1.8304107602707675e-05,
+        0.00016201417095167126
+      ],
+      "user_balanced_difference": 0.0003077308103446242,
+      "user_balanced_ci": [
+        8.305374592640702e-05,
+        0.0006181613805000542
+      ]
+    },
+    {
+      "contrast": "template_raw_minus_template_rms",
+      "label": "label_macro",
+      "difference": 2.266670968417223e-05,
+      "ci": [
+        -7.760914302524678e-07,
+        4.810770890800575e-05
+      ],
+      "user_balanced_difference": 8.155159312084052e-05,
+      "user_balanced_ci": [
+        1.722270266998807e-05,
+        0.0001608477079183735
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "is_click",
+      "difference": -3.698967436300636e-05,
+      "ci": [
+        -0.00016957996005351035,
+        0.00011408117487842815
+      ],
+      "user_balanced_difference": -2.8416005684811095e-05,
+      "user_balanced_ci": [
+        -0.00021914572422855353,
+        0.0001510914200003838
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "is_follow",
+      "difference": 9.937657613462445e-08,
+      "ci": [
+        -1.6723345357969665e-05,
+        1.5598400369757403e-05
+      ],
+      "user_balanced_difference": -4.500965604937892e-06,
+      "user_balanced_ci": [
+        -7.613026518165851e-05,
+        4.479182846624085e-05
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "is_like",
+      "difference": 5.778045965263326e-05,
+      "ci": [
+        1.3903217827894767e-05,
+        0.00011750172772553723
+      ],
+      "user_balanced_difference": 6.645565351797028e-05,
+      "user_balanced_ci": [
+        -8.274742437155125e-05,
+        0.00022470121218566062
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "is_comment",
+      "difference": -1.3966047962759584e-05,
+      "ci": [
+        -5.3933023402453485e-05,
+        1.5123916933289416e-05
+      ],
+      "user_balanced_difference": -5.928995909514796e-05,
+      "user_balanced_ci": [
+        -0.00018822401613160773,
+        2.1772320249394455e-05
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "is_forward",
+      "difference": 1.3644532333385208e-05,
+      "ci": [
+        -4.120067820876977e-06,
+        3.335988172822169e-05
+      ],
+      "user_balanced_difference": 3.596580144269008e-05,
+      "user_balanced_ci": [
+        -6.18803493794873e-06,
+        7.967375454232408e-05
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "long_view",
+      "difference": -6.3660621480462135e-06,
+      "ci": [
+        -0.00012472399747685397,
+        0.00013117862215871698
+      ],
+      "user_balanced_difference": 4.429936089873248e-05,
+      "user_balanced_ci": [
+        -0.00011491711277143477,
+        0.00019875915295897918
+      ]
+    },
+    {
+      "contrast": "template_rms_minus_full",
+      "label": "label_macro",
+      "difference": 2.367097348056903e-06,
+      "ci": [
+        -3.803307621074018e-05,
+        4.851238945675654e-05
+      ],
+      "user_balanced_difference": 9.08564757908244e-06,
+      "user_balanced_ci": [
+        -4.826438031944778e-05,
+        6.70418859572062e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "is_click",
+      "difference": -0.007154059252241303,
+      "ci": [
+        -0.008708915670316926,
+        -0.005700896766937861
+      ],
+      "user_balanced_difference": -0.007860923696834932,
+      "user_balanced_ci": [
+        -0.009989640301622936,
+        -0.005479916455025547
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "is_follow",
+      "difference": -6.343560620850778e-05,
+      "ci": [
+        -0.00012032468389657852,
+        -1.868025037724024e-05
+      ],
+      "user_balanced_difference": -0.00010328807813819492,
+      "user_balanced_ci": [
+        -0.00020649755394953073,
+        -1.6131993519397135e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "is_like",
+      "difference": -0.00031503668725610775,
+      "ci": [
+        -0.0006105181350842229,
+        -0.00010121015219660493
+      ],
+      "user_balanced_difference": -0.0007770389523082245,
+      "user_balanced_ci": [
+        -0.001510752825987732,
+        -0.0002046750701423703
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "is_comment",
+      "difference": -6.500425331097188e-05,
+      "ci": [
+        -0.00013520662033761615,
+        -2.509165623889677e-07
+      ],
+      "user_balanced_difference": -0.00017342123061136008,
+      "user_balanced_ci": [
+        -0.00044799482775021305,
+        3.9869936568857984e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "is_forward",
+      "difference": 1.8637822004890856e-05,
+      "ci": [
+        -5.5297866102823435e-06,
+        4.343686199708503e-05
+      ],
+      "user_balanced_difference": 4.9885680612778363e-05,
+      "user_balanced_ci": [
+        -1.892397371457496e-05,
+        0.00013459678273637304
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "long_view",
+      "difference": -0.0059248078935778626,
+      "ci": [
+        -0.0075977851408921895,
+        -0.004480744204706317
+      ],
+      "user_balanced_difference": -0.007780055567716587,
+      "user_balanced_ci": [
+        -0.010139071850040203,
+        -0.0057147334018670766
+      ]
+    },
+    {
+      "contrast": "full_minus_local_off",
+      "label": "label_macro",
+      "difference": -0.0022506176450983106,
+      "ci": [
+        -0.002790227134818619,
+        -0.0017692018070985522
+      ],
+      "user_balanced_difference": -0.00277414030749942,
+      "user_balanced_ci": [
+        -0.0034910437425043554,
+        -0.0020912314188689424
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "is_click",
+      "difference": -9.712997956243011e-06,
+      "ci": [
+        -0.00017546227981466174,
+        0.00014222224082389656
+      ],
+      "user_balanced_difference": -0.0001427278703434046,
+      "user_balanced_ci": [
+        -0.0003788636547449017,
+        0.00011593758195611361
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "is_follow",
+      "difference": 1.4066973763043271e-06,
+      "ci": [
+        -1.527670945930081e-05,
+        1.9603097841782814e-05
+      ],
+      "user_balanced_difference": 3.963500530083249e-06,
+      "user_balanced_ci": [
+        -3.950775621575277e-05,
+        6.66311286587204e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "is_like",
+      "difference": -6.826995337056899e-05,
+      "ci": [
+        -0.00012953514494792385,
+        -1.912676766997198e-05
+      ],
+      "user_balanced_difference": -9.120641667703109e-05,
+      "user_balanced_ci": [
+        -0.0002735984000774915,
+        8.501529309336475e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "is_comment",
+      "difference": 1.9611582156961447e-05,
+      "ci": [
+        -1.1021750640121563e-05,
+        6.144050484512416e-05
+      ],
+      "user_balanced_difference": 6.454272563873949e-05,
+      "user_balanced_ci": [
+        -1.9449224278566926e-05,
+        0.00019816583062552763
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "is_forward",
+      "difference": -1.2829965489084725e-05,
+      "ci": [
+        -3.0378932952313677e-05,
+        2.0805611737497306e-06
+      ],
+      "user_balanced_difference": -2.636521210456864e-05,
+      "user_balanced_ci": [
+        -5.979120502673504e-05,
+        8.5021018673365e-06
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "long_view",
+      "difference": -8.04082049107435e-05,
+      "ci": [
+        -0.00023800588922347275,
+        6.040695326337679e-05
+      ],
+      "user_balanced_difference": -0.00035203017124335666,
+      "user_balanced_ci": [
+        -0.0006855296027653559,
+        -9.65665334706551e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_template_raw",
+      "label": "label_macro",
+      "difference": -2.5033807032229143e-05,
+      "ci": [
+        -7.707124402920481e-05,
+        2.1079737630449074e-05
+      ],
+      "user_balanced_difference": -9.063724069992296e-05,
+      "user_balanced_ci": [
+        -0.00017817189238746975,
+        -6.964778199931183e-06
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "is_click",
+      "difference": -7.820511731909734e-05,
+      "ci": [
+        -0.00024777626290384757,
+        6.989340191764926e-05
+      ],
+      "user_balanced_difference": -5.714185302393821e-05,
+      "user_balanced_ci": [
+        -0.00024397581349644562,
+        0.00014421572846588988
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "is_follow",
+      "difference": 1.6334946455754404e-06,
+      "ci": [
+        -1.2528147161195401e-05,
+        1.668156344921544e-05
+      ],
+      "user_balanced_difference": 9.381977592864143e-06,
+      "user_balanced_ci": [
+        -3.46907143355733e-05,
+        7.404579494282802e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "is_like",
+      "difference": -6.893975016110133e-05,
+      "ci": [
+        -0.00013139990181136043,
+        -2.41304541317658e-05
+      ],
+      "user_balanced_difference": -9.019136606905337e-05,
+      "user_balanced_ci": [
+        -0.00024162317449066535,
+        4.978648767309718e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "is_comment",
+      "difference": 1.1581661008436976e-05,
+      "ci": [
+        -1.8666425472978336e-05,
+        5.328640650140395e-05
+      ],
+      "user_balanced_difference": 5.1817633677035014e-05,
+      "user_balanced_ci": [
+        -2.7736896074919147e-05,
+        0.00017339274428523451
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "is_forward",
+      "difference": -1.5186716154423886e-05,
+      "ci": [
+        -3.5971944854098355e-05,
+        3.8093748252593525e-06
+      ],
+      "user_balanced_difference": -3.290438212900037e-05,
+      "user_balanced_ci": [
+        -7.313041142663221e-05,
+        4.1877810142993574e-06
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "long_view",
+      "difference": -9.648866958003038e-05,
+      "ci": [
+        -0.00024370624523425163,
+        3.9212679343959555e-05
+      ],
+      "user_balanced_difference": -0.00012495868560270134,
+      "user_balanced_ci": [
+        -0.0003269679245000373,
+        7.22920942205847e-05
+      ]
+    },
+    {
+      "contrast": "full_minus_donor_mean",
+      "label": "label_macro",
+      "difference": -4.093418292677327e-05,
+      "ci": [
+        -9.194270992856798e-05,
+        5.917407664615888e-06
+      ],
+      "user_balanced_difference": -4.066611259246534e-05,
+      "user_balanced_ci": [
+        -0.00010449386110043831,
+        2.771548112641204e-05
+      ]
+    }
+  ],
+  "donor_seed_ranges": {
+    "is_click": {
+      "donor_bce_min": 0.5104045232696052,
+      "donor_bce_max": 0.5105190431139601,
+      "full_minus_donor_min": -0.000140062731631585,
+      "full_minus_donor_max": -2.5542887276630566e-05
+    },
+    "is_follow": {
+      "donor_bce_min": 0.004818095985804719,
+      "donor_bce_max": 0.004824838927561895,
+      "full_minus_donor_min": -1.587743103402539e-06,
+      "full_minus_donor_max": 5.155198653773729e-06
+    },
+    "is_like": {
+      "donor_bce_min": 0.044922886376179805,
+      "donor_bce_max": 0.04492810301866042,
+      "full_minus_donor_min": -7.147332932945505e-05,
+      "full_minus_donor_max": -6.625668684884234e-05
+    },
+    "is_comment": {
+      "donor_bce_min": 0.014002102610718895,
+      "donor_bce_max": 0.014020072392502645,
+      "full_minus_donor_min": 5.078755395264076e-06,
+      "full_minus_donor_max": 2.3048537179014283e-05
+    },
+    "is_forward": {
+      "donor_bce_min": 0.004648465244518361,
+      "donor_bce_max": 0.004656590486999864,
+      "full_minus_donor_min": -1.99170340991206e-05,
+      "full_minus_donor_max": -1.1791791617617522e-05
+    },
+    "long_view": {
+      "donor_bce_min": 0.4253842943995243,
+      "donor_bce_max": 0.4254963821110197,
+      "full_minus_donor_min": -0.0001563219595718257,
+      "full_minus_donor_max": -4.423424807642462e-05
+    },
+    "label_macro": {
+      "donor_bce_min": 0.1673667421188451,
+      "donor_bce_max": 0.1674052666569515,
+      "full_minus_donor_min": -6.18089888907436e-05,
+      "full_minus_donor_max": -2.3284450784366584e-05
+    }
+  },
+  "input_predictions_sha256": "4f6bf5ed785a7ce057726f900ec6bfe968428842ac661e7d7d8cf9a5a2254aea",
+  "interpretation": [
+    "Primary interval includes zero: no demonstrated full-shape advantage over matched template, and no equivalence conclusion.",
+    "Raw template and full both improve click BCE over local-off; raw-to-RMS click effect is unresolved.",
+    "Like retains an unadjusted interaction-weighted shape advantage; its equal-user interval crosses zero.",
+    "Forward reverses full-vs-off point direction; raw-to-RMS long-view interval is positive.",
+    "All uncertainty is conditional on frozen windows, checkpoint and estimated templates, not training or population uncertainty."
+  ]
+}

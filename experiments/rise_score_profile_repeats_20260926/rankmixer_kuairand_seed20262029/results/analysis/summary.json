@@ -1,0 +1,34 @@
+{
+  "status": "complete",
+  "rows": 131072,
+  "unique_users": 107,
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 20260925,
+  "uncertainty": "Fixed-window user-cluster bootstrap, conditional on trained checkpoint and estimated cross-fit templates; no training or population uncertainty claim",
+  "primary_endpoint": {
+    "contrast": "full_minus_template_rms",
+    "label": "is_click",
+    "bce_difference": -0.00031762653662668417,
+    "ci_low": -0.000499122636572665,
+    "ci_high": -0.00014527895710728442,
+    "user_balanced_difference": -0.0003973296738055069,
+    "user_balanced_ci_low": -0.0007419308441188844,
+    "user_balanced_ci_high": -5.539987137121759e-05,
+    "primary": true
+  },
+  "user_clusters": {
+    "min": 9,
+    "median": 892.0,
+    "max": 8446,
+    "largest_user_fraction": 0.0644378662109375,
+    "effective_users_by_row_concentration": 52.956463124454004
+  },
+  "full_rms": {
+    "mean": 0.9244677448026719,
+    "p10": 0.8158533323905334,
+    "p90": 1.0332069165258002
+  },
+  "input_predictions_sha256": "b4185bf402fffa229b87b58b268d40084e1b47b6f5ea3d0827c0420800fa5fbe",
+  "plan_sha256": "abc31e6a0a442958cc5d6da1ca416a09d3ac592c5e1bcdb5b1b2b71a2fa97154",
+  "script_sha256": "ff5c2e919d27908eba51744c056d8b72c8c7cec362ae982870db60f831b3444c"
+}

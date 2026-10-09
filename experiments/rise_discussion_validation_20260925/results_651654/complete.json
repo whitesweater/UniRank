@@ -1,0 +1,29 @@
+{
+  "all_gates_passed": true,
+  "completed": true,
+  "files_sha256": {
+    "attention_donor_rms_20260925.npz": "b80a3ead6e43fd77664073d17d144e5f2aad13e0fe8d35cc27b4d34cec236dd4",
+    "attention_donor_rms_20260926.npz": "7d5f06f265f5e2cbe85b53188a288c6d5029770ba3816c06ab8043fa1aa19d23",
+    "attention_donor_rms_20260927.npz": "14d587d36eb2fcab387a64ac33504adfda2e64bc3f8d882956240a9f4910e214",
+    "attention_full.npz": "db485edb59d8bfb0c9af2f0a6d97b1f421997cfd7b474a6fff25412f06d6d88d",
+    "attention_local_off.npz": "d664f3034fca0259674082cec5b3acdb35b257c01d8a971795d474b06433bdfe",
+    "attention_template_raw.npz": "7bc0b53b24eb4cca5d3125806e8dec1fc35937386128bcead55bd770d65bc8fa",
+    "attention_template_rms.npz": "7ee3115b72caeaaca14bd96d00673643f1f61076737437f19d2d72795b9e4e4d",
+    "donor_maps.npz": "23efad3c5bbf5654035f84287b32e687ae748cd62b1dc5f4335a6c8c7d5444e1",
+    "fidelity.json": "6485e8ab61703cccad5fad6e056280d713f37cc6bfaa044e7499ed3568f6fda6",
+    "frozen_sources/README.md": "c7c0c0482070104c96deb49ad01fd3442ea438b0b3bb5d1947673c57ba344dcd",
+    "frozen_sources/probe_math.py": "f41fd0b9f145d2ba2031e7a5360bf60d4d70ce47553257acad35a783058a7358",
+    "frozen_sources/run_probe.py": "b83d15f2cc2d72031894814491ac72f2a2cc86807377046ae619b8a8b49fed5c",
+    "frozen_sources/submit_probe.sbatch": "5890ff79afef4be649637e0cb289cf54a3512fe4fae15a629dba7b21586de487",
+    "frozen_sources/test_probe_math.py": "f5d7fd7fe9f4a63e6b2c8ecd5ef97fdfa674118bcd7d432096fed1a6f7a1cf8f",
+    "gates.json": "63028c55ec54d8dbbf1f873b04f9042b179e81f9cacc9d5d779e7c77908e249c",
+    "manifest.json": "219cc7ada734fd4868cc593de4d4350c8644d7bcce0b0335c1a1a7ffae641ebb",
+    "meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+    "plan.json": "1feecba039e6d1c44db8662c39176ea7b54604233f5d438a7da4ee88babdf652",
+    "predictions.csv": "4f6bf5ed785a7ce057726f900ec6bfe968428842ac661e7d7d8cf9a5a2254aea",
+    "progress.json": "03b13ae4e42caae26da9fa9ba7eee8bba3cf03cfb1556d4f4193ce3cafb32174",
+    "row_diagnostics.csv": "2914e9260ff2ff488df6fe7837f6169983e88ea4e9e70430841d6a911cc303d7",
+    "template_receipts.json": "86f20b200621def8c60e4b135c602da18b964dd8aeb887dc73078c5f4c29936a"
+  },
+  "rows": 131072
+}

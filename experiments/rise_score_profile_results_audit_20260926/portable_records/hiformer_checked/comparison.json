@@ -1,0 +1,69 @@
+{
+  "status": "independently_verified",
+  "rows": [
+    {
+      "model": "HiFormer",
+      "checkpoint_seed": 20262028,
+      "rows": 131070,
+      "users": 6563,
+      "full_click_bce": 0.04546057695823922,
+      "shared_raw_click_bce": 0.0455044685080032,
+      "shared_rms_click_bce": 0.04523525500351212,
+      "off_click_bce": 0.047421634736033925,
+      "full_minus_rms": 0.00022532195472710082,
+      "ci_low": 0.00019010664217249563,
+      "ci_high": 0.0002615124808778666,
+      "user_balanced_full_minus_rms": 0.00039521653933092654,
+      "user_balanced_ci_low": 0.0002995371394850157,
+      "user_balanced_ci_high": 0.0004913306233256657
+    },
+    {
+      "model": "HiFormer",
+      "checkpoint_seed": 20262029,
+      "rows": 131070,
+      "users": 6563,
+      "full_click_bce": 0.04948543926411867,
+      "shared_raw_click_bce": 0.04910330329658456,
+      "shared_rms_click_bce": 0.04883684420218254,
+      "off_click_bce": 0.05078561381806328,
+      "full_minus_rms": 0.0006485950619361205,
+      "ci_low": 0.0006066959885145757,
+      "ci_high": 0.0006915873522933998,
+      "user_balanced_full_minus_rms": 0.000975790735814575,
+      "user_balanced_ci_low": 0.0008741364312937771,
+      "user_balanced_ci_high": 0.0010728907831417693
+    }
+  ],
+  "evidence": {
+    "HiFormer_20262028": {
+      "remote_results": "./experiments/rise_discussion_validation_hiformer_20260925/results_651691",
+      "checked_input_sha256": {
+        "predictions.csv": "61045a71979c3aedbb470c46ff8cf44f385f63632062915ae58183c3dda933e7",
+        "meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+        "plan.json": "fb9dda36a90acf7b577691c0b2d384e85bd35a227312539186a5785ca281e90a",
+        "gates.json": "8cba4077bf47efc0b8d45719c085ed0d45de609a6c819e52e18e981a44e92d6e",
+        "manifest.json": "a59457cacca38cef3c98841365d26a921fde54e6d707024c4eb777595d2c49aa"
+      },
+      "summary_sha256": "68db83a1c390637ab199448e6dd13f8218d2f99ff2fabf610ddb05e2dd2cd94e",
+      "raw_cluster_recomputation_max_error": 5.421010862427522e-19,
+      "metadata_equal_across_available_checkpoints": true
+    },
+    "HiFormer_20262029": {
+      "remote_results": "./experiments/rise_score_profile_repeats_20260926/hiformer_taac25_seed20262029/results",
+      "checked_input_sha256": {
+        "predictions.csv": "df713c30070e3624b59221a3cea196399feab909cc6483d7e3719b13bfc4df6b",
+        "meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+        "plan.json": "cd09cc8050db09ece162718d61719a491f48a7b59c34ed802133345d28ad515a",
+        "gates.json": "10f6105b5facdf8e367ed545c4c75c4a511306a5578ada54f7621855c2200118",
+        "manifest.json": "b015223915eede6614638ff4a04a8d545cabda46572beb12c9df53c5ba5eea32"
+      },
+      "summary_sha256": "e5aed4f1c132e7d2fdbe0316c6dd362f38702b0df3fb511553caec6bb8e39430",
+      "raw_cluster_recomputation_max_error": 4.336808689942018e-19,
+      "metadata_equal_across_available_checkpoints": true
+    }
+  },
+  "scheduler": "652762|COMPLETED|0:0\n652762.batch|COMPLETED|0:0\n652762.extern|COMPLETED|0:0\n652763|COMPLETED|0:0\n652763.batch|COMPLETED|0:0\n652763.extern|COMPLETED|0:0\n",
+  "script_sha256": "6a6f62904f199c80943ddc88c76fe09e5e43c1fa60c6375fd361fe45f684f912",
+  "direction": "BCE(full) minus BCE(shared RMS); positive means shared RMS has lower loss.",
+  "scope": "Two available checkpoints per model evaluated on the same fixed windows; each checkpoint gets its own recalculated profiles and conditional 2000-draw user-cluster interval. No pooling of users across seeds, no three-seed claim, no training-randomness interval."
+}

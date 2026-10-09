@@ -1,0 +1,29 @@
+{
+  "all_gates_passed": true,
+  "completed": true,
+  "eligible_rows": 131070,
+  "files_sha256": {
+    "attention_donor_rms_20260925.npz": "65de3553a87f9cac9bd6ba282a255a9ff4ef48ef4331c0764f60fcd432c121fd",
+    "attention_donor_rms_20260926.npz": "b17762cda4fabc015db6742814498878b31ab2a054dd58ebc5ace4c26d12c80a",
+    "attention_donor_rms_20260927.npz": "66d9e7cf65e50086e664de4c66c69a5899e954e86380e3d0e08aa7a77f6db172",
+    "attention_full.npz": "345d2afed1eed96260f542039bff697a6e1d885d4fb98634e7d1ef5b7c30f692",
+    "attention_local_off.npz": "e7b2b46ca1a766c885bf8fe37e2ff6f390bbcb17e1e7bf7efc8bfa87e318a5fb",
+    "attention_template_raw.npz": "117631d5785a1e435a19af57c174d3054f728f54319407d808f65e0895b120c4",
+    "attention_template_rms.npz": "27fdca5c4fec1149b7cf10dc2da31211bf252dc426ebc4b0b05fc145b7db8e68",
+    "donor_maps.npz": "cb86e9050a70642c535556b80b7d1d369a578700c8cd10677ddf770e0ad9db70",
+    "fidelity.json": "1c9f42b26d642f3056c6b65155a7733d17298761c76b68f24ec2556fb90be03a",
+    "frozen_sources/analyze_probe.py": "d0a06a70d08f7222f8d12843085f228788b2f32b566f84942d87d924121ed675",
+    "frozen_sources/probe_math.py": "a47f36234e1c3a3320f3631ed04a3476a3885b3a6453874dd916bd354264e5b4",
+    "frozen_sources/run_probe.py": "295e4689104e7ebb34c86b108dca4dbd65d33d4e6e9f028b9298f9e72bcf4740",
+    "frozen_sources/run_repeat.py": "af1ec623575b329a148a3958ba9f2933d3ed2e2038521a153c9a817dd6cf1d25",
+    "gates.json": "10f6105b5facdf8e367ed545c4c75c4a511306a5578ada54f7621855c2200118",
+    "manifest.json": "b015223915eede6614638ff4a04a8d545cabda46572beb12c9df53c5ba5eea32",
+    "meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+    "plan.json": "cd09cc8050db09ece162718d61719a491f48a7b59c34ed802133345d28ad515a",
+    "predictions.csv": "df713c30070e3624b59221a3cea196399feab909cc6483d7e3719b13bfc4df6b",
+    "progress.json": "03b13ae4e42caae26da9fa9ba7eee8bba3cf03cfb1556d4f4193ce3cafb32174",
+    "row_diagnostics.csv": "11527b60dcb27a70fbfd325de66ef24c56d2c7a21a04c97dd48f76db1b2305f7",
+    "template_receipts.json": "0e31d97205ab977598b52d2732e304d0082531a574612aef98d6daab3768d581"
+  },
+  "rows": 131072
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "actual_bias_sha256": "8565a714dca840f8652c5bae9249ab05f5fb5a4f9f13fbe23304b10f68252da2",
+    "beforecast_mean_abs_error_to_full": 0.98223388671875,
+    "beforecast_rms_abs_error_to_full": 1.3552961021295091,
+    "intended_fp32_bias_sha256": "8565a714dca840f8652c5bae9249ab05f5fb5a4f9f13fbe23304b10f68252da2",
+    "postcast_mean_abs_error_to_intended": 0.0,
+    "postcast_rms_abs_error_to_intended": 0.0,
+    "postcast_rms_relative_error_p99": 0.0,
+    "route": "local_off"
+  },
+  {
+    "actual_bias_sha256": "41973146009071a448876e315bd5d8d72c37cff61e0302f3faa7c1c4050bc9f5",
+    "beforecast_mean_abs_error_to_full": 9.555369606673025e-09,
+    "beforecast_rms_abs_error_to_full": 0.5079800683764452,
+    "intended_fp32_bias_sha256": "383c06d54bde83877447ea8cd05428c620befa39db2efb225b1895ba1256153d",
+    "postcast_mean_abs_error_to_intended": 0.0005217802803963445,
+    "postcast_rms_abs_error_to_intended": 0.0009143449635797829,
+    "postcast_rms_relative_error_p99": 0.0007973257007292668,
+    "route": "template_raw"
+  },
+  {
+    "actual_bias_sha256": "6303c44ac9b99b0fa39bc7545a0b39ebca02407cc33c5eed74b4b7648a697a11",
+    "beforecast_mean_abs_error_to_full": 1.102685931453351e-08,
+    "beforecast_rms_abs_error_to_full": 2.032971713195053e-08,
+    "intended_fp32_bias_sha256": "142d70b5fee016c4682e4ae7366d0859ea2f800fbe20063c85022382addac910",
+    "postcast_mean_abs_error_to_intended": 0.0006945834122598082,
+    "postcast_rms_abs_error_to_intended": 0.001297847041518585,
+    "postcast_rms_relative_error_p99": 0.0009890743836810537,
+    "route": "template_rms"
+  },
+  {
+    "actual_bias_sha256": "06b325538637e6943ba5f64f7ab7c46bb5faeffedb75e2d9868ae40a31b38566",
+    "beforecast_mean_abs_error_to_full": 1.7173588273688978e-08,
+    "beforecast_rms_abs_error_to_full": 3.195686248957941e-08,
+    "intended_fp32_bias_sha256": "5718ddf3153c336cb9886e51806cb34ab063627545bab34270cdb98b70c0f7e2",
+    "postcast_mean_abs_error_to_intended": 0.0013500978332012803,
+    "postcast_rms_abs_error_to_intended": 0.0019364774221133363,
+    "postcast_rms_relative_error_p99": 0.0012464823719212886,
+    "route": "donor_rms_20260925"
+  },
+  {
+    "actual_bias_sha256": "7d6200cf482b9b5aaf72aabed6cc0ec2dbc2db826c6fa99a53206d1ca1edca3d",
+    "beforecast_mean_abs_error_to_full": 1.7732381840662725e-08,
+    "beforecast_rms_abs_error_to_full": 2.8440960697651008e-08,
+    "intended_fp32_bias_sha256": "7cad33938c5bcf2955e18e4f27b494b020ea643f541b7498b24aed196217ab4d",
+    "postcast_mean_abs_error_to_intended": 0.0011477658851072325,
+    "postcast_rms_abs_error_to_intended": 0.0019084569398063467,
+    "postcast_rms_relative_error_p99": 0.0012335176081347044,
+    "route": "donor_rms_20260926"
+  },
+  {
+    "actual_bias_sha256": "537fa1fd4dd48409bd1eefec44e8307b791fbe8e9e2ab15ba5137deb914abbfe",
+    "beforecast_mean_abs_error_to_full": 1.6414123782393375e-08,
+    "beforecast_rms_abs_error_to_full": 2.9284189517753134e-08,
+    "intended_fp32_bias_sha256": "818a29a9f22cd7056a168db29dd45715e6ea2fe6f7a8fbfd474cd8a38e0d9075",
+    "postcast_mean_abs_error_to_intended": 0.0011862140521406994,
+    "postcast_rms_abs_error_to_intended": 0.001920385470496222,
+    "postcast_rms_relative_error_p99": 0.0012272454739455576,
+    "route": "donor_rms_20260927"
+  }
+]

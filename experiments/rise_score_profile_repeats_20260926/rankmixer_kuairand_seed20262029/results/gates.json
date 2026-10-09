@@ -1,0 +1,67 @@
+{
+  "donor_rms_20260925": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  },
+  "donor_rms_20260926": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  },
+  "donor_rms_20260927": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  },
+  "eight_identity_windows": true,
+  "identity_vs_plain": {
+    "is_click": {
+      "equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_comment": {
+      "equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_follow": {
+      "equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_forward": {
+      "equal": true,
+      "max_abs_error": 0.0
+    },
+    "is_like": {
+      "equal": true,
+      "max_abs_error": 0.0
+    },
+    "long_view": {
+      "equal": true,
+      "max_abs_error": 0.0
+    }
+  },
+  "identity_vs_plain_bitwise_hash": true,
+  "local_off": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  },
+  "native_mask_equals_cached_mask": true,
+  "template_raw": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  },
+  "template_rms": {
+    "actual_bias_equals_intended_bf16": true,
+    "all131072_qkv_mask_scale_equal": true,
+    "native_mask_equal": true,
+    "native_scores_equal": true
+  }
+}

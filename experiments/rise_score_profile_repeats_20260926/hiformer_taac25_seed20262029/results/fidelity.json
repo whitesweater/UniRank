@@ -1,0 +1,62 @@
+[
+  {
+    "actual_bias_sha256": "8565a714dca840f8652c5bae9249ab05f5fb5a4f9f13fbe23304b10f68252da2",
+    "beforecast_mean_abs_error_to_full": 1.6967329545454546,
+    "beforecast_rms_abs_error_to_full": 0.8878021907775828,
+    "intended_fp32_bias_sha256": "8565a714dca840f8652c5bae9249ab05f5fb5a4f9f13fbe23304b10f68252da2",
+    "postcast_mean_abs_error_to_intended": 0.0,
+    "postcast_rms_abs_error_to_intended": 0.0,
+    "postcast_rms_relative_error_p99": 0.0,
+    "route": "local_off"
+  },
+  {
+    "actual_bias_sha256": "48a8c07e14580ad09144cf845ebe32366b5d092a07beffaa6e88f7acf862c15d",
+    "beforecast_mean_abs_error_to_full": 5.1089695363160104e-08,
+    "beforecast_rms_abs_error_to_full": 0.5315481029999334,
+    "intended_fp32_bias_sha256": "c8d31fe3128af9331743ba16e6ee8b0400fce06823c5c9edccfa9882848b027e",
+    "postcast_mean_abs_error_to_intended": 0.00390625,
+    "postcast_rms_abs_error_to_intended": 0.00390625,
+    "postcast_rms_relative_error_p99": 0.0016883912347379472,
+    "route": "template_raw"
+  },
+  {
+    "actual_bias_sha256": "679668bc5dc2924f94df0e6499b24653489f973c66322a429786a7587479c31f",
+    "beforecast_mean_abs_error_to_full": 3.9736429924275285e-08,
+    "beforecast_rms_abs_error_to_full": 3.7972449296042043e-08,
+    "intended_fp32_bias_sha256": "035d5462d6b0b310db8b8824ba6077b0860a4f6a311c4d0d6e7535f7549ccb59",
+    "postcast_mean_abs_error_to_intended": 0.001953125,
+    "postcast_rms_abs_error_to_intended": 0.0021277927136253427,
+    "postcast_rms_relative_error_p99": 0.001755154381290185,
+    "route": "template_rms"
+  },
+  {
+    "actual_bias_sha256": "ee3fc00fcc6e52c3fe64575b8f0f06ccf43f5a60187c92475ba7795a612b44ab",
+    "beforecast_mean_abs_error_to_full": 3.4059797204832876e-08,
+    "beforecast_rms_abs_error_to_full": 4.661545893736019e-08,
+    "intended_fp32_bias_sha256": "026b0b8ccbb117d7e8a02dd12d9e3e47b24f6321d09b4e62a1063ead78205a08",
+    "postcast_mean_abs_error_to_intended": 0.002130665562369627,
+    "postcast_rms_abs_error_to_intended": 0.00225971449647136,
+    "postcast_rms_relative_error_p99": 0.0018689158877838266,
+    "route": "donor_rms_20260925"
+  },
+  {
+    "actual_bias_sha256": "25af61564c48c1d4111314fe6b001bce4114839e676468f7a477c74942d4a7b9",
+    "beforecast_mean_abs_error_to_full": 4.876743675552575e-08,
+    "beforecast_rms_abs_error_to_full": 4.0661563338595386e-08,
+    "intended_fp32_bias_sha256": "4bb09ca38eb992684e799c1e3b331dbfa854b80f91fca38d8f51f578ce660263",
+    "postcast_mean_abs_error_to_intended": 0.001953125,
+    "postcast_rms_abs_error_to_intended": 0.003417563094772813,
+    "postcast_rms_relative_error_p99": 0.0018690369485311906,
+    "route": "donor_rms_20260926"
+  },
+  {
+    "actual_bias_sha256": "3feaacfb1a198920ba0d671d6eb323c28d039b80a8ac14f168316373e52300cd",
+    "beforecast_mean_abs_error_to_full": 3.9736429924275285e-08,
+    "beforecast_rms_abs_error_to_full": 4.0661563338595386e-08,
+    "intended_fp32_bias_sha256": "5d6c22372054ab7d826c79f94f0547e3dedecbc907beb8b6be847710b7233d51",
+    "postcast_mean_abs_error_to_intended": 0.0026041666666667407,
+    "postcast_rms_abs_error_to_intended": 0.0018309991755623145,
+    "postcast_rms_relative_error_p99": 0.0018641847457500653,
+    "route": "donor_rms_20260927"
+  }
+]

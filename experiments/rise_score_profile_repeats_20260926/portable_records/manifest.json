@@ -1,0 +1,18 @@
+{
+  "purpose": "Read-only repository-relative copies of immutable historical records; never executable plans or replacements for original hash verification.",
+  "normalization": "Replace only the original checkout prefix with a dot; preserve all numeric values, protocol settings and recorded historical hashes.",
+  "files": [
+    {
+      "original_file": "hiformer_taac25_seed20262029/plan.json",
+      "original_sha256": "cd09cc8050db09ece162718d61719a491f48a7b59c34ed802133345d28ad515a",
+      "reading_copy": "hiformer_taac25_seed20262029/plan.json",
+      "reading_copy_sha256": "630bf5ab854a587a5777ed5ec5ea5aefd0f5bd37595b121df14277f04a592508"
+    },
+    {
+      "original_file": "rankmixer_kuairand_seed20262029/plan.json",
+      "original_sha256": "abc31e6a0a442958cc5d6da1ca416a09d3ac592c5e1bcdb5b1b2b71a2fa97154",
+      "reading_copy": "rankmixer_kuairand_seed20262029/plan.json",
+      "reading_copy_sha256": "ec21aa62bb32bc073495dc540d4cc5783dc462a193f6f65e865bdac7a35f2889"
+    }
+  ]
+}

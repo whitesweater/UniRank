@@ -1,0 +1,18 @@
+{
+  "purpose": "Read-only repository-relative copies of immutable historical records; never executable plans or replacements for original hash verification.",
+  "normalization": "Replace only the original checkout prefix with a dot; preserve all numeric values, protocol settings and recorded historical hashes.",
+  "files": [
+    {
+      "original_file": "independent_audit.json",
+      "original_sha256": "9404370a2c34fb4e6dabc959797213199d810fda99d21bd2ad83b446d4574569",
+      "reading_copy": "independent_audit.json",
+      "reading_copy_sha256": "d87786a03342cc61414d4d5ab2bf60567c28f2b9300c31113f0158c2235d61a9"
+    },
+    {
+      "original_file": "plan.json",
+      "original_sha256": "fb9dda36a90acf7b577691c0b2d384e85bd35a227312539186a5785ca281e90a",
+      "reading_copy": "plan.json",
+      "reading_copy_sha256": "a3e84717f7129900955a4e1e21fbcf0ba2837316f99e4e77826d9880cb9abbac"
+    }
+  ]
+}
