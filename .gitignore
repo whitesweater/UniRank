@@ -49,3 +49,60 @@ checkpoints/
 # User-supplied manuscript and locally assembled delivery bundle.
 /document.pdf
 /experiments/rise_sample_analysis/RISE_final_delivery.zip
+
+# Experiment-local compiler caches and full runtime logs.
+/experiments/**/cache-*/
+/experiments/**/runtime_cache/
+/experiments/**/torchinductor/
+/experiments/**/triton/
+/experiments/**/*.out
+/experiments/**/*.log
+
+# Raw experiment arrays and per-row/per-user intermediate tables.
+# Keep plans, completion/hash receipts, frozen sources, and compact summaries.
+/experiments/**/*.npz
+/experiments/**/*.npy
+/experiments/**/*.pt
+/experiments/**/*.pth
+/experiments/**/*.parquet
+/experiments/**/frozen_meta.csv
+/experiments/rise_discussion_validation*/**/meta.csv
+/experiments/rise_discussion_validation*/**/predictions.csv
+/experiments/rise_score_profile_repeats_*/**/meta.csv
+/experiments/rise_score_profile_repeats_*/**/predictions.csv
+/experiments/**/results*/row_diagnostics.csv
+/experiments/**/results*/**/cluster_loss_sums.csv
+/experiments/**/results*/progress.json
+
+# Generated synthetic test runs; keep the tests that regenerate them.
+/experiments/**/synthetic_e2e*/
+
+# Cancelled, unsubmitted study: retain the cancellation record only.
+/experiments/rise_frozen_adaptation_20260925/*
+!/experiments/rise_frozen_adaptation_20260925/CANCELLED.md
+
+# Duplicate frozen copies and full runtime/transfer inventories.
+# Original files stay local; portable_records/ preserves repository-relative metadata.
+/experiments/rise_auc_significance_*/results_*/plan.json
+/experiments/rise_discussion_validation*/results_*/plan.json
+/experiments/rise_discussion_validation*/results_*/frozen_sources/
+/experiments/rise_discussion_validation*/results_*/manifest.json
+/experiments/rise_discussion_validation*/results_*/template_receipts.json
+/experiments/rise_score_profile_repeats_*/**/results/plan.json
+/experiments/rise_score_profile_repeats_*/**/results/frozen_sources/
+/experiments/rise_score_profile_repeats_*/**/results/manifest.json
+/experiments/rise_score_profile_repeats_*/**/results/template_receipts.json
+/experiments/rise_score_profile_repeats_*/*/training_params.json
+/experiments/rise_history_permutation_analysis_20260925/archive_copy_inventory.json
+/experiments/rise_history_permutation_analysis_20260925/completed_results_audit/remote_copy_inventory.json
+/experiments/rise_history_permutation_analysis_20260925/archive/v1_gate_schema/analyze_permutation.sbatch
+
+# Original immutable records containing local absolute paths.
+/experiments/rise_auc_significance_20260926/plan.json
+/experiments/rise_auc_significance_20260926/input_preflight.json
+/experiments/rise_discussion_validation*/plan.json
+/experiments/rise_discussion_validation*/independent_audit.json
+/experiments/rise_history_permutation_20260925/plan_*.json
+/experiments/rise_history_permutation_analysis_20260925/completed_results_audit/dependency_manifest.json
+/experiments/rise_score_profile_repeats_20260926/*/plan.json
+/experiments/rise_score_profile_results_audit_20260926/*_checked/comparison.json

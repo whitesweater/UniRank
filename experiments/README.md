@@ -64,6 +64,26 @@ OneTrans 已纳入正式模型范围。现有论文报告及三种子汇总仍�
 | SISA 当前结果选择器 | `sisa_three_seed_unified/report/report.html` | 同目录 README、构建脚本、来源目录及选择器核验 |
 | HiFormer–QK 失败分析 | `hiformer_qk_diagnostic/failure_analysis_20260924/report.md` | 同目录生成器、证据摘要及核验回执 |
 
+### RISE 补充诊断与审计入口
+
+下列目录保存固定 checkpoint 和诊断窗口上的干预、重复与统计核验，不代表新增的
+20-cell 主实验汇总。索引仅整理已有材料；各目录计划和审计文件定义其证据范围。
+
+| 研究 | 协议与代码入口 | 紧凑结果与核验 |
+| --- | --- | --- |
+| RankMixer–KuaiRand 固定窗口评分干预 | [协议](rise_discussion_validation_20260925/README.md) | [汇总](rise_discussion_validation_20260925/results_651654/analysis/summary.json) · [独立审计](rise_discussion_validation_20260925/portable_records/independent_audit.json) |
+| HiFormer–TencentGR 独立诊断 | [协议](rise_discussion_validation_hiformer_20260925/README.md) | [汇总](rise_discussion_validation_hiformer_20260925/results_651691/analysis/summary.json) · [独立审计](rise_discussion_validation_hiformer_20260925/portable_records/independent_audit.json) |
+| 历史顺序置换及独立分析 | [执行协议](rise_history_permutation_20260925/README.md) · [分析协议](rise_history_permutation_analysis_20260925/README.md) | [紧凑结果审计](rise_history_permutation_analysis_20260925/completed_results_audit/compact_result_summary.json)；旧版本协议与分析器保留在各自目录 |
+| 评分干预 seed 20262029 重复与结果核验 | [重复脚本](rise_score_profile_repeats_20260926/run_repeat.py) · [核验脚本](rise_score_profile_results_audit_20260926/compare_profiles.py) | [HiFormer 比较](rise_score_profile_results_audit_20260926/hiformer_checked/comparison.md) · [RankMixer 比较](rise_score_profile_results_audit_20260926/rankmixer_checked/comparison.md) |
+| 固定窗口 AUC 区间与多重比较 | [计划阅读副本](rise_auc_significance_20260926/portable_records/plan.json) · [计算脚本](rise_auc_significance_20260926/run_auc.py) | [区间结果](rise_auc_significance_20260926/results_652845/auc_intervals.md) · [独立复核](rise_auc_significance_20260926/results_652845/review.md) |
+| 已取消的 frozen-backbone adaptation | [取消说明](rise_frozen_adaptation_20260925/CANCELLED.md) | 未提交、未运行；准备材料仅留本地，不作为实验结果 |
+
+上述诊断脚本从文件位置解析仓库根目录，Slurm 启动器从仓库根目录提交。原始冻结计划、
+审计和逐运行源码副本保持原样并仅留本地；`portable_records/` 提供替换本机路径后的
+阅读副本及原件/副本散列。阅读副本不能替代原件进行历史散列校验，也不能作为执行计划。
+脚本的路径调整改变了源码散列；重新执行需在新 study 中重新冻结计划，历史复核使用原始
+冻结源码与运行产物。各 study 的 `portable_records/README.md` 说明归档范围。
+
 ### 文件保留规则
 
 每个正式实验使用一个稳定的 `study_slug`：
@@ -95,6 +115,24 @@ experiments/<study_slug>/
 - `rise_sample_analysis/RISE_final_delivery.zip`：由已有研究材料打包的本地交付副本。
 - 仓库根目录 `document.pdf`：用户提供的原始稿件输入，跨机器复核时需单独提供；正式补充材料
   和科研图表 PDF 仍提交。各级 `.venv/` 仅保存本机环境，依赖元数据和锁文件应提交。
+- 实验目录中的 `cache-*/`、`runtime_cache/`、`torchinductor/`、`triton/` 及 `*.out`、
+  `*.log`：编译缓存和完整运行日志；`benchmark/` 的上游参考日志继续保留。
+- 实验目录中的 NPZ/NPY、PT/PTH、Parquet、`frozen_meta.csv`，以及
+  `rise_discussion_validation*` 和 `rise_score_profile_repeats_*` 中的 `meta.csv`、
+  `predictions.csv`、`results*` 下的 `row_diagnostics.csv`、`cluster_loss_sums.csv`：
+  原始数组、逐样本数据和可再生成的逐用户统计。最终区间、指标、对比、汇总及用户数量表，
+  以及 `rise_attention_*` 中已经筛选的紧凑案例元数据和预测表继续提交。
+  重新计算统计量或逐行核验时仍需这些本地原始产物，单独克隆仓库不足以完成此类复核。
+- `results*/progress.json` 和 `synthetic_e2e*/`：运行进度及生成的合成测试现场；生成它们的
+  测试源码继续保留。完成回执、数值门槛核验和最终统计继续提交。
+- RISE 固定窗口诊断和 seed 重复中的 `results*/plan.json`、`frozen_sources/`、完整
+  `manifest.json`、逐模板 `template_receipts.json` 和重复的 `training_params.json`：
+  同内容副本及详细运行现场记录，原件保持不变并仅留本地。历史置换分析的传输清单和重复
+  启动器也仅留本地；有行为差异的旧分析器、测试与版本说明继续提交。
+- 上述新增 RISE 研究中含本机绝对路径的原始计划与审计：Git 保存 `portable_records/`
+  中的路径可移植阅读副本，原件用于历史散列校验。原始完成清单仍可能引用本地副本和大文件。
+- `rise_frozen_adaptation_20260925/` 的所有准备材料：实验在提交前已取消，仅保留
+  `CANCELLED.md`；代码、启动器、设计和冻结计划继续留在本地。
 
 冻结的 `delivery_manifest.json`、`final_delivery.json` 等是当时交付与审计材料的清单，
 可能包含上述本地快照或日志，不等同于 Git 文件清单；保留原路径及散列，不因整理而重写
