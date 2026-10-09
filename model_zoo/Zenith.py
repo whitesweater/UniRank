@@ -17,7 +17,7 @@
 import torch
 from torch import nn
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, PerTokenSwiGLU, ScaledDotProductAttention
+from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, SISAAttentionConfig, PerTokenSwiGLU, ScaledDotProductAttention
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import ChunkTokenizer
@@ -98,6 +98,9 @@ class Zenith(MultiTaskModel):
             attention_dim=token_dim if attention_dim is None else attention_dim,
             dropout_rate=attention_dropout,
             attention_activation_type=attention_activation_type,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs, decay_reference="query",
+            ).for_site(0),
         )
 
         # Final number of tokens = user_id(1) + item_id(1) + user_context_tokens(num_ns) + item_attribute_tokens(num_ns)

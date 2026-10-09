@@ -44,6 +44,38 @@ from unirank.pytorch.torch_utils import (
 )
 from unirank.preprocess import FeatureProcessor, build_dataset
 import model_zoo
+from unirank.pytorch.layers.attentions.sisa import SISA_VARIANTS
+
+
+def apply_sisa_overrides(params, args):
+    """Configure the paper AM/PM branch without changing the training protocol."""
+    enabled = args.get('sisa_enabled')
+    if enabled is None:
+        enabled = params.get('sisa_enabled', False)
+    if not isinstance(enabled, bool):
+        raise TypeError('sisa_enabled must be a boolean')
+    params['sisa_enabled'] = enabled
+    for key in ('sisa_score_dim', 'sisa_lambda_init', 'sisa_score_scale',
+                'sisa_parameter_seed', 'sisa_variant'):
+        if args.get(key) is not None:
+            params[key] = args[key]
+    if enabled:
+        supported = {'HiFormer', 'HyFormer', 'OneTrans', 'RankMixer', 'Zenith'}
+        if params['model'] not in supported:
+            raise ValueError(f'AM/PM is supported only for {sorted(supported)}')
+        dimension = params.get('sisa_score_dim', 16)
+        if dimension <= 0 or dimension % 2:
+            raise ValueError('sisa_score_dim must be a positive even integer')
+    variant = params.get('sisa_variant', 'full')
+    if variant not in SISA_VARIANTS:
+        raise ValueError(f'sisa_variant must be one of {SISA_VARIANTS}')
+    if not enabled and variant != 'full':
+        raise ValueError('Component variants require enabled AM/PM')
+    run_id = args.get('run_id')
+    if run_id is not None:
+        if not run_id.strip() or '/' in run_id or '\\' in run_id:
+            raise ValueError('run_id must be a nonempty filename without path separators')
+        params['model_id'] = run_id
 
 
 if __name__ == '__main__':
@@ -59,6 +91,14 @@ if __name__ == '__main__':
     parser.add_argument('--expid', type=str, default='RankMixer_KuaiRand_Video_Action', help='The experiment id to run.')
     parser.add_argument('--gpu', type=str, default='0,1,2,3', help='GPU ids, e.g. "0" or "0,1,2,3"; use "-1" for cpu')
     parser.add_argument('--enable_bf16', type=bool, default=True, help='Enable bfloat16 mixed precision training (default: True).')
+    parser.add_argument('--sisa-enabled', '--rise-enabled', action=argparse.BooleanOptionalAction,
+                        default=None, help='Enable the paper AM/PM branch at history-related attention sites.')
+    parser.add_argument('--sisa-score-dim', type=int, default=None)
+    parser.add_argument('--sisa-lambda-init', type=float, default=None)
+    parser.add_argument('--sisa-score-scale', type=float, default=None)
+    parser.add_argument('--sisa-parameter-seed', type=int, default=None)
+    parser.add_argument('--sisa-variant', choices=SISA_VARIANTS, default=None)
+    parser.add_argument('--run-id', default=None, help='Separate the run log and checkpoint names.')
     args = vars(parser.parse_args())
 
     try:
@@ -106,6 +146,7 @@ if __name__ == '__main__':
 
         experiment_id = args['expid']
         params = load_config(args['config'], experiment_id)
+        apply_sisa_overrides(params, args)
 
         # Equipment parameters:
         # - DDP: local_rank maps to CUDA_VISIBLE_DEVICES internal sequence number

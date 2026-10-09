@@ -15,5 +15,6 @@
 # =========================================================================
 
 from .dot_product_attention import *
+from .sisa import *
 from .target_attention import *
 

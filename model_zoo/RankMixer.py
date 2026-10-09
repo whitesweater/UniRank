@@ -18,7 +18,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, PerTokenFeedForward, MultiHeadTokenMixing
+from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MultiHeadTargetAttention, PerTokenFeedForward, MultiHeadTokenMixing, SISAAttentionConfig
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import build_unified_tokenizer
@@ -93,6 +93,10 @@ class RankMixer(MultiTaskModel):
             attention_dim=token_dim if attention_dim is None else attention_dim,
             dropout_rate=attention_dropout,
             attention_activation_type=attention_activation_type,
+            sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ),
         )
         self.unified_interaction_layers = RankMixerBlock(input_dim=token_dim,
                                          num_ns_token=self.num_ns_token,

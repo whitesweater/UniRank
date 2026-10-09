@@ -15,6 +15,12 @@
 # =========================================================================
 
 Base:
+    # RISE is implemented under the historical SISA parameter names.
+    sisa_enabled: False
+    sisa_score_dim: 16
+    sisa_lambda_init: 0.1
+    sisa_score_scale: 1.0
+    sisa_variant: full
     model_root: './checkpoints/'
     num_workers: 4
     verbose: 1

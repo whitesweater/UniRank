@@ -17,7 +17,15 @@
 import torch
 from torch import nn
 from unirank.pytorch.models import MultiTaskModel
-from unirank.pytorch.layers import FeatureEmbedding, MLP_Block, MaskedAveragePooling, MultiHeadTokenMixing, PerTokenFeedForward, ScaledDotProductAttention
+from unirank.pytorch.layers import (
+    FeatureEmbedding,
+    MLP_Block,
+    MaskedAveragePooling,
+    MultiHeadTokenMixing,
+    PerTokenFeedForward,
+    SISAAttentionConfig,
+    ScaledDotProductAttention,
+)
 from unirank.pytorch.torch_utils import get_activation
 from unirank.utils import not_in_whitelist
 from unirank.pytorch.layers.tokenization import AutoSplitTokenizer, ChunkTokenizer
@@ -102,7 +110,15 @@ class HyFormer(MultiTaskModel):
             num_ns_token=num_ns_token,
             num_global_token=num_global_token,
             dnn_activations=dnn_activations,
-            sequence_encoder_type=sequence_encoder_type
+            sequence_encoder_type=sequence_encoder_type,
+            sequence_sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="sequence_end",
+            ),
+            query_sisa_config=SISAAttentionConfig.from_params(
+                kwargs,
+                decay_reference="query",
+            ),
         )
 
         # Predict from the global tokens
@@ -189,25 +205,31 @@ class HyFormerBlock(nn.Module):
                  num_ns_token,
                  num_global_token,
                  dnn_activations="ReLU",
-                 sequence_encoder_type="transformer"):
+                 sequence_encoder_type="transformer",
+                 sequence_sisa_config=None,
+                 query_sisa_config=None):
         super(HyFormerBlock, self).__init__()
         self.num_layers = num_layers
         self.num_global_token = num_global_token
 
+        sequence_sisa_config = sequence_sisa_config or SISAAttentionConfig()
+        query_sisa_config = query_sisa_config or SISAAttentionConfig()
         self.seq_layers = nn.ModuleList([
             SequenceRepresentationLayer(
                 input_dim=input_dim,
                 num_heads=num_heads,
                 dnn_activations=dnn_activations,
-                sequence_encoder_type=sequence_encoder_type
-            ) for _ in range(num_layers)
+                sequence_encoder_type=sequence_encoder_type,
+                sisa_config=sequence_sisa_config.for_site(layer_index),
+            ) for layer_index in range(num_layers)
         ])
 
         self.decode_layers = nn.ModuleList([
             QueryDecodingLayer(
                 input_dim=input_dim,
-                num_heads=num_heads
-            ) for _ in range(num_layers)
+                num_heads=num_heads,
+                sisa_config=query_sisa_config.for_site(100 + layer_index),
+            ) for layer_index in range(num_layers)
         ])
 
         self.boost_layers = nn.ModuleList([
@@ -249,7 +271,8 @@ class SequenceRepresentationLayer(nn.Module):
     - Only the Full Transformer Encoding of fine-grained interactions is reproduced here, that is, standard self-attention + FFN
     - Keep SDPA mask-free to preserve FlashAttention eligibility, accepting minor attention leakage.
     """
-    def __init__(self, input_dim, num_heads, dnn_activations="ReLU", sequence_encoder_type="transformer"):
+    def __init__(self, input_dim, num_heads, dnn_activations="ReLU",
+                 sequence_encoder_type="transformer", sisa_config=None):
         super(SequenceRepresentationLayer, self).__init__()
         self.sequence_encoder_type = sequence_encoder_type
         self.num_heads = num_heads
@@ -266,6 +289,9 @@ class SequenceRepresentationLayer(nn.Module):
             self.dot_attention = ScaledDotProductAttention()
         else:
             raise ValueError("sequence_encoder_type not implemented")
+
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(input_dim, num_heads)
 
         self.ffn = nn.Sequential(
             nn.Linear(input_dim, input_dim * 2),
@@ -287,7 +313,28 @@ class SequenceRepresentationLayer(nn.Module):
         k = self.k_proj(norm_x).view(B, L, self.num_heads, self.head_dim).transpose(1, 2)
         v = self.v_proj(norm_x).view(B, L, self.num_heads, self.head_dim).transpose(1, 2)
 
-        attn_out, _ = self.dot_attention(q, k, v, scale=self.head_dim ** 0.5)
+        score_bias = None
+        if (
+            self.sisa_score_bias is not None
+            and self.sisa_score_bias.score_scale != 0.0
+        ):
+            valid_mask = (
+                mask.bool()
+                if mask is not None
+                else torch.ones(B, L, dtype=torch.bool, device=norm_x.device)
+            )
+            score_bias = self.sisa_score_bias(
+                norm_x,
+                valid_mask,
+                self.head_dim,
+            )
+        attn_out, _ = self.dot_attention(
+            q,
+            k,
+            v,
+            scale=self.head_dim ** 0.5,
+            score_bias=score_bias,
+        )
         attn_out = attn_out.transpose(1, 2).contiguous().view(B, L, D)
         attn_out = self.out_proj(attn_out)
 
@@ -307,7 +354,7 @@ class QueryDecodingLayer(nn.Module):
     Pre-normalization and residual connections improve training stability.
     Keep SDPA mask-free to preserve FlashAttention eligibility, accepting minor attention leakage.
     """
-    def __init__(self, input_dim, num_heads):
+    def __init__(self, input_dim, num_heads, sisa_config=None):
         super(QueryDecodingLayer, self).__init__()
         self.num_heads = num_heads
         self.head_dim = input_dim // num_heads
@@ -320,6 +367,8 @@ class QueryDecodingLayer(nn.Module):
         self.v_proj = nn.Linear(input_dim, input_dim)
         self.out_proj = nn.Linear(input_dim, input_dim)
         self.dot_attention = ScaledDotProductAttention()
+        sisa_config = sisa_config or SISAAttentionConfig()
+        self.sisa_score_bias = sisa_config.build(input_dim, num_heads)
 
     def forward(self, global_tokens, s_tokens, mask=None):
         if mask is not None:
@@ -336,7 +385,38 @@ class QueryDecodingLayer(nn.Module):
         k = self.k_proj(norm_kv).view(B, Lk, self.num_heads, self.head_dim).transpose(1, 2)
         v = self.v_proj(norm_kv).view(B, Lk, self.num_heads, self.head_dim).transpose(1, 2)
 
-        attn_out, _ = self.dot_attention(q, k, v, scale=self.head_dim ** 0.5)
+        score_bias = None
+        if (
+            self.sisa_score_bias is not None
+            and self.sisa_score_bias.score_scale != 0.0
+        ):
+            sequence_valid = (
+                mask.bool()
+                if mask is not None
+                else torch.ones(B, Lk, dtype=torch.bool, device=norm_kv.device)
+            )
+            native_hidden = torch.cat((norm_kv, norm_q), dim=1)
+            native_valid = torch.cat(
+                (
+                    sequence_valid,
+                    torch.ones(B, Lq, dtype=torch.bool, device=norm_q.device),
+                ),
+                dim=1,
+            )
+            score_bias = self.sisa_score_bias(
+                native_hidden,
+                native_valid,
+                self.head_dim,
+                query_slice=slice(Lk, Lk + Lq),
+                key_slice=slice(0, Lk),
+            )
+        attn_out, _ = self.dot_attention(
+            q,
+            k,
+            v,
+            scale=self.head_dim ** 0.5,
+            score_bias=score_bias,
+        )
         attn_out = attn_out.transpose(1, 2).contiguous().view(B, Lq, D)
         attn_out = self.out_proj(attn_out)
 

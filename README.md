@@ -1,3 +1,27 @@
+# RISE AM/PM — minimal release candidate
+
+This branch starts from UniRank baseline `90bb99a` and adds the paper's AM/PM
+score branch at history-related attention sites. Supported backbones are
+HiFormer, HyFormer, OneTrans, RankMixer and Zenith. HiFormer/Zenith retain only
+target-to-history insertion; their field/token interaction blocks stay native.
+
+AM/PM is **off by default**. Enable it with `--rise-enabled` (or the historical
+`--sisa-enabled` spelling). The verified cumulative computation is preserved;
+this branch does not introduce a new history-only state-clock algorithm.
+
+Read [the implementation and insertion-site guide](docs/AM_PM.md) for the exact
+scan semantics, paper component variants and baseline/RISE commands.
+
+```bash
+uv sync --locked
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python run_expid.py --help
+```
+
+The original UniRank documentation and attribution follow below.
+
+---
+
 <p align="center">
   <img src="./assets/figures/unirank_logo.png" alt="UniRank logo" width="720">
 </p>
@@ -381,15 +405,11 @@ Features are organized into user, context, sequence, and action groups. Low-freq
 ## Installation
 
 ```bash
-conda create -n UniRank python=3.10
-conda activate UniRank
-
-pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
-  --index-url https://download.pytorch.org/whl/cu126
-pip install -r requirements.txt
+uv sync --locked
 ```
 
-The CUDA build must match the driver and GPUs on the training machine. Long-sequence acceleration paths may require a recent PyTorch/CUDA combination beyond the minimum environment above.
+The locked environment uses Python 3.12 and PyTorch 2.8 with CUDA 12.6 wheels.
+The training machine must provide a compatible NVIDIA driver.
 
 ## Quick Start
 
