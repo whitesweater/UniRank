@@ -1,7 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-24T21:58:42.312274+08:00",
-  "digest": "fe7d834b1a7fd6b61b7150f42a95ec3e0b892d35887d2fbf2267ce86726d406d",
+  "selection_policy": "auc_top3_distinct_v1",
+  "generated_at": "2026-09-25T18:05:30.861133+08:00",
+  "digest": "4cadc5fbea6b02c32f65ce1697b1d24dd2f4fdf271bad125069d0b1de81e4143",
   "models": [
     "HiFormer",
     "HyFormer",
@@ -99,6 +100,38 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|QK_Video_Action|20262027|649560_0",
+          "seed": 20262027,
+          "job": "649560_0",
+          "kind": "target_only",
+          "auc": 0.9344545,
+          "logloss": 0.07445075,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.934162,
+              "logloss": 0.250837
+            },
+            {
+              "label": "follow",
+              "auc": 0.920005,
+              "logloss": 0.004998
+            },
+            {
+              "label": "like",
+              "auc": 0.947924,
+              "logloss": 0.0367
+            },
+            {
+              "label": "share",
+              "auc": 0.935727,
+              "logloss": 0.005268
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+          "protocol": "ws4_bs8192"
+        },
+        {
           "id": "HiFormer|QK_Video_Action|20262028|548166_10",
           "seed": 20262028,
           "job": "548166_10",
@@ -131,6 +164,38 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|QK_Video_Action|20262028|644098_1",
+          "seed": 20262028,
+          "job": "644098_1",
+          "kind": "target_only",
+          "auc": 0.93441475,
+          "logloss": 0.074783,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.933251,
+              "logloss": 0.252158
+            },
+            {
+              "label": "follow",
+              "auc": 0.921751,
+              "logloss": 0.005013
+            },
+            {
+              "label": "like",
+              "auc": 0.9469,
+              "logloss": 0.036644
+            },
+            {
+              "label": "share",
+              "auc": 0.935757,
+              "logloss": 0.005317
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/RISE_targeted_HiFormer_QK_Video_Action_target_only_seed20262028_attempt1.log",
+          "protocol": "ws2_bs16384"
+        },
+        {
           "id": "HiFormer|QK_Video_Action|20262029|549595_10",
           "seed": 20262029,
           "job": "549595_10",
@@ -161,10 +226,53 @@
           ],
           "source": "checkpoints/QK_Video_Action/SISA_single_seed_HiFormer_QK_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
           "protocol": ""
+        },
+        {
+          "id": "HiFormer|QK_Video_Action|20262029|649561_4",
+          "seed": 20262029,
+          "job": "649561_4",
+          "kind": "target_only",
+          "auc": 0.93393975,
+          "logloss": 0.07484375,
+          "labels": [
+            {
+              "label": "click",
+              "auc": 0.933735,
+              "logloss": 0.251421
+            },
+            {
+              "label": "follow",
+              "auc": 0.920468,
+              "logloss": 0.005196
+            },
+            {
+              "label": "like",
+              "auc": 0.947084,
+              "logloss": 0.037363
+            },
+            {
+              "label": "share",
+              "auc": 0.934472,
+              "logloss": 0.005395
+            }
+          ],
+          "source": "checkpoints/QK_Video_Action/RISE_hiformer_target_only_QK_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+          "protocol": "ws2_bs16384"
         }
       ],
       "original_three_seed_auc": 0.9308549166666666,
-      "original_three_seed_logloss": 0.07562408333333333
+      "original_three_seed_logloss": 0.07562408333333333,
+      "target_only_three_seed_auc": 0.9342696666666667,
+      "default_selection": {
+        "20262027": "HiFormer|QK_Video_Action|20262027|649560_0",
+        "20262028": "HiFormer|QK_Video_Action|20262028|644098_1",
+        "20262029": "HiFormer|QK_Video_Action|20262029|649561_4"
+      },
+      "full_default_selection": {
+        "20262027": "HiFormer|QK_Video_Action|20262027|14811_9",
+        "20262028": "HiFormer|QK_Video_Action|20262028|548166_10",
+        "20262029": "HiFormer|QK_Video_Action|20262029|549595_10"
+      }
     },
     {
       "id": "HiFormer|KuaiRand_Video_Action",
@@ -257,6 +365,48 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|KuaiRand_Video_Action|20262027|649560_2",
+          "seed": 20262027,
+          "job": "649560_2",
+          "kind": "target_only",
+          "auc": 0.8652668333333334,
+          "logloss": 0.17783400000000002,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.789622,
+              "logloss": 0.53414
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.902139,
+              "logloss": 0.01459
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.888931,
+              "logloss": 0.006213
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.873273,
+              "logloss": 0.005593
+            },
+            {
+              "label": "is_like",
+              "auc": 0.930857,
+              "logloss": 0.05318
+            },
+            {
+              "label": "long_view",
+              "auc": 0.806779,
+              "logloss": 0.453288
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262027_ws4_bs8192_attempt1.log",
+          "protocol": "ws4_bs8192"
+        },
+        {
           "id": "HiFormer|KuaiRand_Video_Action|20262028|548166_6",
           "seed": 20262028,
           "job": "548166_6",
@@ -299,6 +449,48 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|KuaiRand_Video_Action|20262028|648217_1",
+          "seed": 20262028,
+          "job": "648217_1",
+          "kind": "target_only",
+          "auc": 0.8653573333333333,
+          "logloss": 0.17513683333333332,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.794665,
+              "logloss": 0.524809
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.899809,
+              "logloss": 0.014677
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.889155,
+              "logloss": 0.006108
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.872086,
+              "logloss": 0.005651
+            },
+            {
+              "label": "is_like",
+              "auc": 0.925485,
+              "logloss": 0.055474
+            },
+            {
+              "label": "long_view",
+              "auc": 0.810944,
+              "logloss": 0.444102
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262028_attempt1.log",
+          "protocol": "ws2_bs16384"
+        },
+        {
           "id": "HiFormer|KuaiRand_Video_Action|20262029|549595_6",
           "seed": 20262029,
           "job": "549595_6",
@@ -339,10 +531,63 @@
           ],
           "source": "checkpoints/KuaiRand_Video_Action/SISA_single_seed_HiFormer_KuaiRand_Video_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
           "protocol": ""
+        },
+        {
+          "id": "HiFormer|KuaiRand_Video_Action|20262029|649561_6",
+          "seed": 20262029,
+          "job": "649561_6",
+          "kind": "target_only",
+          "auc": 0.8620581666666666,
+          "logloss": 0.17528116666666668,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.794642,
+              "logloss": 0.52442
+            },
+            {
+              "label": "is_comment",
+              "auc": 0.891071,
+              "logloss": 0.015131
+            },
+            {
+              "label": "is_follow",
+              "auc": 0.885862,
+              "logloss": 0.00614
+            },
+            {
+              "label": "is_forward",
+              "auc": 0.866616,
+              "logloss": 0.005638
+            },
+            {
+              "label": "is_like",
+              "auc": 0.922594,
+              "logloss": 0.057584
+            },
+            {
+              "label": "long_view",
+              "auc": 0.811564,
+              "logloss": 0.442774
+            }
+          ],
+          "source": "checkpoints/KuaiRand_Video_Action/RISE_hiformer_target_only_KuaiRand_Video_Action_seed20262029_ws2_bs16384_attempt1.log",
+          "protocol": "ws2_bs16384"
         }
       ],
       "original_three_seed_auc": 0.8633852777777777,
-      "original_three_seed_logloss": 0.17659705555555558
+      "original_three_seed_logloss": 0.17659705555555558,
+      "target_only_three_seed_auc": 0.8642274444444444,
+      "default_selection": {
+        "20262027": "HiFormer|KuaiRand_Video_Action|20262027|649560_2",
+        "20262028": "HiFormer|KuaiRand_Video_Action|20262028|648217_1",
+        "20262029": "HiFormer|KuaiRand_Video_Action|20262029|649561_6"
+      },
+      "full_default_selection": {
+        "20262027": "HiFormer|KuaiRand_Video_Action|20262027|14850_11",
+        "20262028": "HiFormer|KuaiRand_Video_Action|20262028|548166_6",
+        "20262029": "HiFormer|KuaiRand_Video_Action|20262029|549595_6"
+      }
     },
     {
       "id": "HiFormer|TencentGR_10M_Action",
@@ -395,6 +640,28 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|TencentGR_10M_Action|20262027|649560_3",
+          "seed": 20262027,
+          "job": "649560_3",
+          "kind": "target_only",
+          "auc": 0.863113,
+          "logloss": 0.030981,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.84636,
+              "logloss": 0.045552
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.879866,
+              "logloss": 0.01641
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262027_ws4_bs8192_attempt1.log",
+          "protocol": "ws4_bs8192"
+        },
+        {
           "id": "HiFormer|TencentGR_10M_Action|20262028|548166_14",
           "seed": 20262028,
           "job": "548166_14",
@@ -417,6 +684,28 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|TencentGR_10M_Action|20262028|648217_2",
+          "seed": 20262028,
+          "job": "648217_2",
+          "kind": "target_only",
+          "auc": 0.8621115,
+          "logloss": 0.033837,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.844241,
+              "logloss": 0.048938
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.879982,
+              "logloss": 0.018736
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262028_attempt1.log",
+          "protocol": "ws2_bs16384"
+        },
+        {
           "id": "HiFormer|TencentGR_10M_Action|20262029|549595_14",
           "seed": 20262029,
           "job": "549595_14",
@@ -437,10 +726,43 @@
           ],
           "source": "checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262029_ws2_bs16384_acc1_attempt1.log",
           "protocol": ""
+        },
+        {
+          "id": "HiFormer|TencentGR_10M_Action|20262029|649561_7",
+          "seed": 20262029,
+          "job": "649561_7",
+          "kind": "target_only",
+          "auc": 0.8513165,
+          "logloss": 0.034904,
+          "labels": [
+            {
+              "label": "is_click",
+              "auc": 0.837553,
+              "logloss": 0.05187
+            },
+            {
+              "label": "is_conversion",
+              "auc": 0.86508,
+              "logloss": 0.017938
+            }
+          ],
+          "source": "checkpoints/TencentGR_10M_Action/RISE_hiformer_target_only_TencentGR_10M_Action_seed20262029_ws2_bs16384_attempt1.log",
+          "protocol": "ws2_bs16384"
         }
       ],
       "original_three_seed_auc": 0.869188,
-      "original_three_seed_logloss": 0.030230999999999997
+      "original_three_seed_logloss": 0.030230999999999997,
+      "target_only_three_seed_auc": 0.858847,
+      "default_selection": {
+        "20262027": "HiFormer|TencentGR_10M_Action|20262027|649560_3",
+        "20262028": "HiFormer|TencentGR_10M_Action|20262028|648217_2",
+        "20262029": "HiFormer|TencentGR_10M_Action|20262029|649561_7"
+      },
+      "full_default_selection": {
+        "20262027": "HiFormer|TencentGR_10M_Action|20262027|543257_3",
+        "20262028": "HiFormer|TencentGR_10M_Action|20262028|548166_14",
+        "20262029": "HiFormer|TencentGR_10M_Action|20262029|549595_14"
+      }
     },
     {
       "id": "HiFormer|MerRec_Action",
@@ -523,6 +845,43 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|MerRec_Action|20262027|649560_1",
+          "seed": 20262027,
+          "job": "649560_1",
+          "kind": "target_only",
+          "auc": 0.8111575999999999,
+          "logloss": 0.0830144,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.82149,
+              "logloss": 0.051788
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.844042,
+              "logloss": 0.011414
+            },
+            {
+              "label": "Like",
+              "auc": 0.763746,
+              "logloss": 0.321044
+            },
+            {
+              "label": "Offer",
+              "auc": 0.777504,
+              "logloss": 0.02375
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.849006,
+              "logloss": 0.007076
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262027_ws4_bs8192_attempt1.log",
+          "protocol": "ws4_bs8192"
+        },
+        {
           "id": "HiFormer|MerRec_Action|20262028|548166_2",
           "seed": 20262028,
           "job": "548166_2",
@@ -558,6 +917,43 @@
           ],
           "source": "checkpoints/MerRec_Action/SISA_single_seed_HiFormer_MerRec_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log",
           "protocol": ""
+        },
+        {
+          "id": "HiFormer|MerRec_Action|20262028|648217_0",
+          "seed": 20262028,
+          "job": "648217_0",
+          "kind": "target_only",
+          "auc": 0.810238,
+          "logloss": 0.0837334,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.821196,
+              "logloss": 0.051857
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.841614,
+              "logloss": 0.012097
+            },
+            {
+              "label": "Like",
+              "auc": 0.760989,
+              "logloss": 0.32456
+            },
+            {
+              "label": "Offer",
+              "auc": 0.778892,
+              "logloss": 0.021625
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.848499,
+              "logloss": 0.008528
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262028_attempt1.log",
+          "protocol": "ws2_bs16384"
         },
         {
           "id": "HiFormer|MerRec_Action|20262029|549595_2",
@@ -634,6 +1030,43 @@
           "protocol": ""
         },
         {
+          "id": "HiFormer|MerRec_Action|20262029|649561_5",
+          "seed": 20262029,
+          "job": "649561_5",
+          "kind": "target_only",
+          "auc": 0.7994568,
+          "logloss": 0.08465900000000001,
+          "labels": [
+            {
+              "label": "Cart",
+              "auc": 0.820207,
+              "logloss": 0.052422
+            },
+            {
+              "label": "Checkout",
+              "auc": 0.827203,
+              "logloss": 0.01337
+            },
+            {
+              "label": "Like",
+              "auc": 0.754704,
+              "logloss": 0.326624
+            },
+            {
+              "label": "Offer",
+              "auc": 0.766645,
+              "logloss": 0.022764
+            },
+            {
+              "label": "Purchase",
+              "auc": 0.828525,
+              "logloss": 0.008115
+            }
+          ],
+          "source": "checkpoints/MerRec_Action/RISE_hiformer_target_only_MerRec_Action_seed20262029_ws2_bs16384_attempt1.log",
+          "protocol": "ws2_bs16384"
+        },
+        {
           "id": "HiFormer|MerRec_Action|20262030|645444_2",
           "seed": 20262030,
           "job": "645444_2",
@@ -672,7 +1105,18 @@
         }
       ],
       "original_three_seed_auc": 0.8051746666666667,
-      "original_three_seed_logloss": 0.08343806666666666
+      "original_three_seed_logloss": 0.08343806666666666,
+      "target_only_three_seed_auc": 0.8069508,
+      "default_selection": {
+        "20262027": "HiFormer|MerRec_Action|20262027|649560_1",
+        "20262028": "HiFormer|MerRec_Action|20262028|648217_0",
+        "20262029": "HiFormer|MerRec_Action|20262029|649561_5"
+      },
+      "full_default_selection": {
+        "20262028": "HiFormer|MerRec_Action|20262028|548166_2",
+        "20262029": "HiFormer|MerRec_Action|20262029|549595_2",
+        "20262030": "HiFormer|MerRec_Action|20262030|645444_2"
+      }
     },
     {
       "id": "HyFormer|QK_Video_Action",
@@ -810,7 +1254,13 @@
         }
       ],
       "original_three_seed_auc": 0.9312378333333333,
-      "original_three_seed_logloss": 0.07457616666666667
+      "original_three_seed_logloss": 0.07457616666666667,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "HyFormer|QK_Video_Action|20262027|543257_19",
+        "20262028": "HyFormer|QK_Video_Action|20262028|548166_9",
+        "20262029": "HyFormer|QK_Video_Action|20262029|549595_9"
+      }
     },
     {
       "id": "HyFormer|KuaiRand_Video_Action",
@@ -1030,7 +1480,13 @@
         }
       ],
       "original_three_seed_auc": 0.8624739444444444,
-      "original_three_seed_logloss": 0.17563894444444447
+      "original_three_seed_logloss": 0.17563894444444447,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "HyFormer|KuaiRand_Video_Action|20262027|543257_21",
+        "20262028": "HyFormer|KuaiRand_Video_Action|20262028|548166_5",
+        "20262029": "HyFormer|KuaiRand_Video_Action|20262029|645226_5"
+      }
     },
     {
       "id": "HyFormer|TencentGR_10M_Action",
@@ -1150,7 +1606,13 @@
         }
       ],
       "original_three_seed_auc": 0.868116,
-      "original_three_seed_logloss": 0.033918
+      "original_three_seed_logloss": 0.033918,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "HyFormer|TencentGR_10M_Action|20262027|645223_13",
+        "20262028": "HyFormer|TencentGR_10M_Action|20262028|548166_13",
+        "20262029": "HyFormer|TencentGR_10M_Action|20262029|549595_13"
+      }
     },
     {
       "id": "HyFormer|MerRec_Action",
@@ -1382,7 +1844,13 @@
         }
       ],
       "original_three_seed_auc": 0.8045286666666667,
-      "original_three_seed_logloss": 0.08197173333333334
+      "original_three_seed_logloss": 0.08197173333333334,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "HyFormer|MerRec_Action|20262027|543257_27",
+        "20262028": "HyFormer|MerRec_Action|20262028|548166_1",
+        "20262029": "HyFormer|MerRec_Action|20262029|549595_1"
+      }
     },
     {
       "id": "OneTrans|QK_Video_Action",
@@ -1520,7 +1988,13 @@
         }
       ],
       "original_three_seed_auc": 0.93412325,
-      "original_three_seed_logloss": 0.07380916666666666
+      "original_three_seed_logloss": 0.07380916666666666,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "OneTrans|QK_Video_Action|20262027|14810_1",
+        "20262028": "OneTrans|QK_Video_Action|20262028|630948_0",
+        "20262029": "OneTrans|QK_Video_Action|20262029|630948_1"
+      }
     },
     {
       "id": "OneTrans|KuaiRand_Video_Action",
@@ -1698,7 +2172,13 @@
         }
       ],
       "original_three_seed_auc": 0.8639968333333333,
-      "original_three_seed_logloss": 0.1770042222222222
+      "original_three_seed_logloss": 0.1770042222222222,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "OneTrans|KuaiRand_Video_Action|20262027|14811_3",
+        "20262028": "OneTrans|KuaiRand_Video_Action|20262028|631034_2",
+        "20262029": "OneTrans|KuaiRand_Video_Action|20262029|631034_3"
+      }
     },
     {
       "id": "OneTrans|TencentGR_10M_Action",
@@ -1818,7 +2298,13 @@
         }
       ],
       "original_three_seed_auc": 0.8573795,
-      "original_three_seed_logloss": 0.040551
+      "original_three_seed_logloss": 0.040551,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "OneTrans|TencentGR_10M_Action|20262027|543257_1",
+        "20262028": "OneTrans|TencentGR_10M_Action|20262028|631034_4",
+        "20262029": "OneTrans|TencentGR_10M_Action|20262029|645445_5"
+      }
     },
     {
       "id": "OneTrans|MerRec_Action",
@@ -2013,7 +2499,13 @@
         }
       ],
       "original_three_seed_auc": 0.8156213333333334,
-      "original_three_seed_logloss": 0.08108993333333332
+      "original_three_seed_logloss": 0.08108993333333332,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "OneTrans|MerRec_Action|20262027|14811_7",
+        "20262028": "OneTrans|MerRec_Action|20262028|645227_8",
+        "20262029": "OneTrans|MerRec_Action|20262029|636370_9"
+      }
     },
     {
       "id": "RankMixer|QK_Video_Action",
@@ -2151,7 +2643,13 @@
         }
       ],
       "original_three_seed_auc": 0.9294695833333333,
-      "original_three_seed_logloss": 0.07545575
+      "original_three_seed_logloss": 0.07545575,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "RankMixer|QK_Video_Action|20262027|14810_17",
+        "20262028": "RankMixer|QK_Video_Action|20262028|548166_11",
+        "20262029": "RankMixer|QK_Video_Action|20262029|549595_11"
+      }
     },
     {
       "id": "RankMixer|KuaiRand_Video_Action",
@@ -2329,7 +2827,13 @@
         }
       ],
       "original_three_seed_auc": 0.8621668333333333,
-      "original_three_seed_logloss": 0.17434016666666666
+      "original_three_seed_logloss": 0.17434016666666666,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "RankMixer|KuaiRand_Video_Action|20262027|14811_19",
+        "20262028": "RankMixer|KuaiRand_Video_Action|20262028|548166_7",
+        "20262029": "RankMixer|KuaiRand_Video_Action|20262029|549595_7"
+      }
     },
     {
       "id": "RankMixer|TencentGR_10M_Action",
@@ -2427,7 +2931,13 @@
         }
       ],
       "original_three_seed_auc": 0.8511828333333332,
-      "original_three_seed_logloss": 0.044632666666666675
+      "original_three_seed_logloss": 0.044632666666666675,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "RankMixer|TencentGR_10M_Action|20262027|543257_5",
+        "20262028": "RankMixer|TencentGR_10M_Action|20262028|548166_15",
+        "20262029": "RankMixer|TencentGR_10M_Action|20262029|549595_15"
+      }
     },
     {
       "id": "RankMixer|MerRec_Action",
@@ -2585,7 +3095,13 @@
         }
       ],
       "original_three_seed_auc": 0.7984531333333332,
-      "original_three_seed_logloss": 0.08078606666666667
+      "original_three_seed_logloss": 0.08078606666666667,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "RankMixer|MerRec_Action|20262027|14811_23",
+        "20262028": "RankMixer|MerRec_Action|20262028|548166_3",
+        "20262029": "RankMixer|MerRec_Action|20262029|549595_3"
+      }
     },
     {
       "id": "Zenith|QK_Video_Action",
@@ -2723,7 +3239,13 @@
         }
       ],
       "original_three_seed_auc": 0.9353014166666668,
-      "original_three_seed_logloss": 0.07434400000000001
+      "original_three_seed_logloss": 0.07434400000000001,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "Zenith|QK_Video_Action|20262027|14811_25",
+        "20262028": "Zenith|QK_Video_Action|20262028|548166_8",
+        "20262029": "Zenith|QK_Video_Action|20262029|549595_8"
+      }
     },
     {
       "id": "Zenith|KuaiRand_Video_Action",
@@ -2901,7 +3423,13 @@
         }
       ],
       "original_three_seed_auc": 0.8631643888888889,
-      "original_three_seed_logloss": 0.1784111111111111
+      "original_three_seed_logloss": 0.1784111111111111,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "Zenith|KuaiRand_Video_Action|20262027|14854_27",
+        "20262028": "Zenith|KuaiRand_Video_Action|20262028|548166_4",
+        "20262029": "Zenith|KuaiRand_Video_Action|20262029|549595_4"
+      }
     },
     {
       "id": "Zenith|TencentGR_10M_Action",
@@ -3021,7 +3549,13 @@
         }
       ],
       "original_three_seed_auc": 0.8558408333333333,
-      "original_three_seed_logloss": 0.039081
+      "original_three_seed_logloss": 0.039081,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "Zenith|TencentGR_10M_Action|20262027|645223_12",
+        "20262028": "Zenith|TencentGR_10M_Action|20262028|548166_12",
+        "20262029": "Zenith|TencentGR_10M_Action|20262029|549595_12"
+      }
     },
     {
       "id": "Zenith|MerRec_Action",
@@ -3216,7 +3750,13 @@
         }
       ],
       "original_three_seed_auc": 0.8073732666666666,
-      "original_three_seed_logloss": 0.08367419999999999
+      "original_three_seed_logloss": 0.08367419999999999,
+      "target_only_three_seed_auc": null,
+      "default_selection": {
+        "20262027": "Zenith|MerRec_Action|20262027|14846_31",
+        "20262028": "Zenith|MerRec_Action|20262028|548166_0",
+        "20262029": "Zenith|MerRec_Action|20262029|645225_0"
+      }
     }
   ],
   "sources": [
@@ -3263,6 +3803,23 @@
     {
       "file": "experiments/sisa_expansion_acd/results/runs.csv",
       "sha256": "03d6213b05978f11d248be2fe6e351650faab130ae078ade1b5603ace3f18678"
+    },
+    {
+      "file": "experiments/hiformer_target_only_multiseed/results/runs.csv",
+      "sha256": "027a5d4118944f7f4e6d120738912c737463a843099fc66c8d8e68657aa707d4"
+    },
+    {
+      "file": "experiments/hiformer_target_only_multiseed/results/label_metrics.csv",
+      "sha256": "049b2b87fea19efdd2e6f59d1e11057965622d3b4506e6c6e922d451d96675a3"
+    },
+    {
+      "file": "experiments/hiformer_target_only_multiseed/results/summary.csv",
+      "sha256": "4640191109fe6db8ac36d5aa256a5ccbc2a33a59d018e6c1b70298d934981550"
+    },
+    {
+      "file": "experiments/hiformer_target_only_multiseed/notes/independent_final_audit.json",
+      "sha256": "87087ea672eae987ac43b2d04e43f9e4919840c66e490035bef73a207d326e77"
     }
-  ]
+  ],
+  "previous_digest": "fe7d834b1a7fd6b61b7150f42a95ec3e0b892d35887d2fbf2267ce86726d406d"
 }

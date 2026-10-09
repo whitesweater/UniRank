@@ -8,6 +8,8 @@
     1440,
     390
   ],
-  "sha256_html": "e5bbd9dc83ecd8577366fdafffb54eaa2da832fc79194c62cfc1ab33233e17c2",
-  "built_at": "2026-09-24T21:59:57.992177+08:00"
+  "sha256_html": "79ff8e3049bbff172ee78973ed7281ab04f20bc607f6e86c6413a0800b49f20d",
+  "built_at": "2026-09-25T18:06:06.721780+08:00",
+  "sisa_choices": 82,
+  "selection_policy": "auc_top3_distinct_v1"
 }

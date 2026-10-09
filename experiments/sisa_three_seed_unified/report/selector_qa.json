@@ -1,12 +1,13 @@
 {
-  "checked_at": "2026-09-24T21:59:57.992177+08:00",
+  "checked_at": "2026-09-25T18:06:06.721780+08:00",
   "scope": {
     "cells": 20,
     "baseline_runs": 20,
     "original_sisa_runs": 60,
     "reruns": 8,
     "new_seed_runs": 2,
-    "sisa_choices": 70
+    "sisa_choices": 82,
+    "hi_former_target_only_runs": 12
   },
   "checks": {
     "python_unit_tests": "3 passed",
@@ -26,9 +27,25 @@
     "markdown_export_all_three_seed_logloss": "passed",
     "csv_export_cell_rows": 20,
     "csv_export_all_three_seed_logloss": "passed",
-    "mobile_visual_after_control_layout": "passed"
+    "mobile_visual_after_control_layout": "passed",
+    "target_only_default_all_four_datasets": "passed",
+    "full_rise_mode_switch": "passed",
+    "method_consistent_three_seed_selection": "passed",
+    "summary_and_export_method_labels": "passed",
+    "target_only_result_audit": "12/12 completed, independent final audit passed",
+    "rerun_badges_8_cells": "6 selected, 1 available, 1 under old HiFormer method",
+    "browser_full_method_seed30": "passed",
+    "export_selection_policy_note": "passed",
+    "mobile_visual": "passed"
   },
   "archived_previous_report": "experiments/sisa_three_seed_unified/report/archive/20260924_before_selector",
-  "sha256_html": "e5bbd9dc83ecd8577366fdafffb54eaa2da832fc79194c62cfc1ab33233e17c2",
-  "sha256_catalog": "8de98001f2a64b4d62aab5bc230cac38f468ce918da1771d0ed896ca994bc04e"
+  "sha256_html": "79ff8e3049bbff172ee78973ed7281ab04f20bc607f6e86c6413a0800b49f20d",
+  "sha256_catalog": "8d97d320965a101ba631b56456e1f771ada95d54a523c23c6019f6ba6b997cea",
+  "default_policy": {
+    "name": "auc_top3_distinct_v1",
+    "selected_reruns": 6,
+    "selected_seed30": 0,
+    "same_seed_tie_keeps_original": true,
+    "mixed_hiformer_methods_allowed": false
+  }
 }

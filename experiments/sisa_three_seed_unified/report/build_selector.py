@@ -36,6 +36,10 @@ SOURCES = (
     "experiments/onetrans_seed_completion/results/selected_runs.csv",
     "experiments/sisa_native_strict/results/runs.csv",
     "experiments/sisa_expansion_acd/results/runs.csv",
+    "experiments/hiformer_target_only_multiseed/results/runs.csv",
+    "experiments/hiformer_target_only_multiseed/results/label_metrics.csv",
+    "experiments/hiformer_target_only_multiseed/results/summary.csv",
+    "experiments/hiformer_target_only_multiseed/notes/independent_final_audit.json",
 )
 
 
@@ -118,6 +122,23 @@ def collect_catalog(root: Path = ROOT) -> dict:
         audits[key] = row
     assert len(original_labels) == len(audits) == 60
 
+    target_audit = json.loads((root / SOURCES[14]).read_text())
+    assert target_audit["passed"] is True and target_audit["target_results_checked"] == 12
+    target_runs = {}
+    for row in read_csv(root, SOURCES[11]):
+        assert row["model"] == "HiFormer" and row["mode"] == "target_only"
+        assert row["eligible"] == "True" and row["state"] == "COMPLETED" and row["exit_code"] == "0:0"
+        key = row["dataset"], int(row["seed"])
+        assert key not in target_runs
+        target_runs[key] = row
+    target_labels: dict[tuple, dict[str, dict]] = defaultdict(dict)
+    for row in read_csv(root, SOURCES[12]):
+        key = row["dataset"], int(row["seed"])
+        assert key in target_runs and target_runs[key]["job_task_id"] == row["job_task_id"]
+        add_label(target_labels, key, row["label"], row["AUC"], row["logloss"])
+    target_summaries = {row["dataset"]: row for row in read_csv(root, SOURCES[13])}
+    assert len(target_runs) == len(target_labels) == 12 and len(target_summaries) == 4
+
     extra_labels: dict[tuple, dict[str, dict]] = defaultdict(dict)
     for relative in (SOURCES[5], SOURCES[6]):
         for row in read_csv(root, relative):
@@ -172,6 +193,21 @@ def collect_catalog(root: Path = ROOT) -> dict:
                 assert abs(run["auc"] - float(attempt["run_auc"])) < 1e-12
                 assert abs(run["logloss"] - float(attempt["run_logloss"])) < 1e-12
                 runs.append(run)
+            target_mean = None
+            if model == "HiFormer":
+                target_values = []
+                for seed in (20262027, 20262028, 20262029):
+                    target = target_runs[dataset, seed]
+                    run = make_run(model, dataset, seed, target["job_task_id"], "target_only",
+                                   ordered_labels(target_labels[dataset, seed]),
+                                   target["checkpoint_log"],
+                                   f"ws{target['world_size']}_bs{target['batch_size']}")
+                    assert abs(run["auc"] - float(target["macro_auc"])) < 1e-12
+                    assert abs(run["logloss"] - float(target["macro_logloss"])) < 1e-12
+                    runs.append(run)
+                    target_values.append(run["auc"])
+                target_mean = statistics.fmean(target_values)
+                assert abs(target_mean - float(target_summaries[dataset]["target_only_auc_mean"])) < 1e-12
             assert len({run["id"] for run in runs}) == len(runs)
             labels_expected = {label["label"] for label in baseline["labels"]}
             assert all({label["label"] for label in run["labels"]} == labels_expected
@@ -186,9 +222,10 @@ def collect_catalog(root: Path = ROOT) -> dict:
                                                      0 if r["kind"] == "original" else 1)),
                 "original_three_seed_auc": float(recorded["original_three_seed_mean_auc"]),
                 "original_three_seed_logloss": float(recorded["original_three_seed_mean_logloss"]),
+                "target_only_three_seed_auc": target_mean,
             })
     assert len(cells) == 20
-    assert sum(len(cell["runs"]) for cell in cells) == 70
+    assert sum(len(cell["runs"]) for cell in cells) == 82
     assert sum(len(cell["baseline"]["labels"]) for cell in cells) == 85
     sha = hashlib.sha256()
     sources = []
@@ -197,8 +234,13 @@ def collect_catalog(root: Path = ROOT) -> dict:
         digest = hashlib.sha256(content).hexdigest()
         sha.update(relative.encode() + bytes.fromhex(digest))
         sources.append({"file": relative, "sha256": digest})
+    for cell in cells:
+        cell["default_selection"] = default_selection(cell)
+        if cell["model"] == "HiFormer":
+            cell["full_default_selection"] = best_selection(cell, "full")
     return {
         "version": 1,
+        "selection_policy": "auc_top3_distinct_v1",
         "generated_at": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
         "digest": sha.hexdigest(),
         "models": list(MODELS),
@@ -208,14 +250,32 @@ def collect_catalog(root: Path = ROOT) -> dict:
     }
 
 
+def best_selection(cell: dict, method: str = "target_only") -> dict[str, str]:
+    options = [run for run in cell["runs"] if cell["model"] != "HiFormer"
+               or (run["kind"] == "target_only") == (method == "target_only")]
+    best_by_seed = {}
+    for run in options:
+        prior = best_by_seed.get(run["seed"])
+        if prior is None or run["auc"] > prior["auc"]:
+            best_by_seed[run["seed"]] = run
+    winners = sorted(best_by_seed.values(), key=lambda run: (-run["auc"], run["seed"]))[:3]
+    assert len(winners) == 3 and len({run["seed"] for run in winners}) == 3
+    return {str(run["seed"]): run["id"] for run in sorted(winners, key=lambda run: run["seed"])}
+
+
 def default_selection(cell: dict) -> dict[str, str]:
-    return {str(seed): next(run["id"] for run in cell["runs"]
-                            if run["seed"] == seed and run["kind"] == "original")
-            for seed in (20262027, 20262028, 20262029)}
+    return best_selection(cell)
 
 
 def main() -> None:
     catalog = collect_catalog(ROOT)
+    old_catalog_path = HERE / "selector_catalog.json"
+    if old_catalog_path.exists():
+        previous = json.loads(old_catalog_path.read_text(encoding="utf-8"))
+        if previous.get("digest") != catalog["digest"]:
+            catalog["previous_digest"] = previous["digest"]
+        elif previous.get("previous_digest"):
+            catalog["previous_digest"] = previous["previous_digest"]
     payload = json.dumps(catalog, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     template = (HERE / "selector_template.html").read_text(encoding="utf-8")
     assert template.count("__CATALOG_JSON__") == 1
@@ -232,7 +292,7 @@ def main() -> None:
             cell = indexed[model, dataset]
             cells.append(
                 f"<td>Baseline {cell['baseline']['auc']:.7f}<br>"
-                f"SISA {cell['original_three_seed_auc']:.7f}</td>"
+                f"SISA {statistics.fmean(next(run['auc'] for run in cell['runs'] if run['id'] == run_id) for run_id in default_selection(cell).values()):.7f}</td>"
             )
         cells.append("</tr>")
     cells.append("</tbody></table>")

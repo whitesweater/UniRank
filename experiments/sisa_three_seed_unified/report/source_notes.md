@@ -4,3 +4,16 @@
 - There are 20 accepted cells, one unique historical baseline per cell, 60 original SISA runs, eight audited same-seed reruns, and two seed20262030 runs. The failed pre-training job `645228_5` is excluded; completed `645445_5` is selectable. OneTrans baseline copies in other archives have the same job ID.
 - Default selections are original seed27/28/29. Each cell must use exactly three distinct seeds and one audited run per seed. Local browser storage retains choices; the live summary and Markdown/CSV/JSON exports use those choices. Markdown includes 20 cells and 85 label rows.
 - The previous report, builder, artifact, and QA are preserved at `archive/20260924_before_selector/`. The active builder produces the selector and does not rebuild that retired report.
+
+## HiFormer target_only update (2026-09-25)
+
+- Source: `experiments/hiformer_target_only_multiseed/report.md`, `results/runs.csv`, `results/label_metrics.csv`, `results/summary.csv`, and independent final audit. All 12 new-method runs passed final audit.
+- HiFormer defaults across all four datasets to `target_only` for seeds 20262027/28/29. The historical complete RISE runs remain available as an alternative full-method triplet; mixed methods are rejected. Other models and their saved run choices are preserved when migrating from the previous catalog digest.
+- New-method macro AUC means are QK-Video 0.9342696667, KuaiRand 0.8642274444, TAAC-25 0.858847, and MerRec 0.8069508. TAAC-25 has lower AUC than the historical full-method mean; the default follows the requested integration method, not per-dataset score selection.
+
+## AUC score selection and rerun visibility
+
+- Default policy `auc_top3_distinct_v1`: within one integration method, choose the highest Test AUC completed run for each seed; then choose the three seed winners with highest AUC. Original runs and every audited rerun remain in the catalog. Ties keep the earlier listed original run.
+- HiFormer defaults to target_only; old full-method seed30 can enter only when the entire HiFormer cell is switched to full method. HyFormer MerRec seed30 is lower than the selected three seeds. Thus neither seed30 is included in the current default.
+- Default has six selected reruns. The matrix visibly marks all eight cells with a rerun: six selected, one available but unselected, and one available under HiFormer old full method.
+- The display and exported Markdown explicitly identify the means as selected on Test AUC, not a prespecified three-seed estimate. LogLoss is reported from the same selected runs, not independently optimized.
