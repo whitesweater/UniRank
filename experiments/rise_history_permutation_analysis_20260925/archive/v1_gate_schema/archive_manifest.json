@@ -1,0 +1,50 @@
+[
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\analysis_plan.json",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\analysis_plan.json",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "f02048ab743a47b827953a25eb251713b76346e4bfd84e446d328764d0537c8a"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\analyze_permutation.py",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\analyze_permutation.py",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "5e2809e7746c3d4d09f79461d86653a6d43a6066340b27ccf64c407f2b8531e4"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\permutation_statistics.py",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\permutation_statistics.py",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "0495525791edb77c180ef5c44a0624a35e85b0b21f68691b9c651b9c9b2dd7bf"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\analyze_permutation.sbatch",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\analyze_permutation.sbatch",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "c8df19f0bc7b9e69a37e78c7e7673802afa2debcb6f6798e7c95a6dba7882c32"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\test_permutation_statistics.py",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\test_permutation_statistics.py",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "1c0e949b04afcfe99bc62c6a7ecccf7e848787eb0e127f359a636a3efb0257ac"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\test_analysis_e2e.py",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\test_analysis_e2e.py",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "cf521309fd2d3afcab2bc8f9a8082f18ab61ea689b834d6822c4b4c5570724c8"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\README.md",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\README.md",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "30682ae3c6142db44bd57823450bf48860113dd2c2a4b8852020c0c713fa7d2a"
+  },
+  {
+    "original_path": "build\\rise_history_permutation_analysis_20260925\\source_manifest.json",
+    "archived_path": "build\\rise_history_permutation_analysis_20260925\\archive\\v1_gate_schema\\source_manifest.json",
+    "reason": "Preserve pre-v2 capture replay evidence schema; no permutation outcomes inspected",
+    "sha256": "02a7cdecfb813de6ab95c457dfc0934262c4a0a0dbc0118cf3fadabe83199941"
+  }
+]

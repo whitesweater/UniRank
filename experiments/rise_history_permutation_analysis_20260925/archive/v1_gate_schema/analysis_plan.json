@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "study": "Frozen-checkpoint historical-order scoring-channel intervention",
+  "training": "none",
+  "cases": {
+    "rankmixer_kuairand": ["is_click", "is_follow", "is_like", "is_comment", "is_forward", "long_view"],
+    "hiformer_taac25": ["is_click", "is_conversion"]
+  },
+  "routes": ["identity", "off", "reverse", "random"],
+  "primary_population": "effective_length >= 2, chosen from input metadata",
+  "secondary_population": "all 131072 fixed rows, including histories shorter than 2",
+  "primary_endpoints": ["mean click BCE(reverse) - BCE(identity)", "mean click BCE(random) - BCE(identity)"],
+  "supporting_endpoint": "mean click BCE(off) - BCE(identity); positive means original correction improves over correction off in the same fixed model",
+  "all_labels": "Report every label and equal-weight label macro, preserving negative effects",
+  "bce_clip": [0.0000001, 0.9999999],
+  "bootstrap": {
+    "unit": "user",
+    "draws": 2000,
+    "seed": 20260925,
+    "interval": "95 percent percentile",
+    "primary_weighting": "row weighted: resample users, divide total sampled paired loss sums by total sampled rows",
+    "secondary_weighting": "user balanced: average user-specific mean paired losses in each resample",
+    "scope": "Conditional on this trained checkpoint, fixed evaluation window, and one fixed permutation of each type; does not quantify training, random-permutation, or population uncertainty"
+  },
+  "prediction_change": "Per label and label macro: mean absolute, user-balanced mean absolute, median, p90, maximum, and fraction exactly changed relative to identity",
+  "gates": [
+    "Complete receipt and hashes for raw predictions, metadata, plan, sources, and runtime gates",
+    "Exact row_index, part_id, row_offset, user_id, item_id and label agreement with immutable prior sample metadata",
+    "New metadata and predictions match exactly on all metadata columns",
+    "History-length eligibility recomputed from input; prior peer-based eligibility row IDs compared and any difference reported",
+    "Independent historical identity/full and off/local_off prediction comparison with declared tolerance",
+    "All probabilities finite within [0,1]; original binary labels retained",
+    "Identity-versus-plain, unchanged native Q/K/V across correction routes, and local native pooling permutation gates pass",
+    "Histories shorter than 2 have unchanged reverse/random predictions"
+  ],
+  "interpretation": "Sensitivity to correction-history order and on/off predictive utility are separate observations. This intervention does not show all RISE improvement arises from order modeling, does not replace retraining ablations, and does not establish semantic understanding."
+}

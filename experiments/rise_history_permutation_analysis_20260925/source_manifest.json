@@ -1,0 +1,16 @@
+{
+  "prepared_at_utc": "2026-09-25T15:29:06.774871+00:00",
+  "evidence_schema_version": 2,
+  "purpose": "V2 native capture and original-input replay gate and provenance validation; no permutation outcomes inspected",
+  "statistics_and_endpoints_unchanged": true,
+  "prior_manifest_sha256": "02a7cdecfb813de6ab95c457dfc0934262c4a0a0dbc0118cf3fadabe83199941",
+  "files_sha256": {
+    "analysis_plan.json": "f02048ab743a47b827953a25eb251713b76346e4bfd84e446d328764d0537c8a",
+    "analyze_permutation.py": "2d501b58265dc2025383fd2f90e20428d9a1cb10d557f8dbb6a16f54d74fe7b7",
+    "permutation_statistics.py": "0495525791edb77c180ef5c44a0624a35e85b0b21f68691b9c651b9c9b2dd7bf",
+    "analyze_permutation.sbatch": "c8df19f0bc7b9e69a37e78c7e7673802afa2debcb6f6798e7c95a6dba7882c32",
+    "test_permutation_statistics.py": "1c0e949b04afcfe99bc62c6a7ecccf7e848787eb0e127f359a636a3efb0257ac",
+    "test_analysis_e2e.py": "a8b0fcb7c1e8cd5e345ece214cb38e39247d3dea1e1c4a8f487e2047f9b47571",
+    "README.md": "dc6793d8b40672fb118b04914ea0619ca641636fc253595c4f5abfae02f3461c"
+  }
+}

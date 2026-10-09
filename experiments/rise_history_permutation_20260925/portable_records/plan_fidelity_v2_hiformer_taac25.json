@@ -1,0 +1,523 @@
+{
+  "case": "hiformer_taac25",
+  "checkpoint": {
+    "bytes": 2296183079,
+    "mtime_ns": 1787674542732880000,
+    "path": "./checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model"
+  },
+  "checkpoint_sha256": "a4a34eb4e0cb0b17f961752b583a69b0cf2d5c86019d15381d2a9ecae2206ca5",
+  "dataset": "TencentGR_10M_Action",
+  "fidelity_only": true,
+  "frozen_files_sha256": {
+    "./artifacts/rise_attention_redistribution/tencent_646303/complete.json": "b37f874842456548c5808168771d8b7dabe9d721bf618ab551cb0222eb72c422",
+    "./artifacts/rise_attention_redistribution/tencent_646303/historical_prediction_check.csv": "ee7dd612356d0e70b688bc0a5f89e3cf91435c5c4ca6fed7245b4c0dba7dd80f",
+    "./artifacts/rise_attention_redistribution/tencent_646303/historical_prediction_gate.json": "71eccdd7e1f2977ecbb2434d165d9d5fd398d6516e8dec95b5c38c46a884c0c8",
+    "./artifacts/rise_attention_redistribution/tencent_646303/manifest.json": "3e947e7065fa0b72d7c953d80f614e039ea77b752f57686af5339e10b5e27d33",
+    "./artifacts/rise_attention_redistribution/tencent_646303/meta.csv": "490f8833f1e540cf5aaae6714f7e44aa3c841f89b1749f0d12c97a33c6abbaa5",
+    "./artifacts/rise_attention_redistribution/tencent_646303/prediction_check.csv": "fda5082ab8512fe733bb209ae2b31d866a69f42c898b13e637c3ccceb3e7f7d5",
+    "./artifacts/rise_attention_redistribution/tencent_646303/prediction_gate.json": "72c3eaa2b12ca73cd12ed7249b2cc90fe5e52cf833b84562f44f3af9eb35b27f",
+    "./artifacts/rise_attention_redistribution/tencent_646303/progress.json": "2127be90c276017e335681c8bd63c05b3f560c3311369aca42d5d78ca413861e",
+    "./artifacts/rise_attention_redistribution/tencent_646303/raw_attention.npz": "4132951be2bc23e3fb58eb69ba72b47721954c1071982ca2c49c633bebf4ff6a",
+    "./artifacts/rise_attention_redistribution/tencent_646303/sample_batches.pt": "64bad5e5c9abb7a234ad06f7f5fff212b01d4ff2dce027893bda1c8f224ff55a",
+    "./artifacts/rise_attention_redistribution/tencent_646303/stats.csv": "9c0efefbff9d3723d0642dedd705d3c567f30f6e4d8bbb2c5a1d8378ee388d0d",
+    "./artifacts/rise_attention_redistribution/tencent_646303/summary.json": "c051f786bbeba4addd14414b148961ca98bec8a7619e3a26ed32992c13b73604",
+    "./checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log": "4a19487851552d9f08759aaa576e7342ca73eea240f77977205c775a781e82c2",
+    "./checkpoints/TencentGR_10M_Action/SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model": "a4a34eb4e0cb0b17f961752b583a69b0cf2d5c86019d15381d2a9ecae2206ca5",
+    "./datasets/TencentGR_10M_Action/meta_data.json": "a32bdac75e0ca2fb04260d87ff243c812a405fdbc7a758e46a29b7c8e7dc6683",
+    "./experiments/rise_attention_redistribution/protocol.md": "cfb81ea7f89df8eda7942f5638bd2cdf8d5b4e9732edf1954c46cd3cc7dbb47b",
+    "./experiments/rise_discussion_validation_hiformer_20260925/README.md": "5e8c5bb3dcb93e0dea419e65e1c95b6c905c09489bb06ad858c523903e4eef27",
+    "./experiments/rise_discussion_validation_hiformer_20260925/plan.json": "fb9dda36a90acf7b577691c0b2d384e85bd35a227312539186a5785ca281e90a",
+    "./experiments/rise_discussion_validation_hiformer_20260925/probe_math.py": "a47f36234e1c3a3320f3631ed04a3476a3885b3a6453874dd916bd354264e5b4",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/complete.json": "c2d3022447355b6f8a8ceef6780d93145184accb5ad45145f174544a0697f429",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/gates.json": "8cba4077bf47efc0b8d45719c085ed0d45de609a6c819e52e18e981a44e92d6e",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/meta.csv": "7e1e7f09747882f2605803071cd038eaa8cd0e36fc76c449a199a6f0386761dc",
+    "./experiments/rise_discussion_validation_hiformer_20260925/results_651691/predictions.csv": "61045a71979c3aedbb470c46ff8cf44f385f63632062915ae58183c3dda933e7",
+    "./experiments/rise_discussion_validation_hiformer_20260925/run_probe.py": "295e4689104e7ebb34c86b108dca4dbd65d33d4e6e9f028b9298f9e72bcf4740",
+    "./experiments/rise_discussion_validation_hiformer_20260925/submit_probe.sbatch": "7acca35b674db8bc573d44a659ed73d8340552bba52dd8daafcf56eba542f5a6",
+    "./experiments/rise_discussion_validation_hiformer_20260925/test_probe_math.py": "6de8ced2e659e974e19c20c3872397faec79a6d1cefb9ee884288d6279fe327c",
+    "./experiments/rise_history_permutation_20260925/README.md": "51edb939da87384af81bcbe2199d88487971cc60d6c69c0837c581f93084d2ee",
+    "./experiments/rise_history_permutation_20260925/fidelity_v2.py": "e49ce86cd6830f6e1136c97427d9d41313e9ae9956196a16ab8ac0d5b5de3dc0",
+    "./experiments/rise_history_permutation_20260925/permutation_math.py": "c9d0236409bff60e5542b171ffa5e290395f34f9c0ffd81b139da00d9c34e674",
+    "./experiments/rise_history_permutation_20260925/plan_hiformer_taac25.json": "bfcbc9ce81fd4b1c264ac77d04da376d67f23ed5e51fb3636e61286c85274ef0",
+    "./experiments/rise_history_permutation_20260925/run_permutation.py": "7b11671cbb1fbc086e1990880a17c993757e73588c158b936f974b32ddb843ae",
+    "./experiments/rise_history_permutation_20260925/submit_fidelity_v2.sbatch": "f2e882ed8745bc840b06e495caefc6e4337c925b61098976124e78922b98ea87",
+    "./experiments/rise_history_permutation_20260925/submit_permutation.sbatch": "34f39c5b94c6fb387b1584eb20296d6229a6a759132eee13178ba09e7fd41155",
+    "./experiments/rise_history_permutation_20260925/test_permutation.py": "5a33063cca15c4031fefff080926a216e03eb7a556b2516fca3db6ce679e8843",
+    "./experiments/rise_sample_analysis/scripts/export_hiformer_predictions.py": "e704b5fa30e09a494c568e0c5c6cdcb7686b0cc984ac86bf8593e0b6e0cd5107",
+    "./experiments/rise_sample_analysis/scripts/export_predictions.py": "faa38a594284ee2331f5c6f74503a0cff9f892d0bbab12eb2f289ac7beb44995",
+    "./experiments/rise_sample_analysis/scripts/observe_mechanism.py": "e5b36ed694454a40d6f7468652b2716f9de05f8f3812b4b8f274218351251f4d",
+    "./model_zoo/EST.py": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+    "./model_zoo/HeMix.py": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+    "./model_zoo/HiFormer.py": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+    "./model_zoo/HyFormer.py": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+    "./model_zoo/INFNet.py": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+    "./model_zoo/LONGER.py": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+    "./model_zoo/MixFormer.py": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+    "./model_zoo/OneTrans.py": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+    "./model_zoo/RankMixer.py": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+    "./model_zoo/SSR.py": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+    "./model_zoo/TokenFormer.py": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+    "./model_zoo/TokenMixer.py": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+    "./model_zoo/UltraHSTU.py": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+    "./model_zoo/UniMixer.py": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+    "./model_zoo/Zenith.py": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+    "./model_zoo/__init__.py": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+    "./pyproject.toml": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+    "./scripts/export_rise_attention_redistribution.py": "da43dabf545b691deac3da2ae8d5b0eca40cb0f804f61c65060bcc1346b09799",
+    "./scripts/export_rise_semantic_attention.py": "0d83658ec438bd594c275697e8ef28bb2a4dc81e6d657d6edc3f2e8c05f7ac79",
+    "./unirank/__init__.py": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+    "./unirank/features.py": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+    "./unirank/metrics.py": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+    "./unirank/preprocess/__init__.py": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+    "./unirank/preprocess/build_dataset.py": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+    "./unirank/preprocess/feature_processor.py": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+    "./unirank/preprocess/normalizer.py": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+    "./unirank/preprocess/tokenizer.py": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+    "./unirank/pytorch/__init__.py": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+    "./unirank/pytorch/dataloaders/__init__.py": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+    "./unirank/pytorch/dataloaders/rank_dataloader.py": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+    "./unirank/pytorch/dataloaders/unirank_dataloader.py": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+    "./unirank/pytorch/layers/__init__.py": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+    "./unirank/pytorch/layers/activations.py": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+    "./unirank/pytorch/layers/attentions/__init__.py": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+    "./unirank/pytorch/layers/attentions/dot_product_attention.py": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+    "./unirank/pytorch/layers/attentions/sisa.py": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+    "./unirank/pytorch/layers/attentions/target_attention.py": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+    "./unirank/pytorch/layers/blocks/__init__.py": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+    "./unirank/pytorch/layers/blocks/mlp_block.py": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+    "./unirank/pytorch/layers/embeddings/__init__.py": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+    "./unirank/pytorch/layers/embeddings/feature_embedding.py": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+    "./unirank/pytorch/layers/embeddings/pretrained_embedding.py": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+    "./unirank/pytorch/layers/interactions/__init__.py": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+    "./unirank/pytorch/layers/interactions/per_token_ffn.py": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+    "./unirank/pytorch/layers/interactions/token_mix.py": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+    "./unirank/pytorch/layers/pooling.py": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+    "./unirank/pytorch/layers/tokenization/__init__.py": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+    "./unirank/pytorch/layers/tokenization/auto_split_tokenizer.py": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+    "./unirank/pytorch/layers/tokenization/chunk_tokenizer.py": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+    "./unirank/pytorch/layers/tokenization/field_wise_tokenizer.py": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+    "./unirank/pytorch/layers/tokenization/random_split_tokenizer.py": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+    "./unirank/pytorch/layers/tokenization/unified_tokenizer.py": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+    "./unirank/pytorch/models/__init__.py": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+    "./unirank/pytorch/models/multitask_model.py": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+    "./unirank/pytorch/models/rank_model.py": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+    "./unirank/pytorch/torch_utils.py": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+    "./unirank/utils.py": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+    "./uv.lock": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb"
+  },
+  "full_history_study": false,
+  "git_head": "b57362622e5d931b69b4bfe947385c7ed8757fed",
+  "git_status": " M experiments/sisa_three_seed_unified/report/README.md\n M experiments/sisa_three_seed_unified/report/build_selector.py\n M experiments/sisa_three_seed_unified/report/delivery_receipt.json\n M experiments/sisa_three_seed_unified/report/report.html\n M experiments/sisa_three_seed_unified/report/selector_catalog.json\n M experiments/sisa_three_seed_unified/report/selector_qa.json\n M experiments/sisa_three_seed_unified/report/selector_template.html\n M experiments/sisa_three_seed_unified/report/source_notes.md\n M tests/test_sisa_selection_report.py\n?? experiments/rise_discussion_validation_20260925/\n?? experiments/rise_discussion_validation_hiformer_20260925/\n?? experiments/rise_frozen_adaptation_20260925/\n?? experiments/rise_history_permutation_20260925/\n?? experiments/rise_history_permutation_analysis_20260925/\n",
+  "historical_attention_source": "./artifacts/rise_attention_redistribution/tencent_646303",
+  "identity_definition": "Same pre/post hook and identity gather; must match unmodified checkpoint predictions and earlier captured bias bitwise",
+  "labels": [
+    "is_click",
+    "is_conversion"
+  ],
+  "meta_csv_sha256": "db5330b97a5311ddddc3da777e7846c0bab6548ca761b46b4dd05941759bca69",
+  "model": "HiFormer",
+  "native_numerical_check": {
+    "bf16": "measure eager BF16 automatic-SDPA precision residual; compiler path is not the production main-route path; no bitwise invariance assumption",
+    "fp32_math_pool_atol": 1e-05,
+    "fp32_math_pool_rtol": 0.0001,
+    "raw_records": "jointly permute every item_dict history attribute and mask/multi_masks; candidate/nonhistory fields/labels fixed",
+    "rows": 64,
+    "window": 0
+  },
+  "native_order_wording": "data-provided/native history order; chronology is not presumed",
+  "no_matching": "No rowmean, RMS, moment, or sign normalization of recomputed correction",
+  "no_training": true,
+  "off_definition": "Same hook path, replace only inspected target-site score correction by zeros_like; all other RISE sites remain active",
+  "permutation_hashes": {
+    "identity": [
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd"
+    ],
+    "off": [
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd"
+    ],
+    "random": [
+      "d9928651f4680020acce9612a5c8fd50c6629d3741348de627999dd35031768e",
+      "1ec81f4d04efaf4bada6a2afa0b2f9eed5b6b0b7dc5ce48250cd35f78e496f4c",
+      "ccc5161983c455899269d8c2e60691a211ff8663d0368647eaf846c037c0353f",
+      "35321724f4d25dca101adeec2f4728f2ff2f6fef85fd79128f255bebcdb5f085",
+      "47d897613da7e42502b7eb4359c88c4990d490091a840ce6e68b540adbb7b624",
+      "aaba9468f3b16ebd15add9b167fb9a1f4dfbe49b9f3b7f128bbfd2036fe729dc",
+      "bc1231433ee2b14cf4e1697740b2b6f14ca7f1d80de09cd23bb330772449b000",
+      "c707b453594716e5f24d22466363cdea78f0007ecc8418dea96988b7b4a73f11"
+    ],
+    "reverse": [
+      "bd0cede888ddbe7845e939612a8a64e9c8d5cb43f9171378db6b5dcaafd43820",
+      "89c1a0bb1ff293eec86d97ca0699b0430f3139c14536b5bcff2c9e688585e9d0",
+      "281a63f12509b41892396c98446491797257dba901fe40d6ef28b2c8c6a7e6d0",
+      "8b2384df66c10a04e8e36bdd41e0ea5b5520f013499369d6f4a25a35a0d66874",
+      "5cd9484cab671c36a353be164b8084bbabe8e8bffb700e180c3dcbc952f3c8b2",
+      "20d254b0fc3e171cd82a7b8842bc2e3ecd83eb8146cc739fcd1ab756871f7da4",
+      "afecffc9b6ed4187419bc98ca9d2f9349cf4f3b962c486e00fbd84e8328c2089",
+      "39ec93c9175582c9750fcf845ffe8bf9b2b4b5e53cf3dc2993691eed6f45755e"
+    ]
+  },
+  "permutation_seed": 20260925,
+  "primary_click_label": "is_click",
+  "primary_eligible_rows": 131070,
+  "primary_endpoint": "Bitwise identity and off fidelity, not prediction quality",
+  "prior_probe_plan": "./experiments/rise_discussion_validation_hiformer_20260925/plan.json",
+  "prior_probe_results": "./experiments/rise_discussion_validation_hiformer_20260925/results_651691",
+  "random_seed_rule": "default_rng(base_seed + window_index), valid-index permutation independently per row",
+  "repair": "Remove all new SISA and pooling hooks; use only previous audited run_probe.run_route and Observer",
+  "route_definition": "Permute complete valid historical event embeddings entering target RISE, keep candidate last and padding fixed, compute native score module once, inverse-align key scores to original record identity; original Q/K/V/mask/scale unchanged",
+  "routes": [
+    "plain",
+    "identity_hook",
+    "replay_identity",
+    "replay_zero"
+  ],
+  "rows": 131072,
+  "runtime_hardware": "one NVIDIA H100 GPU; abort on other models",
+  "sampling": "Exactly the same eight preselected historical 16384-row windows; no new sampling or outcome selection",
+  "schema_version": 1,
+  "scope": "First original 16384-row window only; original/capture/replay/zero fidelity; no reverse/random treatment evaluated",
+  "secondary_endpoints": [
+    "all-row click BCE",
+    "all other labels",
+    "user-balanced click sensitivity",
+    "per-row centered correction change, attention TV, pooling and prediction differences"
+  ],
+  "source_protocol_failed_identity": true,
+  "training_params": {
+    "accumulation_steps": 1,
+    "attention_dropout": 0,
+    "batch_size": 16384,
+    "block_cache_size": 2,
+    "blocked": true,
+    "data_format": "parquet",
+    "data_root": "./datasets",
+    "dataloader_seed": 2027,
+    "dataset_id": "TencentGR_10M_Action",
+    "debug_mode": false,
+    "dense_learning_rate": 0.0001,
+    "dense_optimizer": "AdamW",
+    "dense_weight_decay": 0,
+    "distributed": true,
+    "early_stop_patience": 2,
+    "embedding_dim": 16,
+    "enable_bf16": true,
+    "enable_torch_compile": true,
+    "epochs": 1,
+    "eval_steps": null,
+    "expansion_factor": 2,
+    "feature_cols": [
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "seq_len",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_id",
+        "type": "categorical",
+        "vocab_size": 7706779
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_id",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 17487677
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "100",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 7
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "101",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 54
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "102",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 173463
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "112",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 31
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "114",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 34
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "115",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 989
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "116",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 21
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "117",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 559
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "118",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 1637
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "119",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 4951
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "120",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 4046
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "121",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 5041300
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "122",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 2389
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "103",
+        "type": "categorical",
+        "vocab_size": 88
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "104",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "105",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "109",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "106",
+        "type": "sequence",
+        "vocab_size": 15
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "107",
+        "type": "sequence",
+        "vocab_size": 20
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "108",
+        "type": "sequence",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "max_len": 5,
+        "name": "110",
+        "type": "sequence",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "day_of_week",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_weekend",
+        "type": "categorical",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "hour",
+        "type": "categorical",
+        "vocab_size": 25
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "action",
+        "source": "action",
+        "type": "categorical",
+        "vocab_size": 4
+      }
+    ],
+    "feature_config": null,
+    "feature_specs": null,
+    "gpu": 0,
+    "gradient_checkpointing": false,
+    "group_id": "user_index",
+    "label_col": [
+      {
+        "dtype": "float",
+        "name": "is_click"
+      },
+      {
+        "dtype": "float",
+        "name": "is_conversion"
+      }
+    ],
+    "local_rank": 0,
+    "loss": [
+      "binary_crossentropy",
+      "binary_crossentropy"
+    ],
+    "max_len": 100,
+    "metrics": [
+      "logloss",
+      "AUC"
+    ],
+    "model": "HiFormer",
+    "model_id": "SISA_single_seed_HiFormer_TencentGR_10M_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+    "model_root": "./checkpoints/",
+    "monitor": {
+      "AUC": 1,
+      "logloss": 0
+    },
+    "monitor_mode": "max",
+    "net_dropout": 0,
+    "num_heads": 2,
+    "num_layers": 3,
+    "num_tasks": 2,
+    "num_workers": 4,
+    "pickle_feature_encoder": true,
+    "qkv_rank": 256,
+    "rank": 0,
+    "rebuild_dataset": false,
+    "save_best_only": true,
+    "seed": 20262028,
+    "shuffle": true,
+    "sisa_enabled": true,
+    "sisa_lambda_init": 0.1,
+    "sisa_parameter_seed": 20260822,
+    "sisa_score_dim": 16,
+    "sisa_score_scale": 1.0,
+    "sparse_learning_rate": 0.05,
+    "sparse_optimizer": "Adagrad",
+    "task": "binary_classification",
+    "test_data": "./datasets/TencentGR_10M_Action/test/data",
+    "test_item_info": "./datasets/TencentGR_10M_Action/test/item_info",
+    "test_user_info": "./datasets/TencentGR_10M_Action/test/user_info",
+    "token_dim": 256,
+    "tower_activations": "ReLU",
+    "tower_hidden_units": [
+      128,
+      64
+    ],
+    "train_data": "./datasets/TencentGR_10M_Action/train/data",
+    "train_item_info": "./datasets/TencentGR_10M_Action/train/item_info",
+    "train_user_info": "./datasets/TencentGR_10M_Action/train/user_info",
+    "use_features": null,
+    "valid_data": "./datasets/TencentGR_10M_Action/valid/data",
+    "valid_item_info": "./datasets/TencentGR_10M_Action/valid/item_info",
+    "valid_user_info": "./datasets/TencentGR_10M_Action/valid/user_info",
+    "verbose": 1,
+    "world_size": 2
+  },
+  "uncertainty": "Independent analysis: 2000 paired user-cluster bootstrap draws, seed20260925; this is one checkpoint, not training replication"
+}

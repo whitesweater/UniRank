@@ -1,0 +1,13 @@
+{
+  "prepared_at_utc": "2026-09-25T15:00:26.738735+00:00",
+  "purpose": "Independent no-training history-permutation analysis; no experiment outcomes inspected",
+  "files_sha256": {
+    "analysis_plan.json": "f02048ab743a47b827953a25eb251713b76346e4bfd84e446d328764d0537c8a",
+    "analyze_permutation.py": "5e2809e7746c3d4d09f79461d86653a6d43a6066340b27ccf64c407f2b8531e4",
+    "permutation_statistics.py": "0495525791edb77c180ef5c44a0624a35e85b0b21f68691b9c651b9c9b2dd7bf",
+    "analyze_permutation.sbatch": "c8df19f0bc7b9e69a37e78c7e7673802afa2debcb6f6798e7c95a6dba7882c32",
+    "test_permutation_statistics.py": "1c0e949b04afcfe99bc62c6a7ecccf7e848787eb0e127f359a636a3efb0257ac",
+    "test_analysis_e2e.py": "cf521309fd2d3afcab2bc8f9a8082f18ab61ea689b834d6822c4b4c5570724c8",
+    "README.md": "30682ae3c6142db44bd57823450bf48860113dd2c2a4b8852020c0c713fa7d2a"
+  }
+}

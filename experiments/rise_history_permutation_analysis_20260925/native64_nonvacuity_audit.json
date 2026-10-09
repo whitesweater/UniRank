@@ -1,0 +1,455 @@
+{
+  "script_sha256": "c16d48d77bdae2ff60a6f591b3dbd8f4f7ea3873812b2525f019f847e99f215e",
+  "checks": [
+    {
+      "case": "rankmixer_kuairand",
+      "window_index": 0,
+      "rows": 64,
+      "eligible_rows": 64,
+      "history_lengths": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "source_sample_sha256": "3178cc655b31fdbd9fe6260a52c1d62e47b473de41d0e81966a69994c07d4ea0",
+      "runner_plan_sha256": "083b86a92bb9e2a3d3741b0349a7c7d908234976a7bb39b0415526257726bf03",
+      "no_training": true,
+      "cpu_only": true,
+      "routes": {
+        "reverse": {
+          "raw_event_positions_changed_any_attribute": 6400,
+          "rows_with_raw_history_content_change": 64,
+          "eligible_rows_with_no_raw_content_change": [],
+          "valid_index_positions_moved": 6400,
+          "candidate_fixed_all_attributes": true,
+          "padding_fixed_all_attributes": true,
+          "per_attribute": {
+            "music_type": {
+              "changed_scalar_entries": 3866,
+              "changed_history_positions": 3866,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "primary_tag": {
+              "changed_scalar_entries": 5910,
+              "changed_history_positions": 5910,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "item_id": {
+              "changed_scalar_entries": 6400,
+              "changed_history_positions": 6400,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "video_type": {
+              "changed_scalar_entries": 0,
+              "changed_history_positions": 0,
+              "rows_with_changed_history": 0,
+              "candidate_exactly_fixed": true
+            },
+            "duration_bucket": {
+              "changed_scalar_entries": 5008,
+              "changed_history_positions": 5008,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "action": {
+              "changed_scalar_entries": 780,
+              "changed_history_positions": 780,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            }
+          }
+        },
+        "random": {
+          "raw_event_positions_changed_any_attribute": 6329,
+          "rows_with_raw_history_content_change": 64,
+          "eligible_rows_with_no_raw_content_change": [],
+          "valid_index_positions_moved": 6329,
+          "candidate_fixed_all_attributes": true,
+          "padding_fixed_all_attributes": true,
+          "per_attribute": {
+            "music_type": {
+              "changed_scalar_entries": 3781,
+              "changed_history_positions": 3781,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "primary_tag": {
+              "changed_scalar_entries": 5815,
+              "changed_history_positions": 5815,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "item_id": {
+              "changed_scalar_entries": 6329,
+              "changed_history_positions": 6329,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "video_type": {
+              "changed_scalar_entries": 0,
+              "changed_history_positions": 0,
+              "rows_with_changed_history": 0,
+              "candidate_exactly_fixed": true
+            },
+            "duration_bucket": {
+              "changed_scalar_entries": 4928,
+              "changed_history_positions": 4928,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "action": {
+              "changed_scalar_entries": 765,
+              "changed_history_positions": 765,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            }
+          }
+        }
+      },
+      "interpretation": "Counts establish whether the existing 64-row numerical pooling check actually changes raw historical content; they do not quantify model performance."
+    },
+    {
+      "case": "hiformer_taac25",
+      "window_index": 0,
+      "rows": 64,
+      "eligible_rows": 64,
+      "history_lengths": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        97,
+        98,
+        99,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        80
+      ],
+      "source_sample_sha256": "64bad5e5c9abb7a234ad06f7f5fff212b01d4ff2dce027893bda1c8f224ff55a",
+      "runner_plan_sha256": "bfcbc9ce81fd4b1c264ac77d04da376d67f23ed5e51fb3636e61286c85274ef0",
+      "no_training": true,
+      "cpu_only": true,
+      "routes": {
+        "reverse": {
+          "raw_event_positions_changed_any_attribute": 5634,
+          "rows_with_raw_history_content_change": 64,
+          "eligible_rows_with_no_raw_content_change": [],
+          "valid_index_positions_moved": 5636,
+          "candidate_fixed_all_attributes": true,
+          "padding_fixed_all_attributes": true,
+          "per_attribute": {
+            "119": {
+              "changed_scalar_entries": 5208,
+              "changed_history_positions": 5208,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "122": {
+              "changed_scalar_entries": 3180,
+              "changed_history_positions": 3180,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "114": {
+              "changed_scalar_entries": 2706,
+              "changed_history_positions": 2706,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "115": {
+              "changed_scalar_entries": 1712,
+              "changed_history_positions": 1712,
+              "rows_with_changed_history": 63,
+              "candidate_exactly_fixed": true
+            },
+            "117": {
+              "changed_scalar_entries": 5198,
+              "changed_history_positions": 5198,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "item_id": {
+              "changed_scalar_entries": 5634,
+              "changed_history_positions": 5634,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "116": {
+              "changed_scalar_entries": 3772,
+              "changed_history_positions": 3772,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "101": {
+              "changed_scalar_entries": 4378,
+              "changed_history_positions": 4378,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "112": {
+              "changed_scalar_entries": 3638,
+              "changed_history_positions": 3638,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "118": {
+              "changed_scalar_entries": 5370,
+              "changed_history_positions": 5370,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "100": {
+              "changed_scalar_entries": 2654,
+              "changed_history_positions": 2654,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "121": {
+              "changed_scalar_entries": 5630,
+              "changed_history_positions": 5630,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "120": {
+              "changed_scalar_entries": 3212,
+              "changed_history_positions": 3212,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "102": {
+              "changed_scalar_entries": 5590,
+              "changed_history_positions": 5590,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "action": {
+              "changed_scalar_entries": 456,
+              "changed_history_positions": 456,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            }
+          }
+        },
+        "random": {
+          "raw_event_positions_changed_any_attribute": 5607,
+          "rows_with_raw_history_content_change": 64,
+          "eligible_rows_with_no_raw_content_change": [],
+          "valid_index_positions_moved": 5607,
+          "candidate_fixed_all_attributes": true,
+          "padding_fixed_all_attributes": true,
+          "per_attribute": {
+            "119": {
+              "changed_scalar_entries": 5188,
+              "changed_history_positions": 5188,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "122": {
+              "changed_scalar_entries": 3139,
+              "changed_history_positions": 3139,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "114": {
+              "changed_scalar_entries": 2753,
+              "changed_history_positions": 2753,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "115": {
+              "changed_scalar_entries": 1679,
+              "changed_history_positions": 1679,
+              "rows_with_changed_history": 63,
+              "candidate_exactly_fixed": true
+            },
+            "117": {
+              "changed_scalar_entries": 5184,
+              "changed_history_positions": 5184,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "item_id": {
+              "changed_scalar_entries": 5607,
+              "changed_history_positions": 5607,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "116": {
+              "changed_scalar_entries": 3735,
+              "changed_history_positions": 3735,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "101": {
+              "changed_scalar_entries": 4275,
+              "changed_history_positions": 4275,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "112": {
+              "changed_scalar_entries": 3537,
+              "changed_history_positions": 3537,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "118": {
+              "changed_scalar_entries": 5353,
+              "changed_history_positions": 5353,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "100": {
+              "changed_scalar_entries": 2557,
+              "changed_history_positions": 2557,
+              "rows_with_changed_history": 54,
+              "candidate_exactly_fixed": true
+            },
+            "121": {
+              "changed_scalar_entries": 5604,
+              "changed_history_positions": 5604,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "120": {
+              "changed_scalar_entries": 3215,
+              "changed_history_positions": 3215,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "102": {
+              "changed_scalar_entries": 5574,
+              "changed_history_positions": 5574,
+              "rows_with_changed_history": 64,
+              "candidate_exactly_fixed": true
+            },
+            "action": {
+              "changed_scalar_entries": 439,
+              "changed_history_positions": 439,
+              "rows_with_changed_history": 63,
+              "candidate_exactly_fixed": true
+            }
+          }
+        }
+      },
+      "interpretation": "Counts establish whether the existing 64-row numerical pooling check actually changes raw historical content; they do not quantify model performance."
+    }
+  ]
+}

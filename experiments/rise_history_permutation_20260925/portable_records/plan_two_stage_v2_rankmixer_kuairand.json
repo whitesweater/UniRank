@@ -1,0 +1,611 @@
+{
+  "case": "rankmixer_kuairand",
+  "checkpoint": {
+    "bytes": 2067202270,
+    "mtime_ns": 1787666426658294000,
+    "path": "./checkpoints/KuaiRand_Video_Action/SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model"
+  },
+  "checkpoint_sha256": "d8b98a9a9c35e5c8b6d636a1bb05ae60b00ded8aa0fe7f0b5fb2bfdcdc5c9e0b",
+  "dataset": "KuaiRand_Video_Action",
+  "failed_v1": "Identity fidelity failed before any permutation outcomes; preserved under failure_archive/array_652246",
+  "first_window_preflight": "Run fidelity_v2 original/capture/replay/zero on first16384 rows; abort unless all strict gates pass",
+  "frozen_files_sha256": {
+    "./artifacts/rise_attention_semantic/kuairand_646410/complete.json": "78907211d346e7f9009708a5ac6570f00c440b48711156256c9e003bfa4ed4f1",
+    "./artifacts/rise_attention_semantic/kuairand_646410/label_sensitivity.csv": "be204f8fd7842a1a2336d5295be3f89a512e05d150768aed8dded3fff95f4237",
+    "./artifacts/rise_attention_semantic/kuairand_646410/local_intervention_gate.json": "cfdb9385e6afcc64131433ef5462dec30ec2da3d131eb6ab8c138c4ad01f3474",
+    "./artifacts/rise_attention_semantic/kuairand_646410/manifest.json": "410883e7e654db5ee92319b9cd241d6cb14a3cce0133dda816662ebbf7da5c99",
+    "./artifacts/rise_attention_semantic/kuairand_646410/meta.csv": "c1a4077715007b4977d5d56205b1bb78c194ce43602837348e7a1bdf5f0db850",
+    "./artifacts/rise_attention_semantic/kuairand_646410/prediction_gate.json": "37f38a8cb339ac6d9123a014f010731af5056c7e8a54202257701443f6a99541",
+    "./artifacts/rise_attention_semantic/kuairand_646410/predictions.csv": "5eb1aab7f6e5ee0f619caf0004321ae9e99e1dee5e03c8b65cc1d0fc720ec04b",
+    "./artifacts/rise_attention_semantic/kuairand_646410/progress.json": "1c44ed70c06f45fa442643f5e2fcf8e09366144bb1ea2a65db2b8bb0629c87dd",
+    "./artifacts/rise_attention_semantic/kuairand_646410/raw_attention.npz": "2c3376f94e0d52f274466732bed81e38e17ceeec73f0653e2a51f48475528eef",
+    "./artifacts/rise_attention_semantic/kuairand_646410/sample_batches.pt": "3178cc655b31fdbd9fe6260a52c1d62e47b473de41d0e81966a69994c07d4ea0",
+    "./artifacts/rise_attention_semantic/kuairand_646410/stats.csv": "9c4d97540eb990fe96e27e462dec9bf082f11e48e93b24446779a432e7b24191",
+    "./artifacts/rise_attention_semantic/kuairand_646410/summary.json": "98c568d648e7cd861b1327304c534a4205248a0c305f61c3864b822203f2ad19",
+    "./checkpoints/KuaiRand_Video_Action/SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.log": "15b4f3d1ebcdfffc0758e50321149a1b4289ee1c4cef5e83fdecebee42dde18e",
+    "./checkpoints/KuaiRand_Video_Action/SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1.model": "d8b98a9a9c35e5c8b6d636a1bb05ae60b00ded8aa0fe7f0b5fb2bfdcdc5c9e0b",
+    "./datasets/KuaiRand_Video_Action/meta_data.json": "986bb71061abb16089a42d1f3d5061b39c6b05abefe1e89458c014d1c347e40d",
+    "./experiments/rise_attention_semantic/protocol.md": "527a59fdfdfd2de29716fbb068f3e979540750eee84036ec253f4192b3b2c8c1",
+    "./experiments/rise_discussion_validation_20260925/README.md": "c7c0c0482070104c96deb49ad01fd3442ea438b0b3bb5d1947673c57ba344dcd",
+    "./experiments/rise_discussion_validation_20260925/plan.json": "1feecba039e6d1c44db8662c39176ea7b54604233f5d438a7da4ee88babdf652",
+    "./experiments/rise_discussion_validation_20260925/probe_math.py": "f41fd0b9f145d2ba2031e7a5360bf60d4d70ce47553257acad35a783058a7358",
+    "./experiments/rise_discussion_validation_20260925/results_651654/complete.json": "5c65430ab9b5e31672c73466474f6718dd6bad66a08a6bcfb10b6d93a13cc6a1",
+    "./experiments/rise_discussion_validation_20260925/results_651654/gates.json": "63028c55ec54d8dbbf1f873b04f9042b179e81f9cacc9d5d779e7c77908e249c",
+    "./experiments/rise_discussion_validation_20260925/results_651654/meta.csv": "25910db28e8bc9bcfb3d9a01aea03f3f8a4121a281d10d407e037eb0da968a3f",
+    "./experiments/rise_discussion_validation_20260925/results_651654/predictions.csv": "4f6bf5ed785a7ce057726f900ec6bfe968428842ac661e7d7d8cf9a5a2254aea",
+    "./experiments/rise_discussion_validation_20260925/run_probe.py": "b83d15f2cc2d72031894814491ac72f2a2cc86807377046ae619b8a8b49fed5c",
+    "./experiments/rise_discussion_validation_20260925/submit_probe.sbatch": "5890ff79afef4be649637e0cb289cf54a3512fe4fae15a629dba7b21586de487",
+    "./experiments/rise_discussion_validation_20260925/test_probe_math.py": "f5d7fd7fe9f4a63e6b2c8ecd5ef97fdfa674118bcd7d432096fed1a6f7a1cf8f",
+    "./experiments/rise_history_permutation_20260925/README.md": "51edb939da87384af81bcbe2199d88487971cc60d6c69c0837c581f93084d2ee",
+    "./experiments/rise_history_permutation_20260925/README_v2.md": "6062e7c8c0aa6623766046b88748b8a337cfcfd5c376fa1495c2d5669530c398",
+    "./experiments/rise_history_permutation_20260925/fidelity_v2.py": "e49ce86cd6830f6e1136c97427d9d41313e9ae9956196a16ab8ac0d5b5de3dc0",
+    "./experiments/rise_history_permutation_20260925/permutation_math.py": "c9d0236409bff60e5542b171ffa5e290395f34f9c0ffd81b139da00d9c34e674",
+    "./experiments/rise_history_permutation_20260925/plan_fidelity_v2_rankmixer_kuairand.json": "126d0c8c596041c43c614a67efe8888b43c8e5cbcb69645c2f614bb600e2ab7e",
+    "./experiments/rise_history_permutation_20260925/plan_rankmixer_kuairand.json": "083b86a92bb9e2a3d3741b0349a7c7d908234976a7bb39b0415526257726bf03",
+    "./experiments/rise_history_permutation_20260925/run_permutation.py": "7b11671cbb1fbc086e1990880a17c993757e73588c158b936f974b32ddb843ae",
+    "./experiments/rise_history_permutation_20260925/run_two_stage_v2.py": "d280f18e725726ff6463c875d1abb59010de36733666d4ca3100d6d42d70744a",
+    "./experiments/rise_history_permutation_20260925/submit_fidelity_v2.sbatch": "f2e882ed8745bc840b06e495caefc6e4337c925b61098976124e78922b98ea87",
+    "./experiments/rise_history_permutation_20260925/submit_permutation.sbatch": "34f39c5b94c6fb387b1584eb20296d6229a6a759132eee13178ba09e7fd41155",
+    "./experiments/rise_history_permutation_20260925/submit_two_stage_v2.sbatch": "a14795988de2ebe4297dfa98e5111608f6011243ac2c6aa3f58e6d5a475ae983",
+    "./experiments/rise_history_permutation_20260925/test_permutation.py": "5a33063cca15c4031fefff080926a216e03eb7a556b2516fca3db6ce679e8843",
+    "./experiments/rise_sample_analysis/scripts/export_hiformer_predictions.py": "e704b5fa30e09a494c568e0c5c6cdcb7686b0cc984ac86bf8593e0b6e0cd5107",
+    "./experiments/rise_sample_analysis/scripts/export_predictions.py": "faa38a594284ee2331f5c6f74503a0cff9f892d0bbab12eb2f289ac7beb44995",
+    "./experiments/rise_sample_analysis/scripts/observe_mechanism.py": "e5b36ed694454a40d6f7468652b2716f9de05f8f3812b4b8f274218351251f4d",
+    "./experiments/sisa_single_seed20262028/results/runs.csv": "f3f55bd09763ff21e32ba5db402c7370055a1fdc742dcda7ab23d3b64119b380",
+    "./model_zoo/EST.py": "94bb0d53a42c6da8f83012db39fc43fb65a1af2f51ee9dbfd1773185d5f9dd09",
+    "./model_zoo/HeMix.py": "c93117a7cbbc11f58944a872601be16f2b7385cf0b1000141d53a1460bca545a",
+    "./model_zoo/HiFormer.py": "c46d8459f6f6c99c708af5f02af7e2dd29dc94874a1e41dd169ab7bc3cd1e464",
+    "./model_zoo/HyFormer.py": "1da7850f1f49e68801e7cd9c34217cf07854109a59a0cc860c229027e77cc6b1",
+    "./model_zoo/INFNet.py": "e3750a73af1ceb6b2be4bf9355b70a9ad356985a3c465ef27238ef7e0f28fb4c",
+    "./model_zoo/LONGER.py": "c53f0522f0c467661d6b65c11476a3cab05e98e386937a5a9cc5df5bd2c9e77d",
+    "./model_zoo/MixFormer.py": "22b11a32da1fdcc65790377e20dddaf6663961cf47c99cae66c452bbcffc81d0",
+    "./model_zoo/OneTrans.py": "7af381400539ba0ff632a1854036a7fc8bfd949fac1b39287d636a604ea98ef4",
+    "./model_zoo/RankMixer.py": "9f4ad726b4f1ea46973f62411d34191e2c3b1c367d88b382fdd234cb42057b0d",
+    "./model_zoo/SSR.py": "c1d77d59475cafb543997e437a6c9a88b5a103edb8f73e9f387a7483d579a425",
+    "./model_zoo/TokenFormer.py": "3a97b6c128b6c8eb130187fc157f12539ce3cc3b8bec6880d5400362574ce0ed",
+    "./model_zoo/TokenMixer.py": "fa106d28184521fd2cbbfeddeada4fb756534651eb74a24639e6a0e8386f3bba",
+    "./model_zoo/UltraHSTU.py": "522a1f04b2430a8fde06cad20ead3061f2ca6b243209960f2f8388879d55fc03",
+    "./model_zoo/UniMixer.py": "0112e08a33c98a90ee32c08aedcc3688c2744495eaac103049e1d3e070cc4f48",
+    "./model_zoo/Zenith.py": "c514a153c6fcf6ef2431d4805d2dce68038ca89e8250633c1bf702a407497545",
+    "./model_zoo/__init__.py": "18cc6da6fdad00ec067e3f422cc97c2ec328d6b894c3e220ea24370f82c7960b",
+    "./pyproject.toml": "a6d6bf168e3a2d3cca39a60ffc3b8bca10246fcedca300d25ba79c5d5b216958",
+    "./scripts/export_rise_attention_redistribution.py": "da43dabf545b691deac3da2ae8d5b0eca40cb0f804f61c65060bcc1346b09799",
+    "./scripts/export_rise_semantic_attention.py": "0d83658ec438bd594c275697e8ef28bb2a4dc81e6d657d6edc3f2e8c05f7ac79",
+    "./scripts/submit_rise_semantic_attention.sbatch": "e34ac3acbe65fd091096e6f18d331daf6fd00486223d72a08524de0006f0cbf4",
+    "./unirank/__init__.py": "062df8fc3f78dfd33509e967efe06918db22e386f70416bd161325e321139225",
+    "./unirank/features.py": "963927f5abd1ae1663021db007fc5c4a8494cd42f3c4a6a5a126d98ff714ad30",
+    "./unirank/metrics.py": "9f7fc81d324d3a6b3b02f4c6c2ca60584d33422604d123465333e6ed5faf9002",
+    "./unirank/preprocess/__init__.py": "94e2632ad4f80992cff7ea029b3b3d4c042e2772d2a2e5ad8f95011511c24459",
+    "./unirank/preprocess/build_dataset.py": "48788c103a0b1c80f69e5a5347a35e276778b1aa573f1db2fd36d033d1d8926f",
+    "./unirank/preprocess/feature_processor.py": "beb11b529c4fa205b52beeb36fc53e9e0c7dc1779a93319581d25b1cbfe460d3",
+    "./unirank/preprocess/normalizer.py": "9a5d39ec5e9d5ffeb64a408a96b69957f3e4a896ffd4b4c413df974c83400d5f",
+    "./unirank/preprocess/tokenizer.py": "8a083469080b56c3b5b442edcd754a054a57f19a2620e8955f5e718965a36600",
+    "./unirank/pytorch/__init__.py": "4e48fc7becbaabd16b3568912625941ab7e906bd45210330a83ce8fa9e2e55d5",
+    "./unirank/pytorch/dataloaders/__init__.py": "dfa6ef382d1061526d6de3ee44921f4c5204d822bcb946e24a7e5426faad0222",
+    "./unirank/pytorch/dataloaders/rank_dataloader.py": "9fbd9cc1c0687d17738e67f28492aad4684d68f0894ac77656cac0f351515fd2",
+    "./unirank/pytorch/dataloaders/unirank_dataloader.py": "50d7f62b0fab10d473e7e5f32e07f11b09236fc090c18c0258d9c52e52885566",
+    "./unirank/pytorch/layers/__init__.py": "c0f149650f67341bb4e3cded7439ab55f1b2b8fbb48d825e2c782d15bdc18bee",
+    "./unirank/pytorch/layers/activations.py": "a956a5b1836b3ba5552a910314960094be644d45112ffc0ab3e7799f701ddc3c",
+    "./unirank/pytorch/layers/attentions/__init__.py": "9a0fba305d172bbf1431f68e9ac5837d3621ce96ce857dcc72deb4f905d09e6f",
+    "./unirank/pytorch/layers/attentions/dot_product_attention.py": "3ab795c130996ad07fb48efb17972431e73b645fe822c1a93963c138e1b73fad",
+    "./unirank/pytorch/layers/attentions/sisa.py": "b8bf3cc49a205dc60a9f9678cad5ce2b192b0e90554490d3de2cf5ea39c57465",
+    "./unirank/pytorch/layers/attentions/target_attention.py": "10f9d5772863aaa06ba1abb5b6f903d9b9a92d4f7cb561fde8df19b9951cea47",
+    "./unirank/pytorch/layers/blocks/__init__.py": "465b5b179d48f1dc20a415c6fd2d25fd350afae6b6a24a05d7af678eff6732da",
+    "./unirank/pytorch/layers/blocks/mlp_block.py": "248428f57625af4d972a40ff1448073860ee77835c92a4468a6db1c3b535c6a0",
+    "./unirank/pytorch/layers/embeddings/__init__.py": "0f91d81f2d143d5cde3a9e04c974636633f5e5c80c4075da099905bc2bca8ae7",
+    "./unirank/pytorch/layers/embeddings/feature_embedding.py": "6bf3ca96076a86d28a3ebfbb02416baa5f18d085347e67d2e65431ba1075d732",
+    "./unirank/pytorch/layers/embeddings/pretrained_embedding.py": "87dc080e23baf4c02317828a339627279cb6e225893189869434b49fc0c343f1",
+    "./unirank/pytorch/layers/interactions/__init__.py": "b578042d93fc636cd0f2a246d11232dfdf42d46feb483c89c02ebb7fa8282b60",
+    "./unirank/pytorch/layers/interactions/per_token_ffn.py": "20942f9b73d6401e944b2f4296f4ccf8e50a923e373cedab2b24390f04ec61ee",
+    "./unirank/pytorch/layers/interactions/token_mix.py": "ca8683f57c6260a47736c26ed3cd539990e970a655a1cf581a6685b1052089a0",
+    "./unirank/pytorch/layers/pooling.py": "641c0eba7226bd7f765def0f02202d04607dac6f40079b18236d2c3a04bc2612",
+    "./unirank/pytorch/layers/tokenization/__init__.py": "8c69b05664dca26fc9096b3d26e5a97be11d7023559a3da9cbe1df9ca5a2686b",
+    "./unirank/pytorch/layers/tokenization/auto_split_tokenizer.py": "f26c91982e2f7770554fb8cd18f516e13fc05b49e6ece684104ecd3924608274",
+    "./unirank/pytorch/layers/tokenization/chunk_tokenizer.py": "33d90d256f62789f6d39d2f224f4319e22effa1a7de1176c818cc4e71d8fc16e",
+    "./unirank/pytorch/layers/tokenization/field_wise_tokenizer.py": "eaeb76c2fd9ab32401365a3aac570fff6f4f68133786b0d838cf311b0e094ba5",
+    "./unirank/pytorch/layers/tokenization/random_split_tokenizer.py": "2c25ceebb4b0f21713a024c5fef864e0304856ae92f7a446b175aee8c6aedb71",
+    "./unirank/pytorch/layers/tokenization/unified_tokenizer.py": "71074fda5556144eac2a01b7a0dda2d06181f4323f2fac0e96c2df605e2b8abe",
+    "./unirank/pytorch/models/__init__.py": "f81b71e4cf62a98ca589c169106ecd8cc459d299bb9c4a3c5cb63842217120fe",
+    "./unirank/pytorch/models/multitask_model.py": "abe8fd1999fadf50bd641c1e52dde3e26200a1d4494b8fe0ffb44c26e2f0ef6f",
+    "./unirank/pytorch/models/rank_model.py": "7429c773ac4dcb8e70bf81a3e6531b366abc4b70fd864d4d4f1c40ff4837d3dc",
+    "./unirank/pytorch/torch_utils.py": "cfdb651f69e6a6067313a1d63f632d5a317ef5dffe1e3e5d3173f0f463ec3788",
+    "./unirank/utils.py": "ecc037247e5293a081110bbc04b695dba0ad7ca39dddc5217e6208115ca5cf9a",
+    "./uv.lock": "544efa2fbe3adbea1daa5f4052af9f85f35a8ee69faca5069c4afa1cfda54cdb"
+  },
+  "git_head": "b57362622e5d931b69b4bfe947385c7ed8757fed",
+  "git_status": " M experiments/sisa_three_seed_unified/report/README.md\n M experiments/sisa_three_seed_unified/report/build_selector.py\n M experiments/sisa_three_seed_unified/report/delivery_receipt.json\n M experiments/sisa_three_seed_unified/report/report.html\n M experiments/sisa_three_seed_unified/report/selector_catalog.json\n M experiments/sisa_three_seed_unified/report/selector_qa.json\n M experiments/sisa_three_seed_unified/report/selector_template.html\n M experiments/sisa_three_seed_unified/report/source_notes.md\n M tests/test_sisa_selection_report.py\n?? experiments/rise_discussion_validation_20260925/\n?? experiments/rise_discussion_validation_hiformer_20260925/\n?? experiments/rise_frozen_adaptation_20260925/\n?? experiments/rise_history_permutation_20260925/\n?? experiments/rise_history_permutation_analysis_20260925/\n",
+  "historical_attention_source": "./artifacts/rise_attention_semantic/kuairand_646410",
+  "identity_definition": "Capture original native Delta and replay it on original records with audited Observer; must match historical/full original predictions and bias bitwise",
+  "inside_model_hooks": "Only unchanged old run_probe.Observer at dot_attention; NO SISA or pooling hooks in main routes",
+  "labels": [
+    "is_click",
+    "is_follow",
+    "is_like",
+    "is_comment",
+    "is_forward",
+    "long_view"
+  ],
+  "meta_csv_sha256": "cf84a5a4b1b6366166269e3f845756eb40fc6ee8a7964bd8dbf81e64b0f0bd24",
+  "model": "RankMixer",
+  "native_content_alignment": "During StageA, inverse-align actual captured native K/V outside forward and require original hash equality; candidate query and mask also exact",
+  "native_numerical_check": {
+    "bf16": "measure eager BF16 automatic-SDPA precision residual; compiler path is not the production main-route path; no bitwise invariance assumption",
+    "fp32_math_pool_atol": 1e-05,
+    "fp32_math_pool_rtol": 0.0001,
+    "raw_records": "jointly permute every item_dict history attribute and mask/multi_masks; candidate/nonhistory fields/labels fixed",
+    "rows": 64,
+    "window": 0
+  },
+  "native_order_wording": "data-provided/native history order; chronology is not presumed",
+  "no_matching": "No rowmean, RMS, moment, or sign normalization of recomputed correction",
+  "no_training": true,
+  "off_definition": "Replay zeros_like on original records with audited Observer; bitwise match historical local_off on all rows",
+  "permutation_hashes": {
+    "identity": [
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd"
+    ],
+    "off": [
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd",
+      "d60c148e751bb1ec44002ab23b6b052c0c5cecec9d4fd77732dda03d75c231bd"
+    ],
+    "random": [
+      "1c46cc40e4cbe69244bdc81d12ee7329fc4afa46660eb97fbec18b532759af67",
+      "0c472d83bf0f8b470a4292d223c56180fca137779adc62c01075b261aa0b3750",
+      "af26e14fe5abab91f524de3ef79f1b947a2f64b168709282d707f28694ec853f",
+      "c187a8360f74677c1f50dc0e194906ff46b80802a4b6559c8b5ec1e9f54cb9fe",
+      "f5c605d03f8b3b926520d06239178763e93e42935642d05df9c9f816a2c55fd8",
+      "59518dead24e6c04d810d54889a650b7e6b2ff0248900d84b38fba7a94dc7b70",
+      "ee1c93c108f2df60af8bf7ef9985cabed305455800fcd146a2a00f9cfdf4fbc7",
+      "beaec8b289ccfbcf30c8f6d8ef17e784944b6181fcbcb9937da49935cb7c7ade"
+    ],
+    "reverse": [
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060",
+      "5cd3b9bbe8b8afcf5c7c8865945bf5483a110bd861a83469d63116f70c876060"
+    ]
+  },
+  "permutation_seed": 20260925,
+  "pooling_measurement": "No main-route pooling capture; separate64-row eager native numerical check only",
+  "primary_click_label": "is_click",
+  "primary_eligible_rows": 131072,
+  "primary_endpoint": "Mean paired click BCE(permuted correction)-BCE(identity), length>=2; reverse and one fixed shuffle separately",
+  "prior_probe_plan": "./experiments/rise_discussion_validation_20260925/plan.json",
+  "prior_probe_results": "./experiments/rise_discussion_validation_20260925/results_651654",
+  "protocol_revision": "native_capture_original_input_replay_v2",
+  "random_seed_rule": "default_rng(base_seed + window_index), valid-index permutation independently per row",
+  "route_definition": "StageA jointly permutes raw history item attributes and masks outside compiled model, using only historical audited dot Observer to capture native BF16 Delta. Inverse-align captured key-axis Delta. StageB replays it on original raw records with the same audited Observer replacement tensor; Q/K/V/mask/scale unchanged.",
+  "routes": [
+    "identity",
+    "off",
+    "reverse",
+    "random"
+  ],
+  "rows": 131072,
+  "runtime_hardware": "one NVIDIA H100 GPU; abort on other models",
+  "sampling": "Exactly the same eight preselected historical 16384-row windows; no new sampling or outcome selection",
+  "schema_version": 2,
+  "secondary_endpoints": [
+    "all-row click BCE",
+    "all other labels",
+    "user-balanced click sensitivity",
+    "centered correction change, attention TV and prediction differences"
+  ],
+  "training_params": {
+    "accumulation_steps": 1,
+    "attention_dropout": 0,
+    "batch_size": 16384,
+    "block_cache_size": 2,
+    "blocked": true,
+    "data_format": "parquet",
+    "data_root": "./datasets",
+    "dataloader_seed": 2027,
+    "dataset_id": "KuaiRand_Video_Action",
+    "debug_mode": false,
+    "dense_learning_rate": 0.0001,
+    "dense_optimizer": "AdamW",
+    "dense_weight_decay": 0,
+    "distributed": true,
+    "early_stop_patience": 2,
+    "embedding_dim": 16,
+    "enable_bf16": true,
+    "enable_torch_compile": true,
+    "epochs": 1,
+    "eval_steps": null,
+    "expansion_factor": 2,
+    "feature_cols": [
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_index",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "seq_len",
+        "type": "meta"
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_id",
+        "type": "categorical",
+        "vocab_size": 27286
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "item_id",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 32038726
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "video_type",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "primary_tag",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 60
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "music_type",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "duration_bucket",
+        "source": "item",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "user_active_degree",
+        "type": "categorical",
+        "vocab_size": 11
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_lowactive_period",
+        "type": "categorical",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_live_streamer",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_video_author",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "follow_user_num_range",
+        "type": "categorical",
+        "vocab_size": 10
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "fans_user_num_range",
+        "type": "categorical",
+        "vocab_size": 11
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "friend_user_num_range",
+        "type": "categorical",
+        "vocab_size": 9
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "register_days_range",
+        "type": "categorical",
+        "vocab_size": 10
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat0",
+        "type": "categorical",
+        "vocab_size": 4
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat1",
+        "type": "categorical",
+        "vocab_size": 9
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat2",
+        "type": "categorical",
+        "vocab_size": 52
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat3",
+        "type": "categorical",
+        "vocab_size": 1473
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat4",
+        "type": "categorical",
+        "vocab_size": 18
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat5",
+        "type": "categorical",
+        "vocab_size": 36
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat6",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat7",
+        "type": "categorical",
+        "vocab_size": 120
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat8",
+        "type": "categorical",
+        "vocab_size": 456
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat9",
+        "type": "categorical",
+        "vocab_size": 9
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat10",
+        "type": "categorical",
+        "vocab_size": 7
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat11",
+        "type": "categorical",
+        "vocab_size": 7
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat12",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat13",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat14",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat15",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat16",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "onehot_feat17",
+        "type": "categorical",
+        "vocab_size": 5
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "tab",
+        "type": "categorical",
+        "vocab_size": 16
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "day_of_week",
+        "type": "categorical",
+        "vocab_size": 8
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "is_weekend",
+        "type": "categorical",
+        "vocab_size": 3
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "hour",
+        "type": "categorical",
+        "vocab_size": 25
+      },
+      {
+        "active": true,
+        "dtype": "int",
+        "name": "action",
+        "source": "action",
+        "type": "categorical",
+        "vocab_size": 65
+      }
+    ],
+    "feature_config": null,
+    "feature_specs": null,
+    "gpu": 0,
+    "gradient_checkpointing": false,
+    "group_id": "user_id",
+    "label_col": [
+      {
+        "dtype": "float",
+        "name": "is_click"
+      },
+      {
+        "dtype": "float",
+        "name": "is_follow"
+      },
+      {
+        "dtype": "float",
+        "name": "is_like"
+      },
+      {
+        "dtype": "float",
+        "name": "is_comment"
+      },
+      {
+        "dtype": "float",
+        "name": "is_forward"
+      },
+      {
+        "dtype": "float",
+        "name": "long_view"
+      }
+    ],
+    "local_rank": 0,
+    "loss": [
+      "binary_crossentropy",
+      "binary_crossentropy",
+      "binary_crossentropy",
+      "binary_crossentropy",
+      "binary_crossentropy",
+      "binary_crossentropy"
+    ],
+    "max_len": 100,
+    "metrics": [
+      "logloss",
+      "AUC"
+    ],
+    "model": "RankMixer",
+    "model_id": "SISA_single_seed_RankMixer_KuaiRand_Video_Action_sisa_seed20262028_ws2_bs16384_acc1_attempt1",
+    "model_root": "./checkpoints/",
+    "monitor": {
+      "AUC": 1,
+      "logloss": 0
+    },
+    "monitor_mode": "max",
+    "net_dropout": 0,
+    "num_layers": 3,
+    "num_ns_token": 4,
+    "num_tasks": 6,
+    "num_workers": 4,
+    "pickle_feature_encoder": true,
+    "rank": 0,
+    "rebuild_dataset": false,
+    "save_best_only": true,
+    "seed": 20262028,
+    "shuffle": true,
+    "sisa_enabled": true,
+    "sisa_lambda_init": 0.1,
+    "sisa_parameter_seed": 20260822,
+    "sisa_score_dim": 16,
+    "sisa_score_scale": 1.0,
+    "sparse_learning_rate": 0.05,
+    "sparse_optimizer": "Adagrad",
+    "task": "binary_classification",
+    "test_data": "./datasets/KuaiRand_Video_Action/test/data",
+    "test_item_info": "./datasets/KuaiRand_Video_Action/test/item_info",
+    "test_user_info": "./datasets/KuaiRand_Video_Action/test/user_info",
+    "token_dim": 256,
+    "tokenizer_type": "Chunk",
+    "tower_activations": "ReLU",
+    "tower_hidden_units": [
+      128,
+      64
+    ],
+    "train_data": "./datasets/KuaiRand_Video_Action/train/data",
+    "train_item_info": "./datasets/KuaiRand_Video_Action/train/item_info",
+    "train_user_info": "./datasets/KuaiRand_Video_Action/train/user_info",
+    "use_features": null,
+    "valid_data": "./datasets/KuaiRand_Video_Action/valid/data",
+    "valid_item_info": "./datasets/KuaiRand_Video_Action/valid/item_info",
+    "valid_user_info": "./datasets/KuaiRand_Video_Action/valid/user_info",
+    "verbose": 1,
+    "world_size": 2
+  },
+  "uncertainty": "Independent analysis: 2000 paired user-cluster bootstrap draws, seed20260925; this is one checkpoint, not training replication"
+}

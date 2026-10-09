@@ -1,0 +1,59 @@
+{
+  "rankmixer_kuairand": {
+    "native_mask_equals_frozen_cached_input": true,
+    "mask_source_sample_sha256": "3178cc655b31fdbd9fe6260a52c1d62e47b473de41d0e81966a69994c07d4ea0",
+    "prior_native_attention_sha256": "db485edb59d8bfb0c9af2f0a6d97b1f421997cfd7b474a6fff25412f06d6d88d",
+    "score_by_route_sha256": "680b5a5b48f4249b0623615e60caef310dabaac2d04cf2e6d28a49bf44214420",
+    "nonfinite_original_diagnostics": [],
+    "recomputation": "Float64 valid-key centering and stable masked softmax from saved native scores/corrections and independently verified cached mask. Invalid positions use np.where; empty history has zero attention mass and thus zero L1 change. Raw diagnostic files and all prediction/BCE results remain unchanged."
+  },
+  "hiformer_taac25": {
+    "native_mask_equals_frozen_cached_input": true,
+    "mask_source_sample_sha256": "64bad5e5c9abb7a234ad06f7f5fff212b01d4ff2dce027893bda1c8f224ff55a",
+    "prior_native_attention_sha256": "55f142de67bbbbd74f9585fec844d930975b92a172ad2e4cf5f87f60731ef3ab",
+    "score_by_route_sha256": "b6bdccb65ed884d0b9a10c19a38f937a0bf5016bca5fec47f113ef79825162ed",
+    "nonfinite_original_diagnostics": [
+      {
+        "route": "identity",
+        "quantity": "attention_tv",
+        "row_index": 7488,
+        "effective_length": 0,
+        "cached_mask_valid_keys": 0,
+        "stored_correction_finite_coordinates": 100,
+        "raw_value": "nonfinite",
+        "recomputed_value": 0.0
+      },
+      {
+        "route": "off",
+        "quantity": "attention_tv",
+        "row_index": 7488,
+        "effective_length": 0,
+        "cached_mask_valid_keys": 0,
+        "stored_correction_finite_coordinates": 100,
+        "raw_value": "nonfinite",
+        "recomputed_value": 0.0
+      },
+      {
+        "route": "reverse",
+        "quantity": "attention_tv",
+        "row_index": 7488,
+        "effective_length": 0,
+        "cached_mask_valid_keys": 0,
+        "stored_correction_finite_coordinates": 100,
+        "raw_value": "nonfinite",
+        "recomputed_value": 0.0
+      },
+      {
+        "route": "random",
+        "quantity": "attention_tv",
+        "row_index": 7488,
+        "effective_length": 0,
+        "cached_mask_valid_keys": 0,
+        "stored_correction_finite_coordinates": 100,
+        "raw_value": "nonfinite",
+        "recomputed_value": 0.0
+      }
+    ],
+    "recomputation": "Float64 valid-key centering and stable masked softmax from saved native scores/corrections and independently verified cached mask. Invalid positions use np.where; empty history has zero attention mass and thus zero L1 change. Raw diagnostic files and all prediction/BCE results remain unchanged."
+  }
+}

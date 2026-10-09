@@ -1,0 +1,36 @@
+{
+  "previous_native64_receipt_sha256": "7a29d0cdd5c66654845490a4d34b90ae15bfb0b9e308a76f6a7c4dced09cabee",
+  "input_only_check": true,
+  "permutation_outcomes_inspected": false,
+  "reused_without_new_sampling": true,
+  "checks": [
+    {
+      "case": "rankmixer_kuairand",
+      "v1_plan_sha256": "083b86a92bb9e2a3d3741b0349a7c7d908234976a7bb39b0415526257726bf03",
+      "v2_plan_sha256": "0d905976a3acc58f4cabcaa5ee4abf9024be794f0f759704918c26cc548ae465",
+      "equal_fields": {
+        "checkpoint_sha256": true,
+        "historical_attention_source": true,
+        "permutation_seed": true,
+        "permutation_hashes": true,
+        "native_numerical_check": true
+      },
+      "same_cached_sample_sha256": true,
+      "same_native_check_source_sha256": true
+    },
+    {
+      "case": "hiformer_taac25",
+      "v1_plan_sha256": "bfcbc9ce81fd4b1c264ac77d04da376d67f23ed5e51fb3636e61286c85274ef0",
+      "v2_plan_sha256": "82e70406dec2b32bc81254ce3c0a1f4f1d12aa20915076993d469a978908d88c",
+      "equal_fields": {
+        "checkpoint_sha256": true,
+        "historical_attention_source": true,
+        "permutation_seed": true,
+        "permutation_hashes": true,
+        "native_numerical_check": true
+      },
+      "same_cached_sample_sha256": true,
+      "same_native_check_source_sha256": true
+    }
+  ]
+}

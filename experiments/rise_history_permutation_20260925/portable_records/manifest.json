@@ -1,0 +1,54 @@
+{
+  "purpose": "Read-only repository-relative copies of immutable historical records; never executable plans or replacements for original hash verification.",
+  "normalization": "Replace only the original checkout prefix with a dot; preserve all numeric values, protocol settings and recorded historical hashes.",
+  "files": [
+    {
+      "original_file": "plan_fidelity_v2_hiformer_taac25.json",
+      "original_sha256": "f5df710ac09c957702917e1c32ae90815d3eb679e4b1f81867920e290daef808",
+      "reading_copy": "plan_fidelity_v2_hiformer_taac25.json",
+      "reading_copy_sha256": "0b3399d64e8f8595323a4f8e02f7bae8fce4e69cd4adb3a5935cff93cfed30af"
+    },
+    {
+      "original_file": "plan_fidelity_v2_rankmixer_kuairand.json",
+      "original_sha256": "126d0c8c596041c43c614a67efe8888b43c8e5cbcb69645c2f614bb600e2ab7e",
+      "reading_copy": "plan_fidelity_v2_rankmixer_kuairand.json",
+      "reading_copy_sha256": "6d1c9a62b45e83b3b1331520dc3981eb2c76350ed1e88e837b16487951c5db63"
+    },
+    {
+      "original_file": "plan_hiformer_taac25.json",
+      "original_sha256": "bfcbc9ce81fd4b1c264ac77d04da376d67f23ed5e51fb3636e61286c85274ef0",
+      "reading_copy": "plan_hiformer_taac25.json",
+      "reading_copy_sha256": "e036a053548b317acdc5b94a1cba385009502a0bf679656041f857f20f2426f1"
+    },
+    {
+      "original_file": "plan_rankmixer_kuairand.json",
+      "original_sha256": "083b86a92bb9e2a3d3741b0349a7c7d908234976a7bb39b0415526257726bf03",
+      "reading_copy": "plan_rankmixer_kuairand.json",
+      "reading_copy_sha256": "32da211f083b3eab821a167892fd0c80fd66e75b1a219328a1146a7855ff18ad"
+    },
+    {
+      "original_file": "plan_two_stage_v2_hiformer_taac25.json",
+      "original_sha256": "82e70406dec2b32bc81254ce3c0a1f4f1d12aa20915076993d469a978908d88c",
+      "reading_copy": "plan_two_stage_v2_hiformer_taac25.json",
+      "reading_copy_sha256": "73446133ab48dbff0c31c49ec112f7d7aa452696898bdfaa871e2bf3cf3dbf19"
+    },
+    {
+      "original_file": "plan_two_stage_v2_rankmixer_kuairand.json",
+      "original_sha256": "0d905976a3acc58f4cabcaa5ee4abf9024be794f0f759704918c26cc548ae465",
+      "reading_copy": "plan_two_stage_v2_rankmixer_kuairand.json",
+      "reading_copy_sha256": "b0acbecb673ed1d2ce90e0fd4cb8c9ab05497dd642b2b847d7e3bd4e2d84ffe7"
+    },
+    {
+      "original_file": "plan_two_stage_v3_hiformer_taac25.json",
+      "original_sha256": "e9ab4201f73cba0d1717bb35ca50d9361728c73761dc3f28ba56bf3b6a577cfc",
+      "reading_copy": "plan_two_stage_v3_hiformer_taac25.json",
+      "reading_copy_sha256": "98e81fde78c018f17a79589e4b531db13ef8253ab815830919a68518810c3e72"
+    },
+    {
+      "original_file": "plan_two_stage_v3_rankmixer_kuairand.json",
+      "original_sha256": "dd76072dcc5132c826e488a30f9e1de49775e0e0fa178b8fb67002e5788567a0",
+      "reading_copy": "plan_two_stage_v3_rankmixer_kuairand.json",
+      "reading_copy_sha256": "0ab8f50d5ae80c5e1d5609cd6ad3a13fcc30399613ab4d7ab8c4f2406c7086bf"
+    }
+  ]
+}
